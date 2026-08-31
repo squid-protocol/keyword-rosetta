@@ -21,6 +21,7 @@ import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import verify_language as vl
+from _registry import load_definitions, unmeasurable_signals
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = REPO_ROOT / "docs" / "bias_report.md"
@@ -111,7 +112,29 @@ def _share_color(share):
     return f"#{int(r * 255):02x}{int(g * 255):02x}{int(b * 255):02x}"
 
 
-def write_variance_chart(groups, n_langs):
+def classify_na(ledger_entries, na_map):
+    """{signal: {lang: "ledgered"|"unreviewed"}} for every unmeasurable cell.
+
+    "ledgered" = a validated deviation-ledger entry names this language AND this
+    signal (its `signal` field is a |-separated list), recording WHY the language
+    lacks the concept. "unreviewed" = rule absent but nobody has recorded why --
+    possibly correct morphology, possibly the next jcl-safety-style gap
+    (gitgalaxy#2610); flagged loudly rather than quietly excused.
+    """
+    validated = [e for e in ledger_entries if e.get("status") == "validated"]
+    out = {}
+    for lang, sigs in na_map.items():
+        for sig in sigs:
+            covered = any(
+                lang in e.get("languages_seen", [])
+                and sig in (e.get("signal") or "").split("|")
+                for e in validated
+            )
+            out.setdefault(sig, {})[lang] = "ledgered" if covered else "unreviewed"
+    return out
+
+
+def write_variance_chart(groups, n_langs, na_by_metric=None):
     """Strip-plot SVG. groups = [(title, {metric: [values-per-language]})].
 
     One unlabeled dot per language; translucent so overlap darkens; each colored
@@ -151,8 +174,10 @@ def write_variance_chart(groups, n_langs):
         f'<text x="{pad}" y="36" fill="#666">identical planted code per language · each dot = one '
         f"language's deviation from the cross-language median</text>",
         f'<text x="{pad}" y="50" fill="#666">badge = share of languages inside the green band '
-        f"(the metric's consistency score) · red dots mark outliers · small numbers = dots per zone</text>",
+        f"(the metric's consistency score) · red dots mark outliers · small numbers = dots per zone"
+        f" · n/a = languages whose registry defines no rule for the signal (incomparable, excluded)</text>",
     ]
+    na_by_metric = na_by_metric or {}
     y = 60
     zone_edges = [(-1.1, -AMBER_DEV, "#f8d7da"), (-AMBER_DEV, -GREEN_DEV, "#fff3cd"),
                   (-GREEN_DEV, GREEN_DEV, "#d4edda"), (GREEN_DEV, AMBER_DEV, "#fff3cd"),
@@ -181,6 +206,10 @@ def write_variance_chart(groups, n_langs):
             for d in devs:
                 s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="4.5" '
                          f'fill="#1f3a5f" fill-opacity="0.3"/>')
+            n_na = len(na_by_metric.get(name, {}))
+            if n_na:
+                s.append(f'<text x="{label_w + strip_w + pad - 3:.1f}" y="{y + 13}" '
+                         f'font-size="9" fill="#888" text-anchor="end">n/a {n_na}</text>')
             badge_fill = _share_color(green_share)
             bx = label_w + strip_w + pad * 2
             s.append(f'<rect x="{bx}" y="{cy - 10}" width="{badge_w}" height="20" rx="4" fill="{badge_fill}"/>')
@@ -203,6 +232,21 @@ def main():
     ledger = json.loads((REPO_ROOT / "deviation_ledger.json").read_text())
     open_entries = [e["id"] for e in ledger["entries"] if e["status"] != "validated"]
 
+    # n/a (incomparable) cells: the language's registry defines no rule for the
+    # signal, so a 0 there means "not expressible as measured", not "missed".
+    na_map = {
+        lang: sigs
+        for lang, sigs in unmeasurable_signals(load_definitions(), list(PLANTED)).items()
+        if lang in languages
+    }
+    na_by_metric = classify_na(ledger["entries"], na_map)
+    unreviewed = sorted(
+        f"{lang}/{sig}"
+        for sig, per_lang in na_by_metric.items()
+        for lang, state in per_lang.items()
+        if state == "unreviewed"
+    )
+
     colmap = vl._signal_columns()
     all_totals, all_risks, all_struct = {}, {}, {}
     for lang in languages:
@@ -218,10 +262,13 @@ def main():
         ("structure found (corpus totals)",
          {c: [all_struct[lang].get(c) for lang in languages] for c in struct_names}),
         ("planted signals (corpus totals)",
-         {c: [all_totals[lang].get(c, 0) for lang in languages] for c in PLANTED}),
+         {c: [None if c in na_map.get(lang, ()) else all_totals[lang].get(c, 0)
+              for lang in languages] for c in PLANTED}),
     ]
-    # scan cache: lets findings_report.py (and ad hoc queries) reuse this run
-    cache = {"languages": languages, "metrics": {}}
+    # scan cache: lets findings_report.py (and ad hoc queries) reuse this run.
+    # n/a cells are stored as null (never 0 -- the engine cannot produce a nonzero
+    # there), with the classification carried separately under "na".
+    cache = {"languages": languages, "metrics": {}, "na": na_by_metric}
     for _, metrics in groups:
         for name, values in metrics.items():
             cache["metrics"][name] = dict(zip(languages, values))
@@ -229,7 +276,7 @@ def main():
         json.dumps(cache, indent=1) + "\n"
     )
 
-    shares, skipped = write_variance_chart(groups, len(languages))
+    shares, skipped = write_variance_chart(groups, len(languages), na_by_metric)
     avg_share = statistics.mean(shares.values()) if shares else 0
     n_strong = sum(1 for v in shares.values() if v >= 0.8)
     weakest = sorted(shares.items(), key=lambda kv: kv[1])[:5]
@@ -251,6 +298,27 @@ def main():
         lines += [f"**WARNING: unvalidated ledger entries present: {open_entries} — "
                   "treat this report as provisional (docs/GATING.md).**", ""]
 
+    n_na = sum(len(v) for v in na_by_metric.values())
+    if n_na:
+        lines += [
+            f"**n/a semantics:** {n_na} language/signal cells are marked n/a — the "
+            "language's registry entry defines no rule for that signal, so the engine "
+            "cannot ever report a nonzero there. Those cells are *incomparable*, not "
+            "zero: they are excluded from medians, deviation bands, and consistency "
+            "scores rather than counted as −100% divergence. An n/a does **not** "
+            "certify the absence is correct — that takes a validated ledger entry "
+            "(docs/GATING.md).",
+            "",
+        ]
+    if unreviewed:
+        lines += [
+            "**WARNING: unreviewed rule absences** (no validated ledger entry records "
+            "why the language lacks the concept — each is either real morphology to "
+            "ledger, or a missing-rule engine gap like jcl's pre-#2610 `safety`): "
+            + ", ".join(f"`{x}`" for x in unreviewed) + ".",
+            "",
+        ]
+
     lines += ["## Cross-language variance chart", "",
               "![variance chart](bias_variance_chart.svg)", "",
               f"Each metric's badge is its **consistency score**: the share of languages "
@@ -266,9 +334,20 @@ def main():
               "| signal | planted | " + " | ".join(languages) + " |",
               "|---|---|" + "---|" * len(languages)]
     for sig, want in PLANTED.items():
-        vals = [all_totals[lang].get(sig, 0) for lang in languages]
-        mark = " ⚠" if (len(set(vals)) > 1 or any(v != want for v in vals)) else ""
-        lines.append(f"| {sig}{mark} | {want} | " + " | ".join(str(v) for v in vals) + " |")
+        cells, comparable = [], []
+        for lang in languages:
+            if sig in na_map.get(lang, ()):
+                cells.append("n/a" if na_by_metric[sig][lang] == "ledgered" else "n/a†")
+            else:
+                v = all_totals[lang].get(sig, 0)
+                cells.append(str(v))
+                comparable.append(v)
+        mark = " ⚠" if (len(set(comparable)) > 1 or any(v != want for v in comparable)) else ""
+        lines.append(f"| {sig}{mark} | {want} | " + " | ".join(cells) + " |")
+    if n_na:
+        lines += ["", "n/a = no rule defined for this language (incomparable, excluded "
+                  "from bands and medians); † = absence not yet backed by a validated "
+                  "ledger entry."]
 
     lines += ["", "## Structure found (corpus totals)", "",
               "| metric | " + " | ".join(languages) + " |",

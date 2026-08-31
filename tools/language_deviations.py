@@ -15,8 +15,13 @@ By default only out-of-band metrics (beyond GREEN_DEV of the median) print, grou
 by the epic's triage order: structure first, then planted signals, then downstream
 risk. --all-metrics includes the in-band rows too.
 
-Exit status: 0 if every metric is in-band, 1 otherwise -- so a sweep can be
-gate-checked (`python tools/language_deviations.py jcl && echo in-band`).
+n/a rows (the language's registry defines no rule for the signal -- incomparable,
+not zero) are excluded from the red/amber tally; an n/a with no validated ledger
+entry recording WHY prints as an unreviewed warning instead.
+
+Exit status: 0 if every comparable metric is in-band AND no n/a cell is
+unreviewed, 1 otherwise -- so a sweep can be gate-checked
+(`python tools/language_deviations.py jcl && echo clean`).
 """
 
 import json
@@ -73,10 +78,15 @@ def main():
     data = json.loads(BIAS_DATA.read_text())
     if lang not in data["languages"]:
         sys.exit(f"unknown language {lang!r} -- not in {BIAS_DATA}")
+    na = data.get("na", {})  # {metric: {lang: "ledgered"|"unreviewed"}}
 
     rows = []
     for metric, values in sorted(data["metrics"].items()):
         if not isinstance(values, dict) or lang not in values:
+            continue
+        if lang in na.get(metric, {}) or values[lang] is None:
+            rows.append((group_of(metric), metric, None, None,
+                         "na-" + na.get(metric, {}).get(lang, "ledgered"), None))
             continue
         nums = [v for v in values.values() if isinstance(v, (int, float))]
         median = statistics.median(nums)
@@ -84,27 +94,40 @@ def main():
         rows.append((group_of(metric), metric, values[lang], median, band, dev))
 
     rows.sort(key=lambda r: (r[0][0], r[1]))
-    dot = {"green": "\U0001f7e2", "amber": "\U0001f7e1", "red": "\U0001f534", "zero-median": "◦"}
-    reds = ambers = comparable = 0
+    dot = {"green": "\U0001f7e2", "amber": "\U0001f7e1", "red": "\U0001f534",
+           "zero-median": "◦", "na-ledgered": "—", "na-unreviewed": "⚠"}
+    reds = ambers = comparable = unreviewed = 0
     current_group = None
     for (gnum, gname), metric, value, median, band, dev in rows:
-        if band != "zero-median":
+        if band not in ("zero-median", "na-ledgered", "na-unreviewed"):
             comparable += 1
         if band == "red":
             reds += 1
         elif band == "amber":
             ambers += 1
+        elif band == "na-unreviewed":
+            unreviewed += 1
         if band == "green" and not show_all:
             continue
         if (gnum, gname) != current_group:
             current_group = (gnum, gname)
             print(f"\n== {gnum}. {gname} ==")
+        if band.startswith("na-"):
+            note = ("no rule in registry; absence recorded in the deviation ledger"
+                    if band == "na-ledgered"
+                    else "no rule in registry and NO ledger entry says why -- real "
+                         "morphology to ledger, or a missing-rule engine gap")
+            print(f"{dot[band]} {metric:24s} {'n/a':>10s}  {note}")
+            continue
         dev_txt = f"{dev:+.0%}" if dev is not None else "(median 0 -- morphology, check manifest notes)"
         planted = f"  planted={PLANTED[metric]}" if metric in PLANTED else ""
         print(f"{dot[band]} {metric:24s} {value:>10.4g}  median {median:<10.4g} {dev_txt}{planted}")
 
-    print(f"\n{lang}: {reds} red / {ambers} amber across {comparable} comparable metrics")
-    sys.exit(0 if reds + ambers == 0 else 1)
+    tail = f"\n{lang}: {reds} red / {ambers} amber across {comparable} comparable metrics"
+    if unreviewed:
+        tail += f"; WARNING {unreviewed} unreviewed n/a cell(s)"
+    print(tail)
+    sys.exit(0 if reds + ambers + unreviewed == 0 else 1)
 
 
 if __name__ == "__main__":
