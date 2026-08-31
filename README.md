@@ -13,10 +13,12 @@ planted keyword occurrence is deliberate, counted, and locked in each language f
 `expected_signals.json` — and that every deviation from planted intent has a validated entry
 in the deviation ledger before it may be baked into a manifest.
 
-**Status: 23 languages locked** (abap, ada, assembly, c, cobol, cpp, csharp, fortran, go,
-haskell, java, javascript, kotlin, lua, perl, php, python, ruby, rust, shell, sqlite, swift,
-typescript), 29 validated deviation shapes, 13 upstream issues filed
-(gitgalaxy [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535)–[#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547)).
+**Status: all 46 registry languages locked** (every signature-bearing language in
+`LANGUAGE_DEFINITIONS`, Tier-1 and Tier-2), 35 validated deviation shapes, 15 upstream engine
+issues filed and tracked (gitgalaxy
+[#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535)–[#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549),
+[#2610](https://github.com/squid-protocol/gitgalaxy/issues/2610)), with per-language deviation
+tracking under gitgalaxy epic [#2560](https://github.com/squid-protocol/gitgalaxy/issues/2560).
 
 ## Layout
 
