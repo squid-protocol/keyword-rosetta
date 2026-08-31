@@ -1,0 +1,100 @@
+{
+  "language": "dart",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.dart": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.dart": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3
+    },
+    "b.dart": {
+      "class_start": 0,
+      "branch": 2,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 1,
+      "test": 0,
+      "safety": 1,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 6,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3
+    },
+    "c.dart": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 1,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.dart",
+      "line_hint": "final note = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "safety"
+      ],
+      "outcome": "if + try count (dart branch includes try, finditer-confirmed; try also safety +1); setState/notifyListeners 2 raw tripled to 6. The final declaration itself counts globals +1 (dart globals matches ANY indented final/const/var-with-=, hence globals 1 in b and c). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    }
+  ],
+  "notes": "dart globals counts every final/const/var initialization at any indent — function-local finals contribute 'globals' (b/c +1 each). Spaced assignments (x = 1) do NOT count dart state (the rule requires a non-space char before =). Locked 2026-08-31."
+}

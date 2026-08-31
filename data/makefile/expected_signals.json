@@ -1,0 +1,100 @@
+{
+  "language": "makefile",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.mk": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 4,
+      "args": 1,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.mk": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 0,
+      "api": 0
+    },
+    "b.mk": {
+      "class_start": 0,
+      "branch": 1,
+      "io": 1,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 6,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 0,
+      "api": 0
+    },
+    "c.mk": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 3,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 0,
+      "func_start": 4,
+      "args": 0,
+      "api": 1,
+      "doc": 0,
+      "ownership": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.mk",
+      "line_hint": "NOTE != echo \"if eval fails, try curl\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "io"
+      ],
+      "outcome": "if (branch +1) and curl (io +1) count — makefile recipes/values are unshielded; the two +=/!= assignments 2 raw state tripled to 6 (the string's if provides context). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    }
+  ],
+  "notes": "functions are targets (c func 4 includes the planted clean: target, which is ALSO cleanup — c cleanup 3 = clean: + two rm -f). api 1 in c = the clean: target matching makefile's api rule (finditer-confirmed — public-target alternation). state counts only +=/!= assignment forms, so plain VAR = 1 defs are free. Locked 2026-08-31."
+}

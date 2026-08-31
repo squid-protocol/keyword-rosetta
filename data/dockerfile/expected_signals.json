@@ -1,0 +1,102 @@
+{
+  "language": "dockerfile",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.dockerfile": {
+      "class_start": 1,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 5,
+      "args": 1,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.dockerfile": {
+      "class_start": 1,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 1,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 2,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 1,
+      "api": 1
+    },
+    "b.dockerfile": {
+      "class_start": 1,
+      "branch": 1,
+      "io": 1,
+      "high_risk_execution": 1,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 4,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 5,
+      "args": 1,
+      "api": 0
+    },
+    "c.dockerfile": {
+      "class_start": 1,
+      "branch": 0,
+      "io": 2,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 1,
+      "func_start": 4,
+      "args": 1,
+      "api": 0,
+      "doc": 0,
+      "ownership": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.dockerfile",
+      "line_hint": "RUN export NOTE=\"if eval fails, try curl\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "io",
+        "high_risk_execution",
+        "state_mutation"
+      ],
+      "outcome": "if (branch +1), curl (io +1) AND eval (high_risk +1) all count — dockerfile is unshielded. state 4 = this export's 1 raw x3 (its own literal provides the branch context — per-RUN flux scope) + the COUNTER export x1. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    }
+  ],
+  "notes": "dockerfile morphology: functions are RUN/CMD/HEALTHCHECK instructions (main 5 = 4 RUN + CMD; HEALTHCHECK is dual func+safety in a); class_start 1 per file = FROM (the stage/base = class construct, tier-1 exception); args = ARG instructions (1 per file); import = FROM (chain main->a->b->c; c FROM scratch is the leaf). ENV is dual globals+state (a state 2). io includes package managers (c io 2 = apt-get + yum, finditer-confirmed). c func 4 = 4 RUN incl the clean: — no. 4 RUN lines. makefile-style api: a api 1 recorded as observed (opaque conversion). Locked 2026-08-31."
+}

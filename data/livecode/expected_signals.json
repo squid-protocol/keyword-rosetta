@@ -1,0 +1,110 @@
+{
+  "language": "livecode",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.lc": {
+      "class_start": 0,
+      "branch": 4,
+      "io": 3,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 4,
+      "args": 4,
+      "api": 4,
+      "doc": 2,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.lc": {
+      "class_start": 0,
+      "branch": 1,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 2,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 4
+    },
+    "b.lc": {
+      "class_start": 0,
+      "branch": 2,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 1,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 9,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 4
+    },
+    "c.lc": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.lc",
+      "line_hint": "put \"if eval fails, try open\" into tNote",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "safety",
+        "state_mutation"
+      ],
+      "outcome": "if + try count (livecode branch includes try; try also safety +1); the put-into is a 3rd raw state hit, tripled to 9. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "a.lc",
+      "line_hint": "global gRegion / global gHome",
+      "surface": "code",
+      "signals": [
+        "safety_bypasses"
+      ],
+      "outcome": "global is dual globals+safety_bypasses in livecode (a bypasses 2, predicted from the menus before scanning)"
+    }
+  ],
+  "notes": "branch 4 in main = if + then + else + the closing 'end if' (livecode counts then, and end-if re-matches if — ada-family closing-keyword inflation). a branch 1 = throw (dual safety+branch, finditer-confirmed). api counts public handlers + opaque conversion (main/a/b 4, c 3). Locked 2026-08-31."
+}

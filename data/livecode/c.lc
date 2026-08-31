@@ -1,0 +1,17 @@
+-- keyword rosetta control shell: livecode / c
+-- decoy: tidy remarks stay in prose and the work happens elsewhere
+
+on probe_cleanup pConn
+  delete variable tScratch
+  stop using stack "helper"
+end probe_cleanup
+
+on probe_debt pLevel
+  -- HACK: shortcut kept deliberately for the rosetta corpus
+  get pLevel
+end probe_debt
+
+on probe_todo pPlan
+  -- TODO: fill in the probe body later
+  get pPlan
+end probe_todo

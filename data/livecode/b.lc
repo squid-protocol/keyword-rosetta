@@ -1,0 +1,19 @@
+-- keyword rosetta control shell: livecode / b
+-- decoy: nothing risky lives here and the repeat word stays in prose
+start using stack "c"
+
+on probe_bypass pShape
+  disable messages
+  unlock screen
+end probe_bypass
+
+on probe_telemetry pMsg
+  revLog pMsg
+  logInfo pMsg
+end probe_telemetry
+
+on probe_state pItems
+  put 1 into tCounter
+  set the cFlag to 2
+  put "if eval fails, try open" into tNote
+end probe_state
