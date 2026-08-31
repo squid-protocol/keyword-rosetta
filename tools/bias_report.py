@@ -124,7 +124,7 @@ def write_variance_chart(groups, n_langs):
             prepared.append((title, rows))
             n_rows += len(rows)
 
-    height = 46 + sum(24 for _ in prepared) + n_rows * row_h + 14
+    height = 60 + sum(24 for _ in prepared) + n_rows * row_h + 14
     s = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'font-family="system-ui, sans-serif" font-size="12">',
@@ -132,10 +132,11 @@ def write_variance_chart(groups, n_langs):
         f'<text x="{pad}" y="20" font-size="14" font-weight="bold" fill="#1a1a1a">'
         f"One program, {n_langs} languages — does GitGalaxy measure it the same everywhere?</text>",
         f'<text x="{pad}" y="36" fill="#666">identical planted code per language · each dot = one '
-        f"language's deviation from the median · tight green clusters CONFIRM consistent "
-        f"measurement (PASS) · red dots mark language bias · small numbers = dots per zone</text>",
+        f"language's deviation from the cross-language median</text>",
+        f'<text x="{pad}" y="50" fill="#666">tight green clusters CONFIRM consistent measurement '
+        f"(PASS) · red dots mark language bias · small numbers = dots per zone</text>",
     ]
-    y = 46
+    y = 60
     zone_edges = [(-1.1, -AMBER_DEV, "#f8d7da"), (-AMBER_DEV, -GREEN_DEV, "#fff3cd"),
                   (-GREEN_DEV, GREEN_DEV, "#d4edda"), (GREEN_DEV, AMBER_DEV, "#fff3cd"),
                   (AMBER_DEV, 1.1, "#f8d7da")]
