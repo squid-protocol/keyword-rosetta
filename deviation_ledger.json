@@ -121,11 +121,11 @@
    ],
    "disposition": "upstream-question",
    "status": "validated",
-   "verdict": "A bare token + period in Area B (CEE3DMP. / CEEMOUT., column 12) is counted as a paragraph header: func_start regex's post-sequence-area [ \\t]* tolerates any indentation (relaxed/free-format support). By strict reference format a paragraph-name must start in Area A. b.cpy records func_start 5 (3 real paragraphs + 2). Whether the relaxed tolerance is deliberate is the upstream question.",
+   "verdict": "A bare token + period in Area B (CEE3DMP. / CEEMOUT., column 12) is counted as a paragraph header: func_start regex's post-sequence-area [ \\t]* tolerates any indentation (relaxed/free-format support). By strict reference format a paragraph-name must start in Area A. b.cpy records func_start 5 (3 real paragraphs + 2). Whether the relaxed tolerance is deliberate is the upstream question. RESOLVED 2026-08-31: fixed upstream by gitgalaxy PR #2552 (closes #2538 -- func_start no longer mistakes LE service calls for paragraphs). Fresh verifying scan (engine at gitgalaxy main post-#2552/#2611): b.cpy func_start 5->3, api 5->3 (orphan conversion follows), telemetry/safety_bypasses/state_mutation unchanged at 2/2/2 -- only the two bare-token FPs vanished. Manifest re-baselined in the same change per GATING step 4. Surfaced by the first all-language CI run since #2552 merged (rosetta PR #5, which touches no data/ so the gate ran all 46).",
    "upstream_issue": "squid-protocol/gitgalaxy#2538",
    "investigated_by": "claude-sonnet-5",
    "validated_at": "2026-08-31",
-   "still_reproduces": true
+   "still_reproduces": false
   },
   {
    "id": "js-with-statement-func-start-fp",
