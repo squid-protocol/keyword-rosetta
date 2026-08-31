@@ -1,6 +1,6 @@
 # keyword rosetta control shell: embedded_python / c
 # decoy: tidy remarks stay in prose and the work happens elsewhere
-machine.idle()
+import machine
 
 
 def probe_cleanup(conn):
