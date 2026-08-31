@@ -1,13 +1,15 @@
 """Cross-language bias report: identical planted intent, divergent measurements.
 
 For every language folder with a locked manifest, runs the same end-to-end scan the
-verifier uses, then compares (a) per-signal corpus totals against the SPEC's planted
-intent and (b) downstream per-file risk scores across languages. Because the planted
-intent is identical everywhere, divergence IS measured language bias — either an
-extraction inequality or a scoring inequality.
+verifier uses, then compares three groups of metrics across languages:
 
-Usage:
-    python tools/bias_report.py            # writes docs/bias_report.md
+  1. every risk_* score the recorder produces (mean per file),
+  2. structure found (functions, classes, imports, keyword hits, comment mass, pagerank),
+  3. the SPEC's planted signals (corpus totals).
+
+Because the planted intent is identical everywhere, divergence IS measured language
+bias. Output: docs/bias_report.md + docs/bias_variance_chart.svg (strip plot, one
+unlabeled dot per language per metric, zone-count stamps; regenerated together).
 """
 
 import json
@@ -37,97 +39,139 @@ PLANTED = {
     "func_start": 13, "args": 13, "class_start": 0, "doc": 1, "ownership": 1,
 }
 
-RISK_COLS = [
-    "risk_cognitive_load", "risk_safety_score", "risk_tech_debt",
-    "risk_api_exposure", "risk_dead_code",
-]
 
-
-def gather(language):
+def gather(language, colmap):
+    """Scan one language folder; return (signal_totals, risk_means, struct_totals)."""
     language_dir = REPO_ROOT / "data" / language
-    colmap = vl._signal_columns()
     with tempfile.TemporaryDirectory(prefix=f"rosetta_bias_{language}_") as tmp:
         db_path = vl.scan(language_dir, pathlib.Path(tmp))
         conn = sqlite3.connect(db_path)
         conn.row_factory = sqlite3.Row
         have = {r[1] for r in conn.execute("PRAGMA table_info(file_data)")}
         sig_cols = [c for c in colmap if c in have]
-        risk_cols = [c for c in RISK_COLS if c in have]
+        risk_cols = sorted(c for c in have if c.startswith("risk_"))
+        struct_cols = [c for c in ("function_count", "class_count", "import_count",
+                                   "total_loc", "coding_loc", "pagerank_score") if c in have]
         rows = conn.execute(
-            f"SELECT file_name, {', '.join(sig_cols + risk_cols)} FROM file_data"
+            f"SELECT {', '.join(sig_cols + risk_cols + struct_cols)} FROM file_data"
         ).fetchall()
+
     totals = {colmap[c]: 0 for c in sig_cols}
     risks = {c: [] for c in risk_cols}
+    struct = {"functions_found": 0, "classes_found": 0, "dependency_links": 0,
+              "keyword_hits": 0, "comment_lines": 0, "pagerank": []}
     for row in rows:
         for c in sig_cols:
             totals[colmap[c]] += row[c] or 0
+            struct["keyword_hits"] += row[c] or 0
         for c in risk_cols:
             if row[c] is not None:
                 risks[c].append(row[c])
-    return totals, {c: (statistics.mean(v) if v else None) for c, v in risks.items()}
+        struct["functions_found"] += row["function_count"] or 0
+        struct["classes_found"] += row["class_count"] or 0
+        struct["dependency_links"] += row["import_count"] or 0
+        struct["comment_lines"] += max(0, (row["total_loc"] or 0) - (row["coding_loc"] or 0))
+        if "pagerank_score" in row.keys() and row["pagerank_score"] is not None:
+            struct["pagerank"].append(row["pagerank_score"])
+    risk_means = {c: (statistics.mean(v) if v else None) for c, v in risks.items()}
+    struct["pagerank"] = statistics.mean(struct["pagerank"]) if struct["pagerank"] else None
+    return totals, risk_means, struct
 
 
-def write_variance_chart(all_risks, languages):
-    """Compact strip-plot SVG: one row per risk metric, one unlabeled dot per language.
+def _row_stats(values):
+    """(devs, verdict, median) for one metric across languages; None if unusable."""
+    vals = [v for v in values if v is not None]
+    if not vals:
+        return None
+    med = statistics.median(vals)
+    if med <= 0:
+        if all(v == 0 for v in vals):
+            return ([0.0] * len(vals), "PASS", 0.0) if len(set(vals)) == 1 else None
+        return None
+    devs = [(v - med) / med for v in vals]
+    worst = max(abs(d) for d in devs)
+    verdict = "PASS" if worst <= GREEN_DEV else ("WARN" if worst <= AMBER_DEV else "FAIL")
+    return devs, verdict, med
 
-    Dots are positioned by relative deviation from the cross-language median.
-    Tight clustering in the green band = the metric measures languages equivalently;
-    any dot in the red zone (>±50% deviation) fails that metric's cross-language
-    validation. Regenerated on every bias_report run, like the tri-comparison chart.
+
+def write_variance_chart(groups, n_langs):
+    """Strip-plot SVG. groups = [(title, {metric: [values-per-language]})].
+
+    One unlabeled dot per language; translucent so overlap darkens; each colored
+    zone carries a small count of the dots inside it, so a tight 11-dot (or 40-dot)
+    stack reads as a number in the green zone rather than a smudge. Any dot in the
+    red zone fails the metric.
     """
-    rows = []
-    for col in RISK_COLS:
-        vals = [all_risks[lang].get(col) for lang in languages]
-        vals = [v for v in vals if v is not None]
-        med = statistics.median(vals) if vals else 0
-        if not vals or med <= 0:
-            rows.append((col, med, [], "NO DATA"))
-            continue
-        devs = [(v - med) / med for v in vals]
-        worst = max(abs(d) for d in devs)
-        verdict = "PASS" if worst <= GREEN_DEV else ("WARN" if worst <= AMBER_DEV else "FAIL")
-        rows.append((col, med, devs, verdict))
-
-    label_w, strip_w, row_h, pad = 200, 420, 34, 10
-    badge_w = 64
+    label_w, strip_w, row_h, pad, badge_w = 200, 420, 30, 10, 64
     width = label_w + strip_w + badge_w + pad * 3
-    height = row_h * len(rows) + 58
     half = strip_w / 2
-    px_per_dev = half / 1.1  # x-scale: ±110% deviation spans the strip; beyond clamps
+    px_per_dev = half / 1.1
 
     def x_of(dev):
         return label_w + pad + half + max(-1.1, min(1.1, dev)) * px_per_dev
 
+    prepared, verdicts, n_rows, skipped = [], {}, 0, []
+    for title, metrics in groups:
+        rows = []
+        for name, values in metrics.items():
+            st = _row_stats(values)
+            if st is None:
+                skipped.append(name)
+                continue
+            rows.append((name, *st))
+            verdicts[name] = st[1]
+        if rows:
+            prepared.append((title, rows))
+            n_rows += len(rows)
+
+    height = 46 + sum(24 for _ in prepared) + n_rows * row_h + 14
     s = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'font-family="system-ui, sans-serif" font-size="12">',
         f'<rect width="{width}" height="{height}" fill="#ffffff"/>',
         f'<text x="{pad}" y="20" font-size="14" font-weight="bold" fill="#1a1a1a">'
-        "Cross-language variance — identical planted intent</text>",
-        f'<text x="{pad}" y="36" fill="#666">each dot = one language · deviation from the '
-        f"cross-language median · green ±{GREEN_DEV:.0%} · red beyond ±{AMBER_DEV:.0%}</text>",
+        f"One program, {n_langs} languages — does GitGalaxy measure it the same everywhere?</text>",
+        f'<text x="{pad}" y="36" fill="#666">identical planted code per language · each dot = one '
+        f"language's deviation from the median · tight green clusters CONFIRM consistent "
+        f"measurement (PASS) · red dots mark language bias · small numbers = dots per zone</text>",
     ]
-    y0 = 48
-    for i, (col, med, devs, verdict) in enumerate(rows):
-        y = y0 + i * row_h
-        cy = y + row_h / 2
-        sx = label_w + pad
-        # zone bands: red base, amber, green center
-        s.append(f'<rect x="{sx}" y="{y + 6}" width="{strip_w}" height="{row_h - 12}" fill="#f8d7da"/>')
-        for lo, hi, color in ((-AMBER_DEV, AMBER_DEV, "#fff3cd"), (-GREEN_DEV, GREEN_DEV, "#d4edda")):
-            bx, bw = x_of(lo), x_of(hi) - x_of(lo)
-            s.append(f'<rect x="{bx:.1f}" y="{y + 6}" width="{bw:.1f}" height="{row_h - 12}" fill="{color}"/>')
-        s.append(f'<line x1="{x_of(0):.1f}" y1="{y + 6}" x2="{x_of(0):.1f}" y2="{y + row_h - 6}" stroke="#999" stroke-dasharray="2,2"/>')
-        s.append(f'<text x="{pad}" y="{cy + 4}" fill="#1a1a1a">{col}</text>')
-        for d in devs:
-            s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="5" fill="#1f3a5f" fill-opacity="0.55"/>')
-        badge_fill = {"PASS": "#28a745", "WARN": "#d39e00", "FAIL": "#dc3545", "NO DATA": "#6c757d"}[verdict]
-        bx = label_w + strip_w + pad * 2
-        s.append(f'<rect x="{bx}" y="{cy - 10}" width="{badge_w}" height="20" rx="4" fill="{badge_fill}"/>')
-        s.append(f'<text x="{bx + badge_w / 2}" y="{cy + 4}" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">{verdict}</text>')
+    y = 46
+    zone_edges = [(-1.1, -AMBER_DEV, "#f8d7da"), (-AMBER_DEV, -GREEN_DEV, "#fff3cd"),
+                  (-GREEN_DEV, GREEN_DEV, "#d4edda"), (GREEN_DEV, AMBER_DEV, "#fff3cd"),
+                  (AMBER_DEV, 1.1, "#f8d7da")]
+    for title, rows in prepared:
+        y += 24
+        s.append(f'<text x="{pad}" y="{y - 8}" font-size="12" font-weight="bold" '
+                 f'fill="#444" letter-spacing="1">{title.upper()}</text>')
+        for name, devs, verdict, med in rows:
+            cy = y + row_h / 2
+            for lo, hi, color in zone_edges:
+                bx, bw = x_of(lo), x_of(hi) - x_of(lo)
+                s.append(f'<rect x="{bx:.1f}" y="{y + 4}" width="{bw:.1f}" '
+                         f'height="{row_h - 8}" fill="{color}"/>')
+            s.append(f'<line x1="{x_of(0):.1f}" y1="{y + 4}" x2="{x_of(0):.1f}" '
+                     f'y2="{y + row_h - 4}" stroke="#999" stroke-dasharray="2,2"/>')
+            s.append(f'<text x="{pad}" y="{cy + 4}" fill="#1a1a1a">{name}</text>')
+            # zone-count stamps, upper corner of each zone
+            for lo, hi, _ in zone_edges:
+                n = sum(1 for d in devs
+                        if (max(-1.1, min(1.1, d)) >= lo if lo != -1.1 else True)
+                        and (max(-1.1, min(1.1, d)) < hi if hi != 1.1 else True))
+                if n:
+                    s.append(f'<text x="{x_of(lo) + 3:.1f}" y="{y + 13}" font-size="9" '
+                             f'fill="#555">{n}</text>')
+            for d in devs:
+                s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="4.5" '
+                         f'fill="#1f3a5f" fill-opacity="0.3"/>')
+            badge_fill = {"PASS": "#28a745", "WARN": "#d39e00", "FAIL": "#dc3545"}[verdict]
+            bx = label_w + strip_w + pad * 2
+            s.append(f'<rect x="{bx}" y="{cy - 10}" width="{badge_w}" height="20" rx="4" fill="{badge_fill}"/>')
+            s.append(f'<text x="{bx + badge_w / 2}" y="{cy + 4}" text-anchor="middle" '
+                     f'fill="#fff" font-weight="bold" font-size="11">{verdict}</text>')
+            y += row_h
     s.append("</svg>")
     CHART.write_text("\n".join(s) + "\n")
-    return {col: verdict for col, _, _, verdict in rows}
+    return verdicts, skipped
 
 
 def main():
@@ -141,10 +185,26 @@ def main():
     ledger = json.loads((REPO_ROOT / "deviation_ledger.json").read_text())
     open_entries = [e["id"] for e in ledger["entries"] if e["status"] != "validated"]
 
-    all_totals, all_risks = {}, {}
+    colmap = vl._signal_columns()
+    all_totals, all_risks, all_struct = {}, {}, {}
     for lang in languages:
         print(f"scanning {lang}...")
-        all_totals[lang], all_risks[lang] = gather(lang)
+        all_totals[lang], all_risks[lang], all_struct[lang] = gather(lang, colmap)
+
+    risk_names = sorted({c for r in all_risks.values() for c in r})
+    struct_names = ["functions_found", "classes_found", "dependency_links",
+                    "keyword_hits", "comment_lines", "pagerank"]
+    groups = [
+        ("risk exposure (mean per file)",
+         {c: [all_risks[lang].get(c) for lang in languages] for c in risk_names}),
+        ("structure found (corpus totals)",
+         {c: [all_struct[lang].get(c) for lang in languages] for c in struct_names}),
+        ("planted signals (corpus totals)",
+         {c: [all_totals[lang].get(c, 0) for lang in languages] for c in PLANTED}),
+    ]
+    verdicts, skipped = write_variance_chart(groups, len(languages))
+    n_fail = sum(1 for v in verdicts.values() if v == "FAIL")
+    n_pass = sum(1 for v in verdicts.values() if v == "PASS")
 
     lines = [
         "# Cross-Language Bias Report",
@@ -154,53 +214,58 @@ def main():
         "",
         "Planted intent is identical in every language (SPEC.md probe table), so any "
         "column-to-column divergence below is measured language bias — an extraction "
-        "inequality (signal table) or a scoring inequality (risk table). Every known "
-        "deviation is validated in `deviation_ledger.json`; see per-language "
-        "`expected_signals.json` notes for the shape-by-shape accounting.",
+        "inequality or a scoring inequality. Every known deviation is validated in "
+        "`deviation_ledger.json`; see per-language `expected_signals.json` notes for "
+        "the shape-by-shape accounting.",
         "",
     ]
     if open_entries:
         lines += [f"**WARNING: unvalidated ledger entries present: {open_entries} — "
                   "treat this report as provisional (docs/GATING.md).**", ""]
 
+    lines += ["## Cross-language variance chart", "",
+              "![variance chart](bias_variance_chart.svg)", "",
+              f"**{n_pass} PASS / {len(verdicts) - n_pass - n_fail} WARN / {n_fail} FAIL** "
+              f"across {len(verdicts)} metrics. A metric is cross-language validated only "
+              f"when no dot sits in the red zone (>±{AMBER_DEV:.0%}). "
+              + (f"Skipped (no comparable data): {', '.join(skipped)}." if skipped else ""),
+              ""]
+
     lines += ["## Signal totals vs. planted intent", "",
               "| signal | planted | " + " | ".join(languages) + " |",
               "|---|---|" + "---|" * len(languages)]
-    divergent = []
     for sig, want in PLANTED.items():
         vals = [all_totals[lang].get(sig, 0) for lang in languages]
-        mark = ""
-        if len(set(vals)) > 1 or any(v != want for v in vals):
-            mark = " ⚠"
-            divergent.append(sig)
+        mark = " ⚠" if (len(set(vals)) > 1 or any(v != want for v in vals)) else ""
         lines.append(f"| {sig}{mark} | {want} | " + " | ".join(str(v) for v in vals) + " |")
 
-    verdicts = write_variance_chart(all_risks, languages)
-    lines += ["", "## Cross-language variance chart", "",
-              "![variance chart](bias_variance_chart.svg)", "",
-              "One dot per language, positioned by deviation from the cross-language median. "
-              "A metric is cross-language **validated** only when no dot sits in the red zone "
-              f"(>±{AMBER_DEV:.0%}): " + ", ".join(f"{c} **{v}**" for c, v in verdicts.items()) + ".", ""]
+    lines += ["", "## Structure found (corpus totals)", "",
+              "| metric | " + " | ".join(languages) + " |",
+              "|---|" + "---|" * len(languages)]
+    for name in struct_names:
+        vals = []
+        for lang in languages:
+            v = all_struct[lang].get(name)
+            vals.append("—" if v is None else (f"{v:.4f}" if isinstance(v, float) else str(v)))
+        lines.append(f"| {name} | " + " | ".join(vals) + " |")
 
     lines += ["", "## Mean per-file risk scores", "",
               "| risk | " + " | ".join(languages) + " |",
               "|---|" + "---|" * len(languages)]
-    for col in RISK_COLS:
+    for col in risk_names:
         vals = []
         for lang in languages:
             v = all_risks[lang].get(col)
             vals.append("—" if v is None else f"{v:.3f}")
         lines.append(f"| {col} | " + " | ".join(vals) + " |")
 
-    lines += ["", f"**Signals diverging from uniform planted intent: "
-              f"{len(divergent)}/{len(PLANTED)}** — {', '.join(divergent) if divergent else 'none'}.",
-              "",
-              "A risk-score spread on identical intent is the bottom-line bias number: "
+    lines += ["", "A risk-score spread on identical intent is the bottom-line bias number: "
               "same program, different measured risk, purely from language expression "
               "plus the ledgered engine behaviors.", ""]
 
     OUT.write_text("\n".join(lines))
-    print(f"wrote {OUT.relative_to(REPO_ROOT)}")
+    print(f"wrote {OUT.relative_to(REPO_ROOT)} and {CHART.relative_to(REPO_ROOT)}")
+    print(f"verdicts: {n_pass} PASS, {len(verdicts) - n_pass - n_fail} WARN, {n_fail} FAIL")
     return 0
 
 
