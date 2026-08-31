@@ -1,0 +1,99 @@
+{
+  "language": "scala",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.scala": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 4,
+      "args": 4,
+      "api": 4,
+      "doc": 2,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.scala": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 6
+    },
+    "b.scala": {
+      "class_start": 0,
+      "branch": 2,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 6,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 6
+    },
+    "c.scala": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 6,
+      "doc": 0,
+      "ownership": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.scala",
+      "line_hint": "val note = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch"
+      ],
+      "outcome": "if + try count branch +2 (scala branch includes try); var x2 raw state tripled to 6; val contributes nothing. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    }
+  ],
+  "notes": "scala's expression-oriented style needs no return keyword — branch stays exactly at planted+string values with no return inflation (contrast kotlin/apex/objc/powershell/zig). api counts public defs (main 4) + conversion (a/b/c 6 = 3 + 3). Locked 2026-08-31."
+}

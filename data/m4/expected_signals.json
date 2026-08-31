@@ -1,0 +1,100 @@
+{
+  "language": "m4",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.m4": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 4,
+      "args": 6,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.m4": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 5,
+      "api": 0
+    },
+    "b.m4": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 4,
+      "api": 0
+    },
+    "c.m4": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 2,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 0,
+      "doc": 0,
+      "ownership": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.m4",
+      "line_hint": "m4_append(note, [if eval fails, try open])",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "high_risk_execution"
+      ],
+      "outcome": "NOTHING counted from the quoted text: m4's branch keywords are macro names (ifelse/ifdef), bare if is not a keyword, and eval is not m4's risk keyword — state stayed exactly 2 with no flux (no branch context in b). The cleanest file in the corpus."
+    }
+  ],
+  "notes": "args = $1 references, counted exactly as planted (main 6, a 5, b 4, c 3 — one of the few languages where args tracks intent perfectly). popdef is dual state+cleanup (c state 2). m4 has NO _dependency_capture (capture rule is None): include() counts import but produces no DAG edge, so orphans stay unconverted corpus-wide (main orphaned 4, a/b/c 3 — engine gap worth an upstream note). Locked 2026-08-31."
+}

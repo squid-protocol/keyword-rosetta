@@ -1,0 +1,102 @@
+{
+  "language": "matlab",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.m": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 12,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.m": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 3,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 4
+    },
+    "b.m": {
+      "class_start": 0,
+      "branch": 2,
+      "io": 1,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 1,
+      "safety_bypasses": 3,
+      "telemetry": 2,
+      "state_mutation": 14,
+      "cleanup": 2,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 4
+    },
+    "c.m": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 4,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.m",
+      "line_hint": "note = 'if eval fails, try fopen'",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "safety",
+        "safety_bypasses",
+        "io"
+      ],
+      "outcome": "if + try count branch (matlab branch includes try, finditer-confirmed; try also safety +1), fopen counts io +1, AND eval counts safety_bypasses +1 (matlab eval-as-bypass counted from literals, like shell/ruby). Ledger: string-literal-selective-shielding"
+    }
+  ],
+  "notes": "matlab counts every out = assignment as state, and the flux x3 is per-FUNCTION (cleanest demonstration in the corpus): main = 12 = probe_branch's 3 raw x3 + three other functions' 1 raw x1 each; a (no branch anywhere) is exact at 3; b = 14 = probe_state's 4 raw x3 + 2 elsewhere. clear/clearvars are dual state+cleanup (b cleanup 2 from the state plants; c cleanup 2 = delete+onCleanup). .m classification resolved to matlab via function/% markers (shares the extension with objective-c). Locked 2026-08-31."
+}

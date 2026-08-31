@@ -1,0 +1,102 @@
+{
+  "language": "tcl",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.tcl": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 4,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.tcl": {
+      "class_start": 0,
+      "branch": 1,
+      "io": 1,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3
+    },
+    "b.tcl": {
+      "class_start": 0,
+      "branch": 2,
+      "io": 2,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 1,
+      "safety_bypasses": 3,
+      "telemetry": 2,
+      "state_mutation": 9,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3
+    },
+    "c.tcl": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 1,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.tcl",
+      "line_hint": "set note \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "safety",
+        "safety_bypasses",
+        "io"
+      ],
+      "outcome": "if + try count branch (tcl branch includes try; try also safety +1), open counts io +1, AND eval counts safety_bypasses +1 (tcl eval-as-bypass counted from literals, like shell/ruby/matlab); the set itself is a 3rd raw state hit, tripled to 9. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    }
+  ],
+  "notes": "source is dual import+io (main io 4 = 3 planted + source; every chain link adds io — sqlite .read family). close is dual cleanup+io (c io 1). a branch 1 = trap (dual safety+branch, finditer-confirmed). Locked 2026-08-31."
+}

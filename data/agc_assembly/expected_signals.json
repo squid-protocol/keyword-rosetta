@@ -1,0 +1,100 @@
+{
+  "language": "agc_assembly",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.agc": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 4,
+      "args": 0,
+      "api": 0,
+      "doc": 2,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.agc": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 0,
+      "api": 3
+    },
+    "b.agc": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 2,
+      "api": 3
+    },
+    "c.agc": {
+      "class_start": 0,
+      "branch": 1,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 0,
+      "func_start": 3,
+      "args": 0,
+      "api": 3,
+      "doc": 0,
+      "ownership": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "c.agc",
+      "line_hint": "RESUME under PROBECLEAN",
+      "surface": "code",
+      "signals": [
+        "branch",
+        "cleanup"
+      ],
+      "outcome": "RESUME is dual cleanup+branch (control transfer; finditer-confirmed) — c.agc branch 1"
+    }
+  ],
+  "notes": "AGC morphology: functions are labels followed by a real opcode; args are register-target ops (TS A / XCH Q = 2 in b, the only file with them). BANK chain resolves (a/b/c api 3 = pure orphan conversion). doc 2 in main = PURPOSE + AUTHOR (AUTHOR in both doc and ownership rules). encapsulation counts every line-start token (agc rule is ^token — unasserted). Locked 2026-08-31."
+}
