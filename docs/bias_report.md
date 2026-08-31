@@ -8,7 +8,7 @@ Planted intent is identical in every language (SPEC.md probe table), so any colu
 
 ![variance chart](bias_variance_chart.svg)
 
-**3 PASS / 0 WARN / 30 FAIL** across 33 metrics. A metric is cross-language validated only when no dot sits in the red zone (>±50%). Skipped (no comparable data): risk_concurrency, risk_dead_code, classes_found, class_start.
+Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 33 metrics: 75%**; 16 metrics hold ≥80% of languages in the green band. Weakest metrics: risk_cognitive_load 15%, risk_api_exposure 43%, state_mutation 46%, safety 48%, io 59%. Skipped (no comparable data): risk_concurrency, risk_dead_code, classes_found, class_start.
 
 ## Signal totals vs. planted intent
 

@@ -79,19 +79,36 @@ def gather(language, colmap):
 
 
 def _row_stats(values):
-    """(devs, verdict, median) for one metric across languages; None if unusable."""
+    """(devs, green_share, median) for one metric across languages; None if unusable.
+
+    green_share = fraction of languages whose deviation sits inside the green band —
+    the metric's cross-language consistency score (one outlier no longer flips a
+    binary verdict; it just costs its share)."""
     vals = [v for v in values if v is not None]
     if not vals:
         return None
     med = statistics.median(vals)
     if med <= 0:
         if all(v == 0 for v in vals):
-            return ([0.0] * len(vals), "PASS", 0.0) if len(set(vals)) == 1 else None
+            return ([0.0] * len(vals), 1.0, 0.0) if len(set(vals)) == 1 else None
         return None
     devs = [(v - med) / med for v in vals]
-    worst = max(abs(d) for d in devs)
-    verdict = "PASS" if worst <= GREEN_DEV else ("WARN" if worst <= AMBER_DEV else "FAIL")
-    return devs, verdict, med
+    green_share = sum(1 for d in devs if abs(d) <= GREEN_DEV) / len(devs)
+    return devs, green_share, med
+
+
+def _share_color(share):
+    """Rainbow LUT for the consistency badge: anything <=50% is flat red; the
+    50-100% range sweeps the hue wheel red -> orange -> yellow -> green, so the
+    badge color carries the score even at a squint."""
+    import colorsys
+
+    if share <= 0.5:
+        hue = 0.0
+    else:
+        hue = (share - 0.5) / 0.5 * (120 / 360)  # 0deg red -> 120deg green
+    r, g, b = colorsys.hls_to_rgb(hue, 0.42, 0.75)
+    return f"#{int(r * 255):02x}{int(g * 255):02x}{int(b * 255):02x}"
 
 
 def write_variance_chart(groups, n_langs):
@@ -110,7 +127,7 @@ def write_variance_chart(groups, n_langs):
     def x_of(dev):
         return label_w + pad + half + max(-1.1, min(1.1, dev)) * px_per_dev
 
-    prepared, verdicts, n_rows, skipped = [], {}, 0, []
+    prepared, shares, n_rows, skipped = [], {}, 0, []
     for title, metrics in groups:
         rows = []
         for name, values in metrics.items():
@@ -119,7 +136,7 @@ def write_variance_chart(groups, n_langs):
                 skipped.append(name)
                 continue
             rows.append((name, *st))
-            verdicts[name] = st[1]
+            shares[name] = st[1]
         if rows:
             prepared.append((title, rows))
             n_rows += len(rows)
@@ -133,8 +150,8 @@ def write_variance_chart(groups, n_langs):
         f"One program, {n_langs} languages — does GitGalaxy measure it the same everywhere?</text>",
         f'<text x="{pad}" y="36" fill="#666">identical planted code per language · each dot = one '
         f"language's deviation from the cross-language median</text>",
-        f'<text x="{pad}" y="50" fill="#666">tight green clusters CONFIRM consistent measurement '
-        f"(PASS) · red dots mark language bias · small numbers = dots per zone</text>",
+        f'<text x="{pad}" y="50" fill="#666">badge = share of languages inside the green band '
+        f"(the metric's consistency score) · red dots mark outliers · small numbers = dots per zone</text>",
     ]
     y = 60
     zone_edges = [(-1.1, -AMBER_DEV, "#f8d7da"), (-AMBER_DEV, -GREEN_DEV, "#fff3cd"),
@@ -144,7 +161,7 @@ def write_variance_chart(groups, n_langs):
         y += 24
         s.append(f'<text x="{pad}" y="{y - 8}" font-size="12" font-weight="bold" '
                  f'fill="#444" letter-spacing="1">{title.upper()}</text>')
-        for name, devs, verdict, med in rows:
+        for name, devs, green_share, med in rows:
             cy = y + row_h / 2
             for lo, hi, color in zone_edges:
                 bx, bw = x_of(lo), x_of(hi) - x_of(lo)
@@ -164,15 +181,15 @@ def write_variance_chart(groups, n_langs):
             for d in devs:
                 s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="4.5" '
                          f'fill="#1f3a5f" fill-opacity="0.3"/>')
-            badge_fill = {"PASS": "#28a745", "WARN": "#d39e00", "FAIL": "#dc3545"}[verdict]
+            badge_fill = _share_color(green_share)
             bx = label_w + strip_w + pad * 2
             s.append(f'<rect x="{bx}" y="{cy - 10}" width="{badge_w}" height="20" rx="4" fill="{badge_fill}"/>')
             s.append(f'<text x="{bx + badge_w / 2}" y="{cy + 4}" text-anchor="middle" '
-                     f'fill="#fff" font-weight="bold" font-size="11">{verdict}</text>')
+                     f'fill="#fff" font-weight="bold" font-size="11">{green_share:.0%}</text>')
             y += row_h
     s.append("</svg>")
     CHART.write_text("\n".join(s) + "\n")
-    return verdicts, skipped
+    return shares, skipped
 
 
 def main():
@@ -212,9 +229,10 @@ def main():
         json.dumps(cache, indent=1) + "\n"
     )
 
-    verdicts, skipped = write_variance_chart(groups, len(languages))
-    n_fail = sum(1 for v in verdicts.values() if v == "FAIL")
-    n_pass = sum(1 for v in verdicts.values() if v == "PASS")
+    shares, skipped = write_variance_chart(groups, len(languages))
+    avg_share = statistics.mean(shares.values()) if shares else 0
+    n_strong = sum(1 for v in shares.values() if v >= 0.8)
+    weakest = sorted(shares.items(), key=lambda kv: kv[1])[:5]
 
     lines = [
         "# Cross-Language Bias Report",
@@ -235,9 +253,12 @@ def main():
 
     lines += ["## Cross-language variance chart", "",
               "![variance chart](bias_variance_chart.svg)", "",
-              f"**{n_pass} PASS / {len(verdicts) - n_pass - n_fail} WARN / {n_fail} FAIL** "
-              f"across {len(verdicts)} metrics. A metric is cross-language validated only "
-              f"when no dot sits in the red zone (>±{AMBER_DEV:.0%}). "
+              f"Each metric's badge is its **consistency score**: the share of languages "
+              f"inside the green band (±{GREEN_DEV:.0%} of the cross-language median). "
+              f"**Average across {len(shares)} metrics: {avg_share:.0%}**; "
+              f"{n_strong} metrics hold ≥80% of languages in the green band. "
+              f"Weakest metrics: "
+              + ", ".join(f"{k} {v:.0%}" for k, v in weakest) + ". "
               + (f"Skipped (no comparable data): {', '.join(skipped)}." if skipped else ""),
               ""]
 
@@ -275,7 +296,8 @@ def main():
 
     OUT.write_text("\n".join(lines))
     print(f"wrote {OUT.relative_to(REPO_ROOT)} and {CHART.relative_to(REPO_ROOT)}")
-    print(f"verdicts: {n_pass} PASS, {len(verdicts) - n_pass - n_fail} WARN, {n_fail} FAIL")
+    print(f"consistency: avg {avg_share:.0%} across {len(shares)} metrics; "
+          f"{n_strong} at >=80% green-band share")
 
     import findings_report
     findings_report.generate()
