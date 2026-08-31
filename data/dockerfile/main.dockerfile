@@ -1,5 +1,5 @@
 # keyword rosetta control shell: dockerfile / main
-# Author: keyword-rosetta generator
+# Maintainer: keyword-rosetta generator
 # Description: dispatch each probe once
 # decoy: this suite never evaluates and the exec word stays in prose
 FROM a

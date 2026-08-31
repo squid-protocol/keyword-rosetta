@@ -1,5 +1,6 @@
 # keyword rosetta control shell: embedded_python / b
 # decoy: nothing risky lives here and the elif word stays in prose
+machine.idle()
 
 import c
 

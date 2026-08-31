@@ -1,5 +1,6 @@
 # keyword rosetta control shell: embedded_python / a
 # decoy: config reads are safe and the reset word stays in prose
+machine.idle()
 
 from b import probe_telemetry
 
