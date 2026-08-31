@@ -1,0 +1,7 @@
+{
+  "name": "keyword-rosetta-javascript",
+  "version": "0.1.0",
+  "description": "GitGalaxy control-corpus shell, javascript expression",
+  "type": "module",
+  "main": "main.js"
+}
