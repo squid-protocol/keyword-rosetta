@@ -1,39 +1,120 @@
 {
-  "language": "shell",
-  "tier": 1,
-  "generator": "claude-sonnet-5 (hand-verified reference)",
-  "files": {
-    "main.sh": {
-      "branch": 5, "io": 3, "high_risk_execution": 2, "func_start": 4, "args": 4,
-      "doc": 1, "ownership": 1, "import": 1, "api": 0, "class_start": 0,
-      "state_mutation": 0, "globals": 0, "test": 0, "safety": 0,
-      "safety_bypasses": 0, "telemetry": 0, "cleanup": 0, "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "a.sh": {
-      "import": 1, "func_start": 3, "args": 3, "api": 4, "globals": 3, "test": 2,
-      "safety": 2, "branch": 0, "class_start": 0, "state_mutation": 0,
-      "high_risk_execution": 0, "io": 0, "safety_bypasses": 0, "telemetry": 0,
-      "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
-    },
-    "b.sh": {
-      "import": 1, "func_start": 3, "args": 3, "api": 4, "safety_bypasses": 3,
-      "telemetry": 2, "state_mutation": 6, "branch": 1, "io": 1, "class_start": 0,
-      "safety": 0, "high_risk_execution": 0, "test": 0, "globals": 0,
-      "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
-    },
-    "c.sh": {
-      "import": 0, "func_start": 3, "args": 3, "api": 3, "cleanup": 2,
-      "fragile_debt": 1, "planned_debt": 1, "class_start": 0, "branch": 0,
-      "state_mutation": 0, "io": 0, "safety": 0, "safety_bypasses": 0,
-      "telemetry": 0, "test": 0, "globals": 0, "doc": 0, "ownership": 0,
-      "high_risk_execution": 0
-    }
+ "language": "shell",
+ "tier": 1,
+ "generator": "claude-sonnet-5 (hand-verified reference)",
+ "files": {
+  "main.sh": {
+   "branch": 5,
+   "io": 3,
+   "high_risk_execution": 2,
+   "func_start": 4,
+   "args": 4,
+   "doc": 1,
+   "ownership": 1,
+   "import": 1,
+   "api": 0,
+   "class_start": 0,
+   "state_mutation": 0,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
   },
-  "decoys": [
-    {"file": "main.sh", "line_hint": "never needs root and the disk words stay in prose", "surface": "comment", "signals": ["high_risk_execution", "io"], "outcome": "stripped: contributed 0"},
-    {"file": "b.sh", "line_hint": "note=\"if eval fails, try curl\"", "surface": "string", "signals": ["branch", "safety_bypasses", "io"], "outcome": "if (branch +1), curl (io +1) AND eval (safety_bypasses +1) all COUNT — eval is a shell BYPASS keyword, not high-risk-family, and it is not shielded here, supporting the theory that only the high-risk family gets literal shielding in the python/js profile. Phantom branch context triples state: counter=/note= 2 raw -> 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"},
-    {"file": "c.sh", "line_hint": ": \"$hack_level\"", "surface": "code", "signals": ["fragile_debt"], "outcome": "inert (underscore + lowercase)"}
-  ],
-  "notes": "branch 5 in main = if + then + fi + the test brackets [ and ] (shell's branch rule counts them — finditer: if,[,],then,fi; every bracketed test costs +2 branch; ledger shell-test-brackets-in-branch). globals 3 in a.sh = PATH + HOME + the TERM signal name in 'trap : TERM' colliding with the TERM env var (ledger shell-trap-signal-env-collision). args planted as one ': \"$1\"' per function (shell args = positional-parameter mentions, epic #1518 precedent). api = 0 planted (no export); a/b api 4 vs c api 3 — conversion exceeds the 3 visible function orphans by 1 in the files carrying a source line (ledger orphan-conversion-opaque-counts, not root-caused). Locked from hand-verified run 2026-08-31."
+  "a.sh": {
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "globals": 3,
+   "test": 2,
+   "safety": 2,
+   "branch": 0,
+   "class_start": 0,
+   "state_mutation": 0,
+   "high_risk_execution": 0,
+   "io": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "b.sh": {
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "safety_bypasses": 3,
+   "telemetry": 2,
+   "state_mutation": 6,
+   "branch": 1,
+   "io": 1,
+   "class_start": 0,
+   "safety": 0,
+   "high_risk_execution": 0,
+   "test": 0,
+   "globals": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "c.sh": {
+   "import": 0,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "cleanup": 2,
+   "fragile_debt": 1,
+   "planned_debt": 1,
+   "class_start": 0,
+   "branch": 0,
+   "state_mutation": 0,
+   "io": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "test": 0,
+   "globals": 0,
+   "doc": 0,
+   "ownership": 0,
+   "high_risk_execution": 0
+  }
+ },
+ "decoys": [
+  {
+   "file": "main.sh",
+   "line_hint": "never needs root and the disk words stay in prose",
+   "surface": "comment",
+   "signals": [
+    "high_risk_execution",
+    "io"
+   ],
+   "outcome": "stripped: contributed 0"
+  },
+  {
+   "file": "b.sh",
+   "line_hint": "note=\"if eval fails, try curl\"",
+   "surface": "string",
+   "signals": [
+    "branch",
+    "safety_bypasses",
+    "io"
+   ],
+   "outcome": "if (branch +1), curl (io +1) AND eval (safety_bypasses +1) all COUNT \u2014 eval is a shell BYPASS keyword, not high-risk-family, and it is not shielded here, supporting the theory that only the high-risk family gets literal shielding in the python/js profile. Phantom branch context triples state: counter=/note= 2 raw -> 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+  },
+  {
+   "file": "c.sh",
+   "line_hint": ": \"$hack_level\"",
+   "surface": "code",
+   "signals": [
+    "fragile_debt"
+   ],
+   "outcome": "inert (underscore + lowercase)"
+  }
+ ],
+ "notes": "branch 5 in main = if + then + fi + the test brackets [ and ] (shell's branch rule counts them \u2014 finditer: if,[,],then,fi; every bracketed test costs +2 branch; ledger shell-test-brackets-in-branch). globals 3 in a.sh = PATH + HOME + the TERM signal name in 'trap : TERM' colliding with the TERM env var (ledger shell-trap-signal-env-collision). args planted as one ': \"$1\"' per function (shell args = positional-parameter mentions, epic #1518 precedent). api = 0 planted (no export); a/b api 4 vs c api 3 \u2014 conversion exceeds the 3 visible function orphans by 1 in the files carrying a source line (ledger orphan-conversion-opaque-counts, not root-caused). Locked from hand-verified run 2026-08-31."
 }

@@ -1,39 +1,120 @@
 {
-  "language": "sqlite",
-  "tier": 1,
-  "generator": "claude-sonnet-5 (hand-verified reference)",
-  "files": {
-    "main.sql": {
-      "branch": 5, "io": 5, "high_risk_execution": 2, "func_start": 4, "args": 1,
-      "doc": 1, "ownership": 1, "import": 1, "api": 0, "class_start": 0,
-      "state_mutation": 0, "globals": 0, "test": 0, "safety": 0,
-      "safety_bypasses": 0, "telemetry": 0, "cleanup": 0, "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "a.sql": {
-      "import": 1, "func_start": 3, "api": 2, "globals": 2, "test": 2,
-      "safety": 2, "io": 1, "args": 0, "branch": 0, "class_start": 0,
-      "state_mutation": 0, "high_risk_execution": 0, "safety_bypasses": 0,
-      "telemetry": 0, "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
-    },
-    "b.sql": {
-      "import": 1, "func_start": 3, "api": 4, "telemetry": 2,
-      "state_mutation": 3, "io": 5, "args": 0, "branch": 0, "class_start": 0,
-      "safety": 0, "high_risk_execution": 0, "test": 0, "globals": 0,
-      "cleanup": 0, "fragile_debt": 0, "planned_debt": 0, "safety_bypasses": 0
-    },
-    "c.sql": {
-      "import": 0, "func_start": 3, "api": 3, "cleanup": 2, "fragile_debt": 1,
-      "planned_debt": 1, "args": 0, "class_start": 0, "branch": 0,
-      "state_mutation": 0, "io": 0, "safety": 0, "safety_bypasses": 0,
-      "telemetry": 0, "test": 0, "globals": 0, "doc": 0, "ownership": 0,
-      "high_risk_execution": 0
-    }
+ "language": "sqlite",
+ "tier": 1,
+ "generator": "claude-sonnet-5 (hand-verified reference)",
+ "files": {
+  "main.sql": {
+   "branch": 5,
+   "io": 5,
+   "high_risk_execution": 2,
+   "func_start": 4,
+   "args": 1,
+   "doc": 1,
+   "ownership": 1,
+   "import": 1,
+   "api": 0,
+   "class_start": 0,
+   "state_mutation": 0,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
   },
-  "decoys": [
-    {"file": "main.sql", "line_hint": "never detaches a database and no shell word", "surface": "comment", "signals": ["cleanup", "high_risk_execution"], "outcome": "stripped: contributed 0"},
-    {"file": "b.sql", "line_hint": "SELECT 'IF UPDATE FAILS TRY SELECT AGAIN'", "surface": "string", "signals": ["io", "state_mutation", "branch"], "outcome": "UPDATE and SELECT inside the literal COUNT (io +2, state +1); IF/TRY inert (sqlite has no bare IF/TRY keywords). io 5 = planted UPDATE + carrier SELECT + .read + 2 from the literal. Ledger: string-literal-selective-shielding"},
-    {"file": "c.sql", "line_hint": "hack_level;", "surface": "code", "signals": ["fragile_debt"], "outcome": "inert (underscore + lowercase)"}
-  ],
-  "notes": "functions are CREATE INDEX statements (sqlite's closest function-shaped construct per the #2513 tri-comparison precedent; 13 corpus-wide) and NO CREATE TABLE anywhere keeps class_start 0 as a live tripwire — deliberate contrast with cobol's PROGRAM-ID exception. branch 5 = one CASE expression (CASE/WHEN/THEN/ELSE/END all count — like ada/shell, syntax words inflate a single conditional). .read is dual import+io (finditer-confirmed; ledger sqlite-dot-read-dual-import-io). args 1 = the single VALUES( in main; index probes carry no args (sqlite args = placeholders/VALUES, a real morphology gap like cobol's). api = 0 planted (no views); a/b/c api 2/4/3 conversion counts are opaque (main's orphaned_logic 7 shows the orphan census includes non-function shapes; ledger orphan-conversion-opaque-counts). state 3 in b = UPDATE + SET + UPDATE-in-literal. Locked from hand-verified run 2026-08-31."
+  "a.sql": {
+   "import": 1,
+   "func_start": 3,
+   "api": 0,
+   "globals": 2,
+   "test": 2,
+   "safety": 2,
+   "io": 1,
+   "args": 0,
+   "branch": 0,
+   "class_start": 0,
+   "state_mutation": 0,
+   "high_risk_execution": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "b.sql": {
+   "import": 1,
+   "func_start": 3,
+   "api": 0,
+   "telemetry": 2,
+   "state_mutation": 3,
+   "io": 5,
+   "args": 0,
+   "branch": 0,
+   "class_start": 0,
+   "safety": 0,
+   "high_risk_execution": 0,
+   "test": 0,
+   "globals": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0,
+   "safety_bypasses": 0
+  },
+  "c.sql": {
+   "import": 0,
+   "func_start": 3,
+   "api": 0,
+   "cleanup": 2,
+   "fragile_debt": 1,
+   "planned_debt": 1,
+   "args": 0,
+   "class_start": 0,
+   "branch": 0,
+   "state_mutation": 0,
+   "io": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "test": 0,
+   "globals": 0,
+   "doc": 0,
+   "ownership": 0,
+   "high_risk_execution": 0
+  }
+ },
+ "decoys": [
+  {
+   "file": "main.sql",
+   "line_hint": "never detaches a database and no shell word",
+   "surface": "comment",
+   "signals": [
+    "cleanup",
+    "high_risk_execution"
+   ],
+   "outcome": "stripped: contributed 0"
+  },
+  {
+   "file": "b.sql",
+   "line_hint": "SELECT 'IF UPDATE FAILS TRY SELECT AGAIN'",
+   "surface": "string",
+   "signals": [
+    "io",
+    "state_mutation",
+    "branch"
+   ],
+   "outcome": "UPDATE and SELECT inside the literal COUNT (io +2, state +1); IF/TRY inert (sqlite has no bare IF/TRY keywords). io 5 = planted UPDATE + carrier SELECT + .read + 2 from the literal. Ledger: string-literal-selective-shielding"
+  },
+  {
+   "file": "c.sql",
+   "line_hint": "hack_level;",
+   "surface": "code",
+   "signals": [
+    "fragile_debt"
+   ],
+   "outcome": "inert (underscore + lowercase)"
+  }
+ ],
+ "notes": "functions are CREATE INDEX statements (sqlite's closest function-shaped construct per the #2513 tri-comparison precedent; 13 corpus-wide) and NO CREATE TABLE anywhere keeps class_start 0 as a live tripwire \u2014 deliberate contrast with cobol's PROGRAM-ID exception. branch 5 = one CASE expression (CASE/WHEN/THEN/ELSE/END all count \u2014 like ada/shell, syntax words inflate a single conditional). .read is dual import+io (finditer-confirmed; ledger sqlite-dot-read-dual-import-io). args 1 = the single VALUES( in main; index probes carry no args (sqlite args = placeholders/VALUES, a real morphology gap like cobol's). api = 0 planted (no views); a/b/c api 2/4/3 conversion counts are opaque (main's orphaned_logic 7 shows the orphan census includes non-function shapes; ledger orphan-conversion-opaque-counts). state 3 in b = UPDATE + SET + UPDATE-in-literal. Locked from hand-verified run 2026-08-31."
 }

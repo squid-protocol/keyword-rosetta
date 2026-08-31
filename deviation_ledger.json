@@ -337,18 +337,20 @@
    "languages_seen": [
     "dockerfile",
     "livecode",
+    "lua",
     "matlab",
     "powershell",
+    "ruby",
     "shell",
     "sqlite"
    ],
    "disposition": "upstream-question",
    "status": "validated",
-   "verdict": "On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: shell a/b convert 4 with 3 functions (the extra tracks the source line), sqlite converts 2/4/3 with 3 CREATE INDEX each and main.sql records orphaned_logic 7 for 4 indexes. Recorded as observed; gitgalaxy#2536 (raw hit_vector recording) would make these auditable.",
+   "verdict": "On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: shell a/b convert 4 with 3 functions (the extra tracks the source line), sqlite converts 2/4/3 with 3 CREATE INDEX each and main.sql records orphaned_logic 7 for 4 indexes. Recorded as observed; gitgalaxy#2536 (raw hit_vector recording) would make these auditable. RESOLVED 2026-08-31: fixed upstream by gitgalaxy PR #2618 (closes #2547 -- synthetic slicer bucket names excluded from the orphan/duplicate census). Fresh verifying scans (engine at gitgalaxy main post-#2618): the inflating orphans were the synthetic buckets themselves -- __global_context__ in livecode/lua/matlab/ruby/shell a- AND b-files (api -1 each; lua a 9->8, b 10->9), and sqlite b.sql/c.sql whose 'functions' are ALL synthetic names (CREATE_Statement/SELECT_Statement/UPDATE_Statement/Declarative_Block), so every conversion there vanishes (a.sql 2->0, b.sql 4->0, c.sql 3->0). Real probe functions unaffected everywhere; 13 manifest cells re-baselined in this change per GATING step 4. lua/ruby added to languages_seen (same __global_context__ shape, confirmed). dockerfile/powershell manifests needed no change (their counts never included the bucket). First live catch of the #2557 rosetta-audit system (run locally against pull/2618/head pre-merge).",
    "upstream_issue": "squid-protocol/gitgalaxy#2547 (also #2536)",
    "investigated_by": "claude-sonnet-5",
    "validated_at": "2026-08-31",
-   "still_reproduces": true
+   "still_reproduces": false
   },
   {
    "id": "sqlite-dot-read-dual-import-io",

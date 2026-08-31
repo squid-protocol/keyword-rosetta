@@ -1,109 +1,109 @@
 {
-  "language": "ruby",
-  "tier": 1,
-  "generator": "claude-sonnet-5 (hand-verified reference)",
-  "files": {
-    "main.rb": {
-      "class_start": 0,
-      "branch": 3,
-      "io": 3,
-      "high_risk_execution": 2,
-      "func_start": 4,
-      "args": 4,
-      "api": 0,
-      "doc": 1,
-      "ownership": 1,
-      "import": 1,
-      "state_mutation": 0,
-      "globals": 0,
-      "test": 0,
-      "safety": 0,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "a.rb": {
-      "class_start": 0,
-      "import": 1,
-      "func_start": 3,
-      "args": 3,
-      "api": 4,
-      "globals": 2,
-      "test": 2,
-      "safety": 2,
-      "branch": 1,
-      "state_mutation": 0,
-      "high_risk_execution": 0,
-      "io": 0,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "b.rb": {
-      "class_start": 0,
-      "import": 1,
-      "func_start": 3,
-      "args": 3,
-      "api": 4,
-      "safety_bypasses": 3,
-      "telemetry": 2,
-      "state_mutation": 6,
-      "branch": 1,
-      "safety": 0,
-      "high_risk_execution": 0,
-      "io": 0,
-      "test": 0,
-      "globals": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "c.rb": {
-      "class_start": 0,
-      "import": 0,
-      "func_start": 3,
-      "args": 3,
-      "api": 3,
-      "cleanup": 2,
-      "fragile_debt": 1,
-      "planned_debt": 1,
-      "branch": 0,
-      "state_mutation": 0,
-      "io": 0,
-      "safety": 0,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "test": 0,
-      "globals": 0,
-      "doc": 0,
-      "ownership": 0,
-      "high_risk_execution": 0
-    }
+ "language": "ruby",
+ "tier": 1,
+ "generator": "claude-sonnet-5 (hand-verified reference)",
+ "files": {
+  "main.rb": {
+   "class_start": 0,
+   "branch": 3,
+   "io": 3,
+   "high_risk_execution": 2,
+   "func_start": 4,
+   "args": 4,
+   "api": 0,
+   "doc": 1,
+   "ownership": 1,
+   "import": 1,
+   "state_mutation": 0,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
   },
-  "decoys": [
-    {
-      "file": "b.rb",
-      "line_hint": "note = \"if eval fails, try open\"",
-      "surface": "string",
-      "signals": [
-        "branch",
-        "safety_bypasses"
-      ],
-      "outcome": "if counts branch +1 AND eval counts safety_bypasses +1 (ruby classes eval as bypass, and it is NOT shielded — supporting the high-risk-family-only shielding theory, as shell); push/pop 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
-    },
-    {
-      "file": "c.rb",
-      "line_hint": "hack_level = level",
-      "surface": "code",
-      "signals": [
-        "fragile_debt"
-      ],
-      "outcome": "inert (underscore + lowercase)"
-    }
-  ],
-  "notes": "branch 1 in a.rb = rescue (ruby branch includes rescue — dual with safety, finditer-confirmed). api = 0 planted; a/b convert 4 vs c 3 (same source-line-carrying shape as shell; ledger orphan-conversion-opaque-counts). Locked from hand-verified run 2026-08-31."
+  "a.rb": {
+   "class_start": 0,
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "globals": 2,
+   "test": 2,
+   "safety": 2,
+   "branch": 1,
+   "state_mutation": 0,
+   "high_risk_execution": 0,
+   "io": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "b.rb": {
+   "class_start": 0,
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "safety_bypasses": 3,
+   "telemetry": 2,
+   "state_mutation": 6,
+   "branch": 1,
+   "safety": 0,
+   "high_risk_execution": 0,
+   "io": 0,
+   "test": 0,
+   "globals": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "c.rb": {
+   "class_start": 0,
+   "import": 0,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "cleanup": 2,
+   "fragile_debt": 1,
+   "planned_debt": 1,
+   "branch": 0,
+   "state_mutation": 0,
+   "io": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "test": 0,
+   "globals": 0,
+   "doc": 0,
+   "ownership": 0,
+   "high_risk_execution": 0
+  }
+ },
+ "decoys": [
+  {
+   "file": "b.rb",
+   "line_hint": "note = \"if eval fails, try open\"",
+   "surface": "string",
+   "signals": [
+    "branch",
+    "safety_bypasses"
+   ],
+   "outcome": "if counts branch +1 AND eval counts safety_bypasses +1 (ruby classes eval as bypass, and it is NOT shielded \u2014 supporting the high-risk-family-only shielding theory, as shell); push/pop 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+  },
+  {
+   "file": "c.rb",
+   "line_hint": "hack_level = level",
+   "surface": "code",
+   "signals": [
+    "fragile_debt"
+   ],
+   "outcome": "inert (underscore + lowercase)"
+  }
+ ],
+ "notes": "branch 1 in a.rb = rescue (ruby branch includes rescue \u2014 dual with safety, finditer-confirmed). api = 0 planted; a/b convert 4 vs c 3 (same source-line-carrying shape as shell; ledger orphan-conversion-opaque-counts). Locked from hand-verified run 2026-08-31."
 }
