@@ -1,38 +1,123 @@
 {
-  "language": "cobol",
-  "tier": 1,
-  "generator": "claude-sonnet-5 (hand-verified reference)",
-  "files": {
-    "main.cbl": {
-      "branch": 3, "io": 3, "high_risk_execution": 2, "func_start": 4, "args": 1,
-      "class_start": 1, "doc": 1, "ownership": 1, "import": 1, "globals": 1,
-      "api": 0, "cleanup": 0, "fragile_debt": 0, "planned_debt": 0, "safety": 0,
-      "safety_bypasses": 0, "telemetry": 0, "state_mutation": 0, "test": 0,
-      "encapsulation": 0
-    },
-    "a.cpy": {
-      "import": 1, "func_start": 3, "api": 3, "globals": 2, "test": 2, "safety": 2,
-      "branch": 1, "high_risk_execution": 1, "io": 1, "class_start": 0,
-      "fragile_debt": 0, "planned_debt": 0, "telemetry": 0, "state_mutation": 0,
-      "cleanup": 0, "safety_bypasses": 0, "args": 0, "doc": 0, "ownership": 0
-    },
-    "b.cpy": {
-      "import": 1, "func_start": 5, "api": 5, "safety_bypasses": 2, "telemetry": 2,
-      "state_mutation": 2, "branch": 0, "class_start": 0, "io": 0, "test": 0,
-      "safety": 0, "globals": 0, "cleanup": 0, "fragile_debt": 0, "planned_debt": 0,
-      "high_risk_execution": 0, "doc": 0
-    },
-    "c.cpy": {
-      "import": 0, "func_start": 3, "api": 3, "cleanup": 2, "fragile_debt": 3,
-      "planned_debt": 2, "class_start": 0, "branch": 0, "io": 0, "state_mutation": 0,
-      "safety": 0, "safety_bypasses": 0, "telemetry": 0, "test": 0, "globals": 0,
-      "doc": 0, "ownership": 0, "encapsulation": 0, "high_risk_execution": 0
-    }
+ "language": "cobol",
+ "tier": 1,
+ "generator": "claude-sonnet-5 (hand-verified reference)",
+ "files": {
+  "main.cbl": {
+   "branch": 3,
+   "io": 3,
+   "high_risk_execution": 2,
+   "func_start": 4,
+   "args": 1,
+   "class_start": 1,
+   "doc": 1,
+   "ownership": 1,
+   "import": 1,
+   "globals": 1,
+   "api": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "state_mutation": 0,
+   "test": 0,
+   "encapsulation": 0
   },
-  "decoys": [
-    {"file": "main.cbl", "line_hint": "never ALTER this flow and no PERFORM loop", "surface": "comment", "signals": ["high_risk_execution", "branch"], "outcome": "stripped: contributed 0"},
-    {"file": "a.cpy", "line_hint": "DISPLAY 'IF ALTER FAILS TRY OPEN AGAIN'", "surface": "string", "signals": ["branch", "high_risk_execution", "io"], "outcome": "ALL counted: IF (branch +1), ALTER (high_risk +1), OPEN (io +1) — cobol does NOT shield the high-risk family in literals, unlike python/javascript. Ledger: string-literal-selective-shielding; gitgalaxy#2535 comment"},
-    {"file": "c.cpy", "line_hint": "77 HACK-LEVEL PIC 9. / DISPLAY HACK-LEVEL.", "surface": "code", "signals": ["fragile_debt"], "outcome": "COUNTED (+2): hyphen is a word boundary so \\bHACK\\b matches inside the identifier, both occurrences; the PROBE-TODO paragraph name likewise adds planned_debt +1. Ledger: cobol-hyphen-identifier-debt-leak; gitgalaxy#2537"}
-  ],
-  "notes": "class_start 1 in main.cbl is the deliberate tier-1 exception: PROGRAM-ID is cobol's program-unit construct, the same 'closest class-shaped construct' precedent as the tri-comparison ledger. globals 1 in main.cbl = WORKING-STORAGE SECTION (in the globals pattern; multi-word so keyword_menu.py missed it — ledger cobol-working-storage-globals). func_start 5 in b.cpy = 3 paragraphs + CEE3DMP./CEEMOUT. bare-token-period lines read as paragraphs (ledger cobol-area-b-bare-token-paragraph; gitgalaxy#2538). api in a/b/c = 0 planted + orphan conversion of every func_start shape (ledger api-contextual-baseline-fix) — confirms the COPY chain resolves in the dependency DAG. All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv."
+  "a.cpy": {
+   "import": 1,
+   "func_start": 3,
+   "api": 3,
+   "globals": 2,
+   "test": 2,
+   "safety": 2,
+   "branch": 1,
+   "high_risk_execution": 1,
+   "io": 1,
+   "class_start": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0,
+   "telemetry": 0,
+   "state_mutation": 0,
+   "cleanup": 0,
+   "safety_bypasses": 0,
+   "args": 0,
+   "doc": 0,
+   "ownership": 0
+  },
+  "b.cpy": {
+   "import": 1,
+   "func_start": 3,
+   "api": 3,
+   "safety_bypasses": 2,
+   "telemetry": 2,
+   "state_mutation": 2,
+   "branch": 0,
+   "class_start": 0,
+   "io": 0,
+   "test": 0,
+   "safety": 0,
+   "globals": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0,
+   "high_risk_execution": 0,
+   "doc": 0
+  },
+  "c.cpy": {
+   "import": 0,
+   "func_start": 3,
+   "api": 3,
+   "cleanup": 2,
+   "fragile_debt": 3,
+   "planned_debt": 2,
+   "class_start": 0,
+   "branch": 0,
+   "io": 0,
+   "state_mutation": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "test": 0,
+   "globals": 0,
+   "doc": 0,
+   "ownership": 0,
+   "encapsulation": 0,
+   "high_risk_execution": 0
+  }
+ },
+ "decoys": [
+  {
+   "file": "main.cbl",
+   "line_hint": "never ALTER this flow and no PERFORM loop",
+   "surface": "comment",
+   "signals": [
+    "high_risk_execution",
+    "branch"
+   ],
+   "outcome": "stripped: contributed 0"
+  },
+  {
+   "file": "a.cpy",
+   "line_hint": "DISPLAY 'IF ALTER FAILS TRY OPEN AGAIN'",
+   "surface": "string",
+   "signals": [
+    "branch",
+    "high_risk_execution",
+    "io"
+   ],
+   "outcome": "ALL counted: IF (branch +1), ALTER (high_risk +1), OPEN (io +1) \u2014 cobol does NOT shield the high-risk family in literals, unlike python/javascript. Ledger: string-literal-selective-shielding; gitgalaxy#2535 comment"
+  },
+  {
+   "file": "c.cpy",
+   "line_hint": "77 HACK-LEVEL PIC 9. / DISPLAY HACK-LEVEL.",
+   "surface": "code",
+   "signals": [
+    "fragile_debt"
+   ],
+   "outcome": "COUNTED (+2): hyphen is a word boundary so \\bHACK\\b matches inside the identifier, both occurrences; the PROBE-TODO paragraph name likewise adds planned_debt +1. Ledger: cobol-hyphen-identifier-debt-leak; gitgalaxy#2537"
+  }
+ ],
+ "notes": "class_start 1 in main.cbl is the deliberate tier-1 exception: PROGRAM-ID is cobol's program-unit construct, the same 'closest class-shaped construct' precedent as the tri-comparison ledger. globals 1 in main.cbl = WORKING-STORAGE SECTION (in the globals pattern; multi-word so keyword_menu.py missed it \u2014 ledger cobol-working-storage-globals). func_start 3 in b.cpy = the 3 real paragraphs; the CEE3DMP./CEEMOUT. bare-token FPs were fixed upstream (gitgalaxy#2538 -> PR #2552), see ledger cobol-area-b-bare-token-paragraph bare-token-period lines read as paragraphs (ledger cobol-area-b-bare-token-paragraph; gitgalaxy#2538). api in a/b/c = 0 planted + orphan conversion of every func_start shape (ledger api-contextual-baseline-fix) \u2014 confirms the COPY chain resolves in the dependency DAG. All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv."
 }
