@@ -1,0 +1,103 @@
+{
+  "language": "html",
+  "tier": 2,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.html": {
+      "branch": 3,
+      "io": 1,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 0,
+      "args": 1,
+      "api": 1,
+      "doc": 2,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.html": {
+      "branch": 0,
+      "io": 1,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 0,
+      "args": 2,
+      "api": 0,
+      "doc": 0,
+      "ownership": 0,
+      "import": 1
+    },
+    "b.html": {
+      "branch": 0,
+      "io": 1,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 0,
+      "args": 0,
+      "api": 0,
+      "doc": 0,
+      "ownership": 0,
+      "import": 1
+    },
+    "c.html": {
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "class_start": 0,
+      "func_start": 0,
+      "args": 0,
+      "api": 0,
+      "doc": 0,
+      "ownership": 0,
+      "import": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "main.html",
+      "line_hint": "13 <script></script> tags corpus-wide",
+      "surface": "code",
+      "signals": [
+        "func_start"
+      ],
+      "outcome": "func_start 0 EVERYWHERE despite raw-regex matches: the polyglot splitter consumes the <script>/<style> tags before html's rules run (micro-repro: a script with real JS records the JS body's signals but func 0). Ledger html-script-func-start-unreachable; gitgalaxy#2549"
+    }
+  ],
+  "notes": "html func_start is unreachable end-to-end (gitgalaxy#2549) — 0 baked in. branch = details/summary/noscript tags; io = the chain link's href= (1 per importing file); doc 2 = title + meta author (meta author dual doc+ownership); import = link rel=stylesheet (chain resolves as capture but no conversion observed). Locked 2026-08-31."
+}

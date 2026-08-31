@@ -53,6 +53,7 @@
         "scala",
         "scheme",
         "shell",
+        "solidity",
         "sqlite",
         "swift",
         "tcl",
@@ -399,11 +400,12 @@
         "kotlin",
         "objective-c",
         "powershell",
+        "solidity",
         "zig"
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3). Same cross-language-inflation class as assembly's call/ret. Batch 4: apex, objective-c, powershell, and zig (pattern-confirmed) also count return — it is a 5-language family, not a kotlin quirk; scala/dart/groovy siblings do not. Strengthens #2545's inconsistency framing.",
+      "verdict": "kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3). Same cross-language-inflation class as assembly's call/ret. Batch 4: apex, objective-c, powershell, and zig (pattern-confirmed) also count return — it is a 5-language family, not a kotlin quirk; scala/dart/groovy siblings do not. Strengthens #2545's inconsistency framing. Batch 5: solidity is the 6th member (main branch 8 = 5 returns + 3 keywords).",
       "upstream_issue": "squid-protocol/gitgalaxy#2545",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -488,11 +490,13 @@
       "signal": "import DAG / popularity",
       "languages_seen": [
         "m4",
-        "scheme"
+        "markdown",
+        "scheme",
+        "yacc"
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never convert, corpus-wide. Two whole languages invisible to network_risk_sensor by construction — worth an upstream note whether deliberate.",
+      "verdict": "m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never convert, corpus-wide. Two whole languages invisible to network_risk_sensor by construction — worth an upstream note whether deliberate. Batch 5: yacc (#include counted, capture None) and markdown (no import rule at all) join — four registry languages structurally invisible to the DAG.",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -551,6 +555,40 @@
       "disposition": "keyword-overlap",
       "status": "validated",
       "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals).",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "html-script-func-start-unreachable",
+      "signal": "func_start",
+      "languages_seen": [
+        "html"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "html's func_start rule (<script>/<style> tags) never fires end-to-end: the polyglot splitter consumes the tags before html's rules run (micro-repro: <script>var x=1;</script> records the JS body's state signal on the html row but func 0; raw regex matches all 13 corpus tags, engine records 0). Rule passes direct-detector tests but is dead in production scans.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2549",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "batch5-tier2-morphology-shapes",
+      "signal": "(various)",
+      "languages_seen": [
+        "markdown",
+        "jcl",
+        "css",
+        "html",
+        "yaml",
+        "yacc",
+        "solidity"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import url); jcl EXEC PGM= is high_risk per step (probes use EXEC <proc>), api appears only via orphan conversion (no api rule defined); yaml counts every name:/description: as doc and embeds shell inside run: strings; solidity SPDX line = ownership on every file; html meta author is dual doc+ownership.",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
