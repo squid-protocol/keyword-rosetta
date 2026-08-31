@@ -1,6 +1,6 @@
 ! Keyword Rosetta control shell: fortran / a
 ! decoy: config reads are safe and could OPEN a file in prose only
-      USE B
+      USE b
 
       SUBROUTINE PROBE_GLOBALS(ENV)
       COMMON /SHARED/ REGION

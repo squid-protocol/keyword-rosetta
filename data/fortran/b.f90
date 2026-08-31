@@ -1,6 +1,6 @@
 ! Keyword Rosetta control shell: fortran / b
 ! decoy: nothing risky lives here and the GOTO word stays in prose
-      USE C
+      USE c
 
       SUBROUTINE PROBE_BYPASS(SHAPE)
       EQUIVALENCE (P, Q)

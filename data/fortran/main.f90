@@ -1,7 +1,7 @@
 !Author: keyword-rosetta generator
 ! Description: dispatch each probe once
 ! decoy: this suite never uses GOTO and no DO loop appears outside prose
-      USE A
+      USE a
 
       SUBROUTINE DISPATCH_PROBE(ARGV)
       CALL PROBE_BRANCH(ARGV)
