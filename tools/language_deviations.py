@@ -1,0 +1,111 @@
+"""Print one language's metrics vs the cross-language median, band-classified.
+
+The single-language triage view for a rosetta sweep (see
+.claude/skills/rosetta-language-sweep/SKILL.md): where bias_report.py scans all 46
+languages and regenerates the corpus-wide artifacts, this reads the already-cached
+docs/bias_data.json and answers "where does THIS language stand right now, and by
+how much?" -- the exact table a per-language tracking issue (gitgalaxy epic #2560's
+children) is written from. Run bias_report.py first if the cache predates the engine
+or corpus state you are triaging.
+
+Usage:
+    python tools/language_deviations.py <language> [--all-metrics]
+
+By default only out-of-band metrics (beyond GREEN_DEV of the median) print, grouped
+by the epic's triage order: structure first, then planted signals, then downstream
+risk. --all-metrics includes the in-band rows too.
+
+Exit status: 0 if every metric is in-band, 1 otherwise -- so a sweep can be
+gate-checked (`python tools/language_deviations.py jcl && echo in-band`).
+"""
+
+import json
+import pathlib
+import statistics
+import sys
+
+from bias_report import AMBER_DEV, GREEN_DEV, PLANTED
+
+REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
+BIAS_DATA = REPO_ROOT / "docs" / "bias_data.json"
+
+# Mirrors bias_report.py's chart grouping: structure metrics are fixed upstream of
+# signal rules, which sit upstream of the risk-score consequences.
+STRUCTURE_METRICS = (
+    "functions_found", "classes_found", "dependency_links",
+    "keyword_hits", "comment_lines", "pagerank",
+)
+
+
+def classify(value, median):
+    """Return (band, deviation); band is 'green'/'amber'/'red'/'zero-median'."""
+    if median == 0:
+        # Relative deviation is undefined. A nonzero value here is usually a
+        # documented per-language morphology exception (jcl/cobol/css
+        # class_start = program-unit cards, dockerfile FROM, ...), already
+        # accounted in the manifest notes/ledger -- surfaced for eyeballing
+        # but kept out of the red/amber tally so this script's counts match
+        # the tracking issues', which exclude zero-median shapes too.
+        return ("green" if value == 0 else "zero-median"), None
+    dev = (value - median) / median
+    if abs(dev) <= GREEN_DEV:
+        return "green", dev
+    if abs(dev) <= AMBER_DEV:
+        return "amber", dev
+    return "red", dev
+
+
+def group_of(metric):
+    if metric.startswith("risk_"):
+        return 3, "risk (downstream -- re-baselines as upstream fixes land)"
+    if metric in STRUCTURE_METRICS:
+        return 1, "structure (fix first)"
+    return 2, "signals"
+
+
+def main():
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    show_all = "--all-metrics" in sys.argv
+    if len(args) != 1:
+        sys.exit(__doc__)
+    lang = args[0]
+
+    data = json.loads(BIAS_DATA.read_text())
+    if lang not in data["languages"]:
+        sys.exit(f"unknown language {lang!r} -- not in {BIAS_DATA}")
+
+    rows = []
+    for metric, values in sorted(data["metrics"].items()):
+        if not isinstance(values, dict) or lang not in values:
+            continue
+        nums = [v for v in values.values() if isinstance(v, (int, float))]
+        median = statistics.median(nums)
+        band, dev = classify(values[lang], median)
+        rows.append((group_of(metric), metric, values[lang], median, band, dev))
+
+    rows.sort(key=lambda r: (r[0][0], r[1]))
+    dot = {"green": "\U0001f7e2", "amber": "\U0001f7e1", "red": "\U0001f534", "zero-median": "◦"}
+    reds = ambers = comparable = 0
+    current_group = None
+    for (gnum, gname), metric, value, median, band, dev in rows:
+        if band != "zero-median":
+            comparable += 1
+        if band == "red":
+            reds += 1
+        elif band == "amber":
+            ambers += 1
+        if band == "green" and not show_all:
+            continue
+        if (gnum, gname) != current_group:
+            current_group = (gnum, gname)
+            print(f"\n== {gnum}. {gname} ==")
+        dev_txt = f"{dev:+.0%}" if dev is not None else "(median 0 -- morphology, check manifest notes)"
+        planted = f"  planted={PLANTED[metric]}" if metric in PLANTED else ""
+        print(f"{dot[band]} {metric:24s} {value:>10.4g}  median {median:<10.4g} {dev_txt}{planted}")
+
+    print(f"\n{lang}: {reds} red / {ambers} amber across {comparable} comparable metrics")
+    sys.exit(0 if reds + ambers == 0 else 1)
+
+
+if __name__ == "__main__":
+    main()

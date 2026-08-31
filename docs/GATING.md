@@ -62,3 +62,13 @@ gitgalaxy CI runs `verify_language.py` across the corpus at a pinned tag, and an
 that changes corpus-observed counts must update the manifests + ledger here (cross-repo,
 same as `RELEASING.md` golden-master steps). Until then, the gate is enforced by review
 discipline plus the verifier.
+
+## Working a per-language tracking issue
+
+The end-to-end workflow for sweeping one language's deviations (gitgalaxy epic #2560's
+per-language children) — classification taxonomy, engine-vs-corpus fix routing, the ledger
+and re-baseline steps above, cross-repo PR ordering, and close-out — is packaged as the
+`rosetta-language-sweep` skill (`.claude/skills/rosetta-language-sweep/SKILL.md`).
+`tools/language_deviations.py <lang>` prints the live vs-median band table it triages from.
+The first full sweep (jcl: issue #2581 → gitgalaxy#2610 + this repo's PR #4) is the worked
+example, and gitgalaxy's `docs/language_status/jcl.md` §10 is its capstone write-up.

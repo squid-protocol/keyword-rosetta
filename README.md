@@ -50,6 +50,14 @@ docs/menus/<language>.json     # generated keyword menus (regenerate, don't hand
 Tools need a GitGalaxy checkout (`GITGALAXY_PATH`, default sibling `gitgalaxy/v6`) and a
 `galaxyscope` binary (`GALAXYSCOPE_BIN`).
 
+For *improving* an already-authored language (working one of gitgalaxy epic
+[#2560](https://github.com/squid-protocol/gitgalaxy/issues/2560)'s per-language tracking
+issues), use the `rosetta-language-sweep` skill
+(`.claude/skills/rosetta-language-sweep/SKILL.md`) — it routes each measured deviation to the
+right fix (engine bug, missing rule, corpus authoring gap, ledgered morphology, or median
+inflation) instead of treating the red/amber list as a single work queue.
+`python tools/language_deviations.py <lang>` prints the live vs-median band table.
+
 ## Tiers
 
 - **Tier 1** (39 languages): the full 20-signal core shell.
