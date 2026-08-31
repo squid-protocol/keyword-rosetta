@@ -510,8 +510,8 @@
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "Classification is per-file with no folder-context bleed: a .py file without its own micropython marker (import machine etc.) classifies as plain python even when every sibling is embedded — verified via the DB language column, twice (machine.idle() alone was NOT a sufficient discriminator; import machine was). Also two rule-level divergences on byte-similar code: embedded io drops os./sys. (python counts them), and orphan->api conversion does not fire under embedded classification.",
-      "upstream_issue": null,
+      "verdict": "Classification is per-file with no folder-context bleed: a .py file without its own micropython marker (import machine etc.) classifies as plain python even when every sibling is embedded — verified via the DB language column, twice (machine.idle() alone was NOT a sufficient discriminator; import machine was). Also two rule-level divergences on byte-similar code: embedded io drops os./sys. (python counts them), and orphan->api conversion does not fire under embedded classification. UPDATE 2026-08-31: the no-conversion divergence was fixed upstream by gitgalaxy#2548 (embedded_python never wired into Python-family indentation scoping — found independently by a tri-comparison sweep); orphan->api conversion now fires under embedded classification (api 6, verified by the CI gate's fresh scan against gitgalaxy main). The per-file classification and io-rule divergences still stand. First ledger entry re-baselined by an upstream fix — the GATING self-improvement loop closing end to end.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2548 (conversion half, fixed)",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
       "still_reproduces": true
