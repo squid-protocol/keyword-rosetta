@@ -22,9 +22,24 @@ jobs:
         with:
           fetch-depth: 0
 
+      # The engine ref to verify against lives in the committed ENGINE_REF file.
+      # Default is `main`. A corpus PR that depends on a NOT-yet-merged engine PR
+      # sets it to that PR's persistent ref (`refs/pull/<N>/head`) so this gate
+      # goes green immediately instead of sitting draft+red until the engine
+      # merges -- then resets it to `main` before (or right after) merging here.
+      # See docs/GATING.md "Cross-repo choreography".
+      - name: Resolve engine ref
+        id: engineref
+        run: |
+          ref=$(head -1 ENGINE_REF | tr -d '[:space:]')
+          case "$ref" in pull/*) ref="refs/$ref";; esac
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+          echo "engine ref: $ref"
+
       - uses: actions/checkout@v4
         with:
           repository: squid-protocol/gitgalaxy
+          ref: ${{ steps.engineref.outputs.ref }}
           path: gitgalaxy
 
       - uses: actions/setup-python@v5
@@ -61,3 +76,11 @@ jobs:
             python tools/verify_language.py "$L" || rc=1
           done
           exit $rc
+
+      # Baseline-gated: fails only on unreviewed rule-absent (n/a) cells beyond
+      # docs/na_baseline.json -- a corpus PR cannot quietly create an absence
+      # nobody has ledgered. Seconds, no scans.
+      - name: n/a review audit
+        env:
+          GITGALAXY_PATH: ${{ github.workspace }}/gitgalaxy
+        run: python tools/na_check.py --ci

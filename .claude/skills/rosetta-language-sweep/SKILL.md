@@ -117,19 +117,31 @@ and do not chase them individually.
   shifts to move; anything else moving is a red flag.
 - `python tools/language_deviations.py <lang>` — the before/after for the issue update.
 
-## Phase 5 — cross-repo PR choreography (the part that bites)
+## Phase 5 — cross-repo PR choreography (ENGINE_REF + the pinned gate)
 
-This repo's CI (`verify.yml`) checks out gitgalaxy **main**. A sweep that adds engine rules has
-a hard ordering:
+Two gates hold the repos together (gitgalaxy#2557; full protocol in docs/GATING.md
+"Cross-repo choreography"): this repo's `verify.yml` checks out the engine at the committed
+**`ENGINE_REF`** file's ref, and gitgalaxy's `rosetta-audit.yml` runs this corpus (pinned via
+the `KEYWORD_ROSETTA_REF` Actions variable) against every engine PR that touches parsing code.
 
-1. Open the gitgalaxy PR; get its CI green; wait for the user to merge (never self-merge).
-2. Open this repo's PR **as a draft**, stating the dependency in the body. Its
-   `verify-languages` check WILL fail until the engine PR merges — when it does, comment on the
-   PR mapping each mismatch to the not-yet-merged rules so the red check is self-explaining.
-3. After the engine PR merges: `gh run rerun <run-id> --failed`, then `gh pr ready <n>`.
+For a sweep that changes engine behavior:
 
-Sequencing the corpus PR's *content* is fine before the engine merges — verify locally against
-the engine branch via `GALAXYSCOPE_BIN`; just don't expect its CI to pass early.
+1. Open the gitgalaxy PR `N`; its `rosetta-audit` check **fails — that is expected and
+   correct** (the drift caught at the source). Never bless around it.
+2. Open this repo's corpus PR with `ENGINE_REF` set to `pull/N/head` → its gates run against
+   the engine PR's build and go green immediately. No draft, no waiting, no rerun.
+3. When the engine PR is approved: restore `ENGINE_REF` to `main` in the corpus PR, merge the
+   corpus PR, then the engine PR bumps `KEYWORD_ROSETTA_REF` to the new corpus commit and
+   merges green. (The brief window where corpus main is ahead of engine main is covered by
+   gitgalaxy's pinned gate.)
+4. `tools/na_check.py --ci` runs in both gates — a sweep that removes/nulls a rule must ship
+   the validated ledger entry in the same corpus PR, or shrink `docs/na_baseline.json` via
+   `--regenerate` only for cells actually reviewed.
+
+Also still true: verify locally against the engine branch anytime via `GALAXYSCOPE_BIN` —
+CI choreography never blocks local iteration. **A PR touching only `tools/` runs ALL 46
+gates** (no data diff → full sweep), which is by design: it is how stale baselines from
+already-merged engine changes get caught (the cobol #2552/#2538 case).
 
 ## Phase 6 — close out
 

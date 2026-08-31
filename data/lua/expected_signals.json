@@ -1,109 +1,109 @@
 {
-  "language": "lua",
-  "tier": 1,
-  "generator": "claude-sonnet-5 (hand-verified reference)",
-  "files": {
-    "main.lua": {
-      "class_start": 0,
-      "branch": 3,
-      "io": 3,
-      "high_risk_execution": 2,
-      "func_start": 4,
-      "args": 4,
-      "api": 6,
-      "doc": 1,
-      "ownership": 1,
-      "import": 1,
-      "state_mutation": 0,
-      "globals": 0,
-      "test": 0,
-      "safety": 0,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "a.lua": {
-      "class_start": 0,
-      "import": 1,
-      "func_start": 3,
-      "args": 3,
-      "api": 9,
-      "globals": 2,
-      "test": 2,
-      "safety": 2,
-      "safety_bypasses": 1,
-      "branch": 0,
-      "state_mutation": 0,
-      "high_risk_execution": 0,
-      "io": 0,
-      "telemetry": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "b.lua": {
-      "class_start": 0,
-      "import": 1,
-      "func_start": 3,
-      "args": 3,
-      "api": 10,
-      "safety_bypasses": 2,
-      "telemetry": 2,
-      "state_mutation": 6,
-      "branch": 1,
-      "safety": 0,
-      "high_risk_execution": 0,
-      "io": 0,
-      "test": 0,
-      "globals": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "c.lua": {
-      "class_start": 0,
-      "import": 0,
-      "func_start": 3,
-      "args": 3,
-      "api": 9,
-      "cleanup": 2,
-      "fragile_debt": 1,
-      "planned_debt": 1,
-      "safety_bypasses": 1,
-      "io": 1,
-      "branch": 0,
-      "state_mutation": 0,
-      "safety": 0,
-      "telemetry": 0,
-      "test": 0,
-      "globals": 0,
-      "doc": 0,
-      "ownership": 0,
-      "high_risk_execution": 0
-    }
+ "language": "lua",
+ "tier": 1,
+ "generator": "claude-sonnet-5 (hand-verified reference)",
+ "files": {
+  "main.lua": {
+   "class_start": 0,
+   "branch": 3,
+   "io": 3,
+   "high_risk_execution": 2,
+   "func_start": 4,
+   "args": 4,
+   "api": 6,
+   "doc": 1,
+   "ownership": 1,
+   "import": 1,
+   "state_mutation": 0,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
   },
-  "decoys": [
-    {
-      "file": "b.lua",
-      "line_hint": "note = \"if eval fails, try open\"",
-      "surface": "string",
-      "signals": [
-        "branch",
-        "state_mutation"
-      ],
-      "outcome": "if counts branch +1; counter/note assignments 2 raw state tripled to 6. eval/try/open inert in lua's planted rules. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
-    },
-    {
-      "file": "c.lua",
-      "line_hint": "(comment decoys only)",
-      "surface": "comment",
-      "signals": [
-        "fragile_debt"
-      ],
-      "outcome": "HACK/TODO comments count exactly 1 each"
-    }
-  ],
-  "notes": "_G is dual globals+safety_bypasses (+1 bypasses a.lua); collectgarbage is dual cleanup+safety_bypasses and io.close is dual cleanup+io (+1 each in c.lua) — all three predicted from the menus before scanning and confirmed exactly. api counts global function declarations (lua visibility morphology) plus orphan conversion. Locked from hand-verified run 2026-08-31."
+  "a.lua": {
+   "class_start": 0,
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 8,
+   "globals": 2,
+   "test": 2,
+   "safety": 2,
+   "safety_bypasses": 1,
+   "branch": 0,
+   "state_mutation": 0,
+   "high_risk_execution": 0,
+   "io": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "b.lua": {
+   "class_start": 0,
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 9,
+   "safety_bypasses": 2,
+   "telemetry": 2,
+   "state_mutation": 6,
+   "branch": 1,
+   "safety": 0,
+   "high_risk_execution": 0,
+   "io": 0,
+   "test": 0,
+   "globals": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "c.lua": {
+   "class_start": 0,
+   "import": 0,
+   "func_start": 3,
+   "args": 3,
+   "api": 9,
+   "cleanup": 2,
+   "fragile_debt": 1,
+   "planned_debt": 1,
+   "safety_bypasses": 1,
+   "io": 1,
+   "branch": 0,
+   "state_mutation": 0,
+   "safety": 0,
+   "telemetry": 0,
+   "test": 0,
+   "globals": 0,
+   "doc": 0,
+   "ownership": 0,
+   "high_risk_execution": 0
+  }
+ },
+ "decoys": [
+  {
+   "file": "b.lua",
+   "line_hint": "note = \"if eval fails, try open\"",
+   "surface": "string",
+   "signals": [
+    "branch",
+    "state_mutation"
+   ],
+   "outcome": "if counts branch +1; counter/note assignments 2 raw state tripled to 6. eval/try/open inert in lua's planted rules. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+  },
+  {
+   "file": "c.lua",
+   "line_hint": "(comment decoys only)",
+   "surface": "comment",
+   "signals": [
+    "fragile_debt"
+   ],
+   "outcome": "HACK/TODO comments count exactly 1 each"
+  }
+ ],
+ "notes": "_G is dual globals+safety_bypasses (+1 bypasses a.lua); collectgarbage is dual cleanup+safety_bypasses and io.close is dual cleanup+io (+1 each in c.lua) \u2014 all three predicted from the menus before scanning and confirmed exactly. api counts global function declarations (lua visibility morphology) plus orphan conversion. Locked from hand-verified run 2026-08-31."
 }
