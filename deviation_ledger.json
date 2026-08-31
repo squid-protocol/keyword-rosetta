@@ -45,7 +45,7 @@
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes to sec_tainted_injection instead). Micro-repro: identical files differing only in literal content, scanned end-to-end. Comments are fully stripped (verified 0 contribution); strings are inconsistently half-counted. 2026-08-31 cross-language extension: javascript reproduces python exactly (same decoy sentence, if/try count, eval does not); cobol does NOT shield at all (ALTER counts high_risk_execution from inside a DISPLAY literal) — the shielding is lexical-family-dependent, i.e. itself a language bias. 2026-08-31 legacy batch: fortran/ada/assembly count literals like cobol (fortran IF+GOTO+OPEN all count; ada 'if' counts; asm jmp/syscall count, and ARM's single-letter 'b' mnemonic even matches the filename inside %include \"b.asm\"); abap is a THIRD profile — shields branch/high_risk/io but NOT safety (TRY in a literal counts safety, isolated by micro-repro with comment-only vs string-only files). Worst amplification: a branch keyword inside a literal creates phantom branch context that triples state_mutation via the flux weighting (see state-flux-branch-weighting). Current behavior baked into manifests; whether intentional is the upstream question. 2026-08-31 batch 3 (12 mainstream languages): the selective profile (high-risk family shielded, branch/safety/io count) holds for c/cpp/csharp/java/go/kotlin/typescript/php/lua/swift; ruby counts eval from the literal (eval-as-bypass, like shell); perl's eval survives only because its bypass rule requires eval-followed-by-quote/paren (syntax shielding, not surface shielding); swift's api rule counts the word 'open' inside the literal (API-exposure mass from prose). try counts branch in csharp/java/kotlin/php/perl/swift/typescript.",
+      "verdict": "Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes to sec_tainted_injection instead). Micro-repro: identical files differing only in literal content, scanned end-to-end. Comments are fully stripped (verified 0 contribution); strings are inconsistently half-counted. 2026-08-31 cross-language extension: javascript reproduces python exactly (same decoy sentence, if/try count, eval does not); cobol does NOT shield at all (ALTER counts high_risk_execution from inside a DISPLAY literal) — the shielding is lexical-family-dependent, i.e. itself a language bias. 2026-08-31 legacy batch: fortran/ada/assembly count literals like cobol (fortran IF+GOTO+OPEN all count; ada 'if' counts; asm jmp/syscall count, and ARM's single-letter 'b' mnemonic even matches the filename inside %include \"b.asm\"); abap is a THIRD profile — shields branch/high_risk/io but NOT safety (TRY in a literal counts safety, isolated by micro-repro with comment-only vs string-only files). Worst amplification: a branch keyword inside a literal creates phantom branch context that triples state_mutation via the flux weighting (see state-flux-branch-weighting). Current behavior baked into manifests; whether intentional is the upstream question. 2026-08-31 batch 3 (12 mainstream languages): the selective profile (high-risk family shielded, branch/safety/io count) holds for c/cpp/csharp/java/go/kotlin/typescript/php/lua/swift; ruby counts eval from the literal (eval-as-bypass, like shell); perl's eval survives only because its bypass rule requires eval-followed-by-quote/paren (syntax shielding, not surface shielding); swift's api rule counts the word 'open' inside the literal (API-exposure mass from prose). try counts branch in csharp/java/kotlin/php/perl/swift/typescript. Swift's bare-open api FP filed as squid-protocol/gitgalaxy#2544.",
       "upstream_issue": "squid-protocol/gitgalaxy#2535",
       "investigated_by": "claude-sonnet-5 + user session",
       "validated_at": "2026-08-31",
@@ -174,7 +174,7 @@
       "disposition": "engine-semantic",
       "status": "validated",
       "verdict": "state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name). Micro-repro: one := inside a real ada if -> 3; one := with no branch -> 1; the multiplier applies file-wide to all mutations. python/cobol corpus files were exact only because their b files had no branch context. Consequence of #2535: a branch keyword inside a string literal creates PHANTOM branch context and triples unrelated real mutations ('while' in a string: 2 raw := -> 6). REFINED (batch 3, go micro-evidence): the x3 weighting is PER-FUNCTION, not per-file — go b.go records 11 = probe_state's 3 raw x3 (its own string carries the branch keyword) + probe_bypass's 2 raw x1 (no branch context in that function). Reproduces in all 12 batch-3 languages whose state rules have raw hits alongside the string decoy.",
-      "upstream_issue": "squid-protocol/gitgalaxy#2535 (amplification noted in comment)",
+      "upstream_issue": "squid-protocol/gitgalaxy#2546 (also #2535 for the phantom trigger)",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
       "still_reproduces": true
@@ -315,7 +315,7 @@
       "disposition": "upstream-question",
       "status": "validated",
       "verdict": "On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: shell a/b convert 4 with 3 functions (the extra tracks the source line), sqlite converts 2/4/3 with 3 CREATE INDEX each and main.sql records orphaned_logic 7 for 4 indexes. Recorded as observed; gitgalaxy#2536 (raw hit_vector recording) would make these auditable.",
-      "upstream_issue": "squid-protocol/gitgalaxy#2536",
+      "upstream_issue": "squid-protocol/gitgalaxy#2547 (also #2536)",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
       "still_reproduces": true
@@ -357,7 +357,7 @@
       "disposition": "upstream-question",
       "status": "validated",
       "verdict": "The <?php open tag's ? matches php's branch rule bare ternary-? alternation (finditer-confirmed): EVERY php file records branch >= 1 from its own open tag. A systematic per-file +1 on all real-world PHP; worth an upstream look at excluding ?> / <? tag context from the ? alternation.",
-      "upstream_issue": null,
+      "upstream_issue": "squid-protocol/gitgalaxy#2541",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
       "still_reproduces": true
@@ -368,10 +368,10 @@
       "languages_seen": [
         "kotlin"
       ],
-      "disposition": "engine-semantic",
+      "disposition": "upstream-question",
       "status": "validated",
       "verdict": "kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3). Same cross-language-inflation class as assembly's call/ret.",
-      "upstream_issue": null,
+      "upstream_issue": "squid-protocol/gitgalaxy#2545",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
       "still_reproduces": true
@@ -399,7 +399,7 @@
       "disposition": "upstream-question",
       "status": "validated",
       "verdict": "swift's _dependency_capture requires module names of 2+ characters ([a-zA-Z_][\\w.]+), so 'import a' captures nothing: the corpus's swift chain never resolves, popularity stays 0, and no orphan->api conversion fires. Real single-letter modules are rare but the +-quantifier looks unintentional next to other languages' * shapes.",
-      "upstream_issue": null,
+      "upstream_issue": "squid-protocol/gitgalaxy#2543",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
       "still_reproduces": true
@@ -413,7 +413,7 @@
       "disposition": "upstream-question",
       "status": "validated",
       "verdict": "go's safety_bypasses rule's dot-import alternation (\\bimport\\s+(?:\\.[ \\t]+)?\") matches EVERY quoted import, not just dot-imports: +1 bypasses per importing file corpus-wide. The (?:\\.[ \\t]+)? being optional makes the dot-import detector fire on all imports.",
-      "upstream_issue": null,
+      "upstream_issue": "squid-protocol/gitgalaxy#2542",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
       "still_reproduces": true
