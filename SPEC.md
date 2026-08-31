@@ -119,9 +119,33 @@ Only list keys with nonzero expectations plus every key the verifier should asse
 zero (`class_start` always among them). The verifier treats unlisted keys as
 "don't-care" — but `class_start`, and every signal named in a decoy, must be listed.
 
+## Engine facts learned from the python reference (2026-08-31)
+
+Verified empirically; every generator must account for them:
+
+1. **Files must be git-committed before verification.** GalaxyScope's census walks
+   git-tracked files — an untracked folder scans as "0 files mapped".
+2. **`api` inflates on imported files** (the Contextual Baseline Fix,
+   `galaxyscope.py` ~2145): a file imported by others has its `orphaned_logic`
+   (uncalled functions) converted into `api`. With the spec's main→a→b→c chain and
+   uncalled probes, expect `api = defs × 2` in a/b/c and `api = defs` in main.
+3. **String literals count for most code-stream signals** — the string decoy's
+   keywords land in branch/safety/io and must be baked into that file's expected
+   counts. Shielding is *selective*: the high-risk family (`eval` etc.) does NOT
+   count from inside a literal (it feeds `sec_tainted_injection` instead). Record
+   what the verifier reports and describe it in the decoy's `outcome` field.
+4. **Known keyword overlaps** (record, don't avoid): `assert` hits both `safety`
+   and `test`; `os.`/`sys.` prefixes needed for `globals` also hit python-family
+   `io`. Every language will have its own — the report run reveals them.
+
 ## Authoring workflow
 
 1. `python tools/keyword_menu.py <language>` — regenerate and read the menu.
-2. Write the four files + manifest per this spec.
-3. `python tools/verify_language.py <language>` — iterate until it passes.
-4. Record any spec deviation the language forced in the manifest `notes` field.
+2. Write the four files + manifest stub per this spec, **git add + commit them**.
+3. `python tools/verify_language.py <language> --report` — read every observed
+   count; explain each delta from your planted intent (overlap? decoy surface?
+   engine semantic?) before accepting it. An unexplainable delta is a stop-and-
+   investigate, possibly a real engine bug — never bless a number you can't
+   account for.
+4. Lock the manifest, then `python tools/verify_language.py <language>` must PASS.
+5. Record any spec deviation the language forced in the manifest `notes` field.
