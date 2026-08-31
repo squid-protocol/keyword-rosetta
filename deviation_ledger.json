@@ -1,0 +1,65 @@
+{
+  "_doc": "One entry per deviation shape. Lifecycle and gating rules: docs/GATING.md. Never delete entries; never flip still_reproduces without a fresh verifying scan.",
+  "entries": [
+    {
+      "id": "api-contextual-baseline-fix",
+      "signal": "api",
+      "languages_seen": ["python"],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording. Micro-repro: 2-def file imported by a sibling records api=4, un-imported records api=2. With the spec's main->a->b->c chain and uncalled probes, api = defs x 2 in a/b/c, defs in main. Deliberate scoring semantics; raw counts unrecoverable from the DB (filed squid-protocol/gitgalaxy#2536 asking for raw recording).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2536",
+      "investigated_by": "claude-sonnet-5 + user session",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "string-literal-selective-shielding",
+      "signal": "branch|safety|io vs high_risk_execution",
+      "languages_seen": ["python"],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes to sec_tainted_injection instead). Micro-repro: identical files differing only in literal content, scanned end-to-end. Comments are fully stripped (verified 0 contribution); strings are inconsistently half-counted. Current behavior baked into manifests; whether intentional is the upstream question.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2535",
+      "investigated_by": "claude-sonnet-5 + user session",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "assert-overlaps-safety-and-test",
+      "signal": "safety+test",
+      "languages_seen": ["python"],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "python's test rule includes \\bassert\\b and the safety rule includes assert: one planted assert counts both. Legitimate overlapping taxonomies; record +1 test wherever a safety assert is planted.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "os-sys-prefix-overlaps-io",
+      "signal": "globals+io",
+      "languages_seen": ["python"],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "python-family io rule matches the os./sys. prefixes that the globals plants (os.environ, sys.argv) necessarily carry: +2 io in whichever file hosts probe_globals.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "census-requires-git-tracked",
+      "signal": "(whole-file exclusion)",
+      "languages_seen": ["all"],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning. Authoring workflow requires commit-before-verify (SPEC.md).",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    }
+  ]
+}
