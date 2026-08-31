@@ -1,0 +1,18 @@
+-- keyword rosetta control shell: livecode / a
+-- decoy: config reads are safe and the quit word stays in prose
+start using stack "b"
+
+on probe_globals pEnv
+  global gRegion
+  global gHome
+end probe_globals
+
+on probe_test pKit
+  Levure pKit
+  runTests pKit
+end probe_test
+
+on probe_safety pValue
+  throw pValue
+  assert pValue
+end probe_safety

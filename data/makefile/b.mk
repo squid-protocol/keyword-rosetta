@@ -1,0 +1,17 @@
+# keyword rosetta control shell: makefile / b
+# decoy: nothing risky lives here and the wget word stays in prose
+include c.mk
+
+probe_bypass:
+	-rm scratch
+	: || true
+
+probe_telemetry:
+	$(info first probe)
+	$(info second probe)
+
+COUNTER += 1
+NOTE != echo "if eval fails, try curl"
+
+probe_state:
+	:

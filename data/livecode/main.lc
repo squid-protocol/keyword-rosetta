@@ -1,0 +1,30 @@
+-- keyword rosetta control shell: livecode / main
+-- Author: keyword-rosetta generator
+-- Purpose: dispatch each probe once
+-- decoy: this suite never quits and the answer word stays in prose
+start using stack "a"
+
+on probe_dispatch pArgv
+  probe_branch pArgv
+  probe_io pArgv
+  probe_risk pArgv
+end probe_dispatch
+
+on probe_branch pFlag
+  if pFlag > 0 then
+    get 1
+  else
+    get 2
+  end if
+end probe_branch
+
+on probe_io pRoute
+  open file pRoute
+  read from file pRoute
+  write to file pRoute
+end probe_io
+
+on probe_risk pPayload
+  answer pPayload
+  quit
+end probe_risk
