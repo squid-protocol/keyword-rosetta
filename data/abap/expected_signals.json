@@ -1,0 +1,38 @@
+{
+  "language": "abap",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.abap": {
+      "branch": 3, "io": 3, "high_risk_execution": 2, "func_start": 4, "args": 4,
+      "doc": 2, "ownership": 1, "import": 1, "api": 0, "class_start": 0,
+      "state_mutation": 0, "globals": 0, "safety": 0, "safety_bypasses": 0,
+      "telemetry": 0, "cleanup": 0, "test": 0, "fragile_debt": 0, "planned_debt": 0
+    },
+    "a.abap": {
+      "import": 1, "func_start": 3, "args": 3, "api": 3, "globals": 2, "test": 2,
+      "safety": 2, "branch": 0, "class_start": 0, "state_mutation": 0,
+      "high_risk_execution": 0, "io": 0, "safety_bypasses": 0, "telemetry": 0,
+      "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
+    },
+    "b.abap": {
+      "import": 1, "func_start": 3, "args": 3, "api": 3, "safety_bypasses": 2,
+      "telemetry": 2, "state_mutation": 2, "safety": 1, "branch": 0,
+      "high_risk_execution": 0, "io": 0, "class_start": 0, "test": 0,
+      "globals": 0, "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
+    },
+    "c.abap": {
+      "import": 0, "func_start": 3, "args": 3, "api": 3, "cleanup": 2,
+      "fragile_debt": 1, "planned_debt": 1, "class_start": 0, "branch": 0,
+      "state_mutation": 0, "io": 0, "safety": 0, "safety_bypasses": 0,
+      "telemetry": 0, "test": 0, "globals": 0, "doc": 0, "ownership": 0,
+      "high_risk_execution": 0
+    }
+  },
+  "decoys": [
+    {"file": "main.abap", "line_hint": "never uses TRUNCATE and no WHILE loop", "surface": "comment", "signals": ["high_risk_execution", "branch"], "outcome": "stripped: contributed 0"},
+    {"file": "b.abap", "line_hint": "lv_note = 'IF TRUNCATE FAILS TRY SELECT AGAIN'", "surface": "string", "signals": ["branch", "high_risk_execution", "io", "safety"], "outcome": "abap is a THIRD shielding profile: IF/TRY contribute NO branch, TRUNCATE no high_risk, SELECT no io — but TRY DOES count safety (+1, micro-repro isolated it to the string, comments contribute 0). Ledger: string-literal-selective-shielding"},
+    {"file": "c.abap", "line_hint": "hack_level = cv_level", "surface": "code", "signals": ["fragile_debt"], "outcome": "inert (underscore + lowercase vs case-sensitive \\bHACK\\b)"}
+  ],
+  "notes": "args planted via CHANGING (abap's args rule keys on IMPORTING/EXPORTING/CHANGING/... — FORM ... USING would record args 0). doc 2 in main = the \"! @parameter ABAP-Doc line + the * AUTHOR: comment (AUTHOR: matches both doc and ownership, as fortran). state_mutation exact (2, no flux multiplier — no branch context in b.abap since the string's IF is shielded for branch). api = 0 planted + orphan conversion in imported a/b/c (3 each). INCLUDE chain resolves. Locked from hand-verified run 2026-08-31."
+}
