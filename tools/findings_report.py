@@ -48,7 +48,12 @@ def generate():
         return 1
     cache = json.loads(CACHE.read_text())
     languages = cache["languages"]
-    metrics = cache["metrics"]  # {metric: {lang: value}}
+    metrics = cache["metrics"]  # {metric: {lang: value}}; null = n/a (no rule)
+    na = cache.get("na", {})   # {metric: {lang: "ledgered"|"unreviewed"}}
+    na_by_lang = {}
+    for metric, per_lang in na.items():
+        for lang, state in per_lang.items():
+            na_by_lang.setdefault(lang, []).append((metric, state))
     ledger = json.loads((REPO_ROOT / "deviation_ledger.json").read_text())["entries"]
 
     manifests = {}
@@ -81,10 +86,14 @@ def generate():
         "upstream issue tracking each, and the corpus file carrying the evidence. "
         "Lifecycle rules: `docs/GATING.md`; full verdicts: `deviation_ledger.json`.",
         "",
+        "n/a cells (a signal the language's registry defines no rule for) are "
+        "incomparable, not zero — excluded from the bands below and listed per "
+        "language; † marks an absence not yet backed by a validated ledger entry.",
+        "",
         "## Index",
         "",
-        "| language | red-zone metrics | amber | ledgered shapes | upstream issues |",
-        "|---|---|---|---|---|",
+        "| language | red-zone metrics | amber | n/a signals | ledgered shapes | upstream issues |",
+        "|---|---|---|---|---|---|",
     ]
     per_lang_shapes = {
         lang: [e for e in ledger
@@ -97,7 +106,8 @@ def generate():
         shapes = per_lang_shapes[lang]
         issues = sorted({n for e in shapes for n in _ISSUE.findall(e.get("upstream_issue") or "")})
         lines.append(
-            f"| [{lang}](#{lang}) | {len(reds)} | {len(ambers)} | {len(shapes)} | "
+            f"| [{lang}](#{lang}) | {len(reds)} | {len(ambers)} | "
+            f"{len(na_by_lang.get(lang, []))} | {len(shapes)} | "
             + (" ".join(f"#{n}" for n in issues) if issues else "—") + " |"
         )
 
@@ -113,6 +123,13 @@ def generate():
             lines.append("")
         else:
             lines += ["**In band on every metric.**", ""]
+
+        if na_by_lang.get(lang):
+            items = ", ".join(
+                f"`{m}`" + ("" if state == "ledgered" else "†")
+                for m, state in sorted(na_by_lang[lang])
+            )
+            lines += [f"**Not expressible as measured (n/a):** {items}", ""]
 
         shapes = per_lang_shapes[lang]
         if shapes:

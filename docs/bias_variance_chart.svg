@@ -2,7 +2,7 @@
 <rect width="714" height="1136" fill="#ffffff"/>
 <text x="10" y="20" font-size="14" font-weight="bold" fill="#1a1a1a">One program, 46 languages — does GitGalaxy measure it the same everywhere?</text>
 <text x="10" y="36" fill="#666">identical planted code per language · each dot = one language's deviation from the cross-language median</text>
-<text x="10" y="50" fill="#666">badge = share of languages inside the green band (the metric's consistency score) · red dots mark outliers · small numbers = dots per zone</text>
+<text x="10" y="50" fill="#666">badge = share of languages inside the green band (the metric's consistency score) · red dots mark outliers · small numbers = dots per zone · n/a = languages whose registry defines no rule for the signal (incomparable, excluded)</text>
 <text x="10" y="76" font-size="12" font-weight="bold" fill="#444" letter-spacing="1">RISK EXPOSURE (MEAN PER FILE)</text>
 <rect x="210.0" y="88" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="88" width="47.7" height="22" fill="#fff3cd"/>
@@ -126,8 +126,8 @@
 <rect x="515.5" y="148" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="148" x2="420.0" y2="170" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="163.0" fill="#1a1a1a">risk_cognitive_load</text>
-<text x="213.0" y="157" font-size="9" fill="#555">17</text>
-<text x="327.5" y="157" font-size="9" fill="#555">3</text>
+<text x="213.0" y="157" font-size="9" fill="#555">18</text>
+<text x="327.5" y="157" font-size="9" fill="#555">2</text>
 <text x="375.3" y="157" font-size="9" fill="#555">7</text>
 <text x="470.7" y="157" font-size="9" fill="#555">7</text>
 <text x="518.5" y="157" font-size="9" fill="#555">12</text>
@@ -137,7 +137,7 @@
 <circle cx="610.9" cy="159.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="630.0" cy="159.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="477.8" cy="159.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="331.4" cy="159.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="311.8" cy="159.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="454.1" cy="159.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="411.2" cy="159.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="279.5" cy="159.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -187,57 +187,57 @@
 <line x1="420.0" y1="178" x2="420.0" y2="200" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="193.0" fill="#1a1a1a">risk_documentation</text>
 <text x="213.0" y="187" font-size="9" fill="#555">5</text>
-<text x="327.5" y="187" font-size="9" fill="#555">4</text>
-<text x="375.3" y="187" font-size="9" fill="#555">28</text>
-<text x="470.7" y="187" font-size="9" fill="#555">9</text>
-<circle cx="451.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="416.6" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="377.4" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="401.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="473.5" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="496.4" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<text x="327.5" y="187" font-size="9" fill="#555">3</text>
+<text x="375.3" y="187" font-size="9" fill="#555">25</text>
+<text x="470.7" y="187" font-size="9" fill="#555">13</text>
+<circle cx="459.6" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="423.8" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="424.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="387.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="317.5" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="388.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="356.4" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="477.8" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="483.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="384.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="457.3" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="373.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="337.4" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="386.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="406.8" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="338.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="424.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="473.5" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="489.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="305.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="387.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="241.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="460.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="461.3" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="461.4" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="423.4" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="502.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="429.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="434.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="400.3" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="496.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="380.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="478.4" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="457.5" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="389.6" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="261.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="439.6" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="388.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="320.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="372.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="459.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="179.0" width="64" height="20" rx="4" fill="#bb601a"/>
-<text x="672.0" y="193.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">61%</text>
+<circle cx="383.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="407.6" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="482.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="506.6" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="416.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="431.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="393.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="320.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="395.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="361.3" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="487.4" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="492.8" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="390.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="466.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="378.8" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="341.5" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="392.1" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="413.6" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="342.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="431.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="482.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="499.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="308.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="394.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="242.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="469.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="470.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="470.3" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="430.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="512.5" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="436.8" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="441.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="406.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="506.5" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="386.7" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="488.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="466.3" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="395.8" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="262.9" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="447.6" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="394.2" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="323.5" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="377.6" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="468.0" cy="189.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<rect x="640" y="179.0" width="64" height="20" rx="4" fill="#bb361a"/>
+<text x="672.0" y="193.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">54%</text>
 <rect x="210.0" y="208" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="208" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="208" width="95.5" height="22" fill="#d4edda"/>
@@ -774,56 +774,56 @@
 <text x="10" y="517.0" fill="#1a1a1a">keyword_hits</text>
 <text x="213.0" y="511" font-size="9" fill="#555">1</text>
 <text x="327.5" y="511" font-size="9" fill="#555">13</text>
-<text x="375.3" y="511" font-size="9" fill="#555">30</text>
-<text x="470.7" y="511" font-size="9" fill="#555">2</text>
-<circle cx="354.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="364.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="404.2" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="426.6" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="381.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="445.1" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="363.3" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="422.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="435.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="342.5" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="431.2" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="371.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="467.4" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="395.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="451.2" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="429.6" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="341.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="333.2" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="428.9" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="405.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="366.4" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="469.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="425.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="443.5" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="363.3" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="372.6" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="332.5" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="452.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="435.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="459.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="427.3" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="442.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="417.3" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="435.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="408.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="439.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="388.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="359.4" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="447.4" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="318.6" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="452.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="411.9" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="455.1" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="347.1" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="364.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="477.5" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="503.0" width="64" height="20" rx="4" fill="#bb7c1a"/>
-<text x="672.0" y="517.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">65%</text>
+<text x="375.3" y="511" font-size="9" fill="#555">31</text>
+<text x="470.7" y="511" font-size="9" fill="#555">1</text>
+<circle cx="352.3" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="363.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="401.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="423.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="379.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="442.1" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="420.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="420.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="432.9" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="340.9" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="428.4" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="369.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="464.1" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="393.4" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="448.1" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="426.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="340.1" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="331.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="426.1" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="403.3" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="364.5" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="465.6" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="423.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="440.5" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="361.4" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="370.6" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="331.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="448.9" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="432.9" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="456.5" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="424.6" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="439.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="414.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="432.2" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="405.5" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="436.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="385.8" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="357.6" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="444.3" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="317.3" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="449.7" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="409.4" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="451.9" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="345.5" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="363.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="474.0" cy="513.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<rect x="640" y="503.0" width="64" height="20" rx="4" fill="#bb8a1a"/>
+<text x="672.0" y="517.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">67%</text>
 <rect x="210.0" y="532" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="532" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="532" width="95.5" height="22" fill="#d4edda"/>
@@ -831,7 +831,8 @@
 <rect x="515.5" y="532" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="532" x2="420.0" y2="554" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="547.0" fill="#1a1a1a">comment_lines</text>
-<text x="327.5" y="541" font-size="9" fill="#555">6</text>
+<text x="213.0" y="541" font-size="9" fill="#555">1</text>
+<text x="327.5" y="541" font-size="9" fill="#555">5</text>
 <text x="375.3" y="541" font-size="9" fill="#555">36</text>
 <text x="470.7" y="541" font-size="9" fill="#555">1</text>
 <text x="518.5" y="541" font-size="9" fill="#555">3</text>
@@ -841,7 +842,7 @@
 <circle cx="394.5" cy="543.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="413.6" cy="543.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="426.4" cy="543.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="324.5" cy="543.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="318.2" cy="543.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="543.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="543.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="413.6" cy="543.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -947,7 +948,6 @@
 <rect x="515.5" y="616" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="616" x2="420.0" y2="638" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="631.0" fill="#1a1a1a">branch</text>
-<text x="213.0" y="625" font-size="9" fill="#555">1</text>
 <text x="327.5" y="625" font-size="9" fill="#555">8</text>
 <text x="375.3" y="625" font-size="9" fill="#555">28</text>
 <text x="470.7" y="625" font-size="9" fill="#555">1</text>
@@ -978,7 +978,6 @@
 <circle cx="381.8" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="343.6" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="381.8" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="630.0" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -998,8 +997,9 @@
 <circle cx="343.6" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="343.6" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="630.0" cy="627.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="617.0" width="64" height="20" rx="4" fill="#bb601a"/>
-<text x="672.0" y="631.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">61%</text>
+<text x="627.0" y="625" font-size="9" fill="#888" text-anchor="end">n/a 1</text>
+<rect x="640" y="617.0" width="64" height="20" rx="4" fill="#bb691a"/>
+<text x="672.0" y="631.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">62%</text>
 <rect x="210.0" y="646" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="646" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="646" width="95.5" height="22" fill="#d4edda"/>
@@ -1007,7 +1007,6 @@
 <rect x="515.5" y="646" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="646" x2="420.0" y2="668" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="661.0" fill="#1a1a1a">io</text>
-<text x="213.0" y="655" font-size="9" fill="#555">3</text>
 <text x="375.3" y="655" font-size="9" fill="#555">27</text>
 <text x="470.7" y="655" font-size="9" fill="#555">11</text>
 <text x="518.5" y="655" font-size="9" fill="#555">5</text>
@@ -1020,7 +1019,6 @@
 <circle cx="483.6" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="610.9" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="483.6" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1037,7 +1035,6 @@
 <circle cx="483.6" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="483.6" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="483.6" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="483.6" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1049,7 +1046,6 @@
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="483.6" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="630.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="630.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1057,8 +1053,9 @@
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="657.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="647.0" width="64" height="20" rx="4" fill="#bb521a"/>
-<text x="672.0" y="661.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">59%</text>
+<text x="627.0" y="655" font-size="9" fill="#888" text-anchor="end">n/a 3</text>
+<rect x="640" y="647.0" width="64" height="20" rx="4" fill="#bb6c1a"/>
+<text x="672.0" y="661.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">63%</text>
 <rect x="210.0" y="676" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="676" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="676" width="95.5" height="22" fill="#d4edda"/>
@@ -1066,7 +1063,6 @@
 <rect x="515.5" y="676" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="676" x2="420.0" y2="698" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="691.0" fill="#1a1a1a">high_risk_execution</text>
-<text x="213.0" y="685" font-size="9" fill="#555">2</text>
 <text x="375.3" y="685" font-size="9" fill="#555">40</text>
 <text x="518.5" y="685" font-size="9" fill="#555">4</text>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1086,7 +1082,6 @@
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1095,7 +1090,6 @@
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1115,8 +1109,9 @@
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="687.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="677.0" width="64" height="20" rx="4" fill="#6ebb1a"/>
-<text x="672.0" y="691.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">87%</text>
+<text x="627.0" y="685" font-size="9" fill="#888" text-anchor="end">n/a 2</text>
+<rect x="640" y="677.0" width="64" height="20" rx="4" fill="#55bb1a"/>
+<text x="672.0" y="691.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">91%</text>
 <rect x="210.0" y="706" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="706" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="706" width="95.5" height="22" fill="#d4edda"/>
@@ -1124,7 +1119,7 @@
 <rect x="515.5" y="706" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="706" x2="420.0" y2="728" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="721.0" fill="#1a1a1a">globals</text>
-<text x="213.0" y="715" font-size="9" fill="#555">4</text>
+<text x="213.0" y="715" font-size="9" fill="#555">1</text>
 <text x="375.3" y="715" font-size="9" fill="#555">37</text>
 <text x="518.5" y="715" font-size="9" fill="#555">5</text>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1144,16 +1139,13 @@
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1173,8 +1165,9 @@
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="630.0" cy="717.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="707.0" width="64" height="20" rx="4" fill="#98bb1a"/>
-<text x="672.0" y="721.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">80%</text>
+<text x="627.0" y="715" font-size="9" fill="#888" text-anchor="end">n/a 3</text>
+<rect x="640" y="707.0" width="64" height="20" rx="4" fill="#74bb1a"/>
+<text x="672.0" y="721.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">86%</text>
 <rect x="210.0" y="736" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="736" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="736" width="95.5" height="22" fill="#d4edda"/>
@@ -1182,7 +1175,6 @@
 <rect x="515.5" y="736" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="736" x2="420.0" y2="758" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="751.0" fill="#1a1a1a">test</text>
-<text x="213.0" y="745" font-size="9" fill="#555">3</text>
 <text x="327.5" y="745" font-size="9" fill="#555">1</text>
 <text x="375.3" y="745" font-size="9" fill="#555">38</text>
 <text x="518.5" y="745" font-size="9" fill="#555">4</text>
@@ -1206,13 +1198,11 @@
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="515.5" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1229,11 +1219,11 @@
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="324.5" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="747.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="737.0" width="64" height="20" rx="4" fill="#8abb1a"/>
-<text x="672.0" y="751.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">83%</text>
+<text x="627.0" y="745" font-size="9" fill="#888" text-anchor="end">n/a 3</text>
+<rect x="640" y="737.0" width="64" height="20" rx="4" fill="#65bb1a"/>
+<text x="672.0" y="751.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">88%</text>
 <rect x="210.0" y="766" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="766" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="766" width="95.5" height="22" fill="#d4edda"/>
@@ -1241,7 +1231,6 @@
 <rect x="515.5" y="766" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="766" x2="420.0" y2="788" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="781.0" fill="#1a1a1a">safety</text>
-<text x="213.0" y="775" font-size="9" fill="#555">1</text>
 <text x="327.5" y="775" font-size="9" fill="#555">3</text>
 <text x="375.3" y="775" font-size="9" fill="#555">23</text>
 <text x="518.5" y="775" font-size="9" fill="#555">19</text>
@@ -1271,7 +1260,6 @@
 <circle cx="420.0" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="515.5" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="515.5" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1291,8 +1279,9 @@
 <circle cx="420.0" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="324.5" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="515.5" cy="777.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="767.0" width="64" height="20" rx="4" fill="#bb1a1a"/>
-<text x="672.0" y="781.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">50%</text>
+<text x="627.0" y="775" font-size="9" fill="#888" text-anchor="end">n/a 1</text>
+<rect x="640" y="767.0" width="64" height="20" rx="4" fill="#bb211a"/>
+<text x="672.0" y="781.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">51%</text>
 <rect x="210.0" y="796" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="796" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="796" width="95.5" height="22" fill="#d4edda"/>
@@ -1300,7 +1289,7 @@
 <rect x="515.5" y="796" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="796" x2="420.0" y2="818" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="811.0" fill="#1a1a1a">safety_bypasses</text>
-<text x="213.0" y="805" font-size="9" fill="#555">5</text>
+<text x="213.0" y="805" font-size="9" fill="#555">4</text>
 <text x="327.5" y="805" font-size="9" fill="#555">1</text>
 <text x="375.3" y="805" font-size="9" fill="#555">30</text>
 <text x="518.5" y="805" font-size="9" fill="#555">10</text>
@@ -1330,7 +1319,6 @@
 <circle cx="610.9" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="515.5" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1350,8 +1338,9 @@
 <circle cx="420.0" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="324.5" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="807.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="797.0" width="64" height="20" rx="4" fill="#bb7c1a"/>
-<text x="672.0" y="811.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">65%</text>
+<text x="627.0" y="805" font-size="9" fill="#888" text-anchor="end">n/a 1</text>
+<rect x="640" y="797.0" width="64" height="20" rx="4" fill="#bb851a"/>
+<text x="672.0" y="811.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">67%</text>
 <rect x="210.0" y="826" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="826" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="826" width="95.5" height="22" fill="#d4edda"/>
@@ -1359,7 +1348,7 @@
 <rect x="515.5" y="826" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="826" x2="420.0" y2="848" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="841.0" fill="#1a1a1a">telemetry</text>
-<text x="213.0" y="835" font-size="9" fill="#555">3</text>
+<text x="213.0" y="835" font-size="9" fill="#555">1</text>
 <text x="375.3" y="835" font-size="9" fill="#555">43</text>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1370,7 +1359,6 @@
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1387,7 +1375,6 @@
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1407,8 +1394,9 @@
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="837.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="827.0" width="64" height="20" rx="4" fill="#44bb1a"/>
-<text x="672.0" y="841.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">93%</text>
+<text x="627.0" y="835" font-size="9" fill="#888" text-anchor="end">n/a 2</text>
+<rect x="640" y="827.0" width="64" height="20" rx="4" fill="#29bb1a"/>
+<text x="672.0" y="841.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">98%</text>
 <rect x="210.0" y="856" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="856" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="856" width="95.5" height="22" fill="#d4edda"/>
@@ -1416,7 +1404,7 @@
 <rect x="515.5" y="856" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="856" x2="420.0" y2="878" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="871.0" fill="#1a1a1a">state_mutation</text>
-<text x="213.0" y="865" font-size="9" fill="#555">11</text>
+<text x="213.0" y="865" font-size="9" fill="#555">8</text>
 <text x="327.5" y="865" font-size="9" fill="#555">3</text>
 <text x="375.3" y="865" font-size="9" fill="#555">21</text>
 <text x="470.7" y="865" font-size="9" fill="#555">1</text>
@@ -1430,7 +1418,6 @@
 <circle cx="292.7" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="515.5" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1438,7 +1425,6 @@
 <circle cx="579.1" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="483.6" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="292.7" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="292.7" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1447,7 +1433,6 @@
 <circle cx="420.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="356.4" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="630.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="515.5" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="547.3" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1467,8 +1452,9 @@
 <circle cx="292.7" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="260.9" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="867.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
+<text x="627.0" y="865" font-size="9" fill="#888" text-anchor="end">n/a 3</text>
 <rect x="640" y="857.0" width="64" height="20" rx="4" fill="#bb1a1a"/>
-<text x="672.0" y="871.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">46%</text>
+<text x="672.0" y="871.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">49%</text>
 <rect x="210.0" y="886" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="886" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="886" width="95.5" height="22" fill="#d4edda"/>
@@ -1476,7 +1462,7 @@
 <rect x="515.5" y="886" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="886" x2="420.0" y2="908" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="901.0" fill="#1a1a1a">cleanup</text>
-<text x="213.0" y="895" font-size="9" fill="#555">5</text>
+<text x="213.0" y="895" font-size="9" fill="#555">1</text>
 <text x="375.3" y="895" font-size="9" fill="#555">39</text>
 <text x="518.5" y="895" font-size="9" fill="#555">2</text>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1488,7 +1474,6 @@
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1499,13 +1484,11 @@
 <circle cx="229.1" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="515.5" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="610.9" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1523,10 +1506,10 @@
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="897.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="887.0" width="64" height="20" rx="4" fill="#7cbb1a"/>
-<text x="672.0" y="901.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">85%</text>
+<text x="627.0" y="895" font-size="9" fill="#888" text-anchor="end">n/a 4</text>
+<rect x="640" y="887.0" width="64" height="20" rx="4" fill="#48bb1a"/>
+<text x="672.0" y="901.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">93%</text>
 <rect x="210.0" y="916" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="916" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="916" width="95.5" height="22" fill="#d4edda"/>
@@ -1534,7 +1517,6 @@
 <rect x="515.5" y="916" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="916" x2="420.0" y2="938" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="931.0" fill="#1a1a1a">fragile_debt</text>
-<text x="213.0" y="925" font-size="9" fill="#555">1</text>
 <text x="375.3" y="925" font-size="9" fill="#555">44</text>
 <text x="518.5" y="925" font-size="9" fill="#555">1</text>
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1563,7 +1545,6 @@
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1583,8 +1564,9 @@
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="927.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="917.0" width="64" height="20" rx="4" fill="#36bb1a"/>
-<text x="672.0" y="931.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">96%</text>
+<text x="627.0" y="925" font-size="9" fill="#888" text-anchor="end">n/a 1</text>
+<rect x="640" y="917.0" width="64" height="20" rx="4" fill="#29bb1a"/>
+<text x="672.0" y="931.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">98%</text>
 <rect x="210.0" y="946" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="946" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="946" width="95.5" height="22" fill="#d4edda"/>
@@ -1592,7 +1574,6 @@
 <rect x="515.5" y="946" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="946" x2="420.0" y2="968" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="961.0" fill="#1a1a1a">planned_debt</text>
-<text x="213.0" y="955" font-size="9" fill="#555">1</text>
 <text x="375.3" y="955" font-size="9" fill="#555">43</text>
 <text x="518.5" y="955" font-size="9" fill="#555">2</text>
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1621,7 +1602,6 @@
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1641,8 +1621,9 @@
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="957.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="947.0" width="64" height="20" rx="4" fill="#44bb1a"/>
-<text x="672.0" y="961.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">93%</text>
+<text x="627.0" y="955" font-size="9" fill="#888" text-anchor="end">n/a 1</text>
+<rect x="640" y="947.0" width="64" height="20" rx="4" fill="#37bb1a"/>
+<text x="672.0" y="961.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">96%</text>
 <rect x="210.0" y="976" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="976" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="976" width="95.5" height="22" fill="#d4edda"/>
@@ -1650,7 +1631,6 @@
 <rect x="515.5" y="976" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="976" x2="420.0" y2="998" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="991.0" fill="#1a1a1a">import</text>
-<text x="213.0" y="985" font-size="9" fill="#555">1</text>
 <text x="375.3" y="985" font-size="9" fill="#555">43</text>
 <text x="470.7" y="985" font-size="9" fill="#555">1</text>
 <text x="518.5" y="985" font-size="9" fill="#555">1</text>
@@ -1680,7 +1660,6 @@
 <circle cx="420.0" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1700,8 +1679,9 @@
 <circle cx="420.0" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="987.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="977.0" width="64" height="20" rx="4" fill="#44bb1a"/>
-<text x="672.0" y="991.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">93%</text>
+<text x="627.0" y="985" font-size="9" fill="#888" text-anchor="end">n/a 1</text>
+<rect x="640" y="977.0" width="64" height="20" rx="4" fill="#37bb1a"/>
+<text x="672.0" y="991.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">96%</text>
 <rect x="210.0" y="1006" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="1006" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="1006" width="95.5" height="22" fill="#d4edda"/>
@@ -1709,7 +1689,7 @@
 <rect x="515.5" y="1006" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="1006" x2="420.0" y2="1028" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="1021.0" fill="#1a1a1a">func_start</text>
-<text x="213.0" y="1015" font-size="9" fill="#555">2</text>
+<text x="213.0" y="1015" font-size="9" fill="#555">1</text>
 <text x="375.3" y="1015" font-size="9" fill="#555">43</text>
 <text x="470.7" y="1015" font-size="9" fill="#555">1</text>
 <circle cx="420.0" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1738,7 +1718,6 @@
 <circle cx="420.0" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="434.7" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1758,8 +1737,9 @@
 <circle cx="420.0" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1017.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="1007.0" width="64" height="20" rx="4" fill="#44bb1a"/>
-<text x="672.0" y="1021.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">93%</text>
+<text x="627.0" y="1015" font-size="9" fill="#888" text-anchor="end">n/a 1</text>
+<rect x="640" y="1007.0" width="64" height="20" rx="4" fill="#37bb1a"/>
+<text x="672.0" y="1021.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">96%</text>
 <rect x="210.0" y="1036" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="1036" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="1036" width="95.5" height="22" fill="#d4edda"/>
@@ -1767,7 +1747,7 @@
 <rect x="515.5" y="1036" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="1036" x2="420.0" y2="1058" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="1051.0" fill="#1a1a1a">args</text>
-<text x="213.0" y="1045" font-size="9" fill="#555">10</text>
+<text x="213.0" y="1045" font-size="9" fill="#555">9</text>
 <text x="375.3" y="1045" font-size="9" fill="#555">32</text>
 <text x="470.7" y="1045" font-size="9" fill="#555">3</text>
 <text x="518.5" y="1045" font-size="9" fill="#555">1</text>
@@ -1797,7 +1777,6 @@
 <circle cx="420.0" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="493.4" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="243.8" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="537.5" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1817,8 +1796,9 @@
 <circle cx="258.5" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="229.1" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1047.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="1037.0" width="64" height="20" rx="4" fill="#bb981a"/>
-<text x="672.0" y="1051.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">70%</text>
+<text x="627.0" y="1045" font-size="9" fill="#888" text-anchor="end">n/a 1</text>
+<rect x="640" y="1037.0" width="64" height="20" rx="4" fill="#bba21a"/>
+<text x="672.0" y="1051.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">71%</text>
 <rect x="210.0" y="1066" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="1066" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="1066" width="95.5" height="22" fill="#d4edda"/>
@@ -1826,7 +1806,7 @@
 <rect x="515.5" y="1066" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="1066" x2="420.0" y2="1088" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="1081.0" fill="#1a1a1a">doc</text>
-<text x="213.0" y="1075" font-size="9" fill="#555">3</text>
+<text x="213.0" y="1075" font-size="9" fill="#555">1</text>
 <text x="375.3" y="1075" font-size="9" fill="#555">28</text>
 <text x="518.5" y="1075" font-size="9" fill="#555">15</text>
 <circle cx="610.9" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1849,13 +1829,11 @@
 <circle cx="610.9" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="610.9" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="610.9" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="610.9" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1875,8 +1853,9 @@
 <circle cx="420.0" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="610.9" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1077.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="1067.0" width="64" height="20" rx="4" fill="#bb601a"/>
-<text x="672.0" y="1081.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">61%</text>
+<text x="627.0" y="1075" font-size="9" fill="#888" text-anchor="end">n/a 2</text>
+<rect x="640" y="1067.0" width="64" height="20" rx="4" fill="#bb721a"/>
+<text x="672.0" y="1081.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">64%</text>
 <rect x="210.0" y="1096" width="114.5" height="22" fill="#f8d7da"/>
 <rect x="324.5" y="1096" width="47.7" height="22" fill="#fff3cd"/>
 <rect x="372.3" y="1096" width="95.5" height="22" fill="#d4edda"/>
@@ -1884,7 +1863,7 @@
 <rect x="515.5" y="1096" width="114.5" height="22" fill="#f8d7da"/>
 <line x1="420.0" y1="1096" x2="420.0" y2="1118" stroke="#999" stroke-dasharray="2,2"/>
 <text x="10" y="1111.0" fill="#1a1a1a">ownership</text>
-<text x="213.0" y="1105" font-size="9" fill="#555">3</text>
+<text x="213.0" y="1105" font-size="9" fill="#555">1</text>
 <text x="375.3" y="1105" font-size="9" fill="#555">42</text>
 <text x="518.5" y="1105" font-size="9" fill="#555">1</text>
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1913,7 +1892,6 @@
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
@@ -1931,8 +1909,8 @@
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<circle cx="229.1" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
 <circle cx="420.0" cy="1107.0" r="4.5" fill="#1f3a5f" fill-opacity="0.3"/>
-<rect x="640" y="1097.0" width="64" height="20" rx="4" fill="#52bb1a"/>
-<text x="672.0" y="1111.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">91%</text>
+<text x="627.0" y="1105" font-size="9" fill="#888" text-anchor="end">n/a 2</text>
+<rect x="640" y="1097.0" width="64" height="20" rx="4" fill="#37bb1a"/>
+<text x="672.0" y="1111.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">95%</text>
 </svg>

@@ -72,3 +72,26 @@ and re-baseline steps above, cross-repo PR ordering, and close-out — is packag
 `tools/language_deviations.py <lang>` prints the live vs-median band table it triages from.
 The first full sweep (jcl: issue #2581 → gitgalaxy#2610 + this repo's PR #4) is the worked
 example, and gitgalaxy's `docs/language_status/jcl.md` §10 is its capstone write-up.
+
+## n/a (incomparable) semantics
+
+A signal whose rule is `None`/absent in the language's `LANGUAGE_DEFINITIONS` entry can never
+be reported nonzero by the engine — a measured 0 there means "**not expressible as measured**",
+not "the engine found nothing". The bias tooling (`bias_report.py`, the chart,
+`findings_report.py`, `language_deviations.py`) renders those cells **n/a**: excluded from
+medians, deviation bands, and consistency scores, never counted as −100% divergence. (`api` is
+exempt from this inference: the orphan-conversion mechanism synthesizes `api` even where no
+rule exists — see ledger `api-contextual-baseline-fix`.)
+
+Two hard rules keep n/a from becoming a rug:
+
+1. **n/a is mechanical, correctness is not.** The n/a marker only states what the registry
+   says today. Whether the absence is *right* is a bucket-2 question in the
+   `rosetta-language-sweep` skill — jcl's `safety` rule was `None` until gitgalaxy#2610 proved
+   JCL has real error-handling morphology (`COND=`). An absence is either real morphology
+   (→ ledger it) or a missing-rule engine gap (→ file it); it is never simply fine.
+2. **Unreviewed absences stay loud.** An n/a cell with no validated ledger entry naming that
+   language AND that signal (the entry's `signal` field is a `|`-separated list) is rendered
+   with a warning marker (†/⚠) in every report, and `language_deviations.py` exits nonzero on
+   it. The worked example of "reviewed": `jcl-2610-rebaseline-residual-morphology` covers
+   jcl's `cleanup|doc|test|globals` with the reasoning for each.
