@@ -1,0 +1,429 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [
+      "bitAnd",
+      "bitOr",
+      "bitXor",
+      "bitNot",
+      "bitShiftLeft",
+      "bitShiftRight"
+    ],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "then",
+      "else",
+      "switch",
+      "case",
+      "default",
+      "repeat",
+      "while",
+      "until",
+      "times",
+      "try",
+      "catch",
+      "finally",
+      "throw",
+      "and",
+      "or",
+      "not"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "dispatch",
+      "pendingMessages",
+      "cancel"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "it"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "answer",
+      "ask",
+      "do",
+      "quit"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [
+      "require",
+      "include",
+      "module"
+    ],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "quit",
+      "throw",
+      "abort"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "frontscripts",
+      "backscripts"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "matchText",
+      "matchChunk",
+      "replaceText"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "catch",
+      "finally",
+      "throw",
+      "assert"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "sqrt",
+      "exp",
+      "ln",
+      "log2",
+      "log10",
+      "sin",
+      "cos",
+      "tan",
+      "asin",
+      "acos",
+      "atan",
+      "atan2",
+      "abs",
+      "round",
+      "trunc",
+      "random",
+      "any",
+      "average",
+      "max",
+      "min"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "jsonImport",
+      "jsonExport",
+      "arrayEncode",
+      "arrayDecode",
+      "revXMLCreateTree"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "put",
+      "get",
+      "set",
+      "go",
+      "send",
+      "dispatch",
+      "pass",
+      "return",
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "play",
+      "sort",
+      "find",
+      "replace"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "revLog",
+      "syslog",
+      "logError",
+      "logInfo",
+      "logWarn",
+      "logDebug",
+      "mergLog",
+      "rreLog",
+      "lcLog"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "Levure",
+      "LcU",
+      "runTests"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "card",
+      "stack",
+      "background",
+      "bg",
+      "button",
+      "btn",
+      "field",
+      "fld",
+      "group",
+      "grp",
+      "graphic",
+      "grc",
+      "image",
+      "img",
+      "scrollbar",
+      "browser",
+      "widget"
+    ],
+    "pattern_defined": true
+  }
+}

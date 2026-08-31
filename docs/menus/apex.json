@@ -1,0 +1,431 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "global",
+      "webservice"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "when",
+      "for",
+      "while",
+      "do",
+      "try",
+      "catch",
+      "finally",
+      "break",
+      "continue",
+      "return"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "@future",
+      "Queueable",
+      "Schedulable",
+      "Batchable",
+      "System.enqueueJob",
+      "Database.executeBatch",
+      "System.schedule"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "System.debug"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "fflib_ApexMocks",
+      "fflib_SObjectUnitOfWork",
+      "Injector",
+      "di_Injector",
+      "Application.Service",
+      "Type.newInstance"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@description",
+      "@param",
+      "@return",
+      "@author",
+      "@date",
+      "@example"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "private",
+      "protected"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "EventBus.publish",
+      "PlatformEvent"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "UserInfo",
+      "System.Label",
+      "Organization",
+      "Cache.Org",
+      "Cache.Session"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "Database.query",
+      "delete",
+      "undelete",
+      "emptyRecycleBin",
+      "purgeOldAsyncJobs"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "final",
+      "const"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [
+      "bType.forName"
+    ],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "Http",
+      "HttpRequest",
+      "HttpResponse",
+      "Database.executeBatch",
+      "HTLoad",
+      "HTGet",
+      "ENQUIRE"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "Limits.getHeapSize",
+      "Limits.getLimitHeapSize"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "Database.rollback",
+      "purgeOldAsyncJobs"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "Database.query",
+      "Type.forName",
+      "Schema.getGlobalDescribe",
+      "Schema.describeSObjects",
+      "SObject.put",
+      "SObject.get",
+      "JSON.deserializeUntyped"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "isAccessible",
+      "isCreateable",
+      "isUpdateable",
+      "isDeletable",
+      "StripInaccessible",
+      "try",
+      "catch",
+      "finally",
+      "Security.stripInaccessible"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "Database.query",
+      "@SuppressWarnings"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "Decimal",
+      "setScale",
+      "setRoundingMode"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [
+      "WorldWideWeb",
+      "RFC",
+      "W3C",
+      "CERN",
+      "TBL",
+      "ENQUIRE"
+    ],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "RestContext.request",
+      "RestContext.response",
+      "RestRequest",
+      "RestResponse",
+      "renderAs"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "insert",
+      "update",
+      "upsert",
+      "delete",
+      "merge"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "class",
+      "interface",
+      "trigger",
+      "enum",
+      "final",
+      "transient",
+      "implements",
+      "extends",
+      "virtual",
+      "abstract",
+      "return"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "@isTest",
+      "@TestSetup",
+      "@TestVisible",
+      "Test.startTest",
+      "Test.stopTest",
+      "System.assert",
+      "Test.setMock"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "StubProvider",
+      "Test.setMock",
+      "@SuppressWarnings"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "ApexPages",
+      "PageReference",
+      "StandardController",
+      "Dom.Document",
+      "SGML",
+      "HyperText",
+      "WorldWideWeb",
+      "BrowserView"
+    ],
+    "pattern_defined": true
+  }
+}

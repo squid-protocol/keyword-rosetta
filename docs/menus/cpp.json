@@ -1,0 +1,577 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "export"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "switch",
+      "case",
+      "default",
+      "for",
+      "while",
+      "do",
+      "catch",
+      "break",
+      "continue",
+      "goto",
+      "co_yield",
+      "co_await"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [
+      "std::transform",
+      "std::accumulate",
+      "std::reduce",
+      "std::for_each",
+      "std::filter"
+    ],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "std::thread",
+      "std::jthread",
+      "std::mutex",
+      "std::future",
+      "std::promise",
+      "std::async",
+      "std::latch",
+      "std::barrier",
+      "std::condition_variable",
+      "std::semaphore",
+      "co_await",
+      "std::coroutine_handle"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "std::cout",
+      "std::cerr",
+      "std::clog",
+      "printf",
+      "fprintf",
+      "vprintf",
+      "puts",
+      "putchar",
+      "std::print",
+      "std::println"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "boost.di",
+      "IServiceCollection"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@param",
+      "@return",
+      "@brief",
+      "@details",
+      "@tparam"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "emit",
+      "signal",
+      "slot",
+      "notify",
+      "publish",
+      "subscribe",
+      "boost::signals2"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [
+      "static_cast",
+      "dynamic_cast",
+      "reinterpret_cast",
+      "const_cast",
+      "bit_cast"
+    ],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [
+      "concept",
+      "requires"
+    ],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "extern",
+      "static",
+      "thread_local"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "system",
+      "memcpy",
+      "memset",
+      "abort",
+      "exit",
+      "std::terminate",
+      "longjmp",
+      "setjmp"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "const",
+      "constexpr",
+      "consteval",
+      "constinit",
+      "final",
+      "readonly",
+      "Immutable"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "inline_asm": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "std::fstream",
+      "std::ifstream",
+      "std::ofstream",
+      "std::filesystem",
+      "fopen",
+      "fclose",
+      "fread",
+      "fwrite",
+      "socket",
+      "recv",
+      "send",
+      "curl_easy_perform",
+      "std::cin"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "boost::interprocess",
+      "mmap",
+      "shm_open",
+      "pipe",
+      "fork",
+      "grpc::ServerBuilder"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "on",
+      "addEventListener",
+      "subscribe",
+      "connect",
+      "handler",
+      "callback"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "new",
+      "malloc",
+      "calloc",
+      "realloc",
+      "aligned_alloc",
+      "mmap",
+      "alloca"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [
+      "@author",
+      "Copyright"
+    ],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "abort",
+      "exit",
+      "_Exit",
+      "quick_exit",
+      "std::terminate",
+      "longjmp"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "uintptr_t",
+      "intptr_t",
+      "ptrdiff_t",
+      "size_t"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "std::enable_if",
+      "std::is_same",
+      "std::any_cast",
+      "std::bit_cast",
+      "decltype"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "std::regex",
+      "std::regex_match",
+      "std::regex_search",
+      "std::regex_replace"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "catch",
+      "finally",
+      "std::unique_ptr",
+      "std::shared_ptr",
+      "std::weak_ptr",
+      "override",
+      "final",
+      "noexcept",
+      "static_assert",
+      "assert",
+      "std::optional",
+      "std::expected",
+      "std::span",
+      "std::variant",
+      "std::lock_guard",
+      "std::atomic"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "std::cmath",
+      "std::complex",
+      "std::linalg",
+      "std::mdspan",
+      "std::simd",
+      "__m128",
+      "__m256",
+      "__m512"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "nlohmann::json",
+      "rapidjson",
+      "boost::archive",
+      "ParseFromString",
+      "SerializeToString"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "FCGI_Accept",
+      "render_template"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "mutable",
+      "std::move",
+      "std::exchange",
+      "std::swap",
+      "std::atomic"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "namespace",
+      "using",
+      "class",
+      "struct",
+      "enum",
+      "union",
+      "template",
+      "typename",
+      "concept",
+      "requires",
+      "auto",
+      "return",
+      "void",
+      "inline",
+      "virtual",
+      "explicit",
+      "friend",
+      "module",
+      "export",
+      "import",
+      "typedef"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "mutex",
+      "lock",
+      "synchronized",
+      "Semaphore",
+      "std::lock_guard",
+      "std::scoped_lock",
+      "std::unique_lock",
+      "mtx_lock"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "TEST",
+      "TEST_F",
+      "TEST_CASE",
+      "SECTION",
+      "REQUIRE",
+      "CHECK",
+      "GTest"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "GTEST_SKIP",
+      "test.skip",
+      "it.skip"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "sleep",
+      "delay",
+      "usleep",
+      "nanosleep",
+      "std::this_thread::sleep_for"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "std::time_t",
+      "std::localtime"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "Q_OBJECT",
+      "QWidget",
+      "wxFrame",
+      "Fl_Window"
+    ],
+    "pattern_defined": true
+  }
+}

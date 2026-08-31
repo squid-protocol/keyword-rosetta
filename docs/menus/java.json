@@ -1,0 +1,558 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "public",
+      "protected"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "switch",
+      "case",
+      "default",
+      "for",
+      "while",
+      "do",
+      "catch",
+      "finally",
+      "continue",
+      "break",
+      "yield",
+      "try",
+      "when"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "synchronized",
+      "Thread",
+      "Runnable",
+      "Future",
+      "CompletableFuture",
+      "ExecutorService",
+      "Semaphore",
+      "VirtualThread",
+      "StructuredTaskScope",
+      "ScopedValue",
+      "Mono",
+      "Flux",
+      "Publisher"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "ApplicationContext",
+      "BeanFactory",
+      "@Autowired",
+      "@Inject",
+      "@Qualifier",
+      "@Primary",
+      "@Component",
+      "@Service",
+      "@Repository",
+      "@Bean",
+      "@Configuration",
+      "@Provides"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@param",
+      "@return",
+      "@throws",
+      "@deprecated",
+      "@see",
+      "@since",
+      "@apiNote",
+      "@implSpec",
+      "@Operation",
+      "@Schema"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "private",
+      "protected",
+      "internal"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "ApplicationEvent",
+      "ApplicationEventPublisher",
+      "ApplicationListener",
+      "EventObject",
+      "publishEvent",
+      "@EventListener",
+      "@KafkaListener",
+      "@RabbitListener",
+      "@JmsListener"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "System.getProperty",
+      "System.getenv",
+      "ThreadLocal",
+      "ScopedValue"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "ProcessBuilder",
+      "System.exit",
+      "Thread.stop",
+      "Unsafe"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "final",
+      "immutable",
+      "Object.freeze"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "File",
+      "InputStream",
+      "OutputStream",
+      "Reader",
+      "Writer",
+      "Scanner",
+      "Path",
+      "Socket",
+      "RestTemplate",
+      "WebClient",
+      "RestClient",
+      "HttpClient",
+      "Connection",
+      "ResultSet",
+      "Statement",
+      "EntityManager",
+      "DataSource",
+      "Repository"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "ProcessBuilder",
+      "KafkaTemplate",
+      "RabbitTemplate",
+      "JmsTemplate",
+      "java.rmi"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "addEventListener",
+      "subscribe",
+      "@KafkaListener",
+      "@RabbitListener"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "Arena.ofConfined",
+      "Arena.ofShared",
+      "Arena.ofAuto",
+      "Arena.global",
+      "SegmentAllocator",
+      "allocateFrom",
+      "ByteBuffer.allocateDirect"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [
+      "@author"
+    ],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "abort",
+      "System.exit",
+      "halt"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "MemorySegment",
+      "MemoryLayout",
+      "ValueLayout",
+      "AddressLayout",
+      "SymbolLookup"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "native",
+      "Class.forName",
+      "Method.invoke",
+      "Field.setAccessible",
+      "Proxy.newProxyInstance",
+      "ClassLoader",
+      "MethodHandles",
+      "VarHandle",
+      "Linker.nativeLinker",
+      "@SneakyThrows"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "Pattern.compile",
+      "Matcher.find"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "catch",
+      "finally",
+      "assert",
+      "Optional",
+      "Objects.requireNonNull",
+      "instanceof"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "null",
+      "@SuppressWarnings",
+      "@SneakyThrows"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "BigDecimal",
+      "BigInteger",
+      "Random",
+      "SecureRandom",
+      "StrictMath",
+      "VectorSpecies",
+      "FloatVector",
+      "IntVector"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "ObjectMapper",
+      "readValue",
+      "readTree",
+      "fromJson",
+      "ObjectInputStream",
+      "DocumentBuilder",
+      "SAXParser"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "ModelAndView",
+      "FacesServlet",
+      "HttpServletRequest",
+      "HttpServletResponse",
+      "JspWriter",
+      "ThymeleafViewResolver",
+      "@ResponseBody",
+      "@ResponseStatus"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "volatile"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "void",
+      "return",
+      "import",
+      "package",
+      "class",
+      "interface",
+      "enum",
+      "record",
+      "extends",
+      "implements",
+      "var",
+      "sealed",
+      "permits",
+      "new",
+      "throws",
+      "module",
+      "requires",
+      "exports",
+      "opens",
+      "provides",
+      "uses"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "mutex",
+      "lock",
+      "synchronized",
+      "Semaphore",
+      "ReentrantLock",
+      "ReadWriteLock",
+      "Condition"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "@Slf4j",
+      "@Log4j2"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "verifyZeroInteractions"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "Thread.sleep",
+      "delay",
+      "CountDownLatch.await"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "LocalDate",
+      "ZonedDateTime",
+      "Instant",
+      "Duration",
+      "System.currentTimeMillis",
+      "Calendar.getInstance"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "SwingUtilities",
+      "JFrame",
+      "JPanel",
+      "ModelAndView",
+      "ModelMap",
+      "Model",
+      "VaadinSession",
+      "FacesContext",
+      "UIComponent",
+      "@ModelAttribute"
+    ],
+    "pattern_defined": true
+  }
+}

@@ -1,0 +1,535 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "export"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "switch",
+      "case",
+      "default",
+      "for",
+      "while",
+      "do",
+      "try",
+      "catch",
+      "finally",
+      "break",
+      "continue",
+      "when"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "async",
+      "await",
+      "Future",
+      "Stream",
+      "Isolate",
+      "ReceivePort",
+      "SendPort",
+      "Completer",
+      "Timer",
+      "StreamSubscription"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "GetIt.I",
+      "GetIt.instance",
+      "Provider.of",
+      "ConsumerWidget",
+      "ref.watch",
+      "ref.read",
+      "Injector",
+      "@injectable"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@param",
+      "@return"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "@protected",
+      "@private"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "StreamController",
+      "EventBus",
+      "Subject",
+      "BehaviorSubject",
+      "PublishSubject",
+      "EventEmitter",
+      "BlocProvider",
+      "notifyListeners"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "Platform.environment",
+      "Zone.current"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "exit",
+      "exitCode",
+      "Process.killPid"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "const",
+      "final",
+      "readonly",
+      "@immutable"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "File",
+      "Directory",
+      "HttpClient",
+      "HttpServer",
+      "ServerSocket",
+      "WebSocket",
+      "Uri.parse",
+      "HtmlDocument",
+      "HttpRequest",
+      "HttpResponse",
+      "HTRequest",
+      "Nexus",
+      "ENQUIRE"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "Isolate.spawn",
+      "ReceivePort",
+      "SendPort",
+      "Process.run",
+      "Process.start",
+      "HttpClient"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "addEventListener",
+      "subscribe",
+      "watch",
+      "useEffect",
+      "listen"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "@JsonSerializable",
+      "@freezed"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "ffi.Allocator",
+      "malloc.allocate",
+      "calloc.allocate",
+      "malloc.free",
+      "Arena"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "rethrow",
+      "exit",
+      "exitCode",
+      "Process.killPid"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "Opaque",
+      "ffi.cast",
+      "IntPtr",
+      "ffi.Pointer"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "MethodChannel",
+      "EventChannel",
+      "reflect",
+      "reflectClass",
+      "noSuchMethod"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "catch",
+      "finally",
+      "assert",
+      "required",
+      "late",
+      "is",
+      "SafeArea",
+      "@immutable",
+      "@mustCallSuper"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "math.sin",
+      "math.cos",
+      "math.sqrt",
+      "math.pi",
+      "Float64List",
+      "Float32List",
+      "Int32List",
+      "Uint8List",
+      "Vector2",
+      "Vector3",
+      "Matrix4"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "jsonDecode",
+      "jsonEncode",
+      "json.decode",
+      "json.encode",
+      "Utf8Decoder",
+      "Utf8Encoder"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [
+      "WorldWideWeb"
+    ],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "shelf",
+      "dart_frog",
+      "Serverpod",
+      "RequestContext",
+      "Handler",
+      "Serve",
+      "renderHtml"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "setState",
+      "notifyListeners",
+      "markNeedsBuild",
+      "StreamController.add"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "var",
+      "late",
+      "return",
+      "yield",
+      "await",
+      "class",
+      "mixin",
+      "extension",
+      "enum",
+      "typedef",
+      "import",
+      "export",
+      "part",
+      "library",
+      "base",
+      "sealed",
+      "interface",
+      "macro"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "Mutex",
+      "Lock",
+      "synchronized",
+      "Semaphore",
+      "Completer"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "test",
+      "testWidgets",
+      "group",
+      "setUp",
+      "tearDown",
+      "pumpWidget",
+      "pumpAndSettle"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "@Ignore",
+      "test.skip",
+      "t.Skip",
+      "xit",
+      "mock"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "DateTime.now",
+      "Timer.run",
+      "Timer.periodic",
+      "Stopwatch"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "Widget",
+      "BuildContext",
+      "StatefulWidget",
+      "Scaffold",
+      "Container",
+      "Text",
+      "HtmlElementView",
+      "RichText",
+      "Hyperlink",
+      "SGML",
+      "HyperText",
+      "Browser"
+    ],
+    "pattern_defined": true
+  }
+}

@@ -1,0 +1,531 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "methods"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [
+      "bitand",
+      "bitor",
+      "bitxor",
+      "bitcmp",
+      "bitshift",
+      "bitset",
+      "bitget"
+    ],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "elseif",
+      "else",
+      "switch",
+      "case",
+      "otherwise",
+      "for",
+      "while",
+      "try",
+      "catch"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "clear",
+      "clearvars",
+      "delete",
+      "close",
+      "fclose",
+      "onCleanup"
+    ],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [
+      "arrayfun",
+      "cellfun",
+      "structfun",
+      "rowfun",
+      "varfun"
+    ],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "parfor",
+      "parfeval",
+      "spmd",
+      "batch",
+      "createJob",
+      "createTask",
+      "BackgroundPool",
+      "parpool",
+      "fetchOutputs"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "disp",
+      "warning",
+      "fprintf"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "notify",
+      "event.EventData",
+      "event.PropertyEvent"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "global",
+      "persistent",
+      "setenv",
+      "getenv"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "clc",
+      "system",
+      "dos",
+      "unix",
+      "exit",
+      "quit",
+      "keyboard"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "load",
+      "save",
+      "fopen",
+      "fclose",
+      "fread",
+      "fwrite",
+      "fscanf",
+      "webread",
+      "webwrite",
+      "urlread",
+      "urlwrite",
+      "readtable",
+      "writetable",
+      "readmatrix",
+      "writematrix",
+      "serialport",
+      "imread",
+      "imwrite",
+      "audioread"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "system",
+      "dos",
+      "unix",
+      "tcpclient",
+      "tcpserver",
+      "parpool",
+      "parfor"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "addlistener",
+      "event.listener",
+      "event.proplistener"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "rethrow",
+      "MException",
+      "throwAsCaller"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "libpointer",
+      "calllib"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "feval",
+      "bsxfun",
+      "cell2mat",
+      "mat2cell",
+      "num2cell",
+      "struct2cell",
+      "str2func",
+      "func2str",
+      "meta.class",
+      "metaclass"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "regexp",
+      "regexpi",
+      "regexprep"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "catch",
+      "narginchk",
+      "nargoutchk",
+      "validateattributes",
+      "validatestring",
+      "assert",
+      "isa",
+      "isempty",
+      "isnumeric",
+      "ischar",
+      "isstruct",
+      "isfield",
+      "iscell",
+      "islogical",
+      "arguments"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "eval",
+      "evalin",
+      "assignin",
+      "evalc"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "fft",
+      "ifft",
+      "svd",
+      "eig",
+      "inv",
+      "det",
+      "polyfit",
+      "ode45",
+      "ode15s",
+      "integral",
+      "cross",
+      "dot"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "jsondecode",
+      "jsonencode",
+      "xmlread",
+      "xmlwrite",
+      "load",
+      "save",
+      "readtable"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "webwindow",
+      "htmlTree"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "clear",
+      "clearvars"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "classdef",
+      "properties",
+      "methods",
+      "events",
+      "enumeration",
+      "return",
+      "global",
+      "persistent",
+      "continue",
+      "break",
+      "end"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "labBarrier",
+      "labSend",
+      "labReceive",
+      "labBroadcast"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "log4m",
+      "logDebug",
+      "logInfo",
+      "logWarn",
+      "logError"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "matlab.unittest",
+      "TestCase",
+      "verifyEqual",
+      "assertEqual",
+      "assertGreaterThan",
+      "verifyTrue",
+      "verifyFalse",
+      "verifyError"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "assume",
+      "assumeFail",
+      "assumeTrue",
+      "assumeFalse"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "tic",
+      "toc",
+      "datetime",
+      "clock",
+      "now",
+      "pause",
+      "cputime"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "uifigure",
+      "uicontrol",
+      "uiaxes",
+      "uilabel",
+      "uibutton",
+      "appdesigner",
+      "guide",
+      "drawnow",
+      "msgbox",
+      "errordlg",
+      "warndlg",
+      "figure",
+      "plot",
+      "scatter",
+      "surf"
+    ],
+    "pattern_defined": true
+  }
+}

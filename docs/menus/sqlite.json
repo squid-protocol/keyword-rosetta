@@ -1,0 +1,444 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "CASE",
+      "WHEN",
+      "THEN",
+      "ELSE",
+      "END",
+      "IFNULL",
+      "NULLIF",
+      "COALESCE",
+      "IIF",
+      "FILTER",
+      "WHERE",
+      "HAVING"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "VACUUM",
+      "DETACH",
+      "CLOSE",
+      "CLEAR"
+    ],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [
+      "json_each",
+      "json_tree",
+      "json_group_array",
+      "json_group_object"
+    ],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "disp",
+      "warning",
+      "fprintf"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [
+      "MATERIALIZED"
+    ],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "sqlite3_load_extension"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "TEMP",
+      "TEMPORARY",
+      "HIDDEN"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "sqlite_master",
+      "sqlite_schema",
+      "sqlite_sequence",
+      "sqlite_temp_schema"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "STRICT",
+      "CONSTANT",
+      "READONLY"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [
+      "load_extension"
+    ],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "SELECT",
+      "INSERT",
+      "UPDATE",
+      "DELETE",
+      "REPLACE",
+      "readfile",
+      "writefile"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "PRAGMA"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "sqlite_compileoption_used"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "ABORT",
+      "RAISE",
+      "EXIT",
+      "QUIT",
+      "exit",
+      "quit"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "json_extract",
+      "jsonb_extract"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "REGEXP",
+      "GLOB",
+      "LIKE",
+      "MATCH"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "TRANSACTION",
+      "COMMIT",
+      "ROLLBACK",
+      "SAVEPOINT",
+      "RELEASE",
+      "CONSTRAINT",
+      "CHECK",
+      "UNIQUE",
+      "STRICT"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "abs",
+      "acos",
+      "asin",
+      "atan",
+      "ceil",
+      "cos",
+      "degrees",
+      "exp",
+      "floor",
+      "ln",
+      "log",
+      "pi",
+      "pow",
+      "radians",
+      "sin",
+      "sqrt",
+      "tan",
+      "random",
+      "match",
+      "bm25",
+      "snippet",
+      "highlight",
+      "rtree"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "json_extract",
+      "json_tree",
+      "json_each",
+      "json_object",
+      "json_array",
+      "json_type"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "UPDATE",
+      "SET",
+      "UPSERT",
+      "set"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "SELECT",
+      "FROM",
+      "JOIN",
+      "LIMIT",
+      "OFFSET",
+      "UNION",
+      "INTERSECT",
+      "EXCEPT",
+      "RETURNING",
+      "AS",
+      "INTO",
+      "WINDOW",
+      "STRICT",
+      "PRECEDING",
+      "FOLLOWING",
+      "UNBOUNDED"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "sqlite_stat1",
+      "sqlite_stat4",
+      "ANALYZE"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "strftime",
+      "datetime",
+      "julianday",
+      "unixepoch",
+      "current_timestamp",
+      "current_date",
+      "current_time"
+    ],
+    "pattern_defined": true
+  }
+}

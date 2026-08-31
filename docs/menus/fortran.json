@@ -1,0 +1,457 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "PUBLIC"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [
+      "VALUE",
+      "OPTIONAL"
+    ],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [
+      "iand",
+      "ior",
+      "ieor",
+      "not",
+      "ishft",
+      "ishftc",
+      "btest",
+      "ibset",
+      "ibclr",
+      "ibits"
+    ],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "IF",
+      "ELSEIF",
+      "ELSE",
+      "DO",
+      "WHILE",
+      "CASE",
+      "DEFAULT",
+      "WHERE",
+      "ELSEWHERE",
+      "GOTO",
+      "EXIT",
+      "CYCLE"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "close",
+      "deallocate",
+      "nullify"
+    ],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [
+      "FORALL"
+    ],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "COARRAY",
+      "CRITICAL",
+      "LOCK",
+      "UNLOCK"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "PRINT"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "EVENT_QUERY"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "COMMON",
+      "SAVE",
+      "EXTERNAL"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "GOTO",
+      "ASSIGN"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [
+      "USE",
+      "INCLUDE",
+      "IMPORT"
+    ],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "OPEN",
+      "CLOSE",
+      "READ",
+      "INQUIRE",
+      "REWIND",
+      "BACKSPACE",
+      "ENDFILE",
+      "FLUSH",
+      "FORMAT"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "MPI_Init",
+      "MPI_Send",
+      "MPI_Recv",
+      "MPI_Bcast",
+      "EXECUTE_COMMAND_LINE"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "ALLOCATE",
+      "DEALLOCATE",
+      "MOVE_ALLOC",
+      "MALLOC",
+      "FREE"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "stop",
+      "return"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "EQUIVALENCE",
+      "ENTRY",
+      "NAMELIST",
+      "VOLATILE"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "SCAN",
+      "INDEX",
+      "VERIFY",
+      "ADJUSTL",
+      "ADJUSTR"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "ALLOCATABLE",
+      "SAVE",
+      "PARAMETER",
+      "VALUE",
+      "ASYNCHRONOUS",
+      "ASSOCIATED",
+      "ALLOCATED",
+      "PRESENT"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "COMMON",
+      "EQUIVALENCE"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "MATMUL",
+      "DOT_PRODUCT",
+      "TRANSPOSE",
+      "SUM",
+      "PRODUCT",
+      "MAXVAL",
+      "MINVAL",
+      "MAXLOC",
+      "MINLOC",
+      "RESHAPE",
+      "SQRT",
+      "EXP",
+      "LOG",
+      "LOG10",
+      "SIN",
+      "COS",
+      "TAN",
+      "ASIN",
+      "ACOS",
+      "ATAN",
+      "ATAN2",
+      "SINH",
+      "COSH",
+      "TANH",
+      "CEILING",
+      "FLOOR",
+      "MOD",
+      "MODULO"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "NAMELIST",
+      "FORMAT"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "PROGRAM",
+      "MODULE",
+      "SUBMODULE",
+      "BLOCK",
+      "CONTAINS",
+      "ASSOCIATE",
+      "RETURN",
+      "IMPLICIT",
+      "USE",
+      "INTEGER",
+      "REAL",
+      "COMPLEX",
+      "LOGICAL",
+      "CHARACTER",
+      "CLASS"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "lock",
+      "unlock",
+      "critical"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "log_info",
+      "log_error",
+      "log_warn",
+      "log_debug",
+      "flog"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "@test",
+      "@assertEqual",
+      "@assertTrue",
+      "@assertFalse",
+      "@assertException"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "DATE_AND_TIME",
+      "SYSTEM_CLOCK",
+      "CPU_TIME"
+    ],
+    "pattern_defined": true
+  }
+}

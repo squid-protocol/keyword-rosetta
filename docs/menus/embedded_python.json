@@ -1,0 +1,519 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "elif",
+      "else",
+      "for",
+      "while",
+      "with",
+      "try",
+      "finally",
+      "match",
+      "case",
+      "and",
+      "or"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "async",
+      "await",
+      "uasyncio",
+      "asyncio",
+      "Timer.init",
+      "_thread",
+      "start_new_thread",
+      "allocate_lock",
+      "gather",
+      "create_task",
+      "Event",
+      "Lock"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "irq",
+      "Pin.irq",
+      "Timer.irq",
+      "machine.enable_irq",
+      "trigger",
+      "set_callback",
+      "Event.set",
+      "schedule"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "sys.path",
+      "sys.modules",
+      "os.environ"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "machine.reset",
+      "machine.deepsleep",
+      "machine.bootloader",
+      "machine.disable_irq",
+      "eval",
+      "exec",
+      "sys.exit"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "Final",
+      "frozenset",
+      "mappingproxy",
+      "immutable"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "inline_asm": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "open",
+      "Pin",
+      "I2C",
+      "SPI",
+      "UART",
+      "ADC",
+      "PWM",
+      "RTC",
+      "SDCard",
+      "I2S",
+      "WLAN",
+      "LAN",
+      "socket",
+      "usocket",
+      "uos.mount",
+      "aiohttp"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "machine.Pin",
+      "machine.I2C",
+      "machine.UART",
+      "network.WLAN",
+      "usocket.socket",
+      "busio.I2C"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "bytearray",
+      "memoryview",
+      "alloc_emergency_exception_buf"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "raise",
+      "quit",
+      "exit",
+      "sys.exit",
+      "abort"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "uctypes.addressof",
+      "uctypes.bytearray_at",
+      "ptr8",
+      "ptr16",
+      "ptr32",
+      "machine.mem8",
+      "machine.mem16",
+      "machine.mem32"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "getattr",
+      "setattr",
+      "hasattr"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "ure.compile",
+      "ure.search",
+      "ure.match",
+      "ure.sub"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "except",
+      "finally",
+      "assert",
+      "machine.WDT",
+      "isinstance",
+      "issubclass",
+      "hasattr",
+      "getattr",
+      "alloc_emergency_exception_buf"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "except"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "math",
+      "cmath",
+      "ulab",
+      "numpy",
+      "ndarray",
+      "struct.pack",
+      "struct.unpack",
+      "bin",
+      "hex",
+      "oct",
+      "abs",
+      "sin",
+      "cos",
+      "tan"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "ujson.loads",
+      "ujson.dumps",
+      "ustruct.pack",
+      "ustruct.unpack"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "microdot",
+      "picoweb",
+      "MicroWebSrv",
+      "tinyweb",
+      "render_template",
+      "Response",
+      "@app.get",
+      "@app.post"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "def",
+      "class",
+      "return",
+      "import",
+      "from",
+      "as",
+      "pass",
+      "continue",
+      "break",
+      "yield",
+      "await",
+      "assert",
+      "del",
+      "global",
+      "nonlocal",
+      "type"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "Lock",
+      "RLock",
+      "Semaphore",
+      "Event",
+      "Condition",
+      "allocate_lock"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "unittest",
+      "pytest",
+      "assert",
+      "setUp",
+      "tearDown",
+      "Mock"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "pytest.mark.skip",
+      "unittest.skip",
+      "MagicMock"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "time.sleep",
+      "asyncio.sleep",
+      "Thread.join"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "utime.sleep_ms",
+      "utime.ticks_ms",
+      "utime.ticks_diff",
+      "machine.RTC"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "framebuf",
+      "ssd1306",
+      "st7789",
+      "ili9341",
+      "epaper",
+      "lvgl",
+      "display",
+      "text",
+      "fill",
+      "pixel",
+      "show",
+      "scroll"
+    ],
+    "pattern_defined": true
+  }
+}

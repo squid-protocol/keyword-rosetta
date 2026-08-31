@@ -1,0 +1,559 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "module_function"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "unless",
+      "elsif",
+      "else",
+      "case",
+      "when",
+      "in",
+      "for",
+      "while",
+      "until",
+      "begin",
+      "rescue",
+      "ensure",
+      "break",
+      "next",
+      "redo",
+      "retry"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "Thread",
+      "Mutex",
+      "Monitor",
+      "ConditionVariable",
+      "Ractor",
+      "Fiber",
+      "Async",
+      "await",
+      "Concurrent"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "puts",
+      "print",
+      "pp",
+      "warn"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [
+      "before_action",
+      "after_action",
+      "around_action",
+      "before_save",
+      "after_commit",
+      "validates",
+      "has_many",
+      "belongs_to",
+      "has_one"
+    ],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "Dry::Container",
+      "Dry::AutoInject",
+      "inject"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "private",
+      "protected"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "Wisper",
+      "broadcast",
+      "subscribe",
+      "ActiveSupport::Notifications.instrument",
+      "publish"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "ENV",
+      "ARGV",
+      "ARGF",
+      "STDIN",
+      "STDOUT",
+      "STDERR",
+      "RUBY_VERSION"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "abort",
+      "exit",
+      "system",
+      "exec",
+      "spawn",
+      "fork",
+      "IO.popen"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "freeze",
+      "frozen_string_literal",
+      "immutable"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "File",
+      "Dir",
+      "IO",
+      "Net::HTTP",
+      "URI.open",
+      "Socket",
+      "TCPSocket",
+      "FileUtils",
+      "ActiveRecord::Base",
+      "find",
+      "where",
+      "create",
+      "update",
+      "destroy"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "Open3",
+      "IO.popen",
+      "Net::HTTP",
+      "TCPSocket"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "addEventListener"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "attr_accessor",
+      "attr_reader",
+      "attr_writer",
+      "scope",
+      "delegate"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "ObjectSpace",
+      "GC.start",
+      "GC.disable",
+      "GC.enable",
+      "FFI::MemoryPointer"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "raise",
+      "fail",
+      "abort"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "FFI::Pointer",
+      "Fiddle::Pointer",
+      "Fiddle::Function"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "method_missing",
+      "define_method",
+      "const_missing",
+      "included",
+      "extended",
+      "prepended"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "Regexp.new"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "rescue",
+      "ensure",
+      "fetch",
+      "frozen_string_literal",
+      "freeze",
+      "catch",
+      "throw",
+      "safe_load",
+      "T.must",
+      "T.let",
+      "T.cast",
+      "T.bind"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "eval",
+      "class_eval",
+      "instance_eval",
+      "module_eval",
+      "send",
+      "__send__",
+      "public_send",
+      "binding",
+      "instance_variable_set",
+      "unsafe_load",
+      "T.unsafe",
+      "T.untyped"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "Math",
+      "Complex",
+      "Rational",
+      "Matrix",
+      "Vector",
+      "Numo::NArray",
+      "BigDecimal"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "JSON.parse",
+      "YAML.load",
+      "Marshal.load"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "ActionController::Base",
+      "ActionController::API",
+      "Sinatra::Base",
+      "Hanami::Action",
+      "respond_to",
+      "format.html",
+      "format.json"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "push",
+      "pop",
+      "shift",
+      "unshift",
+      "delete",
+      "clear"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "class",
+      "module",
+      "def",
+      "yield",
+      "return",
+      "super",
+      "alias",
+      "undef",
+      "require",
+      "require_relative",
+      "include",
+      "extend",
+      "prepend",
+      "attr_reader",
+      "attr_writer",
+      "attr_accessor",
+      "Data.define"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "mutex",
+      "lock",
+      "synchronized",
+      "Semaphore",
+      "Monitor"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "describe",
+      "context",
+      "expect",
+      "assert",
+      "refute",
+      "setup",
+      "teardown",
+      "before",
+      "after",
+      "let",
+      "subject"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "skip",
+      "xit",
+      "xdescribe",
+      "mock",
+      "stub",
+      "double"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "Time.now",
+      "Date.today",
+      "DateTime.now",
+      "sleep"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "ActionView",
+      "render",
+      "render_to_string",
+      "ViewComponent::Base",
+      "Phlex::HTML",
+      "form_with",
+      "form_for",
+      "link_to",
+      "stylesheet_link_tag",
+      "Turbo",
+      "Stimulus",
+      "Hotwire"
+    ],
+    "pattern_defined": true
+  }
+}

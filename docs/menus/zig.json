@@ -1,0 +1,443 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "pub",
+      "export"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "switch",
+      "while",
+      "for",
+      "try",
+      "catch",
+      "orelse",
+      "break",
+      "continue",
+      "return"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "deinit",
+      "free",
+      "destroy",
+      "allocator.free"
+    ],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "std.Thread",
+      "std.Thread.Mutex",
+      "std.Thread.RwLock",
+      "std.atomic",
+      "suspend",
+      "resume",
+      "await",
+      "@atomicLoad",
+      "@atomicStore",
+      "@atomicRmw"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "std.debug.print"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "const",
+      "var",
+      "fn"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "std.posix.epoll_wait",
+      "std.posix.kevent",
+      "xev.Loop"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [
+      "@ptrCast",
+      "@intCast",
+      "@alignCast",
+      "@bitCast",
+      "@as"
+    ],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [
+      "anytype",
+      "type"
+    ],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "panic",
+      "std.process.exit",
+      "@panic"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [
+      "@import",
+      "@cImport",
+      "@cInclude"
+    ],
+    "pattern_defined": true
+  },
+  "inline_asm": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "std.fs",
+      "std.net",
+      "std.io",
+      "std.ChildProcess",
+      "std.posix",
+      "std.os"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "std.process.Child",
+      "std.net.tcpConnectToHost",
+      "std.Thread.spawn",
+      "std.posix",
+      "std.os.execve"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "std.mem.Allocator",
+      "allocator.alloc",
+      "allocator.free",
+      "allocator.create",
+      "ArenaAllocator",
+      "c_allocator",
+      "page_allocator"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "unreachable",
+      "return",
+      "@panic"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "@Type",
+      "@typeInfo",
+      "@compileLog",
+      "@hasDecl",
+      "@hasField"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "catch",
+      "orelse",
+      "errdefer",
+      "std.debug.assert"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "undefined",
+      "unreachable",
+      "@ptrCast",
+      "@intCast",
+      "@alignCast",
+      "@bitCast",
+      "@truncate",
+      "@enumFromInt"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "std.math",
+      "f16",
+      "f32",
+      "f64",
+      "f80",
+      "f128",
+      "@Vector",
+      "@sqrt",
+      "@sin",
+      "@cos",
+      "@splat",
+      "@reduce"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "std.json.stringify"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "zap.Endpoint",
+      "zap.Request",
+      "httpz.Request",
+      "std.http.Server.Request"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "var",
+      "return",
+      "defer",
+      "errdefer",
+      "unreachable",
+      "resume",
+      "suspend",
+      "await",
+      "nosuspend",
+      "usingnamespace"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "Mutex",
+      "RwLock",
+      "Semaphore",
+      "lock",
+      "unlock"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "std.log.scoped"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "std.testing.expect",
+      "std.testing.expectEqual"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "std.testing.expect",
+      "assume",
+      "expectError"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "std.time.sleep"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  }
+}

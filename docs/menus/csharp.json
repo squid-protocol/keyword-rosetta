@@ -1,0 +1,510 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "public",
+      "internal"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "switch",
+      "case",
+      "default",
+      "for",
+      "foreach",
+      "while",
+      "do",
+      "catch",
+      "finally",
+      "continue",
+      "break",
+      "goto",
+      "try",
+      "and",
+      "or",
+      "not"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "async",
+      "await",
+      "Task",
+      "ValueTask",
+      "Thread",
+      "Parallel",
+      "SemaphoreSlim",
+      "Mutex",
+      "Channel",
+      "IAsyncEnumerable",
+      "Interlocked"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "IServiceCollection",
+      "AddTransient",
+      "AddScoped",
+      "AddSingleton",
+      "AddKeyed",
+      "FromServices",
+      "IServiceProvider"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "private",
+      "protected",
+      "internal",
+      "file"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "EventHandler",
+      "Invoke",
+      "Raise",
+      "MediatR",
+      "INotification",
+      "IRequest",
+      "Publish"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "ConfigurationManager",
+      "AsyncLocal"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "Thread.Abort",
+      "Process.Start",
+      "Environment.FailFast",
+      "Environment.Exit",
+      "goto"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "const",
+      "readonly",
+      "init"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "Process.Start",
+      "NamedPipeServerStream",
+      "ChannelFactory",
+      "GrpcChannel"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "on",
+      "addEventListener",
+      "subscribe",
+      "EventHandler"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "Marshal.AllocHGlobal",
+      "GC.AllocateArray",
+      "MemoryPool"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [
+      "Created by"
+    ],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "abort",
+      "FailFast",
+      "Environment.Exit"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "fixed",
+      "stackalloc",
+      "Unsafe.AsPointer",
+      "IntPtr",
+      "UIntPtr",
+      "nint",
+      "nuint"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "System.Reflection",
+      "DllImport",
+      "LibraryImport",
+      "MethodInfo",
+      "Activator",
+      "Emit",
+      "ILGenerator"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "Regex.Match",
+      "Regex.Replace",
+      "Regex.IsMatch"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "catch",
+      "finally",
+      "checked",
+      "is",
+      "as",
+      "nameof",
+      "required",
+      "ArgumentNullException",
+      "ThrowIfNull",
+      "ThrowIfNullOrWhiteSpace"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "dynamic"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "Matrix4x4",
+      "Random",
+      "Complex",
+      "Tensor",
+      "TensorPrimitives"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "JsonSerializer.Deserialize",
+      "JsonConvert.DeserializeObject",
+      "XmlSerializer",
+      "BinaryFormatter"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "RenderFragment",
+      "ComponentBase",
+      "IViewComponentResult"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "volatile",
+      "ref",
+      "out"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "var",
+      "return",
+      "class",
+      "interface",
+      "struct",
+      "record",
+      "enum",
+      "using",
+      "namespace",
+      "yield",
+      "await",
+      "delegate",
+      "event",
+      "init",
+      "required",
+      "field",
+      "implements",
+      "extends",
+      "declare"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "mutex",
+      "lock",
+      "Monitor",
+      "Semaphore",
+      "Interlocked",
+      "SpinLock",
+      "ReaderWriterLockSlim"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "Substitute.For"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "Substitute.For"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "sleep",
+      "delay",
+      "Task.Delay",
+      "Thread.Sleep"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "DateTime.Now",
+      "DateTime.UtcNow",
+      "DateTimeOffset",
+      "TimeSpan",
+      "Stopwatch.StartNew"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "ControllerBase",
+      "IActionResult",
+      "Binding",
+      "ObservableCollection",
+      "DependencyProperty",
+      "ComponentBase",
+      "RenderFragment",
+      "MonoBehaviour"
+    ],
+    "pattern_defined": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "lit_code_blocks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "lit_diagrams": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "lit_headers": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "lit_links": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  }
+}

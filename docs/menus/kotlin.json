@@ -1,0 +1,525 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "public",
+      "internal"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [
+      "shl",
+      "shr",
+      "ushr",
+      "xor"
+    ],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "when",
+      "for",
+      "while",
+      "do",
+      "try",
+      "catch",
+      "finally",
+      "break",
+      "continue",
+      "return"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "suspend",
+      "launch",
+      "async",
+      "CoroutineScope",
+      "GlobalScope",
+      "Dispatchers",
+      "Flow",
+      "StateFlow",
+      "SharedFlow",
+      "Channel",
+      "yield",
+      "runBlocking",
+      "withContext",
+      "Mutex"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@param",
+      "@return",
+      "@property",
+      "@receiver",
+      "@constructor",
+      "@throws",
+      "@see",
+      "@since"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "private",
+      "protected",
+      "internal"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "LiveData",
+      "Observer",
+      "Observable",
+      "FlowCollector"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "object"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "System.exit",
+      "exitProcess",
+      "Runtime.getRuntime",
+      "Thread.stop"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "val",
+      "const",
+      "immutable",
+      "readonly"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "File",
+      "InputStream",
+      "OutputStream",
+      "Retrofit",
+      "OkHttpClient",
+      "Ktor",
+      "HttpClient",
+      "RoomDatabase",
+      "Dao",
+      "SharedPreferences",
+      "DataStore",
+      "java.nio"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "BroadcastReceiver",
+      "ProcessBuilder",
+      "bindService"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "memScoped",
+      "alloc",
+      "allocArray",
+      "nativeHeap.alloc",
+      "nativeHeap.free"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "raise",
+      "exitProcess",
+      "return",
+      "panic"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "CPointer",
+      "COpaquePointer",
+      "CFunction",
+      "CValue",
+      "CPointed"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "javaClass",
+      "@JvmOverloads",
+      "@JvmStatic",
+      "@JvmField",
+      "@JvmName",
+      "inline",
+      "crossinline",
+      "noinline",
+      "invoke",
+      "context",
+      "tailrec"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "require",
+      "requireNotNull",
+      "check",
+      "checkNotNull",
+      "error",
+      "sealed",
+      "is",
+      "Result",
+      "onSuccess",
+      "onFailure",
+      "fold",
+      "runCatching"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "as",
+      "@Suppress"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "sin",
+      "cos",
+      "tan",
+      "sqrt",
+      "exp",
+      "log",
+      "abs",
+      "BigDecimal",
+      "BigInteger"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "Json.decodeFromString",
+      "Json.encodeToString",
+      "Moshi",
+      "ObjectMapper"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "ApplicationCall",
+      "call.respond",
+      "call.respondText",
+      "call.respondHtml",
+      "ServerResponse",
+      "ModelAndView"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "var",
+      "MutableList",
+      "MutableMap",
+      "MutableSet",
+      "MutableState",
+      "MutableStateFlow"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "package",
+      "import",
+      "return",
+      "class",
+      "interface",
+      "object",
+      "fun",
+      "typealias"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "mutex",
+      "lock",
+      "synchronized",
+      "Semaphore"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "@Slf4j"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "shouldBe",
+      "shouldNotBe"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "mockk",
+      "spyK"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "delay",
+      "Thread.sleep",
+      "yield"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "Clock.System.now",
+      "Instant.now",
+      "System.currentTimeMillis",
+      "Duration.minutes",
+      "LocalDate"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "@Composable",
+      "Modifier",
+      "Column",
+      "Row",
+      "Box",
+      "Text",
+      "Image",
+      "Button",
+      "Scaffold",
+      "LazyColumn",
+      "LazyRow",
+      "Surface",
+      "remember",
+      "mutableStateOf",
+      "findViewById",
+      "View",
+      "Activity",
+      "Fragment"
+    ],
+    "pattern_defined": true
+  }
+}

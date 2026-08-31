@@ -1,0 +1,463 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "then",
+      "else",
+      "elif",
+      "fi",
+      "case",
+      "esac",
+      "for",
+      "while",
+      "do",
+      "done",
+      "until",
+      "select",
+      "break",
+      "continue"
+    ],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "unset",
+      "exit",
+      "logout"
+    ],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "wait",
+      "coproc",
+      "nohup",
+      "parallel",
+      "jobs",
+      "fg",
+      "bg",
+      "disown"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "echo",
+      "printf",
+      "print",
+      "read"
+    ],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "local",
+      "typeset",
+      "declare"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "mkfifo",
+      "mknod",
+      "inotifywait",
+      "inotifywatch",
+      "fswatch"
+    ],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "PATH",
+      "HOME",
+      "USER",
+      "SHELL",
+      "EDITOR",
+      "PWD",
+      "OLDPWD",
+      "TERM",
+      "LANG",
+      "OSTYPE",
+      "MACHTYPE",
+      "UID",
+      "EUID",
+      "GROUPS"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "sudo",
+      "mkfs",
+      "dd",
+      "kill"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "readonly"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "curl",
+      "wget",
+      "nc",
+      "ssh",
+      "scp",
+      "ftp",
+      "rsync",
+      "cat",
+      "tail",
+      "grep",
+      "find",
+      "xargs",
+      "jq"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "curl",
+      "wget",
+      "nc",
+      "netcat",
+      "ssh",
+      "scp",
+      "xargs",
+      "socat"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "read",
+      "inotifywait"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "alias",
+      "shopt"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "exit",
+      "kill",
+      "abort",
+      "halt"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "grep",
+      "egrep",
+      "sed",
+      "awk"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "eval"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "bc",
+      "awk",
+      "dc",
+      "expr",
+      "jq",
+      "RANDOM",
+      "SRANDOM"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "jq",
+      "yq",
+      "awk",
+      "sed",
+      "xmlstarlet"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "CONTENT_TYPE",
+      "QUERY_STRING",
+      "HTTP_USER_AGENT"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "local",
+      "readonly",
+      "export",
+      "declare",
+      "typeset",
+      "return",
+      "exit",
+      "source",
+      "read",
+      "cd",
+      "pwd",
+      "ls",
+      "cp",
+      "mv",
+      "rm",
+      "mkdir",
+      "touch"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "flock",
+      "mkdir",
+      "mkfifo",
+      "lockfile",
+      "sem"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "logger",
+      "syslog",
+      "log_info",
+      "log_err",
+      "log_warn",
+      "log_debug"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "assertTrue",
+      "assertFalse",
+      "bats",
+      "shunit2",
+      "@test"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "test.skip",
+      "bats_skip",
+      "mock",
+      "stub"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "sleep"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "date",
+      "sleep",
+      "uptime",
+      "times"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "dialog",
+      "whiptail",
+      "zenity",
+      "kdialog",
+      "tput",
+      "gum",
+      "tmux"
+    ],
+    "pattern_defined": true
+  }
+}

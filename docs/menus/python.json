@@ -1,0 +1,552 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "elif",
+      "else",
+      "for",
+      "while",
+      "with",
+      "try",
+      "finally",
+      "match",
+      "case",
+      "and",
+      "or"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "async",
+      "await",
+      "asyncio",
+      "threading",
+      "multiprocessing",
+      "ThreadPoolExecutor",
+      "TaskGroup",
+      "gather",
+      "create_task"
+    ],
+    "pattern_defined": true
+  },
+  "cryptography": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "Depends",
+      "Provide",
+      "Inject",
+      "Container",
+      "dependency_injector",
+      "fastapi.Depends"
+    ],
+    "pattern_defined": true
+  },
+  "dl_frameworks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "Signal",
+      "receiver",
+      "post_save",
+      "pre_save",
+      "asyncio.Event",
+      "EventDispatcher",
+      "emit",
+      "send",
+      "blinker"
+    ],
+    "pattern_defined": true
+  },
+  "exfiltration_camouflage": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "os.environ",
+      "sys.argv",
+      "sys.path"
+    ],
+    "pattern_defined": true
+  },
+  "hardware_bridge": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "eval",
+      "exec",
+      "os.system",
+      "pickle.loads",
+      "yaml.unsafe_load"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "Final",
+      "frozenset",
+      "mappingproxy",
+      "immutable"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "open",
+      "requests",
+      "httpx",
+      "aiohttp",
+      "boto3",
+      "pathlib",
+      "socket",
+      "sqlalchemy",
+      "psycopg2",
+      "asyncpg"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "multiprocessing",
+      "subprocess",
+      "xmlrpc",
+      "socketserver"
+    ],
+    "pattern_defined": true
+  },
+  "lazy_evaluation": {
+    "core": false,
+    "keywords": [
+      "yield",
+      "Generator",
+      "AsyncGenerator",
+      "Iterator",
+      "AsyncIterator"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "on_event",
+      "add_listener",
+      "subscribe",
+      "callback",
+      "handler"
+    ],
+    "pattern_defined": true
+  },
+  "llm_api": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "llm_orchestrator": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "llm_vector_store": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_scraping": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ml_traditional": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "raise",
+      "quit",
+      "exit",
+      "sys.exit",
+      "abort"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "ctypes.POINTER",
+      "c_void_p",
+      "byref"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "getattr",
+      "setattr"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "re.compile",
+      "re.search",
+      "re.match",
+      "re.sub",
+      "re.findall",
+      "re.split"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "except",
+      "finally",
+      "assert",
+      "isinstance",
+      "issubclass",
+      "hasattr",
+      "getattr",
+      "dataclass",
+      "BaseModel",
+      "Field",
+      "TypeGuard",
+      "override"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "Any",
+      "cast"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "pickle.loads",
+      "pickle.Unpickler",
+      "marshal.loads",
+      "ast.literal_eval"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "render_template",
+      "HttpResponse",
+      "JSONResponse",
+      "TemplateResponse",
+      "WSGIApplication",
+      "ASGIApplication"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "def",
+      "class",
+      "return",
+      "import",
+      "from",
+      "as",
+      "pass",
+      "continue",
+      "break",
+      "await",
+      "assert",
+      "del",
+      "global",
+      "nonlocal",
+      "type"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "Lock",
+      "RLock",
+      "Semaphore",
+      "BoundedSemaphore",
+      "Event",
+      "Condition",
+      "Barrier"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "unittest",
+      "pytest",
+      "TestCase",
+      "fixture",
+      "patch"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "pytest.mark.skip",
+      "unittest.skip",
+      "MagicMock"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "time.sleep",
+      "asyncio.sleep",
+      "Thread.join"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "datetime.datetime",
+      "timedelta",
+      "time.sleep",
+      "time.time",
+      "calendar"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "streamlit",
+      "django.shortcuts",
+      "flask.render_template",
+      "gradio",
+      "dash",
+      "fasthtml",
+      "jinja2",
+      "render"
+    ],
+    "pattern_defined": true
+  },
+  "vectorized_math": {
+    "core": false,
+    "keywords": [
+      "einsum",
+      "matmul",
+      "tensordot",
+      "vdot",
+      "bmm"
+    ],
+    "pattern_defined": true
+  }
+}

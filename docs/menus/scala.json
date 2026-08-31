@@ -1,0 +1,566 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "export"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "then",
+      "else",
+      "match",
+      "case",
+      "try",
+      "catch",
+      "finally",
+      "for",
+      "while",
+      "do",
+      "throw",
+      "yield"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "dispose",
+      "close",
+      "cleanup",
+      "cancel",
+      "free",
+      "bracket",
+      "finally",
+      "onException"
+    ],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "Future",
+      "Promise",
+      "Await",
+      "Actor",
+      "Behavior",
+      "ZIO",
+      "UIO",
+      "Task",
+      "RIO",
+      "cats.effect.IO",
+      "Fiber",
+      "FiberRef",
+      "Ref",
+      "Deferred",
+      "Semaphore"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "println",
+      "print",
+      "Console.println"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "ZLayer",
+      "ZLayer.from",
+      "provide",
+      "provideSome",
+      "ReaderT",
+      "Kleisli",
+      "requires",
+      "@Inject"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@param",
+      "@return",
+      "@tparam",
+      "@throws",
+      "@see",
+      "@note"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "private",
+      "protected"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "Source",
+      "Flow",
+      "Sink",
+      "fs2.Stream",
+      "ZStream",
+      "EventBus",
+      "system.eventStream",
+      "Observable"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "sys.env",
+      "sys.props",
+      "System.getProperty",
+      "scala.util.Properties"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "System.exit",
+      "sys.exit",
+      "Thread.stop",
+      "Runtime.getRuntime.exec"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "val",
+      "final",
+      "sealed",
+      "readonly",
+      "Object.freeze",
+      "immutable"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "Source",
+      "java.io",
+      "java.nio",
+      "Socket",
+      "ServerSocket",
+      "sttp",
+      "Http",
+      "WSClient",
+      "HTLoad",
+      "HTGet",
+      "ENQUIRE"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "ActorSystem",
+      "ActorRef",
+      "sys.process._",
+      "Future.apply"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "addEventListener",
+      "subscribe",
+      "watch",
+      "useEffect",
+      "listen"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "macro",
+      "scala.quoted",
+      "Expr",
+      "Type",
+      "Quotes"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "Zone",
+      "malloc",
+      "calloc",
+      "free",
+      "scala.scalanative.libc.stdlib"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "panic",
+      "abort",
+      "sys.error",
+      "exit"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "scala.scalanative.unsafe",
+      "CFuncPtr"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "implicit",
+      "given",
+      "using",
+      "inline",
+      "extension",
+      "TypeTag",
+      "ClassTag",
+      "scala.reflect",
+      "Typeable",
+      "Dynamic",
+      "summon",
+      "derives"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "Option",
+      "Some",
+      "None",
+      "Try",
+      "Success",
+      "Failure",
+      "Either",
+      "Left",
+      "Right",
+      "sealed",
+      "require",
+      "assert",
+      "assume"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "null",
+      "asInstanceOf",
+      "isInstanceOf",
+      "Any",
+      "AnyRef",
+      "@unchecked"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "scala.math",
+      "algebird",
+      "DenseMatrix",
+      "DenseVector"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "io.circe",
+      "asJson",
+      "Json.parse",
+      "Json.toJson",
+      "upickle.default"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [
+      "WorldWideWeb",
+      "NeXTSTEP"
+    ],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "Action",
+      "Controller",
+      "HttpRoutes",
+      "ServerEndpoint",
+      "twirl"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "var",
+      "scala.collection.mutable",
+      "AtomicReference",
+      "AtomicInteger"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "lazy",
+      "type",
+      "opaque",
+      "class",
+      "trait",
+      "object",
+      "enum",
+      "extension",
+      "import",
+      "export",
+      "return",
+      "extends",
+      "with",
+      "derives",
+      "new",
+      "given",
+      "using"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "synchronized",
+      "volatile",
+      "Semaphore",
+      "Mutex",
+      "lock",
+      "unlock"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "@Slf4j"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "assertEquals",
+      "assertThrows",
+      "AnyFunSuite",
+      "WordSpec",
+      "munit",
+      "weaver"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "ignore",
+      "pending",
+      "skip",
+      "xit",
+      "xdescribe"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "FiniteDuration",
+      "System.currentTimeMillis",
+      "LocalDate.now"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "Laminar",
+      "Tyrian",
+      "HtmlElement",
+      "Document",
+      "Node",
+      "SGML",
+      "HyperLink",
+      "scala.xml",
+      "Elem",
+      "XML",
+      "WorldWideWeb",
+      "BrowserView"
+    ],
+    "pattern_defined": true
+  }
+}

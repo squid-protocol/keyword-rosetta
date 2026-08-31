@@ -1,0 +1,552 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "public"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "elseif",
+      "switch",
+      "case",
+      "default",
+      "foreach",
+      "for",
+      "while",
+      "do",
+      "try",
+      "catch",
+      "finally",
+      "break",
+      "continue",
+      "match",
+      "goto"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [
+      "array_map",
+      "array_filter",
+      "array_reduce",
+      "array_walk",
+      "array_column",
+      "array_find",
+      "array_any",
+      "array_all"
+    ],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "Fiber",
+      "yield",
+      "Swoole",
+      "Coroutine",
+      "await",
+      "suspend",
+      "resume",
+      "pcntl_fork"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "echo",
+      "print",
+      "var_dump",
+      "print_r",
+      "printf",
+      "vprintf",
+      "var_export",
+      "die",
+      "exit",
+      "dd",
+      "dump"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "ContainerInterface",
+      "Container",
+      "getContainer",
+      "inject",
+      "bind",
+      "singleton"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@param",
+      "@return",
+      "@throws",
+      "@var",
+      "@deprecated",
+      "@property",
+      "@method"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "private",
+      "protected",
+      "internal"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "EventDispatcher",
+      "dispatchEvent",
+      "Listener",
+      "dispatch",
+      "broadcast",
+      "notify",
+      "listen"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "exec",
+      "shell_exec",
+      "system",
+      "passthru",
+      "proc_open",
+      "popen"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "const",
+      "readonly",
+      "final"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [
+      "require",
+      "include",
+      "require_once",
+      "include_once"
+    ],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "fopen",
+      "fread",
+      "fwrite",
+      "file_get_contents",
+      "file_put_contents",
+      "PDO",
+      "mysqli",
+      "curl_exec",
+      "socket",
+      "header",
+      "setcookie"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "shell_exec",
+      "exec",
+      "system",
+      "passthru",
+      "proc_open",
+      "curl_exec",
+      "fsockopen"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "addEventListener",
+      "subscribe",
+      "@KafkaListener",
+      "@RabbitListener"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [
+      "Created by",
+      "Maintainer"
+    ],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "die",
+      "exit",
+      "abort"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "FFI::cast",
+      "FFI::addr",
+      "FFI::scope",
+      "FFI::new"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "call_user_func"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "preg_match",
+      "preg_replace",
+      "preg_split",
+      "preg_filter"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "catch",
+      "finally",
+      "readonly",
+      "Throwable",
+      "Exception",
+      "assert",
+      "isset",
+      "empty",
+      "is_null",
+      "instanceof"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "unserialize",
+      "extract",
+      "parse_str",
+      "phpinfo"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "bcadd",
+      "bcsub",
+      "bcmul",
+      "bcdiv",
+      "gmp_add",
+      "gmp_mul",
+      "abs",
+      "cos",
+      "sin",
+      "tan",
+      "sqrt",
+      "log",
+      "exp",
+      "pow"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "unserialize",
+      "serialize",
+      "json_decode",
+      "json_encode",
+      "DOMDocument"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "Response",
+      "JsonResponse",
+      "HtmlResponse",
+      "RedirectResponse"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "namespace",
+      "use",
+      "class",
+      "interface",
+      "trait",
+      "enum",
+      "function",
+      "return",
+      "yield",
+      "declare",
+      "require",
+      "require_once",
+      "include",
+      "include_once",
+      "as",
+      "implements",
+      "extends",
+      "clone",
+      "new"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "mutex",
+      "lock",
+      "synchronized",
+      "Semaphore",
+      "flock",
+      "sem_acquire"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "PHPUnit",
+      "TestCase",
+      "assertSame",
+      "assertEquals",
+      "assertTrue",
+      "assertFalse",
+      "mock",
+      "spy",
+      "expects",
+      "toBe",
+      "test",
+      "it"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "markTestSkipped",
+      "test.skip",
+      "it.skip"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "sleep",
+      "usleep",
+      "time_nanosleep",
+      "time_sleep_until"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "strtotime",
+      "DateTime",
+      "date_create"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "renderView"
+    ],
+    "pattern_defined": true
+  }
+}

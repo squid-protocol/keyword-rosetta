@@ -1,0 +1,533 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "switch",
+      "case",
+      "default",
+      "for",
+      "while",
+      "do",
+      "break",
+      "continue",
+      "goto"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [
+      "struct",
+      "union",
+      "enum"
+    ],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "thrd_create",
+      "thrd_join",
+      "mtx_lock",
+      "pthread_create",
+      "pthread_mutex_lock",
+      "atomic_int",
+      "_Atomic",
+      "thread_local"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "printf",
+      "fprintf",
+      "vprintf",
+      "puts",
+      "putchar",
+      "perror"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "plugin_register",
+      "vtable"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@param",
+      "@return",
+      "@brief",
+      "@details"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "static"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "epoll_wait",
+      "epoll_ctl",
+      "kqueue",
+      "kevent",
+      "select",
+      "poll",
+      "libev",
+      "libuv"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "system",
+      "popen",
+      "execl",
+      "execv",
+      "fork",
+      "longjmp",
+      "setjmp"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "const",
+      "constexpr",
+      "alignas",
+      "restrict"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "inline_asm": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "fopen",
+      "fclose",
+      "fread",
+      "fwrite",
+      "fscanf",
+      "sscanf",
+      "socket",
+      "recv",
+      "send",
+      "open",
+      "read",
+      "write",
+      "close",
+      "stat",
+      "fseek",
+      "remove",
+      "rename"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "fork",
+      "pipe",
+      "shmget",
+      "shmat",
+      "mmap",
+      "socket",
+      "bind",
+      "listen",
+      "accept"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "on_event",
+      "handler",
+      "callback"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "malloc",
+      "calloc",
+      "realloc",
+      "free",
+      "aligned_alloc",
+      "mmap",
+      "alloca"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [
+      "@author",
+      "Copyright"
+    ],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "abort",
+      "exit",
+      "_Exit",
+      "quick_exit"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "uintptr_t",
+      "intptr_t",
+      "ptrdiff_t",
+      "size_t"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "regcomp",
+      "regexec",
+      "regfree"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "assert",
+      "static_assert",
+      "_Static_assert",
+      "size_t",
+      "snprintf",
+      "strncat",
+      "strncpy",
+      "calloc",
+      "nullptr",
+      "unreachable",
+      "ckd_add",
+      "ckd_sub",
+      "ckd_mul"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "strcpy",
+      "strcat",
+      "sprintf",
+      "gets",
+      "alloca"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "math.h",
+      "tgmath.h",
+      "complex.h",
+      "dgemm",
+      "sin",
+      "cos",
+      "tan",
+      "exp",
+      "log",
+      "sqrt",
+      "complex"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "cJSON_Parse",
+      "json_loads",
+      "xmlReadMemory",
+      "xmlParseFile",
+      "jansson"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "FCGI_Accept",
+      "khttp_parse",
+      "MHD_start_daemon",
+      "facil.io"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "struct",
+      "union",
+      "enum",
+      "typedef",
+      "return",
+      "void",
+      "restrict",
+      "auto",
+      "bool",
+      "true",
+      "false",
+      "_BitInt",
+      "alignas",
+      "alignof"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "mtx_lock",
+      "mtx_unlock",
+      "pthread_mutex_lock",
+      "atomic_flag_test_and_set",
+      "atomic_store"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "syslog",
+      "openlog",
+      "log_info",
+      "log_error",
+      "log_warn",
+      "log_debug",
+      "vsyslog"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "TEST",
+      "TEST_F",
+      "TEST_CASE",
+      "CU_ASSERT",
+      "RUN_TEST"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "IGNORE_TEST",
+      "test.skip"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "sleep",
+      "usleep",
+      "nanosleep",
+      "thrd_sleep"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "time_t",
+      "clock_gettime",
+      "gettimeofday",
+      "localtime_r",
+      "strftime"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "GtkWidget",
+      "CreateWindow",
+      "MessageBox",
+      "XOpenDisplay",
+      "gtk_window_new",
+      "Fl_Window",
+      "initscr",
+      "wprintw"
+    ],
+    "pattern_defined": true
+  }
+}

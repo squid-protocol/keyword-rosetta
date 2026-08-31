@@ -1,0 +1,4 @@
+[project]
+name = "keyword-rosetta-python"
+version = "0.1.0"
+description = "GitGalaxy control-corpus shell, python expression"

@@ -1,0 +1,451 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "SUBROUTINE",
+      "BEXT",
+      "EXTEND"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [
+      "MASK",
+      "AD",
+      "SU",
+      "MULT",
+      "DV"
+    ],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "TC",
+      "TCF",
+      "BZF",
+      "BZMF",
+      "BZE",
+      "BMN",
+      "BPL",
+      "BMI",
+      "CCS",
+      "RESUME",
+      "RETURN",
+      "TCR",
+      "OVSK",
+      "BVBZ",
+      "CALL",
+      "GOTO"
+    ],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "ENDOFJOB",
+      "RESUME",
+      "EXIT"
+    ],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "EXEC",
+      "ENDOFJOB",
+      "PHASCHNG",
+      "AWAKE",
+      "SLEEP",
+      "VARDELAY"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "FLASH",
+      "PINBALL"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "Za",
+      "z0",
+      "zA",
+      "Z0"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "RUPT",
+      "TIME1",
+      "TIME2",
+      "KEYRUPT",
+      "UPRUPT",
+      "DOWNRUPT",
+      "RADAR",
+      "OPTIC",
+      "HANDRUPT",
+      "ERRUPT"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "COMMON"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "CURTAINS",
+      "SYSTEM_FAILURE",
+      "WHIMPER",
+      "HALT"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [
+      "BANK",
+      "SETLOC"
+    ],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "DSKY",
+      "CHANNEL",
+      "READ",
+      "WRITE"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "MACRO",
+      "ENDMAC",
+      "DEFINE"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "ERASABLE",
+      "FIXED",
+      "EQUALS",
+      "SHARE"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "POODOO",
+      "BAILOUT",
+      "ABORT"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "INDEX",
+      "INDIRECT",
+      "POINTER",
+      "CADR",
+      "FCADR",
+      "ECADR"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "INDEX",
+      "RVQ"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "INHINT",
+      "RELINT",
+      "EDRUPT"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "TASKOVER"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "VAD",
+      "VSUB",
+      "BDSU",
+      "DDV",
+      "DMP",
+      "DSU",
+      "SQRT",
+      "NORM",
+      "SIGN",
+      "ABS",
+      "SIN",
+      "COS",
+      "ASIN",
+      "ACOS",
+      "SPCOS",
+      "SPSIN",
+      "DOT",
+      "CROSS",
+      "UNIT",
+      "ABVAL",
+      "VXV",
+      "VXM",
+      "MXV"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [
+      "GSOP",
+      "LUMINARY",
+      "COMANCHE",
+      "COLOSSUS",
+      "SUNDISK",
+      "SUNBURST"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "TS",
+      "DXCH",
+      "LXCH",
+      "QXCH",
+      "XCH",
+      "INCR",
+      "AUG",
+      "DIM",
+      "WRSUB",
+      "AUGMENT",
+      "DIMINISH",
+      "STORE",
+      "STQ",
+      "STCALL",
+      "DAS"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "CA",
+      "CAF",
+      "CS",
+      "TS",
+      "DXCH",
+      "LXCH",
+      "QXCH",
+      "XCH",
+      "AD",
+      "SU",
+      "MULT",
+      "DV",
+      "MASK",
+      "CCS",
+      "SETLOC",
+      "BANK",
+      "COUNT",
+      "ADRES",
+      "OCTAL",
+      "DEC",
+      "BLOCK",
+      "ERASE"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "INHINT",
+      "RELINT",
+      "LOCK",
+      "UNLOCK"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "DNTM",
+      "DOWNLINK",
+      "TELEM",
+      "TM",
+      "DUMPTEL"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "SELFCHECK",
+      "ROPECHK",
+      "ERASCHK",
+      "CNTRCHK",
+      "CHECK"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "VARDELAY"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "NOUN",
+      "VERB",
+      "ENTER",
+      "PROCEED"
+    ],
+    "pattern_defined": true
+  }
+}

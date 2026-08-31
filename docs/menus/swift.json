@@ -1,0 +1,567 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "public",
+      "open",
+      "package",
+      "@usableFromInline",
+      "@objc",
+      "@objcMembers",
+      "@_exported",
+      "@IBAction",
+      "@IBOutlet",
+      "@Published"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "guard",
+      "switch",
+      "case",
+      "default",
+      "for",
+      "while",
+      "repeat",
+      "do",
+      "catch",
+      "break",
+      "continue",
+      "defer",
+      "try",
+      "throws"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "async",
+      "await",
+      "actor",
+      "Task",
+      "TaskGroup",
+      "DispatchQueue",
+      "OperationQueue",
+      "MainActor",
+      "Sendable",
+      "isolated",
+      "nonisolated",
+      "continuation"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "print",
+      "debugPrint",
+      "dump"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "Swinject",
+      "Container",
+      "Resolver",
+      "Factory",
+      "@Environment",
+      "@EnvironmentObject",
+      "@Inject",
+      "@Dependency"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "private",
+      "fileprivate",
+      "internal"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "NotificationCenter",
+      "Combine",
+      "Publisher",
+      "Subscriber",
+      "CurrentValueSubject",
+      "PassthroughSubject",
+      "AnyCancellable",
+      "ObservableObject",
+      "Observation",
+      "@Published"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "shared",
+      "standard",
+      "default",
+      "NotificationCenter.default",
+      "UserDefaults.standard",
+      "FileManager.default",
+      "@Environment"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "fatalError",
+      "preconditionFailure",
+      "assertionFailure",
+      "abort",
+      "exit"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "let",
+      "final",
+      "static",
+      "readonly",
+      "Immutable",
+      "Sendable"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "URLSession",
+      "FileManager",
+      "FileHandle",
+      "UserDefaults",
+      "CoreData",
+      "SwiftData",
+      "NWConnection"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "URLSession",
+      "NSXPCConnection",
+      "NotificationCenter",
+      "DispatchQueue"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "addObserver",
+      "subscribe"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "malloc",
+      "calloc",
+      "free",
+      "ManagedBuffer"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "fatalError",
+      "abort",
+      "exit",
+      "preconditionFailure"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "OpaquePointer",
+      "CVaListPointer",
+      "Unmanaged"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "dynamic",
+      "unsafeBitCast",
+      "KeyPath",
+      "WritableKeyPath",
+      "@objc"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "NSRegularExpression",
+      "Regex"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "catch",
+      "is",
+      "Sendable",
+      "Result",
+      "assert",
+      "precondition",
+      "Mutex",
+      "@MainActor"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "simd",
+      "Accelerate",
+      "Double",
+      "Float",
+      "Float16",
+      "CGFloat",
+      "Decimal",
+      "CoreML",
+      "CreateML",
+      "vDSP",
+      "sqrt",
+      "pow",
+      "sin",
+      "cos",
+      "tan"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "JSONDecoder",
+      "JSONEncoder",
+      "PropertyListSerialization",
+      "NSKeyedUnarchiver",
+      "XMLParser"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "Vapor",
+      "Hummingbird",
+      "Request",
+      "Response",
+      "Route",
+      "app.get",
+      "app.post",
+      "EventLoopFuture"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "var",
+      "inout",
+      "mutating",
+      "didSet",
+      "willSet",
+      "_modify"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "func",
+      "init",
+      "subscript",
+      "var",
+      "struct",
+      "class",
+      "enum",
+      "protocol",
+      "extension",
+      "actor",
+      "macro",
+      "import",
+      "typealias",
+      "associatedtype",
+      "mutating",
+      "nonmutating",
+      "isolated",
+      "nonisolated",
+      "return",
+      "yield",
+      "await",
+      "inout",
+      "some",
+      "any",
+      "consume",
+      "borrow",
+      "discard"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "mutex",
+      "lock",
+      "synchronized",
+      "Semaphore",
+      "OSAllocatedUnfairLock",
+      "MainActor",
+      "distributed"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "Logger",
+      "OSLog",
+      "os_log"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "XCTest",
+      "XCTestCase",
+      "XCTAssert",
+      "setUp",
+      "tearDown"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "sleep",
+      "delay",
+      "Task.sleep"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "Calendar.current",
+      "DateFormatter",
+      "DispatchTime.now",
+      "Timer.scheduledTimer"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "View",
+      "Body",
+      "ZStack",
+      "VStack",
+      "HStack",
+      "Text",
+      "Image",
+      "Button",
+      "SwiftUI",
+      "UIKit",
+      "AppKit",
+      "UIView",
+      "UIViewController",
+      "NSView",
+      "NSWindow",
+      "@State",
+      "@Binding",
+      "@Environment"
+    ],
+    "pattern_defined": true
+  }
+}

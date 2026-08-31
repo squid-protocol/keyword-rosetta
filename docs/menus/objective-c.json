@@ -1,0 +1,549 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "FOUNDATION_EXPORT",
+      "UIKIT_EXTERN",
+      "OBJC_EXPORT",
+      "extern",
+      "IBOutlet",
+      "IBAction"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "switch",
+      "case",
+      "default",
+      "for",
+      "while",
+      "do",
+      "break",
+      "continue",
+      "return",
+      "goto"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "dealloc",
+      "release",
+      "autorelease",
+      "free",
+      "NX_FREE"
+    ],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "dispatch_async",
+      "dispatch_sync",
+      "dispatch_once",
+      "dispatch_queue_t",
+      "NSOperation",
+      "NSThread",
+      "NSLock",
+      "NXConditionLock"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "printf",
+      "fprintf",
+      "NXPrintf",
+      "NSLog"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "TyphoonComponentFactory",
+      "TyphoonDefinition",
+      "JSObjection"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@param",
+      "@return",
+      "@brief",
+      "@discussion"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "NSNotificationCenter",
+      "addObserver",
+      "postNotification",
+      "sendEvent"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [
+      "typeof"
+    ],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "extern",
+      "NSUserDefaults",
+      "NXDefaults",
+      "NXApp"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "abort",
+      "exit"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "const",
+      "readonly",
+      "immutable"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [
+      "#import",
+      "#include",
+      "@import"
+    ],
+    "pattern_defined": true
+  },
+  "inline_asm": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "NSFileHandle",
+      "NSFileManager",
+      "NSURLSession",
+      "NSURLConnection",
+      "NSData",
+      "NXNetPath",
+      "NXSocket",
+      "NXStream",
+      "NXFile",
+      "HTLoad",
+      "HyperText",
+      "HTGet",
+      "socket",
+      "connect",
+      "send",
+      "recv"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "NSXPCConnection",
+      "NSTask",
+      "NSPipe",
+      "NSURLConnection",
+      "NSURLSession",
+      "NSMachPort"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "alloc",
+      "init",
+      "new",
+      "copy",
+      "mutableCopy",
+      "retain",
+      "malloc",
+      "calloc",
+      "NX_MALLOC",
+      "NX_ZONEMALLOC",
+      "NSZoneMalloc"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [
+      "Created by",
+      "Copyright",
+      "@author"
+    ],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "abort",
+      "exit"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "id",
+      "Class",
+      "SEL",
+      "IMP"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "objc_msgSend",
+      "performSelector",
+      "method_exchangeImplementations",
+      "class_addMethod",
+      "objc_allocateClassPair",
+      "isa",
+      "object_setClass"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "NSRegularExpression",
+      "NSRegularExpressionSearch"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "__weak",
+      "__strong",
+      "__auto_type",
+      "NSAssert",
+      "NSParameterAssert",
+      "NSError",
+      "nil",
+      "Nil"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "__unsafe_unretained",
+      "unsafe_unretained",
+      "id"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "math.h",
+      "sin",
+      "cos",
+      "tan",
+      "sqrt",
+      "exp",
+      "log",
+      "abs",
+      "NSDecimalNumber",
+      "CGVector",
+      "CGAffineTransform",
+      "CGPoint",
+      "CGRect",
+      "CGSize",
+      "NXRect",
+      "NXSize"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "NSJSONSerialization",
+      "NSKeyedUnarchiver",
+      "NSKeyedArchiver",
+      "NSXMLParser",
+      "NSPropertyListSerialization"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [
+      "WorldWideWeb"
+    ],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "WOComponent",
+      "WOResponse",
+      "WOContext",
+      "WOApplication",
+      "WODirectAction",
+      "WebObjects"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "typedef",
+      "struct",
+      "enum",
+      "union",
+      "__block",
+      "__weak",
+      "__strong"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "NSLock",
+      "NSRecursiveLock",
+      "NSConditionLock",
+      "dispatch_semaphore_wait"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "os_log",
+      "OSLog",
+      "DDLogInfo",
+      "DDLogError",
+      "DDLogWarn",
+      "DDLogDebug",
+      "syslog"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "XCTest",
+      "XCTestCase",
+      "XCTAssert",
+      "SenTestCase",
+      "STAssert"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "XCTSkip",
+      "xit",
+      "xdescribe"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "NSDate",
+      "NSDateFormatter",
+      "NSTimer",
+      "CFAbsoluteTimeGetCurrent",
+      "NSDateComponents"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "UIView",
+      "UIViewController",
+      "UIWindow",
+      "NSView",
+      "NSWindow",
+      "NXWindow",
+      "NXApp",
+      "NXBrowser",
+      "NXText",
+      "Text",
+      "ScrollView",
+      "HyperText",
+      "WorldWideWeb",
+      "SGML"
+    ],
+    "pattern_defined": true
+  }
+}

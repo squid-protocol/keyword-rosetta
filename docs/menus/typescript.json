@@ -1,0 +1,580 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "export",
+      "public",
+      "module.exports"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "else",
+      "switch",
+      "case",
+      "default",
+      "for",
+      "while",
+      "do",
+      "catch",
+      "finally",
+      "continue",
+      "break",
+      "try"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "dispose",
+      "close",
+      "destroy",
+      "clearTimeout",
+      "clearInterval",
+      "removeEventListener",
+      "delete"
+    ],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "async",
+      "await",
+      "Promise",
+      "requestAnimationFrame",
+      "setImmediate",
+      "setTimeout",
+      "setInterval",
+      "Worker",
+      "postMessage",
+      "Observable",
+      "Subject",
+      "Subscription"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "Inject",
+      "Injectable",
+      "Container",
+      "resolve",
+      "register",
+      "tsyringe",
+      "inversify"
+    ],
+    "pattern_defined": true
+  },
+  "dl_frameworks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "@param",
+      "@return",
+      "@throws",
+      "@deprecated",
+      "@typedef",
+      "@type",
+      "@template",
+      "@callback"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "private",
+      "protected",
+      "internal"
+    ],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "emit",
+      "on",
+      "once",
+      "off",
+      "dispatchEvent",
+      "EventEmitter",
+      "EventTarget"
+    ],
+    "pattern_defined": true
+  },
+  "exfiltration_camouflage": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [
+      "keyof",
+      "infer",
+      "extends",
+      "Omit",
+      "Pick",
+      "Partial",
+      "Record",
+      "Required",
+      "Awaited",
+      "ReturnType",
+      "Parameters",
+      "NonNullable"
+    ],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "process.env"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "eval",
+      "document.write",
+      "innerHTML",
+      "outerHTML",
+      "dangerouslySetInnerHTML",
+      "debugger",
+      "alert",
+      "process.exit"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "const",
+      "readonly",
+      "final",
+      "Object.freeze",
+      "Object.seal"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "fetch",
+      "axios",
+      "http",
+      "https",
+      "fs",
+      "path",
+      "database",
+      "sql",
+      "localStorage",
+      "sessionStorage",
+      "indexedDB",
+      "document.cookie",
+      "XMLHttpRequest",
+      "child_process"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "postMessage",
+      "Worker",
+      "MessageChannel",
+      "child_process",
+      "worker_threads",
+      "cluster"
+    ],
+    "pattern_defined": true
+  },
+  "lazy_evaluation": {
+    "core": false,
+    "keywords": [
+      "yield",
+      "Generator",
+      "AsyncGenerator",
+      "Iterable",
+      "AsyncIterable"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [
+      "on",
+      "addEventListener",
+      "subscribe",
+      "watch",
+      "effect"
+    ],
+    "pattern_defined": true
+  },
+  "llm_api": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "llm_orchestrator": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "llm_vector_store": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ml_traditional": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [
+      "@author",
+      "Created by"
+    ],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "throw",
+      "fatalError",
+      "abort",
+      "process.exit"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "rce_funnel": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "prototype",
+      "__proto__",
+      "Object.assign",
+      "Reflect",
+      "Proxy",
+      "Object.defineProperty"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "catch",
+      "finally",
+      "satisfies",
+      "unknown",
+      "never",
+      "void",
+      "Object.freeze"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "any"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "random"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "JSON.parse",
+      "JSON.stringify"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [
+      "getServerSideProps",
+      "getStaticProps",
+      "generateStaticParams",
+      "LoaderFunction",
+      "ActionFunction"
+    ],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "let",
+      "var",
+      "setState",
+      "push",
+      "pop",
+      "shift",
+      "unshift",
+      "splice",
+      "sort",
+      "reverse"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "var",
+      "return",
+      "class",
+      "interface",
+      "type",
+      "enum",
+      "import",
+      "export",
+      "await",
+      "satisfies",
+      "using",
+      "namespace",
+      "module",
+      "implements",
+      "extends",
+      "declare"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "mutex",
+      "lock",
+      "synchronized",
+      "Semaphore",
+      "Atomics.lock",
+      "Atomics.wait"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "test.skip",
+      "it.skip",
+      "describe.skip",
+      "xit",
+      "xdescribe",
+      "mock",
+      "stub"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "sleep",
+      "delay",
+      "setTimeout",
+      "setInterval",
+      "Atomics.wait"
+    ],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "Date.now",
+      "setTimeout",
+      "setInterval",
+      "clearTimeout",
+      "clearInterval",
+      "performance.now"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "this.state",
+      "@Component",
+      "@Injectable"
+    ],
+    "pattern_defined": true
+  },
+  "vectorized_math": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  }
+}

@@ -1,0 +1,343 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "AC_SUBST",
+      "AC_DEFINE",
+      "AC_PROVIDE",
+      "m4_provide"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "ifelse",
+      "ifdef",
+      "AS_IF",
+      "AS_CASE",
+      "m4_if",
+      "m4_case",
+      "m4_cond",
+      "m4_ifval",
+      "m4_ifblank"
+    ],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "m4_popdef",
+      "popdef",
+      "AT_CLEANUP"
+    ],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [
+      "m4_foreach",
+      "m4_foreach_w",
+      "m4_map",
+      "m4_map_sep"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "errprint",
+      "m4_errprint"
+    ],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [
+      "AC_REQUIRE",
+      "m4_require"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [
+      "AC_COPYRIGHT"
+    ],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [
+      "m4_pattern_forbid"
+    ],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "AC_ARG_VAR",
+      "AC_ENV_VAR",
+      "m4_divert_text"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "syscmd",
+      "esyscmd",
+      "m4_syscmd",
+      "m4_esyscmd"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [
+      "include",
+      "sinclude",
+      "m4_include",
+      "m4_sinclude"
+    ],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "sysval",
+      "mkstemp",
+      "maketemp",
+      "m4_mkstemp",
+      "m4_maketemp",
+      "AC_CONFIG_FILES",
+      "AC_OUTPUT"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "AC_DEFINE",
+      "AC_DEFINE_UNQUOTED",
+      "AH_TEMPLATE"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [
+      "AC_COPYRIGHT"
+    ],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "m4_fatal",
+      "AC_MSG_ERROR",
+      "AC_MSG_FAILURE",
+      "AS_EXIT"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "translit",
+      "patsubst",
+      "regexp",
+      "m4_translit",
+      "m4_bpatsubst",
+      "m4_bregexp",
+      "m4_pattern_allow"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "m4_assert",
+      "AS_VERSION_COMPARE",
+      "AC_CHECK_PROGS",
+      "AC_CHECK_LIB",
+      "AC_CHECK_HEADERS",
+      "AC_CHECK_FUNCS",
+      "m4_warn"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [
+      "changequote",
+      "changecom",
+      "m4_changequote",
+      "m4_changecom",
+      "m4_ignore"
+    ],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "eval",
+      "m4_eval"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "pushdef",
+      "popdef",
+      "m4_pushdef",
+      "m4_popdef",
+      "m4_append",
+      "m4_append_uniq",
+      "m4_combine"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "divert",
+      "undivert",
+      "m4_divert",
+      "m4_undivert",
+      "m4_require",
+      "AC_REQUIRE"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "AC_MSG_CHECKING",
+      "AC_MSG_RESULT",
+      "AC_MSG_WARN",
+      "AC_MSG_NOTICE"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "AT_SETUP",
+      "AT_CHECK",
+      "AT_CLEANUP",
+      "AT_INIT",
+      "AT_DATA"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "AT_SKIP_IF"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [
+      "sleep"
+    ],
+    "pattern_defined": true
+  }
+}
