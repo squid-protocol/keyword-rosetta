@@ -28,7 +28,7 @@
     "a.py": {
       "class_start": 0,
       "branch": 0,
-      "io": 2,
+      "io": 0,
       "high_risk_execution": 0,
       "globals": 2,
       "test": 3,
@@ -42,7 +42,7 @@
       "import": 2,
       "func_start": 3,
       "args": 3,
-      "api": 6
+      "api": 3
     },
     "b.py": {
       "class_start": 0,
@@ -61,7 +61,7 @@
       "import": 2,
       "func_start": 3,
       "args": 3,
-      "api": 6
+      "api": 3
     },
     "c.py": {
       "class_start": 0,
@@ -80,7 +80,7 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 6,
+      "api": 3,
       "doc": 0,
       "ownership": 0
     }
@@ -108,5 +108,5 @@
       "outcome": "inert (underscore)"
     }
   ],
-  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON — verified: with no marker, a/b/c scanned under python rules (gc.collect not counted as cleanup, Pin/I2C/UART not io). Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Locked 2026-08-31."
+  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON — verified: with no marker, a/b/c scanned under python rules (gc.collect not counted as cleanup, Pin/I2C/UART not io). Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Under embedded classification the io rule has NO os./sys. alternation (a.py io 0 — python's would count 2) and orphan->api conversion does not fire (api stays at 3 raw defs per imported file, like ada) — two rule-level divergences from plain python on byte-similar code. Locked 2026-08-31."
 }

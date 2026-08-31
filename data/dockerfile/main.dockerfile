@@ -1,8 +1,8 @@
 # keyword rosetta control shell: dockerfile / main
-# Maintainer: keyword-rosetta generator
 # Description: dispatch each probe once
 # decoy: this suite never evaluates and the exec word stays in prose
 FROM a
+MAINTAINER keyword-rosetta generator
 ARG FLAG
 
 RUN if true; then :; elif false; then :; fi
