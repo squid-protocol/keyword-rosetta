@@ -14,13 +14,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [apex](#apex) | 7 | 5 | 0 | 6 | #2535 #2545 #2546 |
 | [assembly](#assembly) | 2 | 2 | 0 | 5 | #2535 #2546 |
 | [c](#c) | 4 | 3 | 0 | 4 | #2535 #2546 |
-| [cobol](#cobol) | 6 | 4 | 0 | 5 | #2535 #2537 #2538 |
+| [cobol](#cobol) | 3 | 4 | 0 | 6 | #2535 #2537 #2538 |
 | [cpp](#cpp) | 0 | 2 | 0 | 3 | #2535 #2546 |
 | [csharp](#csharp) | 0 | 2 | 0 | 3 | #2535 #2546 |
 | [css](#css) | 10 | 5 | 4 | 2 | — |
 | [dart](#dart) | 1 | 1 | 0 | 4 | #2535 |
-| [dockerfile](#dockerfile) | 5 | 11 | 0 | 5 | #2535 #2546 #2547 |
-| [embedded_python](#embedded_python) | 6 | 4 | 0 | 4 | #2535 #2548 |
+| [dockerfile](#dockerfile) | 5 | 10 | 0 | 5 | #2535 #2546 #2547 |
+| [embedded_python](#embedded_python) | 6 | 5 | 0 | 4 | #2535 #2548 |
 | [fortran](#fortran) | 5 | 4 | 0 | 5 | #2535 #2540 #2546 |
 | [go](#go) | 3 | 0 | 0 | 5 | #2535 #2542 #2546 |
 | [groovy](#groovy) | 2 | 2 | 0 | 4 | #2535 |
@@ -29,11 +29,11 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [java](#java) | 1 | 2 | 0 | 3 | #2535 #2546 |
 | [javascript](#javascript) | 1 | 5 | 0 | 4 | #2535 #2539 |
 | [jcl](#jcl) | 2 | 8 | 4 | 3 | #2610 |
-| [kotlin](#kotlin) | 2 | 1 | 0 | 5 | #2535 #2545 #2546 |
-| [livecode](#livecode) | 4 | 5 | 0 | 5 | #2535 #2546 #2547 |
-| [lua](#lua) | 4 | 2 | 0 | 3 | #2535 #2546 |
+| [kotlin](#kotlin) | 2 | 2 | 0 | 5 | #2535 #2545 #2546 |
+| [livecode](#livecode) | 3 | 7 | 0 | 5 | #2535 #2546 #2547 |
+| [lua](#lua) | 4 | 2 | 0 | 4 | #2535 #2546 #2547 |
 | [m4](#m4) | 8 | 6 | 1 | 4 | #2535 |
-| [makefile](#makefile) | 3 | 5 | 1 | 4 | #2535 #2546 |
+| [makefile](#makefile) | 3 | 4 | 1 | 4 | #2535 #2546 |
 | [markdown](#markdown) | 12 | 1 | 18 | 3 | — |
 | [matlab](#matlab) | 5 | 4 | 0 | 5 | #2535 #2546 #2547 |
 | [objective-c](#objective-c) | 3 | 2 | 0 | 6 | #2535 #2545 #2546 |
@@ -41,13 +41,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [php](#php) | 2 | 2 | 0 | 4 | #2535 #2541 #2546 |
 | [powershell](#powershell) | 4 | 4 | 0 | 6 | #2535 #2545 #2546 #2547 |
 | [python](#python) | 5 | 3 | 0 | 5 | #2535 #2536 |
-| [ruby](#ruby) | 0 | 2 | 0 | 3 | #2535 #2546 |
+| [ruby](#ruby) | 0 | 2 | 0 | 4 | #2535 #2546 #2547 |
 | [rust](#rust) | 0 | 0 | 0 | 2 | #2535 |
 | [scala](#scala) | 2 | 2 | 0 | 3 | #2535 |
-| [scheme](#scheme) | 5 | 3 | 0 | 5 | #2535 #2537 |
-| [shell](#shell) | 1 | 5 | 1 | 5 | #2535 #2547 |
+| [scheme](#scheme) | 4 | 3 | 0 | 5 | #2535 #2537 |
+| [shell](#shell) | 1 | 4 | 1 | 5 | #2535 #2547 |
 | [solidity](#solidity) | 4 | 1 | 1 | 4 | #2535 #2545 |
-| [sqlite](#sqlite) | 8 | 2 | 0 | 4 | #2535 #2547 |
+| [sqlite](#sqlite) | 7 | 5 | 0 | 4 | #2535 #2547 |
 | [swift](#swift) | 5 | 0 | 0 | 4 | #2535 #2543 #2546 |
 | [tcl](#tcl) | 2 | 3 | 0 | 4 | #2535 #2546 |
 | [typescript](#typescript) | 1 | 0 | 0 | 4 | #2535 #2546 |
@@ -63,7 +63,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 7.0764 vs median 15.1444 (-53%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 162 vs median 251 (-35%)
+- 🟡 `keyword_hits`: 162 vs median 246 (-34%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -84,10 +84,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 24.2458 vs median 15.1444 (+60%)
-- 🟡 `keyword_hits`: 176 vs median 251 (-30%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9638 (-50%)
+- 🟡 `keyword_hits`: 176 vs median 246 (-28%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -110,7 +110,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 2 vs median 13 (-85%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 1.88742 vs median 5.31104 (-64%)
+- 🔴 `risk_api_exposure`: 1.88742 vs median 5.29997 (-64%)
 - 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `comment_lines`: 21 vs median 30 (-30%)
@@ -138,10 +138,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `branch`: 19 vs median 5 (+280%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 30.2902 vs median 15.1444 (+100%)
 - 🔴 `risk_state_flux`: 39.9925 vs median 19.9999 (+100%)
-- 🔴 `risk_tech_debt`: 79.97 vs median 39.9638 (+100%)
+- 🔴 `risk_tech_debt`: 79.97 vs median 39.9315 (+100%)
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `risk_safety_score`: 54.7071 vs median 37.3868 (+46%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
@@ -170,7 +170,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `branch`: 25 vs median 5 (+400%)
 - 🔴 `risk_cognitive_load`: 32.9884 vs median 15.1444 (+118%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 73.1353 vs median 55.0085 (+33%)
+- 🟡 `risk_documentation`: 73.1353 vs median 54.777 (+34%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -193,11 +193,11 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `io`: 5 vs median 3 (+67%)
-- 🔴 `risk_api_exposure`: 11.5689 vs median 5.31104 (+118%)
+- 🔴 `risk_api_exposure`: 11.5689 vs median 5.29997 (+118%)
 - 🔴 `risk_state_flux`: 38.7639 vs median 19.9999 (+94%)
 - 🔴 `state_mutation`: 11 vs median 6 (+83%)
 - 🟡 `risk_cognitive_load`: 19.7263 vs median 15.1444 (+30%)
-- 🟡 `risk_documentation`: 79.9696 vs median 55.0085 (+45%)
+- 🟡 `risk_documentation`: 79.9696 vs median 54.777 (+46%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -219,9 +219,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `args`: 1 vs median 13 (-92%)
-- 🔴 `comment_lines`: 14 vs median 30 (-53%)
-- 🔴 `fragile_debt`: 3 vs median 1 (+200%)
-- 🔴 `planned_debt`: 2 vs median 1 (+100%)
 - 🔴 `risk_cognitive_load`: 6.56188 vs median 15.1444 (-57%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
@@ -232,6 +229,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `cobol-args-clause-match-morphology` | intended-morphology | — | (notes) | cobol args 1 vs planted 13 is intended morphology, not an authoring gap (bucket-3 test run before ledgering, jcl PARM= precedent checked) |
 | `cobol-working-storage-globals` | keyword-overlap | — | (notes) | cobol globals pattern includes WORKING-STORAGE\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1 |
 | `cobol-hyphen-identifier-debt-leak` | upstream-bug | [#2537](https://github.com/squid-protocol/gitgalaxy/issues/2537) | c.cpy | Debt rules are whole-text, not comment-anchored, and '-' is a regex word boundary: HACK-LEVEL (data item, 2 code occurrences) counts fragile_debt, PROBE-TODO (paragraph … |
 | `cobol-area-b-bare-token-paragraph` | upstream-question | [#2538](https://github.com/squid-protocol/gitgalaxy/issues/2538) | (notes) | A bare token + period in Area B (CEE3DMP |
@@ -241,7 +239,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - **main.cbl** · `never ALTER this flow and no PERFORM loop` (comment): stripped: contributed 0
 - **a.cpy** · `DISPLAY 'IF ALTER FAILS TRY OPEN AGAIN'` (string): ALL counted: IF (branch +1), ALTER (high_risk +1), OPEN (io +1) — cobol does NOT shield the high-risk family in literals, unlike python/javascript. Ledger: string-literal-selective-shielding; gitgalaxy#2535 comment
-- **c.cpy** · `77 HACK-LEVEL PIC 9. / DISPLAY HACK-LEVEL.` (code): COUNTED (+2): hyphen is a word boundary so \bHACK\b matches inside the identifier, both occurrences; the PROBE-TODO paragraph name likewise adds planned_debt +1. Ledger: cobol-hyphen-identifier-debt-leak; gitgalaxy#2537
+- **c.cpy** · `77 HACK-LEVEL PIC 9. / DISPLAY HACK-LEVEL.` (code): INERT (fixed): gitgalaxy#2537 (PR #2622) added hyphenated-identifier guards to the shared debt patterns, so \bHACK\b no longer matches inside HACK-LEVEL and the PROBE-TODO paragraph name no longer adds planned_debt — c.cpy now records exactly the planted * HACK: / * TODO: comments (1 each). Ledger: cobol-hyphen-identifier-debt-leak (resolved)
 
 </details>
 
@@ -293,14 +291,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `doc`: 0 vs median 1 (-100%)
 - 🔴 `globals`: 0 vs median 2 (-100%)
 - 🔴 `ownership`: 0 vs median 1 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
-- 🔴 `risk_documentation`: 26.4404 vs median 55.0085 (-52%)
+- 🔴 `risk_documentation`: 26.4404 vs median 54.777 (-52%)
 - 🔴 `risk_spec_match`: 45.3333 vs median 96 (-53%)
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 147 vs median 251 (-41%)
+- 🟡 `keyword_hits`: 147 vs median 246 (-40%)
 - 🟡 `risk_safety_score`: 19.8485 vs median 37.3868 (-47%)
 - 🟡 `risk_verification`: 1.27414 vs median 2.3628 (-46%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
@@ -344,7 +342,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 4 vs median 13 (-69%)
 - 🔴 `io`: 6 vs median 3 (+100%)
-- 🔴 `risk_api_exposure`: 1.0506 vs median 5.31104 (-80%)
+- 🔴 `risk_api_exposure`: 1.0506 vs median 5.29997 (-80%)
 - 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
 - 🔴 `risk_state_flux`: 39.9982 vs median 19.9999 (+100%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
@@ -352,8 +350,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `import`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 185 vs median 251 (-26%)
-- 🟡 `risk_documentation`: 38.1027 vs median 55.0085 (-31%)
+- 🟡 `risk_documentation`: 38.1027 vs median 54.777 (-30%)
 - 🟡 `risk_safety_score`: 55.625 vs median 37.3868 (+49%)
 - 🟡 `risk_spec_match`: 61.3333 vs median 96 (-36%)
 - 🟡 `risk_verification`: 1.70158 vs median 2.3628 (-28%)
@@ -381,11 +378,12 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `import`: 7 vs median 3 (+133%)
-- 🔴 `risk_api_exposure`: 8.75246 vs median 5.31104 (+65%)
+- 🔴 `risk_api_exposure`: 8.75246 vs median 5.29997 (+65%)
 - 🔴 `safety`: 5 vs median 2 (+150%)
 - 🟡 `io`: 4 vs median 3 (+33%)
+- 🟡 `keyword_hits`: 309 vs median 246 (+26%)
 - 🟡 `risk_cognitive_load`: 21.6556 vs median 15.1444 (+43%)
-- 🟡 `risk_documentation`: 74.4276 vs median 55.0085 (+35%)
+- 🟡 `risk_documentation`: 74.4276 vs median 54.777 (+36%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -407,13 +405,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 9.73064 vs median 5.31104 (+83%)
+- 🔴 `risk_api_exposure`: 9.73064 vs median 5.29997 (+84%)
 - 🔴 `risk_cognitive_load`: 6.37874 vs median 15.1444 (-58%)
 - 🔴 `risk_safety_score`: 70.1726 vs median 37.3868 (+88%)
 - 🔴 `risk_state_flux`: 37.3978 vs median 19.9999 (+87%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 75.9927 vs median 55.0085 (+38%)
+- 🟡 `risk_documentation`: 75.9927 vs median 54.777 (+39%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -436,7 +434,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 1.89168 vs median 5.31104 (-64%)
+- 🔴 `risk_api_exposure`: 1.89168 vs median 5.29997 (-64%)
 - 🔴 `safety_bypasses`: 5 vs median 2 (+150%)
 - 🔴 `state_mutation`: 11 vs median 6 (+83%)
 
@@ -481,15 +479,15 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 5.53524 vs median 15.1444 (-63%)
 - 🔴 `risk_safety_score`: 56.3515 vs median 37.3868 (+51%)
 - 🔴 `risk_state_flux`: 39.8873 vs median 19.9999 (+99%)
 - 🔴 `safety`: 4 vs median 2 (+100%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
-- 🟡 `keyword_hits`: 146 vs median 251 (-42%)
+- 🟡 `keyword_hits`: 146 vs median 246 (-41%)
 - 🟡 `risk_spec_match`: 65.3333 vs median 96 (-32%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9638 (-50%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 - 🟡 `state_mutation`: 8 vs median 6 (+33%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -516,7 +514,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `func_start`: 0 vs median 13 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 1.0506 vs median 5.31104 (-80%)
+- 🔴 `risk_api_exposure`: 1.0506 vs median 5.29997 (-80%)
 - 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
 - 🔴 `risk_safety_score`: 0 vs median 37.3868 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
@@ -524,10 +522,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `telemetry`: 0 vs median 2 (-100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `comment_lines`: 15 vs median 30 (-50%)
-- 🟡 `keyword_hits`: 135 vs median 251 (-46%)
-- 🟡 `risk_documentation`: 32.3996 vs median 55.0085 (-41%)
+- 🟡 `keyword_hits`: 135 vs median 246 (-45%)
+- 🟡 `risk_documentation`: 32.3996 vs median 54.777 (-41%)
 - 🟡 `risk_spec_match`: 52 vs median 96 (-46%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9638 (-50%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 - 🟡 `risk_verification`: 1.1948 vs median 2.3628 (-49%)
 
 **Not expressible as measured (n/a):** `globals`†, `high_risk_execution`†, `state_mutation`†
@@ -601,9 +599,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `comment_lines`: 15 vs median 30 (-50%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 178 vs median 251 (-29%)
-- 🟡 `risk_api_exposure`: 6.93756 vs median 5.31104 (+31%)
-- 🟡 `risk_documentation`: 32.7888 vs median 55.0085 (-40%)
+- 🟡 `keyword_hits`: 178 vs median 246 (-28%)
+- 🟡 `risk_api_exposure`: 6.93756 vs median 5.29997 (+31%)
+- 🟡 `risk_documentation`: 32.7888 vs median 54.777 (-40%)
 - 🟡 `risk_spec_match`: 52 vs median 96 (-46%)
 - 🟡 `risk_verification`: 1.50954 vs median 2.3628 (-36%)
 
@@ -622,6 +620,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `branch`: 19 vs median 5 (+280%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
+- 🟡 `keyword_hits`: 311 vs median 246 (+26%)
 - 🟡 `risk_cognitive_load`: 22.1062 vs median 15.1444 (+46%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -644,12 +643,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 8.00434 vs median 5.31104 (+51%)
 - 🔴 `risk_cognitive_load`: 6.298 vs median 15.1444 (-58%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `branch`: 7 vs median 5 (+40%)
-- 🟡 `risk_documentation`: 73.1335 vs median 55.0085 (+33%)
+- 🟡 `risk_api_exposure`: 7.4132 vs median 5.29997 (+40%)
+- 🟡 `risk_documentation`: 72.843 vs median 54.777 (+33%)
 - 🟡 `risk_safety_score`: 54.3674 vs median 37.3868 (+45%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 
@@ -672,17 +672,18 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 11.366 vs median 5.31104 (+114%)
+- 🔴 `risk_api_exposure`: 11.106 vs median 5.29997 (+110%)
 - 🔴 `risk_cognitive_load`: 24.8604 vs median 15.1444 (+64%)
 - 🔴 `risk_safety_score`: 69.7879 vs median 37.3868 (+87%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 77.7796 vs median 55.0085 (+41%)
+- 🟡 `risk_documentation`: 77.7788 vs median 54.777 (+42%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.lua | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
+| `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 | `string-literal-selective-shielding` | upstream-question | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.lua | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -697,17 +698,17 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
-- 🔴 `risk_documentation`: 22.9356 vs median 55.0085 (-58%)
+- 🔴 `risk_documentation`: 22.9356 vs median 54.777 (-58%)
 - 🔴 `risk_safety_score`: 57.4043 vs median 37.3868 (+54%)
 - 🔴 `risk_spec_match`: 41.3333 vs median 96 (-57%)
 - 🔴 `risk_state_flux`: 40 vs median 19.9999 (+100%)
-- 🔴 `risk_tech_debt`: 80 vs median 39.9638 (+100%)
+- 🔴 `risk_tech_debt`: 80 vs median 39.9315 (+100%)
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `comment_lines`: 21 vs median 30 (-30%)
-- 🟡 `keyword_hits`: 174 vs median 251 (-31%)
+- 🟡 `keyword_hits`: 174 vs median 246 (-29%)
 - 🟡 `risk_verification`: 1.28776 vs median 2.3628 (-45%)
 - 🟡 `state_mutation`: 4 vs median 6 (-33%)
 
@@ -732,12 +733,11 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 0.95924 vs median 5.31104 (-82%)
+- 🔴 `risk_api_exposure`: 0.95924 vs median 5.29997 (-82%)
 - 🟡 `cleanup`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 186 vs median 251 (-26%)
 - 🟡 `risk_cognitive_load`: 10.0272 vs median 15.1444 (-34%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9638 (-50%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 
 **Not expressible as measured (n/a):** `class_start`†
 
@@ -761,16 +761,16 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `comment_lines`: 59 vs median 30 (+97%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 0 vs median 15.1444 (-100%)
-- 🔴 `risk_documentation`: 3.7698 vs median 55.0085 (-93%)
+- 🔴 `risk_documentation`: 3.7698 vs median 54.777 (-93%)
 - 🔴 `risk_safety_score`: 0 vs median 37.3868 (-100%)
 - 🔴 `risk_spec_match`: 20 vs median 96 (-79%)
 - 🔴 `risk_stability`: 10 vs median 50 (-80%)
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
-- 🔴 `risk_tech_debt`: 0 vs median 39.9638 (-100%)
+- 🔴 `risk_tech_debt`: 0 vs median 39.9315 (-100%)
 - 🔴 `risk_verification`: 0.45954 vs median 2.3628 (-81%)
-- 🟡 `keyword_hits`: 134 vs median 251 (-47%)
+- 🟡 `keyword_hits`: 134 vs median 246 (-46%)
 
 **Not expressible as measured (n/a):** `args`†, `branch`†, `class_start`†, `cleanup`†, `doc`†, `fragile_debt`†, `func_start`†, `globals`†, `high_risk_execution`†, `import`†, `io`†, `ownership`†, `planned_debt`†, `safety`†, `safety_bypasses`†, `state_mutation`†, `telemetry`†, `test`†
 
@@ -791,7 +791,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_state_flux`: 79.9098 vs median 19.9999 (+300%)
 - 🔴 `state_mutation`: 33 vs median 6 (+450%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 69.1237 vs median 55.0085 (+26%)
+- 🟡 `risk_documentation`: 68.6078 vs median 54.777 (+25%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
@@ -816,7 +816,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `args`: 21 vs median 13 (+62%)
 - 🔴 `branch`: 18 vs median 5 (+260%)
 - 🔴 `risk_cognitive_load`: 29.0086 vs median 15.1444 (+92%)
-- 🟡 `risk_documentation`: 69.4742 vs median 55.0085 (+26%)
+- 🟡 `risk_documentation`: 69.4742 vs median 54.777 (+27%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -838,15 +838,15 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 2.4136 vs median 5.31104 (-55%)
+- 🔴 `risk_api_exposure`: 2.4136 vs median 5.29997 (-54%)
 - 🔴 `risk_cognitive_load`: 23.0172 vs median 15.1444 (+52%)
 - 🔴 `risk_state_flux`: 34.5299 vs median 19.9999 (+73%)
 - 🔴 `state_mutation`: 10 vs median 6 (+67%)
 - 🟡 `functions_found`: 9 vs median 13 (-31%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 69.513 vs median 55.0085 (+26%)
+- 🟡 `risk_documentation`: 69.513 vs median 54.777 (+27%)
 - 🟡 `risk_safety_score`: 53.5487 vs median 37.3868 (+43%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9638 (-50%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
@@ -893,11 +893,11 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `branch`: 10 vs median 5 (+100%)
-- 🔴 `risk_api_exposure`: 9.63854 vs median 5.31104 (+81%)
+- 🔴 `risk_api_exposure`: 9.63854 vs median 5.29997 (+82%)
 - 🔴 `risk_cognitive_load`: 30.1398 vs median 15.1444 (+99%)
 - 🔴 `risk_state_flux`: 34.5299 vs median 19.9999 (+73%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 81.6549 vs median 55.0085 (+48%)
+- 🟡 `risk_documentation`: 81.6549 vs median 54.777 (+49%)
 - 🟡 `risk_safety_score`: 53.2735 vs median 37.3868 (+42%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
@@ -926,7 +926,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `io`: 6 vs median 3 (+100%)
 - 🔴 `risk_cognitive_load`: 4.821 vs median 15.1444 (-68%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🟡 `risk_api_exposure`: 7.35003 vs median 5.31104 (+38%)
+- 🟡 `risk_api_exposure`: 7.35003 vs median 5.29997 (+39%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
@@ -959,6 +959,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.rb | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
+| `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 | `string-literal-selective-shielding` | upstream-question | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.rb | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -990,9 +991,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 9.28468 vs median 5.31104 (+75%)
+- 🔴 `risk_api_exposure`: 9.28468 vs median 5.29997 (+75%)
 - 🟡 `risk_cognitive_load`: 22.5164 vs median 15.1444 (+49%)
-- 🟡 `risk_documentation`: 79.9223 vs median 55.0085 (+45%)
+- 🟡 `risk_documentation`: 79.9223 vs median 54.777 (+46%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1011,10 +1012,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `planned_debt`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
-- 🔴 `risk_tech_debt`: 80 vs median 39.9638 (+100%)
+- 🔴 `risk_tech_debt`: 80 vs median 39.9315 (+100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
@@ -1030,7 +1030,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **b.scm** · `(set! note "if eval fails, try open")` (string): scheme's branch keywords are sexp-anchored — bare 'if' inside the string does NOT count branch (syntax shielding) — but bare eval DOES count high_risk +1 (its rule is not anchored). state stayed exactly 3 raw, no flux (no branch context). Shielding by anchoring, a fourth profile.
-- **c.scm** · `(define (probe-todo plan) ...)` (code): COUNTED: hyphen is a word boundary so \bTODO\b matches inside probe-todo — planned_debt 2 (comment + identifier). Scheme joins cobol in gitgalaxy#2537's hyphenated-identifier debt leak.
+- **c.scm** · `(define (probe-todo plan) ...)` (code): INERT (fixed): gitgalaxy#2537 (PR #2622) hyphenated-identifier guards — \bTODO\b no longer matches inside the probe-todo symbol; c.scm planned_debt re-baselined 2→1 (the ;; TODO: comment only). Kebab-case symbols no longer feed debt scoring.
 
 </details>
 
@@ -1038,11 +1038,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_cognitive_load`: 29.5468 vs median 15.1444 (+95%)
+- 🔴 `risk_cognitive_load`: 28.0116 vs median 15.1444 (+85%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 169 vs median 251 (-33%)
-- 🟡 `risk_documentation`: 74.608 vs median 55.0085 (+36%)
+- 🟡 `risk_documentation`: 69.9741 vs median 54.777 (+28%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
 **Not expressible as measured (n/a):** `class_start`†
@@ -1096,12 +1095,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `functions_found`: 28 vs median 13 (+115%)
 - 🔴 `io`: 11 vs median 3 (+267%)
-- 🔴 `keyword_hits`: 116 vs median 251 (-54%)
-- 🔴 `risk_cognitive_load`: 5.53524 vs median 15.1444 (-63%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
-- 🔴 `risk_tech_debt`: 60 vs median 39.9638 (+50%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
+- 🟡 `keyword_hits`: 171 vs median 246 (-30%)
+- 🟡 `risk_documentation`: 38.0933 vs median 54.777 (-30%)
 - 🟡 `risk_spec_match`: 64 vs median 96 (-33%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1124,9 +1125,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 0.89698 vs median 5.31104 (-83%)
-- 🔴 `risk_documentation`: 9.74282 vs median 55.0085 (-82%)
-- 🔴 `risk_tech_debt`: 75.87 vs median 39.9638 (+90%)
+- 🔴 `risk_api_exposure`: 0.89698 vs median 5.29997 (-83%)
+- 🔴 `risk_documentation`: 9.74282 vs median 54.777 (-82%)
+- 🔴 `risk_tech_debt`: 75.87 vs median 39.9315 (+90%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1192,14 +1193,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 2 vs median 13 (-85%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
-- 🔴 `risk_documentation`: 27.1891 vs median 55.0085 (-51%)
+- 🔴 `risk_documentation`: 27.1891 vs median 54.777 (-50%)
 - 🔴 `risk_spec_match`: 46.6667 vs median 96 (-51%)
-- 🔴 `risk_tech_debt`: 80 vs median 39.9638 (+100%)
+- 🔴 `risk_tech_debt`: 80 vs median 39.9315 (+100%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 153 vs median 251 (-39%)
+- 🟡 `keyword_hits`: 153 vs median 246 (-38%)
 - 🟡 `risk_verification`: 1.30806 vs median 2.3628 (-45%)
 
 **Not expressible as measured (n/a):** `class_start`†, `test`†
@@ -1219,13 +1220,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `functions_found`: 3 vs median 13 (-77%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 5.68942 vs median 15.1444 (-62%)
 - 🔴 `state_mutation`: 1 vs median 6 (-83%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `comment_lines`: 15 vs median 30 (-50%)
-- 🟡 `keyword_hits`: 176 vs median 251 (-30%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9638 (-50%)
+- 🟡 `keyword_hits`: 176 vs median 246 (-28%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `safety_bypasses`: 1 vs median 2 (-50%)
 - 🟡 `test`: 1 vs median 2 (-50%)
@@ -1244,10 +1245,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `branch`: 19 vs median 5 (+280%)
 - 🔴 `globals`: 5 vs median 2 (+150%)
-- 🔴 `risk_api_exposure`: 2.0981 vs median 5.31104 (-60%)
+- 🔴 `risk_api_exposure`: 2.0981 vs median 5.29997 (-60%)
 - 🔴 `risk_cognitive_load`: 28.9992 vs median 15.1444 (+91%)
-- 🟡 `keyword_hits`: 322 vs median 251 (+28%)
-- 🟡 `risk_documentation`: 68.8358 vs median 55.0085 (+25%)
+- 🟡 `keyword_hits`: 322 vs median 246 (+31%)
+- 🟡 `risk_documentation`: 68.8358 vs median 54.777 (+26%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
