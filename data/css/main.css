@@ -1,0 +1,11 @@
+/* keyword rosetta control shell: css / main */
+/* decoy: this suite never uses expression words outside prose */
+@import url("a.css");
+
+@keyframes probe-dispatch {}
+
+@media (min-width: 1px) {}
+
+@supports (display: block) {}
+
+@container (min-width: 1px) {}

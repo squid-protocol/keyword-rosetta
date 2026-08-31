@@ -1,0 +1,10 @@
+# keyword rosetta control shell: yaml / c
+# decoy: tidy remarks stay in prose
+jobs:
+  tail:
+    steps:
+      - run: ':'
+      - run: ':'
+      - run: ':'
+# HACK: shortcut kept deliberately for the rosetta corpus
+# TODO: fill in the probe body later
