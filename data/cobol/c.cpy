@@ -1,6 +1,8 @@
       * Keyword Rosetta control shell: cobol / c
       * decoy: closing remarks stay in prose and tidy work happens elsewhere
+
        77 HACK-LEVEL PIC 9.
+
        PROBE-CLEANUP.
            FREE HANDLE-A.
            FREE HANDLE-B.

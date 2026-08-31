@@ -1,109 +1,109 @@
 {
-  "language": "scheme",
-  "tier": 1,
-  "generator": "claude-sonnet-5 (hand-verified reference)",
-  "files": {
-    "main.scm": {
-      "class_start": 0,
-      "branch": 3,
-      "io": 3,
-      "high_risk_execution": 2,
-      "globals": 0,
-      "test": 0,
-      "safety": 0,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "state_mutation": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0,
-      "func_start": 4,
-      "args": 4,
-      "api": 0,
-      "doc": 1,
-      "ownership": 1,
-      "import": 1
-    },
-    "a.scm": {
-      "class_start": 0,
-      "branch": 0,
-      "io": 0,
-      "high_risk_execution": 0,
-      "globals": 2,
-      "test": 2,
-      "safety": 2,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "state_mutation": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0,
-      "import": 1,
-      "func_start": 3,
-      "args": 3,
-      "api": 0
-    },
-    "b.scm": {
-      "class_start": 0,
-      "branch": 0,
-      "io": 0,
-      "high_risk_execution": 1,
-      "globals": 0,
-      "test": 0,
-      "safety": 0,
-      "safety_bypasses": 2,
-      "telemetry": 2,
-      "state_mutation": 3,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0,
-      "import": 1,
-      "func_start": 3,
-      "args": 3,
-      "api": 0
-    },
-    "c.scm": {
-      "class_start": 0,
-      "branch": 0,
-      "io": 0,
-      "high_risk_execution": 0,
-      "globals": 0,
-      "test": 0,
-      "safety": 0,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "state_mutation": 0,
-      "cleanup": 2,
-      "fragile_debt": 1,
-      "planned_debt": 2,
-      "import": 0,
-      "func_start": 3,
-      "args": 3,
-      "api": 0,
-      "doc": 0,
-      "ownership": 0
-    }
+ "language": "scheme",
+ "tier": 1,
+ "generator": "claude-sonnet-5 (hand-verified reference)",
+ "files": {
+  "main.scm": {
+   "class_start": 0,
+   "branch": 3,
+   "io": 3,
+   "high_risk_execution": 2,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "state_mutation": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0,
+   "func_start": 4,
+   "args": 4,
+   "api": 0,
+   "doc": 1,
+   "ownership": 1,
+   "import": 1
   },
-  "decoys": [
-    {
-      "file": "b.scm",
-      "line_hint": "(set! note \"if eval fails, try open\")",
-      "surface": "string",
-      "signals": [
-        "branch",
-        "high_risk_execution"
-      ],
-      "outcome": "scheme's branch keywords are sexp-anchored — bare 'if' inside the string does NOT count branch (syntax shielding) — but bare eval DOES count high_risk +1 (its rule is not anchored). state stayed exactly 3 raw, no flux (no branch context). Shielding by anchoring, a fourth profile."
-    },
-    {
-      "file": "c.scm",
-      "line_hint": "(define (probe-todo plan) ...)",
-      "surface": "code",
-      "signals": [
-        "planned_debt"
-      ],
-      "outcome": "COUNTED: hyphen is a word boundary so \\bTODO\\b matches inside probe-todo — planned_debt 2 (comment + identifier). Scheme joins cobol in gitgalaxy#2537's hyphenated-identifier debt leak."
-    }
-  ],
-  "notes": "scheme has NO _dependency_capture (like m4): (import a) counts import but produces no DAG edge, orphans stay unconverted (main 4, a/b/c 3), api 0 everywhere. Top-level (define name value) counts globals, (define (name ...)) counts func — cleanly separated. Locked 2026-08-31."
+  "a.scm": {
+   "class_start": 0,
+   "branch": 0,
+   "io": 0,
+   "high_risk_execution": 0,
+   "globals": 2,
+   "test": 2,
+   "safety": 2,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "state_mutation": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0,
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 0
+  },
+  "b.scm": {
+   "class_start": 0,
+   "branch": 0,
+   "io": 0,
+   "high_risk_execution": 1,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 2,
+   "telemetry": 2,
+   "state_mutation": 3,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0,
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 0
+  },
+  "c.scm": {
+   "class_start": 0,
+   "branch": 0,
+   "io": 0,
+   "high_risk_execution": 0,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "state_mutation": 0,
+   "cleanup": 2,
+   "fragile_debt": 1,
+   "planned_debt": 1,
+   "import": 0,
+   "func_start": 3,
+   "args": 3,
+   "api": 0,
+   "doc": 0,
+   "ownership": 0
+  }
+ },
+ "decoys": [
+  {
+   "file": "b.scm",
+   "line_hint": "(set! note \"if eval fails, try open\")",
+   "surface": "string",
+   "signals": [
+    "branch",
+    "high_risk_execution"
+   ],
+   "outcome": "scheme's branch keywords are sexp-anchored — bare 'if' inside the string does NOT count branch (syntax shielding) — but bare eval DOES count high_risk +1 (its rule is not anchored). state stayed exactly 3 raw, no flux (no branch context). Shielding by anchoring, a fourth profile."
+  },
+  {
+   "file": "c.scm",
+   "line_hint": "(define (probe-todo plan) ...)",
+   "surface": "code",
+   "signals": [
+    "planned_debt"
+   ],
+   "outcome": "INERT (fixed): gitgalaxy#2537 (PR #2622) hyphenated-identifier guards — \\bTODO\\b no longer matches inside the probe-todo symbol; c.scm planned_debt re-baselined 2→1 (the ;; TODO: comment only). Kebab-case symbols no longer feed debt scoring."
+  }
+ ],
+ "notes": "scheme has NO _dependency_capture (like m4): (import a) counts import but produces no DAG edge, orphans stay unconverted (main 4, a/b/c 3), api 0 everywhere. Top-level (define name value) counts globals, (define (name ...)) counts func — cleanly separated. Locked 2026-08-31."
 }
