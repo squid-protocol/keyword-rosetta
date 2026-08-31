@@ -70,3 +70,19 @@ here hand-copies keyword lists.
 ## License
 
 PolyForm Noncommercial 1.0.0, matching GitGalaxy — see `LICENSE`.
+
+## The GitGalaxy constellation
+
+This repo is one strand of the web of repos that build, prove, and showcase
+[GitGalaxy](https://github.com/squid-protocol/gitgalaxy). This is the **consistency leg** —
+identical planted intent in every language; the **accuracy leg** (is extraction right on real
+code?) is the crucible + tri-comparison system:
+
+- [gitgalaxy](https://github.com/squid-protocol/gitgalaxy) — the engine under measurement
+- **keyword-rosetta** — *you are here*: the 46-language planted control corpus
+- [language-crucible](https://github.com/squid-protocol/language-crucible) — real-world adversarial corpus behind the engine's golden-master gate and tri-comparison accuracy program
+- [gitgalaxy-raw-output](https://github.com/squid-protocol/gitgalaxy-raw-output) — unedited scans of real repos + speed telemetry
+- [gitgalaxy-population-analyses](https://github.com/squid-protocol/gitgalaxy-population-analyses) — statistics over the scan population (cross-language comparisons there inherit whatever bias this corpus measures)
+- [cobol_to_java_examples](https://github.com/squid-protocol/cobol_to_java_examples) — 10 COBOL repos auto-translated to compiling Spring Boot architectures
+- [squid-telemetry](https://github.com/squid-protocol/squid-telemetry) — public distribution/adoption metrics
+- Docs: [architecture & methodology site](https://squid-protocol.github.io/gitgalaxy/) · [risk-equation methodology](https://squid-protocol.github.io/gitgalaxy/08-01-methodology) (the formulas this corpus stress-tests) · [Museum of Code](https://squid-protocol.github.io/gitgalaxy/museum-of-code/) · [gitgalaxy.io](https://gitgalaxy.io/)
