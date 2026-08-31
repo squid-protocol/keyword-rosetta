@@ -95,3 +95,33 @@ Two hard rules keep n/a from becoming a rug:
    with a warning marker (†/⚠) in every report, and `language_deviations.py` exits nonzero on
    it. The worked example of "reviewed": `jcl-2610-rebaseline-residual-morphology` covers
    jcl's `cleanup|doc|test|globals` with the reasoning for each.
+
+## Cross-repo choreography (ENGINE_REF + the gitgalaxy-side pin)
+
+Two CI gates hold the corpus and the engine together (gitgalaxy#2557), asymmetrically pinned:
+
+- **This repo's `verify.yml`** checks out the engine at the ref in the committed **`ENGINE_REF`**
+  file — normally `main`. A corpus PR that depends on a not-yet-merged engine PR sets it to that
+  PR's persistent ref (`pull/<N>/head`), so the gate runs against the right engine immediately —
+  no draft-PR limbo, no post-merge rerun. Reset it to `main` before merging here (the engine PR
+  should merge first; the reset is part of the same corpus PR's final state).
+- **gitgalaxy's `rosetta-audit.yml`** checks out THIS repo at the pinned `KEYWORD_ROSETTA_REF`
+  Actions variable and runs every language gate plus `tools/na_check.py --ci` against the engine
+  PR's build — so an engine change that shifts corpus-observed counts, or removes a rule without
+  a ledger entry, fails **at the source**, in the PR that caused it, not days later here.
+
+The full flow for an intentional count-changing engine fix:
+
+1. Engine PR `N` opens in gitgalaxy → its `rosetta-audit` fails (expected — that's the gate
+   catching the drift at the source).
+2. Corpus re-baseline PR here: manifests + ledger per this doc's step 4, `ENGINE_REF` set to
+   `pull/N/head` → all gates green → flip `ENGINE_REF` back to `main` → merge (engine PR must
+   merge before the reset lands... in practice: merge this PR with `main` restored once the
+   engine PR is approved; the brief window where this repo's main floats ahead of engine main
+   is covered by gitgalaxy's pinned gate).
+3. Engine PR `N` bumps `KEYWORD_ROSETTA_REF` to this repo's new commit → `rosetta-audit` green
+   → merge.
+
+`tools/na_check.py` is the n/a governance gate (see "n/a semantics" above): baseline-gated on
+`docs/na_baseline.json`, it fails only on NEW unreviewed rule absences. Shrink the baseline with
+`--regenerate` after reviewing cells; never regenerate to absorb a new one unreviewed.
