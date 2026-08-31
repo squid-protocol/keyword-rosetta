@@ -203,6 +203,15 @@ def main():
         ("planted signals (corpus totals)",
          {c: [all_totals[lang].get(c, 0) for lang in languages] for c in PLANTED}),
     ]
+    # scan cache: lets findings_report.py (and ad hoc queries) reuse this run
+    cache = {"languages": languages, "metrics": {}}
+    for _, metrics in groups:
+        for name, values in metrics.items():
+            cache["metrics"][name] = dict(zip(languages, values))
+    (REPO_ROOT / "docs" / "bias_data.json").write_text(
+        json.dumps(cache, indent=1) + "\n"
+    )
+
     verdicts, skipped = write_variance_chart(groups, len(languages))
     n_fail = sum(1 for v in verdicts.values() if v == "FAIL")
     n_pass = sum(1 for v in verdicts.values() if v == "PASS")
@@ -267,6 +276,9 @@ def main():
     OUT.write_text("\n".join(lines))
     print(f"wrote {OUT.relative_to(REPO_ROOT)} and {CHART.relative_to(REPO_ROOT)}")
     print(f"verdicts: {n_pass} PASS, {len(verdicts) - n_pass - n_fail} WARN, {n_fail} FAIL")
+
+    import findings_report
+    findings_report.generate()
     return 0
 
 
