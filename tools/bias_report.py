@@ -22,6 +22,12 @@ import verify_language as vl
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = REPO_ROOT / "docs" / "bias_report.md"
+CHART = REPO_ROOT / "docs" / "bias_variance_chart.svg"
+
+# Acceptance thresholds on relative deviation from the cross-language median.
+GREEN_DEV = 0.25   # within ±25% of median: acceptable clustering
+AMBER_DEV = 0.50   # within ±50%: caution
+# beyond ±50%: red zone — any dot here fails the metric's cross-language validation
 
 # SPEC.md probe table: what every language plants, before any engine semantics.
 PLANTED = {
@@ -59,6 +65,69 @@ def gather(language):
             if row[c] is not None:
                 risks[c].append(row[c])
     return totals, {c: (statistics.mean(v) if v else None) for c, v in risks.items()}
+
+
+def write_variance_chart(all_risks, languages):
+    """Compact strip-plot SVG: one row per risk metric, one unlabeled dot per language.
+
+    Dots are positioned by relative deviation from the cross-language median.
+    Tight clustering in the green band = the metric measures languages equivalently;
+    any dot in the red zone (>±50% deviation) fails that metric's cross-language
+    validation. Regenerated on every bias_report run, like the tri-comparison chart.
+    """
+    rows = []
+    for col in RISK_COLS:
+        vals = [all_risks[lang].get(col) for lang in languages]
+        vals = [v for v in vals if v is not None]
+        med = statistics.median(vals) if vals else 0
+        if not vals or med <= 0:
+            rows.append((col, med, [], "NO DATA"))
+            continue
+        devs = [(v - med) / med for v in vals]
+        worst = max(abs(d) for d in devs)
+        verdict = "PASS" if worst <= GREEN_DEV else ("WARN" if worst <= AMBER_DEV else "FAIL")
+        rows.append((col, med, devs, verdict))
+
+    label_w, strip_w, row_h, pad = 200, 420, 34, 10
+    badge_w = 64
+    width = label_w + strip_w + badge_w + pad * 3
+    height = row_h * len(rows) + 58
+    half = strip_w / 2
+    px_per_dev = half / 1.1  # x-scale: ±110% deviation spans the strip; beyond clamps
+
+    def x_of(dev):
+        return label_w + pad + half + max(-1.1, min(1.1, dev)) * px_per_dev
+
+    s = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
+        f'font-family="system-ui, sans-serif" font-size="12">',
+        f'<rect width="{width}" height="{height}" fill="#ffffff"/>',
+        f'<text x="{pad}" y="20" font-size="14" font-weight="bold" fill="#1a1a1a">'
+        "Cross-language variance — identical planted intent</text>",
+        f'<text x="{pad}" y="36" fill="#666">each dot = one language · deviation from the '
+        f"cross-language median · green ±{GREEN_DEV:.0%} · red beyond ±{AMBER_DEV:.0%}</text>",
+    ]
+    y0 = 48
+    for i, (col, med, devs, verdict) in enumerate(rows):
+        y = y0 + i * row_h
+        cy = y + row_h / 2
+        sx = label_w + pad
+        # zone bands: red base, amber, green center
+        s.append(f'<rect x="{sx}" y="{y + 6}" width="{strip_w}" height="{row_h - 12}" fill="#f8d7da"/>')
+        for lo, hi, color in ((-AMBER_DEV, AMBER_DEV, "#fff3cd"), (-GREEN_DEV, GREEN_DEV, "#d4edda")):
+            bx, bw = x_of(lo), x_of(hi) - x_of(lo)
+            s.append(f'<rect x="{bx:.1f}" y="{y + 6}" width="{bw:.1f}" height="{row_h - 12}" fill="{color}"/>')
+        s.append(f'<line x1="{x_of(0):.1f}" y1="{y + 6}" x2="{x_of(0):.1f}" y2="{y + row_h - 6}" stroke="#999" stroke-dasharray="2,2"/>')
+        s.append(f'<text x="{pad}" y="{cy + 4}" fill="#1a1a1a">{col}</text>')
+        for d in devs:
+            s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="5" fill="#1f3a5f" fill-opacity="0.55"/>')
+        badge_fill = {"PASS": "#28a745", "WARN": "#d39e00", "FAIL": "#dc3545", "NO DATA": "#6c757d"}[verdict]
+        bx = label_w + strip_w + pad * 2
+        s.append(f'<rect x="{bx}" y="{cy - 10}" width="{badge_w}" height="20" rx="4" fill="{badge_fill}"/>')
+        s.append(f'<text x="{bx + badge_w / 2}" y="{cy + 4}" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">{verdict}</text>')
+    s.append("</svg>")
+    CHART.write_text("\n".join(s) + "\n")
+    return {col: verdict for col, _, _, verdict in rows}
 
 
 def main():
@@ -105,6 +174,13 @@ def main():
             mark = " ⚠"
             divergent.append(sig)
         lines.append(f"| {sig}{mark} | {want} | " + " | ".join(str(v) for v in vals) + " |")
+
+    verdicts = write_variance_chart(all_risks, languages)
+    lines += ["", "## Cross-language variance chart", "",
+              "![variance chart](bias_variance_chart.svg)", "",
+              "One dot per language, positioned by deviation from the cross-language median. "
+              "A metric is cross-language **validated** only when no dot sits in the red zone "
+              f"(>±{AMBER_DEV:.0%}): " + ", ".join(f"{c} **{v}**" for c, v in verdicts.items()) + ".", ""]
 
     lines += ["", "## Mean per-file risk scores", "",
               "| risk | " + " | ".join(languages) + " |",
