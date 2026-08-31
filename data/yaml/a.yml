@@ -1,0 +1,10 @@
+# keyword rosetta control shell: yaml / a
+# decoy: config reads stay in prose only
+jobs:
+  chain:
+    uses: ./b.yml
+    steps:
+      - run: ': ${{ github.actor }} $HOME'
+      - run: pytest
+      - run: ':'
+    continue-on-error: false

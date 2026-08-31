@@ -1,0 +1,11 @@
+/* keyword rosetta control shell: css / a */
+/* decoy: config reads stay in prose only */
+@import url("b.css");
+
+@keyframes probe-globals {}
+
+@keyframes probe-test {}
+[data-testid="probe"] {}
+[data-testid="bench"] {}
+
+@keyframes probe-safety {}

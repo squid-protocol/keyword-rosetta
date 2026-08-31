@@ -1,0 +1,113 @@
+{
+  "language": "solidity",
+  "tier": 2,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.sol": {
+      "branch": 8,
+      "io": 0,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 2,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.sol": {
+      "branch": 3,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 1,
+      "import": 1
+    },
+    "b.sol": {
+      "branch": 5,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 9,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 1,
+      "import": 1
+    },
+    "c.sol": {
+      "branch": 3,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "class_start": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 1,
+      "import": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.sol",
+      "line_hint": "string memory note = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "state_mutation"
+      ],
+      "outcome": "if + try count branch +2 (solidity includes try AND return — main 8 = 5 returns + if/else/for, joining the return-in-branch family as its 6th member); the note line is a 3rd raw state hit, tripled to 9 by flux. eval inert. Ledger: string-literal-selective-shielding, state-flux-branch-weighting, kotlin-return-in-branch"
+    },
+    {
+      "file": "c.sol",
+      "line_hint": "uint hack_level;",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (underscore)"
+    }
+  ],
+  "notes": "ownership 1 per file = the idiomatic // SPDX-License-Identifier line (solidity's ownership rule matches it — every real .sol file records ownership). io is undefined for solidity (0 by absence — its 'io' is chain interaction, counted under globals/ipc instead: msg.sender/block.number planted as globals). class_start 0 kept as tripwire (no contract declared; bare functions are broken-but-scannable). doc 2 = /// + @param on one natspec line. Locked 2026-08-31."
+}

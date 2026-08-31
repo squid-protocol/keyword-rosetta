@@ -1,0 +1,63 @@
+name: verify-languages
+
+# The gate enforces itself: any PR touching a language folder (or the tools that
+# judge them) re-runs verify_language.py for the affected languages against a
+# fresh GitGalaxy checkout. A generated language folder that passes is correct
+# by construction; one that fails is a bad generation or a real engine change —
+# either way it must not merge silently (docs/GATING.md).
+
+on:
+  pull_request:
+    paths:
+      - "data/**"
+      - "tools/**"
+      - "SPEC.md"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/checkout@v4
+        with:
+          repository: squid-protocol/gitgalaxy
+          path: gitgalaxy
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Full-precision deps first: without all six, galaxyscope silently drops
+      # into Zero-Dependency Mode and the recorded counts can drift from the
+      # full-precision numbers the manifests were locked against.
+      - name: Install GitGalaxy (full precision)
+        run: |
+          pip install networkx tiktoken numpy pandas xgboost pyyaml
+          pip install -e ./gitgalaxy
+
+      - name: Detect changed languages
+        id: langs
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            langs=$(ls data)
+          else
+            langs=$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD -- data/ | cut -d/ -f2 | sort -u)
+            # tools/SPEC changes without data changes: re-verify everything
+            if [ -z "$langs" ]; then langs=$(ls data); fi
+          fi
+          echo "langs=$(echo $langs | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
+          echo "verifying: $langs"
+
+      - name: Run gates
+        env:
+          GITGALAXY_PATH: ${{ github.workspace }}/gitgalaxy
+        run: |
+          rc=0
+          for L in ${{ steps.langs.outputs.langs }}; do
+            python tools/verify_language.py "$L" || rc=1
+          done
+          exit $rc
