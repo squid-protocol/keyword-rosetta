@@ -1,0 +1,5 @@
+[package]
+name = "keyword-rosetta-rust"
+version = "0.1.0"
+edition = "2021"
+description = "GitGalaxy control-corpus shell, rust expression"
