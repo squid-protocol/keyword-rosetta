@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="714" height="228" font-family="system-ui, sans-serif" font-size="12">
+<rect width="714" height="228" fill="#ffffff"/>
+<text x="10" y="20" font-size="14" font-weight="bold" fill="#1a1a1a">Cross-language variance — identical planted intent</text>
+<text x="10" y="36" fill="#666">each dot = one language · deviation from the cross-language median · green ±25% · red beyond ±50%</text>
+<rect x="210" y="54" width="420" height="22" fill="#f8d7da"/>
+<rect x="324.5" y="54" width="190.9" height="22" fill="#fff3cd"/>
+<rect x="372.3" y="54" width="95.5" height="22" fill="#d4edda"/>
+<line x1="420.0" y1="54" x2="420.0" y2="76" stroke="#999" stroke-dasharray="2,2"/>
+<text x="10" y="69.0" fill="#1a1a1a">risk_cognitive_load</text>
+<circle cx="395.5" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="630.0" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="630.0" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="420.0" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="379.1" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="359.3" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="426.9" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="342.5" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="578.0" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="630.0" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="359.3" cy="65.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<rect x="640" y="55.0" width="64" height="20" rx="4" fill="#dc3545"/>
+<text x="672.0" y="69.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">FAIL</text>
+<rect x="210" y="88" width="420" height="22" fill="#f8d7da"/>
+<rect x="324.5" y="88" width="190.9" height="22" fill="#fff3cd"/>
+<rect x="372.3" y="88" width="95.5" height="22" fill="#d4edda"/>
+<line x1="420.0" y1="88" x2="420.0" y2="110" stroke="#999" stroke-dasharray="2,2"/>
+<text x="10" y="103.0" fill="#1a1a1a">risk_safety_score</text>
+<circle cx="416.4" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="418.9" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="420.0" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="500.4" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="587.5" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="516.9" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="372.7" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="374.9" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="409.1" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="421.9" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="420.0" cy="99.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<rect x="640" y="89.0" width="64" height="20" rx="4" fill="#dc3545"/>
+<text x="672.0" y="103.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">FAIL</text>
+<rect x="210" y="122" width="420" height="22" fill="#f8d7da"/>
+<rect x="324.5" y="122" width="190.9" height="22" fill="#fff3cd"/>
+<rect x="372.3" y="122" width="95.5" height="22" fill="#d4edda"/>
+<line x1="420.0" y1="122" x2="420.0" y2="144" stroke="#999" stroke-dasharray="2,2"/>
+<text x="10" y="137.0" fill="#1a1a1a">risk_tech_debt</text>
+<circle cx="420.1" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="324.6" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="420.0" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="420.1" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="420.0" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="324.6" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="384.7" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="385.9" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="400.4" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="420.1" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="515.6" cy="133.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<rect x="640" y="123.0" width="64" height="20" rx="4" fill="#dc3545"/>
+<text x="672.0" y="137.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">FAIL</text>
+<rect x="210" y="156" width="420" height="22" fill="#f8d7da"/>
+<rect x="324.5" y="156" width="190.9" height="22" fill="#fff3cd"/>
+<rect x="372.3" y="156" width="95.5" height="22" fill="#d4edda"/>
+<line x1="420.0" y1="156" x2="420.0" y2="178" stroke="#999" stroke-dasharray="2,2"/>
+<text x="10" y="171.0" fill="#1a1a1a">risk_api_exposure</text>
+<circle cx="420.0" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="229.1" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="412.3" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="461.9" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="561.4" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="229.1" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="387.0" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="480.1" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="409.7" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="428.7" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<circle cx="434.3" cy="167.0" r="5" fill="#1f3a5f" fill-opacity="0.55"/>
+<rect x="640" y="157.0" width="64" height="20" rx="4" fill="#dc3545"/>
+<text x="672.0" y="171.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">FAIL</text>
+<rect x="210" y="190" width="420" height="22" fill="#f8d7da"/>
+<rect x="324.5" y="190" width="190.9" height="22" fill="#fff3cd"/>
+<rect x="372.3" y="190" width="95.5" height="22" fill="#d4edda"/>
+<line x1="420.0" y1="190" x2="420.0" y2="212" stroke="#999" stroke-dasharray="2,2"/>
+<text x="10" y="205.0" fill="#1a1a1a">risk_dead_code</text>
+<rect x="640" y="191.0" width="64" height="20" rx="4" fill="#6c757d"/>
+<text x="672.0" y="205.0" text-anchor="middle" fill="#fff" font-weight="bold" font-size="11">NO DATA</text>
+</svg>
