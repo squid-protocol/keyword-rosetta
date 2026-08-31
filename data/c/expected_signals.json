@@ -1,0 +1,110 @@
+{
+  "language": "c",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.c": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "api": 6,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "a.c": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 12,
+      "globals": 2,
+      "test": 3,
+      "safety": 2,
+      "state_mutation": 2,
+      "branch": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "b.c": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 10,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 9,
+      "branch": 1,
+      "io": 1,
+      "safety": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "high_risk_execution": 0
+    },
+    "c.c": {
+      "class_start": 0,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 10,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "io": 1,
+      "branch": 0,
+      "state_mutation": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.c",
+      "line_hint": "note = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "io",
+        "state_mutation"
+      ],
+      "outcome": "if counts branch +1, open counts io +1 (c io includes bare open/close); the assignment itself is state +1 and the phantom branch context triples probe_state's 3 raw to 9. eval inert (c high_risk has no eval). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.c",
+      "line_hint": "int hack_level;",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (underscore + lowercase)"
+    }
+  ],
+  "notes": "api counts every external-linkage (non-static) file-scope declaration — correct C linkage morphology — plus orphan conversion, hence the large api values (a.c 12). test 3 in a.c = TEST + RUN_TEST + assert( (assert dual safety+test, finditer-confirmed; same shape as python). globals planted as two file-scope initializers, which also count state (+2 a.c). cleanup's close(0) counts io +1 in c.c (c io includes close). Locked from hand-verified run 2026-08-31."
+}

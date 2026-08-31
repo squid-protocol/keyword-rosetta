@@ -1,0 +1,110 @@
+{
+  "language": "typescript",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.ts": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "a.ts": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 5,
+      "api": 3,
+      "globals": 2,
+      "test": 2,
+      "safety": 3,
+      "branch": 0,
+      "state_mutation": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "b.ts": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 6,
+      "branch": 2,
+      "safety": 1,
+      "high_risk_execution": 0,
+      "io": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "c.ts": {
+      "class_start": 0,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "branch": 0,
+      "state_mutation": 0,
+      "io": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.ts",
+      "line_hint": "const note = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "safety",
+        "high_risk_execution"
+      ],
+      "outcome": "if + try count (branch +2, safety +1), eval does NOT (js/python selective profile); let+var 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.ts",
+      "line_hint": "const HACK_LEVEL = level",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (underscore)"
+    }
+  ],
+  "notes": "args 5 in a.ts = 3 function params + describe(kit)/expect(kit): ts args counts statement-position call parens (finditer-confirmed; ledger ts-callparen-args) so test plants contaminate args. safety 3 in a.ts = unknown x2 (param type + local) + never. io kept clean by naming the probeIo param 'route' (the js folder's 'path' collision, avoided). Locked from hand-verified run 2026-08-31."
+}

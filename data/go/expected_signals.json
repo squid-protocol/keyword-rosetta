@@ -1,0 +1,113 @@
+{
+  "language": "go",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.go": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "safety_bypasses": 1,
+      "encapsulation": 9,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "a.go": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 1,
+      "encapsulation": 7,
+      "branch": 0,
+      "state_mutation": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "b.go": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "safety_bypasses": 3,
+      "telemetry": 2,
+      "state_mutation": 11,
+      "branch": 1,
+      "encapsulation": 8,
+      "safety": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "c.go": {
+      "class_start": 0,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "encapsulation": 3,
+      "branch": 0,
+      "state_mutation": 0,
+      "io": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.go",
+      "line_hint": "note := \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "state_mutation"
+      ],
+      "outcome": "if counts branch +1; the := is a raw state hit. state 11 = probe_state's 3 raw x3 (flux, phantom branch in that function) + probe_bypass's 2 '_ =' unweighted — the flux weighting is PER-FUNCTION, not per-file. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.go",
+      "line_hint": "(no code reverse decoy — go file carries comment decoys only)",
+      "surface": "comment",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "comment HACK/TODO count exactly 1 each"
+    }
+  ],
+  "notes": "every 'import \"x\"' statement matches go's safety_bypasses rule (the dot-import alternation is quote-anchored, finditer class; +1 bypasses per importing file — ledger go-import-counts-bypass). encapsulation counts every lowercase top-level symbol (correct go visibility morphology; recorded per file). doc 1 = the one deliberately Capitalized comment; header comments are lowercased to stay out of go's doc rule. Locked from hand-verified run 2026-08-31."
+}

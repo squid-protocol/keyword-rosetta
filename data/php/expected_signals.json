@@ -1,0 +1,109 @@
+{
+  "language": "php",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.php": {
+      "class_start": 0,
+      "branch": 4,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 2,
+      "ownership": 1,
+      "import": 1,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "a.php": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "branch": 1,
+      "state_mutation": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "b.php": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 6,
+      "branch": 3,
+      "safety": 1,
+      "high_risk_execution": 0,
+      "io": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "c.php": {
+      "class_start": 0,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "branch": 1,
+      "state_mutation": 0,
+      "io": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.php",
+      "line_hint": "$note = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "safety"
+      ],
+      "outcome": "if + try count branch (php branch includes try), try counts safety +1; $counter/$note assignments are 2 raw state tripled to 6. eval inert (php's eval sits in neither planted rule). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.php",
+      "line_hint": "(comment decoys only)",
+      "surface": "comment",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "HACK/TODO comments count exactly 1 each"
+    }
+  ],
+  "notes": "EVERY php file records branch >= 1: the <?php open tag's ? matches the branch rule's bare ternary-? alternation (finditer-confirmed; ledger php-open-tag-counts-branch — a real per-file FP on all PHP). main branch 4 = tag + if/else/switch; a/c branch 1 = tag alone; b branch 3 = tag + string if/try. Locked from hand-verified run 2026-08-31."
+}

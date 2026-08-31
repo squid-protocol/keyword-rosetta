@@ -1,0 +1,109 @@
+{
+  "language": "swift",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.swift": {
+      "class_start": 0,
+      "branch": 4,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "a.swift": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "branch": 0,
+      "state_mutation": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "b.swift": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 1,
+      "safety_bypasses": 0,
+      "telemetry": 2,
+      "state_mutation": 6,
+      "branch": 2,
+      "safety": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "c.swift": {
+      "class_start": 0,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "branch": 0,
+      "state_mutation": 0,
+      "io": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.swift",
+      "line_hint": "let note = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "api"
+      ],
+      "outcome": "if + try count branch +2 (swift branch includes try, finditer-confirmed) and OPEN counts api +1: swift's api rule includes the open access modifier, so a string containing 'open' adds API-exposure mass. var x2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.swift",
+      "line_hint": "let hackLevel = level",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (camelCase)"
+    }
+  ],
+  "notes": "branch 4 in main = if + else + guard + the guard's own else clause. NO orphan->api conversion anywhere: swift's _dependency_capture requires module names of 2+ chars ([a-zA-Z_][\\w.]+) so 'import a' never resolves and popularity stays 0 (ledger swift-import-capture-min-two-chars; the corpus keeps single-letter names deliberately, matching every other language). Locked from hand-verified run 2026-08-31."
+}

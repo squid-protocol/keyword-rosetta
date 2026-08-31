@@ -1,0 +1,110 @@
+{
+  "language": "cpp",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.cpp": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "a.cpp": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "branch": 1,
+      "state_mutation": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "b.cpp": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 9,
+      "branch": 1,
+      "safety": 1,
+      "high_risk_execution": 0,
+      "io": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "c.cpp": {
+      "class_start": 0,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "branch": 0,
+      "state_mutation": 0,
+      "io": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.cpp",
+      "line_hint": "note = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "safety",
+        "state_mutation"
+      ],
+      "outcome": "if counts branch +1, try counts safety +1; cpp state counts plain = so the decoy line is a third raw state hit, tripled to 9 by the phantom branch context. eval/open inert. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.cpp",
+      "line_hint": "int hack_level;",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert"
+    }
+  ],
+  "notes": "branch 1 in a.cpp = catch (cpp branch includes catch — dual with safety's try/catch, finditer-confirmed). api 0 raw everywhere (cpp api = export only); a/b/c api 3 is pure orphan conversion. Locked from hand-verified run 2026-08-31."
+}

@@ -1,0 +1,115 @@
+{
+  "language": "perl",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.pl": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "encapsulation": 4,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "a.pl": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "globals": 2,
+      "test": 3,
+      "safety": 2,
+      "encapsulation": 3,
+      "branch": 0,
+      "state_mutation": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "b.pl": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 9,
+      "branch": 2,
+      "io": 1,
+      "safety": 1,
+      "encapsulation": 4,
+      "high_risk_execution": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "c.pl": {
+      "class_start": 0,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "state_mutation": 1,
+      "encapsulation": 4,
+      "branch": 0,
+      "io": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "b.pl",
+      "line_hint": "my $note = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "safety",
+        "io",
+        "safety_bypasses"
+      ],
+      "outcome": "if + try count branch +2 (perl branch includes try), try counts safety +1, open counts io +1; eval does NOT count bypasses ('eval fails' fails the rule's eval-followed-by-quote/paren shape — shielded by syntax, not by surface). The $note assignment is a 3rd raw state hit, tripled to 9. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.pl",
+      "line_hint": "my $hack_level = $level",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert for debt, but the assignment counts state +1 (perl counts $var =)"
+    }
+  ],
+  "notes": "encapsulation = my declarations (perl lexical-scope morphology; one per sub param + extras, recorded per file). test 3 in a.pl = Test::More + ok( + subtest (ok( is in perl's test rule, finditer-confirmed — assert-overlap family). Locked from hand-verified run 2026-08-31."
+}
