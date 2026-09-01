@@ -11,8 +11,8 @@
       "planned_debt": 0, "dead_code": 0
     },
     "a.py": {
-      "import": 1, "func_start": 3, "args": 3, "api": 6, "globals": 2, "io": 3,
-      "test": 3, "safety": 3, "branch": 2, "high_risk_execution": 0,
+      "import": 1, "func_start": 3, "args": 3, "api": 6, "globals": 2, "io": 1,
+      "test": 2, "safety": 3, "branch": 2, "high_risk_execution": 0,
       "class_start": 0, "fragile_debt": 0, "planned_debt": 0, "telemetry": 0,
       "state_mutation": 0, "cleanup": 0, "safety_bypasses": 0, "doc": 0,
       "ownership": 0, "encapsulation": 0
@@ -38,5 +38,5 @@
     {"file": "b.py", "line_hint": "the try keyword stays in prose", "surface": "comment", "signals": ["branch", "safety"], "outcome": "stripped: contributed 0"},
     {"file": "c.py", "line_hint": "HACK_LEVEL = level", "surface": "code", "signals": ["fragile_debt"], "outcome": "reverse decoy works: identifier did not count, the # HACK comment did (fragile_debt = 1 exactly)"}
   ],
-  "notes": "api = public defs PLUS the Contextual Baseline Fix (galaxyscope.py ~2145): a file imported by others (popularity > 0) has its orphaned_logic converted into api — a/b/c are each imported and their 3 probes are never called, so api = 3 + 3 = 6; main.py is imported by nobody and stays at 4. Cross-contaminations recorded above expectations: os.environ/sys.argv (globals) also match io's os./sys. (+2 io in a.py); assert matches both safety and test (+1 test in a.py). All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv."
+  "notes": "api = public defs PLUS the Contextual Baseline Fix (galaxyscope.py ~2145): a file imported by others (popularity > 0) has its orphaned_logic converted into api — a/b/c are each imported and their 3 probes are never called, so api = 3 + 3 = 6; main.py is imported by nobody and stays at 4. #2593 engine fix: python's io rule no longer matches os.environ/sys.argv (owned by globals) — a.py io dropped from 3 to 1 (only the shielded 'open' inside MESSAGE still counts); python's test rule no longer matches bare assert (owned by safety) — a.py test dropped from 3 to 2 (unittest + pytest only, probe_safety's assert no longer cross-counts). See ledger entries os-sys-prefix-overlaps-io (now resolved for python) and assert-overlaps-safety-and-test (python removed from languages_seen; still reproduces for c/perl). All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv against the #2593 engine fix branch."
 }

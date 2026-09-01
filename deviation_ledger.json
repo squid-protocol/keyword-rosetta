@@ -73,13 +73,12 @@
    "signal": "safety+test",
    "languages_seen": [
     "c",
-    "perl",
-    "python"
+    "perl"
    ],
    "disposition": "keyword-overlap",
    "status": "validated",
-   "verdict": "python's test rule includes \\bassert\\b and the safety rule includes assert: one planted assert counts both. Legitimate overlapping taxonomies; record +1 test wherever a safety assert is planted. Also c (bare assert( in both rules) and perl (ok( in the test rule alongside croak/confess safety plants).",
-   "upstream_issue": null,
+   "verdict": "python's test rule includes \\bassert\\b and the safety rule includes assert: one planted assert counts both. Legitimate overlapping taxonomies; record +1 test wherever a safety assert is planted. Also c (bare assert( in both rules) and perl (ok( in the test rule alongside croak/confess safety plants). RESOLVED for python via gitgalaxy #2626 (assert removed from the test rule, still matched by safety): a.py test dropped 3->2. Still reproduces for c/perl (their own rule files are unchanged).",
+   "upstream_issue": "squid-protocol/gitgalaxy#2626",
    "investigated_by": "claude-sonnet-5",
    "validated_at": "2026-08-31",
    "still_reproduces": true
@@ -87,16 +86,14 @@
   {
    "id": "os-sys-prefix-overlaps-io",
    "signal": "globals+io",
-   "languages_seen": [
-    "python"
-   ],
+   "languages_seen": [],
    "disposition": "keyword-overlap",
    "status": "validated",
-   "verdict": "python-family io rule matches the os./sys. prefixes that the globals plants (os.environ, sys.argv) necessarily carry: +2 io in whichever file hosts probe_globals.",
-   "upstream_issue": null,
+   "verdict": "python-family io rule matches the os./sys. prefixes that the globals plants (os.environ, sys.argv) necessarily carry: +2 io in whichever file hosts probe_globals. RESOLVED for python via gitgalaxy #2626 (io rule gained negative lookaheads excluding os.environ/sys.argv from the io match): a.py io dropped 3->1. No other language currently in languages_seen.",
+   "upstream_issue": "squid-protocol/gitgalaxy#2626",
    "investigated_by": "claude-sonnet-5",
    "validated_at": "2026-08-31",
-   "still_reproduces": true
+   "still_reproduces": false
   },
   {
    "id": "cobol-hyphen-identifier-debt-leak",
