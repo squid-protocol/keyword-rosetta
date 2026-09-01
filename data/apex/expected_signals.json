@@ -5,7 +5,7 @@
   "files": {
     "main.cls": {
       "class_start": 0,
-      "branch": 8,
+      "branch": 3,
       "io": 3,
       "high_risk_execution": 2,
       "globals": 0,
@@ -26,7 +26,7 @@
     },
     "a.cls": {
       "class_start": 0,
-      "branch": 3,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 2,
@@ -45,7 +45,7 @@
     },
     "b.cls": {
       "class_start": 0,
-      "branch": 5,
+      "branch": 2,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 0,
@@ -64,7 +64,7 @@
     },
     "c.cls": {
       "class_start": 0,
-      "branch": 3,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 0,
@@ -72,7 +72,7 @@
       "safety": 0,
       "safety_bypasses": 0,
       "telemetry": 0,
-      "state_mutation": 3,
+      "state_mutation": 1,
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
@@ -92,8 +92,8 @@
       "signals": [
         "branch"
       ],
-      "outcome": "if + try count branch +2 (apex branch includes try); insert/update 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "if + try count branch +2 (apex branch includes try) — post-#2545 these two phantom string hits are ALL of b's branch (2); insert/update 2 raw state tripled to 6 by the flux context they create. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "apex branch counts return (main 8 = 5 returns + if/else/for; every file floors at its return count — kotlin-return-in-branch family, ledger apex noted). args counts statement-position calls (ts-callparen family; main 7 = 4 sigs + 3 dispatch calls). import counts qualified Type.Member references (Logger.info etc; b import 2, c 1 = conn.clear — apex import-as-reference morphology; no Type.forName planted so no DAG chain and no orphan conversion). Database.query is dual high_risk+bypasses (+1 main). c state 3 = clear( x3 flux (c's returns provide branch context). Locked 2026-08-31."
+  "notes": "apex branch no longer counts return (gitgalaxy#2545, engine PR #2634; ledger kotlin-return-in-branch, still_reproduces false): main 3 = if/else/for, a/c 0, b 2 = the string decoy's if/try. return is still tracked by the engine's structural_boundaries rule, which this corpus does not measure. args counts statement-position calls (ts-callparen family; main 7 = 4 sigs + 3 dispatch calls). import counts qualified Type.Member references (Logger.info etc; b import 2, c 1 = conn.clear — apex import-as-reference morphology; no Type.forName planted so no DAG chain and no orphan conversion). Database.query is dual high_risk+bypasses (+1 main). c state 1 = the single raw clear( at x1: with return no longer a branch, probeCleanup has no branch context, so the x3 flux weighting (ledger state-flux-branch-weighting) no longer applies — the downstream half of the #2545 inflation. Locked 2026-08-31; branch re-baselined 2026-09-01."
 }

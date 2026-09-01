@@ -5,7 +5,7 @@
   "files": {
     "main.zig": {
       "class_start": 0,
-      "branch": 8,
+      "branch": 3,
       "io": 3,
       "high_risk_execution": 2,
       "globals": 0,
@@ -27,7 +27,7 @@
     },
     "a.zig": {
       "class_start": 0,
-      "branch": 3,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 2,
@@ -47,7 +47,7 @@
     },
     "b.zig": {
       "class_start": 0,
-      "branch": 5,
+      "branch": 2,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 2,
@@ -67,7 +67,7 @@
     },
     "c.zig": {
       "class_start": 0,
-      "branch": 3,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 1,
@@ -96,8 +96,8 @@
       "signals": [
         "branch"
       ],
-      "outcome": "if + try count branch (zig branch includes try AND return — pattern-confirmed: main 8 = 5 returns + if/else/switch); the var itself is a state hit and a globals hit (zig globals matches any indented var/const-with-=). var x2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "if + try count branch +2 (zig branch includes try) — post-#2545 these two phantom string hits are all of b's branch (2); the var itself is a state hit and a globals hit (zig globals matches any indented var/const-with-=). var x2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "zig counts return as branch (kotlin-return family). globals matches every const/var initialization at any indent (b 2 = the two function-local vars, c 1 = const hackLevel; a 2 = the planted top-level consts). encapsulation counts fn/const/var keywords (recorded). _ = expr plants avoid both. Locked 2026-08-31."
+  "notes": "zig no longer counts return as branch (gitgalaxy#2545, engine PR #2634; ledger kotlin-return-in-branch, still_reproduces false): main 3 = if/else/switch, a/c 0, b 2 = the string decoy's if/try. return is still tracked by the engine's structural_boundaries rule, which this corpus does not measure. globals matches every const/var initialization at any indent (b 2 = the two function-local vars, c 1 = const hackLevel; a 2 = the planted top-level consts). encapsulation counts fn/const/var keywords (recorded). _ = expr plants avoid both. Locked 2026-08-31; branch re-baselined 2026-09-01."
 }

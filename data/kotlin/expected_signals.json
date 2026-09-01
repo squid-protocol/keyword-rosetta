@@ -5,7 +5,7 @@
   "files": {
     "main.kt": {
       "class_start": 0,
-      "branch": 8,
+      "branch": 3,
       "io": 3,
       "high_risk_execution": 2,
       "func_start": 4,
@@ -33,7 +33,7 @@
       "globals": 2,
       "test": 2,
       "safety": 2,
-      "branch": 3,
+      "branch": 0,
       "state_mutation": 0,
       "high_risk_execution": 0,
       "io": 0,
@@ -52,7 +52,7 @@
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 6,
-      "branch": 5,
+      "branch": 2,
       "safety": 0,
       "high_risk_execution": 0,
       "io": 0,
@@ -71,7 +71,7 @@
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
-      "branch": 3,
+      "branch": 0,
       "state_mutation": 0,
       "io": 0,
       "safety": 0,
@@ -92,7 +92,7 @@
       "signals": [
         "branch"
       ],
-      "outcome": "if + try count branch +2 (kotlin branch includes try); val is not a kotlin state keyword so the decoy line adds no state — var x2 raw tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "if + try count branch +2 (kotlin branch includes try) — post-#2545 these two phantom string hits are all of b's branch (2); val is not a kotlin state keyword so the decoy line adds no state — var x2 raw tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.kt",
@@ -104,5 +104,5 @@
       "outcome": "inert (camelCase)"
     }
   ],
-  "notes": "kotlin's branch rule counts return (ledger kotlin-return-in-branch): every file's branch = returns + real branch keywords (main 8 = 5 returns + if/else/when; a/c 3 = returns only). class_start 2 in a.kt = the two 'object' declarations planted for globals — object is dual globals+class_start (ledger kotlin-object-dual-globals-classstart), a deliberate exception like cobol's PROGRAM-ID. Locked from hand-verified run 2026-08-31."
+  "notes": "kotlin's branch rule no longer counts return (gitgalaxy#2545, engine PR #2634; ledger kotlin-return-in-branch, still_reproduces false): main 3 = if/else/when, a/c 0 (returns only, so nothing left to count), b 2 = the string decoy's if/try. return is still tracked by the engine's structural_boundaries rule, which this corpus does not measure. class_start 2 in a.kt = the two 'object' declarations planted for globals — object is dual globals+class_start (ledger kotlin-object-dual-globals-classstart), a deliberate exception like cobol's PROGRAM-ID. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01."
 }

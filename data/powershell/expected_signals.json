@@ -5,7 +5,7 @@
   "files": {
     "main.ps1": {
       "class_start": 0,
-      "branch": 5,
+      "branch": 3,
       "io": 3,
       "high_risk_execution": 2,
       "globals": 0,
@@ -64,7 +64,7 @@
     },
     "c.ps1": {
       "class_start": 0,
-      "branch": 1,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 0,
@@ -103,8 +103,8 @@
       "signals": [
         "state_mutation"
       ],
-      "outcome": "state stays 1 (x1): probe_debt has no return and no branch keyword, so no flux context — while probe_todo's return gives c branch 1. Fifth per-function flux confirmation."
+      "outcome": "state stays 1 (x1): probe_debt has no branch keyword, so no flux context. Post-#2545 probe_todo's return is no longer a branch either, so c branch is 0 and the file is x1 throughout — this shell no longer discriminates per-function scoping (the go/matlab/dockerfile proofs in state-flux-branch-weighting still do)."
     }
   ],
-  "notes": "powershell counts return as branch (main 5 = if/else/switch + 2 returns; a branch 2 = trap + continue, both finditer-confirmed duals). api 6 per file recorded as observed (conversion opacity, orphan-conversion-opaque-counts family). Locked 2026-08-31."
+  "notes": "powershell no longer counts return as branch (gitgalaxy#2545, engine PR #2634; ledger kotlin-return-in-branch, still_reproduces false): main 3 = if/else/switch, c 0; a branch 2 = trap + continue, both finditer-confirmed duals (unchanged — no returns in a). return is still tracked by the engine's structural_boundaries rule, which this corpus does not measure. api 6 per file recorded as observed (conversion opacity, orphan-conversion-opaque-counts family). Locked 2026-08-31; branch re-baselined 2026-09-01."
 }

@@ -4,7 +4,7 @@
   "generator": "claude-sonnet-5 (hand-verified reference)",
   "files": {
     "main.sol": {
-      "branch": 8,
+      "branch": 3,
       "io": 0,
       "high_risk_execution": 2,
       "globals": 0,
@@ -25,7 +25,7 @@
       "import": 1
     },
     "a.sol": {
-      "branch": 3,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 2,
@@ -46,7 +46,7 @@
       "import": 1
     },
     "b.sol": {
-      "branch": 5,
+      "branch": 2,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 0,
@@ -67,7 +67,7 @@
       "import": 1
     },
     "c.sol": {
-      "branch": 3,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 0,
@@ -97,7 +97,7 @@
         "branch",
         "state_mutation"
       ],
-      "outcome": "if + try count branch +2 (solidity includes try AND return — main 8 = 5 returns + if/else/for, joining the return-in-branch family as its 6th member); the note line is a 3rd raw state hit, tripled to 9 by flux. eval inert. Ledger: string-literal-selective-shielding, state-flux-branch-weighting, kotlin-return-in-branch"
+      "outcome": "if + try count branch +2 (solidity includes try) — post-#2545 these two phantom string hits are all of b's branch (2); the note line is a 3rd raw state hit, tripled to 9 by flux. eval inert. Ledger: string-literal-selective-shielding, state-flux-branch-weighting, kotlin-return-in-branch"
     },
     {
       "file": "c.sol",
@@ -109,5 +109,5 @@
       "outcome": "inert (underscore)"
     }
   ],
-  "notes": "ownership 1 per file = the idiomatic // SPDX-License-Identifier line (solidity's ownership rule matches it — every real .sol file records ownership). io is undefined for solidity (0 by absence — its 'io' is chain interaction, counted under globals/ipc instead: msg.sender/block.number planted as globals). class_start 0 kept as tripwire (no contract declared; bare functions are broken-but-scannable). doc 2 = /// + @param on one natspec line. Locked 2026-08-31."
+  "notes": "ownership 1 per file = the idiomatic // SPDX-License-Identifier line (solidity's ownership rule matches it — every real .sol file records ownership). io is undefined for solidity (0 by absence — its 'io' is chain interaction, counted under globals/ipc instead: msg.sender/block.number planted as globals). class_start 0 kept as tripwire (no contract declared; bare functions are broken-but-scannable). doc 2 = /// + @param on one natspec line. branch no longer counts return (gitgalaxy#2545, engine PR #2634; ledger kotlin-return-in-branch, still_reproduces false): main 3 = if/else/for, a/c 0, b 2 = the string decoy's if/try; return moved to the engine's structural_boundaries rule, which this corpus does not measure. Locked 2026-08-31; branch re-baselined 2026-09-01."
 }

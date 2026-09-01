@@ -5,7 +5,7 @@
   "files": {
     "main.mm": {
       "class_start": 0,
-      "branch": 8,
+      "branch": 3,
       "io": 3,
       "high_risk_execution": 2,
       "globals": 0,
@@ -26,7 +26,7 @@
     },
     "a.mm": {
       "class_start": 0,
-      "branch": 3,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 2,
@@ -45,7 +45,7 @@
     },
     "b.mm": {
       "class_start": 0,
-      "branch": 4,
+      "branch": 1,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 0,
@@ -64,7 +64,7 @@
     },
     "c.mm": {
       "class_start": 0,
-      "branch": 3,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 0,
@@ -93,8 +93,8 @@
         "branch",
         "state_mutation"
       ],
-      "outcome": "if counts branch +1 (b branch 4 = 3 returns + if); the *note = assignment is a 3rd raw state hit, tripled to 9 by flux. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "if counts branch +1 — post-#2545 that phantom string hit is all of b's branch (1; was 4 = 3 returns + if); the *note = assignment is a 3rd raw state hit, tripled to 9 by flux. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "objective-c counts return as branch (kotlin-return family: main 8 = 5 returns + if/else/switch; every file floors at its return count). args counts selector-colon segments beyond declarations (recorded as observed; selector morphology). .mm extension used to avoid the .m matlab collision. Locked 2026-08-31."
+  "notes": "objective-c no longer counts return as branch (gitgalaxy#2545, engine PR #2634; ledger kotlin-return-in-branch, still_reproduces false): main 3 = if/else/switch, a/c 0, b 1 = the string decoy's if (bare try is inert here — objc branch matches @try only). return moved to the engine's structural_boundaries rule, which this corpus does not measure; goto stays in branch. args counts selector-colon segments beyond declarations (recorded as observed; selector morphology). .mm extension used to avoid the .m matlab collision. Locked 2026-08-31; branch re-baselined 2026-09-01."
 }
