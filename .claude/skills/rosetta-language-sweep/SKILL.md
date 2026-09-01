@@ -11,7 +11,9 @@ each cause has a different correct action.** Classifying first is the whole game
 that sweep's fixing was preceded by minutes of cheap classification, and the one real engine bug
 it found (#2610: jcl `//*` comments never reached the comment surface, engine-wide) fell out of
 asking "is this zero because the language lacks the concept, or because the engine can't see
-it?" rather than pattern-matching "Tier-2 morphology" onto every zero.
+it?" rather than pattern-matching "Tier-2 morphology" onto every zero. The second sweep
+(cobol, #2567 → gitgalaxy#2537/PR#2622 + this repo's PR#10) validated the taxonomy and added
+the cheap classification instruments now inlined in the bucket descriptions below.
 
 ## Prerequisites
 
@@ -53,13 +55,29 @@ the action it dictates:
    can you name the language's own idiom for the concept and defend it to a practitioner of
    that language? Also check the overlap cost: a candidate whose keyword already feeds another
    rule may be net-negative (jcl `cleanup` = `DISP=(...,DELETE)` would double-count `io`'s
-   `DISP=` — deliberately rejected and ledgered instead). → Propose the rule set in the
-   strategy; add in gitgalaxy (Phase 2).
+   `DISP=` — deliberately rejected and ledgered instead). The overlap check is CHEAP — grep
+   the candidate construct's keywords against the language's other rules in
+   `language_standards/languages/<lang>.py` before proposing anything (cobol #2567: every
+   per-probe args carrier — `CALL`/`ENTRY`/`INVOKE ... USING` — sat in the `api` rule, which
+   killed the idea in minutes). → Propose the rule set in the strategy; add in gitgalaxy
+   (Phase 2).
 3. **Corpus authoring gap, not morphology.** The spec's construct IS expressible but the shell
    under-planted it. Test: re-read SPEC.md's requirement and ask whether the language *could*
    plant it (jcl `args` sat at 1 for months labeled "morphology" when `PARM=` per EXEC step was
    always legal and the engine rule already handled it). **Run this test before ever ledgering
-   a §1 structure deviation as morphology.** → Re-author the shell (Phase 3).
+   a §1 structure deviation as morphology.** And run it EMPIRICALLY, not by reading regexes:
+   copy the shells to a scratch dir, apply the candidate edit, `git init` + commit (the census
+   only walks tracked files), one `galaxyscope --db-only`, read the `file_data` column. Five
+   minutes there beats a full author/verify/regen cycle. Key engine fact this exposed (cobol
+   #2567): **the file-level signal totals count rule MATCHES (spatial-map hits), not the
+   per-function derived counts** — a 13-name `PROCEDURE DIVISION USING` still records
+   `struct_args` 1, because `args_count`'s name-splitting is per-function plumbing the bias
+   metric never reads; jcl's `PARM=` worked because each occurrence is a separate match.
+   For `comment_lines` specifically (it is really Σ(total_loc − coding_loc), so BLANK LINES
+   count), the classification test is one grep: compare the shells' blank+comment line counts
+   against 2-3 morphology siblings — cobol was the only language of 46 authored with zero
+   blank lines (fortran/ada carry ~12), which settled bucket 1 vs 3 instantly.
+   → Re-author the shell (Phase 3).
 4. **Intended morphology.** The language genuinely lacks the concept (jcl has no test
    framework, no doc idiom, no scoped-vs-global variables), or the deviation is deliberate
    engine design (jcl `dependency_links` +1 = the DD `DSN=` capture; datasets ARE
@@ -114,7 +132,15 @@ and do not chase them individually.
 - `GALAXYSCOPE_BIN=... python tools/bias_report.py` — rescans all 46 languages, rewrites
   `docs/bias_report.md`, `docs/bias_variance_chart.svg`, `docs/bias_data.json`,
   `docs/findings_by_language.md`. Expect only the swept language's dots plus small median
-  shifts to move; anything else moving is a red flag.
+  shifts to move; anything else moving is a red flag — **with one known benign cause: a
+  stale cache.** If the committed `bias_data.json` predates a parsing-affecting engine merge
+  (check its last commit date vs gitgalaxy main), the regen folds that drift in and unrelated
+  languages move through no fault of yours (cobol #2567: six languages moved because the
+  cache predated engine #2618; a manifest re-baseline PR had NOT regenerated the cache).
+  Don't re-scan in circles — ATTRIBUTE the movers: grep which DB columns your engine change
+  can actually feed (the #2537 debt guard feeds exactly `fragile_debt`/`planned_debt` in
+  every consumer), pin everything else on the specific merged engine PR, and say so in the
+  corpus PR body.
 - `python tools/language_deviations.py <lang>` — the before/after for the issue update.
 
 ## Phase 5 — cross-repo PR choreography (ENGINE_REF + the pinned gate)
@@ -133,7 +159,10 @@ For a sweep that changes engine behavior:
 3. When the engine PR is approved: restore `ENGINE_REF` to `main` in the corpus PR, merge the
    corpus PR, then the engine PR bumps `KEYWORD_ROSETTA_REF` to the new corpus commit and
    merges green. (The brief window where corpus main is ahead of engine main is covered by
-   gitgalaxy's pinned gate.)
+   gitgalaxy's pinned gate.) After the bump, a `workflow_dispatch` of `rosetta-audit.yml` on
+   gitgalaxy main (`gh workflow run rosetta-audit.yml --ref main`) is a cheap end-to-end
+   proof the loop closed — all 46 gates against the new pin, no waiting for the next engine
+   PR to find out.
 4. `tools/na_check.py --ci` runs in both gates — a sweep that removes/nulls a rule must ship
    the validated ledger entry in the same corpus PR, or shrink `docs/na_baseline.json` via
    `--regenerate` only for cells actually reviewed.
