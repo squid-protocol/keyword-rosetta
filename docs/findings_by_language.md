@@ -10,37 +10,37 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 |---|---|---|---|---|---|
 | [abap](#abap) | 3 | 3 | 0 | 2 | #2535 |
 | [ada](#ada) | 3 | 2 | 0 | 4 | #2535 #2546 |
-| [agc_assembly](#agc_assembly) | 5 | 3 | 1 | 3 | #2535 |
+| [agc_assembly](#agc_assembly) | 5 | 2 | 1 | 3 | #2535 |
 | [apex](#apex) | 7 | 5 | 0 | 6 | #2535 #2545 #2546 |
 | [assembly](#assembly) | 2 | 2 | 0 | 5 | #2535 #2546 |
-| [c](#c) | 4 | 3 | 0 | 4 | #2535 #2546 |
+| [c](#c) | 4 | 3 | 0 | 4 | #2535 #2546 #2626 |
 | [cobol](#cobol) | 3 | 4 | 0 | 6 | #2535 #2537 #2538 |
 | [cpp](#cpp) | 0 | 2 | 0 | 3 | #2535 #2546 |
 | [csharp](#csharp) | 0 | 2 | 0 | 3 | #2535 #2546 |
 | [css](#css) | 10 | 5 | 4 | 2 | — |
 | [dart](#dart) | 1 | 1 | 0 | 4 | #2535 |
 | [dockerfile](#dockerfile) | 5 | 10 | 0 | 5 | #2535 #2546 #2547 |
-| [embedded_python](#embedded_python) | 6 | 5 | 0 | 4 | #2535 #2548 |
+| [embedded_python](#embedded_python) | 5 | 5 | 0 | 4 | #2535 #2548 |
 | [fortran](#fortran) | 5 | 4 | 0 | 5 | #2535 #2540 #2546 |
 | [go](#go) | 3 | 0 | 0 | 5 | #2535 #2542 #2546 |
 | [groovy](#groovy) | 2 | 2 | 0 | 4 | #2535 |
 | [haskell](#haskell) | 6 | 4 | 0 | 4 | #2535 |
-| [html](#html) | 11 | 7 | 3 | 3 | #2549 |
+| [html](#html) | 11 | 6 | 3 | 3 | #2549 |
 | [java](#java) | 1 | 2 | 0 | 3 | #2535 #2546 |
-| [javascript](#javascript) | 1 | 5 | 0 | 4 | #2535 #2539 |
-| [jcl](#jcl) | 2 | 8 | 4 | 3 | #2610 |
+| [javascript](#javascript) | 2 | 4 | 0 | 4 | #2535 #2539 |
+| [jcl](#jcl) | 2 | 7 | 4 | 3 | #2610 |
 | [kotlin](#kotlin) | 2 | 2 | 0 | 5 | #2535 #2545 #2546 |
 | [livecode](#livecode) | 3 | 7 | 0 | 5 | #2535 #2546 #2547 |
 | [lua](#lua) | 4 | 2 | 0 | 4 | #2535 #2546 #2547 |
-| [m4](#m4) | 8 | 6 | 1 | 4 | #2535 |
+| [m4](#m4) | 8 | 5 | 1 | 4 | #2535 |
 | [makefile](#makefile) | 3 | 4 | 1 | 4 | #2535 #2546 |
 | [markdown](#markdown) | 12 | 1 | 18 | 3 | — |
 | [matlab](#matlab) | 5 | 4 | 0 | 5 | #2535 #2546 #2547 |
 | [objective-c](#objective-c) | 3 | 2 | 0 | 6 | #2535 #2545 #2546 |
-| [perl](#perl) | 4 | 7 | 0 | 5 | #2535 #2546 |
+| [perl](#perl) | 4 | 7 | 0 | 5 | #2535 #2546 #2626 |
 | [php](#php) | 2 | 2 | 0 | 4 | #2535 #2541 #2546 |
 | [powershell](#powershell) | 4 | 4 | 0 | 6 | #2535 #2545 #2546 #2547 |
-| [python](#python) | 4 | 3 | 0 | 3 | #2535 #2536 |
+| [python](#python) | 3 | 3 | 0 | 3 | #2535 #2536 |
 | [ruby](#ruby) | 0 | 2 | 0 | 4 | #2535 #2546 #2547 |
 | [rust](#rust) | 0 | 0 | 0 | 2 | #2535 |
 | [scala](#scala) | 2 | 2 | 0 | 3 | #2535 |
@@ -52,7 +52,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [tcl](#tcl) | 2 | 3 | 0 | 4 | #2535 #2546 |
 | [typescript](#typescript) | 1 | 0 | 0 | 4 | #2535 #2546 |
 | [yacc](#yacc) | 8 | 3 | 2 | 3 | — |
-| [yaml](#yaml) | 7 | 7 | 2 | 2 | — |
+| [yaml](#yaml) | 7 | 6 | 2 | 2 | — |
 | [zig](#zig) | 4 | 3 | 0 | 5 | #2535 #2545 |
 
 ## abap
@@ -113,7 +113,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_api_exposure`: 1.88742 vs median 5.29997 (-64%)
 - 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🟡 `comment_lines`: 21 vs median 30 (-30%)
 - 🟡 `risk_spec_match`: 65.3333 vs median 96 (-32%)
 - 🟡 `risk_verification`: 1.72414 vs median 2.3628 (-27%)
 
@@ -204,7 +203,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.c | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
-| `assert-overlaps-safety-and-test` | keyword-overlap | — | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
+| `assert-overlaps-safety-and-test` | keyword-overlap | [#2626](https://github.com/squid-protocol/gitgalaxy/issues/2626) | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
 | `string-literal-selective-shielding` | upstream-question | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.c | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -374,7 +373,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `comment_lines`: 46 vs median 30 (+53%)
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `import`: 7 vs median 3 (+133%)
@@ -521,7 +519,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🔴 `telemetry`: 0 vs median 2 (-100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `comment_lines`: 15 vs median 30 (-50%)
 - 🟡 `keyword_hits`: 135 vs median 246 (-45%)
 - 🟡 `risk_documentation`: 32.3996 vs median 54.777 (-41%)
 - 🟡 `risk_spec_match`: 52 vs median 96 (-46%)
@@ -567,8 +564,8 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
+- 🔴 `comment_lines`: 19 vs median 12 (+58%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🟡 `comment_lines`: 42 vs median 30 (+40%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `risk_cognitive_load`: 8.40777 vs median 15.1444 (-44%)
 - 🟡 `risk_state_flux`: 13.551 vs median 19.9999 (-32%)
@@ -597,7 +594,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 4 vs median 15.1444 (-74%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `comment_lines`: 15 vs median 30 (-50%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
 - 🟡 `keyword_hits`: 178 vs median 246 (-28%)
 - 🟡 `risk_api_exposure`: 6.93756 vs median 5.29997 (+31%)
@@ -707,7 +703,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_tech_debt`: 80 vs median 39.9315 (+100%)
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `comment_lines`: 21 vs median 30 (-30%)
 - 🟡 `keyword_hits`: 174 vs median 246 (-29%)
 - 🟡 `risk_verification`: 1.28776 vs median 2.3628 (-45%)
 - 🟡 `state_mutation`: 4 vs median 6 (-33%)
@@ -758,7 +753,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `comment_lines`: 59 vs median 30 (+97%)
+- 🔴 `comment_lines`: 34 vs median 12 (+183%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
@@ -855,7 +850,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.pl | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `visibility-morphology-encapsulation` | engine-semantic | — | — | Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), … |
-| `assert-overlaps-safety-and-test` | keyword-overlap | — | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
+| `assert-overlaps-safety-and-test` | keyword-overlap | [#2626](https://github.com/squid-protocol/gitgalaxy/issues/2626) | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
 | `string-literal-selective-shielding` | upstream-question | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.pl | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -921,7 +916,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `comment_lines`: 52 vs median 30 (+73%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `risk_cognitive_load`: 4.821 vs median 15.1444 (-68%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
@@ -1221,7 +1215,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 5.68942 vs median 15.1444 (-62%)
 - 🔴 `state_mutation`: 1 vs median 6 (-83%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `comment_lines`: 15 vs median 30 (-50%)
 - 🟡 `keyword_hits`: 176 vs median 246 (-28%)
 - 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
