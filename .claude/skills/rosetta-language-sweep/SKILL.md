@@ -92,6 +92,20 @@ the action it dictates:
 §3 risk metrics are downstream shadows of §1/§2 — classify them "re-baselines after upstream"
 and do not chase them individually.
 
+**Before ledgering ANY deviation as a per-language "shielding"/"suppression"/"inconsistent
+counting" design question, check whether a proximity-correlation dampener/amplifier
+(`spatial_correlation.py`'s six pairs, documented in gitgalaxy#2546's table) can explain it
+mechanically instead.** gitgalaxy#2535 (closed 2026-09-01) is the cautionary case: a shared
+decoy sentence's incidental word overlap with one language's own `safety` rule (`try`) was
+misread as "string literals selectively shield high_risk_execution" across 40 ledgered
+languages, when the real cause was the ordinary Silencer Region dampener firing on real
+keywords that happen to sit inside a string — there is no literal-shielding mechanism in the
+engine at all; strings count like code for every signal, always. The test: isolate the
+suspect construct in a scratch shell with every OTHER nearby signal-family keyword removed
+(same scratch-scan instrument as the bucket-3 test above) and see if the "shielding" survives
+alone. If it vanishes, the deviation is a corpus decoy-design collision, not an engine
+question — file it as a corpus issue (redesign the decoy), not a gitgalaxy issue.
+
 ## Phase 2 — engine work (in the gitgalaxy repo, its rules apply)
 
 - gitgalaxy has a **strategy-first rule**: present the classification + proposed fix and get
