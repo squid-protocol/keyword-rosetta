@@ -34,7 +34,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [lua](#lua) | 4 | 2 | 0 | 4 | #2535 #2546 #2547 |
 | [m4](#m4) | 8 | 5 | 1 | 4 | #2535 |
 | [makefile](#makefile) | 3 | 4 | 1 | 4 | #2535 #2546 |
-| [markdown](#markdown) | 12 | 1 | 18 | 4 | — |
+| [markdown](#markdown) | 11 | 1 | 18 | 5 | #2638 |
 | [matlab](#matlab) | 5 | 4 | 0 | 5 | #2535 #2546 #2547 |
 | [objective-c](#objective-c) | 2 | 2 | 0 | 6 | #2535 #2545 #2546 |
 | [perl](#perl) | 4 | 7 | 0 | 5 | #2535 #2546 #2626 |
@@ -52,7 +52,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [tcl](#tcl) | 2 | 3 | 0 | 4 | #2535 #2546 |
 | [typescript](#typescript) | 1 | 0 | 0 | 4 | #2535 #2546 |
 | [yacc](#yacc) | 8 | 3 | 2 | 3 | — |
-| [yaml](#yaml) | 7 | 6 | 2 | 2 | — |
+| [yaml](#yaml) | 6 | 6 | 2 | 2 | — |
 | [zig](#zig) | 3 | 2 | 0 | 5 | #2535 #2545 |
 
 ## abap
@@ -750,7 +750,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `comment_lines`: 34 vs median 12 (+183%)
-- 🔴 `dependency_links`: 0 vs median 3 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 0 vs median 15.1444 (-100%)
@@ -763,11 +762,12 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_verification`: 0.45954 vs median 2.3628 (-81%)
 - 🟡 `keyword_hits`: 134 vs median 242.5 (-45%)
 
-**Not expressible as measured (n/a):** `args`†, `branch`†, `class_start`†, `cleanup`†, `doc`†, `fragile_debt`†, `func_start`†, `globals`†, `high_risk_execution`†, `import`†, `io`†, `ownership`†, `planned_debt`†, `safety`†, `safety_bypasses`†, `state_mutation`†, `telemetry`†, `test`†
+**Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `markdown-lit-plane-morphology` | intended-morphology | [#2638](https://github.com/squid-protocol/gitgalaxy/issues/2638) | (notes) | markdown is a markup format deliberately measured on the lit_* literary plane (engine markdown.py wires ONLY lit_code_blocks/lit_diagrams/lit_headers/lit_links; detector… |
 | `markdown-prose-is-doc-morphology` | intended-morphology | — | — | markdown's entire prose content is its documentation surface: prism classifies the non-blank .md lines as doc_loc (34 across the 4 shells vs median 12, +183%) |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `no-dependency-capture-languages` | upstream-question | — | — | m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never c… |
@@ -1204,7 +1204,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `args`: 0 vs median 13 (-100%)
-- 🔴 `dependency_links`: 0 vs median 3 (-100%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `functions_found`: 3 vs median 13 (-77%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
