@@ -40,7 +40,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [perl](#perl) | 4 | 7 | 0 | 5 | #2535 #2546 |
 | [php](#php) | 2 | 2 | 0 | 4 | #2535 #2541 #2546 |
 | [powershell](#powershell) | 4 | 4 | 0 | 6 | #2535 #2545 #2546 #2547 |
-| [python](#python) | 5 | 3 | 0 | 5 | #2535 #2536 |
+| [python](#python) | 4 | 3 | 0 | 3 | #2535 #2536 |
 | [ruby](#ruby) | 0 | 2 | 0 | 4 | #2535 #2546 #2547 |
 | [rust](#rust) | 0 | 0 | 0 | 2 | #2535 |
 | [scala](#scala) | 2 | 2 | 0 | 3 | #2535 |
@@ -923,19 +923,16 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `comment_lines`: 52 vs median 30 (+73%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `io`: 6 vs median 3 (+100%)
 - 🔴 `risk_cognitive_load`: 4.821 vs median 15.1444 (-68%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
+- 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `risk_api_exposure`: 7.35003 vs median 5.29997 (+39%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
-- 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `api-contextual-baseline-fix` | engine-semantic | [#2536](https://github.com/squid-protocol/gitgalaxy/issues/2536) | — | galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `assert-overlaps-safety-and-test` | keyword-overlap | — | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
-| `os-sys-prefix-overlaps-io` | keyword-overlap | — | — | python-family io rule matches the os./sys |
 | `string-literal-selective-shielding` | upstream-question | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>

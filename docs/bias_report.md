@@ -12,17 +12,17 @@ Planted intent is identical in every language (SPEC.md probe table), so any colu
 
 ![variance chart](bias_variance_chart.svg)
 
-Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 33 metrics: 77%**; 17 metrics hold ≥80% of languages in the green band. Weakest metrics: risk_cognitive_load 15%, risk_api_exposure 41%, state_mutation 49%, safety 51%, risk_documentation 52%. Skipped (no comparable data): risk_concurrency, risk_dead_code, classes_found, class_start.
+Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 33 metrics: 78%**; 17 metrics hold ≥80% of languages in the green band. Weakest metrics: risk_cognitive_load 15%, risk_api_exposure 41%, state_mutation 49%, safety 51%, risk_documentation 52%. Skipped (no comparable data): risk_concurrency, risk_dead_code, classes_found, class_start.
 
 ## Signal totals vs. planted intent
 
 | signal | planted | abap | ada | agc_assembly | apex | assembly | c | cobol | cpp | csharp | css | dart | dockerfile | embedded_python | fortran | go | groovy | haskell | html | java | javascript | jcl | kotlin | livecode | lua | m4 | makefile | markdown | matlab | objective-c | perl | php | powershell | python | ruby | rust | scala | scheme | shell | solidity | sqlite | swift | tcl | typescript | yacc | yaml | zig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | branch ⚠ | 3 | 3 | 5 | 4 | 19 | 25 | 4 | 4 | 5 | 6 | 3 | 5 | 4 | 5 | 6 | 4 | 5 | 4 | 3 | 5 | 5 | 3 | 19 | 7 | 4 | 3 | 4 | n/a† | 5 | 18 | 5 | 9 | 10 | 5 | 5 | 4 | 5 | 3 | 6 | 19 | 5 | 6 | 6 | 5 | 3 | 3 | 19 |
-| io ⚠ | 3 | 3 | 3 | 3 | 3 | 4 | 5 | 4 | 3 | 3 | n/a† | 3 | 6 | 4 | 4 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 4 | 3 | 4 | n/a† | 4 | 3 | 4 | 3 | 4 | 6 | 3 | 3 | 3 | 3 | 4 | n/a† | 11 | 3 | 8 | 3 | 3 | 3 | 3 |
+| io ⚠ | 3 | 3 | 3 | 3 | 3 | 4 | 5 | 4 | 3 | 3 | n/a† | 3 | 6 | 4 | 4 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 4 | 3 | 4 | n/a† | 4 | 3 | 4 | 3 | 4 | 4 | 3 | 3 | 3 | 3 | 4 | n/a† | 11 | 3 | 8 | 3 | 3 | 3 | 3 |
 | high_risk_execution ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 3 | 2 | 3 | 2 | 2 | 2 | n/a† | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a† | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 | globals ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 3 | 0 | 4 | 2 | 2 | 2 | 2 | 2 | 2 | n/a† | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | n/a† | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 5 |
-| test ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | n/a† | 2 | 2 | 3 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a† | 1 | 2 |
+| test ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | n/a† | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a† | 1 | 2 |
 | safety ⚠ | 2 | 3 | 2 | 2 | 3 | 2 | 2 | 2 | 3 | 3 | 1 | 3 | 1 | 5 | 2 | 2 | 3 | 4 | 2 | 3 | 3 | 2 | 2 | 3 | 2 | 2 | 2 | n/a† | 3 | 2 | 3 | 3 | 3 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 4 | 2 | 1 | 3 |
 | safety_bypasses ⚠ | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 0 | 2 | 2 | 2 | 3 | 5 | 2 | 4 | 0 | 2 | 2 | 2 | 2 | 4 | 4 | 2 | 2 | n/a† | 3 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 3 | 2 | 0 | 0 | 3 | 2 | 2 | 1 | 2 |
 | telemetry ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a† | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a† | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
@@ -46,7 +46,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | functions_found | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 14 | 13 | 13 | 16 | 16 | 13 | 0 | 0 | 16 | 13 | 9 | 13 | 13 | 13 | 16 | 13 | 13 | 13 | 16 | 13 | 28 | 13 | 13 | 13 | 13 | 3 | 13 |
 | classes_found | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 0 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 0 | 3 | 0 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 0 | 3 | 3 | 3 | 0 | 3 | 3 | 0 | 0 | 3 |
-| keyword_hits | 162 | 176 | 227 | 256 | 198 | 280 | 248 | 251 | 268 | 147 | 262 | 185 | 309 | 216 | 288 | 260 | 146 | 135 | 259 | 229 | 178 | 311 | 244 | 267 | 174 | 186 | 134 | 278 | 268 | 299 | 257 | 277 | 244 | 256 | 232 | 273 | 197 | 239 | 283 | 171 | 290 | 237 | 293 | 153 | 176 | 322 |
+| keyword_hits | 162 | 176 | 227 | 256 | 198 | 280 | 248 | 251 | 268 | 147 | 262 | 185 | 309 | 216 | 288 | 260 | 146 | 135 | 259 | 229 | 178 | 311 | 244 | 267 | 174 | 186 | 134 | 278 | 268 | 299 | 257 | 277 | 241 | 256 | 232 | 273 | 197 | 239 | 283 | 171 | 290 | 237 | 293 | 153 | 176 | 322 |
 | comment_lines | 29 | 29 | 21 | 26 | 29 | 31 | 33 | 30 | 30 | 29 | 30 | 29 | 46 | 28 | 33 | 30 | 35 | 15 | 30 | 42 | 15 | 31 | 29 | 29 | 21 | 32 | 59 | 29 | 30 | 29 | 30 | 29 | 52 | 29 | 33 | 30 | 31 | 32 | 33 | 29 | 30 | 30 | 33 | 26 | 15 | 31 |
 | pagerank | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.1667 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.1667 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 | 0.2000 |
 
