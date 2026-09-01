@@ -404,11 +404,11 @@
    ],
    "disposition": "upstream-question",
    "status": "validated",
-   "verdict": "kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3). Same cross-language-inflation class as assembly's call/ret. Batch 4: apex, objective-c, powershell, and zig (pattern-confirmed) also count return — it is a 5-language family, not a kotlin quirk; scala/dart/groovy siblings do not. Strengthens #2545's inconsistency framing. Batch 5: solidity is the 6th member (main branch 8 = 5 returns + 3 keywords).",
+   "verdict": "kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3). Same cross-language-inflation class as assembly's call/ret. Batch 4: apex, objective-c, powershell, and zig (pattern-confirmed) also count return — it is a 5-language family, not a kotlin quirk; scala/dart/groovy siblings do not. Strengthens #2545's inconsistency framing. Batch 5: solidity is the 6th member (main branch 8 = 5 returns + 3 keywords). RESOLVED 2026-09-01: fixed upstream by gitgalaxy#2545 (PR #2634). Checked 11 close siblings across every relevant family (java/c/rust/go/csharp/scala/dart/groovy/swift/typescript/cpp) -- none count bare return as branch, including rust/csharp which share kotlin/zig's exact early-return idiom; no defensible rationale found for any of the 6. Fix split by whether return was already tracked elsewhere: kotlin/apex/powershell/zig had it duplicated under structural_boundaries already (pure de-dup); objective-c/solidity had no other rule tracking it, so return moved there instead of being deleted (signal preserved, same convention). Re-verified against engine pull/2634/head: all 6 gates PASS, branch now matches planted intent EXACTLY in every file (main 3, b 2, a/c 0) across all 6 languages. Real downstream ripple confirmed and re-baselined: apex c.cls state_mutation 3->1 (the manifest's own pre-fix note had already predicted this -- c's return was providing phantom branch context that #2546's x3 flux weighting amplified; removing return-as-branch removed the phantom trigger, leaving the raw hit).",
    "upstream_issue": "squid-protocol/gitgalaxy#2545",
    "investigated_by": "claude-sonnet-5",
    "validated_at": "2026-08-31",
-   "still_reproduces": true
+   "still_reproduces": false
   },
   {
    "id": "kotlin-object-dual-globals-classstart",
