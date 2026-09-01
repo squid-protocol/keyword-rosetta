@@ -52,7 +52,7 @@ def gather(language, colmap):
         sig_cols = [c for c in colmap if c in have]
         risk_cols = sorted(c for c in have if c.startswith("risk_"))
         struct_cols = [c for c in ("function_count", "class_count", "import_count",
-                                   "total_loc", "coding_loc", "pagerank_score") if c in have]
+                                   "total_loc", "coding_loc", "doc_loc", "pagerank_score") if c in have]
         rows = conn.execute(
             f"SELECT {', '.join(sig_cols + risk_cols + struct_cols)} FROM file_data"
         ).fetchall()
@@ -71,7 +71,16 @@ def gather(language, colmap):
         struct["functions_found"] += row["function_count"] or 0
         struct["classes_found"] += row["class_count"] or 0
         struct["dependency_links"] += row["import_count"] or 0
-        struct["comment_lines"] += max(0, (row["total_loc"] or 0) - (row["coding_loc"] or 0))
+        # gitgalaxy#2625: prefer prism's real doc_loc (non-blank, non-code
+        # lines), persisted since gitgalaxy PR #2632. The old proxy
+        # total_loc - coding_loc silently counted every BLANK line as
+        # documentation (total_loc is blank-inclusive, coding_loc is not),
+        # biasing comment_lines toward languages whose shells simply use
+        # more blank-line spacing. Fallback kept only for pre-#2632 engines.
+        if "doc_loc" in row.keys():
+            struct["comment_lines"] += row["doc_loc"] or 0
+        else:
+            struct["comment_lines"] += max(0, (row["total_loc"] or 0) - (row["coding_loc"] or 0))
         if "pagerank_score" in row.keys() and row["pagerank_score"] is not None:
             struct["pagerank"].append(row["pagerank_score"])
     risk_means = {c: (statistics.mean(v) if v else None) for c, v in risks.items()}
