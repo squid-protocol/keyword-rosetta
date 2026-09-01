@@ -601,7 +601,7 @@
    ],
    "disposition": "engine-semantic",
    "status": "validated",
-   "verdict": "Post-gitgalaxy#2610 (PR #2611: prism strips //* to the comment surface; jcl gains safety=COND=, safety_bypasses=COND=EVEN/ONLY, telemetry=MSGLEVEL=/MSGCLASS=, shared debt rules) the shell re-plants args 13 (PARM= per EXEC step), safety 2, safety_bypasses 2, telemetry 2, fragile/planned debt 1/1 -- all land exactly (report-confirmed 2026-08-31). Remaining zeros are intended morphology, not extraction gaps: cleanup deliberately has NO jcl rule because the honest idiom DISP=(...,DELETE) would double-count io's DISP= (decision recorded in gitgalaxy#2610); doc has no JCL doc-comment idiom distinct from //* comments; test has no JCL concept; globals has no scoped-vs-global distinction (JOBLIB/STEPLIB plants would inflate io + dependency_links). dependency_links 4 vs planted 3 = the DD DSN= capture on CORPUS.DATA -- deliberate blast-radius design (datasets ARE jcl dependencies), finditer-confirmed. comment_lines stays below median even with the comment surface live: JCL permits no blank lines and the metric (total_loc - coding_loc) counts other languages' blank-line style as comment mass. branch 3 / state_mutation 2 match planted intent exactly; their red/amber standing is inflation of the cross-language median by the #2545 return-in-branch family and #2546 flux weighting, and re-baselines when those land.",
+   "verdict": "Post-gitgalaxy#2610 (PR #2611: prism strips //* to the comment surface; jcl gains safety=COND=, safety_bypasses=COND=EVEN/ONLY, telemetry=MSGLEVEL=/MSGCLASS=, shared debt rules) the shell re-plants args 13 (PARM= per EXEC step), safety 2, safety_bypasses 2, telemetry 2, fragile/planned debt 1/1 -- all land exactly (report-confirmed 2026-08-31). Remaining zeros are intended morphology, not extraction gaps: cleanup deliberately has NO jcl rule because the honest idiom DISP=(...,DELETE) would double-count io's DISP= (decision recorded in gitgalaxy#2610); doc has no JCL doc-comment idiom distinct from //* comments; test has no JCL concept; globals has no scoped-vs-global distinction (JOBLIB/STEPLIB plants would inflate io + dependency_links). dependency_links 4 vs planted 3 = the DD DSN= capture on CORPUS.DATA -- deliberate blast-radius design (datasets ARE jcl dependencies), finditer-confirmed. comment_lines stays below median even with the comment surface live: JCL permits no blank lines and the metric (total_loc - coding_loc) counts other languages' blank-line style as comment mass. branch 3 / state_mutation 2 match planted intent exactly; their red/amber standing is inflation of the cross-language median by the #2545 return-in-branch family and #2546 flux weighting, and re-baselines when those land. 2026-09-01: the comment_lines clause of this entry is RESOLVED by gitgalaxy#2625 (PR #2632 + rosetta bias_report doc_loc switch): the metric now reads prism's real doc_loc, blank lines no longer count as documentation, and jcl sits at 11 vs median 12 (-8%, green).",
    "upstream_issue": "squid-protocol/gitgalaxy#2610",
    "investigated_by": "claude-fable-5",
    "validated_at": "2026-08-31",
@@ -619,6 +619,35 @@
    "upstream_issue": null,
    "investigated_by": "claude-fable-5",
    "validated_at": "2026-08-31",
+   "still_reproduces": true
+  },
+  {
+   "id": "comment-lines-manifest-doc-classification",
+   "signal": "comment_lines",
+   "languages_seen": [
+    "javascript",
+    "python"
+   ],
+   "disposition": "engine-semantic",
+   "status": "validated",
+   "verdict": "Guidestar manifest files carry no executable code, so the engine classifies their non-blank lines as doc_loc (package.json: total 8/coding 0/doc 7; pyproject.toml: doc 4). Only the 3 manifest-bearing corpus folders (javascript/python/rust, deliberate guidestar test design per #2557) inherit this extra doc mass; at the honest post-#2625 median of 12 real comment lines, javascript's +7 lands red (19, +58%) and python's +4 stays in-band (15, +25%). Verified 2026-09-01 by per-file doc_loc scans against engine pull/2632/head. Quirk noted for a possible future issue, not chased: rust's Cargo.toml produces NO file_data row at all (excluded before recording), while package.json and pyproject.toml are scanned and counted -- inconsistent manifest treatment across ecosystems.",
+   "upstream_issue": null,
+   "investigated_by": "claude-fable-5",
+   "validated_at": "2026-09-01",
+   "still_reproduces": true
+  },
+  {
+   "id": "markdown-prose-is-doc-morphology",
+   "signal": "comment_lines",
+   "languages_seen": [
+    "markdown"
+   ],
+   "disposition": "intended-morphology",
+   "status": "validated",
+   "verdict": "markdown's entire prose content is its documentation surface: prism classifies the non-blank .md lines as doc_loc (34 across the 4 shells vs median 12, +183%). A documentation format measuring high on a documentation-mass metric is correct morphology, not bias. Verified 2026-09-01 per-file (a 8 / b 8 / c 7 / main 11) against engine pull/2632/head.",
+   "upstream_issue": null,
+   "investigated_by": "claude-fable-5",
+   "validated_at": "2026-09-01",
    "still_reproduces": true
   }
  ]
