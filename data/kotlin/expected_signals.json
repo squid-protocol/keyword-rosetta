@@ -1,108 +1,108 @@
 {
-  "language": "kotlin",
-  "tier": 1,
-  "generator": "claude-sonnet-5 (hand-verified reference)",
-  "files": {
-    "main.kt": {
-      "class_start": 0,
-      "branch": 8,
-      "io": 3,
-      "high_risk_execution": 2,
-      "func_start": 4,
-      "args": 4,
-      "api": 0,
-      "doc": 2,
-      "ownership": 1,
-      "import": 1,
-      "state_mutation": 0,
-      "globals": 0,
-      "test": 0,
-      "safety": 0,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "a.kt": {
-      "class_start": 2,
-      "import": 1,
-      "func_start": 3,
-      "args": 3,
-      "api": 3,
-      "globals": 2,
-      "test": 2,
-      "safety": 2,
-      "branch": 3,
-      "state_mutation": 0,
-      "high_risk_execution": 0,
-      "io": 0,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "b.kt": {
-      "class_start": 0,
-      "import": 1,
-      "func_start": 3,
-      "args": 3,
-      "api": 3,
-      "safety_bypasses": 2,
-      "telemetry": 2,
-      "state_mutation": 6,
-      "branch": 5,
-      "safety": 0,
-      "high_risk_execution": 0,
-      "io": 0,
-      "test": 0,
-      "globals": 0,
-      "cleanup": 0,
-      "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "c.kt": {
-      "class_start": 0,
-      "import": 0,
-      "func_start": 3,
-      "args": 3,
-      "api": 3,
-      "cleanup": 2,
-      "fragile_debt": 1,
-      "planned_debt": 1,
-      "branch": 3,
-      "state_mutation": 0,
-      "io": 0,
-      "safety": 0,
-      "safety_bypasses": 0,
-      "telemetry": 0,
-      "test": 0,
-      "globals": 0,
-      "doc": 0,
-      "ownership": 0,
-      "high_risk_execution": 0
-    }
+ "language": "kotlin",
+ "tier": 1,
+ "generator": "claude-sonnet-5 (hand-verified reference)",
+ "files": {
+  "main.kt": {
+   "class_start": 0,
+   "branch": 3,
+   "io": 3,
+   "high_risk_execution": 2,
+   "func_start": 4,
+   "args": 4,
+   "api": 0,
+   "doc": 2,
+   "ownership": 1,
+   "import": 1,
+   "state_mutation": 0,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
   },
-  "decoys": [
-    {
-      "file": "b.kt",
-      "line_hint": "val note = \"if eval fails, try open\"",
-      "surface": "string",
-      "signals": [
-        "branch"
-      ],
-      "outcome": "if + try count branch +2 (kotlin branch includes try); val is not a kotlin state keyword so the decoy line adds no state — var x2 raw tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
-    },
-    {
-      "file": "c.kt",
-      "line_hint": "val hackLevel = level",
-      "surface": "code",
-      "signals": [
-        "fragile_debt"
-      ],
-      "outcome": "inert (camelCase)"
-    }
-  ],
-  "notes": "kotlin's branch rule counts return (ledger kotlin-return-in-branch): every file's branch = returns + real branch keywords (main 8 = 5 returns + if/else/when; a/c 3 = returns only). class_start 2 in a.kt = the two 'object' declarations planted for globals — object is dual globals+class_start (ledger kotlin-object-dual-globals-classstart), a deliberate exception like cobol's PROGRAM-ID. Locked from hand-verified run 2026-08-31."
+  "a.kt": {
+   "class_start": 2,
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "globals": 2,
+   "test": 2,
+   "safety": 2,
+   "branch": 0,
+   "state_mutation": 0,
+   "high_risk_execution": 0,
+   "io": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "b.kt": {
+   "class_start": 0,
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "safety_bypasses": 2,
+   "telemetry": 2,
+   "state_mutation": 6,
+   "branch": 2,
+   "safety": 0,
+   "high_risk_execution": 0,
+   "io": 0,
+   "test": 0,
+   "globals": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "c.kt": {
+   "class_start": 0,
+   "import": 0,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "cleanup": 2,
+   "fragile_debt": 1,
+   "planned_debt": 1,
+   "branch": 0,
+   "state_mutation": 0,
+   "io": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "test": 0,
+   "globals": 0,
+   "doc": 0,
+   "ownership": 0,
+   "high_risk_execution": 0
+  }
+ },
+ "decoys": [
+  {
+   "file": "b.kt",
+   "line_hint": "val note = \"if eval fails, try open\"",
+   "surface": "string",
+   "signals": [
+    "branch"
+   ],
+   "outcome": "if + try count branch +2 (kotlin branch includes try); val is not a kotlin state keyword so the decoy line adds no state — var x2 raw tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+  },
+  {
+   "file": "c.kt",
+   "line_hint": "val hackLevel = level",
+   "surface": "code",
+   "signals": [
+    "fragile_debt"
+   ],
+   "outcome": "inert (camelCase)"
+  }
+ ],
+ "notes": "kotlin's branch rule counted return (ledger kotlin-return-in-branch) until gitgalaxy#2545 (PR #2634): every file's branch dropped to its real branch-keyword count only (main 8->3 = if/else/when; a/c 3->0 = returns only, now 0; b 5->2). class_start 2 in a.kt = the two 'object' declarations planted for globals -- object is dual globals+class_start (ledger kotlin-object-dual-globals-classstart), a deliberate exception like cobol's PROGRAM-ID. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 after #2545."
 }
