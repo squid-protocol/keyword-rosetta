@@ -12,6 +12,11 @@ on:
       - "data/**"
       - "tools/**"
       - "SPEC.md"
+      # ENGINE_REF changes what every gate builds against -- a pin-only PR
+      # (e.g. the choreography's restore-to-main step) must run the full
+      # 46-gate sweep, not merge unchecked. Found via rosetta#14: the
+      # ENGINE_REF restore after gitgalaxy#2626 triggered no checks at all.
+      - "ENGINE_REF"
   workflow_dispatch:
 
 jobs:
