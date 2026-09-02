@@ -18,8 +18,8 @@
     },
     "b.hs": {
       "import": 1, "func_start": 3, "args": 3, "safety_bypasses": 2,
-      "telemetry": 2, "state_mutation": 6, "branch": 1, "safety": 1, "api": 0,
-      "class_start": 0, "high_risk_execution": 0, "io": 0, "test": 0,
+      "telemetry": 2, "state_mutation": 2, "branch": 0, "safety": 0, "api": 0,
+      "class_start": 0, "high_risk_execution": 1, "io": 0, "test": 0,
       "globals": 0, "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
     },
     "c.hs": {
@@ -32,7 +32,7 @@
   },
   "decoys": [
     {"file": "main.hs", "line_hint": "never dies and the exit words stay in prose", "surface": "comment", "signals": ["high_risk_execution"], "outcome": "stripped: contributed 0"},
-    {"file": "b.hs", "line_hint": "message = \"if eval fails, try open\"", "surface": "string", "signals": ["branch", "safety"], "outcome": "if (branch +1) and try (safety +1) COUNT — python/js profile; eval/open inert in haskell's rules. Phantom branch context triples state: modifyIORef+writeIORef 2 raw -> 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"},
+    {"file": "b.hs", "line_hint": "where message = \"plain die decoy text\" (probeState's where-clause)", "surface": "string", "signals": ["high_risk_execution"], "outcome": "danger-only decoy (#17 redesign): \"die\" COUNTS from inside the literal (+1), undampened — probeState's where-clause carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"},
     {"file": "c.hs", "line_hint": "hackLevel where hackLevel = level", "surface": "code", "signals": ["fragile_debt"], "outcome": "inert (camelCase lowercase vs case-sensitive \\bHACK\\b)"}
   ],
   "notes": "branch 3 in main = the single 'if flag > 0 then 1 else 2' expression — haskell's branch rule counts then, so one conditional = 3 (morphology contrast: ada's one if = 2+, shell's = 5 with brackets). func_start 5 in a.hs = 3 probes + the two top-level CAF bindings (region, home) planted for globals — top-level values ARE functions in haskell's model (ledger haskell-caf-bindings-count-as-functions). Type signature + binding pairs count func_start once, not twice (verified). globals plants necessarily contaminate: IORef x2 -> state +2, unsafePerformIO x2 -> bypasses +2 (a.hs). finally is dual cleanup+safety (c.hs safety 1, finditer-confirmed; ledger haskell-finally-dual-cleanup-safety). No orphan->api conversion observed anywhere (api = module rule, 0 planted, 0 recorded; whether 'import A' resolves against a.hs is not distinguishable from this signal — the fortran-use-case-insensitive-dag question likely applies). Locked from hand-verified run 2026-08-31."
