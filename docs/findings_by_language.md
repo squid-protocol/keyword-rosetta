@@ -11,48 +11,48 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [abap](#abap) | 0 | 0 | 0 | 3 | #2535 #2650 #2659 |
 | [ada](#ada) | 3 | 6 | 0 | 4 | #2535 #2546 |
 | [agc_assembly](#agc_assembly) | 5 | 6 | 1 | 5 | #2535 #2650 #2659 |
-| [apex](#apex) | 4 | 4 | 0 | 8 | #2535 #2536 #2545 #2546 #2671 |
+| [apex](#apex) | 3 | 4 | 0 | 8 | #2535 #2536 #2545 #2546 #2671 |
 | [assembly](#assembly) | 11 | 0 | 0 | 5 | #2535 #2546 |
-| [c](#c) | 5 | 4 | 0 | 5 | #2535 #2546 #2626 #2655 |
-| [cobol](#cobol) | 4 | 6 | 0 | 9 | #2535 #2537 #2538 #2655 #2661 |
+| [c](#c) | 5 | 4 | 0 | 6 | #2535 #2546 #2626 #2655 |
+| [cobol](#cobol) | 3 | 6 | 0 | 9 | #2535 #2537 #2538 #2655 #2661 |
 | [cpp](#cpp) | 2 | 8 | 0 | 4 | #2535 #2546 #2655 |
 | [csharp](#csharp) | 1 | 6 | 0 | 3 | #2535 #2546 |
 | [css](#css) | 12 | 6 | 5 | 6 | #2655 |
 | [dart](#dart) | 1 | 4 | 0 | 3 | #2535 #2651 |
-| [dockerfile](#dockerfile) | 11 | 11 | 0 | 6 | #2535 #2546 #2547 |
+| [dockerfile](#dockerfile) | 10 | 11 | 0 | 6 | #2535 #2546 #2547 |
 | [embedded_python](#embedded_python) | 6 | 4 | 0 | 6 | #2535 #2548 #2655 #2658 |
-| [fortran](#fortran) | 4 | 6 | 0 | 6 | #2535 #2540 #2546 #2650 #2659 |
+| [fortran](#fortran) | 4 | 6 | 0 | 7 | #2535 #2540 #2546 #2650 #2659 |
 | [go](#go) | 4 | 3 | 0 | 6 | #2535 #2542 #2546 #2655 |
-| [groovy](#groovy) | 1 | 2 | 0 | 3 | #2535 |
-| [haskell](#haskell) | 9 | 6 | 0 | 4 | #2535 |
-| [html](#html) | 19 | 5 | 3 | 8 | #2549 #2645 #2650 #2655 #2659 |
-| [java](#java) | 3 | 2 | 0 | 4 | #2535 #2546 #2655 |
+| [groovy](#groovy) | 0 | 2 | 0 | 3 | #2535 |
+| [haskell](#haskell) | 9 | 6 | 0 | 5 | #2535 |
+| [html](#html) | 19 | 6 | 2 | 8 | #2549 #2645 #2650 #2655 #2659 |
+| [java](#java) | 1 | 3 | 0 | 4 | #2535 #2546 #2655 |
 | [javascript](#javascript) | 4 | 9 | 0 | 6 | #2535 #2539 #2655 |
 | [jcl](#jcl) | 4 | 5 | 6 | 4 | #2610 #2655 |
-| [kotlin](#kotlin) | 2 | 4 | 0 | 5 | #2535 #2545 #2546 |
-| [livecode](#livecode) | 8 | 9 | 0 | 6 | #2535 #2546 #2547 #2650 #2659 |
-| [lua](#lua) | 4 | 4 | 0 | 5 | #2535 #2546 #2547 #2657 |
+| [kotlin](#kotlin) | 1 | 4 | 0 | 5 | #2535 #2545 #2546 |
+| [livecode](#livecode) | 7 | 8 | 0 | 6 | #2535 #2546 #2547 #2650 #2659 |
+| [lua](#lua) | 2 | 4 | 0 | 6 | #2535 #2546 #2547 #2657 |
 | [m4](#m4) | 16 | 4 | 2 | 5 | #2535 |
 | [makefile](#makefile) | 7 | 9 | 1 | 8 | #2535 #2546 #2648 #2655 |
 | [markdown](#markdown) | 15 | 3 | 27 | 4 | #2638 #2655 |
 | [matlab](#matlab) | 7 | 1 | 0 | 5 | #2535 #2546 #2547 |
 | [objective-c](#objective-c) | 2 | 1 | 0 | 5 | #2535 #2545 #2546 |
-| [perl](#perl) | 4 | 3 | 0 | 6 | #2535 #2546 #2626 #2670 |
-| [php](#php) | 1 | 4 | 0 | 4 | #2535 #2541 #2546 |
+| [perl](#perl) | 3 | 3 | 0 | 6 | #2535 #2546 #2626 #2670 |
+| [php](#php) | 0 | 4 | 0 | 4 | #2535 #2541 #2546 |
 | [powershell](#powershell) | 13 | 3 | 0 | 7 | #2535 #2545 #2546 #2547 #2656 |
 | [python](#python) | 1 | 7 | 0 | 6 | #2535 #2536 #2655 #2658 |
 | [ruby](#ruby) | 2 | 5 | 0 | 4 | #2535 #2546 #2547 |
 | [rust](#rust) | 1 | 5 | 0 | 3 | #2535 #2655 |
-| [scala](#scala) | 4 | 2 | 0 | 2 | #2535 |
+| [scala](#scala) | 3 | 2 | 0 | 2 | #2535 |
 | [scheme](#scheme) | 3 | 5 | 0 | 3 | #2535 #2537 |
 | [shell](#shell) | 7 | 3 | 1 | 6 | #2535 #2547 |
-| [solidity](#solidity) | 4 | 1 | 1 | 5 | #2535 #2545 |
+| [solidity](#solidity) | 3 | 1 | 1 | 5 | #2535 #2545 |
 | [sqlite](#sqlite) | 15 | 4 | 0 | 6 | #2535 #2547 #2655 |
 | [swift](#swift) | 1 | 9 | 0 | 4 | #2535 #2543 #2546 |
-| [tcl](#tcl) | 8 | 5 | 0 | 4 | #2535 #2546 |
+| [tcl](#tcl) | 8 | 5 | 0 | 5 | #2535 #2546 |
 | [typescript](#typescript) | 3 | 4 | 0 | 5 | #2535 #2546 #2655 |
 | [yacc](#yacc) | 19 | 3 | 3 | 5 | #2644 |
-| [yaml](#yaml) | 12 | 11 | 2 | 5 | #2646 #2647 |
+| [yaml](#yaml) | 12 | 11 | 0 | 5 | #2646 #2647 |
 | [zig](#zig) | 1 | 1 | 0 | 4 | #2535 #2545 #2651 |
 
 ## abap
@@ -139,7 +139,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `cog_raw`: 0.12375 vs median 0.055 (+125%)
-- 🔴 `import`: 6 vs median 3 (+100%)
 - 🔴 `risk_cognitive_load`: 5.8306 vs median 2.3577 (+147%)
 - 🔴 `risk_state_flux`: 14.7927 vs median 9.43853 (+57%)
 - 🟡 `args`: 18 vs median 13 (+38%)
@@ -216,6 +215,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.c | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.c | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
 | `assert-overlaps-safety-and-test` | keyword-overlap | [#2626](https://github.com/squid-protocol/gitgalaxy/issues/2626) | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -231,14 +231,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `structural_mass`: 2.315 vs median 9.845 (-76%)
 - 🟡 `avg_func_loc`: 3.1875 vs median 5.125 (-38%)
 - 🟡 `control_flow_ratio`: 0.06825 vs median 0.09375 (-27%)
 - 🟡 `encapsulation_ratio`: 0.5 vs median 0.75 (-33%)
 - 🟡 `func_internal_density`: 0.05 vs median 0.0340909 (+47%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
-- 🟡 `risk_safety_score`: 55.7361 vs median 42.0539 (+33%)
+- 🟡 `risk_safety_score`: 55.7707 vs median 42.0539 (+33%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -386,7 +385,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `coding_loc`: 7.75 vs median 17.125 (-55%)
 - 🔴 `control_flow_ratio`: 0.25 vs median 0.09375 (+167%)
 - 🔴 `func_internal_density`: 0.09375 vs median 0.0340909 (+175%)
-- 🔴 `io`: 5 vs median 3 (+67%)
 - 🔴 `risk_api_exposure`: 0.88145 vs median 5.28878 (-83%)
 - 🔴 `risk_documentation`: 12.1465 vs median 55.5369 (-78%)
 - 🔴 `risk_state_flux`: 18.8771 vs median 9.43853 (+100%)
@@ -396,7 +394,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `func_start`: 17 vs median 13 (+31%)
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
 - 🟡 `import`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 78 vs median 148 (-47%)
+- 🟡 `keyword_hits`: 76 vs median 148 (-49%)
 - 🟡 `risk_safety_score`: 57.9983 vs median 42.0539 (+38%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `structural_mass`: 6.855 vs median 9.845 (-30%)
@@ -469,6 +467,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | (notes) | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `fortran-common-globals-safety-dual-classification` | intended-morphology | — | — | fortran reads safety_bypasses 3 against a planted 2 because probe_globals plants a COMMON block, which legitimately fires BOTH rules |
 | `fortran-goto-dual-branch-highrisk` | keyword-overlap | — | (notes) | GOTO is in both fortran's branch rule and its high_risk_execution rule — one planted GOTO counts both |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 | `fortran-use-case-insensitive-dag` | upstream-bug | [#2540](https://github.com/squid-protocol/gitgalaxy/issues/2540) | — | 'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves |
@@ -513,7 +512,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🟡 `args`: 19 vs median 13 (+46%)
 - 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
 
@@ -554,6 +552,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `haskell-caf-bindings-count-as-functions` | engine-semantic | — | (notes) | Top-level value bindings (CAFs like 'region = unsafePerformIO ...') count func_start/args like any function binding — morphologically correct for haskell, where top-leve… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.hs | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
 | `haskell-finally-dual-cleanup-safety` | keyword-overlap | — | (notes) | finally is in both haskell's cleanup and safety rules (finditer-confirmed on c.hs) — one planted finally counts both. |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -578,22 +577,23 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_internal_density`: 0 vs median 0.0340909 (-100%)
 - 🔴 `func_start`: 0 vs median 13 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `keyword_hits`: 41 vs median 148 (-72%)
+- 🔴 `keyword_hits`: 49 vs median 148 (-67%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `risk_api_exposure`: 0.88145 vs median 5.28878 (-83%)
 - 🔴 `risk_documentation`: 11.3461 vs median 55.5369 (-80%)
-- 🔴 `risk_safety_score`: 0 vs median 42.0539 (-100%)
+- 🔴 `risk_safety_score`: 21.0098 vs median 42.0539 (-50%)
 - 🔴 `risk_spec_match`: 0 vs median 100 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 9.43853 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🔴 `total_loc`: 10.5 vs median 24.75 (-58%)
 - 🟡 `cog_raw`: 0.04 vs median 0.055 (-27%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
+- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `structural_mass`: 13.89 vs median 9.845 (+41%)
-- 🟡 `token_mass`: 73.25 vs median 122 (-40%)
+- 🟡 `token_mass`: 76.75 vs median 122 (-37%)
 
-**Not expressible as measured (n/a):** `globals`, `high_risk_execution`, `state_mutation`
+**Not expressible as measured (n/a):** `globals`, `state_mutation`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -617,8 +617,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `cog_raw`: 0.0205 vs median 0.055 (-63%)
-- 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_cognitive_load`: 0.9715 vs median 2.3577 (-59%)
+- 🟡 `risk_cognitive_load`: 1.29535 vs median 2.3577 (-45%)
 - 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 
@@ -700,11 +699,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `risk_state_flux`: 4.63567 vs median 9.43853 (-51%)
 - 🟡 `cog_raw`: 0.0345 vs median 0.055 (-37%)
 - 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
-- 🟡 `risk_cognitive_load`: 1.31072 vs median 2.3577 (-44%)
+- 🟡 `risk_cognitive_load`: 1.64835 vs median 2.3577 (-30%)
 - 🟡 `risk_documentation`: 40.8436 vs median 55.5369 (-26%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -733,13 +731,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
 - 🔴 `risk_cognitive_load`: 4.8376 vs median 2.3577 (+105%)
 - 🔴 `risk_state_flux`: 14.3611 vs median 9.43853 (+52%)
-- 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `avg_func_complexity`: 0.2625 vs median 0.1875 (+40%)
 - 🟡 `dependency_density`: 0.287088 vs median 0.53125 (-46%)
 - 🟡 `func_internal_density`: 0.0472222 vs median 0.0340909 (+39%)
 - 🟡 `risk_api_exposure`: 7.33545 vs median 5.28878 (+39%)
 - 🟡 `risk_documentation`: 76.1418 vs median 55.5369 (+37%)
-- 🟡 `risk_safety_score`: 59.0785 vs median 42.0539 (+40%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
 - 🟡 `structural_mass`: 12.37 vs median 9.845 (+26%)
@@ -766,8 +762,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `risk_api_exposure`: 9.4704 vs median 5.28878 (+79%)
 - 🔴 `risk_documentation`: 90.9609 vs median 55.5369 (+64%)
-- 🔴 `risk_safety_score`: 75.2134 vs median 42.0539 (+79%)
-- 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
 - 🟡 `func_internal_density`: 0.0234375 vs median 0.0340909 (-31%)
 - 🟡 `io`: 4 vs median 3 (+33%)
@@ -778,6 +772,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.lua | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.lua | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
 | `lua-2657-indented-return-not-module-export` | upstream-bug | [#2657](https://github.com/squid-protocol/gitgalaxy/issues/2657) | — | lua's api rule's module-export 'return <ident>' alternative allowed any indentation, so ordinary function-body returns miscounted as module exports -- RESOLVED via gitga… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
@@ -955,12 +950,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `risk_api_exposure`: 2.3925 vs median 5.28878 (-55%)
 - 🔴 `risk_state_flux`: 19.7152 vs median 9.43853 (+109%)
 - 🔴 `state_mutation`: 4 vs median 2 (+100%)
 - 🟡 `control_flow_ratio`: 0.05 vs median 0.09375 (-47%)
-- 🟡 `risk_safety_score`: 58.973 vs median 42.0539 (+40%)
+- 🟡 `risk_safety_score`: 59.0076 vs median 42.0539 (+40%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -983,10 +977,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🟡 `cog_raw`: 0.0345 vs median 0.055 (-37%)
 - 🟡 `control_flow_ratio`: 0.0625 vs median 0.09375 (-33%)
-- 🟡 `risk_cognitive_load`: 1.31072 vs median 2.3577 (-44%)
+- 🟡 `risk_cognitive_load`: 1.64835 vs median 2.3577 (-30%)
 - 🟡 `risk_documentation`: 40.8436 vs median 55.5369 (-26%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1129,9 +1122,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `control_flow_ratio`: 0.1875 vs median 0.09375 (+100%)
-- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `risk_api_exposure`: 9.4704 vs median 5.28878 (+79%)
-- 🔴 `risk_documentation`: 90.627 vs median 55.5369 (+63%)
+- 🔴 `risk_documentation`: 90.9609 vs median 55.5369 (+64%)
 - 🟡 `risk_state_flux`: 5.35412 vs median 9.43853 (-43%)
 - 🟡 `structural_mass`: 12.955 vs median 9.845 (+32%)
 
@@ -1211,7 +1203,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `control_flow_ratio`: 0.044 vs median 0.09375 (-53%)
-- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `ownership`: 4 vs median 1 (+300%)
 - 🔴 `risk_state_flux`: 14.3611 vs median 9.43853 (+52%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
@@ -1326,6 +1317,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.tcl | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.tcl | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -1414,20 +1406,18 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
 - 🔴 `risk_documentation`: 0 vs median 55.5369 (-100%)
-- 🔴 `structural_mass`: 4.8 vs median 9.845 (-51%)
-- 🟡 `coding_loc`: 10 vs median 17.125 (-42%)
+- 🔴 `structural_mass`: 4.805 vs median 9.845 (-51%)
+- 🟡 `coding_loc`: 10.25 vs median 17.125 (-40%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 - 🟡 `keyword_hits`: 87 vs median 148 (-41%)
 - 🟡 `risk_state_flux`: 5.35412 vs median 9.43853 (-43%)
-- 🟡 `risk_tech_debt`: 25 vs median 46.5703 (-46%)
+- 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `safety_bypasses`: 1 vs median 2 (-50%)
 - 🟡 `state_mutation`: 1 vs median 2 (-50%)
 - 🟡 `test`: 1 vs median 2 (-50%)
-- 🟡 `token_mass`: 81.75 vs median 122 (-33%)
-- 🟡 `total_loc`: 13.5 vs median 24.75 (-45%)
-
-**Not expressible as measured (n/a):** `cleanup`, `ownership`
+- 🟡 `token_mass`: 86.5 vs median 122 (-29%)
+- 🟡 `total_loc`: 13.75 vs median 24.75 (-44%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
