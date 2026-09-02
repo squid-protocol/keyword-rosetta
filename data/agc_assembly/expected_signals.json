@@ -20,7 +20,7 @@
       "func_start": 4,
       "args": 0,
       "api": 0,
-      "doc": 2,
+      "doc": 1,
       "ownership": 1,
       "import": 1
     },
@@ -96,5 +96,5 @@
       "outcome": "RESUME is dual cleanup+branch (control transfer; finditer-confirmed) — c.agc branch 1"
     }
   ],
-  "notes": "AGC morphology: functions are labels followed by a real opcode; args are register-target ops (TS A / XCH Q = 2 in b, the only file with them). BANK chain resolves (a/b/c api 3 = pure orphan conversion). doc 2 in main = PURPOSE + AUTHOR (AUTHOR in both doc and ownership rules). encapsulation counts every line-start token (agc rule is ^token — unasserted). Locked 2026-08-31."
+  "notes": "AGC morphology: functions are labels followed by a real opcode; args are register-target ops (TS A / XCH Q = 2 in b, the only file with them). BANK chain resolves (a/b/c api 3 = pure orphan conversion). doc 1 in main = PURPOSE only: the AUTHOR-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (AUTHOR removed from doc's alternation; ownership still captures it exclusively). encapsulation counts every line-start token (agc rule is ^token -- unasserted). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659."
 }

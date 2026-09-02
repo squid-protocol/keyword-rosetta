@@ -20,7 +20,7 @@
       "func_start": 4,
       "args": 4,
       "api": 4,
-      "doc": 2,
+      "doc": 1,
       "ownership": 1,
       "import": 2,
       "encapsulation": 1
@@ -108,5 +108,5 @@
       "outcome": "inert (underscore)"
     }
   ],
-  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON — verified: with no marker, a/b/c scanned under python rules (gc.collect not counted as cleanup, Pin/I2C/UART not io). Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Under embedded classification the io rule has NO os./sys. alternation (a.py io 0 — python's would count 2) and orphan->api conversion originally did not fire (api 3) — FIXED upstream by gitgalaxy#2548 (embedded_python wired into Python-family indentation scoping): api is now 3 raw + 3 converted = 6, matching plain python; re-baselined from the CI gate's fresh scan against gitgalaxy main — two rule-level divergences from plain python on byte-similar code. Locked 2026-08-31."
+  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON. Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Under embedded classification the io rule has NO os./sys. alternation and orphan->api conversion fires (api 3 raw + 3 converted = 6, matching plain python; gitgalaxy#2548). doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (shares python's doc regex fix). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2658."
 }

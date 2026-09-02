@@ -8,43 +8,43 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 | language | red-zone metrics | amber | n/a signals | ledgered shapes | upstream issues |
 |---|---|---|---|---|---|
-| [abap](#abap) | 3 | 2 | 0 | 2 | #2535 |
-| [ada](#ada) | 3 | 1 | 0 | 4 | #2535 #2546 |
-| [agc_assembly](#agc_assembly) | 5 | 2 | 1 | 4 | #2535 |
+| [abap](#abap) | 2 | 2 | 0 | 3 | #2535 #2650 #2659 |
+| [ada](#ada) | 2 | 1 | 0 | 4 | #2535 #2546 |
+| [agc_assembly](#agc_assembly) | 4 | 2 | 1 | 5 | #2535 #2650 #2659 |
 | [apex](#apex) | 6 | 4 | 0 | 6 | #2535 #2545 #2546 |
-| [assembly](#assembly) | 2 | 2 | 0 | 5 | #2535 #2546 |
+| [assembly](#assembly) | 2 | 1 | 0 | 5 | #2535 #2546 |
 | [c](#c) | 4 | 3 | 0 | 4 | #2535 #2546 #2626 |
 | [cobol](#cobol) | 3 | 4 | 0 | 6 | #2535 #2537 #2538 |
 | [cpp](#cpp) | 0 | 2 | 0 | 3 | #2535 #2546 |
 | [csharp](#csharp) | 0 | 2 | 0 | 3 | #2535 #2546 |
 | [css](#css) | 12 | 3 | 4 | 4 | — |
-| [dart](#dart) | 1 | 1 | 0 | 4 | #2535 |
+| [dart](#dart) | 0 | 1 | 0 | 4 | #2535 #2651 |
 | [dockerfile](#dockerfile) | 5 | 11 | 0 | 5 | #2535 #2546 #2547 |
-| [embedded_python](#embedded_python) | 5 | 5 | 0 | 4 | #2535 #2548 |
-| [fortran](#fortran) | 5 | 4 | 0 | 5 | #2535 #2540 #2546 |
+| [embedded_python](#embedded_python) | 5 | 4 | 0 | 5 | #2535 #2548 #2658 |
+| [fortran](#fortran) | 4 | 4 | 0 | 6 | #2535 #2540 #2546 #2650 #2659 |
 | [go](#go) | 2 | 0 | 0 | 5 | #2535 #2542 #2546 |
 | [groovy](#groovy) | 2 | 2 | 0 | 4 | #2535 |
 | [haskell](#haskell) | 6 | 6 | 0 | 4 | #2535 |
-| [html](#html) | 14 | 3 | 3 | 5 | #2549 #2645 |
+| [html](#html) | 13 | 3 | 3 | 6 | #2549 #2645 #2650 #2659 |
 | [java](#java) | 2 | 1 | 0 | 3 | #2535 #2546 |
-| [javascript](#javascript) | 1 | 4 | 0 | 5 | #2535 #2539 |
+| [javascript](#javascript) | 1 | 3 | 0 | 5 | #2535 #2539 |
 | [jcl](#jcl) | 3 | 6 | 4 | 3 | #2610 |
-| [kotlin](#kotlin) | 1 | 0 | 0 | 5 | #2535 #2545 #2546 |
-| [livecode](#livecode) | 3 | 7 | 0 | 5 | #2535 #2546 #2547 |
-| [lua](#lua) | 4 | 2 | 0 | 4 | #2535 #2546 #2547 |
-| [m4](#m4) | 10 | 3 | 1 | 5 | #2535 |
-| [makefile](#makefile) | 3 | 6 | 1 | 5 | #2535 #2546 |
+| [kotlin](#kotlin) | 1 | 1 | 0 | 5 | #2535 #2545 #2546 |
+| [livecode](#livecode) | 1 | 8 | 0 | 6 | #2535 #2546 #2547 #2650 #2659 |
+| [lua](#lua) | 4 | 2 | 0 | 5 | #2535 #2546 #2547 #2657 |
+| [m4](#m4) | 9 | 4 | 1 | 5 | #2535 |
+| [makefile](#makefile) | 2 | 3 | 1 | 6 | #2535 #2546 #2648 |
 | [markdown](#markdown) | 12 | 0 | 18 | 5 | #2638 |
 | [matlab](#matlab) | 5 | 3 | 0 | 5 | #2535 #2546 #2547 |
-| [objective-c](#objective-c) | 2 | 2 | 0 | 6 | #2535 #2545 #2546 |
+| [objective-c](#objective-c) | 2 | 1 | 0 | 6 | #2535 #2545 #2546 |
 | [perl](#perl) | 4 | 7 | 0 | 5 | #2535 #2546 #2626 |
 | [php](#php) | 1 | 1 | 0 | 4 | #2535 #2541 #2546 |
-| [powershell](#powershell) | 4 | 4 | 0 | 6 | #2535 #2545 #2546 #2547 |
-| [python](#python) | 4 | 4 | 0 | 4 | #2535 #2536 |
+| [powershell](#powershell) | 2 | 5 | 0 | 7 | #2535 #2545 #2546 #2547 #2656 |
+| [python](#python) | 3 | 4 | 0 | 5 | #2535 #2536 #2658 |
 | [ruby](#ruby) | 1 | 1 | 0 | 4 | #2535 #2546 #2547 |
 | [rust](#rust) | 2 | 2 | 0 | 2 | #2535 |
 | [scala](#scala) | 3 | 1 | 0 | 3 | #2535 |
-| [scheme](#scheme) | 4 | 4 | 0 | 5 | #2535 #2537 |
+| [scheme](#scheme) | 1 | 4 | 0 | 4 | #2535 #2537 |
 | [shell](#shell) | 1 | 4 | 1 | 6 | #2535 #2547 |
 | [solidity](#solidity) | 3 | 1 | 1 | 5 | #2535 #2545 |
 | [sqlite](#sqlite) | 8 | 4 | 0 | 4 | #2535 #2547 |
@@ -52,15 +52,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [tcl](#tcl) | 2 | 3 | 0 | 4 | #2535 #2546 |
 | [typescript](#typescript) | 1 | 0 | 0 | 4 | #2535 #2546 |
 | [yacc](#yacc) | 10 | 1 | 2 | 5 | #2644 |
-| [yaml](#yaml) | 6 | 9 | 2 | 4 | #2646 #2647 |
-| [zig](#zig) | 3 | 2 | 0 | 5 | #2535 #2545 |
+| [yaml](#yaml) | 5 | 8 | 2 | 4 | #2646 #2647 |
+| [zig](#zig) | 2 | 2 | 0 | 5 | #2535 #2545 #2651 |
 
 ## abap
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_cognitive_load`: 6.9024 vs median 18.6882 (-63%)
+- 🔴 `risk_cognitive_load`: 8.41007 vs median 18.6882 (-55%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
@@ -69,6 +68,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.abap | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -82,10 +82,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
-- 🔴 `risk_cognitive_load`: 28.3882 vs median 18.6882 (+52%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.5845 (-50%)
+- 🔴 `risk_api_exposure`: 0 vs median 6.63976 (-100%)
+- 🔴 `risk_cognitive_load`: 29.826 vs median 18.6882 (+60%)
+- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -107,12 +106,11 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `args`: 2 vs median 13 (-85%)
-- 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 2.35928 vs median 6.6388 (-64%)
+- 🔴 `risk_api_exposure`: 2.35928 vs median 6.63976 (-64%)
 - 🔴 `risk_cognitive_load`: 5 vs median 18.6882 (-73%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `risk_spec_match`: 56.6666 vs median 95 (-40%)
-- 🟡 `risk_verification`: 1.58075 vs median 2.38236 (-34%)
+- 🟡 `risk_verification`: 1.58075 vs median 2.38558 (-34%)
 
 **Not expressible as measured (n/a):** `class_start`
 
@@ -122,6 +120,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `agc-assembly-class-start-no-struct-pseudoop` | intended-morphology | — | — | AGC's real 1960s YUL/GAP instruction set (agc_assembly.py:99-101, comment: 'AGC lacks native objects') has no struct/record-defining pseudo-op -- its data/memory constru… |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -135,10 +134,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 6.63976 (-100%)
 - 🔴 `risk_cognitive_load`: 32.5663 vs median 18.6882 (+74%)
 - 🔴 `risk_state_flux`: 44.36 vs median 24.9999 (+77%)
-- 🔴 `risk_tech_debt`: 99.9625 vs median 49.5845 (+102%)
+- 🔴 `risk_tech_debt`: 99.9625 vs median 49.9144 (+100%)
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `risk_safety_score`: 67.457 vs median 46.7335 (+44%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
@@ -166,7 +165,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `branch`: 25 vs median 5 (+400%)
 - 🔴 `risk_cognitive_load`: 39.2924 vs median 18.6882 (+110%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 80.6324 vs median 64.2385 (+26%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -189,11 +187,11 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `io`: 5 vs median 3 (+67%)
-- 🔴 `risk_api_exposure`: 14.4611 vs median 6.6388 (+118%)
+- 🔴 `risk_api_exposure`: 14.4611 vs median 6.63976 (+118%)
 - 🔴 `risk_state_flux`: 48.4549 vs median 24.9999 (+94%)
 - 🔴 `state_mutation`: 11 vs median 6 (+83%)
 - 🟡 `risk_cognitive_load`: 24.6579 vs median 18.6882 (+32%)
-- 🟡 `risk_documentation`: 94.3108 vs median 64.2385 (+47%)
+- 🟡 `risk_documentation`: 94.3108 vs median 64.7632 (+46%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -286,14 +284,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `args`: 3 vs median 13 (-77%)
 - 🔴 `doc`: 0 vs median 1 (-100%)
 - 🔴 `globals`: 0 vs median 2 (-100%)
-- 🔴 `keyword_hits`: 44 vs median 152.5 (-71%)
+- 🔴 `keyword_hits`: 44 vs median 149.5 (-71%)
 - 🔴 `ownership`: 0 vs median 1 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 6.63976 (-100%)
 - 🔴 `risk_cognitive_load`: 5 vs median 18.6882 (-73%)
-- 🔴 `risk_documentation`: 27.2636 vs median 64.2385 (-58%)
+- 🔴 `risk_documentation`: 27.2636 vs median 64.7632 (-58%)
 - 🔴 `risk_spec_match`: 31.6667 vs median 95 (-67%)
 - 🔴 `risk_state_flux`: 0 vs median 24.9999 (-100%)
-- 🔴 `risk_verification`: 1.01825 vs median 2.38236 (-57%)
+- 🔴 `risk_verification`: 1.01825 vs median 2.38558 (-57%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `risk_safety_score`: 24.8106 vs median 46.7335 (-47%)
@@ -318,7 +316,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `globals`: 4 vs median 2 (+100%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -326,7 +323,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dart | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
-| `indented-declaration-globals` | upstream-question | — | — | dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local final… |
+| `indented-declaration-globals` | upstream-question | [#2651](https://github.com/squid-protocol/gitgalaxy/issues/2651) | — | dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local final… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -340,7 +337,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 4 vs median 13 (-69%)
 - 🔴 `io`: 6 vs median 3 (+100%)
-- 🔴 `risk_api_exposure`: 1.31325 vs median 6.6388 (-80%)
+- 🔴 `risk_api_exposure`: 1.31325 vs median 6.63976 (-80%)
 - 🔴 `risk_cognitive_load`: 5 vs median 18.6882 (-73%)
 - 🔴 `risk_state_flux`: 49.9978 vs median 24.9999 (+100%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
@@ -348,11 +345,11 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `import`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 83 vs median 152.5 (-46%)
-- 🟡 `risk_documentation`: 41.7536 vs median 64.2385 (-35%)
+- 🟡 `keyword_hits`: 83 vs median 149.5 (-44%)
+- 🟡 `risk_documentation`: 41.7536 vs median 64.7632 (-36%)
 - 🟡 `risk_safety_score`: 69.5313 vs median 46.7335 (+49%)
 - 🟡 `risk_spec_match`: 51.6667 vs median 95 (-46%)
-- 🟡 `risk_verification`: 1.55255 vs median 2.38236 (-35%)
+- 🟡 `risk_verification`: 1.55255 vs median 2.38558 (-35%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -374,14 +371,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
-- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `import`: 7 vs median 3 (+133%)
-- 🔴 `risk_api_exposure`: 10.9406 vs median 6.6388 (+65%)
+- 🔴 `risk_api_exposure`: 10.9406 vs median 6.63976 (+65%)
+- 🔴 `risk_cognitive_load`: 28.4161 vs median 18.6882 (+52%)
 - 🔴 `safety`: 5 vs median 2 (+150%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 199 vs median 152.5 (+30%)
-- 🟡 `risk_cognitive_load`: 27.0695 vs median 18.6882 (+45%)
-- 🟡 `risk_documentation`: 87.4342 vs median 64.2385 (+36%)
+- 🟡 `keyword_hits`: 198 vs median 149.5 (+32%)
+- 🟡 `risk_documentation`: 87.5405 vs median 64.7632 (+35%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -390,6 +386,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `embedded-python-per-file-classification` | engine-semantic | [#2548](https://github.com/squid-protocol/gitgalaxy/issues/2548) | — | Classification is per-file with no folder-context bleed: a .py file without its own micropython marker (import machine etc.) classifies as plain python even when every s… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `python-2658-docstring-delimiter-double-count` | upstream-bug | [#2658](https://github.com/squid-protocol/gitgalaxy/issues/2658) | — | the doc rule matched opening and closing docstring delimiters independently with no pairing, so one docstring counted doc=2 -- RESOLVED via gitgalaxy#2658 (matches the f… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -402,13 +399,12 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 12.1633 vs median 6.6388 (+83%)
-- 🔴 `risk_cognitive_load`: 6.03032 vs median 18.6882 (-68%)
-- 🔴 `risk_safety_score`: 87.4259 vs median 46.7335 (+87%)
+- 🔴 `risk_api_exposure`: 12.1633 vs median 6.63976 (+83%)
+- 🔴 `risk_cognitive_load`: 7.17047 vs median 18.6882 (-62%)
+- 🔴 `risk_safety_score`: 87.4514 vs median 46.7335 (+87%)
 - 🔴 `risk_state_flux`: 46.3208 vs median 24.9999 (+85%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `risk_documentation`: 84.2041 vs median 64.2385 (+31%)
+- 🟡 `risk_documentation`: 84.3011 vs median 64.7632 (+30%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
 
@@ -418,7 +414,8 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | (notes) | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `fortran-goto-dual-branch-highrisk` | keyword-overlap | — | (notes) | GOTO is in both fortran's branch rule and its high_risk_execution rule — one planted GOTO counts both |
-| `fortran-use-case-insensitive-dag` | upstream-bug | [#2540](https://github.com/squid-protocol/gitgalaxy/issues/2540) | (notes) | 'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves |
+| `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
+| `fortran-use-case-insensitive-dag` | upstream-bug | [#2540](https://github.com/squid-protocol/gitgalaxy/issues/2540) | — | 'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -432,7 +429,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 2.3646 vs median 6.6388 (-64%)
+- 🔴 `risk_api_exposure`: 2.3646 vs median 6.63976 (-64%)
 - 🔴 `state_mutation`: 11 vs median 6 (+83%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -476,17 +473,17 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 6.63976 (-100%)
 - 🔴 `risk_cognitive_load`: 5 vs median 18.6882 (-73%)
 - 🔴 `risk_safety_score`: 70.4394 vs median 46.7335 (+51%)
 - 🔴 `risk_state_flux`: 49.8591 vs median 24.9999 (+99%)
 - 🔴 `safety`: 4 vs median 2 (+100%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
-- 🟡 `keyword_hits`: 105 vs median 152.5 (-31%)
-- 🟡 `risk_documentation`: 43.2987 vs median 64.2385 (-33%)
+- 🟡 `keyword_hits`: 105 vs median 149.5 (-30%)
+- 🟡 `risk_documentation`: 43.2987 vs median 64.7632 (-33%)
 - 🟡 `risk_spec_match`: 56.6666 vs median 95 (-40%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.5845 (-50%)
-- 🟡 `risk_verification`: 1.6737 vs median 2.38236 (-30%)
+- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
+- 🟡 `risk_verification`: 1.6737 vs median 2.38558 (-30%)
 - 🟡 `state_mutation`: 8 vs median 6 (+33%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -510,21 +507,20 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 3 vs median 13 (-77%)
 - 🔴 `cleanup`: 0 vs median 2 (-100%)
-- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `func_start`: 0 vs median 13 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `keyword_hits`: 34 vs median 152.5 (-78%)
-- 🔴 `risk_api_exposure`: 1.31325 vs median 6.6388 (-80%)
+- 🔴 `keyword_hits`: 33 vs median 149.5 (-78%)
+- 🔴 `risk_api_exposure`: 1.31325 vs median 6.63976 (-80%)
 - 🔴 `risk_cognitive_load`: 5 vs median 18.6882 (-73%)
 - 🔴 `risk_safety_score`: 0 vs median 46.7335 (-100%)
 - 🔴 `risk_spec_match`: 40 vs median 95 (-58%)
 - 🔴 `risk_state_flux`: 0 vs median 24.9999 (-100%)
-- 🔴 `risk_verification`: 0.919075 vs median 2.38236 (-61%)
+- 🔴 `risk_verification`: 0.919075 vs median 2.38558 (-61%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🔴 `telemetry`: 0 vs median 2 (-100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `risk_documentation`: 34.6546 vs median 64.2385 (-46%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.5845 (-50%)
+- 🟡 `risk_documentation`: 34.9701 vs median 64.7632 (-46%)
+- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
 
 **Not expressible as measured (n/a):** `globals`, `high_risk_execution`, `state_mutation`
 
@@ -533,6 +529,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `html-2578-declarative-globals-state-mutation-morphology` | intended-morphology | — | — | html has no native idiom for scoped-vs-global variables or state mutation -- it is purely declarative markup; both concepts are inherently imperative/scripting concepts … |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
+| `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 | `html-script-func-start-unreachable` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | main.html | html's func_start rule (<script>/<style> tags) never fires end-to-end: the polyglot splitter consumes the tags before html's rules run (micro-repro: <script>var x=1;</sc… |
 | `html-srcdoc-invisible-execution-gap` | upstream-bug | [#2645](https://github.com/squid-protocol/gitgalaxy/issues/2645) | — | html's high_risk_execution is None and the srcdoc attribute is invisible engine-wide: a file of just <iframe srcdoc="<script>eval(1)</script>"> scores state_danger=0 (mi… |
 
@@ -569,7 +566,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `pagerank`: 0.166667 vs median 0.223983 (-26%)
 - 🟡 `risk_cognitive_load`: 10.7152 vs median 18.6882 (-43%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
@@ -599,10 +595,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 87 vs median 152.5 (-43%)
-- 🟡 `risk_api_exposure`: 8.67195 vs median 6.6388 (+31%)
-- 🟡 `risk_documentation`: 34.8127 vs median 64.2385 (-46%)
-- 🟡 `risk_verification`: 1.3125 vs median 2.38236 (-45%)
+- 🟡 `keyword_hits`: 87 vs median 149.5 (-42%)
+- 🟡 `risk_api_exposure`: 8.67195 vs median 6.63976 (+31%)
+- 🟡 `risk_documentation`: 34.8127 vs median 64.7632 (-46%)
+- 🟡 `risk_verification`: 1.3125 vs median 2.38558 (-45%)
 
 **Not expressible as measured (n/a):** `cleanup`, `doc`, `globals`, `test`
 
@@ -618,6 +614,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
+- 🟡 `keyword_hits`: 187 vs median 149.5 (+25%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -638,14 +635,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_cognitive_load`: 7.8725 vs median 18.6882 (-58%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `branch`: 7 vs median 5 (+40%)
-- 🟡 `risk_api_exposure`: 9.2665 vs median 6.6388 (+40%)
-- 🟡 `risk_documentation`: 85.4026 vs median 64.2385 (+33%)
-- 🟡 `risk_safety_score`: 67.9593 vs median 46.7335 (+45%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.5845 (-50%)
+- 🟡 `risk_api_exposure`: 9.2665 vs median 6.63976 (+40%)
+- 🟡 `risk_cognitive_load`: 9.74635 vs median 18.6882 (-48%)
+- 🟡 `risk_documentation`: 85.4854 vs median 64.7632 (+32%)
+- 🟡 `risk_safety_score`: 67.9833 vs median 46.7335 (+45%)
+- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 
@@ -655,6 +651,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.lc | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.lc | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -668,18 +665,19 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 13.8825 vs median 6.6388 (+109%)
+- 🔴 `risk_api_exposure`: 11.8286 vs median 6.63976 (+78%)
 - 🔴 `risk_cognitive_load`: 31.0755 vs median 18.6882 (+66%)
 - 🔴 `risk_safety_score`: 87.2348 vs median 46.7335 (+87%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 91.5462 vs median 64.2385 (+43%)
+- 🟡 `risk_documentation`: 90.923 vs median 64.7632 (+40%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.lua | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.lua | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `lua-2657-indented-return-not-module-export` | upstream-bug | [#2657](https://github.com/squid-protocol/gitgalaxy/issues/2657) | — | lua's api rule's module-export 'return <ident>' alternative allowed any indentation, so ordinary function-body returns miscounted as module exports -- RESOLVED via gitga… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -694,17 +692,17 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `keyword_hits`: 76 vs median 152.5 (-50%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 6.63976 (-100%)
 - 🔴 `risk_cognitive_load`: 5 vs median 18.6882 (-73%)
-- 🔴 `risk_documentation`: 22.733 vs median 64.2385 (-65%)
+- 🔴 `risk_documentation`: 22.733 vs median 64.7632 (-65%)
 - 🔴 `risk_safety_score`: 71.7554 vs median 46.7335 (+54%)
 - 🔴 `risk_spec_match`: 26.6667 vs median 95 (-72%)
 - 🔴 `risk_state_flux`: 50 vs median 24.9999 (+100%)
-- 🔴 `risk_tech_debt`: 100 vs median 49.5845 (+102%)
-- 🔴 `risk_verification`: 1.03527 vs median 2.38236 (-57%)
+- 🔴 `risk_tech_debt`: 100 vs median 49.9144 (+100%)
+- 🔴 `risk_verification`: 1.03527 vs median 2.38558 (-57%)
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
+- 🟡 `keyword_hits`: 76 vs median 149.5 (-49%)
 - 🟡 `state_mutation`: 4 vs median 6 (-33%)
 
 **Not expressible as measured (n/a):** `class_start`
@@ -728,14 +726,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `args`: 1 vs median 13 (-92%)
-- 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 1.19905 vs median 6.6388 (-82%)
+- 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `cleanup`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 88 vs median 152.5 (-42%)
-- 🟡 `risk_cognitive_load`: 12.534 vs median 18.6882 (-33%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.5845 (-50%)
-- 🟡 `risk_verification`: 1.71008 vs median 2.38236 (-28%)
+- 🟡 `keyword_hits`: 95 vs median 149.5 (-36%)
 
 **Not expressible as measured (n/a):** `class_start`
 
@@ -746,6 +740,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.mk | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `makefile-class-start-no-entity-declaration` | intended-morphology | — | — | GNU Make's model is variables plus file/phony targets; it has no entity or type-declaration concept |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `makefile-2648-slicer-fallthrough` | upstream-bug | [#2648](https://github.com/squid-protocol/gitgalaxy/issues/2648) | — | makefile had zero brace-delimited bodies but was missing from detector.py's Mode_A_Labels tuple, silently falling through to Mode_B_Braces and dropping ~100% of real fun… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -759,16 +754,16 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `comment_lines`: 34 vs median 12 (+183%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `keyword_hits`: 30 vs median 152.5 (-80%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
+- 🔴 `keyword_hits`: 30 vs median 149.5 (-80%)
+- 🔴 `risk_api_exposure`: 0 vs median 6.63976 (-100%)
 - 🔴 `risk_cognitive_load`: 0 vs median 18.6882 (-100%)
-- 🔴 `risk_documentation`: 0 vs median 64.2385 (-100%)
+- 🔴 `risk_documentation`: 0 vs median 64.7632 (-100%)
 - 🔴 `risk_safety_score`: 0 vs median 46.7335 (-100%)
 - 🔴 `risk_spec_match`: 0 vs median 95 (-100%)
 - 🔴 `risk_stability`: 0 vs median 50 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 24.9999 (-100%)
-- 🔴 `risk_tech_debt`: 0 vs median 49.5845 (-100%)
-- 🔴 `risk_verification`: 0 vs median 2.38236 (-100%)
+- 🔴 `risk_tech_debt`: 0 vs median 49.9144 (-100%)
+- 🔴 `risk_verification`: 0 vs median 2.38558 (-100%)
 
 **Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
 
@@ -814,7 +809,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 21 vs median 13 (+62%)
 - 🔴 `risk_cognitive_load`: 29.7124 vs median 18.6882 (+59%)
-- 🟡 `risk_documentation`: 80.9063 vs median 64.2385 (+26%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -836,15 +830,15 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 3.017 vs median 6.6388 (-55%)
+- 🔴 `risk_api_exposure`: 3.017 vs median 6.63976 (-55%)
 - 🔴 `risk_cognitive_load`: 28.7715 vs median 18.6882 (+54%)
 - 🔴 `risk_state_flux`: 43.1624 vs median 24.9999 (+73%)
 - 🔴 `state_mutation`: 10 vs median 6 (+67%)
 - 🟡 `functions_found`: 9 vs median 13 (-31%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 81.3637 vs median 64.2385 (+27%)
+- 🟡 `risk_documentation`: 81.3637 vs median 64.7632 (+26%)
 - 🟡 `risk_safety_score`: 66.9358 vs median 46.7335 (+43%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.5845 (-50%)
+- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
@@ -888,12 +882,11 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 12.0482 vs median 6.6388 (+81%)
 - 🔴 `risk_cognitive_load`: 35.7812 vs median 18.6882 (+91%)
-- 🔴 `risk_documentation`: 96.4175 vs median 64.2385 (+50%)
 - 🔴 `risk_state_flux`: 43.1624 vs median 24.9999 (+73%)
 - 🟡 `branch`: 7 vs median 5 (+40%)
 - 🟡 `io`: 4 vs median 3 (+33%)
+- 🟡 `risk_documentation`: 81.594 vs median 64.7632 (+26%)
 - 🟡 `risk_safety_score`: 66.5919 vs median 46.7335 (+42%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
@@ -903,6 +896,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.ps1, c.ps1 | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.ps1 | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `powershell-2656-param-if-switch-not-api` | upstream-bug | [#2656](https://github.com/squid-protocol/gitgalaxy/issues/2656) | — | powershell's api rule's bare-identifier alternative lacked the keyword exclusions func_start/args already carry, so param(/if(/switch( lines miscounted as API surface --… |
 | `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | (notes) | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
@@ -917,14 +911,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 11.1054 vs median 6.6388 (+67%)
-- 🔴 `risk_cognitive_load`: 5.37635 vs median 18.6882 (-71%)
+- 🔴 `risk_api_exposure`: 11.1054 vs median 6.63976 (+67%)
+- 🔴 `risk_cognitive_load`: 5.8968 vs median 18.6882 (-68%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `keyword_hits`: 198 vs median 152.5 (+30%)
-- 🟡 `risk_safety_score`: 59.9402 vs median 46.7335 (+28%)
+- 🟡 `keyword_hits`: 197 vs median 149.5 (+32%)
+- 🟡 `risk_safety_score`: 60.0013 vs median 46.7335 (+28%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -932,6 +925,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `comment-lines-manifest-doc-classification` | engine-semantic | — | — | Guidestar manifest files carry no executable code, so the engine classifies their non-blank lines as doc_loc (package.json: total 8/coding 0/doc 7; pyproject.toml: doc 4) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.py | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `python-2658-docstring-delimiter-double-count` | upstream-bug | [#2658](https://github.com/squid-protocol/gitgalaxy/issues/2658) | — | the doc rule matched opening and closing docstring delimiters independently with no pairing, so one docstring counted doc=2 -- RESOLVED via gitgalaxy#2658 (matches the f… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -991,9 +985,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 11.6059 vs median 6.6388 (+75%)
+- 🔴 `risk_api_exposure`: 11.6059 vs median 6.63976 (+75%)
 - 🔴 `risk_cognitive_load`: 28.1455 vs median 18.6882 (+51%)
-- 🟡 `risk_documentation`: 93.9347 vs median 64.2385 (+46%)
+- 🟡 `risk_documentation`: 93.9347 vs median 64.7632 (+45%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1011,13 +1005,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
 - 🔴 `risk_cognitive_load`: 5 vs median 18.6882 (-73%)
-- 🔴 `risk_tech_debt`: 100 vs median 49.5845 (+102%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `keyword_hits`: 98 vs median 152.5 (-36%)
+- 🟡 `keyword_hits`: 98 vs median 149.5 (-34%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1026,7 +1017,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `cobol-hyphen-identifier-debt-leak` | upstream-bug | [#2537](https://github.com/squid-protocol/gitgalaxy/issues/2537) | — | Debt rules are whole-text, not comment-anchored, and '-' is a regex word boundary: HACK-LEVEL (data item, 2 code occurrences) counts fragile_debt, PROBE-TODO (paragraph … |
-| `no-dependency-capture-languages` | upstream-question | — | — | m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never c… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -1042,7 +1032,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 35.0145 vs median 18.6882 (+87%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 82.0532 vs median 64.2385 (+28%)
+- 🟡 `risk_documentation`: 82.0532 vs median 64.7632 (+27%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
 **Not expressible as measured (n/a):** `class_start`
@@ -1097,14 +1087,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `functions_found`: 28 vs median 13 (+115%)
 - 🔴 `io`: 11 vs median 3 (+267%)
-- 🔴 `keyword_hits`: 61 vs median 152.5 (-60%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
+- 🔴 `keyword_hits`: 61 vs median 149.5 (-59%)
+- 🔴 `risk_api_exposure`: 0 vs median 6.63976 (-100%)
 - 🔴 `risk_cognitive_load`: 5 vs median 18.6882 (-73%)
 - 🔴 `risk_state_flux`: 0 vs median 24.9999 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
-- 🟡 `risk_documentation`: 42.2022 vs median 64.2385 (-34%)
+- 🟡 `risk_documentation`: 42.2022 vs median 64.7632 (-35%)
 - 🟡 `risk_spec_match`: 55 vs median 95 (-42%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.5845 (-50%)
+- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1191,13 +1181,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 2 vs median 13 (-85%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `keyword_hits`: 62 vs median 152.5 (-59%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
+- 🔴 `keyword_hits`: 62 vs median 149.5 (-59%)
+- 🔴 `risk_api_exposure`: 0 vs median 6.63976 (-100%)
 - 🔴 `risk_cognitive_load`: 5 vs median 18.6882 (-73%)
-- 🔴 `risk_documentation`: 27.813 vs median 64.2385 (-57%)
+- 🔴 `risk_documentation`: 27.813 vs median 64.7632 (-57%)
 - 🔴 `risk_spec_match`: 33.3333 vs median 95 (-65%)
-- 🔴 `risk_tech_debt`: 100 vs median 49.5845 (+102%)
-- 🔴 `risk_verification`: 1.06065 vs median 2.38236 (-55%)
+- 🔴 `risk_tech_debt`: 100 vs median 49.9144 (+100%)
+- 🔴 `risk_verification`: 1.06065 vs median 2.38558 (-56%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 
@@ -1218,16 +1208,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 0 vs median 13 (-100%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `functions_found`: 3 vs median 13 (-77%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.6388 (-100%)
-- 🔴 `risk_cognitive_load`: 7.11177 vs median 18.6882 (-62%)
+- 🔴 `risk_api_exposure`: 0 vs median 6.63976 (-100%)
+- 🔴 `risk_cognitive_load`: 9.2228 vs median 18.6882 (-51%)
 - 🔴 `state_mutation`: 1 vs median 6 (-83%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 85 vs median 152.5 (-44%)
-- 🟡 `risk_documentation`: 47.3147 vs median 64.2385 (-26%)
+- 🟡 `keyword_hits`: 88 vs median 149.5 (-41%)
+- 🟡 `risk_documentation`: 47.3147 vs median 64.7632 (-27%)
 - 🟡 `risk_spec_match`: 66.6667 vs median 95 (-30%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.5845 (-50%)
-- 🟡 `risk_verification`: 1.64453 vs median 2.38236 (-31%)
+- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `safety_bypasses`: 1 vs median 2 (-50%)
 - 🟡 `test`: 1 vs median 2 (-50%)
@@ -1246,10 +1234,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `globals`: 5 vs median 2 (+150%)
-- 🔴 `risk_api_exposure`: 2.62262 vs median 6.6388 (-60%)
+- 🔴 `risk_api_exposure`: 2.62262 vs median 6.63976 (-61%)
 - 🔴 `risk_cognitive_load`: 30.3437 vs median 18.6882 (+62%)
-- 🟡 `keyword_hits`: 205 vs median 152.5 (+34%)
+- 🟡 `keyword_hits`: 202 vs median 149.5 (+35%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1257,7 +1244,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.zig | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
-| `indented-declaration-globals` | upstream-question | — | — | dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local final… |
+| `indented-declaration-globals` | upstream-question | [#2651](https://github.com/squid-protocol/gitgalaxy/issues/2651) | — | dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local final… |
 | `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | — | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
