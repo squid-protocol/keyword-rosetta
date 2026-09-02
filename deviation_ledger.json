@@ -989,6 +989,20 @@
       "investigated_by": "claude-opus-5",
       "validated_at": "2026-09-02",
       "still_reproduces": true
+    },
+    {
+      "id": "apex-import-ignorecase-type-guard",
+      "signal": "import",
+      "languages_seen": [
+        "apex"
+      ],
+      "disposition": "engine-defect",
+      "status": "validated",
+      "verdict": "apex's import rule is compiled with re.IGNORECASE, which neutralises the [A-Z] guard in its second alternative (\\b[a-zA-Z_]\\w*\\.[A-Z]\\w*\\b), so the alternative degrades from \"lowercase receiver, capitalised member\" — a type reference — to \"any word.word\", and every qualified method call counts as an import. Micro-repro against the live registry (engine 3ac91822): 'foo.bar', 'conn.clear' and 'Logger.info' all match; recompiling the identical pattern WITHOUT re.IGNORECASE returns nothing for all three, which isolates the flag as the entire cause. 'System.debug' and 'Database.query' are correctly excluded by the namespace lookahead. Swept every language: apex is the only rule combining re.IGNORECASE with an [A-Z] guard. Corpus effect: import 6 against a planted intent and a cross-language median of 3 — main.cls Type.forName, a.cls Type.forName, b.cls Type.forName + Logger.info + Log.error, c.cls conn.clear. The three Type.forName hits are the SPEC chain planted by gitgalaxy#2669 A.3; the other three are ordinary Apex method calls and are deliberately NOT deleted, because removing them would hide the defect rather than record it. Before A.3 apex had no chain and the count read 3 — the right number for the wrong reason, which is why the rule survived the earlier sweeps. Same family as gitgalaxy#2544 (swift's api rule counting the prose 'open'): a guard that does not guard. Filed as squid-protocol/gitgalaxy#2671 with the fix shape (scope the guard with (?-i:[A-Z]) or split the alternation, keeping IGNORECASE for the Type.forName arm since Apex is case-insensitive); collected by #2669 B.1/B.3. apex re-blesses to import 3 once it lands.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2671",
+      "investigated_by": "claude-opus-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
     }
   ]
 }
