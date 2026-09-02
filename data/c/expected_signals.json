@@ -104,5 +104,5 @@
       "outcome": "inert (underscore + lowercase)"
     }
   ],
-  "notes": "api counts every external-linkage (non-static) file-scope declaration — correct C linkage morphology — plus orphan conversion, hence the large api values (a.c 12). test 3 in a.c = TEST + RUN_TEST + assert( (assert dual safety+test, finditer-confirmed; same shape as python). globals planted as two file-scope initializers, which also count state (+2 a.c). cleanup's close(0) counts io +1 in c.c (c io includes close). Locked from hand-verified run 2026-08-31."
+  "notes": "api counts every external-linkage (non-static) file-scope declaration — correct C linkage morphology — plus orphan conversion, hence the large api values (a.c 12). test 3 in a.c = TEST + RUN_TEST + assert( (assert dual safety+test, finditer-confirmed; same shape as python). globals planted as two file-scope initializers, which also count state (+2 a.c). cleanup's close(0) counts io +1 in c.c (c io includes close). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.c high_risk_execution 0->1, branch 1->0, io 1->0, state_mutation 9->3."
 }

@@ -104,5 +104,5 @@
       "outcome": "inert"
     }
   ],
-  "notes": "branch 4 in main = if/else/switch + goto (goto dual branch+high_risk, same shape as fortran's GOTO). globals 1 in main = Environment.Exit's Environment. prefix (csharp globals matches Environment.*, dual with high_risk — finditer-confirmed). Locked from hand-verified run 2026-08-31."
+  "notes": "branch 4 in main = if/else/switch + goto (goto dual branch+high_risk, same shape as fortran's GOTO). globals 1 in main = Environment.Exit's Environment. prefix (csharp globals matches Environment.*, dual with high_risk — finditer-confirmed). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Process.Start\" literal inside ProbeState — b.cs high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
 }

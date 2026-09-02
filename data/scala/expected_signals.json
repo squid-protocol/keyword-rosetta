@@ -95,5 +95,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"Runtime.getRuntime.exec\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "scala's expression-oriented style needs no return keyword — branch stays exactly at planted+string values with no return inflation (contrast kotlin/apex/objc/powershell/zig). api counts public defs (main 4) + conversion (a/b/c 6 = 3 + 3). Locked 2026-08-31."
+  "notes": "scala's expression-oriented style needs no return keyword — branch stays exactly at planted+string values with no return inflation (contrast kotlin/apex/objc/powershell/zig). api counts public defs (main 4) + conversion (a/b/c 6 = 3 + 3). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Runtime.getRuntime.exec\" literal inside probeState — b.scala high_risk_execution 0->1, branch 2->0, state_mutation 6->2."
 }

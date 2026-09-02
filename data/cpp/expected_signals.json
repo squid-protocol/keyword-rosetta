@@ -104,5 +104,5 @@
       "outcome": "inert"
     }
   ],
-  "notes": "branch 1 in a.cpp = catch (cpp branch includes catch — dual with safety's try/catch, finditer-confirmed). api 0 raw everywhere (cpp api = export only); a/b/c api 3 is pure orphan conversion. Locked from hand-verified run 2026-08-31."
+  "notes": "branch 1 in a.cpp = catch (cpp branch includes catch — dual with safety's try/catch, finditer-confirmed). api 0 raw everywhere (cpp api = export only); a/b/c api 3 is pure orphan conversion. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.cpp high_risk_execution 0->1, branch 1->0, safety 1->0, state_mutation 9->3."
 }

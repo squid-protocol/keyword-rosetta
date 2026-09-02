@@ -95,5 +95,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"exec\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "source is dual import+io (main io 4 = 3 planted + source; every chain link adds io — sqlite .read family). close is dual cleanup+io (c io 1). a branch 1 = trap (dual safety+branch, finditer-confirmed). Locked 2026-08-31."
+  "notes": "source is dual import+io (main io 4 = 3 planted + source; every chain link adds io — sqlite .read family). close is dual cleanup+io (c io 1). a branch 1 = trap (dual safety+branch, finditer-confirmed). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exec\" literal inside probe_state — b.tcl high_risk_execution 0->1, branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3."
 }

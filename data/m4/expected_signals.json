@@ -95,5 +95,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"esyscmd\" COUNTS from inside the literal (+1), undampened — the probe_state macro body carries no safety keyword, so the Silencer Region never fires. Ledger: string-literal-selective-shielding"
     }
   ],
-  "notes": "args = $1 references, counted exactly as planted (main 6, a 5, b 4, c 3 — one of the few languages where args tracks intent perfectly). popdef is dual state+cleanup (c state 2). m4 has NO _dependency_capture (capture rule is None): include() counts import but produces no DAG edge, so orphans stay unconverted corpus-wide (main orphaned 4, a/b/c 3 — engine gap worth an upstream note). Locked 2026-08-31."
+  "notes": "args = $1 references, counted exactly as planted (main 6, a 5, b 4, c 3 — one of the few languages where args tracks intent perfectly). popdef is dual state+cleanup (c state 2). m4 has NO _dependency_capture (capture rule is None): include() counts import but produces no DAG edge, so orphans stay unconverted corpus-wide (main orphaned 4, a/b/c 3 — engine gap worth an upstream note). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"esyscmd\" literal inside the probe_state macro body — b.m4 high_risk_execution 0->1."
 }
