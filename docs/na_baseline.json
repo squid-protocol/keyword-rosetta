@@ -3,7 +3,6 @@
   "css/concurrency",
   "css/sync_locks",
   "html/sync_locks",
-  "jcl/api",
   "jcl/concurrency",
   "jcl/dead_code",
   "jcl/encapsulation",

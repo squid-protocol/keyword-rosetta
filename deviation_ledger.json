@@ -1,5 +1,5 @@
 {
-  "_doc": "One entry per deviation shape. Lifecycle and gating rules: docs/GATING.md. Never delete entries; never flip still_reproduces without a fresh verifying scan.",
+  "_doc": "One entry per deviation shape. Lifecycle and gating rules: docs/GATING.md. Never delete entries; never flip still_reproduces without a fresh verifying scan. `signal` is a `|`-joined list of canonical names — each token is either a bias-report metric (docs/bias_data.json `metrics`) or a registry signal key (LANGUAGE_DEFINITIONS rules, via tools/_registry.py); no prose, no `+`, no `(various)`; tokens are sorted and unique. The reports join `signal` x `languages_seen` as a cross-product to decide whether a cell is accounted for (docs/GATING.md n/a rule 2 today; red cells from gitgalaxy#2669 E.1), so a token must hold for EVERY language listed — scope a collective entry down rather than let it excuse a cell nobody looked at. An entry that explains no cell (a workflow or classification fact) carries an empty `signal`, which never matches. `languages_seen` may be the sentinel [\"all\"].",
   "entries": [
     {
       "id": "api-contextual-baseline-fix",
@@ -18,7 +18,7 @@
     },
     {
       "id": "string-literal-selective-shielding",
-      "signal": "branch|safety|io vs high_risk_execution",
+      "signal": "api|branch|high_risk_execution|io|safety|safety_bypasses|state_mutation",
       "languages_seen": [
         "abap",
         "ada",
@@ -63,7 +63,7 @@
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes to sec_tainted_injection instead). Micro-repro: identical files differing only in literal content, scanned end-to-end. Comments are fully stripped (verified 0 contribution); strings are inconsistently half-counted. 2026-08-31 cross-language extension: javascript reproduces python exactly (same decoy sentence, if/try count, eval does not); cobol does NOT shield at all (ALTER counts high_risk_execution from inside a DISPLAY literal) — the shielding is lexical-family-dependent, i.e. itself a language bias. 2026-08-31 legacy batch: fortran/ada/assembly count literals like cobol (fortran IF+GOTO+OPEN all count; ada 'if' counts; asm jmp/syscall count, and ARM's single-letter 'b' mnemonic even matches the filename inside %include \"b.asm\"); abap is a THIRD profile — shields branch/high_risk/io but NOT safety (TRY in a literal counts safety, isolated by micro-repro with comment-only vs string-only files). Worst amplification: a branch keyword inside a literal creates phantom branch context that triples state_mutation via the flux weighting (see state-flux-branch-weighting). Current behavior baked into manifests; whether intentional is the upstream question. 2026-08-31 batch 3 (12 mainstream languages): the selective profile (high-risk family shielded, branch/safety/io count) holds for c/cpp/csharp/java/go/kotlin/typescript/php/lua/swift; ruby counts eval from the literal (eval-as-bypass, like shell); perl's eval survives only because its bypass rule requires eval-followed-by-quote/paren (syntax shielding, not surface shielding); swift's api rule counts the word 'open' inside the literal (API-exposure mass from prose). try counts branch in csharp/java/kotlin/php/perl/swift/typescript. Swift's bare-open api FP filed as squid-protocol/gitgalaxy#2544. 2026-08-31 batch 4 (Tier-1 completion): a FOURTH profile — scheme's sexp-anchored branch keywords shield strings by SYNTAX (bare 'if' in a literal cannot match the paren-anchored rule) while its unanchored eval still counts; m4 is fully inert by the same mechanism (macro-name keywords). matlab and tcl join shell/ruby in counting eval-as-bypass from literals. dockerfile/makefile/livecode count literals wholesale. swift-open-style api hit not repeated elsewhere. RESOLVED-AS-EXPLAINED 2026-09-01: gitgalaxy#2535 closed as not-a-bug after root-cause isolation. There is NO string-literal shielding mechanism anywhere in the engine -- strings are never stripped/masked from the code stream for any structural signal, in any language (only comments are). Every observed 'shielding' shape here is the ordinary Silencer Region dampener (spatial_correlation.py apply_dampener_correlations Block 2: high_risk_execution <- safety, 500-char radius) firing because the shared decoy sentence 'if eval fails, try open' happens to contain both a real danger keyword AND a real safety keyword for SOME languages, by accident of English-word/rule-vocabulary overlap -- not a deliberate per-language shielding design. Isolated via direct micro-repro: python state_danger 0->1 the instant 'try' is swapped out of the decoy with nothing else changed. Per-language explanation for the profiles recorded above: python/js/haskell/abap ('shielded'/'inverted') all have TRY (or their language's equivalent) in their OWN safety rule, so the dampener fires; cobol/fortran/ada/assembly ('unshielded') do NOT have TRY in their safety rule (cobol's is END-IF/END-PERFORM/.../VALIDATE/CHECK), so it never fires; rust's 'shielded' reading was actually a THIRD, unrelated cause -- its high_risk_execution rule has no 'eval' concept at all (panic!/todo!/process::exit), a morphology mismatch, not shielding. The #2546 'phantom branch trigger from string literals' shares this exact explanation (no shielding exists, so a genuinely-present branch keyword correctly triggers the flux dampener regardless of surface). Follow-up filed as a CORPUS issue (decoy sentence design), not an engine issue -- see keyword-rosetta issue tracking decoy redesign. capstones jcl.md/cobol.md/python.md corrected to match. DECOY REDESIGN PILOT 2026-09-01 (keyword-rosetta#17): python/fortran/rust re-authored to a danger-only literal ('plain eval|ASSIGN|abort decoy text') per the redesigned SPEC §String decoy. All three profiles converge on the same clean read -- the danger keyword counts +1 from inside the literal, undampened: python eval +1 (was 0 under the old sentence's try-collision), fortran ASSIGN +1 (GOTO retired from the decoy: it doubles as a branch keyword and fed the x3 flux -- state_mutation 6->2), rust abort +1 (the first time rust's decoy tested anything; eval matches nothing in its danger rule; state 6->2). One new engine fact surfaced by the pilot and now recorded in SPEC: dampener correlations are function-scoped, but MODULE-LEVEL code falls back to flat 500-char-radius behavior (apply_dampener_correlations docstring) -- python's literal initially read 0 at module level because probe_safety's assert sat ~450 chars away; moving it inside probe_globals isolated it. DECOY REDESIGN COMPLETE 2026-09-02 (gitgalaxy#2669 A.1 wave 2, 32 languages; A.3 wave 3, abap/assembly/cobol/sqlite): all 40 languages_seen now carry a danger-only literal, gates green. Screening rule that made it mechanical: run the candidate literal through the language's live compiled rules and require exactly one high_risk_execution hit and zero hits in any SCORED column -- the planted set plus the seven non-planted signals that feed a risk_* formula (_registry.risk_dependencies(): concurrency, sync_locks, reflection_metaprogramming, immutability_locks, spec_exposure, debug_prints, llm_api). That rejected Thread.Abort (csharp), Thread.stop (java) and iex (powershell), each clean against the planted set alone. Filler words need the same check: 'text' matches dart's and embedded_python's ui_framework rule. Findings from the sweep: matlab/ruby/shell/tcl match eval under safety_bypasses, NOT high_risk_execution, so their old decoy exercised the wrong family (safety_bypasses 3->2 each); swift's api rule counted the prose 'open' (api 4->3, a scored planted column fed from inside a string, the #2544 shape); abap's recorded 'third profile' was the Silencer Region after all -- dropping TRY takes its TRUNCATE 0->1; scheme moved no count at all, its sexp-anchored branch rule never having matched the prose 'if'; assembly keeps its x3 flux because probe_state's own 'ret' is a branch keyword, unlike the 35 languages where the retired 'if' was the only branch in scope. sqlite needs a two-word literal ('DROP DATABASE') -- its danger vocabulary has no single bare token.",
+      "verdict": "Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes to sec_tainted_injection instead). Micro-repro: identical files differing only in literal content, scanned end-to-end. Comments are fully stripped (verified 0 contribution); strings are inconsistently half-counted. 2026-08-31 cross-language extension: javascript reproduces python exactly (same decoy sentence, if/try count, eval does not); cobol does NOT shield at all (ALTER counts high_risk_execution from inside a DISPLAY literal) — the shielding is lexical-family-dependent, i.e. itself a language bias. 2026-08-31 legacy batch: fortran/ada/assembly count literals like cobol (fortran IF+GOTO+OPEN all count; ada 'if' counts; asm jmp/syscall count, and ARM's single-letter 'b' mnemonic even matches the filename inside %include \"b.asm\"); abap is a THIRD profile — shields branch/high_risk/io but NOT safety (TRY in a literal counts safety, isolated by micro-repro with comment-only vs string-only files). Worst amplification: a branch keyword inside a literal creates phantom branch context that triples state_mutation via the flux weighting (see state-flux-branch-weighting). Current behavior baked into manifests; whether intentional is the upstream question. 2026-08-31 batch 3 (12 mainstream languages): the selective profile (high-risk family shielded, branch/safety/io count) holds for c/cpp/csharp/java/go/kotlin/typescript/php/lua/swift; ruby counts eval from the literal (eval-as-bypass, like shell); perl's eval survives only because its bypass rule requires eval-followed-by-quote/paren (syntax shielding, not surface shielding); swift's api rule counts the word 'open' inside the literal (API-exposure mass from prose). try counts branch in csharp/java/kotlin/php/perl/swift/typescript. Swift's bare-open api FP filed as squid-protocol/gitgalaxy#2544. 2026-08-31 batch 4 (Tier-1 completion): a FOURTH profile — scheme's sexp-anchored branch keywords shield strings by SYNTAX (bare 'if' in a literal cannot match the paren-anchored rule) while its unanchored eval still counts; m4 is fully inert by the same mechanism (macro-name keywords). matlab and tcl join shell/ruby in counting eval-as-bypass from literals. dockerfile/makefile/livecode count literals wholesale. swift-open-style api hit not repeated elsewhere. RESOLVED-AS-EXPLAINED 2026-09-01: gitgalaxy#2535 closed as not-a-bug after root-cause isolation. There is NO string-literal shielding mechanism anywhere in the engine -- strings are never stripped/masked from the code stream for any structural signal, in any language (only comments are). Every observed 'shielding' shape here is the ordinary Silencer Region dampener (spatial_correlation.py apply_dampener_correlations Block 2: high_risk_execution <- safety, 500-char radius) firing because the shared decoy sentence 'if eval fails, try open' happens to contain both a real danger keyword AND a real safety keyword for SOME languages, by accident of English-word/rule-vocabulary overlap -- not a deliberate per-language shielding design. Isolated via direct micro-repro: python state_danger 0->1 the instant 'try' is swapped out of the decoy with nothing else changed. Per-language explanation for the profiles recorded above: python/js/haskell/abap ('shielded'/'inverted') all have TRY (or their language's equivalent) in their OWN safety rule, so the dampener fires; cobol/fortran/ada/assembly ('unshielded') do NOT have TRY in their safety rule (cobol's is END-IF/END-PERFORM/.../VALIDATE/CHECK), so it never fires; rust's 'shielded' reading was actually a THIRD, unrelated cause -- its high_risk_execution rule has no 'eval' concept at all (panic!/todo!/process::exit), a morphology mismatch, not shielding. The #2546 'phantom branch trigger from string literals' shares this exact explanation (no shielding exists, so a genuinely-present branch keyword correctly triggers the flux dampener regardless of surface). Follow-up filed as a CORPUS issue (decoy sentence design), not an engine issue -- see keyword-rosetta issue tracking decoy redesign. capstones jcl.md/cobol.md/python.md corrected to match. DECOY REDESIGN PILOT 2026-09-01 (keyword-rosetta#17): python/fortran/rust re-authored to a danger-only literal ('plain eval|ASSIGN|abort decoy text') per the redesigned SPEC §String decoy. All three profiles converge on the same clean read -- the danger keyword counts +1 from inside the literal, undampened: python eval +1 (was 0 under the old sentence's try-collision), fortran ASSIGN +1 (GOTO retired from the decoy: it doubles as a branch keyword and fed the x3 flux -- state_mutation 6->2), rust abort +1 (the first time rust's decoy tested anything; eval matches nothing in its danger rule; state 6->2). One new engine fact surfaced by the pilot and now recorded in SPEC: dampener correlations are function-scoped, but MODULE-LEVEL code falls back to flat 500-char-radius behavior (apply_dampener_correlations docstring) -- python's literal initially read 0 at module level because probe_safety's assert sat ~450 chars away; moving it inside probe_globals isolated it. DECOY REDESIGN COMPLETE 2026-09-02 (gitgalaxy#2669 A.1 wave 2, 32 languages; A.3 wave 3, abap/assembly/cobol/sqlite): all 40 languages_seen now carry a danger-only literal, gates green. Screening rule that made it mechanical: run the candidate literal through the language's live compiled rules and require exactly one high_risk_execution hit and zero hits in any SCORED column -- the planted set plus the seven non-planted signals that feed a risk_* formula (_registry.risk_dependencies(): concurrency, sync_locks, reflection_metaprogramming, immutability_locks, spec_exposure, debug_prints, llm_api). That rejected Thread.Abort (csharp), Thread.stop (java) and iex (powershell), each clean against the planted set alone. Filler words need the same check: 'text' matches dart's and embedded_python's ui_framework rule. Findings from the sweep: matlab/ruby/shell/tcl match eval under safety_bypasses, NOT high_risk_execution, so their old decoy exercised the wrong family (safety_bypasses 3->2 each); swift's api rule counted the prose 'open' (api 4->3, a scored planted column fed from inside a string, the #2544 shape); abap's recorded 'third profile' was the Silencer Region after all -- dropping TRY takes its TRUNCATE 0->1; scheme moved no count at all, its sexp-anchored branch rule never having matched the prose 'if'; assembly keeps its x3 flux because probe_state's own 'ret' is a branch keyword, unlike the 35 languages where the retired 'if' was the only branch in scope. sqlite needs a two-word literal ('DROP DATABASE') -- its danger vocabulary has no single bare token. SIGNAL SCOPE (gitgalaxy#2669 A.4): the field now names every column this shape moves, not just the headline four — state_mutation (the x3 flux amplification), safety_bypasses (matlab/ruby/shell/tcl match eval there, not under high_risk_execution) and api (swift's rule counting the prose 'open', #2544) are consequences recorded in the verdict above and are joined on here.",
       "upstream_issue": "squid-protocol/gitgalaxy#2535",
       "investigated_by": "claude-sonnet-5 + user session",
       "validated_at": "2026-08-31",
@@ -71,7 +71,7 @@
     },
     {
       "id": "assert-overlaps-safety-and-test",
-      "signal": "safety+test",
+      "signal": "safety|test",
       "languages_seen": [
         "c",
         "perl"
@@ -86,7 +86,7 @@
     },
     {
       "id": "os-sys-prefix-overlaps-io",
-      "signal": "globals+io",
+      "signal": "globals|io",
       "languages_seen": [],
       "disposition": "keyword-overlap",
       "status": "validated",
@@ -127,7 +127,7 @@
     },
     {
       "id": "js-with-statement-func-start-fp",
-      "signal": "func_start|args",
+      "signal": "args|func_start",
       "languages_seen": [
         "javascript"
       ],
@@ -155,13 +155,13 @@
     },
     {
       "id": "identifier-name-token-collision",
-      "signal": "(any token signal)",
+      "signal": "io",
       "languages_seen": [
         "javascript"
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "Token signals match ordinary identifiers that happen to spell a keyword: js probeIo's parameter named 'path' counts io +1 (path is a js io keyword). Inherent to keyword-based signals. Authoring guidance: avoid naming identifiers after menu keywords unless the collision is the point; record it when unavoidable.",
+      "verdict": "Token signals match ordinary identifiers that happen to spell a keyword: js probeIo's parameter named 'path' counts io +1 (path is a js io keyword). Inherent to keyword-based signals. Authoring guidance: avoid naming identifiers after menu keywords unless the collision is the point; record it when unavoidable. SIGNAL SCOPE (gitgalaxy#2669 A.4): narrowed from the prose '(any token signal)' to `io`, the one collision actually verified (javascript probeIo's `path` parameter). The shape generalises but the ledger must not claim to explain a cell nobody has looked at; a new collision is a new occurrence, added when observed.",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -205,13 +205,13 @@
     },
     {
       "id": "fortran-use-case-insensitive-dag",
-      "signal": "import DAG / popularity",
+      "signal": "api|popularity",
       "languages_seen": [
         "fortran"
       ],
       "disposition": "upstream-bug",
       "status": "validated",
-      "verdict": "'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves. Fortran is case-insensitive, the suffix-map lookup is not. Corpus lowercased its USE targets to keep the DAG probe live; real uppercase legacy fortran (very common) silently loses its dependency graph. RESOLVED via gitgalaxy#2540 (per-language case-folded fallback in the DAG suffix-map lookup for fortran/cobol/haskell, scoped to the importing language's own files): uppercase 'USE A' now resolves; corpus values unchanged (targets were lowercased as the workaround).",
+      "verdict": "'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves. Fortran is case-insensitive, the suffix-map lookup is not. Corpus lowercased its USE targets to keep the DAG probe live; real uppercase legacy fortran (very common) silently loses its dependency graph. RESOLVED via gitgalaxy#2540 (per-language case-folded fallback in the DAG suffix-map lookup for fortran/cobol/haskell, scoped to the importing language's own files): uppercase 'USE A' now resolves; corpus values unchanged (targets were lowercased as the workaround). SIGNAL SCOPE (gitgalaxy#2669 A.4): scoped to `popularity|api` — the two the verdict actually pins (popularity stays 0, orphan->api conversion never fires). The corpus never showed the wider graph family deviating because the USE targets were lowercased as the workaround.",
       "upstream_issue": "squid-protocol/gitgalaxy#2540",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -233,7 +233,7 @@
     },
     {
       "id": "fortran-goto-dual-branch-highrisk",
-      "signal": "branch+high_risk_execution",
+      "signal": "branch|high_risk_execution",
       "languages_seen": [
         "fortran"
       ],
@@ -275,7 +275,7 @@
     },
     {
       "id": "haskell-caf-bindings-count-as-functions",
-      "signal": "func_start|args",
+      "signal": "args|func_start",
       "languages_seen": [
         "haskell"
       ],
@@ -289,7 +289,7 @@
     },
     {
       "id": "haskell-finally-dual-cleanup-safety",
-      "signal": "cleanup+safety",
+      "signal": "cleanup|safety",
       "languages_seen": [
         "haskell"
       ],
@@ -352,7 +352,7 @@
     },
     {
       "id": "sqlite-dot-read-dual-import-io",
-      "signal": "import+io",
+      "signal": "import|io",
       "languages_seen": [
         "sqlite"
       ],
@@ -366,13 +366,13 @@
     },
     {
       "id": "census-requires-git-tracked",
-      "signal": "(whole-file exclusion)",
+      "signal": "",
       "languages_seen": [
         "all"
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning. Authoring workflow requires commit-before-verify (SPEC.md).",
+      "verdict": "GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning. Authoring workflow requires commit-before-verify (SPEC.md). SIGNAL SCOPE (gitgalaxy#2669 A.4): `signal` is deliberately EMPTY. This is a workflow fact, not an explanation for any cell — an untracked folder produces no numbers at all — and an empty signal never matches the metric x language join, so it can never excuse a deviation.",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -413,7 +413,7 @@
     },
     {
       "id": "kotlin-object-dual-globals-classstart",
-      "signal": "globals+class_start",
+      "signal": "class_start|globals",
       "languages_seen": [
         "kotlin"
       ],
@@ -427,13 +427,13 @@
     },
     {
       "id": "swift-import-capture-min-two-chars",
-      "signal": "import DAG / popularity",
+      "signal": "api|popularity",
       "languages_seen": [
         "swift"
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "swift's _dependency_capture requires module names of 2+ characters ([a-zA-Z_][\\w.]+), so 'import a' captures nothing: the corpus's swift chain never resolves, popularity stays 0, and no orphan->api conversion fires. Real single-letter modules are rare but the +-quantifier looks unintentional next to other languages' * shapes. RESOLVED via gitgalaxy#2543 (capture tail [\\w.]+ -> [\\w.]*): 'import a' captures, the swift chain resolves, orphan->api conversion fires (a/c api 0->3, b 1->4).",
+      "verdict": "swift's _dependency_capture requires module names of 2+ characters ([a-zA-Z_][\\w.]+), so 'import a' captures nothing: the corpus's swift chain never resolves, popularity stays 0, and no orphan->api conversion fires. Real single-letter modules are rare but the +-quantifier looks unintentional next to other languages' * shapes. RESOLVED via gitgalaxy#2543 (capture tail [\\w.]+ -> [\\w.]*): 'import a' captures, the swift chain resolves, orphan->api conversion fires (a/c api 0->3, b 1->4). SIGNAL SCOPE (gitgalaxy#2669 A.4): scoped to `popularity|api`, the two the verdict pins.",
       "upstream_issue": "squid-protocol/gitgalaxy#2543",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -487,15 +487,14 @@
     },
     {
       "id": "no-dependency-capture-languages",
-      "signal": "import DAG / popularity",
+      "signal": "api|betweenness_score|closeness_score|dependency_density|dependency_links|normalized_blast_radius|pagerank|pagerank_score|popularity|producer_ratio|risk_api_exposure",
       "languages_seen": [
         "m4",
-        "markdown",
         "yacc"
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never convert, corpus-wide. Two whole languages invisible to network_risk_sensor by construction — worth an upstream note whether deliberate. Batch 5: yacc (#include counted, capture None) and markdown (no import rule at all) join — four registry languages structurally invisible to the DAG. scheme RESOLVED via gitgalaxy#2652 (added _dependency_capture handling both the corpus's bare (import a) form and real R7RS/Guile library-list forms) -- removed from languages_seen; m4/markdown/yacc remain.",
+      "verdict": "m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never convert, corpus-wide. Two whole languages invisible to network_risk_sensor by construction — worth an upstream note whether deliberate. Batch 5: yacc (#include counted, capture None) and markdown (no import rule at all) join — four registry languages structurally invisible to the DAG. scheme RESOLVED via gitgalaxy#2652 (added _dependency_capture handling both the corpus's bare (import a) form and real R7RS/Guile library-list forms) -- removed from languages_seen; m4/markdown/yacc remain. SCOPE CORRECTION (gitgalaxy#2669 A.4): markdown REMOVED from languages_seen — the entry had it as \"no import rule at all\", but a None `import` rule is not a None `_dependency_capture`. markdown defines a live capture (the inline-link form `[text](target)`) and its DAG resolves: dependency_links 3, popularity 0.75, betweenness 0.0833, producer_ratio 0.5, i.e. the same values as python/fortran/swift. Its `import` cell is n/a (no rule), which is markdown-lit-plane-morphology's business, not this entry's. m4 and yacc remain, and the scan confirms the full pinned profile they share: dependency_links 0, dependency_density 0, popularity 0, betweenness 0, closeness 0, producer_ratio 0, pagerank at the uniform 1/N 0.2, normalized_blast_radius 200, api 0 (orphans never convert) and therefore risk_api_exposure 0.0 against a 5.29 median — that last one is the red cell this entry has to own, so the signal list names it. Batch C's C.3 removes m4/yacc once #2652's capture shape is extended to them.",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -503,13 +502,13 @@
     },
     {
       "id": "embedded-python-per-file-classification",
-      "signal": "(language classification)",
+      "signal": "api|io",
       "languages_seen": [
         "embedded_python"
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "Classification is per-file with no folder-context bleed: a .py file without its own micropython marker (import machine etc.) classifies as plain python even when every sibling is embedded — verified via the DB language column, twice (machine.idle() alone was NOT a sufficient discriminator; import machine was). Also two rule-level divergences on byte-similar code: embedded io drops os./sys. (python counts them), and orphan->api conversion does not fire under embedded classification. UPDATE 2026-08-31: the no-conversion divergence was fixed upstream by gitgalaxy#2548 (embedded_python never wired into Python-family indentation scoping — found independently by a tri-comparison sweep); orphan->api conversion now fires under embedded classification (api 6, verified by the CI gate's fresh scan against gitgalaxy main). The per-file classification and io-rule divergences still stand. First ledger entry re-baselined by an upstream fix — the GATING self-improvement loop closing end to end.",
+      "verdict": "Classification is per-file with no folder-context bleed: a .py file without its own micropython marker (import machine etc.) classifies as plain python even when every sibling is embedded — verified via the DB language column, twice (machine.idle() alone was NOT a sufficient discriminator; import machine was). Also two rule-level divergences on byte-similar code: embedded io drops os./sys. (python counts them), and orphan->api conversion does not fire under embedded classification. UPDATE 2026-08-31: the no-conversion divergence was fixed upstream by gitgalaxy#2548 (embedded_python never wired into Python-family indentation scoping — found independently by a tri-comparison sweep); orphan->api conversion now fires under embedded classification (api 6, verified by the CI gate's fresh scan against gitgalaxy main). The per-file classification and io-rule divergences still stand. First ledger entry re-baselined by an upstream fix — the GATING self-improvement loop closing end to end. SIGNAL SCOPE (gitgalaxy#2669 A.4): `io|api` — the two measurable divergences (embedded's io rule drops the os./sys. prefixes python counts; orphan->api conversion, since fixed by gitgalaxy#2548). The per-file classification itself is not a metric and is not joined on.",
       "upstream_issue": "squid-protocol/gitgalaxy#2548 (conversion half, fixed)",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -532,28 +531,22 @@
     },
     {
       "id": "batch4-dual-keyword-overlaps",
-      "signal": "(various)",
+      "signal": "api|branch|class_start|cleanup|func_start|globals|high_risk_execution|import|io|safety|safety_bypasses|state_mutation|test",
       "languages_seen": [
         "agc_assembly",
         "apex",
-        "dart",
         "dockerfile",
         "embedded_python",
-        "groovy",
         "livecode",
         "m4",
         "makefile",
         "matlab",
-        "objective-c",
         "powershell",
-        "scala",
-        "scheme",
-        "tcl",
-        "zig"
+        "tcl"
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals).",
+      "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals). SCOPE CORRECTION (gitgalaxy#2669 A.4): the signal is now the union of the duals itemised above, and languages_seen is narrowed to the languages that actually carry one, because the reports join signal x language as a cross-product and a collective entry over languages with nothing itemised would mark their red cells explained. Removed: dart, groovy, objective-c, scala, scheme, zig — batch 4 swept them, but none records a dual-rule keyword in its manifest notes (groovy's args behaviour is ts-callparen-args; objective-c's selector over-count is the same entry). embedded_python is kept and its duals named: `except` is dual safety_bypasses+safety and its test plants overlap safety (assert-overlaps-safety-and-test family), which is why `test` is in the union.",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -575,19 +568,17 @@
     },
     {
       "id": "batch5-tier2-morphology-shapes",
-      "signal": "(various)",
+      "signal": "api|args|branch|doc|func_start|high_risk_execution|ownership|safety",
       "languages_seen": [
-        "markdown",
-        "jcl",
         "css",
         "html",
-        "yaml",
-        "yacc",
-        "solidity"
+        "jcl",
+        "solidity",
+        "yaml"
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import url); jcl EXEC PGM= is high_risk per step (probes use EXEC <proc>), api appears only via orphan conversion (no api rule defined); yaml counts every name:/description: as doc and embeds shell inside run: strings; solidity SPDX line = ownership on every file; html meta author is dual doc+ownership.",
+      "verdict": "Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import url); jcl EXEC PGM= is high_risk per step (probes use EXEC <proc>), api appears only via orphan conversion (no api rule defined); yaml counts every name:/description: as doc and embeds shell inside run: strings; solidity SPDX line = ownership on every file; html meta author is dual doc+ownership. SCOPE CORRECTION (gitgalaxy#2669 A.4): signal set to the union of the shapes itemised above (css func_start/branch/safety/args, jcl high_risk_execution/api, yaml doc, solidity ownership, html doc+ownership), and languages_seen narrowed to the five the verdict itemises. Removed: markdown and yacc — batch 5 swept them but recorded no shape here, and both are covered by their own entries (markdown-lit-plane-morphology, markdown-prose-is-doc-morphology; yacc-test-no-native-testing-concept, yacc-union-class-start-gap). Same cross-product reason as batch4-dual-keyword-overlaps.",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -595,7 +586,7 @@
     },
     {
       "id": "jcl-2610-rebaseline-residual-morphology",
-      "signal": "cleanup|doc|test|globals|dependency_links|comment_lines",
+      "signal": "cleanup|comment_lines|dependency_links|doc|globals|test",
       "languages_seen": [
         "jcl"
       ],
@@ -652,13 +643,13 @@
     },
     {
       "id": "markdown-lit-plane-morphology",
-      "signal": "args|branch|class_start|cleanup|doc|fragile_debt|func_start|globals|high_risk_execution|import|io|ownership|planned_debt|safety|safety_bypasses|state_mutation|telemetry|test",
+      "signal": "args|avg_func_args|branch|class_start|cleanup|doc|fragile_debt|func_start|functions_found|globals|high_risk_execution|import|io|ownership|planned_debt|safety|safety_bypasses|state_mutation|telemetry|test",
       "languages_seen": [
         "markdown"
       ],
       "disposition": "intended-morphology",
       "status": "validated",
-      "verdict": "markdown is a markup format deliberately measured on the lit_* literary plane (engine markdown.py wires ONLY lit_code_blocks/lit_diagrams/lit_headers/lit_links; detector's #691 prose deflection routes the whole body to the doc surface, code payload stays empty). Reviewed all 18 absent-rule cells per GATING's n/a rule 1: none is a missing-rule gap. No callable units or control flow exist (func_start/args/class_start/branch -- lit_headers are the probe analogue, hence functions_found 0); io/state_mutation/globals/test/safety/safety_bypasses/high_risk_execution/telemetry/cleanup have no markdown idiom -- prose ABOUT those concepts is documentation, not executable signal (bucket-2 test fails: no construct a practitioner would defend as the language's own idiom); doc as a keyword rule would double-count the prose mass prism already routes to doc_loc (see markdown-prose-is-doc-morphology); planned_debt/fragile_debt keywords in prose are content, not code debt, and the empty code payload means the rules could never fire; ownership has no comment syntax to carry an author tag (HTML comments exist but are unplanted and rare as authorship idiom); import stays n/a because links are already counted on the lit plane (lit_links) AND now feed the DAG directly via _dependency_capture (gitgalaxy#2638) -- an import keyword rule would triple-count the same construct. keyword_hits (-45% amber) is the arithmetic shadow of the lit plane: only 4 lit rules can hit. SS3 risk metrics floor for a no-code language and are structurally incomparable (risk_documentation measures documentation OF code; with zero coding_loc the formula bottoms out at its constant terms) -- downstream, not chased, per the epic. dependency_links was the one real gap in this family and is FIXED upstream by gitgalaxy#2638 (relative links -> DAG edges: main->a->b->c resolves, import_count main/a/b=1 c=0, popularity a/b/c=1; api stays 0 since orphan->api conversion needs functions).",
+      "verdict": "markdown is a markup format deliberately measured on the lit_* literary plane (engine markdown.py wires ONLY lit_code_blocks/lit_diagrams/lit_headers/lit_links; detector's #691 prose deflection routes the whole body to the doc surface, code payload stays empty). Reviewed all 18 absent-rule cells per GATING's n/a rule 1: none is a missing-rule gap. No callable units or control flow exist (func_start/args/class_start/branch -- lit_headers are the probe analogue, hence functions_found 0); io/state_mutation/globals/test/safety/safety_bypasses/high_risk_execution/telemetry/cleanup have no markdown idiom -- prose ABOUT those concepts is documentation, not executable signal (bucket-2 test fails: no construct a practitioner would defend as the language's own idiom); doc as a keyword rule would double-count the prose mass prism already routes to doc_loc (see markdown-prose-is-doc-morphology); planned_debt/fragile_debt keywords in prose are content, not code debt, and the empty code payload means the rules could never fire; ownership has no comment syntax to carry an author tag (HTML comments exist but are unplanted and rare as authorship idiom); import stays n/a because links are already counted on the lit plane (lit_links) AND now feed the DAG directly via _dependency_capture (gitgalaxy#2638) -- an import keyword rule would triple-count the same construct. keyword_hits (-45% amber) is the arithmetic shadow of the lit plane: only 4 lit rules can hit. SS3 risk metrics floor for a no-code language and are structurally incomparable (risk_documentation measures documentation OF code; with zero coding_loc the formula bottoms out at its constant terms) -- downstream, not chased, per the epic. dependency_links was the one real gap in this family and is FIXED upstream by gitgalaxy#2638 (relative links -> DAG edges: main->a->b->c resolves, import_count main/a/b=1 c=0, popularity a/b/c=1; api stays 0 since orphan->api conversion needs functions). SIGNAL SCOPE (gitgalaxy#2669 A.4): `functions_found` and `avg_func_args` added to the signal list — the verdict already establishes both (\"no callable units ... hence functions_found 0\"), and markdown's avg_func_args 0.0 against a 1.0 median was the only red args-family cell in the corpus left with no entry naming it once args-no-parameter-surface-morphology took the other eight languages. The rest of the structural family (avg_func_loc, avg_func_complexity, gini, ...) is the 'downstream, not chased' set above and stays out.",
       "upstream_issue": "squid-protocol/gitgalaxy#2638",
       "investigated_by": "claude-fable-5",
       "validated_at": "2026-09-01",
@@ -909,7 +900,7 @@
     },
     {
       "id": "makefile-2648-slicer-fallthrough",
-      "signal": "functions_found|api|state_mutation",
+      "signal": "api|functions_found|state_mutation",
       "languages_seen": [
         "makefile"
       ],
@@ -923,7 +914,7 @@
     },
     {
       "id": "path-and-extension-modifiers",
-      "signal": "(risk_* scores: locational multipliers)",
+      "signal": "risk_cognitive_load|risk_concurrency|risk_dead_code|risk_documentation|risk_safety_score|risk_state_flux",
       "languages_seen": [
         "c",
         "cobol",
@@ -944,7 +935,7 @@
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cross-language differences into the risk_* columns that no signal count explains. Micro-repro: SignalProcessor()._get_locational_multipliers('data/jcl/main.jcl') -> {'cog': 0.7, 'safety': 0.85}; 'data/c/a.c' -> {'safety': 0.85}. Survey over all 184 shell files (2026-09-02, engine 3ac91822): (1) 'data/' matches the data-directory rule -> safety x0.85 on EVERY file, uniform, no bias; (2) the 'config' rule (?:^|/)(?:configs?|settings|environments?|setup|makefile|\\.env|cntl|jcl)\\b matches the folder names data/jcl/ and data/makefile/ -> cognitive_load x0.70 on all 8 files of those two languages -- the only case where the corpus's folder NAME, not its content, moves a score; (3) the header/declaration extension rule (.h/.hpp/.hxx/.cpy) -> cog x0.85 on cobol a/b/c.cpy; (4) entry-point file-name rule on main.{c,cpp,go,java,js,py,rs,ts} -> dead_code x1.25 (main files of the other 38 languages are not matched); (5) markup/data extension rules zero a metric outright: css/html async x0.0 (concurrency), markdown doc x0.0, sqlite state_mutation x0.0. (2) is the actionable one for cross-language reading: jcl and makefile cognitive_load sits 30% low by construction. Deliberate engine behaviour for real repositories (config directories are declarative); recorded here so bias_report readers do not chase it as a rule or formula deviation. Found during the gitgalaxy#2655 design pass, whose identical-input grouping had to key on these multipliers before the evidence-mass floor's invariance showed as exactly 0.00.",
+      "verdict": "signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cross-language differences into the risk_* columns that no signal count explains. Micro-repro: SignalProcessor()._get_locational_multipliers('data/jcl/main.jcl') -> {'cog': 0.7, 'safety': 0.85}; 'data/c/a.c' -> {'safety': 0.85}. Survey over all 184 shell files (2026-09-02, engine 3ac91822): (1) 'data/' matches the data-directory rule -> safety x0.85 on EVERY file, uniform, no bias; (2) the 'config' rule (?:^|/)(?:configs?|settings|environments?|setup|makefile|\\.env|cntl|jcl)\\b matches the folder names data/jcl/ and data/makefile/ -> cognitive_load x0.70 on all 8 files of those two languages -- the only case where the corpus's folder NAME, not its content, moves a score; (3) the header/declaration extension rule (.h/.hpp/.hxx/.cpy) -> cog x0.85 on cobol a/b/c.cpy; (4) entry-point file-name rule on main.{c,cpp,go,java,js,py,rs,ts} -> dead_code x1.25 (main files of the other 38 languages are not matched); (5) markup/data extension rules zero a metric outright: css/html async x0.0 (concurrency), markdown doc x0.0, sqlite state_mutation x0.0. (2) is the actionable one for cross-language reading: jcl and makefile cognitive_load sits 30% low by construction. Deliberate engine behaviour for real repositories (config directories are declarative); recorded here so bias_report readers do not chase it as a rule or formula deviation. Found during the gitgalaxy#2655 design pass, whose identical-input grouping had to key on these multipliers before the evidence-mass floor's invariance showed as exactly 0.00. SIGNAL SCOPE (gitgalaxy#2669 A.4): the multiplier keys in the survey map to risk columns via signal_processor.py's assembly — cog -> risk_cognitive_load, safety/memory -> risk_safety_score, async -> risk_concurrency, state_mutation -> risk_state_flux, dead -> risk_dead_code, doc -> risk_documentation — and the signal field now names those six. The unexercised keys (debt, test, spec, secrets) are left out: no corpus path matched them in the 184-file survey.",
       "upstream_issue": "squid-protocol/gitgalaxy#2655",
       "investigated_by": "claude-fable-5.1 (gitgalaxy#2655 design pass)",
       "validated_at": "2026-09-02",
