@@ -17,6 +17,6 @@ static int ProbeTelemetry(int msg) {
 static int ProbeState(int items) {
     Mutate(ref items);
     Mutate(out items);
-    var note = "if eval fails, try open";
+    var note = "plain Process.Start decoy text";
     return items;
 }
