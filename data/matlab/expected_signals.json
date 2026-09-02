@@ -45,15 +45,15 @@
   },
   "b.m": {
    "class_start": 0,
-   "branch": 2,
-   "io": 1,
-   "high_risk_execution": 0,
+   "branch": 0,
+   "io": 0,
+   "high_risk_execution": 1,
    "globals": 0,
    "test": 0,
-   "safety": 1,
-   "safety_bypasses": 3,
+   "safety": 0,
+   "safety_bypasses": 2,
    "telemetry": 2,
-   "state_mutation": 14,
+   "state_mutation": 6,
    "cleanup": 2,
    "fragile_debt": 0,
    "planned_debt": 0,
@@ -87,16 +87,13 @@
  "decoys": [
   {
    "file": "b.m",
-   "line_hint": "note = 'if eval fails, try fopen'",
+   "line_hint": "note = 'plain exit decoy text'; (probe_state)",
    "surface": "string",
    "signals": [
-    "branch",
-    "safety",
-    "safety_bypasses",
-    "io"
+    "high_risk_execution"
    ],
-   "outcome": "if + try count branch (matlab branch includes try, finditer-confirmed; try also safety +1), fopen counts io +1, AND eval counts safety_bypasses +1 (matlab eval-as-bypass counted from literals, like shell/ruby). Ledger: string-literal-selective-shielding"
+   "outcome": "danger-only decoy (#17 redesign): \"exit\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, safety_bypasses 3->2, state_mutation 14->6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
   }
  ],
- "notes": "matlab counts every out = assignment as state, and the flux x3 is per-FUNCTION (cleanest demonstration in the corpus): main = 12 = probe_branch's 3 raw x3 + three other functions' 1 raw x1 each; a (no branch anywhere) is exact at 3; b = 14 = probe_state's 4 raw x3 + 2 elsewhere. clear/clearvars are dual state+cleanup (b cleanup 2 from the state plants; c cleanup 2 = delete+onCleanup). .m classification resolved to matlab via function/% markers (shares the extension with objective-c). Locked 2026-08-31."
+ "notes": "matlab counts every out = assignment as state, and the flux x3 is per-FUNCTION (cleanest demonstration in the corpus): main = 12 = probe_branch's 3 raw x3 + three other functions' 1 raw x1 each; a (no branch anywhere) is exact at 3; b = 14 = probe_state's 4 raw x3 + 2 elsewhere. clear/clearvars are dual state+cleanup (b cleanup 2 from the state plants; c cleanup 2 = delete+onCleanup). .m classification resolved to matlab via function/% markers (shares the extension with objective-c). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exit\" literal inside probe_state \u2014 b.m high_risk_execution 0->1, branch 2->0, safety 1->0, io 1->0, safety_bypasses 3->2, state_mutation 14->6."
 }

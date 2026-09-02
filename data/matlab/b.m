@@ -17,6 +17,6 @@ end
 function out = probe_state(items)
 clear scratch
 clearvars leftover
-note = 'if eval fails, try fopen';
+note = 'plain exit decoy text';
 out = items;
 end
