@@ -17,6 +17,6 @@ function probe_telemetry($msg) {
 
 function probe_state($items) {
     $counter = 1;
-    $note = "if eval fails, try open";
+    $note = "plain popen decoy text";
     return $items;
 }
