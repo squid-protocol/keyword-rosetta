@@ -83,6 +83,18 @@ medians, deviation bands, and consistency scores, never counted as −100% diver
 exempt from this inference: the orphan-conversion mechanism synthesizes `api` even where no
 rule exists — see ledger `api-contextual-baseline-fix`.)
 
+**Filling a `None` rule flips the cell to comparable — plan the corpus edit with it.** Because
+n/a rests on rule *absence*, an engine PR that adds the missing rule ends the exemption whether
+or not the corpus has anything for it to match. If the shell plants no instance of the new
+idiom, the cell resolves to a measured `0` and is scored against the median like any other
+number — turning a documented incomparability into a fresh red cell. Filed engine issues of the
+"missing rule" shape (gitgalaxy#2644 yacc `class_start`, #2645 html `high_risk_execution`,
+#2646/#2647 yaml `ownership`/`cleanup`) are therefore **paired work**: the rule and the plant
+land together, or the rule waits. Before assuming a rule addition is corpus-inert, grep
+`data/<lang>/` for the idiom it matches — on 2026-09-02 all four of the above would have
+manufactured red cells, because the corpus contains no `%union`, no `srcdoc`, no `author:` and
+no teardown verb.
+
 Two hard rules keep n/a from becoming a rug:
 
 1. **n/a is mechanical, correctness is not.** The n/a marker only states what the registry
