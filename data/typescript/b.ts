@@ -17,6 +17,6 @@ function probeTelemetry(msg: number): number {
 function probeState(items: number): number {
   let first = items;
   var second = items;
-  const note = "if eval fails, try open";
+  const note = "plain eval decoy text";
   return first + second;
 }
