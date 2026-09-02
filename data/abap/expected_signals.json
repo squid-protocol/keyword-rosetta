@@ -51,9 +51,9 @@
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 2,
-      "safety": 1,
+      "safety": 0,
       "branch": 0,
-      "high_risk_execution": 0,
+      "high_risk_execution": 1,
       "io": 0,
       "class_start": 0,
       "test": 0,
@@ -97,15 +97,12 @@
     },
     {
       "file": "b.abap",
-      "line_hint": "lv_note = 'IF TRUNCATE FAILS TRY SELECT AGAIN'",
+      "line_hint": "lv_note = 'PLAIN TRUNCATE DECOY TEXT'. (inside probe_state)",
       "surface": "string",
       "signals": [
-        "branch",
-        "high_risk_execution",
-        "io",
-        "safety"
+        "high_risk_execution"
       ],
-      "outcome": "abap is a THIRD shielding profile: IF/TRY contribute NO branch, TRUNCATE no high_risk, SELECT no io — but TRY DOES count safety (+1, micro-repro isolated it to the string, comments contribute 0). Ledger: string-literal-selective-shielding"
+      "outcome": "danger-only decoy (#17 redesign, wave 3): TRUNCATE is abap's own danger keyword and was ALREADY in the retired sentence, but it read 0 — the sentence's own TRY fed abap's safety rule and the Silencer Region dampener (high_risk <- safety, 500 chars, same function) silenced it. That is the same mechanism the pilot found in python, not the 'third shielding profile' this entry previously recorded: abap shields nothing. Dropping TRY takes safety 1->0 and high_risk_execution 0->1. IF and SELECT never counted here (abap's branch and io rules do not match them), which is why no other count moves. Ledger: string-literal-selective-shielding"
     },
     {
       "file": "c.abap",
@@ -117,5 +114,5 @@
       "outcome": "inert (underscore + lowercase vs case-sensitive \\bHACK\\b)"
     }
   ],
-  "notes": "args planted via CHANGING (abap's args rule keys on IMPORTING/EXPORTING/CHANGING/... -- FORM ... USING would record args 0). doc 1 in main = the \"! @parameter ABAP-Doc line only: the AUTHOR:-also-counts-as-doc collision RESOLVED via gitgalaxy#2650 (AUTHOR removed from doc's bare alternative; ownership still captures it exclusively). state_mutation exact (2, no flux multiplier -- no branch context in b.abap since the string's IF is shielded for branch). api = 0 planted + orphan conversion in imported a/b/c (3 each). INCLUDE chain resolves. Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2650."
+  "notes": "args planted via CHANGING (abap's args rule keys on IMPORTING/EXPORTING/CHANGING/... -- FORM ... USING would record args 0). doc 1 in main = the \"! @parameter ABAP-Doc line only: the AUTHOR:-also-counts-as-doc collision RESOLVED via gitgalaxy#2650 (AUTHOR removed from doc's bare alternative; ownership still captures it exclusively). state_mutation exact (2, no flux multiplier -- no branch context in b.abap since the string's IF is shielded for branch). api = 0 planted + orphan conversion in imported a/b/c (3 each). INCLUDE chain resolves. Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2650. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 — gitgalaxy#2669 A.3): danger-only 'PLAIN TRUNCATE DECOY TEXT' inside probe_state — b.abap safety 1->0, high_risk_execution 0->1. The old sentence's TRUNCATE had been dampened by its own TRY, so abap's 'third shielding profile' reading was the Silencer Region, not shielding."
 }

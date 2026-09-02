@@ -11,7 +11,7 @@ probe_telemetry:
 	$(info second probe)
 
 COUNTER += 1
-NOTE != echo "if eval fails, try curl"
+NOTE != echo "plain sudo decoy text"
 
 probe_state:
 	:

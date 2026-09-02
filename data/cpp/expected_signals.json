@@ -51,10 +51,10 @@
       "api": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 9,
-      "branch": 1,
-      "safety": 1,
-      "high_risk_execution": 0,
+      "state_mutation": 3,
+      "branch": 0,
+      "safety": 0,
+      "high_risk_execution": 1,
       "io": 0,
       "test": 0,
       "globals": 0,
@@ -87,14 +87,12 @@
   "decoys": [
     {
       "file": "b.cpp",
-      "line_hint": "note = \"if eval fails, try open\"",
+      "line_hint": "const char *note = \"plain system decoy text\"; (probe_state)",
       "surface": "string",
       "signals": [
-        "branch",
-        "safety",
-        "state_mutation"
+        "high_risk_execution"
       ],
-      "outcome": "if counts branch +1, try counts safety +1; cpp state counts plain = so the decoy line is a third raw state hit, tripled to 9 by the phantom branch context. eval/open inert. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"system\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.cpp",
@@ -106,5 +104,5 @@
       "outcome": "inert"
     }
   ],
-  "notes": "branch 1 in a.cpp = catch (cpp branch includes catch — dual with safety's try/catch, finditer-confirmed). api 0 raw everywhere (cpp api = export only); a/b/c api 3 is pure orphan conversion. Locked from hand-verified run 2026-08-31."
+  "notes": "branch 1 in a.cpp = catch (cpp branch includes catch — dual with safety's try/catch, finditer-confirmed). api 0 raw everywhere (cpp api = export only); a/b/c api 3 is pure orphan conversion. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.cpp high_risk_execution 0->1, branch 1->0, safety 1->0, state_mutation 9->3."
 }

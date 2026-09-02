@@ -20,5 +20,5 @@ def probe_telemetry(msg):
 def probe_state(items):
     items.append(1)
     items.update(2)
-    note = "if eval fails, try open"
+    note = "plain machine.reset decoy line"
     return items

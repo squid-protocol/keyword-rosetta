@@ -53,7 +53,7 @@
       "test": 0,
       "safety": 0,
       "safety_bypasses": 0,
-      "telemetry": 0,
+      "telemetry": 2,
       "state_mutation": 0,
       "cleanup": 0,
       "fragile_debt": 0,
@@ -76,7 +76,7 @@
       "safety_bypasses": 0,
       "telemetry": 0,
       "state_mutation": 0,
-      "cleanup": 0,
+      "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
       "class_start": 0,
@@ -99,5 +99,5 @@
       "outcome": "func_start 0 EVERYWHERE despite raw-regex matches: the polyglot splitter consumes the <script>/<style> tags before html's rules run (micro-repro: a script with real JS records the JS body's signals but func 0). Ledger html-script-func-start-unreachable; gitgalaxy#2549"
     }
   ],
-  "notes": "html func_start is unreachable end-to-end (gitgalaxy#2549) -- 0 baked in. branch = details/summary/noscript tags; io = the chain link's href= (1 per importing file); doc 1 = title only: the meta name=author-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (author removed from doc's meta-name alternative; ownership still captures meta name=author exclusively); import = link rel=stylesheet (chain resolves as capture but no conversion observed). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659."
+  "notes": "html func_start is unreachable end-to-end (gitgalaxy#2549) -- 0 baked in. branch = details/summary/noscript tags; io = the chain link's href= (1 per importing file); doc 1 = title only: the meta name=author-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (author removed from doc's meta-name alternative; ownership still captures meta name=author exclusively); import = link rel=stylesheet (chain resolves as capture but no conversion observed). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. A.2 (gitgalaxy#2669): telemetry 2 = two `navigator.sendBeacon(...)` after probe_telemetry's script tag in b.html; cleanup 2 = `clearInterval(...)` / `clearTimeout(...)` after probe_cleanup's in c.html. Planted as element text rather than `on*=` handlers because `onclick=` also fires reflection_metaprogramming (a risk_cognitive_load input) and listeners; and rather than `<script src=\"...analytics...\">`, the telemetry rule's other form, which would have added 2 io to b.html. The tokens stay OUTSIDE `<script>` on purpose: the polyglot splitter hands script bodies to the JS lens (ledger html-script-func-start-unreachable, gitgalaxy#2549), so a body inside the tag would exercise JavaScript's rules instead of html's. globals/high_risk_execution/state_mutation stay 0: html defines no rule for them. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology — the args rule matches attributes, not parameters, and the 3 hits are a.html's two data-testid plus main.html's name=\"author\" ownership meta (ledger args-no-parameter-surface-morphology)."
 }

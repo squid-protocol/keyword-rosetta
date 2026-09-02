@@ -48,13 +48,13 @@
    "func_start": 3,
    "api": 0,
    "telemetry": 2,
-   "state_mutation": 3,
-   "io": 5,
+   "state_mutation": 2,
+   "io": 3,
    "args": 0,
    "branch": 0,
    "class_start": 0,
    "safety": 0,
-   "high_risk_execution": 0,
+   "high_risk_execution": 1,
    "test": 0,
    "globals": 0,
    "cleanup": 0,
@@ -97,14 +97,12 @@
   },
   {
    "file": "b.sql",
-   "line_hint": "SELECT 'IF UPDATE FAILS TRY SELECT AGAIN'",
+   "line_hint": "SELECT 'plain DROP DATABASE decoy text'; (probe_state's carrier statement)",
    "surface": "string",
    "signals": [
-    "io",
-    "state_mutation",
-    "branch"
+    "high_risk_execution"
    ],
-   "outcome": "UPDATE and SELECT inside the literal COUNT (io +2, state +1); IF/TRY inert (sqlite has no bare IF/TRY keywords). io 5 = planted UPDATE + carrier SELECT + .read + 2 from the literal. Ledger: string-literal-selective-shielding"
+   "outcome": "danger-only decoy (#17 redesign, wave 3): 'DROP DATABASE' COUNTS from inside the literal (+1). sqlite's danger vocabulary is multi-word (PRAGMA legacy_alter_table | DROP DATABASE) or a line-anchored dot-command, so a single bare token cannot express it — this is the one language where the decoy needs two words. Retiring the shared sentence dropped io 5->3 (its UPDATE and SELECT both being io keywords) and state_mutation 3->2 (its UPDATE). The carrier SELECT keeps its own io hit; b.sql io 3 is now planted UPDATE + carrier SELECT + .read. Ledger: string-literal-selective-shielding"
   },
   {
    "file": "c.sql",
@@ -116,5 +114,5 @@
    "outcome": "inert (underscore + lowercase)"
   }
  ],
- "notes": "functions are CREATE INDEX statements (sqlite's closest function-shaped construct per the #2513 tri-comparison precedent; 13 corpus-wide) and NO CREATE TABLE anywhere keeps class_start 0 as a live tripwire \u2014 deliberate contrast with cobol's PROGRAM-ID exception. branch 5 = one CASE expression (CASE/WHEN/THEN/ELSE/END all count \u2014 like ada/shell, syntax words inflate a single conditional). .read is dual import+io (finditer-confirmed; ledger sqlite-dot-read-dual-import-io). args 1 = the single VALUES( in main; index probes carry no args (sqlite args = placeholders/VALUES, a real morphology gap like cobol's). api = 0 planted (no views); a/b/c api 2/4/3 conversion counts are opaque (main's orphaned_logic 7 shows the orphan census includes non-function shapes; ledger orphan-conversion-opaque-counts). state 3 in b = UPDATE + SET + UPDATE-in-literal. Locked from hand-verified run 2026-08-31."
+ "notes": "functions are CREATE INDEX statements (sqlite's closest function-shaped construct per the #2513 tri-comparison precedent; 13 corpus-wide) and NO CREATE TABLE anywhere keeps class_start 0 as a live tripwire \u2014 deliberate contrast with cobol's PROGRAM-ID exception. branch 5 = one CASE expression (CASE/WHEN/THEN/ELSE/END all count \u2014 like ada/shell, syntax words inflate a single conditional). .read is dual import+io (finditer-confirmed; ledger sqlite-dot-read-dual-import-io). args 1 = the single VALUES( in main; index probes carry no args (sqlite args = placeholders/VALUES, a real morphology gap like cobol's). api = 0 planted (no views); a/b/c api 2/4/3 conversion counts are opaque (main's orphaned_logic 7 shows the orphan census includes non-function shapes; ledger orphan-conversion-opaque-counts). state 3 in b = UPDATE + SET + UPDATE-in-literal. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 \u2014 gitgalaxy#2669 A.3): danger-only 'plain DROP DATABASE decoy text' \u2014 b.sql io 5->3, state_mutation 3->2, high_risk_execution 0->1. sqlite's danger vocabulary is multi-word, so this decoy carries two words rather than one. NOTE for gitgalaxy#2669 B.4: two of the corpus-wide sqlite io hits were the decoy sentence's own UPDATE/SELECT, so the residual io deviation must be re-read after this change, not before. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology \u2014 CREATE INDEX takes no parameters, and every DML verb that could carry a placeholder or VALUES( is also an io keyword here, so each args plant would cost +1 io (ledger args-no-parameter-surface-morphology)."
 }

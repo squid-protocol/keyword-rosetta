@@ -15,5 +15,5 @@ ENDFORM.
 FORM probe_state CHANGING cv_items.
   MOVE 1 TO cv_items.
   APPEND cv_items.
-  lv_note = 'IF TRUNCATE FAILS TRY SELECT AGAIN'.
+  lv_note = 'PLAIN TRUNCATE DECOY TEXT'.
 ENDFORM.

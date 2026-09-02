@@ -4,4 +4,4 @@ include(c.m4)
 
 m4_define(probe_bypass, [changequote changecom $1])
 m4_define(probe_telemetry, [AC_MSG_CHECKING($1) AC_MSG_RESULT($1)])
-m4_define(probe_state, [pushdef(counter) m4_append(note, [if eval fails, try open]) $1])
+m4_define(probe_state, [pushdef(counter) m4_append(note, [plain esyscmd decoy text]) $1])

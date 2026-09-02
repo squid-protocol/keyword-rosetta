@@ -15,5 +15,5 @@ end probe_telemetry
 on probe_state pItems
   put 1 into tCounter
   set the cFlag to 2
-  put "if eval fails, try open" into tNote
+  put "plain answer decoy text" into tNote
 end probe_state

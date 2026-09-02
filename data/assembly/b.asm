@@ -18,5 +18,5 @@ probe_state:
     mov rdi, 10
     inc rax
     dec rbx
-    msg db "if jmp fails try syscall again"
+    msg db "plain sys_exit decoy text"
     ret

@@ -18,6 +18,6 @@ static int probeTelemetry(int msg) {
 static int probeState(int items) {
     volatile int held;
     AtomicInteger counter;
-    String note = "if eval fails, try open";
+    String note = "plain Unsafe decoy text";
     return items;
 }

@@ -18,8 +18,8 @@
     },
     "b.adb": {
       "import": 1, "func_start": 3, "args": 3, "safety_bypasses": 2,
-      "telemetry": 2, "state_mutation": 6, "branch": 1, "api": 0,
-      "class_start": 0, "safety": 0, "high_risk_execution": 0, "io": 0,
+      "telemetry": 2, "state_mutation": 2, "branch": 0, "api": 0,
+      "class_start": 0, "safety": 0, "high_risk_execution": 1, "io": 0,
       "test": 0, "globals": 0, "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
     },
     "c.adb": {
@@ -32,8 +32,8 @@
   },
   "decoys": [
     {"file": "main.adb", "line_hint": "never calls OS_Exit and no loop keyword", "surface": "comment", "signals": ["high_risk_execution", "branch"], "outcome": "stripped: contributed 0"},
-    {"file": "b.adb", "line_hint": "Note := \"if eval fails, try open\"", "surface": "string", "signals": ["branch"], "outcome": "if COUNTS (branch +1); eval/try/open inert in ada's rules. The phantom branch context triggers the flux weighting: 2 raw := become state_mutation 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"},
+    {"file": "b.adb", "line_hint": "Note := \"plain OS_Exit decoy text\"; (Probe_State)", "surface": "string", "signals": ["high_risk_execution"], "outcome": "danger-only decoy (#17 redesign): \"OS_Exit\" COUNTS from inside the literal (+1), undampened — Probe_State carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"},
     {"file": "c.adb", "line_hint": "Hack_Level : Integer", "surface": "code", "signals": ["fragile_debt"], "outcome": "inert (underscore + lowercase vs case-sensitive \\bHACK\\b); declared without := so no state hit"}
   ],
-  "notes": "branch 4 in main = if + elsif + else + the closing 'end if' (ada's closing keyword re-matches \\bif\\b — ledger ada-end-if-branch-inflation; every well-formed ada if statement counts at least 2 branch). state_mutation is := and gets the x3 flux weighting under branch context (b.adb: 2 x 3 = 6, branch context from the string decoy's 'if'). No orphan->api conversion anywhere: ada's api rule is the package declaration (0 planted) and ada procedures are not orphan-tracked (orphaned_logic 0 on all files) so there is nothing to convert — unlike python/js/cobol/fortran/abap/assembly. Assert() counts test only (bare call), pragma-free safety planted via 'exception' + 'range'. Locked from hand-verified run 2026-08-31."
+  "notes": "branch 4 in main = if + elsif + else + the closing 'end if' (ada's closing keyword re-matches \\bif\\b — ledger ada-end-if-branch-inflation; every well-formed ada if statement counts at least 2 branch). state_mutation is := and gets the x3 flux weighting under branch context (b.adb: 2 x 3 = 6, branch context from the string decoy's 'if'). No orphan->api conversion anywhere: ada's api rule is the package declaration (0 planted) and ada procedures are not orphan-tracked (orphaned_logic 0 on all files) so there is nothing to convert — unlike python/js/cobol/fortran/abap/assembly. Assert() counts test only (bare call), pragma-free safety planted via 'exception' + 'range'. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"OS_Exit\" literal inside Probe_State — b.adb high_risk_execution 0->1, branch 1->0, state_mutation 6->2."
 }

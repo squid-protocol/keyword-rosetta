@@ -47,7 +47,7 @@
       "class_start": 0,
       "branch": 0,
       "io": 0,
-      "high_risk_execution": 0,
+      "high_risk_execution": 1,
       "globals": 0,
       "test": 0,
       "safety": 0,
@@ -87,14 +87,13 @@
   "decoys": [
     {
       "file": "b.m4",
-      "line_hint": "m4_append(note, [if eval fails, try open])",
+      "line_hint": "m4_define(probe_state, [pushdef(counter) m4_append(note, [plain esyscmd decoy text]) $1]) (the probe_state macro body)",
       "surface": "string",
       "signals": [
-        "branch",
         "high_risk_execution"
       ],
-      "outcome": "NOTHING counted from the quoted text: m4's branch keywords are macro names (ifelse/ifdef), bare if is not a keyword, and eval is not m4's risk keyword — state stayed exactly 2 with no flux (no branch context in b). The cleanest file in the corpus."
+      "outcome": "danger-only decoy (#17 redesign): \"esyscmd\" COUNTS from inside the literal (+1), undampened — the probe_state macro body carries no safety keyword, so the Silencer Region never fires. Ledger: string-literal-selective-shielding"
     }
   ],
-  "notes": "args = $1 references, counted exactly as planted (main 6, a 5, b 4, c 3 — one of the few languages where args tracks intent perfectly). popdef is dual state+cleanup (c state 2). m4 has NO _dependency_capture (capture rule is None): include() counts import but produces no DAG edge, so orphans stay unconverted corpus-wide (main orphaned 4, a/b/c 3 — engine gap worth an upstream note). Locked 2026-08-31."
+  "notes": "args = $1 references, counted exactly as planted (main 6, a 5, b 4, c 3 — one of the few languages where args tracks intent perfectly). popdef is dual state+cleanup (c state 2). m4 has NO _dependency_capture (capture rule is None): include() counts import but produces no DAG edge, so orphans stay unconverted corpus-wide (main orphaned 4, a/b/c 3 — engine gap worth an upstream note). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"esyscmd\" literal inside the probe_state macro body — b.m4 high_risk_execution 0->1."
 }

@@ -16,6 +16,6 @@ end
 
 function probe_state(items)
   counter = 1
-  note = "if eval fails, try open"
+  note = "plain os.remove decoy text"
   return items
 end

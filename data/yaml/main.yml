@@ -1,7 +1,6 @@
 # keyword rosetta control shell: yaml / main
 # decoy: this suite never removes files outside prose
 name: rosetta-main
-description: dispatch each probe once
 jobs:
   dispatch:
     uses: ./a.yml

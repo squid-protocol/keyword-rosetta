@@ -11,4 +11,4 @@ probeTelemetry msg = logInfo logError
 
 probeState :: Int -> Int
 probeState items = modifyIORef writeIORef message
-  where message = "if eval fails, try open"
+  where message = "plain die decoy text"

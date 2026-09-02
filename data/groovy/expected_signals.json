@@ -45,15 +45,15 @@
     },
     "b.groovy": {
       "class_start": 0,
-      "branch": 2,
+      "branch": 0,
       "io": 0,
-      "high_risk_execution": 0,
+      "high_risk_execution": 1,
       "globals": 0,
       "test": 0,
-      "safety": 1,
+      "safety": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 6,
+      "state_mutation": 2,
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
@@ -87,14 +87,13 @@
   "decoys": [
     {
       "file": "b.groovy",
-      "line_hint": "note = \"if eval fails, try open\"",
+      "line_hint": "note = \"plain execute decoy text\" (probeState)",
       "surface": "string",
       "signals": [
-        "branch",
-        "safety"
+        "high_risk_execution"
       ],
-      "outcome": "if + try count (groovy branch includes try, finditer-confirmed; try also safety); counter=/note= 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"execute\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "args counts statement-position calls (ts-callparen family: main 7 = 4 sigs + 3 dispatch calls; c 5 = 3 sigs + close/dispose calls). Locked 2026-08-31."
+  "notes": "args counts statement-position calls (ts-callparen family: main 7 = 4 sigs + 3 dispatch calls; c 5 = 3 sigs + close/dispose calls). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"execute\" literal inside probeState \u2014 b.groovy high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
 }

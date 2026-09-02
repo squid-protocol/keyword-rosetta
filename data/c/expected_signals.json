@@ -51,16 +51,16 @@
       "api": 10,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 9,
-      "branch": 1,
-      "io": 1,
+      "state_mutation": 3,
+      "branch": 0,
+      "io": 0,
       "safety": 0,
       "test": 0,
       "globals": 0,
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
-      "high_risk_execution": 0
+      "high_risk_execution": 1
     },
     "c.c": {
       "class_start": 0,
@@ -87,14 +87,12 @@
   "decoys": [
     {
       "file": "b.c",
-      "line_hint": "note = \"if eval fails, try open\"",
+      "line_hint": "const char *note = \"plain system decoy text\"; (probe_state)",
       "surface": "string",
       "signals": [
-        "branch",
-        "io",
-        "state_mutation"
+        "high_risk_execution"
       ],
-      "outcome": "if counts branch +1, open counts io +1 (c io includes bare open/close); the assignment itself is state +1 and the phantom branch context triples probe_state's 3 raw to 9. eval inert (c high_risk has no eval). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"system\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.c",
@@ -106,5 +104,5 @@
       "outcome": "inert (underscore + lowercase)"
     }
   ],
-  "notes": "api counts every external-linkage (non-static) file-scope declaration — correct C linkage morphology — plus orphan conversion, hence the large api values (a.c 12). test 3 in a.c = TEST + RUN_TEST + assert( (assert dual safety+test, finditer-confirmed; same shape as python). globals planted as two file-scope initializers, which also count state (+2 a.c). cleanup's close(0) counts io +1 in c.c (c io includes close). Locked from hand-verified run 2026-08-31."
+  "notes": "api counts every external-linkage (non-static) file-scope declaration — correct C linkage morphology — plus orphan conversion, hence the large api values (a.c 12). test 3 in a.c = TEST + RUN_TEST + assert( (assert dual safety+test, finditer-confirmed; same shape as python). globals planted as two file-scope initializers, which also count state (+2 a.c). cleanup's close(0) counts io +1 in c.c (c io includes close). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.c high_risk_execution 0->1, branch 1->0, io 1->0, state_mutation 9->3."
 }

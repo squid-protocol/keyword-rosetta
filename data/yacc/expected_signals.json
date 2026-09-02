@@ -89,5 +89,5 @@
     }
   },
   "decoys": [],
-  "notes": "functions are grammar rules (name :), args are $$/$n value references (2 in b = $$ + $1), C action-block keywords carry branch/io/risk/etc. yacc has NO _dependency_capture (#include counts import but no DAG edge — joins m4/scheme in no-dependency-capture-languages; orphans stay unconverted, api 0 everywhere). state 2 = the $$ = $1 assignment + counter++. Locked 2026-08-31."
+  "notes": "functions are grammar rules (name :), args are $$/$n value references (2 in b = $$ + $1), C action-block keywords carry branch/io/risk/etc. yacc has NO _dependency_capture (#include counts import but no DAG edge — joins m4/scheme in no-dependency-capture-languages; orphans stay unconverted, api 0 everywhere). state 2 = the $$ = $1 assignment + counter++. Locked 2026-08-31. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology — $$/$n is yacc's nearest parameter surface but `{ $$ = $1; }` also scores state_mutation, so planting actions in the 12 productions would move a planted scored column to fill an unplanted one (ledger args-no-parameter-surface-morphology)."
 }

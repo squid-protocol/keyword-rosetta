@@ -2,7 +2,10 @@
 /* decoy: nothing risky lives here in prose */
 @import url("c.css");
 
-@keyframes probe-bypass {}
+@keyframes probe-bypass {
+  *::before {}
+  *::after {}
+}
 
 @keyframes probe-telemetry {}
 

@@ -10,4 +10,4 @@ ANALYZE;
 
 CREATE INDEX probe_state ON corpus (items);
 UPDATE corpus SET flag = 1;
-SELECT 'IF UPDATE FAILS TRY SELECT AGAIN';
+SELECT 'plain DROP DATABASE decoy text';

@@ -17,5 +17,5 @@ end Probe_Telemetry;
 procedure Probe_State (Items : Integer) is
 begin
    Count := 1;
-   Note := "if eval fails, try open";
+   Note := "plain OS_Exit decoy text";
 end Probe_State;

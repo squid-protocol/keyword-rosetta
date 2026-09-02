@@ -9,7 +9,7 @@
       * ---- shared-state and verification probes ----
        PROBE-GLOBALS.
            DISPLAY REGION-ITEM.
-           DISPLAY 'IF ALTER FAILS TRY OPEN AGAIN'.
+           DISPLAY 'PLAIN ALTER DECOY TEXT'.
        PROBE-TEST.
            ASSERT RESULT-ONE.
            ZUNIT RESULT-TWO.

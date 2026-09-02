@@ -4,6 +4,7 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. ROSETTA-MAIN.
        AUTHOR. KEYWORD-ROSETTA GENERATOR.
+       *> @return the probe result
 
        ENVIRONMENT DIVISION.
 

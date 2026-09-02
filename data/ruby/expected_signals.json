@@ -49,12 +49,12 @@
    "func_start": 3,
    "args": 3,
    "api": 3,
-   "safety_bypasses": 3,
+   "safety_bypasses": 2,
    "telemetry": 2,
-   "state_mutation": 6,
-   "branch": 1,
+   "state_mutation": 2,
+   "branch": 0,
    "safety": 0,
-   "high_risk_execution": 0,
+   "high_risk_execution": 1,
    "io": 0,
    "test": 0,
    "globals": 0,
@@ -87,13 +87,12 @@
  "decoys": [
   {
    "file": "b.rb",
-   "line_hint": "note = \"if eval fails, try open\"",
+   "line_hint": "note = \"plain system decoy text\" (probe_state)",
    "surface": "string",
    "signals": [
-    "branch",
-    "safety_bypasses"
+    "high_risk_execution"
    ],
-   "outcome": "if counts branch +1 AND eval counts safety_bypasses +1 (ruby classes eval as bypass, and it is NOT shielded \u2014 supporting the high-risk-family-only shielding theory, as shell); push/pop 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+   "outcome": "danger-only decoy (#17 redesign): \"system\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety_bypasses 3->2, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
   },
   {
    "file": "c.rb",
@@ -105,5 +104,5 @@
    "outcome": "inert (underscore + lowercase)"
   }
  ],
- "notes": "branch 1 in a.rb = rescue (ruby branch includes rescue \u2014 dual with safety, finditer-confirmed). api = 0 planted; a/b convert 4 vs c 3 (same source-line-carrying shape as shell; ledger orphan-conversion-opaque-counts). Locked from hand-verified run 2026-08-31."
+ "notes": "branch 1 in a.rb = rescue (ruby branch includes rescue \u2014 dual with safety, finditer-confirmed). api = 0 planted; a/b convert 4 vs c 3 (same source-line-carrying shape as shell; ledger orphan-conversion-opaque-counts). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state \u2014 b.rb high_risk_execution 0->1, branch 1->0, safety_bypasses 3->2, state_mutation 6->2."
 }

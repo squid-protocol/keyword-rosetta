@@ -46,15 +46,15 @@
     },
     "b.py": {
       "class_start": 0,
-      "branch": 2,
-      "io": 1,
-      "high_risk_execution": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 1,
       "globals": 0,
       "test": 0,
-      "safety": 3,
+      "safety": 2,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 6,
+      "state_mutation": 2,
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
@@ -88,15 +88,12 @@
   "decoys": [
     {
       "file": "b.py",
-      "line_hint": "note = \"if eval fails, try open\"",
+      "line_hint": "note = \"plain machine.reset decoy line\" (probe_state)",
       "surface": "string",
       "signals": [
-        "branch",
-        "safety",
-        "io",
         "high_risk_execution"
       ],
-      "outcome": "if/try count (branch +2, safety +1), open counts io +1, eval does NOT (python-family selective profile); append/update 2 raw state tripled to 6"
+      "outcome": "danger-only decoy (#17 redesign): \"machine.reset\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 3->2, io 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.py",
@@ -108,5 +105,5 @@
       "outcome": "inert (underscore)"
     }
   ],
-  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON. Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Under embedded classification the io rule has NO os./sys. alternation and orphan->api conversion fires (api 3 raw + 3 converted = 6, matching plain python; gitgalaxy#2548). doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (shares python's doc regex fix). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2658."
+  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON. Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Under embedded classification the io rule has NO os./sys. alternation and orphan->api conversion fires (api 3 raw + 3 converted = 6, matching plain python; gitgalaxy#2548). doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (shares python's doc regex fix). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2658. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"machine.reset\" literal inside probe_state \u2014 b.py high_risk_execution 0->1, branch 2->0, safety 3->2, io 1->0, state_mutation 6->2."
 }

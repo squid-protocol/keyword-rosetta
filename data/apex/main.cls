@@ -1,7 +1,9 @@
 // keyword rosetta control shell: apex / main
-// @author: keyword-rosetta generator
+// Author: keyword-rosetta generator
 // @description dispatch each probe once
 // decoy: this suite never queries and the undelete word stays in prose
+Type.forName('a');
+
 static Integer entry(Integer argv) {
     probeBranch(argv);
     probeIo(argv);

@@ -48,13 +48,13 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 4,
+      "api": 3,
       "safety_bypasses": 0,
       "telemetry": 2,
-      "state_mutation": 6,
-      "branch": 2,
+      "state_mutation": 2,
+      "branch": 0,
       "safety": 0,
-      "high_risk_execution": 0,
+      "high_risk_execution": 1,
       "io": 0,
       "test": 0,
       "globals": 0,
@@ -87,13 +87,12 @@
   "decoys": [
     {
       "file": "b.swift",
-      "line_hint": "let note = \"if eval fails, try open\"",
+      "line_hint": "let note = \"plain assertionFailure decoy text\" (probeState)",
       "surface": "string",
       "signals": [
-        "branch",
-        "api"
+        "high_risk_execution"
       ],
-      "outcome": "if + try count branch +2 (swift branch includes try, finditer-confirmed) and OPEN counts api +1: swift's api rule includes the open access modifier, so a string containing 'open' adds API-exposure mass. var x2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"assertionFailure\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, api 4->3, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.swift",
@@ -105,5 +104,5 @@
       "outcome": "inert (camelCase)"
     }
   ],
-  "notes": "branch 4 in main = if + else + guard + the guard's own else clause. Orphan->api conversion now fires on the a->b->c chain: the 2+-char _dependency_capture minimum RESOLVED via gitgalaxy#2543 ('import a' captures, popularity rises, a/c api 0->3, b 1->4; ledger swift-import-capture-min-two-chars) -- matching every sibling language. Locked from hand-verified run 2026-08-31; api re-baselined 2026-09-01 against gitgalaxy#2641."
+  "notes": "branch 4 in main = if + else + guard + the guard's own else clause. Orphan->api conversion now fires on the a->b->c chain: the 2+-char _dependency_capture minimum RESOLVED via gitgalaxy#2543 ('import a' captures, popularity rises, a/c api 0->3, b 1->4; ledger swift-import-capture-min-two-chars) -- matching every sibling language. Locked from hand-verified run 2026-08-31; api re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"assertionFailure\" literal inside probeState \u2014 b.swift high_risk_execution 0->1, branch 2->0, api 4->3, state_mutation 6->2."
 }

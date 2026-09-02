@@ -3,11 +3,10 @@
 
 import { probeTelemetry } from './b.js';
 
-const MESSAGE = "if eval fails, try open";
-
 function probeGlobals(env) {
   const region = process.env;
   const home = process.env;
+  const message = "plain eval decoy text";
   return [region, home];
 }
 

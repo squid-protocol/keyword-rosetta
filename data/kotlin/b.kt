@@ -17,6 +17,6 @@ fun probeTelemetry(msg: Int): Int {
 fun probeState(items: Int): Int {
     var first = items
     var second = items
-    val note = "if eval fails, try open"
+    val note = "plain System.exit decoy text"
     return first + second
 }

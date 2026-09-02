@@ -8,68 +8,56 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | language | red-zone metrics | amber | n/a cells | ledgered shapes | upstream issues |
 |---|---|---|---|---|---|
-| [abap](#abap) | 4 | 7 | 0 | 3 | #2535 #2650 #2659 |
-| [ada](#ada) | 3 | 4 | 0 | 4 | #2535 #2546 |
-| [agc_assembly](#agc_assembly) | 7 | 6 | 1 | 5 | #2535 #2650 #2659 |
-| [apex](#apex) | 10 | 7 | 0 | 6 | #2535 #2545 #2546 |
-| [assembly](#assembly) | 9 | 2 | 0 | 5 | #2535 #2546 |
-| [c](#c) | 5 | 3 | 0 | 5 | #2535 #2546 #2626 #2655 |
-| [cobol](#cobol) | 5 | 9 | 0 | 7 | #2535 #2537 #2538 #2655 |
-| [cpp](#cpp) | 0 | 7 | 0 | 4 | #2535 #2546 #2655 |
+| [abap](#abap) | 0 | 0 | 0 | 3 | #2535 #2650 #2659 |
+| [ada](#ada) | 3 | 6 | 0 | 4 | #2535 #2546 |
+| [agc_assembly](#agc_assembly) | 5 | 6 | 1 | 5 | #2535 #2650 #2659 |
+| [apex](#apex) | 4 | 4 | 0 | 8 | #2535 #2536 #2545 #2546 #2671 |
+| [assembly](#assembly) | 11 | 0 | 0 | 5 | #2535 #2546 |
+| [c](#c) | 5 | 4 | 0 | 5 | #2535 #2546 #2626 #2655 |
+| [cobol](#cobol) | 4 | 6 | 0 | 9 | #2535 #2537 #2538 #2655 #2661 |
+| [cpp](#cpp) | 2 | 8 | 0 | 4 | #2535 #2546 #2655 |
 | [csharp](#csharp) | 1 | 6 | 0 | 3 | #2535 #2546 |
-| [css](#css) | 20 | 6 | 5 | 5 | #2655 |
-| [dart](#dart) | 0 | 6 | 0 | 4 | #2535 #2651 |
-| [dockerfile](#dockerfile) | 10 | 12 | 0 | 5 | #2535 #2546 #2547 |
-| [embedded_python](#embedded_python) | 6 | 6 | 0 | 6 | #2535 #2548 #2655 #2658 |
-| [fortran](#fortran) | 6 | 7 | 0 | 6 | #2535 #2540 #2546 #2650 #2659 |
-| [go](#go) | 2 | 4 | 0 | 6 | #2535 #2542 #2546 #2655 |
-| [groovy](#groovy) | 1 | 4 | 0 | 4 | #2535 |
-| [haskell](#haskell) | 7 | 8 | 0 | 4 | #2535 |
-| [html](#html) | 23 | 5 | 3 | 7 | #2549 #2645 #2650 #2655 #2659 |
-| [java](#java) | 2 | 5 | 0 | 4 | #2535 #2546 #2655 |
-| [javascript](#javascript) | 9 | 9 | 0 | 6 | #2535 #2539 #2655 |
-| [jcl](#jcl) | 8 | 7 | 6 | 4 | #2610 #2655 |
-| [kotlin](#kotlin) | 1 | 4 | 0 | 5 | #2535 #2545 #2546 |
-| [livecode](#livecode) | 7 | 9 | 0 | 6 | #2535 #2546 #2547 #2650 #2659 |
-| [lua](#lua) | 4 | 6 | 0 | 5 | #2535 #2546 #2547 #2657 |
-| [m4](#m4) | 16 | 8 | 2 | 5 | #2535 |
-| [makefile](#makefile) | 5 | 6 | 1 | 7 | #2535 #2546 #2648 #2655 |
-| [markdown](#markdown) | 16 | 2 | 27 | 6 | #2638 #2655 |
-| [matlab](#matlab) | 7 | 4 | 0 | 5 | #2535 #2546 #2547 |
-| [objective-c](#objective-c) | 1 | 3 | 0 | 6 | #2535 #2545 #2546 |
-| [perl](#perl) | 4 | 13 | 0 | 5 | #2535 #2546 #2626 |
+| [css](#css) | 12 | 6 | 5 | 6 | #2655 |
+| [dart](#dart) | 1 | 4 | 0 | 3 | #2535 #2651 |
+| [dockerfile](#dockerfile) | 11 | 11 | 0 | 6 | #2535 #2546 #2547 |
+| [embedded_python](#embedded_python) | 6 | 4 | 0 | 6 | #2535 #2548 #2655 #2658 |
+| [fortran](#fortran) | 4 | 6 | 0 | 6 | #2535 #2540 #2546 #2650 #2659 |
+| [go](#go) | 4 | 3 | 0 | 6 | #2535 #2542 #2546 #2655 |
+| [groovy](#groovy) | 1 | 2 | 0 | 3 | #2535 |
+| [haskell](#haskell) | 9 | 6 | 0 | 4 | #2535 |
+| [html](#html) | 19 | 5 | 3 | 8 | #2549 #2645 #2650 #2655 #2659 |
+| [java](#java) | 3 | 2 | 0 | 4 | #2535 #2546 #2655 |
+| [javascript](#javascript) | 4 | 9 | 0 | 6 | #2535 #2539 #2655 |
+| [jcl](#jcl) | 4 | 5 | 6 | 4 | #2610 #2655 |
+| [kotlin](#kotlin) | 2 | 4 | 0 | 5 | #2535 #2545 #2546 |
+| [livecode](#livecode) | 8 | 9 | 0 | 6 | #2535 #2546 #2547 #2650 #2659 |
+| [lua](#lua) | 4 | 4 | 0 | 5 | #2535 #2546 #2547 #2657 |
+| [m4](#m4) | 16 | 4 | 2 | 5 | #2535 |
+| [makefile](#makefile) | 7 | 9 | 1 | 8 | #2535 #2546 #2648 #2655 |
+| [markdown](#markdown) | 15 | 3 | 27 | 4 | #2638 #2655 |
+| [matlab](#matlab) | 7 | 1 | 0 | 5 | #2535 #2546 #2547 |
+| [objective-c](#objective-c) | 2 | 1 | 0 | 5 | #2535 #2545 #2546 |
+| [perl](#perl) | 4 | 3 | 0 | 6 | #2535 #2546 #2626 #2670 |
 | [php](#php) | 1 | 4 | 0 | 4 | #2535 #2541 #2546 |
-| [powershell](#powershell) | 11 | 6 | 0 | 7 | #2535 #2545 #2546 #2547 #2656 |
-| [python](#python) | 6 | 10 | 0 | 6 | #2535 #2536 #2655 #2658 |
-| [ruby](#ruby) | 1 | 5 | 0 | 4 | #2535 #2546 #2547 |
-| [rust](#rust) | 6 | 7 | 0 | 3 | #2535 #2655 |
-| [scala](#scala) | 4 | 2 | 0 | 3 | #2535 |
-| [scheme](#scheme) | 3 | 11 | 0 | 4 | #2535 #2537 |
-| [shell](#shell) | 5 | 6 | 1 | 6 | #2535 #2547 |
-| [solidity](#solidity) | 4 | 3 | 1 | 5 | #2535 #2545 |
-| [sqlite](#sqlite) | 13 | 7 | 0 | 5 | #2535 #2547 #2655 |
-| [swift](#swift) | 2 | 6 | 0 | 4 | #2535 #2543 #2546 |
+| [powershell](#powershell) | 13 | 3 | 0 | 7 | #2535 #2545 #2546 #2547 #2656 |
+| [python](#python) | 1 | 7 | 0 | 6 | #2535 #2536 #2655 #2658 |
+| [ruby](#ruby) | 2 | 5 | 0 | 4 | #2535 #2546 #2547 |
+| [rust](#rust) | 1 | 5 | 0 | 3 | #2535 #2655 |
+| [scala](#scala) | 4 | 2 | 0 | 2 | #2535 |
+| [scheme](#scheme) | 3 | 5 | 0 | 3 | #2535 #2537 |
+| [shell](#shell) | 7 | 3 | 1 | 6 | #2535 #2547 |
+| [solidity](#solidity) | 4 | 1 | 1 | 5 | #2535 #2545 |
+| [sqlite](#sqlite) | 15 | 4 | 0 | 6 | #2535 #2547 #2655 |
+| [swift](#swift) | 1 | 9 | 0 | 4 | #2535 #2543 #2546 |
 | [tcl](#tcl) | 8 | 5 | 0 | 4 | #2535 #2546 |
-| [typescript](#typescript) | 2 | 5 | 0 | 5 | #2535 #2546 #2655 |
-| [yacc](#yacc) | 20 | 6 | 3 | 5 | #2644 |
-| [yaml](#yaml) | 15 | 12 | 2 | 4 | #2646 #2647 |
-| [zig](#zig) | 1 | 3 | 0 | 5 | #2535 #2545 #2651 |
+| [typescript](#typescript) | 3 | 4 | 0 | 5 | #2535 #2546 #2655 |
+| [yacc](#yacc) | 19 | 3 | 3 | 5 | #2644 |
+| [yaml](#yaml) | 12 | 11 | 2 | 5 | #2646 #2647 |
+| [zig](#zig) | 1 | 1 | 0 | 4 | #2535 #2545 #2651 |
 
 ## abap
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
-- 🔴 `risk_cognitive_load`: 2.3577 vs median 6.67188 (-65%)
-- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
-- 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `control_flow_ratio`: 0.09375 vs median 0.1665 (-44%)
-- 🟡 `dependency_density`: 0.53125 vs median 0.369792 (+44%)
-- 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
-- 🟡 `func_internal_density`: 0.0357143 vs median 0.06125 (-42%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -80,7 +68,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.abap** · `never uses TRUNCATE and no WHILE loop` (comment): stripped: contributed 0
-- **b.abap** · `lv_note = 'IF TRUNCATE FAILS TRY SELECT AGAIN'` (string): abap is a THIRD shielding profile: IF/TRY contribute NO branch, TRUNCATE no high_risk, SELECT no io — but TRY DOES count safety (+1, micro-repro isolated it to the string, comments contribute 0). Ledger: string-literal-selective-shielding
+- **b.abap** · `lv_note = 'PLAIN TRUNCATE DECOY TEXT'. (inside probe_state)` (string): danger-only decoy (#17 redesign, wave 3): TRUNCATE is abap's own danger keyword and was ALREADY in the retired sentence, but it read 0 — the sentence's own TRY fed abap's safety rule and the Silencer Region dampener (high_risk <- safety, 500 chars, same function) silenced it. That is the same mechanism the pilot found in python, not the 'third shielding profile' this entry previously recorded: abap shields nothing. Dropping TRY takes safety 1->0 and high_risk_execution 0->1. IF and SELECT never counted here (abap's branch and io rules do not match them), which is why no other count moves. Ledger: string-literal-selective-shielding
 - **c.abap** · `hack_level = cv_level` (code): inert (underscore + lowercase vs case-sensitive \bHACK\b)
 
 </details>
@@ -91,11 +79,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `avg_func_args`: 3 vs median 1 (+200%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
-- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
-- 🟡 `control_flow_ratio`: 0.08375 vs median 0.1665 (-50%)
-- 🟡 `dependency_density`: 0.541667 vs median 0.369792 (+46%)
+- 🔴 `risk_documentation`: 0 vs median 55.5369 (-100%)
+- 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
+- 🟡 `branch`: 4 vs median 3 (+33%)
+- 🟡 `control_flow_ratio`: 0.05875 vs median 0.09375 (-37%)
+- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
-- 🟡 `token_mass`: 154.25 vs median 121.25 (+27%)
+- 🟡 `token_mass`: 154.5 vs median 122 (+27%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -107,7 +97,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.adb** · `never calls OS_Exit and no loop keyword` (comment): stripped: contributed 0
-- **b.adb** · `Note := "if eval fails, try open"` (string): if COUNTS (branch +1); eval/try/open inert in ada's rules. The phantom branch context triggers the flux weighting: 2 raw := become state_mutation 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.adb** · `Note := "plain OS_Exit decoy text"; (Probe_State)` (string): danger-only decoy (#17 redesign): "OS_Exit" COUNTS from inside the literal (+1), undampened — Probe_State carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.adb** · `Hack_Level : Integer` (code): inert (underscore + lowercase vs case-sensitive \bHACK\b); declared without := so no state hit
 
 </details>
@@ -116,19 +106,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `args`: 2 vs median 13 (-85%)
-- 🔴 `avg_func_args`: 0.166667 vs median 1 (-83%)
-- 🔴 `avg_func_loc`: 2.375 vs median 5.10417 (-53%)
-- 🔴 `func_internal_density`: 0.125 vs median 0.06125 (+104%)
-- 🔴 `risk_api_exposure`: 1.54255 vs median 5.28878 (-71%)
-- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
-- 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🟡 `coding_loc`: 8.5 vs median 17 (-50%)
-- 🟡 `cog_raw`: 0.085 vs median 0.1375 (-38%)
-- 🟡 `dependency_density`: 0.55 vs median 0.369792 (+49%)
-- 🟡 `risk_cognitive_load`: 4.21785 vs median 6.67188 (-37%)
-- 🟡 `structural_mass`: 7.92 vs median 11.43 (-31%)
-- 🟡 `total_loc`: 13.5 vs median 24.625 (-45%)
+- 🔴 `cog_raw`: 0.085 vs median 0.055 (+55%)
+- 🔴 `func_complexity_gini`: 0.3125 vs median 0.1875 (+67%)
+- 🔴 `func_internal_density`: 0.0848214 vs median 0.0340909 (+149%)
+- 🔴 `risk_api_exposure`: 1.21115 vs median 5.28878 (-77%)
+- 🔴 `risk_cognitive_load`: 4.21785 vs median 2.3577 (+79%)
+- 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
+- 🟡 `avg_func_loc`: 3.29167 vs median 5.125 (-36%)
+- 🟡 `branch`: 4 vs median 3 (+33%)
+- 🟡 `coding_loc`: 11.5 vs median 17.125 (-33%)
+- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
+- 🟡 `total_loc`: 16.5 vs median 24.75 (-33%)
 
 **Not expressible as measured (n/a):** `class_start`
 
@@ -150,26 +138,19 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
-- 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
-- 🔴 `dependency_density`: 0 vs median 0.369792 (-100%)
-- 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `popularity`: 0 vs median 0.75 (-100%)
-- 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
-- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
-- 🔴 `risk_tech_debt`: 96.8963 vs median 46.5703 (+108%)
+- 🔴 `cog_raw`: 0.12375 vs median 0.055 (+125%)
+- 🔴 `import`: 6 vs median 3 (+100%)
+- 🔴 `risk_cognitive_load`: 5.8306 vs median 2.3577 (+147%)
+- 🔴 `risk_state_flux`: 14.7927 vs median 9.43853 (+57%)
 - 🟡 `args`: 18 vs median 13 (+38%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `cog_raw`: 0.1845 vs median 0.1375 (+34%)
-- 🟡 `risk_safety_score`: 58.0227 vs median 40.669 (+43%)
-- 🟡 `risk_state_flux`: 28.7798 vs median 22.9207 (+26%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
+- 🟡 `risk_safety_score`: 59.4033 vs median 42.0539 (+41%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `apex-import-ignorecase-type-guard` | engine-defect | [#2671](https://github.com/squid-protocol/gitgalaxy/issues/2671) | (notes) | apex's import rule is compiled with re.IGNORECASE, which neutralises the [A-Z] guard in its second alternative (\b[a-zA-Z_]\w*\.[A-Z]\w*\b), so the alternative degrades … |
+| `api-contextual-baseline-fix` | engine-semantic | [#2536](https://github.com/squid-protocol/gitgalaxy/issues/2536) | (notes) | galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.cls | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cls | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
@@ -179,7 +160,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.cls** · `note = 'if eval fails, try open'` (string): if + try count branch +2 (apex branch includes try); insert/update 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.cls** · `String note = 'plain emptyRecycleBin decoy text'; (probeState)` (string): danger-only decoy (#17 redesign): "emptyRecycleBin" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>
 
@@ -187,17 +168,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_complexity`: 1.79167 vs median 0.270833 (+562%)
-- 🔴 `branch`: 25 vs median 5 (+400%)
-- 🔴 `cog_raw`: 0.285 vs median 0.1375 (+107%)
-- 🔴 `control_flow_ratio`: 0.5965 vs median 0.1665 (+258%)
-- 🔴 `dependency_density`: 0.0702614 vs median 0.369792 (-81%)
-- 🔴 `func_internal_density`: 0.341731 vs median 0.06125 (+458%)
-- 🔴 `max_func_complexity`: 2.75 vs median 1 (+175%)
-- 🔴 `risk_cognitive_load`: 13.901 vs median 6.67188 (+108%)
-- 🔴 `structural_mass`: 18.045 vs median 11.43 (+58%)
-- 🟡 `func_complexity_gini`: 0.197222 vs median 0.354167 (-44%)
-- 🟡 `io`: 4 vs median 3 (+33%)
+- 🔴 `avg_func_complexity`: 1.70833 vs median 0.1875 (+811%)
+- 🔴 `branch`: 24 vs median 3 (+700%)
+- 🔴 `cog_raw`: 0.28 vs median 0.055 (+409%)
+- 🔴 `control_flow_ratio`: 0.58525 vs median 0.09375 (+524%)
+- 🔴 `dependency_density`: 0.0737337 vs median 0.53125 (-86%)
+- 🔴 `func_internal_density`: 0.326106 vs median 0.0340909 (+857%)
+- 🔴 `max_func_complexity`: 2.75 vs median 0.75 (+267%)
+- 🔴 `risk_cognitive_load`: 13.5452 vs median 2.3577 (+475%)
+- 🔴 `risk_state_flux`: 23.4257 vs median 9.43853 (+148%)
+- 🔴 `state_mutation`: 6 vs median 2 (+200%)
+- 🔴 `structural_mass`: 17.695 vs median 9.845 (+80%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -210,7 +191,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.asm** · `never halts and the branch words stay in prose` (comment): stripped: contributed 0
-- **b.asm** · `msg db "if jmp fails try syscall again"` (string): COUNTED: jmp (branch +1), syscall (io +1); if/try inert in asm rules. Triggers flux weighting: inc+dec 2 raw -> state_mutation 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.asm** · `msg db "plain sys_exit decoy text" (inside probe_state)` (string): danger-only decoy (#17 redesign, wave 3): sys_exit COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword. Retiring the shared sentence dropped branch 6->5 (its 'jmp') and io 1->0 (its 'syscall'). state_mutation stays 6: probe_state's own 'ret' is a branch keyword too, so the x3 flux weighting on inc/dec survives the loss of the phantom jmp — unlike the other 35 languages, where the retired 'if' was the only branch in that scope. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.asm** · `mov rax, hack_level` (code): inert (underscore + lowercase)
 
 </details>
@@ -219,13 +200,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `io`: 5 vs median 3 (+67%)
 - 🔴 `risk_api_exposure`: 11.8351 vs median 5.28878 (+124%)
-- 🔴 `risk_documentation`: 95.1146 vs median 54.7722 (+74%)
-- 🔴 `state_mutation`: 11 vs median 6 (+83%)
-- 🔴 `structural_mass`: 19.53 vs median 11.43 (+71%)
-- 🟡 `func_internal_density`: 0.045625 vs median 0.06125 (-26%)
-- 🟡 `risk_state_flux`: 33.1372 vs median 22.9207 (+45%)
+- 🔴 `risk_documentation`: 95.1146 vs median 55.5369 (+71%)
+- 🔴 `risk_state_flux`: 19.1679 vs median 9.43853 (+103%)
+- 🔴 `state_mutation`: 5 vs median 2 (+150%)
+- 🔴 `structural_mass`: 17.68 vs median 9.845 (+80%)
+- 🟡 `cog_raw`: 0.0345 vs median 0.055 (-37%)
+- 🟡 `io`: 4 vs median 3 (+33%)
+- 🟡 `risk_cognitive_load`: 1.64835 vs median 2.3577 (-30%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -238,7 +220,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.c** · `note = "if eval fails, try open"` (string): if counts branch +1, open counts io +1 (c io includes bare open/close); the assignment itself is state +1 and the phantom branch context triples probe_state's 3 raw to 9. eval inert (c high_risk has no eval). Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.c** · `const char *note = "plain system decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.c** · `int hack_level;` (code): inert (underscore + lowercase)
 
 </details>
@@ -249,33 +231,31 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
-- 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🔴 `structural_mass`: 2.3275 vs median 11.43 (-80%)
-- 🟡 `avg_func_loc`: 3.1875 vs median 5.10417 (-38%)
-- 🟡 `cog_raw`: 0.085 vs median 0.1375 (-38%)
+- 🔴 `doc`: 2 vs median 1 (+100%)
+- 🔴 `structural_mass`: 2.315 vs median 9.845 (-76%)
+- 🟡 `avg_func_loc`: 3.1875 vs median 5.125 (-38%)
+- 🟡 `control_flow_ratio`: 0.06825 vs median 0.09375 (-27%)
 - 🟡 `encapsulation_ratio`: 0.5 vs median 0.75 (-33%)
-- 🟡 `func_internal_density`: 0.0777778 vs median 0.06125 (+27%)
+- 🟡 `func_internal_density`: 0.05 vs median 0.0340909 (+47%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
-- 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_cognitive_load`: 3.94015 vs median 6.67188 (-41%)
-- 🟡 `risk_safety_score`: 55.7707 vs median 40.669 (+37%)
+- 🟡 `risk_safety_score`: 55.7361 vs median 42.0539 (+33%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.cpy | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `cobol-args-clause-match-morphology` | intended-morphology | — | (notes) | cobol args 1 vs planted 13 is intended morphology, not an authoring gap (bucket-3 test run before ledgering, jcl PARM= precedent checked) |
 | `cobol-working-storage-globals` | keyword-overlap | — | (notes) | cobol globals pattern includes WORKING-STORAGE\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1 |
+| `cobol-2661-author-doc-collision` | upstream-bug | [#2661](https://github.com/squid-protocol/gitgalaxy/issues/2661) | (notes) | cobol's doc rule lists AUTHOR in the same bare-tag alternative that its ownership rule owns exclusively -- the shape gitgalaxy#2659 fixed for agc_assembly/fortran/liveco… |
 | `cobol-hyphen-identifier-debt-leak` | upstream-bug | [#2537](https://github.com/squid-protocol/gitgalaxy/issues/2537) | c.cpy | Debt rules are whole-text, not comment-anchored, and '-' is a regex word boundary: HACK-LEVEL (data item, 2 code occurrences) counts fragile_debt, PROBE-TODO (paragraph … |
 | `cobol-area-b-bare-token-paragraph` | upstream-question | [#2538](https://github.com/squid-protocol/gitgalaxy/issues/2538) | (notes) | A bare token + period in Area B (CEE3DMP |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.cbl** · `never ALTER this flow and no PERFORM loop` (comment): stripped: contributed 0
-- **a.cpy** · `DISPLAY 'IF ALTER FAILS TRY OPEN AGAIN'` (string): ALL counted: IF (branch +1), ALTER (high_risk +1), OPEN (io +1) — cobol does NOT shield the high-risk family in literals, unlike python/javascript. Ledger: string-literal-selective-shielding; gitgalaxy#2535 comment
+- **a.cpy** · `DISPLAY 'PLAIN ALTER DECOY TEXT'. (inside PROBE-GLOBALS)` (string): danger-only decoy (#17 redesign, wave 3): ALTER is cobol's own danger keyword and was already in the retired sentence, counting +1 undampened — cobol shields nothing and PROBE-GLOBALS carries no safety keyword, so high_risk_execution does not move. What the redesign removes is the contamination: branch 1->0 (the old 'IF') and io 1->0 (the old 'OPEN'). Ledger: string-literal-selective-shielding
 - **c.cpy** · `77 HACK-LEVEL PIC 9. / DISPLAY HACK-LEVEL.` (code): INERT (fixed): gitgalaxy#2537 (PR #2622) added hyphenated-identifier guards to the shared debt patterns, so \bHACK\b no longer matches inside HACK-LEVEL and the PROBE-TODO paragraph name no longer adds planned_debt — c.cpy now records exactly the planted * HACK: / * TODO: comments (1 each). Ledger: cobol-hyphen-identifier-debt-leak (resolved)
 
 </details>
@@ -284,13 +264,16 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `dependency_density`: 0.194444 vs median 0.369792 (-47%)
-- 🟡 `func_complexity_gini`: 0.520833 vs median 0.354167 (+47%)
-- 🟡 `risk_cognitive_load`: 8.4069 vs median 6.67188 (+26%)
-- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
-- 🟡 `state_mutation`: 9 vs median 6 (+50%)
+- 🔴 `control_flow_ratio`: 0.14375 vs median 0.09375 (+53%)
+- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
+- 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
+- 🟡 `branch`: 4 vs median 3 (+33%)
+- 🟡 `dependency_density`: 0.361111 vs median 0.53125 (-32%)
+- 🟡 `func_internal_density`: 0.0447059 vs median 0.0340909 (+31%)
+- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
+- 🟡 `risk_cognitive_load`: 3.13645 vs median 2.3577 (+33%)
+- 🟡 `risk_documentation`: 40.8436 vs median 55.5369 (-26%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -301,7 +284,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.cpp** · `note = "if eval fails, try open"` (string): if counts branch +1, try counts safety +1; cpp state counts plain = so the decoy line is a third raw state hit, tripled to 9 by the phantom branch context. eval/open inert. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.cpp** · `const char *note = "plain system decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.cpp** · `int hack_level;` (code): inert
 
 </details>
@@ -310,13 +293,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_complexity`: 0.416667 vs median 0.270833 (+54%)
-- 🟡 `cog_raw`: 0.09 vs median 0.1375 (-35%)
+- 🔴 `cog_raw`: 0.02 vs median 0.055 (-64%)
+- 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
+- 🟡 `branch`: 4 vs median 3 (+33%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
-- 🟡 `risk_cognitive_load`: 4.593 vs median 6.67188 (-31%)
-- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🟡 `risk_cognitive_load`: 1.28327 vs median 2.3577 (-46%)
+- 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -326,7 +309,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.cs** · `note = "if eval fails, try open"` (string): if + try count branch +2 (csharp branch includes try), try counts safety +1; ref/out 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.cs** · `var note = "plain Process.Start decoy text"; (ProbeState)` (string): danger-only decoy (#17 redesign): "Process.Start" COUNTS from inside the literal (+1), undampened — ProbeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.cs** · `var hack_level = level;` (code): inert
 
 </details>
@@ -337,30 +320,22 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 3 vs median 13 (-77%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `avg_func_loc`: 1 vs median 5.10417 (-80%)
-- 🔴 `coding_loc`: 4.75 vs median 17 (-72%)
-- 🔴 `cog_raw`: 0.04 vs median 0.1375 (-71%)
-- 🔴 `dependency_density`: 0.583333 vs median 0.369792 (+58%)
-- 🔴 `doc`: 0 vs median 1 (-100%)
-- 🔴 `func_complexity_gini`: 0.0625 vs median 0.354167 (-82%)
-- 🔴 `func_internal_density`: 0.1875 vs median 0.06125 (+206%)
-- 🔴 `globals`: 0 vs median 2 (-100%)
-- 🔴 `keyword_hits`: 44 vs median 149.5 (-71%)
-- 🔴 `max_func_complexity`: 0.25 vs median 1 (-75%)
-- 🔴 `ownership`: 0 vs median 1 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
-- 🔴 `risk_cognitive_load`: 2.15685 vs median 6.67188 (-68%)
-- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
-- 🔴 `risk_state_flux`: 0 vs median 22.9207 (-100%)
-- 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
-- 🔴 `structural_mass`: 0.2175 vs median 11.43 (-98%)
-- 🔴 `total_loc`: 11.75 vs median 24.625 (-52%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
-- 🟡 `risk_safety_score`: 21.0441 vs median 40.669 (-48%)
+- 🔴 `avg_func_loc`: 1.5 vs median 5.125 (-71%)
+- 🔴 `coding_loc`: 6.75 vs median 17.125 (-61%)
+- 🔴 `func_complexity_gini`: 0.0625 vs median 0.1875 (-67%)
+- 🔴 `func_internal_density`: 0.1875 vs median 0.0340909 (+450%)
+- 🔴 `keyword_hits`: 58 vs median 148 (-61%)
+- 🔴 `max_func_complexity`: 0.25 vs median 0.75 (-67%)
+- 🔴 `risk_api_exposure`: 0.440725 vs median 5.28878 (-92%)
+- 🔴 `risk_documentation`: 10.9966 vs median 55.5369 (-80%)
+- 🔴 `risk_state_flux`: 0 vs median 9.43853 (-100%)
+- 🔴 `structural_mass`: 0.235 vs median 9.845 (-98%)
+- 🟡 `cog_raw`: 0.04 vs median 0.055 (-27%)
+- 🟡 `control_flow_ratio`: 0.125 vs median 0.09375 (+33%)
+- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
-- 🟡 `token_mass`: 65.5 vs median 121.25 (-46%)
+- 🟡 `token_mass`: 77 vs median 122 (-37%)
+- 🟡 `total_loc`: 14.75 vs median 24.75 (-40%)
 
 **Not expressible as measured (n/a):** `cleanup`, `io`, `risk_concurrency`†, `state_mutation`, `telemetry`
 
@@ -368,6 +343,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
+| `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `css-declarative-no-runtime-payload-morphology` | intended-morphology | — | — | CSS is purely declarative with no embedded imperative/scripting payload, unlike the other languages that wire these three signals only against such payload: html's clean… |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `css-import-url-io-triple-overlap` | keyword-overlap | — | — | io stays None correctly, but css.py's inline comment gives the wrong reason ('url()/@import don't block a computational thread'); that doesn't hold against html's own io… |
@@ -382,23 +358,21 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `cog_raw`: 0.0905 vs median 0.1375 (-34%)
-- 🟡 `risk_cognitive_load`: 4.60507 vs median 6.67188 (-31%)
-- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🔴 `cog_raw`: 0.0205 vs median 0.055 (-63%)
+- 🟡 `risk_cognitive_load`: 1.29535 vs median 2.3577 (-45%)
+- 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
+- 🟡 `risk_state_flux`: 5.78688 vs median 9.43853 (-39%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dart | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `indented-declaration-globals` | upstream-question | [#2651](https://github.com/squid-protocol/gitgalaxy/issues/2651) | — | dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local final… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.dart** · `final note = "if eval fails, try open"` (string): if + try count (dart branch includes try, finditer-confirmed; try also safety +1); setState/notifyListeners 2 raw tripled to 6. The final declaration itself counts globals +1 (dart globals matches ANY indented final/const/var-with-=, hence globals 1 in b and c). Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.dart** · `final note = "plain exit decoy line"; (probeState)` (string): danger-only decoy (#17 redesign): "exit" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>
 
@@ -408,38 +382,39 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 4 vs median 13 (-69%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `avg_func_loc`: 1.2 vs median 5.10417 (-76%)
-- 🔴 `coding_loc`: 7.75 vs median 17 (-54%)
-- 🔴 `control_flow_ratio`: 0.375 vs median 0.1665 (+125%)
-- 🔴 `dependency_density`: 0.5875 vs median 0.369792 (+59%)
-- 🔴 `func_internal_density`: 0.135417 vs median 0.06125 (+121%)
-- 🔴 `io`: 6 vs median 3 (+100%)
+- 🔴 `avg_func_loc`: 1.2 vs median 5.125 (-77%)
+- 🔴 `coding_loc`: 7.75 vs median 17.125 (-55%)
+- 🔴 `control_flow_ratio`: 0.25 vs median 0.09375 (+167%)
+- 🔴 `func_internal_density`: 0.09375 vs median 0.0340909 (+175%)
+- 🔴 `io`: 5 vs median 3 (+67%)
 - 🔴 `risk_api_exposure`: 0.88145 vs median 5.28878 (-83%)
-- 🔴 `risk_documentation`: 12.1465 vs median 54.7722 (-78%)
-- 🟡 `avg_func_complexity`: 0.2 vs median 0.270833 (-26%)
+- 🔴 `risk_documentation`: 12.1465 vs median 55.5369 (-78%)
+- 🔴 `risk_state_flux`: 18.8771 vs median 9.43853 (+100%)
+- 🔴 `state_mutation`: 4 vs median 2 (+100%)
+- 🟡 `dependency_density`: 0.775 vs median 0.53125 (+46%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
 - 🟡 `func_start`: 17 vs median 13 (+31%)
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
-- 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `import`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 83 vs median 149.5 (-44%)
-- 🟡 `risk_safety_score`: 58.4078 vs median 40.669 (+44%)
+- 🟡 `keyword_hits`: 78 vs median 148 (-47%)
+- 🟡 `risk_safety_score`: 57.9983 vs median 42.0539 (+38%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
-- 🟡 `structural_mass`: 7.58 vs median 11.43 (-34%)
-- 🟡 `token_mass`: 75.5 vs median 121.25 (-38%)
-- 🟡 `total_loc`: 14.75 vs median 24.625 (-40%)
+- 🟡 `structural_mass`: 6.855 vs median 9.845 (-30%)
+- 🟡 `token_mass`: 75.25 vs median 122 (-38%)
+- 🟡 `total_loc`: 14.75 vs median 24.75 (-40%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.dockerfile | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dockerfile | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.dockerfile** · `RUN export NOTE="if eval fails, try curl"` (string): if (branch +1), curl (io +1) AND eval (high_risk +1) all count — dockerfile is unshielded. state 4 = this export's 1 raw x3 (its own literal provides the branch context — per-RUN flux scope) + the COUNTER export x1. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.dockerfile** · `RUN export NOTE="plain eval decoy text" (the NOTE export line)` (string): danger-only decoy (#17 redesign): "eval" was already dockerfile's own danger keyword and still COUNTS from inside the literal (+1) — what the redesign removes is the branch/io contamination that made the old read ambiguous. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 4->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>
 
@@ -447,17 +422,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `dependency_density`: 1.01667 vs median 0.369792 (+175%)
+- 🔴 `dependency_density`: 1.35 vs median 0.53125 (+154%)
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `import`: 7 vs median 3 (+133%)
 - 🔴 `risk_api_exposure`: 9.06108 vs median 5.28878 (+71%)
-- 🔴 `risk_documentation`: 91.0673 vs median 54.7722 (+66%)
-- 🔴 `safety`: 5 vs median 2 (+150%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `control_flow_ratio`: 0.10775 vs median 0.1665 (-35%)
-- 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 198 vs median 149.5 (+32%)
-- 🟡 `structural_mass`: 14.415 vs median 11.43 (+26%)
+- 🔴 `risk_documentation`: 91.0673 vs median 55.5369 (+64%)
+- 🔴 `safety`: 4 vs median 2 (+100%)
+- 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
+- 🟡 `keyword_hits`: 190 vs median 148 (+28%)
+- 🟡 `structural_mass`: 12.715 vs median 9.845 (+29%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -465,13 +438,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `embedded-python-per-file-classification` | engine-semantic | [#2548](https://github.com/squid-protocol/gitgalaxy/issues/2548) | — | Classification is per-file with no folder-context bleed: a .py file without its own micropython marker (import machine etc.) classifies as plain python even when every s… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
-| `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.py | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `python-2658-docstring-delimiter-double-count` | upstream-bug | [#2658](https://github.com/squid-protocol/gitgalaxy/issues/2658) | — | the doc rule matched opening and closing docstring delimiters independently with no pairing, so one docstring counted doc=2 -- RESOLVED via gitgalaxy#2658 (matches the f… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.py** · `note = "if eval fails, try open"` (string): if/try count (branch +2, safety +1), open counts io +1, eval does NOT (python-family selective profile); append/update 2 raw state tripled to 6
+- **b.py** · `note = "plain machine.reset decoy line" (probe_state)` (string): danger-only decoy (#17 redesign): "machine.reset" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 3->2, io 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.py** · `hack_level = level` (code): inert (underscore)
 
 </details>
@@ -480,19 +453,16 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.045 vs median 0.1375 (-67%)
-- 🔴 `func_complexity_gini`: 0.15625 vs median 0.354167 (-56%)
 - 🔴 `risk_api_exposure`: 9.4704 vs median 5.28878 (+79%)
-- 🔴 `risk_cognitive_load`: 2.04145 vs median 6.67188 (-69%)
-- 🔴 `risk_documentation`: 91.0673 vs median 54.7722 (+66%)
-- 🔴 `risk_safety_score`: 74.5186 vs median 40.669 (+83%)
-- 🟡 `control_flow_ratio`: 0.111 vs median 0.1665 (-33%)
-- 🟡 `dependency_density`: 0.525 vs median 0.369792 (+42%)
-- 🟡 `func_internal_density`: 0.0434783 vs median 0.06125 (-29%)
-- 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `risk_state_flux`: 14.7927 vs median 22.9207 (-35%)
+- 🔴 `risk_documentation`: 91.0673 vs median 55.5369 (+64%)
+- 🔴 `risk_safety_score`: 74.5186 vs median 42.0539 (+77%)
+- 🔴 `risk_state_flux`: 14.7927 vs median 9.43853 (+57%)
+- 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
+- 🟡 `branch`: 4 vs median 3 (+33%)
+- 🟡 `func_internal_density`: 0.0434783 vs median 0.0340909 (+28%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
-- 🟡 `state_mutation`: 3 vs median 6 (-50%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
+- 🟡 `structural_mass`: 13.275 vs median 9.845 (+35%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -515,11 +485,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
+- 🔴 `cog_raw`: 0.0205 vs median 0.055 (-63%)
 - 🔴 `risk_api_exposure`: 1.89112 vs median 5.28878 (-64%)
-- 🔴 `state_mutation`: 11 vs median 6 (+83%)
-- 🟡 `control_flow_ratio`: 0.11675 vs median 0.1665 (-30%)
-- 🟡 `func_internal_density`: 0.045625 vs median 0.06125 (-26%)
-- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🔴 `risk_state_flux`: 20.8005 vs median 9.43853 (+120%)
+- 🔴 `state_mutation`: 5 vs median 2 (+150%)
+- 🟡 `risk_cognitive_load`: 1.29535 vs median 2.3577 (-45%)
+- 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -533,7 +504,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.go** · `note := "if eval fails, try open"` (string): if counts branch +1; the := is a raw state hit. state 11 = probe_state's 3 raw x3 (flux, phantom branch in that function) + probe_bypass's 2 '_ =' unweighted — the flux weighting is PER-FUNCTION, not per-file. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.go** · `note := "plain os.Exit decoy text" (inside probeState)` (string): danger-only decoy (#17 redesign): os.Exit COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the old sentence also removed its phantom branch ("if"), which had tripled probeState via the x3 flux weighting: state_mutation 11 -> 5 (3 raw + probe_bypass 2). Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.go** · `(no code reverse decoy — go file carries comment decoys only)` (comment): comment HACK/TODO count exactly 1 each
 
 </details>
@@ -544,20 +515,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🟡 `args`: 19 vs median 13 (+46%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `control_flow_ratio`: 0.11325 vs median 0.1665 (-32%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
+- 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.groovy | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `ts-callparen-args` | engine-semantic | — | — | typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params — a.ts args 5 for 3 declarations (finditer-co… |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.groovy** · `note = "if eval fails, try open"` (string): if + try count (groovy branch includes try, finditer-confirmed; try also safety); counter=/note= 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.groovy** · `note = "plain execute decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "execute" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>
 
@@ -565,21 +533,21 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_loc`: 2.25 vs median 5.10417 (-56%)
-- 🔴 `control_flow_ratio`: 0.375 vs median 0.1665 (+125%)
-- 🔴 `func_internal_density`: 0.129464 vs median 0.06125 (+111%)
+- 🔴 `avg_func_loc`: 2.25 vs median 5.125 (-56%)
+- 🔴 `coding_loc`: 8.5 vs median 17.125 (-50%)
+- 🔴 `control_flow_ratio`: 0.25 vs median 0.09375 (+167%)
+- 🔴 `func_internal_density`: 0.09375 vs median 0.0340909 (+175%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
-- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
-- 🔴 `safety`: 4 vs median 2 (+100%)
+- 🔴 `risk_documentation`: 0 vs median 55.5369 (-100%)
+- 🔴 `risk_state_flux`: 18.8771 vs median 9.43853 (+100%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
-- 🟡 `coding_loc`: 8.5 vs median 17 (-50%)
-- 🟡 `keyword_hits`: 105 vs median 149.5 (-30%)
-- 🟡 `risk_safety_score`: 58.2103 vs median 40.669 (+43%)
-- 🟡 `risk_state_flux`: 32.8642 vs median 22.9207 (+43%)
+- 🔴 `state_mutation`: 4 vs median 2 (+100%)
+- 🟡 `keyword_hits`: 100 vs median 148 (-32%)
+- 🟡 `risk_safety_score`: 59.5606 vs median 42.0539 (+42%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
-- 🟡 `state_mutation`: 8 vs median 6 (+33%)
-- 🟡 `structural_mass`: 8.545 vs median 11.43 (-25%)
-- 🟡 `total_loc`: 17 vs median 24.625 (-31%)
+- 🟡 `safety`: 3 vs median 2 (+50%)
+- 🟡 `structural_mass`: 7.195 vs median 9.845 (-27%)
+- 🟡 `total_loc`: 17 vs median 24.75 (-31%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -591,7 +559,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.hs** · `never dies and the exit words stay in prose` (comment): stripped: contributed 0
-- **b.hs** · `message = "if eval fails, try open"` (string): if (branch +1) and try (safety +1) COUNT — python/js profile; eval/open inert in haskell's rules. Phantom branch context triples state: modifyIORef+writeIORef 2 raw -> 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.hs** · `where message = "plain die decoy text" (probeState's where-clause)` (string): danger-only decoy (#17 redesign): "die" COUNTS from inside the literal (+1), undampened — probeState's where-clause carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.hs** · `hackLevel where hackLevel = level` (code): inert (camelCase lowercase vs case-sensitive \bHACK\b)
 
 </details>
@@ -602,32 +570,28 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 3 vs median 13 (-77%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `avg_func_complexity`: 0 vs median 0.270833 (-100%)
-- 🔴 `avg_func_loc`: 0 vs median 5.10417 (-100%)
-- 🔴 `cleanup`: 0 vs median 2 (-100%)
-- 🔴 `coding_loc`: 6 vs median 17 (-65%)
-- 🔴 `cog_raw`: 0.04 vs median 0.1375 (-71%)
-- 🔴 `control_flow_ratio`: 0.25 vs median 0.1665 (+50%)
-- 🔴 `func_complexity_gini`: 0 vs median 0.354167 (-100%)
-- 🔴 `func_internal_density`: 0 vs median 0.06125 (-100%)
+- 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
+- 🔴 `avg_func_loc`: 0 vs median 5.125 (-100%)
+- 🔴 `coding_loc`: 7 vs median 17.125 (-59%)
+- 🔴 `control_flow_ratio`: 0.25 vs median 0.09375 (+167%)
+- 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
+- 🔴 `func_internal_density`: 0 vs median 0.0340909 (-100%)
 - 🔴 `func_start`: 0 vs median 13 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `keyword_hits`: 33 vs median 149.5 (-78%)
-- 🔴 `max_func_complexity`: 0 vs median 1 (-100%)
+- 🔴 `keyword_hits`: 41 vs median 148 (-72%)
+- 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `risk_api_exposure`: 0.88145 vs median 5.28878 (-83%)
-- 🔴 `risk_cognitive_load`: 1.89803 vs median 6.67188 (-72%)
-- 🔴 `risk_documentation`: 11.3461 vs median 54.7722 (-79%)
-- 🔴 `risk_safety_score`: 0 vs median 40.669 (-100%)
+- 🔴 `risk_documentation`: 11.3461 vs median 55.5369 (-80%)
+- 🔴 `risk_safety_score`: 0 vs median 42.0539 (-100%)
 - 🔴 `risk_spec_match`: 0 vs median 100 (-100%)
-- 🔴 `risk_state_flux`: 0 vs median 22.9207 (-100%)
+- 🔴 `risk_state_flux`: 0 vs median 9.43853 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
-- 🔴 `telemetry`: 0 vs median 2 (-100%)
-- 🔴 `total_loc`: 9.5 vs median 24.625 (-61%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `dependency_density`: 0.525 vs median 0.369792 (+42%)
+- 🔴 `total_loc`: 10.5 vs median 24.75 (-58%)
+- 🟡 `cog_raw`: 0.04 vs median 0.055 (-27%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
-- 🟡 `token_mass`: 63.25 vs median 121.25 (-48%)
+- 🟡 `structural_mass`: 13.89 vs median 9.845 (+41%)
+- 🟡 `token_mass`: 73.25 vs median 122 (-40%)
 
 **Not expressible as measured (n/a):** `globals`, `high_risk_execution`, `state_mutation`
 
@@ -635,6 +599,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
+| `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `html-2578-declarative-globals-state-mutation-morphology` | intended-morphology | — | — | html has no native idiom for scoped-vs-global variables or state mutation -- it is purely declarative markup; both concepts are inherently imperative/scripting concepts … |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
@@ -651,13 +616,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
+- 🔴 `cog_raw`: 0.0205 vs median 0.055 (-63%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_cognitive_load`: 10.765 vs median 6.67188 (+61%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `cog_raw`: 0.1805 vs median 0.1375 (+31%)
-- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🔴 `risk_cognitive_load`: 0.9715 vs median 2.3577 (-59%)
+- 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -668,7 +631,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.java** · `String note = "if eval fails, try open"` (string): if + try count branch +2 (java branch includes try), try counts safety +1; volatile+Atomic 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.java** · `String note = "plain Unsafe decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "Unsafe" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.java** · `int hack_level;` (code): inert
 
 </details>
@@ -679,22 +642,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
-- 🔴 `cog_raw`: 0.0545 vs median 0.1375 (-60%)
-- 🔴 `func_internal_density`: 0.0288462 vs median 0.06125 (-53%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🔴 `risk_cognitive_load`: 3.25245 vs median 6.67188 (-51%)
-- 🔴 `risk_state_flux`: 6.33765 vs median 22.9207 (-72%)
-- 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
+- 🟡 `cog_raw`: 0.0345 vs median 0.055 (-37%)
 - 🟡 `encapsulation_ratio`: 0.9445 vs median 0.75 (+26%)
-- 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `normalized_blast_radius`: 166.667 vs median 223.983 (-26%)
 - 🟡 `pagerank`: 0.166667 vs median 0.223983 (-26%)
 - 🟡 `pagerank_score`: 0.166667 vs median 0.223983 (-26%)
-- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
+- 🟡 `risk_cognitive_load`: 1.64835 vs median 2.3577 (-30%)
+- 🟡 `risk_documentation`: 40.8436 vs median 55.5369 (-26%)
+- 🟡 `risk_state_flux`: 6.33765 vs median 9.43853 (-33%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -708,7 +666,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.js** · `never calls eval and no while loop` (comment): stripped: contributed 0
-- **a.js** · `MESSAGE = "if eval fails, try open"` (string): same sentence as python, same result: if/try COUNT (branch +2 — js branch includes try; safety +1) but eval does NOT (high_risk 0); open is inert in js (not an io keyword). Ledger: string-literal-selective-shielding; gitgalaxy#2535
+- **a.js** · `const message = "plain eval decoy text"; (probeGlobals)` (string): danger-only decoy (#17 redesign): "eval" now COUNTS from inside the literal (+1). It read 0 before only because the old sentence's own "try" fed the safety rule and the Silencer Region dampener (high_risk <- safety, 500 chars, same function) fired on it. PLACEMENT RULE: the literal moved from module scope into probeGlobals — module-level code falls back to flat 500-char-radius dampening (apply_dampener_correlations docstring), where probeSafety's typeof would re-dampen it. Retiring the shared sentence also dropped branch 2->0, safety 3->2. Ledger: string-literal-selective-shielding
 - **b.js** · `the try keyword stays in prose` (comment): stripped: contributed 0
 - **c.js** · `const HACK_LEVEL = level` (code): inert as in python — underscore is a word character so \bHACK\b cannot match; note this inertness is tokenization luck, not surface anchoring (see cobol + gitgalaxy#2537)
 
@@ -718,21 +676,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_loc`: 1.47917 vs median 5.10417 (-71%)
-- 🔴 `coding_loc`: 6 vs median 17 (-65%)
-- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
-- 🔴 `dependency_density`: 0.6 vs median 0.369792 (+62%)
-- 🔴 `risk_cognitive_load`: 2.6792 vs median 6.67188 (-60%)
-- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
-- 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🔴 `total_loc`: 9.75 vs median 24.625 (-60%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
+- 🔴 `avg_func_loc`: 1.47917 vs median 5.125 (-71%)
+- 🔴 `coding_loc`: 6 vs median 17.125 (-65%)
+- 🔴 `func_internal_density`: 0.0833333 vs median 0.0340909 (+144%)
+- 🔴 `total_loc`: 9.75 vs median 24.75 (-61%)
+- 🟡 `control_flow_ratio`: 0.125 vs median 0.09375 (+33%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
-- 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
-- 🟡 `func_internal_density`: 0.0833333 vs median 0.06125 (+36%)
-- 🟡 `keyword_hits`: 87 vs median 149.5 (-42%)
+- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
+- 🟡 `keyword_hits`: 87 vs median 148 (-41%)
 
 **Not expressible as measured (n/a):** `cleanup`, `doc`, `globals`, `risk_concurrency`†, `risk_dead_code`†, `test`
 
@@ -749,10 +701,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `control_flow_ratio`: 0.11325 vs median 0.1665 (-32%)
-- 🟡 `keyword_hits`: 187 vs median 149.5 (+25%)
-- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
+- 🔴 `risk_state_flux`: 4.63567 vs median 9.43853 (-51%)
+- 🟡 `cog_raw`: 0.0345 vs median 0.055 (-37%)
+- 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
+- 🟡 `risk_cognitive_load`: 1.31072 vs median 2.3577 (-44%)
+- 🟡 `risk_documentation`: 40.8436 vs median 55.5369 (-26%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -764,7 +717,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.kt** · `val note = "if eval fails, try open"` (string): if + try count branch +2 (kotlin branch includes try); val is not a kotlin state keyword so the decoy line adds no state — var x2 raw tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.kt** · `val note = "plain System.exit decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "System.exit" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.kt** · `val hackLevel = level` (code): inert (camelCase)
 
 </details>
@@ -773,22 +726,23 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.27625 vs median 0.1375 (+101%)
-- 🔴 `control_flow_ratio`: 0.51675 vs median 0.1665 (+210%)
-- 🔴 `dependency_density`: 0.0870879 vs median 0.369792 (-76%)
-- 🔴 `func_complexity_gini`: 0.575 vs median 0.354167 (+62%)
-- 🔴 `max_func_complexity`: 1.75 vs median 1 (+75%)
-- 🔴 `risk_cognitive_load`: 15.7832 vs median 6.67188 (+137%)
+- 🔴 `branch`: 5 vs median 3 (+67%)
+- 🔴 `cog_raw`: 0.10425 vs median 0.055 (+90%)
+- 🔴 `control_flow_ratio`: 0.41675 vs median 0.09375 (+345%)
+- 🔴 `func_complexity_gini`: 0.3875 vs median 0.1875 (+107%)
+- 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
+- 🔴 `risk_cognitive_load`: 4.8376 vs median 2.3577 (+105%)
+- 🔴 `risk_state_flux`: 14.3611 vs median 9.43853 (+52%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
-- 🟡 `avg_func_complexity`: 0.3875 vs median 0.270833 (+43%)
-- 🟡 `branch`: 7 vs median 5 (+40%)
+- 🟡 `avg_func_complexity`: 0.2625 vs median 0.1875 (+40%)
+- 🟡 `dependency_density`: 0.287088 vs median 0.53125 (-46%)
+- 🟡 `func_internal_density`: 0.0472222 vs median 0.0340909 (+39%)
 - 🟡 `risk_api_exposure`: 7.33545 vs median 5.28878 (+39%)
-- 🟡 `risk_documentation`: 76.1418 vs median 54.7722 (+39%)
-- 🟡 `risk_safety_score`: 58.2803 vs median 40.669 (+43%)
+- 🟡 `risk_documentation`: 76.1418 vs median 55.5369 (+37%)
+- 🟡 `risk_safety_score`: 59.0785 vs median 42.0539 (+40%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
-- 🟡 `state_mutation`: 9 vs median 6 (+50%)
-- 🟡 `structural_mass`: 14.57 vs median 11.43 (+27%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
+- 🟡 `structural_mass`: 12.37 vs median 9.845 (+26%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -801,7 +755,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.lc** · `put "if eval fails, try open" into tNote` (string): if + try count (livecode branch includes try; try also safety +1); the put-into is a 3rd raw state hit, tripled to 9. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.lc** · `put "plain answer decoy text" into tNote (probe_state)` (string): danger-only decoy (#17 redesign): "answer" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **a.lc** · `global gRegion / global gHome` (code): global is dual globals+safety_bypasses in livecode (a bypasses 2, predicted from the menus before scanning)
 
 </details>
@@ -811,15 +765,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `risk_api_exposure`: 9.4704 vs median 5.28878 (+79%)
-- 🔴 `risk_documentation`: 90.9609 vs median 54.7722 (+66%)
-- 🔴 `risk_safety_score`: 74.2803 vs median 40.669 (+83%)
+- 🔴 `risk_documentation`: 90.9609 vs median 55.5369 (+64%)
+- 🔴 `risk_safety_score`: 75.2134 vs median 42.0539 (+79%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
-- 🟡 `cog_raw`: 0.17975 vs median 0.1375 (+31%)
-- 🟡 `control_flow_ratio`: 0.089 vs median 0.1665 (-47%)
-- 🟡 `func_internal_density`: 0.0353423 vs median 0.06125 (-42%)
+- 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
+- 🟡 `func_internal_density`: 0.0234375 vs median 0.0340909 (-31%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_cognitive_load`: 9.01727 vs median 6.67188 (+35%)
-- 🟡 `structural_mass`: 15.2 vs median 11.43 (+33%)
+- 🟡 `structural_mass`: 13.85 vs median 9.845 (+41%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -831,7 +783,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.lua** · `note = "if eval fails, try open"` (string): if counts branch +1; counter/note assignments 2 raw state tripled to 6. eval/try/open inert in lua's planted rules. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.lua** · `note = "plain os.remove decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "os.remove" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.lua** · `(comment decoys only)` (comment): HACK/TODO comments count exactly 1 each
 
 </details>
@@ -840,44 +792,40 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_loc`: 1 vs median 5.10417 (-80%)
+- 🔴 `avg_func_loc`: 1 vs median 5.125 (-80%)
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
-- 🔴 `coding_loc`: 4 vs median 17 (-76%)
-- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
-- 🔴 `control_flow_ratio`: 0.25 vs median 0.1665 (+50%)
-- 🔴 `dependency_density`: 0 vs median 0.369792 (-100%)
+- 🔴 `coding_loc`: 4 vs median 17.125 (-77%)
+- 🔴 `control_flow_ratio`: 0.25 vs median 0.09375 (+167%)
+- 🔴 `dependency_density`: 0 vs median 0.53125 (-100%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `func_internal_density`: 0.1875 vs median 0.06125 (+206%)
+- 🔴 `func_internal_density`: 0.1875 vs median 0.0340909 (+450%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
-- 🔴 `risk_cognitive_load`: 2.3577 vs median 6.67188 (-65%)
-- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
+- 🔴 `risk_documentation`: 0 vs median 55.5369 (-100%)
+- 🔴 `risk_state_flux`: 18.8771 vs median 9.43853 (+100%)
 - 🔴 `risk_tech_debt`: 99.868 vs median 46.5703 (+114%)
-- 🔴 `total_loc`: 9 vs median 24.625 (-63%)
+- 🔴 `state_mutation`: 4 vs median 2 (+100%)
+- 🔴 `total_loc`: 9 vs median 24.75 (-64%)
 - 🟡 `args`: 18 vs median 13 (+38%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
-- 🟡 `keyword_hits`: 76 vs median 149.5 (-49%)
-- 🟡 `risk_safety_score`: 57.1258 vs median 40.669 (+40%)
-- 🟡 `state_mutation`: 4 vs median 6 (-33%)
-- 🟡 `structural_mass`: 7.005 vs median 11.43 (-39%)
+- 🟡 `keyword_hits`: 76 vs median 148 (-49%)
+- 🟡 `risk_safety_score`: 59.1497 vs median 42.0539 (+41%)
+- 🟡 `structural_mass`: 7.005 vs median 9.845 (-29%)
 
 **Not expressible as measured (n/a):** `class_start`, `risk_concurrency`†
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.m4 | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `m4-class-start-no-object-concept` | intended-morphology | — | — | GNU M4 is a pure text-substitution macro processor; neither M4 nor Autoconf (the corpus's real-world use case) has any record/object/type-declaration concept |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `no-dependency-capture-languages` | upstream-question | — | — | m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never c… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.m4** · `m4_append(note, [if eval fails, try open])` (string): NOTHING counted from the quoted text: m4's branch keywords are macro names (ifelse/ifdef), bare if is not a keyword, and eval is not m4's risk keyword — state stayed exactly 2 with no flux (no branch context in b). The cleanest file in the corpus.
+- **b.m4** · `m4_define(probe_state, [pushdef(counter) m4_append(note, [plain esyscmd decoy text]) $1]) (the probe_state macro body)` (string): danger-only decoy (#17 redesign): "esyscmd" COUNTS from inside the literal (+1), undampened — the probe_state macro body carries no safety keyword, so the Silencer Region never fires. Ledger: string-literal-selective-shielding
 
 </details>
 
@@ -887,15 +835,20 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0.125 vs median 1 (-88%)
-- 🔴 `control_flow_ratio`: 0.5 vs median 0.1665 (+200%)
-- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
-- 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🟡 `avg_func_loc`: 3.3125 vs median 5.10417 (-35%)
+- 🔴 `cog_raw`: 0.1395 vs median 0.055 (+154%)
+- 🔴 `control_flow_ratio`: 0.5 vs median 0.09375 (+433%)
+- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
+- 🔴 `func_internal_density`: 0.0727273 vs median 0.0340909 (+113%)
+- 🔴 `risk_cognitive_load`: 6.2825 vs median 2.3577 (+166%)
+- 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
+- 🟡 `avg_func_loc`: 3.3125 vs median 5.125 (-35%)
+- 🟡 `branch`: 4 vs median 3 (+33%)
 - 🟡 `cleanup`: 3 vs median 2 (+50%)
-- 🟡 `coding_loc`: 11.25 vs median 17 (-34%)
-- 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 95 vs median 149.5 (-36%)
-- 🟡 `token_mass`: 84.75 vs median 121.25 (-30%)
+- 🟡 `coding_loc`: 11.25 vs median 17.125 (-34%)
+- 🟡 `dependency_density`: 0.288352 vs median 0.53125 (-46%)
+- 🟡 `keyword_hits`: 95 vs median 148 (-36%)
+- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
+- 🟡 `token_mass`: 84.5 vs median 122 (-31%)
 
 **Not expressible as measured (n/a):** `class_start`
 
@@ -903,15 +856,16 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
-| `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.mk | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
+| `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | (notes) | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.mk | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `makefile-class-start-no-entity-declaration` | intended-morphology | — | — | GNU Make's model is variables plus file/phony targets; it has no entity or type-declaration concept |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `makefile-2648-slicer-fallthrough` | upstream-bug | [#2648](https://github.com/squid-protocol/gitgalaxy/issues/2648) | — | makefile had zero brace-delimited bodies but was missing from detector.py's Mode_A_Labels tuple, silently falling through to Mode_B_Braces and dropping ~100% of real fun… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.mk** · `NOTE != echo "if eval fails, try curl"` (string): if (branch +1) and curl (io +1) count — makefile recipes/values are unshielded; the two +=/!= assignments 2 raw state tripled to 6 (the string's if provides context). Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.mk** · `NOTE != echo "plain sudo decoy text" (the module-level NOTE assignment)` (string): danger-only decoy (#17 redesign): "sudo" COUNTS from inside the literal (+1), undampened — the module-level NOTE assignment carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped io 1->0. Ledger: string-literal-selective-shielding
 
 </details>
 
@@ -920,23 +874,23 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `avg_func_complexity`: 0 vs median 0.270833 (-100%)
-- 🔴 `avg_func_loc`: 0 vs median 5.10417 (-100%)
-- 🔴 `coding_loc`: 0 vs median 17 (-100%)
-- 🔴 `cog_raw`: 0 vs median 0.1375 (-100%)
+- 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
+- 🔴 `avg_func_loc`: 0 vs median 5.125 (-100%)
+- 🔴 `coding_loc`: 0 vs median 17.125 (-100%)
+- 🔴 `cog_raw`: 0 vs median 0.055 (-100%)
 - 🔴 `comment_lines`: 34 vs median 12 (+183%)
-- 🔴 `control_flow_ratio`: 0 vs median 0.1665 (-100%)
-- 🔴 `dependency_density`: 0.75 vs median 0.369792 (+103%)
-- 🔴 `func_complexity_gini`: 0 vs median 0.354167 (-100%)
-- 🔴 `func_internal_density`: 0 vs median 0.06125 (-100%)
+- 🔴 `control_flow_ratio`: 0 vs median 0.09375 (-100%)
+- 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
+- 🔴 `func_internal_density`: 0 vs median 0.0340909 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `keyword_hits`: 30 vs median 149.5 (-80%)
-- 🔴 `max_func_complexity`: 0 vs median 1 (-100%)
+- 🔴 `keyword_hits`: 30 vs median 148 (-80%)
+- 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `risk_stability`: 0 vs median 50 (-100%)
 - 🔴 `risk_tech_debt`: 0 vs median 46.5703 (-100%)
-- 🔴 `structural_mass`: 1 vs median 11.43 (-91%)
+- 🔴 `structural_mass`: 1 vs median 9.845 (-90%)
+- 🟡 `dependency_density`: 0.75 vs median 0.53125 (+41%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
-- 🟡 `total_loc`: 14.5 vs median 24.625 (-41%)
+- 🟡 `total_loc`: 14.5 vs median 24.75 (-41%)
 
 **Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `risk_api_exposure`†, `risk_cognitive_load`†, `risk_concurrency`†, `risk_dead_code`†, `risk_documentation`†, `risk_safety_score`, `risk_spec_match`†, `risk_state_flux`†, `risk_verification`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
 
@@ -946,8 +900,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `markdown-lit-plane-morphology` | intended-morphology | [#2638](https://github.com/squid-protocol/gitgalaxy/issues/2638) | (notes) | markdown is a markup format deliberately measured on the lit_* literary plane (engine markdown.py wires ONLY lit_code_blocks/lit_diagrams/lit_headers/lit_links; detector… |
 | `markdown-prose-is-doc-morphology` | intended-morphology | — | — | markdown's entire prose content is its documentation surface: prism classifies the non-blank .md lines as doc_loc (34 across the 4 shells vs median 12, +183%) |
-| `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
-| `no-dependency-capture-languages` | upstream-question | — | — | m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never c… |
 
 
 ## matlab
@@ -955,28 +907,25 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `cleanup`: 4 vs median 2 (+100%)
-- 🔴 `cog_raw`: 0.46475 vs median 0.1375 (+238%)
-- 🔴 `risk_cognitive_load`: 31.6379 vs median 6.67188 (+374%)
-- 🔴 `risk_safety_score`: 78.5444 vs median 40.669 (+93%)
-- 🔴 `risk_state_flux`: 83.1009 vs median 22.9207 (+263%)
-- 🔴 `state_mutation`: 33 vs median 6 (+450%)
-- 🔴 `structural_mass`: 19.16 vs median 11.43 (+68%)
-- 🟡 `func_internal_density`: 0.0441558 vs median 0.06125 (-28%)
-- 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
-- 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
+- 🔴 `cog_raw`: 0.224 vs median 0.055 (+307%)
+- 🔴 `risk_cognitive_load`: 14.1237 vs median 2.3577 (+499%)
+- 🔴 `risk_safety_score`: 78.3034 vs median 42.0539 (+86%)
+- 🔴 `risk_state_flux`: 81.5294 vs median 9.43853 (+764%)
+- 🔴 `state_mutation`: 25 vs median 2 (+1150%)
+- 🔴 `structural_mass`: 16.46 vs median 9.845 (+67%)
+- 🟡 `func_internal_density`: 0.0214286 vs median 0.0340909 (-37%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | — | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
+| `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.m | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.m | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.m** · `note = 'if eval fails, try fopen'` (string): if + try count branch (matlab branch includes try, finditer-confirmed; try also safety +1), fopen counts io +1, AND eval counts safety_bypasses +1 (matlab eval-as-bypass counted from literals, like shell/ruby). Ledger: string-literal-selective-shielding
+- **b.m** · `note = 'plain exit decoy text'; (probe_state)` (string): danger-only decoy (#17 redesign): "exit" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, safety_bypasses 3->2, state_mutation 14->6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>
 
@@ -985,9 +934,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `args`: 21 vs median 13 (+62%)
-- 🟡 `cog_raw`: 0.175 vs median 0.1375 (+27%)
-- 🟡 `risk_cognitive_load`: 8.69535 vs median 6.67188 (+30%)
-- 🟡 `state_mutation`: 9 vs median 6 (+50%)
+- 🔴 `risk_state_flux`: 14.3611 vs median 9.43853 (+52%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -995,12 +943,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.mm | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.mm | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `ts-callparen-args` | engine-semantic | — | — | typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params — a.ts args 5 for 3 declarations (finditer-co… |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | (notes) | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.mm** · `NSString *note = @"if eval fails, try open"` (string): if counts branch +1 (b branch 4 = 3 returns + if); the *note = assignment is a 3rd raw state hit, tripled to 9 by flux. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.mm** · `NSString *note = @"plain abort decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "abort" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>
 
@@ -1008,22 +955,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `func_complexity_gini`: 0.166667 vs median 0.354167 (-53%)
+- 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `risk_api_exposure`: 2.3925 vs median 5.28878 (-55%)
-- 🔴 `state_mutation`: 10 vs median 6 (+67%)
-- 🔴 `structural_mass`: 35.605 vs median 11.43 (+212%)
-- 🟡 `avg_func_complexity`: 0.166667 vs median 0.270833 (-38%)
-- 🟡 `avg_func_loc`: 3.75 vs median 5.10417 (-27%)
-- 🟡 `control_flow_ratio`: 0.1 vs median 0.1665 (-40%)
-- 🟡 `func_internal_density`: 0.03125 vs median 0.06125 (-49%)
-- 🟡 `functions_found`: 9 vs median 13 (-31%)
-- 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `max_func_complexity`: 0.5 vs median 1 (-50%)
-- 🟡 `risk_cognitive_load`: 8.62155 vs median 6.67188 (+29%)
-- 🟡 `risk_safety_score`: 58.2094 vs median 40.669 (+43%)
-- 🟡 `risk_state_flux`: 30.2026 vs median 22.9207 (+32%)
-- 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
+- 🔴 `risk_state_flux`: 19.7152 vs median 9.43853 (+109%)
+- 🔴 `state_mutation`: 4 vs median 2 (+100%)
+- 🟡 `control_flow_ratio`: 0.05 vs median 0.09375 (-47%)
+- 🟡 `risk_safety_score`: 58.973 vs median 42.0539 (+40%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1033,10 +970,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.pl | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `visibility-morphology-encapsulation` | engine-semantic | — | — | Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), … |
 | `assert-overlaps-safety-and-test` | keyword-overlap | [#2626](https://github.com/squid-protocol/gitgalaxy/issues/2626) | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
+| `perl-pod-delimiter-double-count` | upstream-bug | [#2670](https://github.com/squid-protocol/gitgalaxy/issues/2670) | (notes) | perl's doc rule lists =cut in the same alternation as the POD openers and nothing pairs them, so a correctly closed POD block counts doc=2 (opener + =cut) |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.pl** · `my $note = "if eval fails, try open"` (string): if + try count branch +2 (perl branch includes try), try counts safety +1, open counts io +1; eval does NOT count bypasses ('eval fails' fails the rule's eval-followed-by-quote/paren shape — shielded by syntax, not by surface). The $note assignment is a 3rd raw state hit, tripled to 9. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.pl** · `my $note = "plain system decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.pl** · `my $hack_level = $level` (code): inert for debt, but the assignment counts state +1 (perl counts $var =)
 
 </details>
@@ -1046,10 +984,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `control_flow_ratio`: 0.118 vs median 0.1665 (-29%)
-- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
+- 🟡 `cog_raw`: 0.0345 vs median 0.055 (-37%)
+- 🟡 `control_flow_ratio`: 0.0625 vs median 0.09375 (-33%)
+- 🟡 `risk_cognitive_load`: 1.31072 vs median 2.3577 (-44%)
+- 🟡 `risk_documentation`: 40.8436 vs median 55.5369 (-26%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1060,7 +998,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.php** · `$note = "if eval fails, try open"` (string): if + try count branch (php branch includes try), try counts safety +1; $counter/$note assignments are 2 raw state tripled to 6. eval inert (php's eval sits in neither planted rule). Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.php** · `$note = "plain popen decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "popen" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.php** · `(comment decoys only)` (comment): HACK/TODO comments count exactly 1 each
 
 </details>
@@ -1069,23 +1007,22 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_complexity`: 0.520833 vs median 0.270833 (+92%)
+- 🔴 `avg_func_complexity`: 0.354167 vs median 0.1875 (+89%)
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
+- 🔴 `branch`: 5 vs median 3 (+67%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
-- 🔴 `cog_raw`: 0.2195 vs median 0.1375 (+60%)
-- 🔴 `control_flow_ratio`: 0.28325 vs median 0.1665 (+70%)
-- 🔴 `dependency_density`: 0.111111 vs median 0.369792 (-70%)
-- 🔴 `func_internal_density`: 0.0955128 vs median 0.06125 (+56%)
-- 🔴 `max_func_complexity`: 1.75 vs median 1 (+75%)
+- 🔴 `cog_raw`: 0.1245 vs median 0.055 (+126%)
+- 🔴 `control_flow_ratio`: 0.18325 vs median 0.09375 (+95%)
+- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
+- 🔴 `func_internal_density`: 0.0621795 vs median 0.0340909 (+82%)
+- 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🔴 `risk_cognitive_load`: 10.4288 vs median 6.67188 (+56%)
-- 🟡 `branch`: 7 vs median 5 (+40%)
-- 🟡 `func_complexity_gini`: 0.520833 vs median 0.354167 (+47%)
-- 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_safety_score`: 57.4478 vs median 40.669 (+41%)
-- 🟡 `risk_state_flux`: 28.7798 vs median 22.9207 (+26%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
+- 🔴 `risk_cognitive_load`: 5.79307 vs median 2.3577 (+146%)
+- 🔴 `risk_state_flux`: 14.7927 vs median 9.43853 (+57%)
+- 🟡 `dependency_density`: 0.319444 vs median 0.53125 (-40%)
+- 🟡 `risk_safety_score`: 58.7982 vs median 42.0539 (+40%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1099,7 +1036,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.ps1** · `$note = "if eval fails, try iwr"` (string): if + try count branch (powershell branch includes try; try also safety +1), iwr counts io +1; $counter/$note 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.ps1** · `$note = "plain kill decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "kill" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.ps1** · `$hack_level = $level (probe_debt, no return)` (code): state stays 1 (x1): probe_debt has no branch keyword, so no flux context. Post-#2545 probe_todo's return is no longer a branch either, so c branch is 0 and the file is x1 throughout — this shell no longer discriminates per-function scoping (the go/matlab/dockerfile proofs in state-flux-branch-weighting still do).
 
 </details>
@@ -1108,22 +1045,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.0345 vs median 0.1375 (-75%)
-- 🔴 `control_flow_ratio`: 0.0625 vs median 0.1665 (-62%)
 - 🔴 `risk_api_exposure`: 9.06108 vs median 5.28878 (+71%)
-- 🔴 `risk_cognitive_load`: 1.64835 vs median 6.67188 (-75%)
-- 🔴 `risk_state_flux`: 8.40653 vs median 22.9207 (-63%)
-- 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
 - 🟡 `betweenness_score`: 0.05 vs median 0.0833335 (-40%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `dependency_density`: 0.541667 vs median 0.369792 (+46%)
-- 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
-- 🟡 `func_internal_density`: 0.03125 vs median 0.06125 (-49%)
-- 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `keyword_hits`: 197 vs median 149.5 (+32%)
-- 🟡 `risk_documentation`: 81.0601 vs median 54.7722 (+48%)
-- 🟡 `risk_safety_score`: 51.1893 vs median 40.669 (+26%)
+- 🟡 `cog_raw`: 0.0345 vs median 0.055 (-37%)
+- 🟡 `control_flow_ratio`: 0.0625 vs median 0.09375 (-33%)
+- 🟡 `keyword_hits`: 197 vs median 148 (+33%)
+- 🟡 `risk_cognitive_load`: 1.64835 vs median 2.3577 (-30%)
+- 🟡 `risk_documentation`: 81.0601 vs median 55.5369 (+46%)
+- 🟡 `structural_mass`: 12.725 vs median 9.845 (+29%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1148,12 +1077,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `func_complexity_gini`: 0.575 vs median 0.354167 (+62%)
-- 🟡 `dependency_density`: 0.194444 vs median 0.369792 (-47%)
-- 🟡 `func_internal_density`: 0.0453272 vs median 0.06125 (-26%)
-- 🟡 `risk_cognitive_load`: 8.42952 vs median 6.67188 (+26%)
-- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
-- 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
+- 🔴 `control_flow_ratio`: 0.14375 vs median 0.09375 (+53%)
+- 🔴 `func_complexity_gini`: 0.3875 vs median 0.1875 (+107%)
+- 🟡 `branch`: 4 vs median 3 (+33%)
+- 🟡 `dependency_density`: 0.361111 vs median 0.53125 (-32%)
+- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
+- 🟡 `risk_cognitive_load`: 3.28277 vs median 2.3577 (+39%)
+- 🟡 `risk_documentation`: 40.8436 vs median 55.5369 (-26%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1164,7 +1094,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.rb** · `note = "if eval fails, try open"` (string): if counts branch +1 AND eval counts safety_bypasses +1 (ruby classes eval as bypass, and it is NOT shielded — supporting the high-risk-family-only shielding theory, as shell); push/pop 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.rb** · `note = "plain system decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "system" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety_bypasses 3->2, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.rb** · `hack_level = level` (code): inert (underscore + lowercase)
 
 </details>
@@ -1173,18 +1103,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.0205 vs median 0.1375 (-85%)
-- 🔴 `control_flow_ratio`: 0.05775 vs median 0.1665 (-65%)
-- 🔴 `func_internal_density`: 0.03 vs median 0.06125 (-51%)
-- 🔴 `risk_cognitive_load`: 1.29535 vs median 6.67188 (-81%)
-- 🔴 `risk_state_flux`: 7.75065 vs median 22.9207 (-66%)
-- 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `dependency_density`: 0.541667 vs median 0.369792 (+46%)
-- 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
-- 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🔴 `cog_raw`: 0.0205 vs median 0.055 (-63%)
+- 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
+- 🟡 `keyword_hits`: 186 vs median 148 (+26%)
+- 🟡 `risk_cognitive_load`: 1.29535 vs median 2.3577 (-45%)
+- 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1205,22 +1128,21 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `control_flow_ratio`: 0.35425 vs median 0.1665 (+113%)
+- 🔴 `control_flow_ratio`: 0.1875 vs median 0.09375 (+100%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `risk_api_exposure`: 9.4704 vs median 5.28878 (+79%)
-- 🔴 `risk_documentation`: 90.627 vs median 54.7722 (+65%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `structural_mass`: 14.655 vs median 11.43 (+28%)
+- 🔴 `risk_documentation`: 90.627 vs median 55.5369 (+63%)
+- 🟡 `risk_state_flux`: 5.35412 vs median 9.43853 (-43%)
+- 🟡 `structural_mass`: 12.955 vs median 9.845 (+32%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.scala | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.scala** · `val note = "if eval fails, try open"` (string): if + try count branch +2 (scala branch includes try); var x2 raw state tripled to 6; val contributes nothing. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.scala** · `val note = "plain Runtime.getRuntime.exec decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "Runtime.getRuntime.exec" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>
 
@@ -1228,31 +1150,24 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
-- 🔴 `control_flow_ratio`: 0.25 vs median 0.1665 (+50%)
-- 🔴 `risk_cognitive_load`: 2.3577 vs median 6.67188 (-65%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
-- 🟡 `avg_func_loc`: 3.0625 vs median 5.10417 (-40%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `coding_loc`: 10.75 vs median 17 (-37%)
-- 🟡 `dependency_density`: 0.517857 vs median 0.369792 (+40%)
-- 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
-- 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `keyword_hits`: 98 vs median 149.5 (-34%)
-- 🟡 `risk_state_flux`: 14.3611 vs median 22.9207 (-37%)
-- 🟡 `state_mutation`: 3 vs median 6 (-50%)
-- 🟡 `total_loc`: 18.25 vs median 24.625 (-26%)
+- 🔴 `control_flow_ratio`: 0.25 vs median 0.09375 (+167%)
+- 🔴 `func_internal_density`: 0.0576923 vs median 0.0340909 (+69%)
+- 🔴 `risk_state_flux`: 14.3611 vs median 9.43853 (+52%)
+- 🟡 `avg_func_loc`: 3.0625 vs median 5.125 (-40%)
+- 🟡 `coding_loc`: 10.75 vs median 17.125 (-37%)
+- 🟡 `keyword_hits`: 98 vs median 148 (-34%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
+- 🟡 `total_loc`: 18.25 vs median 24.75 (-26%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.scm | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `cobol-hyphen-identifier-debt-leak` | upstream-bug | [#2537](https://github.com/squid-protocol/gitgalaxy/issues/2537) | — | Debt rules are whole-text, not comment-anchored, and '-' is a regex word boundary: HACK-LEVEL (data item, 2 code occurrences) counts fragile_debt, PROBE-TODO (paragraph … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.scm** · `(set! note "if eval fails, try open")` (string): scheme's branch keywords are sexp-anchored — bare 'if' inside the string does NOT count branch (syntax shielding) — but bare eval DOES count high_risk +1 (its rule is not anchored). state stayed exactly 3 raw, no flux (no branch context). Shielding by anchoring, a fourth profile.
+- **b.scm** · `(set! note "plain eval decoy text")) (probe-state)` (string): danger-only decoy (#17 redesign): "eval" already COUNTED from inside the literal (+1) and still does. scheme's sexp-anchored branch rule never matched the old prose "if", so no count moved at all — the redesign only removes the safety/io words that made the read ambiguous in every other language. Ledger: string-literal-selective-shielding
 - **c.scm** · `(define (probe-todo plan) ...)` (code): INERT (fixed): gitgalaxy#2537 (PR #2622) hyphenated-identifier guards — \bTODO\b no longer matches inside the probe-todo symbol; c.scm planned_debt re-baselined 2→1 (the ;; TODO: comment only). Kebab-case symbols no longer feed debt scoring.
 
 </details>
@@ -1262,16 +1177,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
+- 🔴 `branch`: 5 vs median 3 (+67%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
-- 🔴 `control_flow_ratio`: 0.33325 vs median 0.1665 (+100%)
+- 🔴 `control_flow_ratio`: 0.20825 vs median 0.09375 (+122%)
+- 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🟡 `cog_raw`: 0.19375 vs median 0.1375 (+41%)
+- 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
+- 🟡 `cog_raw`: 0.07 vs median 0.055 (+27%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
-- 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `max_func_complexity`: 1.5 vs median 1 (+50%)
-- 🟡 `risk_cognitive_load`: 9.53823 vs median 6.67188 (+43%)
-- 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
 **Not expressible as measured (n/a):** `class_start`
 
@@ -1287,7 +1201,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.sh** · `never needs root and the disk words stay in prose` (comment): stripped: contributed 0
-- **b.sh** · `note="if eval fails, try curl"` (string): if (branch +1), curl (io +1) AND eval (safety_bypasses +1) all COUNT — eval is a shell BYPASS keyword, not high-risk-family, and it is not shielded here, supporting the theory that only the high-risk family gets literal shielding in the python/js profile. Phantom branch context triples state: counter=/note= 2 raw -> 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.sh** · `note="plain sudo decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "sudo" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, io 1->0, safety_bypasses 3->2, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.sh** · `: "$hack_level"` (code): inert (underscore + lowercase)
 
 </details>
@@ -1296,13 +1210,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `control_flow_ratio`: 0.0825 vs median 0.1665 (-50%)
+- 🔴 `control_flow_ratio`: 0.044 vs median 0.09375 (-53%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `ownership`: 4 vs median 1 (+300%)
-- 🔴 `risk_cognitive_load`: 10.8948 vs median 6.67188 (+63%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `cog_raw`: 0.205 vs median 0.1375 (+49%)
-- 🟡 `state_mutation`: 9 vs median 6 (+50%)
+- 🔴 `risk_state_flux`: 14.3611 vs median 9.43853 (+52%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 **Not expressible as measured (n/a):** `io`
 
@@ -1312,11 +1224,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `solidity-io-observable-output-via-events` | engine-semantic | — | — | solidity.py's io rule is None with an explicit comment ('EVM blockchains are closed systems') |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sol | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
-| `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | b.sol | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
+| `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | (notes) | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.sol** · `string memory note = "if eval fails, try open"` (string): if + try count branch +2 (solidity includes try AND return — main 8 = 5 returns + if/else/for, joining the return-in-branch family as its 6th member); the note line is a 3rd raw state hit, tripled to 9 by flux. eval inert. Ledger: string-literal-selective-shielding, state-flux-branch-weighting, kotlin-return-in-branch
+- **b.sol** · `string memory note = "plain selfdestruct decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "selfdestruct" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.sol** · `uint hack_level;` (code): inert (underscore)
 
 </details>
@@ -1327,37 +1239,37 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0.0625 vs median 1 (-94%)
-- 🔴 `avg_func_loc`: 1.27232 vs median 5.10417 (-75%)
-- 🔴 `coding_loc`: 8.25 vs median 17 (-51%)
-- 🔴 `func_internal_density`: 0.113636 vs median 0.06125 (+86%)
+- 🔴 `avg_func_loc`: 1.27232 vs median 5.125 (-75%)
+- 🔴 `branch`: 5 vs median 3 (+67%)
+- 🔴 `coding_loc`: 8.25 vs median 17.125 (-52%)
+- 🔴 `control_flow_ratio`: 0.15625 vs median 0.09375 (+67%)
+- 🔴 `func_internal_density`: 0.113636 vs median 0.0340909 (+233%)
 - 🔴 `functions_found`: 28 vs median 13 (+115%)
-- 🔴 `io`: 11 vs median 3 (+267%)
-- 🔴 `keyword_hits`: 61 vs median 149.5 (-59%)
+- 🔴 `io`: 9 vs median 3 (+200%)
+- 🔴 `keyword_hits`: 59 vs median 148 (-60%)
+- 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
-- 🔴 `risk_cognitive_load`: 2.9892 vs median 6.67188 (-55%)
-- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
-- 🔴 `risk_state_flux`: 0 vs median 22.9207 (-100%)
+- 🔴 `risk_documentation`: 0 vs median 55.5369 (-100%)
+- 🔴 `risk_state_flux`: 0 vs median 9.43853 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
-- 🟡 `avg_func_complexity`: 0.15625 vs median 0.270833 (-42%)
-- 🟡 `cog_raw`: 0.072 vs median 0.1375 (-48%)
-- 🟡 `dependency_density`: 0.541667 vs median 0.369792 (+46%)
-- 🟡 `func_complexity_gini`: 0.21875 vs median 0.354167 (-38%)
+- 🟡 `cog_raw`: 0.072 vs median 0.055 (+31%)
+- 🟡 `risk_cognitive_load`: 2.9892 vs median 2.3577 (+27%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
-- 🟡 `state_mutation`: 3 vs median 6 (-50%)
-- 🟡 `total_loc`: 15.5 vs median 24.625 (-37%)
+- 🟡 `total_loc`: 15.5 vs median 24.75 (-37%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sql | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `sqlite-dot-read-dual-import-io` | keyword-overlap | — | (notes) | ^.read counts BOTH import and io (finditer-confirmed) — every corpus chain link adds +1 io in sqlite |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.sql** · `never detaches a database and no shell word` (comment): stripped: contributed 0
-- **b.sql** · `SELECT 'IF UPDATE FAILS TRY SELECT AGAIN'` (string): UPDATE and SELECT inside the literal COUNT (io +2, state +1); IF/TRY inert (sqlite has no bare IF/TRY keywords). io 5 = planted UPDATE + carrier SELECT + .read + 2 from the literal. Ledger: string-literal-selective-shielding
+- **b.sql** · `SELECT 'plain DROP DATABASE decoy text'; (probe_state's carrier statement)` (string): danger-only decoy (#17 redesign, wave 3): 'DROP DATABASE' COUNTS from inside the literal (+1). sqlite's danger vocabulary is multi-word (PRAGMA legacy_alter_table | DROP DATABASE) or a line-anchored dot-command, so a single bare token cannot express it — this is the one language where the decoy needs two words. Retiring the shared sentence dropped io 5->3 (its UPDATE and SELECT both being io keywords) and state_mutation 3->2 (its UPDATE). The carrier SELECT keeps its own io hit; b.sql io 3 is now planted UPDATE + carrier SELECT + .read. Ledger: string-literal-selective-shielding
 - **c.sql** · `hack_level;` (code): inert (underscore + lowercase)
 
 </details>
@@ -1366,13 +1278,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_complexity`: 0.416667 vs median 0.270833 (+54%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
-- 🟡 `cog_raw`: 0.0975 vs median 0.1375 (-29%)
-- 🟡 `control_flow_ratio`: 0.11225 vs median 0.1665 (-33%)
-- 🟡 `max_func_complexity`: 1.5 vs median 1 (+50%)
-- 🟡 `risk_cognitive_load`: 4.74487 vs median 6.67188 (-29%)
-- 🟡 `risk_documentation`: 33.436 vs median 54.7722 (-39%)
+- 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
+- 🟡 `branch`: 4 vs median 3 (+33%)
+- 🟡 `cog_raw`: 0.0275 vs median 0.055 (-50%)
+- 🟡 `control_flow_ratio`: 0.06675 vs median 0.09375 (-29%)
+- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
+- 🟡 `risk_cognitive_load`: 1.43515 vs median 2.3577 (-39%)
+- 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
+- 🟡 `risk_state_flux`: 5.78688 vs median 9.43853 (-39%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1384,7 +1298,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.swift** · `let note = "if eval fails, try open"` (string): if + try count branch +2 (swift branch includes try, finditer-confirmed) and OPEN counts api +1: swift's api rule includes the open access modifier, so a string containing 'open' adds API-exposure mass. var x2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.swift** · `let note = "plain assertionFailure decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "assertionFailure" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, api 4->3, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.swift** · `let hackLevel = level` (code): inert (camelCase)
 
 </details>
@@ -1393,19 +1307,19 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_complexity`: 0 vs median 0.270833 (-100%)
-- 🔴 `avg_func_loc`: 1 vs median 5.10417 (-80%)
-- 🔴 `dependency_density`: 0.169048 vs median 0.369792 (-54%)
-- 🔴 `func_complexity_gini`: 0 vs median 0.354167 (-100%)
-- 🔴 `func_internal_density`: 0 vs median 0.06125 (-100%)
-- 🔴 `io`: 8 vs median 3 (+167%)
-- 🔴 `max_func_complexity`: 0 vs median 1 (-100%)
-- 🔴 `risk_cognitive_load`: 10.4832 vs median 6.67188 (+57%)
-- 🟡 `cog_raw`: 0.195 vs median 0.1375 (+42%)
-- 🟡 `control_flow_ratio`: 0.2375 vs median 0.1665 (+43%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
-- 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
-- 🟡 `state_mutation`: 9 vs median 6 (+50%)
+- 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
+- 🔴 `avg_func_loc`: 1 vs median 5.125 (-80%)
+- 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
+- 🔴 `func_internal_density`: 0 vs median 0.0340909 (-100%)
+- 🔴 `io`: 7 vs median 3 (+133%)
+- 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
+- 🔴 `risk_cognitive_load`: 3.75972 vs median 2.3577 (+59%)
+- 🔴 `risk_state_flux`: 14.3611 vs median 9.43853 (+52%)
+- 🟡 `branch`: 4 vs median 3 (+33%)
+- 🟡 `cog_raw`: 0.07 vs median 0.055 (+27%)
+- 🟡 `control_flow_ratio`: 0.1375 vs median 0.09375 (+47%)
+- 🟡 `dependency_density`: 0.369048 vs median 0.53125 (-31%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1416,7 +1330,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.tcl** · `set note "if eval fails, try open"` (string): if + try count branch (tcl branch includes try; try also safety +1), open counts io +1, AND eval counts safety_bypasses +1 (tcl eval-as-bypass counted from literals, like shell/ruby/matlab); the set itself is a 3rd raw state hit, tripled to 9. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.tcl** · `set note "plain exec decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "exec" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>
 
@@ -1424,13 +1338,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `safety`: 4 vs median 2 (+100%)
-- 🔴 `structural_mass`: 1.135 vs median 11.43 (-90%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `cog_raw`: 0.0905 vs median 0.1375 (-34%)
-- 🟡 `risk_cognitive_load`: 4.60507 vs median 6.67188 (-31%)
-- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🔴 `cog_raw`: 0.0205 vs median 0.055 (-63%)
+- 🔴 `risk_state_flux`: 4.19955 vs median 9.43853 (-56%)
+- 🔴 `structural_mass`: 0.965 vs median 9.845 (-90%)
+- 🟡 `risk_cognitive_load`: 1.29535 vs median 2.3577 (-45%)
+- 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
+- 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1442,7 +1356,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.ts** · `const note = "if eval fails, try open"` (string): if + try count (branch +2, safety +1), eval does NOT (js/python selective profile); let+var 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.ts** · `const note = "plain eval decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "eval" now COUNTS from inside the literal (+1). It read 0 before only because the old sentence's own "try" fed the safety rule and the Silencer Region dampener (high_risk <- safety, 500 chars, same function) fired on it. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.ts** · `const HACK_LEVEL = level` (code): inert (underscore)
 
 </details>
@@ -1453,30 +1367,26 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 2 vs median 13 (-85%)
 - 🔴 `avg_func_args`: 0.0833333 vs median 1 (-92%)
-- 🔴 `avg_func_loc`: 1 vs median 5.10417 (-80%)
+- 🔴 `avg_func_loc`: 1 vs median 5.125 (-80%)
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
-- 🔴 `coding_loc`: 5 vs median 17 (-71%)
-- 🔴 `control_flow_ratio`: 0.25 vs median 0.1665 (+50%)
-- 🔴 `dependency_density`: 0 vs median 0.369792 (-100%)
+- 🔴 `coding_loc`: 5 vs median 17.125 (-71%)
+- 🔴 `cog_raw`: 0.0895 vs median 0.055 (+63%)
+- 🔴 `control_flow_ratio`: 0.25 vs median 0.09375 (+167%)
+- 🔴 `dependency_density`: 0 vs median 0.53125 (-100%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `func_internal_density`: 0.1875 vs median 0.06125 (+206%)
-- 🔴 `keyword_hits`: 62 vs median 149.5 (-59%)
+- 🔴 `func_internal_density`: 0.1875 vs median 0.0340909 (+450%)
+- 🔴 `keyword_hits`: 62 vs median 148 (-58%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
-- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
-- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
+- 🔴 `risk_cognitive_load`: 3.78875 vs median 2.3577 (+61%)
+- 🔴 `risk_documentation`: 0 vs median 55.5369 (-100%)
 - 🔴 `risk_tech_debt`: 99.8145 vs median 46.5703 (+114%)
-- 🔴 `state_mutation`: 2 vs median 6 (-67%)
-- 🔴 `structural_mass`: 5 vs median 11.43 (-56%)
-- 🔴 `total_loc`: 11.25 vs median 24.625 (-54%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `cog_raw`: 0.0895 vs median 0.1375 (-35%)
-- 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
-- 🟡 `risk_cognitive_load`: 3.78875 vs median 6.67188 (-43%)
-- 🟡 `token_mass`: 79.25 vs median 121.25 (-35%)
+- 🔴 `total_loc`: 11.25 vs median 24.75 (-55%)
+- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
+- 🟡 `structural_mass`: 5 vs median 9.845 (-49%)
+- 🟡 `token_mass`: 79.25 vs median 122 (-35%)
 
 **Not expressible as measured (n/a):** `class_start`, `risk_concurrency`†, `test`
 
@@ -1484,7 +1394,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `yacc-test-no-native-testing-concept` | engine-semantic | — | — | yacc.py's test rule is None |
-| `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
+| `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `no-dependency-capture-languages` | upstream-question | — | (notes) | m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never c… |
 | `yacc-union-class-start-gap` | upstream-question | [#2644](https://github.com/squid-protocol/gitgalaxy/issues/2644) | — | yacc's class_start is None, but bison's %union { .. |
 
@@ -1495,37 +1405,34 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 0 vs median 13 (-100%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `avg_func_loc`: 1.375 vs median 5.10417 (-73%)
+- 🔴 `avg_func_loc`: 1.375 vs median 5.125 (-73%)
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
-- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
-- 🔴 `doc`: 2 vs median 1 (+100%)
+- 🔴 `control_flow_ratio`: 0.1875 vs median 0.09375 (+100%)
+- 🔴 `func_internal_density`: 0.075 vs median 0.0340909 (+120%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
-- 🔴 `risk_cognitive_load`: 2.0362 vs median 6.67188 (-69%)
-- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
-- 🔴 `risk_state_flux`: 5.35412 vs median 22.9207 (-77%)
-- 🔴 `state_mutation`: 1 vs median 6 (-83%)
-- 🔴 `structural_mass`: 4.805 vs median 11.43 (-58%)
-- 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
-- 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `coding_loc`: 10.25 vs median 17 (-40%)
-- 🟡 `dependency_density`: 0.520833 vs median 0.369792 (+41%)
-- 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
-- 🟡 `keyword_hits`: 88 vs median 149.5 (-41%)
+- 🔴 `risk_documentation`: 0 vs median 55.5369 (-100%)
+- 🔴 `structural_mass`: 4.8 vs median 9.845 (-51%)
+- 🟡 `coding_loc`: 10 vs median 17.125 (-42%)
+- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
+- 🟡 `keyword_hits`: 87 vs median 148 (-41%)
+- 🟡 `risk_state_flux`: 5.35412 vs median 9.43853 (-43%)
 - 🟡 `risk_tech_debt`: 25 vs median 46.5703 (-46%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `safety_bypasses`: 1 vs median 2 (-50%)
+- 🟡 `state_mutation`: 1 vs median 2 (-50%)
 - 🟡 `test`: 1 vs median 2 (-50%)
-- 🟡 `token_mass`: 83.5 vs median 121.25 (-31%)
-- 🟡 `total_loc`: 13.75 vs median 24.625 (-44%)
+- 🟡 `token_mass`: 81.75 vs median 122 (-33%)
+- 🟡 `total_loc`: 13.5 vs median 24.75 (-45%)
 
 **Not expressible as measured (n/a):** `cleanup`, `ownership`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `yaml-cleanup-embedded-teardown-gap` | upstream-question | [#2647](https://github.com/squid-protocol/gitgalaxy/issues/2647) | — | yaml's cleanup is None |
 | `yaml-ownership-author-key-gap` | upstream-question | [#2646](https://github.com/squid-protocol/gitgalaxy/issues/2646) | — | yaml's ownership is None, but the two ecosystems this language definition explicitly targets each carry a standard single-key ownership field: action.yml's top-level aut… |
@@ -1536,20 +1443,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `risk_api_exposure`: 2.07773 vs median 5.28878 (-61%)
-- 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `keyword_hits`: 202 vs median 149.5 (+35%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
+- 🟡 `keyword_hits`: 196 vs median 148 (+32%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.zig | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `indented-declaration-globals` | upstream-question | [#2651](https://github.com/squid-protocol/gitgalaxy/issues/2651) | — | dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local final… |
 | `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | — | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **b.zig** · `var note = "if eval fails, try open"` (string): if + try count branch (zig branch includes try AND return — pattern-confirmed: main 8 = 5 returns + if/else/switch); the var itself is a state hit and a globals hit (zig globals matches any indented var/const-with-=). var x2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.zig** · `var note = "plain std.process.exit decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "std.process.exit" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>

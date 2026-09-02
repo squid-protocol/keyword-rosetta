@@ -16,6 +16,6 @@ int probeTelemetry(int msg) {
 int probeState(int items) {
   setState(items);
   notifyListeners();
-  final note = "if eval fails, try open";
+  final note = "plain exit decoy line";
   return items;
 }

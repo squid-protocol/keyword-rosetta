@@ -15,6 +15,6 @@ func probeTelemetry(_ msg: Int) -> Int {
 func probeState(_ items: Int) -> Int {
     var first = items
     var second = items
-    let note = "if eval fails, try open"
+    let note = "plain assertionFailure decoy text"
     return first + second
 }

@@ -53,11 +53,11 @@
       "api": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 11,
-      "branch": 1,
+      "state_mutation": 5,
+      "branch": 0,
       "encapsulation": 8,
       "safety": 0,
-      "high_risk_execution": 0,
+      "high_risk_execution": 1,
       "io": 0,
       "test": 0,
       "globals": 0,
@@ -91,13 +91,12 @@
   "decoys": [
     {
       "file": "b.go",
-      "line_hint": "note := \"if eval fails, try open\"",
+      "line_hint": "note := \"plain os.Exit decoy text\" (inside probeState)",
       "surface": "string",
       "signals": [
-        "branch",
-        "state_mutation"
+        "high_risk_execution"
       ],
-      "outcome": "if counts branch +1; the := is a raw state hit. state 11 = probe_state's 3 raw x3 (flux, phantom branch in that function) + probe_bypass's 2 '_ =' unweighted — the flux weighting is PER-FUNCTION, not per-file. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): os.Exit COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the old sentence also removed its phantom branch (\"if\"), which had tripled probeState via the x3 flux weighting: state_mutation 11 -> 5 (3 raw + probe_bypass 2). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.go",
@@ -109,5 +108,5 @@
       "outcome": "comment HACK/TODO count exactly 1 each"
     }
   ],
-  "notes": "safety_bypasses now counts only true dot-imports (import . \"pkg\"): the per-import FP RESOLVED via gitgalaxy#2542 -- main/a dropped 1->0, b 3->2, leaving b's two planted '_ =' discards (ledger go-import-counts-bypass). encapsulation counts every lowercase top-level symbol (correct go visibility morphology; recorded per file). doc 1 = the one deliberately Capitalized comment; header comments are lowercased to stay out of go's doc rule. Locked from hand-verified run 2026-08-31; safety_bypasses re-baselined 2026-09-01 against gitgalaxy#2641."
+  "notes": "safety_bypasses now counts only true dot-imports (import . \"pkg\"): the per-import FP RESOLVED via gitgalaxy#2542 -- main/a dropped 1->0, b 3->2, leaving b's two planted '_ =' discards (ledger go-import-counts-bypass). encapsulation counts every lowercase top-level symbol (correct go visibility morphology; recorded per file). doc 1 = the one deliberately Capitalized comment; header comments are lowercased to stay out of go's doc rule. Locked from hand-verified run 2026-08-31; safety_bypasses re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only os.Exit literal inside probeState \u2014 b.go branch 1->0, state_mutation 11->5 (phantom-branch flux gone), high_risk_execution 0->1."
 }

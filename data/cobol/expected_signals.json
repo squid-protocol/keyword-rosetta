@@ -10,7 +10,7 @@
    "func_start": 4,
    "args": 1,
    "class_start": 1,
-   "doc": 1,
+   "doc": 2,
    "ownership": 1,
    "import": 1,
    "globals": 1,
@@ -32,9 +32,9 @@
    "globals": 2,
    "test": 2,
    "safety": 2,
-   "branch": 1,
+   "branch": 0,
    "high_risk_execution": 1,
-   "io": 1,
+   "io": 0,
    "class_start": 0,
    "fragile_debt": 0,
    "planned_debt": 0,
@@ -100,14 +100,12 @@
   },
   {
    "file": "a.cpy",
-   "line_hint": "DISPLAY 'IF ALTER FAILS TRY OPEN AGAIN'",
+   "line_hint": "DISPLAY 'PLAIN ALTER DECOY TEXT'. (inside PROBE-GLOBALS)",
    "surface": "string",
    "signals": [
-    "branch",
-    "high_risk_execution",
-    "io"
+    "high_risk_execution"
    ],
-   "outcome": "ALL counted: IF (branch +1), ALTER (high_risk +1), OPEN (io +1) — cobol does NOT shield the high-risk family in literals, unlike python/javascript. Ledger: string-literal-selective-shielding; gitgalaxy#2535 comment"
+   "outcome": "danger-only decoy (#17 redesign, wave 3): ALTER is cobol's own danger keyword and was already in the retired sentence, counting +1 undampened — cobol shields nothing and PROBE-GLOBALS carries no safety keyword, so high_risk_execution does not move. What the redesign removes is the contamination: branch 1->0 (the old 'IF') and io 1->0 (the old 'OPEN'). Ledger: string-literal-selective-shielding"
   },
   {
    "file": "c.cpy",
@@ -119,5 +117,5 @@
    "outcome": "INERT (fixed): gitgalaxy#2537 (PR #2622) added hyphenated-identifier guards to the shared debt patterns, so \\bHACK\\b no longer matches inside HACK-LEVEL and the PROBE-TODO paragraph name no longer adds planned_debt — c.cpy now records exactly the planted * HACK: / * TODO: comments (1 each). Ledger: cobol-hyphen-identifier-debt-leak (resolved)"
   }
  ],
- "notes": "class_start 1 in main.cbl is the deliberate tier-1 exception: PROGRAM-ID is cobol's program-unit construct, the same 'closest class-shaped construct' precedent as the tri-comparison ledger. globals 1 in main.cbl = WORKING-STORAGE SECTION (in the globals pattern; multi-word so keyword_menu.py missed it — ledger cobol-working-storage-globals). func_start 3 in b.cpy = the 3 real paragraphs; the CEE3DMP./CEEMOUT. bare-token FPs were fixed upstream (gitgalaxy#2538 -> PR #2552), see ledger cobol-area-b-bare-token-paragraph bare-token-period lines read as paragraphs (ledger cobol-area-b-bare-token-paragraph; gitgalaxy#2538). api in a/b/c = 0 planted + orphan conversion of every func_start shape (ledger api-contextual-baseline-fix) — confirms the COPY chain resolves in the dependency DAG. All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv. 2026-08-31 #2567 sweep: (1) shells re-authored with idiomatic blank lines and banner comments (cobol was the only corpus language authored with zero blank lines — comment mass 14 vs the 46-language median 30; signal placement unchanged); (2) fragile_debt/planned_debt re-baselined 3→1 / 2→1 after gitgalaxy#2537's fix (PR #2622); (3) args stays 1: the file-level args metric counts USING/RETURNING clause MATCHES, not captured parameter names (verified: a 13-name PROCEDURE DIVISION USING still records struct_args 1), and every per-probe alternative (CALL/ENTRY/INVOKE ... USING) is also an api keyword — overlap-cost rejection, ledger cobol-args-clause-match-morphology."
+ "notes": "class_start 1 in main.cbl is the deliberate tier-1 exception: PROGRAM-ID is cobol's program-unit construct, the same 'closest class-shaped construct' precedent as the tri-comparison ledger. globals 1 in main.cbl = WORKING-STORAGE SECTION (in the globals pattern; multi-word so keyword_menu.py missed it — ledger cobol-working-storage-globals). func_start 3 in b.cpy = the 3 real paragraphs; the CEE3DMP./CEEMOUT. bare-token FPs were fixed upstream (gitgalaxy#2538 -> PR #2552), see ledger cobol-area-b-bare-token-paragraph bare-token-period lines read as paragraphs (ledger cobol-area-b-bare-token-paragraph; gitgalaxy#2538). api in a/b/c = 0 planted + orphan conversion of every func_start shape (ledger api-contextual-baseline-fix) — confirms the COPY chain resolves in the dependency DAG. All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv. 2026-08-31 #2567 sweep: (1) shells re-authored with idiomatic blank lines and banner comments (cobol was the only corpus language authored with zero blank lines — comment mass 14 vs the 46-language median 30; signal placement unchanged); (2) fragile_debt/planned_debt re-baselined 3→1 / 2→1 after gitgalaxy#2537's fix (PR #2622); (3) args stays 1: the file-level args metric counts USING/RETURNING clause MATCHES, not captured parameter names (verified: a 13-name PROCEDURE DIVISION USING still records struct_args 1), and every per-probe alternative (CALL/ENTRY/INVOKE ... USING) is also an api keyword — overlap-cost rejection, ledger cobol-args-clause-match-morphology. A.3 (gitgalaxy#2669, step 1 of gitgalaxy#2661): main.cbl now carries a genuine structured doc line, '*> @return the probe result' (COBOL 2002+ inline form, already in cobol's doc rule). Until then its ONLY doc-matching line was 'AUTHOR.', which cobol's ownership rule owns exclusively -- the gitgalaxy#2659 collision, from which cobol was excluded precisely because removing AUTHOR from doc would have taken it to 0 rather than to the planted 1. doc therefore reads 2 in the interim (AUTHOR. + *> @return) and settles at 1 when #2661 step 2 lands. cobol cannot dodge this the way apex did: its ownership rule matches ONLY 'AUTHOR.', so there is no alternative header form. Ledger: cobol-2661-author-doc-collision. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 — gitgalaxy#2669 A.3): danger-only 'PLAIN ALTER DECOY TEXT' inside PROBE-GLOBALS in a.cpy — branch 1->0, io 1->0, high_risk_execution unchanged at 1 (ALTER was already counting, undampened). A.4 (gitgalaxy#2669): the args shape is now also carried by the cross-language entry args-no-parameter-surface-morphology, which extends it to avg_func_args and to css/dockerfile/html/makefile/sqlite/yacc/yaml."
 }

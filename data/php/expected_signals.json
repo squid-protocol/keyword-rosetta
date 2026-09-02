@@ -51,10 +51,10 @@
       "api": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 6,
-      "branch": 2,
-      "safety": 1,
-      "high_risk_execution": 0,
+      "state_mutation": 2,
+      "branch": 0,
+      "safety": 0,
+      "high_risk_execution": 1,
       "io": 0,
       "test": 0,
       "globals": 0,
@@ -87,13 +87,12 @@
   "decoys": [
     {
       "file": "b.php",
-      "line_hint": "$note = \"if eval fails, try open\"",
+      "line_hint": "$note = \"plain popen decoy text\"; (probe_state)",
       "surface": "string",
       "signals": [
-        "branch",
-        "safety"
+        "high_risk_execution"
       ],
-      "outcome": "if + try count branch (php branch includes try), try counts safety +1; $counter/$note assignments are 2 raw state tripled to 6. eval inert (php's eval sits in neither planted rule). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"popen\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.php",
@@ -105,5 +104,5 @@
       "outcome": "HACK/TODO comments count exactly 1 each"
     }
   ],
-  "notes": "branch no longer counts the <?php open tag: the per-file tag-? FP RESOLVED via gitgalaxy#2541 (tag-context excluded from the ternary-? alternation; ledger php-open-tag-counts-branch). main branch 3 = if/else/switch; a/c branch 0; b branch 2 = string if/try. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 against gitgalaxy#2641."
+  "notes": "branch no longer counts the <?php open tag: the per-file tag-? FP RESOLVED via gitgalaxy#2541 (tag-context excluded from the ternary-? alternation; ledger php-open-tag-counts-branch). main branch 3 = if/else/switch; a/c branch 0; b branch 2 = string if/try. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"popen\" literal inside probe_state \u2014 b.php high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
 }

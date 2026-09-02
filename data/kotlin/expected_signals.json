@@ -51,10 +51,10 @@
    "api": 3,
    "safety_bypasses": 2,
    "telemetry": 2,
-   "state_mutation": 6,
-   "branch": 2,
+   "state_mutation": 2,
+   "branch": 0,
    "safety": 0,
-   "high_risk_execution": 0,
+   "high_risk_execution": 1,
    "io": 0,
    "test": 0,
    "globals": 0,
@@ -87,12 +87,12 @@
  "decoys": [
   {
    "file": "b.kt",
-   "line_hint": "val note = \"if eval fails, try open\"",
+   "line_hint": "val note = \"plain System.exit decoy text\" (probeState)",
    "surface": "string",
    "signals": [
-    "branch"
+    "high_risk_execution"
    ],
-   "outcome": "if + try count branch +2 (kotlin branch includes try); val is not a kotlin state keyword so the decoy line adds no state — var x2 raw tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+   "outcome": "danger-only decoy (#17 redesign): \"System.exit\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
   },
   {
    "file": "c.kt",
@@ -104,5 +104,5 @@
    "outcome": "inert (camelCase)"
   }
  ],
- "notes": "kotlin's branch rule counted return (ledger kotlin-return-in-branch) until gitgalaxy#2545 (PR #2634): every file's branch dropped to its real branch-keyword count only (main 8->3 = if/else/when; a/c 3->0 = returns only, now 0; b 5->2). class_start 2 in a.kt = the two 'object' declarations planted for globals -- object is dual globals+class_start (ledger kotlin-object-dual-globals-classstart), a deliberate exception like cobol's PROGRAM-ID. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 after #2545."
+ "notes": "kotlin's branch rule counted return (ledger kotlin-return-in-branch) until gitgalaxy#2545 (PR #2634): every file's branch dropped to its real branch-keyword count only (main 8->3 = if/else/when; a/c 3->0 = returns only, now 0; b 5->2). class_start 2 in a.kt = the two 'object' declarations planted for globals -- object is dual globals+class_start (ledger kotlin-object-dual-globals-classstart), a deliberate exception like cobol's PROGRAM-ID. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 after #2545. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"System.exit\" literal inside probeState \u2014 b.kt high_risk_execution 0->1, branch 2->0, state_mutation 6->2."
 }
