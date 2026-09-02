@@ -18,5 +18,5 @@ probe_telemetry() {
 probe_state() {
     : "$1"
     counter=1
-    note="if eval fails, try curl"
+    note="plain sudo decoy text"
 }

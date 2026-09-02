@@ -48,14 +48,14 @@
    "func_start": 3,
    "args": 3,
    "api": 3,
-   "safety_bypasses": 3,
+   "safety_bypasses": 2,
    "telemetry": 2,
-   "state_mutation": 6,
-   "branch": 1,
-   "io": 1,
+   "state_mutation": 2,
+   "branch": 0,
+   "io": 0,
    "class_start": 0,
    "safety": 0,
-   "high_risk_execution": 0,
+   "high_risk_execution": 1,
    "test": 0,
    "globals": 0,
    "cleanup": 0,
@@ -97,14 +97,12 @@
   },
   {
    "file": "b.sh",
-   "line_hint": "note=\"if eval fails, try curl\"",
+   "line_hint": "note=\"plain sudo decoy text\" (probe_state)",
    "surface": "string",
    "signals": [
-    "branch",
-    "safety_bypasses",
-    "io"
+    "high_risk_execution"
    ],
-   "outcome": "if (branch +1), curl (io +1) AND eval (safety_bypasses +1) all COUNT \u2014 eval is a shell BYPASS keyword, not high-risk-family, and it is not shielded here, supporting the theory that only the high-risk family gets literal shielding in the python/js profile. Phantom branch context triples state: counter=/note= 2 raw -> 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+   "outcome": "danger-only decoy (#17 redesign): \"sudo\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, io 1->0, safety_bypasses 3->2, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
   },
   {
    "file": "c.sh",
@@ -116,5 +114,5 @@
    "outcome": "inert (underscore + lowercase)"
   }
  ],
- "notes": "branch 5 in main = if + then + fi + the test brackets [ and ] (shell's branch rule counts them \u2014 finditer: if,[,],then,fi; every bracketed test costs +2 branch; ledger shell-test-brackets-in-branch). globals 3 in a.sh = PATH + HOME + the TERM signal name in 'trap : TERM' colliding with the TERM env var (ledger shell-trap-signal-env-collision). args planted as one ': \"$1\"' per function (shell args = positional-parameter mentions, epic #1518 precedent). api = 0 planted (no export); a/b api 4 vs c api 3 \u2014 conversion exceeds the 3 visible function orphans by 1 in the files carrying a source line (ledger orphan-conversion-opaque-counts, not root-caused). Locked from hand-verified run 2026-08-31."
+ "notes": "branch 5 in main = if + then + fi + the test brackets [ and ] (shell's branch rule counts them \u2014 finditer: if,[,],then,fi; every bracketed test costs +2 branch; ledger shell-test-brackets-in-branch). globals 3 in a.sh = PATH + HOME + the TERM signal name in 'trap : TERM' colliding with the TERM env var (ledger shell-trap-signal-env-collision). args planted as one ': \"$1\"' per function (shell args = positional-parameter mentions, epic #1518 precedent). api = 0 planted (no export); a/b api 4 vs c api 3 \u2014 conversion exceeds the 3 visible function orphans by 1 in the files carrying a source line (ledger orphan-conversion-opaque-counts, not root-caused). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"sudo\" literal inside probe_state \u2014 b.sh high_risk_execution 0->1, branch 1->0, io 1->0, safety_bypasses 3->2, state_mutation 6->2."
 }
