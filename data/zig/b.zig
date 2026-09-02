@@ -16,6 +16,6 @@ fn probeTelemetry(msg: i32) i32 {
 
 fn probeState(items: i32) i32 {
     var first = items;
-    var note = "if eval fails, try open";
+    var note = "plain std.process.exit decoy text";
     return first;
 }

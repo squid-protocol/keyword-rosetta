@@ -47,15 +47,15 @@
     },
     "b.zig": {
       "class_start": 0,
-      "branch": 2,
+      "branch": 0,
       "io": 0,
-      "high_risk_execution": 0,
+      "high_risk_execution": 1,
       "globals": 0,
       "test": 0,
-      "safety": 1,
+      "safety": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 6,
+      "state_mutation": 2,
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
@@ -91,13 +91,13 @@
   "decoys": [
     {
       "file": "b.zig",
-      "line_hint": "var note = \"if eval fails, try open\"",
+      "line_hint": "var note = \"plain std.process.exit decoy text\"; (probeState)",
       "surface": "string",
       "signals": [
-        "branch"
+        "high_risk_execution"
       ],
-      "outcome": "if + try count branch (zig branch includes try AND return — pattern-confirmed: main 8 = 5 returns + if/else/switch); the var itself is a state hit and a globals hit (zig globals matches any indented var/const-with-=). var x2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"std.process.exit\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "zig counted return as branch (kotlin-return family) until gitgalaxy#2545. globals: the any-indentation-anchor bug RESOLVED via gitgalaxy#2651 (anchored to true column 0) -- b.zig's 2 function-local vars and c.zig's function-local const no longer count (b/c globals 2/1 -> 0/0); a.zig's 2 genuine top-level consts are unaffected. encapsulation counts fn/const/var keywords (recorded). _ = expr plants avoid both. Locked 2026-08-31; branch re-baselined 2026-09-01; globals re-baselined 2026-09-02 against gitgalaxy#2651."
+  "notes": "zig counted return as branch (kotlin-return family) until gitgalaxy#2545. globals: the any-indentation-anchor bug RESOLVED via gitgalaxy#2651 (anchored to true column 0) -- b.zig's 2 function-local vars and c.zig's function-local const no longer count (b/c globals 2/1 -> 0/0); a.zig's 2 genuine top-level consts are unaffected. encapsulation counts fn/const/var keywords (recorded). _ = expr plants avoid both. Locked 2026-08-31; branch re-baselined 2026-09-01; globals re-baselined 2026-09-02 against gitgalaxy#2651. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"std.process.exit\" literal inside probeState \u2014 b.zig high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
 }
