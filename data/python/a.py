@@ -3,12 +3,10 @@
 
 from b import probe_telemetry
 
-MESSAGE = "if eval fails, try open"
-
-
 def probe_globals(env):
     region = os.environ
     argline = sys.argv
+    message = "plain eval decoy text"
     return region, argline
 
 

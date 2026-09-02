@@ -1,39 +1,117 @@
 {
-  "language": "rust",
-  "tier": 1,
-  "generator": "claude-sonnet-5 (hand-verified reference)",
-  "files": {
-    "main.rs": {
-      "branch": 3, "io": 3, "high_risk_execution": 2, "func_start": 4, "args": 4,
-      "doc": 1, "ownership": 1, "import": 1, "api": 0, "class_start": 0,
-      "state_mutation": 0, "globals": 0, "test": 0, "safety": 0,
-      "safety_bypasses": 0, "telemetry": 0, "cleanup": 0, "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "a.rs": {
-      "import": 1, "func_start": 3, "args": 3, "api": 3, "globals": 2, "test": 2,
-      "safety": 2, "branch": 0, "class_start": 0, "state_mutation": 0,
-      "high_risk_execution": 0, "io": 0, "safety_bypasses": 0, "telemetry": 0,
-      "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
-    },
-    "b.rs": {
-      "import": 1, "func_start": 3, "args": 3, "api": 3, "safety_bypasses": 2,
-      "telemetry": 2, "state_mutation": 6, "branch": 1, "class_start": 0,
-      "safety": 0, "high_risk_execution": 0, "io": 0, "test": 0, "globals": 0,
-      "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
-    },
-    "c.rs": {
-      "import": 0, "func_start": 3, "args": 3, "api": 3, "cleanup": 2,
-      "fragile_debt": 1, "planned_debt": 1, "class_start": 0, "branch": 0,
-      "state_mutation": 0, "io": 0, "safety": 0, "safety_bypasses": 0,
-      "telemetry": 0, "test": 0, "globals": 0, "doc": 0, "ownership": 0,
-      "high_risk_execution": 0
-    }
+ "language": "rust",
+ "tier": 1,
+ "generator": "claude-sonnet-5 (hand-verified reference)",
+ "files": {
+  "main.rs": {
+   "branch": 3,
+   "io": 3,
+   "high_risk_execution": 2,
+   "func_start": 4,
+   "args": 4,
+   "doc": 1,
+   "ownership": 1,
+   "import": 1,
+   "api": 0,
+   "class_start": 0,
+   "state_mutation": 0,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
   },
-  "decoys": [
-    {"file": "main.rs", "line_hint": "never aborts and the exit words stay in prose", "surface": "comment", "signals": ["high_risk_execution"], "outcome": "stripped: contributed 0"},
-    {"file": "b.rs", "line_hint": "let message = \"if eval fails, try open\"", "surface": "string", "signals": ["branch"], "outcome": "if COUNTS (branch +1) — python/js selective profile; eval/try/open inert in rust's rules. Phantom branch context triples the 2 planted mut: state_mutation 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"},
-    {"file": "c.rs", "line_hint": "let hack_level = level", "surface": "code", "signals": ["fragile_debt"], "outcome": "inert (underscore + lowercase)"}
-  ],
-  "notes": "api deliberately 0 planted (rust api = \\bpub\\b; no pub anywhere) so a/b/c's api 3 is pure orphan conversion — the cleanest view of the Contextual Baseline Fix in the corpus. branch planted as if/else/loop (match avoided: it is also a rust safety keyword). state planted as two let-mut (avoided mut everywhere else, RefCell avoided as dual state keyword). panics_and_aborts 2 in main = process::exit/abort dual-mapped (unasserted). Locked from hand-verified run 2026-08-31."
+  "a.rs": {
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "globals": 2,
+   "test": 2,
+   "safety": 2,
+   "branch": 0,
+   "class_start": 0,
+   "state_mutation": 0,
+   "high_risk_execution": 0,
+   "io": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "b.rs": {
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "safety_bypasses": 2,
+   "telemetry": 2,
+   "state_mutation": 2,
+   "branch": 0,
+   "class_start": 0,
+   "safety": 0,
+   "high_risk_execution": 1,
+   "io": 0,
+   "test": 0,
+   "globals": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
+  },
+  "c.rs": {
+   "import": 0,
+   "func_start": 3,
+   "args": 3,
+   "api": 3,
+   "cleanup": 2,
+   "fragile_debt": 1,
+   "planned_debt": 1,
+   "class_start": 0,
+   "branch": 0,
+   "state_mutation": 0,
+   "io": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "test": 0,
+   "globals": 0,
+   "doc": 0,
+   "ownership": 0,
+   "high_risk_execution": 0
+  }
+ },
+ "decoys": [
+  {
+   "file": "main.rs",
+   "line_hint": "never aborts and the exit words stay in prose",
+   "surface": "comment",
+   "signals": [
+    "high_risk_execution"
+   ],
+   "outcome": "stripped: contributed 0"
+  },
+  {
+   "file": "b.rs",
+   "line_hint": "let message = \"plain abort decoy text\"",
+   "surface": "string",
+   "signals": [
+    "high_risk_execution"
+   ],
+   "outcome": "danger-only decoy (#17 redesign): abort COUNTS from inside the literal (+1) -- the FIRST time rust's string decoy tests anything: the old sentence's eval matches nothing in rust's danger rule (process::exit/abort), a morphology mismatch mislabeled as shielding. Also feeds the non-core panics_and_aborts signal (+1, recorded not asserted). Phantom branch gone: the old 'if' tripled the 2 planted muts (state 6 -> 2 raw at x1)."
+  },
+  {
+   "file": "c.rs",
+   "line_hint": "let hack_level = level",
+   "surface": "code",
+   "signals": [
+    "fragile_debt"
+   ],
+   "outcome": "inert (underscore + lowercase)"
+  }
+ ],
+ "notes": "api deliberately 0 planted (rust api = \\bpub\\b; no pub anywhere) so a/b/c's api 3 is pure orphan conversion — the cleanest view of the Contextual Baseline Fix in the corpus. branch planted as if/else/loop (match avoided: it is also a rust safety keyword). state planted as two let-mut (avoided mut everywhere else, RefCell avoided as dual state keyword). panics_and_aborts 2 in main = process::exit/abort dual-mapped (unasserted). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-01): abort-only literal (rust's own danger keyword replaces the meaningless eval; state_mutation 6->2, branch 1->0, high_risk_execution 0->1)."
 }

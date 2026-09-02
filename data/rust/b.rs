@@ -18,6 +18,6 @@ fn probe_telemetry(msg: i32) -> i32 {
 fn probe_state(items: i32) -> i32 {
     let mut first = items;
     let mut second = items;
-    let message = "if eval fails, try open";
+    let message = "plain abort decoy text";
     first + second
 }

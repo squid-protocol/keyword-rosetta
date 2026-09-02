@@ -1,38 +1,119 @@
 {
-  "language": "fortran",
-  "tier": 1,
-  "generator": "claude-sonnet-5 (hand-verified reference)",
-  "files": {
-    "main.f90": {
-      "branch": 4, "io": 3, "high_risk_execution": 2, "func_start": 4, "args": 4,
-      "api": 4, "import": 1, "doc": 2, "ownership": 1, "class_start": 0,
-      "state_mutation": 0, "globals": 0, "test": 0, "safety": 0,
-      "safety_bypasses": 0, "telemetry": 0, "cleanup": 0, "fragile_debt": 0,
-      "planned_debt": 0
-    },
-    "a.f90": {
-      "import": 1, "func_start": 3, "args": 3, "api": 6, "globals": 2, "test": 2,
-      "safety": 2, "safety_bypasses": 1, "branch": 0, "class_start": 0,
-      "state_mutation": 0, "high_risk_execution": 0, "io": 0, "cleanup": 0,
-      "fragile_debt": 0, "planned_debt": 0, "telemetry": 0
-    },
-    "b.f90": {
-      "import": 1, "func_start": 3, "args": 3, "api": 6, "safety_bypasses": 2,
-      "telemetry": 2, "state_mutation": 6, "branch": 2, "high_risk_execution": 1,
-      "io": 1, "class_start": 0, "safety": 0, "test": 0, "globals": 0,
-      "cleanup": 0, "fragile_debt": 0, "planned_debt": 0, "doc": 0
-    },
-    "c.f90": {
-      "import": 0, "func_start": 3, "args": 3, "api": 6, "cleanup": 2,
-      "fragile_debt": 1, "planned_debt": 1, "state_mutation": 1, "class_start": 0,
-      "branch": 0, "io": 0, "safety": 0, "safety_bypasses": 0, "telemetry": 0,
-      "test": 0, "globals": 0, "doc": 0, "ownership": 0, "high_risk_execution": 0
-    }
+ "language": "fortran",
+ "tier": 1,
+ "generator": "claude-sonnet-5 (hand-verified reference)",
+ "files": {
+  "main.f90": {
+   "branch": 4,
+   "io": 3,
+   "high_risk_execution": 2,
+   "func_start": 4,
+   "args": 4,
+   "api": 4,
+   "import": 1,
+   "doc": 2,
+   "ownership": 1,
+   "class_start": 0,
+   "state_mutation": 0,
+   "globals": 0,
+   "test": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0
   },
-  "decoys": [
-    {"file": "main.f90", "line_hint": "never uses GOTO and no DO loop", "surface": "comment", "signals": ["high_risk_execution", "branch"], "outcome": "stripped: contributed 0"},
-    {"file": "b.f90", "line_hint": "NOTE = 'IF GOTO FAILS TRY OPEN AGAIN'", "surface": "string", "signals": ["branch", "high_risk_execution", "io"], "outcome": "COUNTED like cobol: IF+GOTO (branch +2), GOTO (high_risk +1), OPEN (io +1); TRY inert (not a fortran keyword). Also triggers the flux weighting on this file's 2 assignments (state 2 -> 6). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"},
-    {"file": "c.f90", "line_hint": "HACK_LEVEL = LEV", "surface": "code", "signals": ["fragile_debt"], "outcome": "inert (underscore tokenization, as python) — but the assignment itself counts state_mutation +1 (fortran counts every NAME = value)"}
-  ],
-  "notes": "branch includes GOTO (main = if/elseif/else + goto = 4; ledger fortran-goto-dual-branch-highrisk). state_mutation counts every plain assignment (fortran-family rule), and the file-level flux weighting multiplies it x3 when branch context exists in the file (b.f90: 2 raw x 3 = 6; ledger state-flux-branch-weighting). api counts subroutine definitions (main 4) and a/b/c get orphan conversion (+3 each, api-contextual-baseline-fix) — which only worked after lowercasing USE targets: 'USE A' does not resolve to a.f90, the DAG lookup is case-sensitive though fortran is not (ledger fortran-use-case-insensitive-dag; upstream issue). COMMON counts globals AND safety_bypasses (+1 bypasses in a.f90). doc 2 in main = Author: + Description: (Author matches both doc and ownership). Locked from hand-verified run 2026-08-31."
+  "a.f90": {
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 6,
+   "globals": 2,
+   "test": 2,
+   "safety": 2,
+   "safety_bypasses": 1,
+   "branch": 0,
+   "class_start": 0,
+   "state_mutation": 0,
+   "high_risk_execution": 0,
+   "io": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0,
+   "telemetry": 0
+  },
+  "b.f90": {
+   "import": 1,
+   "func_start": 3,
+   "args": 3,
+   "api": 6,
+   "safety_bypasses": 2,
+   "telemetry": 2,
+   "state_mutation": 2,
+   "branch": 0,
+   "high_risk_execution": 1,
+   "io": 0,
+   "class_start": 0,
+   "safety": 0,
+   "test": 0,
+   "globals": 0,
+   "cleanup": 0,
+   "fragile_debt": 0,
+   "planned_debt": 0,
+   "doc": 0
+  },
+  "c.f90": {
+   "import": 0,
+   "func_start": 3,
+   "args": 3,
+   "api": 6,
+   "cleanup": 2,
+   "fragile_debt": 1,
+   "planned_debt": 1,
+   "state_mutation": 1,
+   "class_start": 0,
+   "branch": 0,
+   "io": 0,
+   "safety": 0,
+   "safety_bypasses": 0,
+   "telemetry": 0,
+   "test": 0,
+   "globals": 0,
+   "doc": 0,
+   "ownership": 0,
+   "high_risk_execution": 0
+  }
+ },
+ "decoys": [
+  {
+   "file": "main.f90",
+   "line_hint": "never uses GOTO and no DO loop",
+   "surface": "comment",
+   "signals": [
+    "high_risk_execution",
+    "branch"
+   ],
+   "outcome": "stripped: contributed 0"
+  },
+  {
+   "file": "b.f90",
+   "line_hint": "NOTE = 'PLAIN ASSIGN DECOY TEXT'",
+   "surface": "string",
+   "signals": [
+    "high_risk_execution"
+   ],
+   "outcome": "danger-only decoy (#17 redesign): ASSIGN COUNTS from inside the literal (+1) -- same unshielded read as before, now uncontaminated. ASSIGN chosen over GOTO deliberately: GOTO is ALSO a fortran branch keyword, so the old literal's phantom branch context tripled this file's 2 assignments via the flux weighting (state 6) and added branch +2/io +1 noise. Now state reads 2 raw at x1."
+  },
+  {
+   "file": "c.f90",
+   "line_hint": "HACK_LEVEL = LEV",
+   "surface": "code",
+   "signals": [
+    "fragile_debt"
+   ],
+   "outcome": "inert (underscore tokenization, as python) — but the assignment itself counts state_mutation +1 (fortran counts every NAME = value)"
+  }
+ ],
+ "notes": "branch includes GOTO (main = if/elseif/else + goto = 4; ledger fortran-goto-dual-branch-highrisk). state_mutation counts every plain assignment (fortran-family rule), and the file-level flux weighting multiplies it x3 when branch context exists in the file (b.f90: 2 raw x 3 = 6; ledger state-flux-branch-weighting). api counts subroutine definitions (main 4) and a/b/c get orphan conversion (+3 each, api-contextual-baseline-fix) — which only worked after lowercasing USE targets: 'USE A' does not resolve to a.f90, the DAG lookup is case-sensitive though fortran is not (ledger fortran-use-case-insensitive-dag; upstream issue). COMMON counts globals AND safety_bypasses (+1 bypasses in a.f90). doc 2 in main = Author: + Description: (Author matches both doc and ownership). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-01): ASSIGN-only literal (GOTO removed -- it doubles as a branch keyword and fed the x3 flux weighting; state_mutation 6->2, branch 2->0, io 1->0)."
 }
