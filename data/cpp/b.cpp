@@ -17,6 +17,6 @@ int probe_telemetry(int msg) {
 int probe_state(int items) {
     mutable int held;
     std::move(items);
-    const char *note = "if eval fails, try open";
+    const char *note = "plain system decoy text";
     return items;
 }

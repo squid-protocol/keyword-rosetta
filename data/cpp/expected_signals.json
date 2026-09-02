@@ -51,10 +51,10 @@
       "api": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 9,
-      "branch": 1,
-      "safety": 1,
-      "high_risk_execution": 0,
+      "state_mutation": 3,
+      "branch": 0,
+      "safety": 0,
+      "high_risk_execution": 1,
       "io": 0,
       "test": 0,
       "globals": 0,
@@ -87,14 +87,12 @@
   "decoys": [
     {
       "file": "b.cpp",
-      "line_hint": "note = \"if eval fails, try open\"",
+      "line_hint": "const char *note = \"plain system decoy text\"; (probe_state)",
       "surface": "string",
       "signals": [
-        "branch",
-        "safety",
-        "state_mutation"
+        "high_risk_execution"
       ],
-      "outcome": "if counts branch +1, try counts safety +1; cpp state counts plain = so the decoy line is a third raw state hit, tripled to 9 by the phantom branch context. eval/open inert. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"system\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.cpp",
