@@ -17,6 +17,6 @@ def probeTelemetry(msg: Int): Int = {
 def probeState(items: Int): Int = {
   var first = items
   var second = items
-  val note = "if eval fails, try open"
+  val note = "plain Runtime.getRuntime.exec decoy text"
   first + second
 }

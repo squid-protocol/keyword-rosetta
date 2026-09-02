@@ -45,15 +45,15 @@
     },
     "b.scala": {
       "class_start": 0,
-      "branch": 2,
+      "branch": 0,
       "io": 0,
-      "high_risk_execution": 0,
+      "high_risk_execution": 1,
       "globals": 0,
       "test": 0,
       "safety": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 6,
+      "state_mutation": 2,
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
@@ -87,12 +87,12 @@
   "decoys": [
     {
       "file": "b.scala",
-      "line_hint": "val note = \"if eval fails, try open\"",
+      "line_hint": "val note = \"plain Runtime.getRuntime.exec decoy text\" (probeState)",
       "surface": "string",
       "signals": [
-        "branch"
+        "high_risk_execution"
       ],
-      "outcome": "if + try count branch +2 (scala branch includes try); var x2 raw state tripled to 6; val contributes nothing. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"Runtime.getRuntime.exec\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
   "notes": "scala's expression-oriented style needs no return keyword — branch stays exactly at planted+string values with no return inflation (contrast kotlin/apex/objc/powershell/zig). api counts public defs (main 4) + conversion (a/b/c 6 = 3 + 3). Locked 2026-08-31."
