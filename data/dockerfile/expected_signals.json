@@ -65,7 +65,7 @@
     "c.dockerfile": {
       "class_start": 1,
       "branch": 0,
-      "io": 2,
+      "io": 0,
       "high_risk_execution": 0,
       "globals": 0,
       "test": 0,
@@ -92,8 +92,8 @@
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"eval\" was already dockerfile's own danger keyword and still COUNTS from inside the literal (+1) — what the redesign removes is the branch/io contamination that made the old read ambiguous. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 4->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"eval\" was already dockerfile's own danger keyword and still COUNTS from inside the literal (+1) \u2014 what the redesign removes is the branch/io contamination that made the old read ambiguous. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 4->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "dockerfile morphology: functions are RUN/CMD/HEALTHCHECK instructions (main 5 = 4 RUN + CMD; HEALTHCHECK is dual func+safety in a); class_start 1 per file = FROM (the stage/base = class construct, tier-1 exception); args = ARG instructions (1 per file); import = FROM (chain main->a->b->c; c FROM scratch is the leaf). ENV is dual globals+state (a state 2). io includes package managers (c io 2 = apt-get + yum, finditer-confirmed). c func 4 = 4 RUN incl the clean: — no. 4 RUN lines. makefile-style api: a api 1 recorded as observed (opaque conversion). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal in the same module-level RUN export (b.dockerfile has no functions to scope to) — b.dockerfile branch 1->0, io 1->0, state_mutation 4->2. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology — RUN/CMD/HEALTHCHECK take no parameters and ARG is a file-scoped build variable, one per file by design; more ARG lines would be overlap-free but consumed by nothing (ledger args-no-parameter-surface-morphology)."
+  "notes": "dockerfile morphology: functions are RUN/CMD/HEALTHCHECK instructions (main 5 = 4 RUN + CMD; HEALTHCHECK is dual func+safety in a); class_start 1 per file = FROM (the stage/base = class construct, tier-1 exception); args = ARG instructions (1 per file); import = FROM (chain main->a->b->c; c FROM scratch is the leaf). ENV is dual globals+state (a state 2). io includes package managers (c io 2 = apt-get + yum, finditer-confirmed). c func 4 = 4 RUN incl the clean: \u2014 no. 4 RUN lines. makefile-style api: a api 1 recorded as observed (opaque conversion). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal in the same module-level RUN export (b.dockerfile has no functions to scope to) \u2014 b.dockerfile branch 1->0, io 1->0, state_mutation 4->2. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology \u2014 RUN/CMD/HEALTHCHECK take no parameters and ARG is a file-scoped build variable, one per file by design; more ARG lines would be overlap-free but consumed by nothing (ledger args-no-parameter-surface-morphology). gitgalaxy#2675: io matched bare package-manager names, so `apt-get clean`/`yum clean all` -- pure local cache cleanup that cleanup owns -- counted as io; now requires a non-clean subcommand and io records the planted 3."
 }
