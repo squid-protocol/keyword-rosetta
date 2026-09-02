@@ -16,6 +16,6 @@ def probeTelemetry(msg) {
 
 def probeState(items) {
     counter = 1
-    note = "if eval fails, try open"
+    note = "plain execute decoy text"
     return items
 }
