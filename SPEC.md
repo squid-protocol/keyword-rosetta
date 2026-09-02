@@ -78,16 +78,38 @@ If a signal in the table has no plantable menu keyword for this language (Tier-2
 languages, or a structural-only rule), record expected 0 in the manifest and move on —
 never invent an occurrence the rule can't match.
 
-## Decoys (all recorded, all expected 0 extra)
+## Decoys (all recorded; comment/reverse decoys expect 0 extra, the string decoy expects +1)
 
 Decoys cross the two detection surfaces in both directions:
 
 1. **Comment decoy** — every file carries one comment containing 2+ code-stream
    keywords in prose, e.g. `# this probe never calls eval and has no while loop`.
    Must contribute nothing: tests `prism.py` comment stripping.
-2. **String decoy** — one string literal per language containing code-stream keywords,
-   e.g. `msg = "if eval fails, try open"`. Must contribute nothing: tests literal
-   shielding. Skip only if the language has no string literals.
+2. **String decoy** — one **danger-only** string literal per language, e.g.
+   `msg = "plain eval decoy text"`. Strings are NOT stripped: keywords inside a literal
+   count like code for every structural signal (gitgalaxy#2535 — there is no
+   literal-shielding mechanism in the engine; only comments are stripped). The decoy
+   therefore asserts a **+1 on `high_risk_execution`** in its file, isolating exactly one
+   question: *does a keyword inside a literal count the same as one in real code?*
+   Design rules (keyword-rosetta#17 — each learned the hard way):
+   - The literal contains **one** danger keyword plus neutral filler words only. Check
+     every filler word against the language's whole menu; the `--report` run settles it.
+   - Never pick a danger keyword that doubles as a **branch** keyword (fortran's `GOTO`):
+     the phantom branch context triples nearby mutations via the flux weighting
+     (`state-flux-branch-weighting`) and muddies the read. Fortran uses `ASSIGN`.
+   - Use the language's **own** danger vocabulary (rust: `abort`, not `eval` — a keyword
+     its rule can't match tests nothing; that morphology mismatch masqueraded as
+     "shielding" for months).
+   - Place the literal **inside a probe function containing no safety keywords**.
+     Module-level code falls back to flat 500-char-radius dampening
+     (`apply_dampener_correlations`' docstring), where an unrelated function's `assert`
+     can silently dampen the danger hit — function-scoped placement keeps the Silencer
+     Region out of the experiment.
+   - Skip only if the language has no string literals.
+   The retired shared sentence (`"if eval fails, try open"`) conflated this question with
+   the Silencer Region dampener — see `string-literal-selective-shielding`. A shell MAY
+   additionally plant a deliberate danger+safety literal to exercise the dampener, but
+   only as its own separate, documented decoy entry.
 3. **Reverse decoy** — one code identifier built from a comment-surface keyword, e.g.
    a variable named `HACK_LEVEL` (fragile_debt's `HACK` must only count in comments in
    languages whose rule is comment-anchored; where the rule matches anywhere, record
@@ -129,11 +151,16 @@ Verified empirically; every generator must account for them:
    `galaxyscope.py` ~2145): a file imported by others has its `orphaned_logic`
    (uncalled functions) converted into `api`. With the spec's main→a→b→c chain and
    uncalled probes, expect `api = defs × 2` in a/b/c and `api = defs` in main.
-3. **String literals count for most code-stream signals** — the string decoy's
-   keywords land in branch/safety/io and must be baked into that file's expected
-   counts. Shielding is *selective*: the high-risk family (`eval` etc.) does NOT
-   count from inside a literal (it feeds `sec_tainted_injection` instead). Record
-   what the verifier reports and describe it in the decoy's `outcome` field.
+3. **String literals count for ALL code-stream signals** — corrected 2026-09-01
+   (gitgalaxy#2535): the engine never strips or masks strings from the code stream,
+   for any signal, in any language. The earlier "selective shielding" reading (this
+   fact's original text) was the Silencer Region dampener (`high_risk_execution ←
+   safety`, 500-char radius) firing on the old decoy sentence's accidental `try`,
+   plus rust's danger-vocabulary mismatch — see `string-literal-selective-shielding`.
+   Corollaries every author must respect: a branch keyword in a literal creates real
+   flux context (×3 on nearby mutations), and a safety keyword in a literal really
+   dampens a nearby danger hit. Bake every literal keyword into the file's expected
+   counts and describe it in the decoy's `outcome` field.
 4. **Known keyword overlaps** (record, don't avoid): `assert` hits both `safety`
    and `test`; `os.`/`sys.` prefixes needed for `globals` also hit python-family
    `io`. Every language will have its own — the report run reveals them.
