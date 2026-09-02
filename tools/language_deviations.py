@@ -113,10 +113,23 @@ def main():
             current_group = (gnum, gname)
             print(f"\n== {gnum}. {gname} ==")
         if band.startswith("na-"):
-            note = ("no rule in registry; absence recorded in the deviation ledger"
-                    if band == "na-ledgered"
-                    else "no rule in registry and NO ledger entry says why -- real "
-                         "morphology to ledger, or a missing-rule engine gap")
+            # Derived risk_* cells are n/a for a composed reason (every registry
+            # input to the formula is absent AND the scan confirms a pinned 0), and
+            # inherit their review status from those inputs -- so they get their own
+            # wording rather than the planted signal's "no rule in registry".
+            derived = metric.startswith("risk_")
+            if band == "na-ledgered":
+                note = ("every registry input to this formula is absent (score pinned "
+                        "at 0); each of those absences is recorded in the ledger"
+                        if derived
+                        else "no rule in registry; absence recorded in the deviation ledger")
+            else:
+                note = ("every registry input to this formula is absent (score pinned "
+                        "at 0), but at least one of those inputs has NO ledger entry "
+                        "saying why -- see docs/na_baseline.json"
+                        if derived
+                        else "no rule in registry and NO ledger entry says why -- real "
+                             "morphology to ledger, or a missing-rule engine gap")
             print(f"{dot[band]} {metric:24s} {'n/a':>10s}  {note}")
             continue
         dev_txt = f"{dev:+.0%}" if dev is not None else "(median 0 -- morphology, check manifest notes)"

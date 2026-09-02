@@ -7,6 +7,15 @@ concept isn't expressible (docs/GATING.md "n/a semantics"; jcl's safety rule
 was None right up until gitgalaxy#2610 proved real morphology, so an absence
 is never simply assumed fine).
 
+Scope note: this audits the planted 18 signals AND the extra inputs the derived
+risk_* formulas read (concurrency, encapsulation, sync_locks, dead_code,
+spec_exposure, immutability_locks, reflection_metaprogramming). Those are not in
+the SPEC probe table, so the #2560 sweep never reviewed them -- yet an absence
+there is exactly what makes a derived risk cell incomparable, so it has to carry
+the same burden of proof. Derived cells are deliberately NOT listed as their own
+audit rows: their review status composes from these absences, which keeps the
+reviewable unit at language/signal and keeps this gate scan-free.
+
 This check recomputes the unreviewed set live -- the language registry from the
 GITGALAXY_PATH checkout, the ledger from this repo -- so it needs NO scan and
 runs in seconds, in both repos' CI:
@@ -32,8 +41,13 @@ import pathlib
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from _registry import load_definitions, unmeasurable_signals
-from bias_report import PLANTED, classify_na
+from _registry import (
+    load_definitions,
+    registry_signals,
+    risk_dependencies,
+    unmeasurable_signals,
+)
+from bias_report import classify_na, na_audit_signals
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 BASELINE = REPO_ROOT / "docs" / "na_baseline.json"
@@ -43,9 +57,19 @@ def current_unreviewed():
     languages = sorted(
         p.parent.name for p in (REPO_ROOT / "data").glob("*/expected_signals.json")
     )
+    # Scope: the planted 18 plus the extra inputs the risk formulas read that can
+    # make a DERIVED risk_* cell incomparable (na_audit_signals). Derived cells are
+    # not themselves listed here -- their review status is composed from these same
+    # absences, so the reviewable unit stays language/signal and the gate stays
+    # scan-free, which is what lets it run in both repos' CI in seconds.
+    definitions = load_definitions()
     na_map = {
         lang: sigs
-        for lang, sigs in unmeasurable_signals(load_definitions(), list(PLANTED)).items()
+        for lang, sigs in unmeasurable_signals(
+            definitions,
+            na_audit_signals(risk_dependencies(registry_signals(definitions))),
+            include_exempt=True,
+        ).items()
         if lang in languages
     }
     ledger = json.loads((REPO_ROOT / "deviation_ledger.json").read_text())["entries"]

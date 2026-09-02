@@ -96,6 +96,61 @@ Two hard rules keep n/a from becoming a rug:
    it. The worked example of "reviewed": `jcl-2610-rebaseline-residual-morphology` covers
    jcl's `cleanup|doc|test|globals` with the reasoning for each.
 
+### Derived metrics (the `risk_*` columns)
+
+The rule above governs *planted signals*. The `risk_*` columns are one step downstream —
+formulas over those same signals — and until now had no n/a mechanism at all, so a language
+whose every input was structurally absent was scored as a −100% outlier against languages
+that actually measured something. (markdown defines **no** rules whatsoever; it was red on
+every risk column for having nothing to measure.)
+
+A derived metric is n/a for a language only when **all four** hold:
+
+1. its formula consumes at least one registry-governed signal;
+2. every one of those signals has a `None` rule for that language;
+3. it consumes no engine-derived input — `orphaned_logic`, `duplicate_logic`, the `sec_*`
+   family — that can be nonzero no matter what the registry says;
+4. the scan confirms the observed value really is **0**.
+
+Condition 4 is not decoration. Rule absence alone is *not* sufficient for a derived metric,
+because these formulas also read structure the registry does not govern: LOC, doc lines, the
+call graph, popularity. Two live cells prove it — `jcl/risk_api_exposure` = 8.67 and
+`html/risk_verification` = 0.92 both have every registry input absent and still measure
+something. Those are reported as **mismatches** and left comparable, never absorbed: a
+mismatch means either the dependency map is incomplete or the engine synthesizes the input
+downstream of the registry, the way orphan conversion synthesizes `api` (ledger
+`api-contextual-baseline-fix`).
+
+The dependency map is **derived live** from the engine's risk assembly
+(`gitgalaxy/metrics/signal_processor.py`), never hand-copied — same doctrine as the registry
+loader. If the assembly stops looking the way the parser expects, `risk_dependencies()`
+raises rather than returning a stale map that would quietly mark comparable cells n/a.
+
+**Review status is inherited, not invented.** A derived n/a is a mechanical consequence of
+its inputs' absences, so it counts as ledgered only when *every* governed input is itself
+ledgered for that language; one unreviewed input keeps the derived cell marked `n/a†` too.
+That is rule 2 above, composed — and it means `na_check.py` audits the planted 18 plus the
+non-planted inputs those formulas read (`concurrency`, `encapsulation`, `sync_locks`,
+`dead_code`, `spec_exposure`, `immutability_locks`, `reflection_metaprogramming`), a scope
+the #2560 sweep never covered. Inputs to formulas that condition 3 already disqualifies are
+excluded on purpose: demanding a ledger entry for `llm_api` in the 40 languages that do not
+define it would be review theatre, not review.
+
+The `api` exemption gets one extra turn here. `api` stays out of the *planted signal* n/a
+table (rule-absence does not make it unmeasurable — orphan conversion synthesizes it), but it
+is a governed input to `risk_api_exposure` and `risk_documentation`, so a derived cell can
+rest its n/a on it. Those absences are therefore audited (`markdown/api`, `jcl/api`) even
+though they never appear as n/a signals: otherwise the derived cell is marked `n/a†` with
+nothing in the baseline to explain the marker, and the reviewer has no row to chase.
+
+## Inert metrics
+
+A metric that records exactly 0 in **every** language is not 100% consistent — it asked no
+cross-language question. `risk_churn` (a hardcoded `0.0` in the risk assembly) and
+`risk_secrets_risk` (needs `sec_*` signals no corpus shell plants) were both being badged
+100% and folded into the headline average, inflating it. They are now reported as **inert**
+and excluded from the average, alongside the separate "no comparable median" list.
+
 ## Cross-repo choreography (ENGINE_REF + the gitgalaxy-side pin)
 
 Two CI gates hold the corpus and the engine together (gitgalaxy#2557), asymmetrically pinned:

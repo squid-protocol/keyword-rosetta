@@ -86,13 +86,17 @@ def generate():
         "upstream issue tracking each, and the corpus file carrying the evidence. "
         "Lifecycle rules: `docs/GATING.md`; full verdicts: `deviation_ledger.json`.",
         "",
-        "n/a cells (a signal the language's registry defines no rule for) are "
-        "incomparable, not zero — excluded from the bands below and listed per "
-        "language; † marks an absence not yet backed by a validated ledger entry.",
+        "n/a cells are incomparable, not zero — excluded from the bands below and "
+        "listed per language. A planted signal is n/a when the language's registry "
+        "defines no rule for it; a derived `risk_*` metric is n/a when every "
+        "registry-governed input to its formula is absent and the scan confirms the "
+        "score is pinned at 0 (docs/GATING.md). † marks an absence not yet backed by "
+        "a validated ledger entry — for a derived cell, that means at least one of "
+        "its inputs is unreviewed.",
         "",
         "## Index",
         "",
-        "| language | red-zone metrics | amber | n/a signals | ledgered shapes | upstream issues |",
+        "| language | red-zone metrics | amber | n/a cells | ledgered shapes | upstream issues |",
         "|---|---|---|---|---|---|",
     ]
     per_lang_shapes = {

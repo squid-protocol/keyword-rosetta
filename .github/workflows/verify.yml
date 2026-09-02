@@ -89,3 +89,22 @@ jobs:
         env:
           GITGALAXY_PATH: ${{ github.workspace }}/gitgalaxy
         run: python tools/na_check.py --ci
+
+      # The committed bias report must have been generated against a FULL-PRECISION
+      # engine. In Zero-Dependency Mode the recorder nulls every network metric, so
+      # pagerank and the four other topology measures vanish from the comparison with
+      # no error -- two reports then differ by five whole columns for reasons nothing
+      # in them explains (that is exactly how the pre-#30 report came to have pagerank
+      # NULL in all 46 languages). bias_report.py refuses to write in that mode, and
+      # this gate catches a cache generated before it did, or with the override.
+      # Seconds, no scans: the mode is recorded in the cache the report ships with.
+      - name: bias report engine mode
+        run: |
+          mode=$(python -c "import json;print(json.load(open('docs/bias_data.json')).get('engine_mode','<missing>'))")
+          echo "docs/bias_data.json engine_mode: $mode"
+          if [ "$mode" != "full-precision" ]; then
+            echo "::error::bias_data.json was generated in '$mode', not full-precision."
+            echo "Regenerate with GALAXYSCOPE_BIN pointed at the full-precision venv:"
+            echo "  GALAXYSCOPE_BIN=<gitgalaxy>/.crucible_venvs/full_precision/bin/galaxyscope python tools/bias_report.py"
+            exit 1
+          fi
