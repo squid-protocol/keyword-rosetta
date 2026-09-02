@@ -963,6 +963,20 @@
       "investigated_by": "claude-opus-5",
       "validated_at": "2026-09-02",
       "still_reproduces": true
+    },
+    {
+      "id": "cobol-2661-author-doc-collision",
+      "signal": "doc",
+      "languages_seen": [
+        "cobol"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "cobol's doc rule lists AUTHOR in the same bare-tag alternative that its ownership rule owns exclusively -- the shape gitgalaxy#2659 fixed for agc_assembly/fortran/livecode/html, from which cobol was deliberately excluded because its shell had NO other doc-idiom line: removing AUTHOR from doc would have taken doc to 0, not to the planted 1. gitgalaxy#2661 sequences the fix; this is step 1, corpus-side. main.cbl now carries a genuine structured doc line, '*> @return the probe result' (COBOL 2002+ inline form, already in cobol's doc rule), so doc reads 2 = AUTHOR. + *> @return until #2661 step 2 removes AUTHOR from the doc alternative, at which point it settles at the planted 1. Note cobol has no alternative ownership idiom -- its ownership rule matches ONLY 'AUTHOR.' -- so the corpus cannot dodge the collision by swapping the header the way apex could; doc 2 is unavoidable in the interim and is baked in per GATING.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2661",
+      "investigated_by": "claude-opus-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
     }
   ]
 }
