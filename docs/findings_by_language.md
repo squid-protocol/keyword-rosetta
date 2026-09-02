@@ -22,12 +22,12 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [dockerfile](#dockerfile) | 5 | 11 | 0 | 5 | #2535 #2546 #2547 |
 | [embedded_python](#embedded_python) | 5 | 4 | 0 | 4 | #2535 #2548 |
 | [fortran](#fortran) | 5 | 4 | 0 | 5 | #2535 #2540 #2546 |
-| [go](#go) | 3 | 0 | 0 | 5 | #2535 #2542 #2546 |
+| [go](#go) | 2 | 0 | 0 | 5 | #2535 #2542 #2546 |
 | [groovy](#groovy) | 2 | 2 | 0 | 4 | #2535 |
-| [haskell](#haskell) | 5 | 5 | 0 | 4 | #2535 |
+| [haskell](#haskell) | 6 | 4 | 0 | 4 | #2535 |
 | [html](#html) | 11 | 6 | 3 | 3 | #2549 |
 | [java](#java) | 2 | 1 | 0 | 3 | #2535 #2546 |
-| [javascript](#javascript) | 3 | 5 | 0 | 5 | #2535 #2539 |
+| [javascript](#javascript) | 3 | 4 | 0 | 5 | #2535 #2539 |
 | [jcl](#jcl) | 2 | 7 | 4 | 3 | #2610 |
 | [kotlin](#kotlin) | 1 | 0 | 0 | 5 | #2535 #2545 #2546 |
 | [livecode](#livecode) | 3 | 7 | 0 | 5 | #2535 #2546 #2547 |
@@ -38,7 +38,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [matlab](#matlab) | 5 | 4 | 0 | 5 | #2535 #2546 #2547 |
 | [objective-c](#objective-c) | 2 | 2 | 0 | 6 | #2535 #2545 #2546 |
 | [perl](#perl) | 4 | 7 | 0 | 5 | #2535 #2546 #2626 |
-| [php](#php) | 2 | 2 | 0 | 4 | #2535 #2541 #2546 |
+| [php](#php) | 1 | 1 | 0 | 4 | #2535 #2541 #2546 |
 | [powershell](#powershell) | 3 | 5 | 0 | 6 | #2535 #2545 #2546 #2547 |
 | [python](#python) | 3 | 4 | 0 | 4 | #2535 #2536 |
 | [ruby](#ruby) | 1 | 1 | 0 | 4 | #2535 #2546 #2547 |
@@ -48,7 +48,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [shell](#shell) | 1 | 4 | 1 | 5 | #2535 #2547 |
 | [solidity](#solidity) | 3 | 1 | 1 | 4 | #2535 #2545 |
 | [sqlite](#sqlite) | 7 | 5 | 0 | 4 | #2535 #2547 |
-| [swift](#swift) | 5 | 0 | 0 | 4 | #2535 #2543 #2546 |
+| [swift](#swift) | 1 | 0 | 0 | 4 | #2535 #2543 #2546 |
 | [tcl](#tcl) | 2 | 3 | 0 | 4 | #2535 #2546 |
 | [typescript](#typescript) | 1 | 0 | 0 | 4 | #2535 #2546 |
 | [yacc](#yacc) | 8 | 3 | 2 | 3 | — |
@@ -63,7 +63,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 7.0764 vs median 14.9506 (-53%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 162 vs median 256.5 (-37%)
+- 🟡 `keyword_hits`: 162 vs median 254.5 (-36%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -84,10 +84,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 24.2458 vs median 14.9506 (+62%)
-- 🟡 `keyword_hits`: 176 vs median 256.5 (-31%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
+- 🟡 `keyword_hits`: 176 vs median 254.5 (-31%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -110,7 +110,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 2 vs median 13 (-85%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 1.88742 vs median 5.29997 (-64%)
+- 🔴 `risk_api_exposure`: 1.88742 vs median 5.31104 (-64%)
 - 🔴 `risk_cognitive_load`: 4 vs median 14.9506 (-73%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `risk_spec_match`: 65.3333 vs median 96 (-32%)
@@ -136,12 +136,12 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 26.053 vs median 14.9506 (+74%)
 - 🔴 `risk_state_flux`: 35.488 vs median 19.9999 (+77%)
-- 🔴 `risk_tech_debt`: 79.97 vs median 39.9315 (+100%)
+- 🔴 `risk_tech_debt`: 79.97 vs median 39.5943 (+102%)
 - 🟡 `args`: 18 vs median 13 (+38%)
-- 🟡 `risk_safety_score`: 53.9656 vs median 37.5728 (+44%)
+- 🟡 `risk_safety_score`: 53.9656 vs median 37.3868 (+44%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
@@ -190,7 +190,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `io`: 5 vs median 3 (+67%)
-- 🔴 `risk_api_exposure`: 11.5689 vs median 5.29997 (+118%)
+- 🔴 `risk_api_exposure`: 11.5689 vs median 5.31104 (+118%)
 - 🔴 `risk_state_flux`: 38.7639 vs median 19.9999 (+94%)
 - 🔴 `state_mutation`: 11 vs median 6 (+83%)
 - 🟡 `risk_cognitive_load`: 19.7263 vs median 14.9506 (+32%)
@@ -221,7 +221,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `globals`: 3 vs median 2 (+50%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_safety_score`: 53.1215 vs median 37.5728 (+41%)
+- 🟡 `risk_safety_score`: 53.1215 vs median 37.3868 (+42%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -288,15 +288,15 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `doc`: 0 vs median 1 (-100%)
 - 🔴 `globals`: 0 vs median 2 (-100%)
 - 🔴 `ownership`: 0 vs median 1 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 4 vs median 14.9506 (-73%)
 - 🔴 `risk_documentation`: 26.4404 vs median 54.777 (-52%)
 - 🔴 `risk_spec_match`: 45.3333 vs median 96 (-53%)
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 147 vs median 256.5 (-43%)
-- 🟡 `risk_safety_score`: 19.8485 vs median 37.5728 (-47%)
+- 🟡 `keyword_hits`: 147 vs median 254.5 (-42%)
+- 🟡 `risk_safety_score`: 19.8485 vs median 37.3868 (-47%)
 - 🟡 `risk_verification`: 1.27414 vs median 2.36136 (-46%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 
@@ -339,7 +339,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 4 vs median 13 (-69%)
 - 🔴 `io`: 6 vs median 3 (+100%)
-- 🔴 `risk_api_exposure`: 1.0506 vs median 5.29997 (-80%)
+- 🔴 `risk_api_exposure`: 1.0506 vs median 5.31104 (-80%)
 - 🔴 `risk_cognitive_load`: 4 vs median 14.9506 (-73%)
 - 🔴 `risk_state_flux`: 39.9982 vs median 19.9999 (+100%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
@@ -347,9 +347,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `import`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 185 vs median 256.5 (-28%)
+- 🟡 `keyword_hits`: 185 vs median 254.5 (-27%)
 - 🟡 `risk_documentation`: 38.1027 vs median 54.777 (-30%)
-- 🟡 `risk_safety_score`: 55.625 vs median 37.5728 (+48%)
+- 🟡 `risk_safety_score`: 55.625 vs median 37.3868 (+49%)
 - 🟡 `risk_spec_match`: 61.3333 vs median 96 (-36%)
 - 🟡 `risk_verification`: 1.70158 vs median 2.36136 (-28%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
@@ -375,7 +375,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `import`: 7 vs median 3 (+133%)
-- 🔴 `risk_api_exposure`: 8.75246 vs median 5.29997 (+65%)
+- 🔴 `risk_api_exposure`: 8.75246 vs median 5.31104 (+65%)
 - 🔴 `safety`: 5 vs median 2 (+150%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `risk_cognitive_load`: 21.6556 vs median 14.9506 (+45%)
@@ -401,9 +401,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 9.73064 vs median 5.29997 (+84%)
+- 🔴 `risk_api_exposure`: 9.73064 vs median 5.31104 (+83%)
 - 🔴 `risk_cognitive_load`: 4.82426 vs median 14.9506 (-68%)
-- 🔴 `risk_safety_score`: 69.9407 vs median 37.5728 (+86%)
+- 🔴 `risk_safety_score`: 69.9407 vs median 37.3868 (+87%)
 - 🔴 `risk_state_flux`: 37.0567 vs median 19.9999 (+85%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `risk_documentation`: 71.7124 vs median 54.777 (+31%)
@@ -430,8 +430,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 1.89168 vs median 5.29997 (-64%)
-- 🔴 `safety_bypasses`: 5 vs median 2 (+150%)
+- 🔴 `risk_api_exposure`: 1.89168 vs median 5.31104 (-64%)
 - 🔴 `state_mutation`: 11 vs median 6 (+83%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -475,15 +474,15 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 5.53524 vs median 14.9506 (-63%)
+- 🔴 `risk_safety_score`: 56.3515 vs median 37.3868 (+51%)
 - 🔴 `risk_state_flux`: 39.8873 vs median 19.9999 (+99%)
 - 🔴 `safety`: 4 vs median 2 (+100%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
-- 🟡 `keyword_hits`: 146 vs median 256.5 (-43%)
-- 🟡 `risk_safety_score`: 56.3515 vs median 37.5728 (+50%)
+- 🟡 `keyword_hits`: 146 vs median 254.5 (-43%)
 - 🟡 `risk_spec_match`: 65.3333 vs median 96 (-32%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 - 🟡 `state_mutation`: 8 vs median 6 (+33%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -510,17 +509,17 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `func_start`: 0 vs median 13 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 1.0506 vs median 5.29997 (-80%)
+- 🔴 `risk_api_exposure`: 1.0506 vs median 5.31104 (-80%)
 - 🔴 `risk_cognitive_load`: 4 vs median 14.9506 (-73%)
-- 🔴 `risk_safety_score`: 0 vs median 37.5728 (-100%)
+- 🔴 `risk_safety_score`: 0 vs median 37.3868 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🔴 `telemetry`: 0 vs median 2 (-100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 135 vs median 256.5 (-47%)
+- 🟡 `keyword_hits`: 135 vs median 254.5 (-47%)
 - 🟡 `risk_documentation`: 32.3996 vs median 54.777 (-41%)
 - 🟡 `risk_spec_match`: 52 vs median 96 (-46%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 - 🟡 `risk_verification`: 1.1948 vs median 2.36136 (-49%)
 
 **Not expressible as measured (n/a):** `globals`†, `high_risk_execution`†, `state_mutation`†
@@ -566,8 +565,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 7.14347 vs median 14.9506 (-52%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 325 vs median 256.5 (+27%)
-- 🟡 `risk_safety_score`: 28.1116 vs median 37.5728 (-25%)
+- 🟡 `keyword_hits`: 322 vs median 254.5 (+27%)
 - 🟡 `risk_state_flux`: 13.551 vs median 19.9999 (-32%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
@@ -596,8 +594,8 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 178 vs median 256.5 (-31%)
-- 🟡 `risk_api_exposure`: 6.93756 vs median 5.29997 (+31%)
+- 🟡 `keyword_hits`: 178 vs median 254.5 (-30%)
+- 🟡 `risk_api_exposure`: 6.93756 vs median 5.31104 (+31%)
 - 🟡 `risk_documentation`: 32.7888 vs median 54.777 (-40%)
 - 🟡 `risk_spec_match`: 52 vs median 96 (-46%)
 - 🟡 `risk_verification`: 1.50954 vs median 2.36136 (-36%)
@@ -640,10 +638,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 6.298 vs median 14.9506 (-58%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `branch`: 7 vs median 5 (+40%)
-- 🟡 `risk_api_exposure`: 7.4132 vs median 5.29997 (+40%)
+- 🟡 `risk_api_exposure`: 7.4132 vs median 5.31104 (+40%)
 - 🟡 `risk_documentation`: 72.843 vs median 54.777 (+33%)
-- 🟡 `risk_safety_score`: 54.3674 vs median 37.5728 (+45%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
+- 🟡 `risk_safety_score`: 54.3674 vs median 37.3868 (+45%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 
@@ -666,9 +664,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 11.106 vs median 5.29997 (+110%)
+- 🔴 `risk_api_exposure`: 11.106 vs median 5.31104 (+109%)
 - 🔴 `risk_cognitive_load`: 24.8604 vs median 14.9506 (+66%)
-- 🔴 `risk_safety_score`: 69.7879 vs median 37.5728 (+86%)
+- 🔴 `risk_safety_score`: 69.7879 vs median 37.3868 (+87%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `risk_documentation`: 77.7788 vs median 54.777 (+42%)
@@ -692,16 +690,16 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 4 vs median 14.9506 (-73%)
 - 🔴 `risk_documentation`: 22.9356 vs median 54.777 (-58%)
-- 🔴 `risk_safety_score`: 57.4043 vs median 37.5728 (+53%)
+- 🔴 `risk_safety_score`: 57.4043 vs median 37.3868 (+54%)
 - 🔴 `risk_spec_match`: 41.3333 vs median 96 (-57%)
 - 🔴 `risk_state_flux`: 40 vs median 19.9999 (+100%)
-- 🔴 `risk_tech_debt`: 80 vs median 39.9315 (+100%)
+- 🔴 `risk_tech_debt`: 80 vs median 39.5943 (+102%)
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 174 vs median 256.5 (-32%)
+- 🟡 `keyword_hits`: 174 vs median 254.5 (-32%)
 - 🟡 `risk_verification`: 1.28776 vs median 2.36136 (-45%)
 - 🟡 `state_mutation`: 4 vs median 6 (-33%)
 
@@ -726,12 +724,12 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 0.95924 vs median 5.29997 (-82%)
+- 🔴 `risk_api_exposure`: 0.95924 vs median 5.31104 (-82%)
 - 🟡 `cleanup`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 186 vs median 256.5 (-27%)
+- 🟡 `keyword_hits`: 186 vs median 254.5 (-27%)
 - 🟡 `risk_cognitive_load`: 10.0272 vs median 14.9506 (-33%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 
 **Not expressible as measured (n/a):** `class_start`†
 
@@ -754,16 +752,16 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `comment_lines`: 34 vs median 12 (+183%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 0 vs median 14.9506 (-100%)
 - 🔴 `risk_documentation`: 3.7698 vs median 54.777 (-93%)
-- 🔴 `risk_safety_score`: 0 vs median 37.5728 (-100%)
+- 🔴 `risk_safety_score`: 0 vs median 37.3868 (-100%)
 - 🔴 `risk_spec_match`: 20 vs median 96 (-79%)
 - 🔴 `risk_stability`: 10 vs median 50 (-80%)
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
-- 🔴 `risk_tech_debt`: 0 vs median 39.9315 (-100%)
+- 🔴 `risk_tech_debt`: 0 vs median 39.5943 (-100%)
 - 🔴 `risk_verification`: 0.45954 vs median 2.36136 (-81%)
-- 🟡 `keyword_hits`: 134 vs median 256.5 (-48%)
+- 🟡 `keyword_hits`: 134 vs median 254.5 (-47%)
 
 **Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
 
@@ -782,7 +780,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `cleanup`: 4 vs median 2 (+100%)
 - 🔴 `risk_cognitive_load`: 43.8165 vs median 14.9506 (+193%)
-- 🔴 `risk_safety_score`: 71.3187 vs median 37.5728 (+90%)
+- 🔴 `risk_safety_score`: 71.3187 vs median 37.3868 (+91%)
 - 🔴 `risk_state_flux`: 79.9098 vs median 19.9999 (+300%)
 - 🔴 `state_mutation`: 33 vs median 6 (+450%)
 - 🟡 `io`: 4 vs median 3 (+33%)
@@ -832,15 +830,15 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 2.4136 vs median 5.29997 (-54%)
+- 🔴 `risk_api_exposure`: 2.4136 vs median 5.31104 (-55%)
 - 🔴 `risk_cognitive_load`: 23.0172 vs median 14.9506 (+54%)
 - 🔴 `risk_state_flux`: 34.5299 vs median 19.9999 (+73%)
 - 🔴 `state_mutation`: 10 vs median 6 (+67%)
 - 🟡 `functions_found`: 9 vs median 13 (-31%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `risk_documentation`: 69.513 vs median 54.777 (+27%)
-- 🟡 `risk_safety_score`: 53.5487 vs median 37.5728 (+43%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
+- 🟡 `risk_safety_score`: 53.5487 vs median 37.3868 (+43%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
@@ -863,9 +861,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `branch`: 9 vs median 5 (+80%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🟡 `risk_cognitive_load`: 18.9583 vs median 14.9506 (+27%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -886,13 +882,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 9.63854 vs median 5.29997 (+82%)
+- 🔴 `risk_api_exposure`: 9.63854 vs median 5.31104 (+81%)
 - 🔴 `risk_cognitive_load`: 28.6249 vs median 14.9506 (+91%)
 - 🔴 `risk_state_flux`: 34.5299 vs median 19.9999 (+73%)
 - 🟡 `branch`: 7 vs median 5 (+40%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `risk_documentation`: 81.6549 vs median 54.777 (+49%)
-- 🟡 `risk_safety_score`: 53.2735 vs median 37.5728 (+42%)
+- 🟡 `risk_safety_score`: 53.2735 vs median 37.3868 (+42%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -920,8 +916,8 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `keyword_hits`: 334 vs median 256.5 (+30%)
-- 🟡 `risk_api_exposure`: 7.40362 vs median 5.29997 (+40%)
+- 🟡 `keyword_hits`: 334 vs median 254.5 (+31%)
+- 🟡 `risk_api_exposure`: 7.40362 vs median 5.31104 (+39%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -988,7 +984,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 9.28468 vs median 5.29997 (+75%)
+- 🔴 `risk_api_exposure`: 9.28468 vs median 5.31104 (+75%)
 - 🔴 `risk_cognitive_load`: 22.5164 vs median 14.9506 (+51%)
 - 🟡 `risk_documentation`: 79.9223 vs median 54.777 (+46%)
 
@@ -1009,9 +1005,9 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 4 vs median 14.9506 (-73%)
-- 🔴 `risk_tech_debt`: 80 vs median 39.9315 (+100%)
+- 🔴 `risk_tech_debt`: 80 vs median 39.5943 (+102%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
@@ -1091,14 +1087,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `functions_found`: 28 vs median 13 (+115%)
 - 🔴 `io`: 11 vs median 3 (+267%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 4 vs median 14.9506 (-73%)
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
-- 🟡 `keyword_hits`: 171 vs median 256.5 (-33%)
+- 🟡 `keyword_hits`: 171 vs median 254.5 (-33%)
 - 🟡 `risk_documentation`: 38.0933 vs median 54.777 (-30%)
 - 🟡 `risk_spec_match`: 64 vs median 96 (-33%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1120,10 +1116,6 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 0.89698 vs median 5.29997 (-83%)
-- 🔴 `risk_documentation`: 9.74282 vs median 54.777 (-82%)
-- 🔴 `risk_tech_debt`: 75.87 vs median 39.9315 (+90%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1189,14 +1181,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 
 - 🔴 `args`: 2 vs median 13 (-85%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 4 vs median 14.9506 (-73%)
 - 🔴 `risk_documentation`: 27.1891 vs median 54.777 (-50%)
 - 🔴 `risk_spec_match`: 46.6667 vs median 96 (-51%)
-- 🔴 `risk_tech_debt`: 80 vs median 39.9315 (+100%)
+- 🔴 `risk_tech_debt`: 80 vs median 39.5943 (+102%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 153 vs median 256.5 (-40%)
+- 🟡 `keyword_hits`: 153 vs median 254.5 (-40%)
 - 🟡 `risk_verification`: 1.30806 vs median 2.36136 (-45%)
 
 **Not expressible as measured (n/a):** `class_start`†, `test`†
@@ -1215,12 +1207,12 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `args`: 0 vs median 13 (-100%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `functions_found`: 3 vs median 13 (-77%)
-- 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.31104 (-100%)
 - 🔴 `risk_cognitive_load`: 5.68942 vs median 14.9506 (-62%)
 - 🔴 `state_mutation`: 1 vs median 6 (-83%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 176 vs median 256.5 (-31%)
-- 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
+- 🟡 `keyword_hits`: 176 vs median 254.5 (-31%)
+- 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `safety_bypasses`: 1 vs median 2 (-50%)
 - 🟡 `test`: 1 vs median 2 (-50%)
@@ -1238,7 +1230,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `globals`: 5 vs median 2 (+150%)
-- 🔴 `risk_api_exposure`: 2.0981 vs median 5.29997 (-60%)
+- 🔴 `risk_api_exposure`: 2.0981 vs median 5.31104 (-60%)
 - 🔴 `risk_cognitive_load`: 24.275 vs median 14.9506 (+62%)
 - 🟡 `risk_documentation`: 68.8358 vs median 54.777 (+26%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
