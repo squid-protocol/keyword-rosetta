@@ -2,7 +2,10 @@
 /* decoy: config reads stay in prose only */
 @import url("b.css");
 
-@keyframes probe-globals {}
+@keyframes probe-globals {
+  html {}
+  body {}
+}
 
 @keyframes probe-test {}
 [data-testid="probe"] {}

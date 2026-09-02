@@ -1,7 +1,9 @@
 /* keyword rosetta control shell: css / main */
 /* decoy: this suite never uses expression words outside prose */
+/* Author: keyword-rosetta corpus */
 @import url("a.css");
 
+/** dispatches every rosetta probe in order */
 @keyframes probe-dispatch {}
 
 @media (min-width: 1px) {}

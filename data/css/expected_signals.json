@@ -20,15 +20,15 @@
       "func_start": 4,
       "args": 1,
       "api": 0,
-      "doc": 0,
-      "ownership": 0,
+      "doc": 1,
+      "ownership": 1,
       "import": 1
     },
     "a.css": {
       "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
-      "globals": 0,
+      "globals": 2,
       "test": 2,
       "safety": 0,
       "safety_bypasses": 0,
@@ -52,7 +52,7 @@
       "globals": 0,
       "test": 0,
       "safety": 0,
-      "safety_bypasses": 0,
+      "safety_bypasses": 2,
       "telemetry": 0,
       "state_mutation": 0,
       "cleanup": 0,
@@ -101,5 +101,5 @@
       "outcome": "the three planted branch at-rules are TRIPLE-counted: each is func_start (the #2507/#2513 'closest function-shaped construct' precedent), @media/@supports/@container are branch, and @supports is also safety — one @supports line = 3 signals"
     }
   ],
-  "notes": "functions are at-rules (10 @keyframes + 3 branch-duals = 13); class_start 1 = the single planted .rosetta-risk selector (css classes ARE classes; kept to one so the tripwire stays meaningful). args 1 per importing file tracks @import url(...) (recorded as observed). high_risk 2 = expression()/behavior() legacy-IE vectors. Locked 2026-08-31."
+  "notes": "functions are at-rules (10 @keyframes + 3 branch-duals = 13); class_start 1 = the single planted .rosetta-risk selector (css classes ARE classes; kept to one so the tripwire stays meaningful). args 1 per importing file tracks @import url(...) (recorded as observed). high_risk 2 = expression()/behavior() legacy-IE vectors. Locked 2026-08-31. A.2 (gitgalaxy#2669): the four empty probe bodies with plantable css vocabulary are now planted. globals 2 = `html {}` / `body {}` inside probe-globals (the rule is line-anchored on :root|html|body|*). safety_bypasses 2 = `*::before {}` / `*::after {}` inside probe-bypass \u2014 a bare `*` line would double-count as globals (same alternation) and an `#id {` selector would trip the class_start tripwire. doc 1 = the `/**` block on the entry at-rule. ownership 1 = `/* Author: ... */`, deliberately the `Author:` form and NOT `@author`, which the doc rule also matches (the #2659 doc/ownership double-count shape). io/state_mutation/cleanup/telemetry stay 0 because css defines no rule for them; api/encapsulation/dead_code stay 0 but ARE plantable (@property, @scope, `/* .foo {`) \u2014 out of A.2 scope, not unplantable."
 }
