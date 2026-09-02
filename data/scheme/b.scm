@@ -13,4 +13,4 @@
 (define (probe-state items)
   (set! items 1)
   (vector-set! items 0 2)
-  (set! note "if eval fails, try open"))
+  (set! note "plain eval decoy text"))

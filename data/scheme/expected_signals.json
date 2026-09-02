@@ -87,13 +87,12 @@
   "decoys": [
     {
       "file": "b.scm",
-      "line_hint": "(set! note \"if eval fails, try open\")",
+      "line_hint": "(set! note \"plain eval decoy text\")) (probe-state)",
       "surface": "string",
       "signals": [
-        "branch",
         "high_risk_execution"
       ],
-      "outcome": "scheme's branch keywords are sexp-anchored — bare 'if' inside the string does NOT count branch (syntax shielding) — but bare eval DOES count high_risk +1 (its rule is not anchored). state stayed exactly 3 raw, no flux (no branch context). Shielding by anchoring, a fourth profile."
+      "outcome": "danger-only decoy (#17 redesign): \"eval\" already COUNTED from inside the literal (+1) and still does. scheme's sexp-anchored branch rule never matched the old prose \"if\", so no count moved at all — the redesign only removes the safety/io words that made the read ambiguous in every other language. Ledger: string-literal-selective-shielding"
     },
     {
       "file": "c.scm",
@@ -105,5 +104,5 @@
       "outcome": "INERT (fixed): gitgalaxy#2537 (PR #2622) hyphenated-identifier guards — \\bTODO\\b no longer matches inside the probe-todo symbol; c.scm planned_debt re-baselined 2→1 (the ;; TODO: comment only). Kebab-case symbols no longer feed debt scoring."
     }
   ],
-  "notes": "scheme now HAS _dependency_capture (gitgalaxy#2652, RESOLVED): (import a) produces a real DAG edge, matching every sibling brace-family language. Orphan->api conversion fires: a/b/c.scm each have 3 uncalled probe functions in an imported file -> api 0->3 each (main stays 4, imported by nobody). Top-level (define name value) counts globals, (define (name ...)) counts func -- cleanly separated. Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2652."
+  "notes": "scheme now HAS _dependency_capture (gitgalaxy#2652, RESOLVED): (import a) produces a real DAG edge, matching every sibling brace-family language. Orphan->api conversion fires: a/b/c.scm each have 3 uncalled probe functions in an imported file -> api 0->3 each (main stays 4, imported by nobody). Top-level (define name value) counts globals, (define (name ...)) counts func -- cleanly separated. Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2652. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probe-state \u2014 b.scm no count moved."
 }
