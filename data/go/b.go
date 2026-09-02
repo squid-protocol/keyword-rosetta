@@ -19,6 +19,6 @@ func probeTelemetry(msg int) int {
 func probeState(items int) int {
     items = 1
     items = 2
-    note := "if eval fails, try open"
+    note := "plain os.Exit decoy text"
     return items
 }
