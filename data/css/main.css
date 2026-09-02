@@ -11,3 +11,7 @@
 @supports (display: block) {}
 
 @container (min-width: 1px) {}
+
+@property --probe-api {}
+
+@scope {}
