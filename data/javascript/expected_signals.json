@@ -4,37 +4,133 @@
   "generator": "claude-sonnet-5 (hand-verified reference)",
   "files": {
     "main.js": {
-      "branch": 3, "io": 4, "high_risk_execution": 2, "doc": 1, "ownership": 1,
-      "import": 1, "func_start": 4, "args": 4, "api": 0, "class_start": 0,
-      "globals": 0, "test": 0, "safety": 0, "safety_bypasses": 0, "telemetry": 0,
-      "state_mutation": 0, "cleanup": 0, "fragile_debt": 0, "planned_debt": 0,
+      "branch": 3,
+      "io": 4,
+      "high_risk_execution": 2,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "class_start": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
       "encapsulation": 0
     },
     "a.js": {
-      "import": 1, "func_start": 3, "args": 3, "api": 3, "globals": 2, "test": 2,
-      "safety": 3, "branch": 2, "high_risk_execution": 0, "io": 0, "class_start": 0,
-      "fragile_debt": 0, "planned_debt": 0, "telemetry": 0, "state_mutation": 0,
-      "cleanup": 0, "safety_bypasses": 0, "doc": 0, "ownership": 0
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "globals": 2,
+      "test": 2,
+      "safety": 3,
+      "branch": 2,
+      "high_risk_execution": 0,
+      "io": 0,
+      "class_start": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "safety_bypasses": 0,
+      "doc": 0,
+      "ownership": 0
     },
     "b.js": {
-      "import": 1, "func_start": 4, "args": 4, "api": 4, "safety_bypasses": 2,
-      "telemetry": 2, "state_mutation": 2, "branch": 0, "class_start": 0,
-      "safety": 0, "io": 0, "test": 0, "globals": 0, "cleanup": 0,
-      "fragile_debt": 0, "planned_debt": 0, "high_risk_execution": 0, "doc": 0
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "branch": 0,
+      "class_start": 0,
+      "safety": 0,
+      "io": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "high_risk_execution": 0,
+      "doc": 0
     },
     "c.js": {
-      "import": 0, "func_start": 3, "args": 3, "api": 3, "cleanup": 2,
-      "fragile_debt": 1, "planned_debt": 1, "class_start": 0, "branch": 0,
-      "io": 0, "state_mutation": 0, "safety": 0, "safety_bypasses": 0,
-      "telemetry": 0, "test": 0, "globals": 0, "doc": 0, "ownership": 0,
-      "high_risk_execution": 0, "encapsulation": 0
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "state_mutation": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0,
+      "encapsulation": 0
     }
   },
   "decoys": [
-    {"file": "main.js", "line_hint": "never calls eval and no while loop", "surface": "comment", "signals": ["high_risk_execution", "branch"], "outcome": "stripped: contributed 0"},
-    {"file": "a.js", "line_hint": "MESSAGE = \"if eval fails, try open\"", "surface": "string", "signals": ["branch", "high_risk_execution", "safety", "io"], "outcome": "same sentence as python, same result: if/try COUNT (branch +2 — js branch includes try; safety +1) but eval does NOT (high_risk 0); open is inert in js (not an io keyword). Ledger: string-literal-selective-shielding; gitgalaxy#2535"},
-    {"file": "b.js", "line_hint": "the try keyword stays in prose", "surface": "comment", "signals": ["branch", "safety"], "outcome": "stripped: contributed 0"},
-    {"file": "c.js", "line_hint": "const HACK_LEVEL = level", "surface": "code", "signals": ["fragile_debt"], "outcome": "inert as in python — underscore is a word character so \\bHACK\\b cannot match; note this inertness is tokenization luck, not surface anchoring (see cobol + gitgalaxy#2537)"}
+    {
+      "file": "main.js",
+      "line_hint": "never calls eval and no while loop",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution",
+        "branch"
+      ],
+      "outcome": "stripped: contributed 0"
+    },
+    {
+      "file": "a.js",
+      "line_hint": "MESSAGE = \"if eval fails, try open\"",
+      "surface": "string",
+      "signals": [
+        "branch",
+        "high_risk_execution",
+        "safety",
+        "io"
+      ],
+      "outcome": "same sentence as python, same result: if/try COUNT (branch +2 — js branch includes try; safety +1) but eval does NOT (high_risk 0); open is inert in js (not an io keyword). Ledger: string-literal-selective-shielding; gitgalaxy#2535"
+    },
+    {
+      "file": "b.js",
+      "line_hint": "the try keyword stays in prose",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "safety"
+      ],
+      "outcome": "stripped: contributed 0"
+    },
+    {
+      "file": "c.js",
+      "line_hint": "const HACK_LEVEL = level",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert as in python — underscore is a word character so \\bHACK\\b cannot match; note this inertness is tokenization luck, not surface anchoring (see cobol + gitgalaxy#2537)"
+    }
   ],
-  "notes": "io 4 in main.js = 3 planted (fetch/axios/fs) + the probeIo parameter literally named 'path', which is a js io keyword (ledger identifier-name-token-collision). func_start/args 4 in b.js = 3 functions + 'with (shape) {}' parsed as a function named 'with' — the statement-keyword exclusion list has switch but not with (ledger js-with-statement-func-start-fp; gitgalaxy#2539). api = defs orphan-converted in imported a/b/c as in python (ledger api-contextual-baseline-fix); main.js api 0 because nothing is exported and it is imported by nobody. doc is 1 here vs python's 2 for the same planted intent (one /** vs a pair of \"\"\" delimiters) — genuine doc-idiom count bias, visible in the bias report. All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv."
+  "notes": "io 4 in main.js = 3 planted (fetch/axios/fs) + the probeIo parameter literally named 'path', which is a js io keyword (ledger identifier-name-token-collision). func_start/args/api 3 in b.js = its 3 real functions: the 'with (shape) {}' func-named-'with' FP RESOLVED via gitgalaxy#2539 ('with' added to the statement-keyword exclusion; ledger js-with-statement-func-start-fp). api = defs orphan-converted in imported a/b/c as in python (ledger api-contextual-baseline-fix); main.js api 0 because nothing is exported and it is imported by nobody. doc is 1 here vs python's 2 for the same planted intent (one /** vs a pair of \"\"\" delimiters) -- genuine doc-idiom count bias, visible in the bias report. Locked from hand-verified run 2026-08-31; b.js re-baselined 2026-09-01 against gitgalaxy#2641."
 }

@@ -14,7 +14,7 @@
       "doc": 1,
       "ownership": 1,
       "import": 1,
-      "safety_bypasses": 1,
+      "safety_bypasses": 0,
       "encapsulation": 9,
       "state_mutation": 0,
       "globals": 0,
@@ -34,7 +34,7 @@
       "globals": 2,
       "test": 2,
       "safety": 2,
-      "safety_bypasses": 1,
+      "safety_bypasses": 0,
       "encapsulation": 7,
       "branch": 0,
       "state_mutation": 0,
@@ -51,7 +51,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "safety_bypasses": 3,
+      "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 11,
       "branch": 1,
@@ -109,5 +109,5 @@
       "outcome": "comment HACK/TODO count exactly 1 each"
     }
   ],
-  "notes": "every 'import \"x\"' statement matches go's safety_bypasses rule (the dot-import alternation is quote-anchored, finditer class; +1 bypasses per importing file — ledger go-import-counts-bypass). encapsulation counts every lowercase top-level symbol (correct go visibility morphology; recorded per file). doc 1 = the one deliberately Capitalized comment; header comments are lowercased to stay out of go's doc rule. Locked from hand-verified run 2026-08-31."
+  "notes": "safety_bypasses now counts only true dot-imports (import . \"pkg\"): the per-import FP RESOLVED via gitgalaxy#2542 -- main/a dropped 1->0, b 3->2, leaving b's two planted '_ =' discards (ledger go-import-counts-bypass). encapsulation counts every lowercase top-level symbol (correct go visibility morphology; recorded per file). doc 1 = the one deliberately Capitalized comment; header comments are lowercased to stay out of go's doc rule. Locked from hand-verified run 2026-08-31; safety_bypasses re-baselined 2026-09-01 against gitgalaxy#2641."
 }
