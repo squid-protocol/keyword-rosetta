@@ -649,6 +649,20 @@
    "investigated_by": "claude-fable-5",
    "validated_at": "2026-09-01",
    "still_reproduces": true
+  },
+  {
+   "id": "markdown-lit-plane-morphology",
+   "signal": "args|branch|class_start|cleanup|doc|fragile_debt|func_start|globals|high_risk_execution|import|io|ownership|planned_debt|safety|safety_bypasses|state_mutation|telemetry|test",
+   "languages_seen": [
+    "markdown"
+   ],
+   "disposition": "intended-morphology",
+   "status": "validated",
+   "verdict": "markdown is a markup format deliberately measured on the lit_* literary plane (engine markdown.py wires ONLY lit_code_blocks/lit_diagrams/lit_headers/lit_links; detector's #691 prose deflection routes the whole body to the doc surface, code payload stays empty). Reviewed all 18 absent-rule cells per GATING's n/a rule 1: none is a missing-rule gap. No callable units or control flow exist (func_start/args/class_start/branch -- lit_headers are the probe analogue, hence functions_found 0); io/state_mutation/globals/test/safety/safety_bypasses/high_risk_execution/telemetry/cleanup have no markdown idiom -- prose ABOUT those concepts is documentation, not executable signal (bucket-2 test fails: no construct a practitioner would defend as the language's own idiom); doc as a keyword rule would double-count the prose mass prism already routes to doc_loc (see markdown-prose-is-doc-morphology); planned_debt/fragile_debt keywords in prose are content, not code debt, and the empty code payload means the rules could never fire; ownership has no comment syntax to carry an author tag (HTML comments exist but are unplanted and rare as authorship idiom); import stays n/a because links are already counted on the lit plane (lit_links) AND now feed the DAG directly via _dependency_capture (gitgalaxy#2638) -- an import keyword rule would triple-count the same construct. keyword_hits (-45% amber) is the arithmetic shadow of the lit plane: only 4 lit rules can hit. SS3 risk metrics floor for a no-code language and are structurally incomparable (risk_documentation measures documentation OF code; with zero coding_loc the formula bottoms out at its constant terms) -- downstream, not chased, per the epic. dependency_links was the one real gap in this family and is FIXED upstream by gitgalaxy#2638 (relative links -> DAG edges: main->a->b->c resolves, import_count main/a/b=1 c=0, popularity a/b/c=1; api stays 0 since orphan->api conversion needs functions).",
+   "upstream_issue": "squid-protocol/gitgalaxy#2638",
+   "investigated_by": "claude-fable-5",
+   "validated_at": "2026-09-01",
+   "still_reproduces": true
   }
  ]
 }

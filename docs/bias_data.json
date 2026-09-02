@@ -795,7 +795,7 @@
    "lua": 3,
    "m4": 0,
    "makefile": 3,
-   "markdown": 0,
+   "markdown": 3,
    "matlab": 3,
    "objective-c": 3,
    "perl": 3,
@@ -813,7 +813,7 @@
    "tcl": 3,
    "typescript": 3,
    "yacc": 0,
-   "yaml": 0,
+   "yaml": 3,
    "zig": 3
   },
   "keyword_hits": {
@@ -1830,73 +1830,73 @@
    "shell": "unreviewed",
    "agc_assembly": "unreviewed",
    "makefile": "unreviewed",
-   "markdown": "unreviewed",
+   "markdown": "ledgered",
    "yacc": "unreviewed",
    "m4": "unreviewed"
   },
   "globals": {
    "html": "unreviewed",
-   "markdown": "unreviewed",
+   "markdown": "ledgered",
    "jcl": "ledgered"
   },
   "high_risk_execution": {
    "html": "unreviewed",
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "state_mutation": {
    "html": "unreviewed",
    "css": "unreviewed",
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "cleanup": {
    "css": "unreviewed",
-   "markdown": "unreviewed",
+   "markdown": "ledgered",
    "yaml": "unreviewed",
    "jcl": "ledgered"
   },
   "io": {
    "css": "unreviewed",
    "solidity": "unreviewed",
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "telemetry": {
    "css": "unreviewed",
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "args": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "branch": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "doc": {
-   "markdown": "unreviewed",
+   "markdown": "ledgered",
    "jcl": "ledgered"
   },
   "fragile_debt": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "func_start": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "import": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "ownership": {
-   "markdown": "unreviewed",
+   "markdown": "ledgered",
    "yaml": "unreviewed"
   },
   "planned_debt": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "safety": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "safety_bypasses": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "test": {
-   "markdown": "unreviewed",
+   "markdown": "ledgered",
    "yacc": "unreviewed",
    "jcl": "ledgered"
   }

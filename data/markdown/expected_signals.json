@@ -102,5 +102,5 @@
     }
   },
   "decoys": [],
-  "notes": "Tier-2 minimal: markdown defines only the lit_* literate signals — headers are the probe analogue (4 per file), code-block fences count in pairs, the mermaid fence is the one diagram, and the [a](a.md) links stand in for the import chain (markdown has no import rule and no DAG). Everything else asserts 0. Locked 2026-08-31."
+  "notes": "Tier-2 minimal: markdown defines only the lit_* literate signals — headers are the probe analogue (4 per file), code-block fences count in pairs, the mermaid fence is the one diagram, and the [a](a.md) links stand in for the import chain. Since gitgalaxy#2638 the relative links ALSO feed the real dependency DAG (_dependency_capture; an is_inert language that declares the rule opts back into Phase-6 extraction): main→a→b→c resolves, import_count main/a/b=1 c=0, popularity a/b/c=1, dependency_links 3 = the cross-language median. No import keyword rule on purpose — links are already counted as lit_links and captured for the DAG; a third counter would triple-count one construct. api stays 0: orphan→api conversion needs functions and markdown has none (functions_found 0 is the lit_headers plane, see markdown-lit-plane-morphology). Everything else asserts 0 — all 18 absent-rule n/a cells reviewed + ledgered 2026-09-01 (markdown-lit-plane-morphology). Locked 2026-08-31."
 }
