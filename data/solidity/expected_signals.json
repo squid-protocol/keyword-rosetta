@@ -46,15 +46,15 @@
    "import": 1
   },
   "b.sol": {
-   "branch": 2,
+   "branch": 0,
    "io": 0,
-   "high_risk_execution": 0,
+   "high_risk_execution": 1,
    "globals": 0,
    "test": 0,
    "safety": 0,
    "safety_bypasses": 2,
    "telemetry": 2,
-   "state_mutation": 9,
+   "state_mutation": 3,
    "cleanup": 0,
    "fragile_debt": 0,
    "planned_debt": 0,
@@ -91,13 +91,12 @@
  "decoys": [
   {
    "file": "b.sol",
-   "line_hint": "string memory note = \"if eval fails, try open\"",
+   "line_hint": "string memory note = \"plain selfdestruct decoy text\"; (probeState)",
    "surface": "string",
    "signals": [
-    "branch",
-    "state_mutation"
+    "high_risk_execution"
    ],
-   "outcome": "if + try count branch +2 (solidity includes try AND return — main 8 = 5 returns + if/else/for, joining the return-in-branch family as its 6th member); the note line is a 3rd raw state hit, tripled to 9 by flux. eval inert. Ledger: string-literal-selective-shielding, state-flux-branch-weighting, kotlin-return-in-branch"
+   "outcome": "danger-only decoy (#17 redesign): \"selfdestruct\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
   },
   {
    "file": "c.sol",
@@ -109,5 +108,5 @@
    "outcome": "inert (underscore)"
   }
  ],
- "notes": "branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). return is now tracked under structural_boundaries instead (added by #2545, solidity had no other rule capturing it). ownership 1 per file = the idiomatic // SPDX-License-Identifier line (solidity's ownership rule matches it -- every real .sol file records ownership). io is undefined for solidity (0 by absence -- its 'io' is chain interaction, counted under globals/ipc instead: msg.sender/block.number planted as globals). class_start 0 kept as tripwire (no contract declared; bare functions are broken-but-scannable). doc 2 = /// + @param on one natspec line. Locked 2026-08-31; branch re-baselined 2026-09-01."
+ "notes": "branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). return is now tracked under structural_boundaries instead (added by #2545, solidity had no other rule capturing it). ownership 1 per file = the idiomatic // SPDX-License-Identifier line (solidity's ownership rule matches it -- every real .sol file records ownership). io is undefined for solidity (0 by absence -- its 'io' is chain interaction, counted under globals/ipc instead: msg.sender/block.number planted as globals). class_start 0 kept as tripwire (no contract declared; bare functions are broken-but-scannable). doc 2 = /// + @param on one natspec line. Locked 2026-08-31; branch re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"selfdestruct\" literal inside probeState \u2014 b.sol high_risk_execution 0->1, branch 2->0, state_mutation 9->3."
 }

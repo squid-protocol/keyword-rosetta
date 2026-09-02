@@ -18,6 +18,6 @@ function probeTelemetry(uint msg_in) returns (uint) {
 function probeState(uint items) returns (uint) {
     payable(items);
     stack.push(items);
-    string memory note = "if eval fails, try open";
+    string memory note = "plain selfdestruct decoy text";
     return items;
 }
