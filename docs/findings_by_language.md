@@ -27,7 +27,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [haskell](#haskell) | 5 | 5 | 0 | 4 | #2535 |
 | [html](#html) | 11 | 6 | 3 | 3 | #2549 |
 | [java](#java) | 2 | 1 | 0 | 3 | #2535 #2546 |
-| [javascript](#javascript) | 2 | 5 | 0 | 5 | #2535 #2539 |
+| [javascript](#javascript) | 3 | 5 | 0 | 5 | #2535 #2539 |
 | [jcl](#jcl) | 2 | 7 | 4 | 3 | #2610 |
 | [kotlin](#kotlin) | 1 | 0 | 0 | 5 | #2535 #2545 #2546 |
 | [livecode](#livecode) | 3 | 7 | 0 | 5 | #2535 #2546 #2547 |
@@ -63,7 +63,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 7.0764 vs median 14.9506 (-53%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 162 vs median 253.5 (-36%)
+- 🟡 `keyword_hits`: 162 vs median 256.5 (-37%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -86,7 +86,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.29997 (-100%)
 - 🔴 `risk_cognitive_load`: 24.2458 vs median 14.9506 (+62%)
-- 🟡 `keyword_hits`: 176 vs median 253.5 (-31%)
+- 🟡 `keyword_hits`: 176 vs median 256.5 (-31%)
 - 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -295,7 +295,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 147 vs median 253.5 (-42%)
+- 🟡 `keyword_hits`: 147 vs median 256.5 (-43%)
 - 🟡 `risk_safety_score`: 19.8485 vs median 37.5728 (-47%)
 - 🟡 `risk_verification`: 1.27414 vs median 2.36136 (-46%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
@@ -347,7 +347,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `import`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 185 vs median 253.5 (-27%)
+- 🟡 `keyword_hits`: 185 vs median 256.5 (-28%)
 - 🟡 `risk_documentation`: 38.1027 vs median 54.777 (-30%)
 - 🟡 `risk_safety_score`: 55.625 vs median 37.5728 (+48%)
 - 🟡 `risk_spec_match`: 61.3333 vs median 96 (-36%)
@@ -480,7 +480,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_state_flux`: 39.8873 vs median 19.9999 (+99%)
 - 🔴 `safety`: 4 vs median 2 (+100%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
-- 🟡 `keyword_hits`: 146 vs median 253.5 (-42%)
+- 🟡 `keyword_hits`: 146 vs median 256.5 (-43%)
 - 🟡 `risk_safety_score`: 56.3515 vs median 37.5728 (+50%)
 - 🟡 `risk_spec_match`: 65.3333 vs median 96 (-32%)
 - 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
@@ -517,7 +517,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🔴 `telemetry`: 0 vs median 2 (-100%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 135 vs median 253.5 (-47%)
+- 🟡 `keyword_hits`: 135 vs median 256.5 (-47%)
 - 🟡 `risk_documentation`: 32.3996 vs median 54.777 (-41%)
 - 🟡 `risk_spec_match`: 52 vs median 96 (-46%)
 - 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
@@ -563,9 +563,10 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `comment_lines`: 19 vs median 12 (+58%)
+- 🔴 `risk_cognitive_load`: 7.14347 vs median 14.9506 (-52%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_cognitive_load`: 8.40777 vs median 14.9506 (-44%)
+- 🟡 `keyword_hits`: 325 vs median 256.5 (+27%)
 - 🟡 `risk_safety_score`: 28.1116 vs median 37.5728 (-25%)
 - 🟡 `risk_state_flux`: 13.551 vs median 19.9999 (-32%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
@@ -595,7 +596,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 178 vs median 253.5 (-30%)
+- 🟡 `keyword_hits`: 178 vs median 256.5 (-31%)
 - 🟡 `risk_api_exposure`: 6.93756 vs median 5.29997 (+31%)
 - 🟡 `risk_documentation`: 32.7888 vs median 54.777 (-40%)
 - 🟡 `risk_spec_match`: 52 vs median 96 (-46%)
@@ -700,7 +701,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_tech_debt`: 80 vs median 39.9315 (+100%)
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 174 vs median 253.5 (-31%)
+- 🟡 `keyword_hits`: 174 vs median 256.5 (-32%)
 - 🟡 `risk_verification`: 1.28776 vs median 2.36136 (-45%)
 - 🟡 `state_mutation`: 4 vs median 6 (-33%)
 
@@ -728,7 +729,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_api_exposure`: 0.95924 vs median 5.29997 (-82%)
 - 🟡 `cleanup`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `keyword_hits`: 186 vs median 253.5 (-27%)
+- 🟡 `keyword_hits`: 186 vs median 256.5 (-27%)
 - 🟡 `risk_cognitive_load`: 10.0272 vs median 14.9506 (-33%)
 - 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 
@@ -762,7 +763,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
 - 🔴 `risk_tech_debt`: 0 vs median 39.9315 (-100%)
 - 🔴 `risk_verification`: 0.45954 vs median 2.36136 (-81%)
-- 🟡 `keyword_hits`: 134 vs median 253.5 (-47%)
+- 🟡 `keyword_hits`: 134 vs median 256.5 (-48%)
 
 **Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
 
@@ -897,16 +898,16 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.ps1 | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
+| `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.ps1, c.ps1 | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.ps1 | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
-| `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | — | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
+| `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | (notes) | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **b.ps1** · `$note = "if eval fails, try iwr"` (string): if + try count branch (powershell branch includes try; try also safety +1), iwr counts io +1; $counter/$note 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
-- **c.ps1** · `$hack_level = $level (probe_debt, no return)` (code): state stays 1 (x1): probe_debt has no return and no branch keyword, so no flux context — while probe_todo's return gives c branch 1. Fifth per-function flux confirmation.
+- **c.ps1** · `$hack_level = $level (probe_debt, no return)` (code): state stays 1 (x1): probe_debt has no branch keyword, so no flux context. Post-#2545 probe_todo's return is no longer a branch either, so c branch is 0 and the file is x1 throughout — this shell no longer discriminates per-function scoping (the go/matlab/dockerfile proofs in state-flux-branch-weighting still do).
 
 </details>
 
@@ -919,7 +920,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `keyword_hits`: 334 vs median 253.5 (+32%)
+- 🟡 `keyword_hits`: 334 vs median 256.5 (+30%)
 - 🟡 `risk_api_exposure`: 7.40362 vs median 5.29997 (+40%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1094,7 +1095,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 4 vs median 14.9506 (-73%)
 - 🔴 `risk_state_flux`: 0 vs median 19.9999 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
-- 🟡 `keyword_hits`: 171 vs median 253.5 (-33%)
+- 🟡 `keyword_hits`: 171 vs median 256.5 (-33%)
 - 🟡 `risk_documentation`: 38.0933 vs median 54.777 (-30%)
 - 🟡 `risk_spec_match`: 64 vs median 96 (-33%)
 - 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
@@ -1195,7 +1196,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_tech_debt`: 80 vs median 39.9315 (+100%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 153 vs median 253.5 (-40%)
+- 🟡 `keyword_hits`: 153 vs median 256.5 (-40%)
 - 🟡 `risk_verification`: 1.30806 vs median 2.36136 (-45%)
 
 **Not expressible as measured (n/a):** `class_start`†, `test`†
@@ -1218,7 +1219,7 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 5.68942 vs median 14.9506 (-62%)
 - 🔴 `state_mutation`: 1 vs median 6 (-83%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
-- 🟡 `keyword_hits`: 176 vs median 253.5 (-31%)
+- 🟡 `keyword_hits`: 176 vs median 256.5 (-31%)
 - 🟡 `risk_tech_debt`: 20 vs median 39.9315 (-50%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `safety_bypasses`: 1 vs median 2 (-50%)

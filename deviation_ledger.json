@@ -1,668 +1,668 @@
 {
- "_doc": "One entry per deviation shape. Lifecycle and gating rules: docs/GATING.md. Never delete entries; never flip still_reproduces without a fresh verifying scan.",
- "entries": [
-  {
-   "id": "api-contextual-baseline-fix",
-   "signal": "api",
-   "languages_seen": [
-    "python"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording. Micro-repro: 2-def file imported by a sibling records api=4, un-imported records api=2. With the spec's main->a->b->c chain and uncalled probes, api = defs x 2 in a/b/c, defs in main. Deliberate scoring semantics; raw counts unrecoverable from the DB (filed squid-protocol/gitgalaxy#2536 asking for raw recording).",
-   "upstream_issue": "squid-protocol/gitgalaxy#2536",
-   "investigated_by": "claude-sonnet-5 + user session",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "string-literal-selective-shielding",
-   "signal": "branch|safety|io vs high_risk_execution",
-   "languages_seen": [
-    "abap",
-    "ada",
-    "agc_assembly",
-    "apex",
-    "assembly",
-    "c",
-    "cobol",
-    "cpp",
-    "csharp",
-    "dart",
-    "dockerfile",
-    "embedded_python",
-    "fortran",
-    "go",
-    "groovy",
-    "haskell",
-    "java",
-    "javascript",
-    "kotlin",
-    "livecode",
-    "lua",
-    "m4",
-    "makefile",
-    "matlab",
-    "objective-c",
-    "perl",
-    "php",
-    "powershell",
-    "python",
-    "ruby",
-    "rust",
-    "scala",
-    "scheme",
-    "shell",
-    "solidity",
-    "sqlite",
-    "swift",
-    "tcl",
-    "typescript",
-    "zig"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes to sec_tainted_injection instead). Micro-repro: identical files differing only in literal content, scanned end-to-end. Comments are fully stripped (verified 0 contribution); strings are inconsistently half-counted. 2026-08-31 cross-language extension: javascript reproduces python exactly (same decoy sentence, if/try count, eval does not); cobol does NOT shield at all (ALTER counts high_risk_execution from inside a DISPLAY literal) — the shielding is lexical-family-dependent, i.e. itself a language bias. 2026-08-31 legacy batch: fortran/ada/assembly count literals like cobol (fortran IF+GOTO+OPEN all count; ada 'if' counts; asm jmp/syscall count, and ARM's single-letter 'b' mnemonic even matches the filename inside %include \"b.asm\"); abap is a THIRD profile — shields branch/high_risk/io but NOT safety (TRY in a literal counts safety, isolated by micro-repro with comment-only vs string-only files). Worst amplification: a branch keyword inside a literal creates phantom branch context that triples state_mutation via the flux weighting (see state-flux-branch-weighting). Current behavior baked into manifests; whether intentional is the upstream question. 2026-08-31 batch 3 (12 mainstream languages): the selective profile (high-risk family shielded, branch/safety/io count) holds for c/cpp/csharp/java/go/kotlin/typescript/php/lua/swift; ruby counts eval from the literal (eval-as-bypass, like shell); perl's eval survives only because its bypass rule requires eval-followed-by-quote/paren (syntax shielding, not surface shielding); swift's api rule counts the word 'open' inside the literal (API-exposure mass from prose). try counts branch in csharp/java/kotlin/php/perl/swift/typescript. Swift's bare-open api FP filed as squid-protocol/gitgalaxy#2544. 2026-08-31 batch 4 (Tier-1 completion): a FOURTH profile — scheme's sexp-anchored branch keywords shield strings by SYNTAX (bare 'if' in a literal cannot match the paren-anchored rule) while its unanchored eval still counts; m4 is fully inert by the same mechanism (macro-name keywords). matlab and tcl join shell/ruby in counting eval-as-bypass from literals. dockerfile/makefile/livecode count literals wholesale. swift-open-style api hit not repeated elsewhere. RESOLVED-AS-EXPLAINED 2026-09-01: gitgalaxy#2535 closed as not-a-bug after root-cause isolation. There is NO string-literal shielding mechanism anywhere in the engine -- strings are never stripped/masked from the code stream for any structural signal, in any language (only comments are). Every observed 'shielding' shape here is the ordinary Silencer Region dampener (spatial_correlation.py apply_dampener_correlations Block 2: high_risk_execution <- safety, 500-char radius) firing because the shared decoy sentence 'if eval fails, try open' happens to contain both a real danger keyword AND a real safety keyword for SOME languages, by accident of English-word/rule-vocabulary overlap -- not a deliberate per-language shielding design. Isolated via direct micro-repro: python state_danger 0->1 the instant 'try' is swapped out of the decoy with nothing else changed. Per-language explanation for the profiles recorded above: python/js/haskell/abap ('shielded'/'inverted') all have TRY (or their language's equivalent) in their OWN safety rule, so the dampener fires; cobol/fortran/ada/assembly ('unshielded') do NOT have TRY in their safety rule (cobol's is END-IF/END-PERFORM/.../VALIDATE/CHECK), so it never fires; rust's 'shielded' reading was actually a THIRD, unrelated cause -- its high_risk_execution rule has no 'eval' concept at all (panic!/todo!/process::exit), a morphology mismatch, not shielding. The #2546 'phantom branch trigger from string literals' shares this exact explanation (no shielding exists, so a genuinely-present branch keyword correctly triggers the flux dampener regardless of surface). Follow-up filed as a CORPUS issue (decoy sentence design), not an engine issue -- see keyword-rosetta issue tracking decoy redesign. capstones jcl.md/cobol.md/python.md corrected to match. DECOY REDESIGN PILOT 2026-09-01 (keyword-rosetta#17): python/fortran/rust re-authored to a danger-only literal ('plain eval|ASSIGN|abort decoy text') per the redesigned SPEC §String decoy. All three profiles converge on the same clean read -- the danger keyword counts +1 from inside the literal, undampened: python eval +1 (was 0 under the old sentence's try-collision), fortran ASSIGN +1 (GOTO retired from the decoy: it doubles as a branch keyword and fed the x3 flux -- state_mutation 6->2), rust abort +1 (the first time rust's decoy tested anything; eval matches nothing in its danger rule; state 6->2). One new engine fact surfaced by the pilot and now recorded in SPEC: dampener correlations are function-scoped, but MODULE-LEVEL code falls back to flat 500-char-radius behavior (apply_dampener_correlations docstring) -- python's literal initially read 0 at module level because probe_safety's assert sat ~450 chars away; moving it inside probe_globals isolated it. Remaining 37 languages_seen re-author per-language as their rosetta sweeps touch them, per the issue's scoping.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2535",
-   "investigated_by": "claude-sonnet-5 + user session",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "assert-overlaps-safety-and-test",
-   "signal": "safety+test",
-   "languages_seen": [
-    "c",
-    "perl"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "python's test rule includes \\bassert\\b and the safety rule includes assert: one planted assert counts both. Legitimate overlapping taxonomies; record +1 test wherever a safety assert is planted. Also c (bare assert( in both rules) and perl (ok( in the test rule alongside croak/confess safety plants). RESOLVED for python via gitgalaxy #2626 (assert removed from the test rule, still matched by safety): a.py test dropped 3->2. Still reproduces for c/perl (their own rule files are unchanged).",
-   "upstream_issue": "squid-protocol/gitgalaxy#2626",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "os-sys-prefix-overlaps-io",
-   "signal": "globals+io",
-   "languages_seen": [],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "python-family io rule matches the os./sys. prefixes that the globals plants (os.environ, sys.argv) necessarily carry: +2 io in whichever file hosts probe_globals. RESOLVED for python via gitgalaxy #2626 (io rule gained negative lookaheads excluding os.environ/sys.argv from the io match): a.py io dropped 3->1. No other language currently in languages_seen.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2626",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": false
-  },
-  {
-   "id": "cobol-hyphen-identifier-debt-leak",
-   "signal": "fragile_debt|planned_debt",
-   "languages_seen": [
-    "cobol",
-    "scheme"
-   ],
-   "disposition": "upstream-bug",
-   "status": "validated",
-   "verdict": "Debt rules are whole-text, not comment-anchored, and '-' is a regex word boundary: HACK-LEVEL (data item, 2 code occurrences) counts fragile_debt, PROBE-TODO (paragraph name) counts planned_debt. Python's HACK_LEVEL is inert only because '_' is a word character — tokenization luck, not surface anchoring. Real-world FP shapes: COBOL BUG-COUNT/WS-FIX-FLAG, css .bug-icon, lisp fix-me. Filed upstream; observed counts baked into cobol manifest until fixed. Batch 4: scheme reproduces it — (define (probe-todo ...)) records planned_debt 2 (comment + identifier), confirming the lisp-family exposure predicted in #2537. RESOLVED 2026-08-31: fixed upstream by gitgalaxy PR #2622 (closes #2537) — hyphenated-identifier guards ((?<![A-Za-z0-9]-) / (?!-[A-Za-z0-9])) on the shared GLOBAL_FRAGILE_DEBT/GLOBAL_PLANNED_DEBT patterns. Fresh verifying scan (engine at PR #2622 head): cobol c.cpy fragile_debt 3->1, planned_debt 2->1; scheme c.scm planned_debt 2->1 — only the planted * HACK: / * TODO: / ;; TODO: comments count. Real comment markers incl. the hyphen-adjacent family (-- TODO, --TODO, TODO--) verified still counting via the upstream PR's strict tests. Manifests re-baselined in the same change per GATING step 4.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2537",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": false
-  },
-  {
-   "id": "cobol-area-b-bare-token-paragraph",
-   "signal": "func_start",
-   "languages_seen": [
-    "cobol"
-   ],
-   "disposition": "upstream-question",
-   "status": "validated",
-   "verdict": "A bare token + period in Area B (CEE3DMP. / CEEMOUT., column 12) is counted as a paragraph header: func_start regex's post-sequence-area [ \\t]* tolerates any indentation (relaxed/free-format support). By strict reference format a paragraph-name must start in Area A. b.cpy records func_start 5 (3 real paragraphs + 2). Whether the relaxed tolerance is deliberate is the upstream question. RESOLVED 2026-08-31: fixed upstream by gitgalaxy PR #2552 (closes #2538 -- func_start no longer mistakes LE service calls for paragraphs). Fresh verifying scan (engine at gitgalaxy main post-#2552/#2611): b.cpy func_start 5->3, api 5->3 (orphan conversion follows), telemetry/safety_bypasses/state_mutation unchanged at 2/2/2 -- only the two bare-token FPs vanished. Manifest re-baselined in the same change per GATING step 4. Surfaced by the first all-language CI run since #2552 merged (rosetta PR #5, which touches no data/ so the gate ran all 46).",
-   "upstream_issue": "squid-protocol/gitgalaxy#2538",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": false
-  },
-  {
-   "id": "js-with-statement-func-start-fp",
-   "signal": "func_start|args",
-   "languages_seen": [
-    "javascript"
-   ],
-   "disposition": "upstream-bug",
-   "status": "validated",
-   "verdict": "'with (shape) {}' is parsed as a function named 'with' by the identifier(args){ alternation: the keyword exclusion list has if/for/while/switch/catch/return but not with. finditer-confirmed; switch (flag) {} in the same corpus is correctly excluded. b.js records func_start/args 4 for 3 functions.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2539",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "cobol-working-storage-globals",
-   "signal": "globals",
-   "languages_seen": [
-    "cobol"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "cobol globals pattern includes WORKING-STORAGE\\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1. keyword_menu.py missed it (multi-word alternation; the miner only validates single-token candidates) — menu-tool improvement noted. main.cbl globals 1 baked in.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "identifier-name-token-collision",
-   "signal": "(any token signal)",
-   "languages_seen": [
-    "javascript"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "Token signals match ordinary identifiers that happen to spell a keyword: js probeIo's parameter named 'path' counts io +1 (path is a js io keyword). Inherent to keyword-based signals. Authoring guidance: avoid naming identifiers after menu keywords unless the collision is the point; record it when unavoidable.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "state-flux-branch-weighting",
-   "signal": "state_mutation",
-   "languages_seen": [
-    "ada",
-    "apex",
-    "assembly",
-    "c",
-    "cpp",
-    "csharp",
-    "dockerfile",
-    "fortran",
-    "go",
-    "java",
-    "kotlin",
-    "livecode",
-    "lua",
-    "makefile",
-    "matlab",
-    "objective-c",
-    "perl",
-    "php",
-    "powershell",
-    "ruby",
-    "swift",
-    "tcl",
-    "typescript"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name). Micro-repro: one := inside a real ada if -> 3; one := with no branch -> 1; the multiplier applies file-wide to all mutations. python/cobol corpus files were exact only because their b files had no branch context. Consequence of #2535: a branch keyword inside a string literal creates PHANTOM branch context and triples unrelated real mutations ('while' in a string: 2 raw := -> 6). REFINED (batch 3, go micro-evidence): the x3 weighting is PER-FUNCTION, not per-file — go b.go records 11 = probe_state's 3 raw x3 (its own string carries the branch keyword) + probe_bypass's 2 raw x1 (no branch context in that function). Reproduces in all 12 batch-3 languages whose state rules have raw hits alongside the string decoy. Batch 4 adds the three cleanest per-function proofs: matlab main = 12 = one function's 3 raw x3 + three functions' 1 raw x1; powershell c stays x1 because probe_debt has no return/branch while its sibling does; dockerfile scopes flux per RUN instruction (4 = 1x3 + 1x1). DOCUMENTED 2026-09-01: gitgalaxy PR #2631 (closes #2546) resolves the upstream question as deliberate design, kept and now documented + test-pinned. SEMANTICS CORRECTION to this entry's earlier description: the x3 is a 150-CHARACTER proximity radius per mutation within the same function (spatial_correlation.py Block 6, correlate_scoped) -- NOT a blanket per-function branch-context toggle; corpus probe functions were simply shorter than the radius, which masked the distinction (the per-function refinement was correct about scoping, wrong about the trigger being function-wide). Raw counts are recoverable as recorded - 2*amplified_cascading_flux (per-file mitigation_telemetry, audit report 'Contextual Mitigations & Amplifications'). Behavior unchanged, so still_reproduces stays true; the actionable blocker for the corpus's state_mutation median inflation is now #2535 ALONE (the phantom literal trigger) -- language tracking issues' state_mutation residuals re-point there. 2026-09-01 (gitgalaxy#2634 / #2545 landing): this entry's powershell `c` evidence line no longer discriminates — with `return` out of `branch`, probe_todo has no branch context either, so powershell c is x1 throughout and c branch is 0. The go / matlab / dockerfile per-function proofs are untouched and remain this entry's evidence. Same landing removes the phantom `return` context that was tripling apex c.cls (state_mutation 3 -> 1, re-baselined with it): a real reduction in flux inflation, not a semantics change.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2546 (also #2535 for the phantom trigger)",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "fortran-use-case-insensitive-dag",
-   "signal": "import DAG / popularity",
-   "languages_seen": [
-    "fortran"
-   ],
-   "disposition": "upstream-bug",
-   "status": "validated",
-   "verdict": "'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves. Fortran is case-insensitive, the suffix-map lookup is not. Corpus lowercased its USE targets to keep the DAG probe live; real uppercase legacy fortran (very common) silently loses its dependency graph.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2540",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "ada-end-if-branch-inflation",
-   "signal": "branch",
-   "languages_seen": [
-    "ada"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "ada's closing 'end if' re-matches \\bif\\b: every well-formed if statement counts branch at least twice (if + end if). Same class would apply to fortran 'END IF' spelled with a space (corpus used ENDIF, which is inert). Inherent to token-based branch counting on block-closed languages; baked in (main.adb branch 4).",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "fortran-goto-dual-branch-highrisk",
-   "signal": "branch+high_risk_execution",
-   "languages_seen": [
-    "fortran"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "GOTO is in both fortran's branch rule and its high_risk_execution rule — one planted GOTO counts both. finditer-confirmed.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "asm-call-ret-in-branch",
-   "signal": "branch",
-   "languages_seen": [
-    "assembly"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "assembly's branch rule includes call and ret (all control transfers) — correct for asm morphology but it means every probe body's ret and every glue call counts branch (main.asm: 10 = 3 call + 4 ret + 3 planted jumps). Cross-language branch comparisons must expect asm to run structurally hot.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "asm-single-letter-mnemonic-in-path",
-   "signal": "branch",
-   "languages_seen": [
-    "assembly"
-   ],
-   "disposition": "upstream-question",
-   "status": "validated",
-   "verdict": "ARM's single-letter 'b' branch mnemonic matches the word b anywhere literals count — including the filename inside %include \"b.asm\" (a.asm branch +1, finditer-confirmed). Any asm file mentioning a bare 'b' in a string/path gains branch mass. Sub-case of #2535's literal counting; not filed separately.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2535 (noted in comment)",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "haskell-caf-bindings-count-as-functions",
-   "signal": "func_start|args",
-   "languages_seen": [
-    "haskell"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "Top-level value bindings (CAFs like 'region = unsafePerformIO ...') count func_start/args like any function binding — morphologically correct for haskell, where top-level values ARE nullary functions. a.hs records 5 (3 probes + 2 planted globals). Type-signature + binding pairs count once, not twice (verified).",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "haskell-finally-dual-cleanup-safety",
-   "signal": "cleanup+safety",
-   "languages_seen": [
-    "haskell"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "finally is in both haskell's cleanup and safety rules (finditer-confirmed on c.hs) — one planted finally counts both.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "shell-test-brackets-in-branch",
-   "signal": "branch",
-   "languages_seen": [
-    "shell"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "shell's branch rule counts the test brackets [ and ] as branch tokens (finditer on main.sh: if,[,],then,fi = 5 for one conditional) — every bracketed test costs +2 branch on top of if/then/fi. Defensible ([ is the test builtin) but a strong per-language inflation for cross-language branch comparisons.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "shell-trap-signal-env-collision",
-   "signal": "globals",
-   "languages_seen": [
-    "shell"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "'trap : TERM' counts globals: the TERM signal name collides with the TERM env-var keyword in shell's globals rule (a.sh globals 3 for 2 planted). Any trap handler naming TERM/USER-adjacent signals inherits this.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "orphan-conversion-opaque-counts",
-   "signal": "api",
-   "languages_seen": [
-    "dockerfile",
-    "livecode",
-    "lua",
-    "matlab",
-    "powershell",
-    "ruby",
-    "shell",
-    "sqlite"
-   ],
-   "disposition": "upstream-question",
-   "status": "validated",
-   "verdict": "On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: shell a/b convert 4 with 3 functions (the extra tracks the source line), sqlite converts 2/4/3 with 3 CREATE INDEX each and main.sql records orphaned_logic 7 for 4 indexes. Recorded as observed; gitgalaxy#2536 (raw hit_vector recording) would make these auditable. RESOLVED 2026-08-31: fixed upstream by gitgalaxy PR #2618 (closes #2547 -- synthetic slicer bucket names excluded from the orphan/duplicate census). Fresh verifying scans (engine at gitgalaxy main post-#2618): the inflating orphans were the synthetic buckets themselves -- __global_context__ in livecode/lua/matlab/ruby/shell a- AND b-files (api -1 each; lua a 9->8, b 10->9), and sqlite b.sql/c.sql whose 'functions' are ALL synthetic names (CREATE_Statement/SELECT_Statement/UPDATE_Statement/Declarative_Block), so every conversion there vanishes (a.sql 2->0, b.sql 4->0, c.sql 3->0). Real probe functions unaffected everywhere; 13 manifest cells re-baselined in this change per GATING step 4. lua/ruby added to languages_seen (same __global_context__ shape, confirmed). dockerfile/powershell manifests needed no change (their counts never included the bucket). First live catch of the #2557 rosetta-audit system (run locally against pull/2618/head pre-merge).",
-   "upstream_issue": "squid-protocol/gitgalaxy#2547 (also #2536)",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": false
-  },
-  {
-   "id": "sqlite-dot-read-dual-import-io",
-   "signal": "import+io",
-   "languages_seen": [
-    "sqlite"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "^.read counts BOTH import and io (finditer-confirmed) — every corpus chain link adds +1 io in sqlite. By design (a .read is file io), but a cross-language io comparison must expect it.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "census-requires-git-tracked",
-   "signal": "(whole-file exclusion)",
-   "languages_seen": [
-    "all"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning. Authoring workflow requires commit-before-verify (SPEC.md).",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "php-open-tag-counts-branch",
-   "signal": "branch",
-   "languages_seen": [
-    "php"
-   ],
-   "disposition": "upstream-question",
-   "status": "validated",
-   "verdict": "The <?php open tag's ? matches php's branch rule bare ternary-? alternation (finditer-confirmed): EVERY php file records branch >= 1 from its own open tag. A systematic per-file +1 on all real-world PHP; worth an upstream look at excluding ?> / <? tag context from the ? alternation.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2541",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "kotlin-return-in-branch",
-   "signal": "branch",
-   "languages_seen": [
-    "apex",
-    "kotlin",
-    "objective-c",
-    "powershell",
-    "solidity",
-    "zig"
-   ],
-   "disposition": "upstream-question",
-   "status": "validated",
-   "verdict": "kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3). Same cross-language-inflation class as assembly's call/ret. Batch 4: apex, objective-c, powershell, and zig (pattern-confirmed) also count return — it is a 5-language family, not a kotlin quirk; scala/dart/groovy siblings do not. Strengthens #2545's inconsistency framing. Batch 5: solidity is the 6th member (main branch 8 = 5 returns + 3 keywords). RESOLVED 2026-09-01: fixed upstream by gitgalaxy#2545 (PR #2634). Checked 11 close siblings across every relevant family (java/c/rust/go/csharp/scala/dart/groovy/swift/typescript/cpp) -- none count bare return as branch, including rust/csharp which share kotlin/zig's exact early-return idiom; no defensible rationale found for any of the 6. Fix split by whether return was already tracked elsewhere: kotlin/apex/powershell/zig had it duplicated under structural_boundaries already (pure de-dup); objective-c/solidity had no other rule tracking it, so return moved there instead of being deleted (signal preserved, same convention). Re-verified against engine pull/2634/head: all 6 gates PASS, branch now matches planted intent EXACTLY in every file (main 3, b 2, a/c 0) across all 6 languages. Real downstream ripple confirmed and re-baselined: apex c.cls state_mutation 3->1 (the manifest's own pre-fix note had already predicted this -- c's return was providing phantom branch context that #2546's x3 flux weighting amplified; removing return-as-branch removed the phantom trigger, leaving the raw hit).",
-   "upstream_issue": "squid-protocol/gitgalaxy#2545",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": false
-  },
-  {
-   "id": "kotlin-object-dual-globals-classstart",
-   "signal": "globals+class_start",
-   "languages_seen": [
-    "kotlin"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "kotlin's object declaration is the globals plant AND counts class_start (a.kt class_start 2) — a documented tier-1 exception to the no-classes tripwire, like cobol's PROGRAM-ID: object IS kotlin's singleton-class construct.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "swift-import-capture-min-two-chars",
-   "signal": "import DAG / popularity",
-   "languages_seen": [
-    "swift"
-   ],
-   "disposition": "upstream-question",
-   "status": "validated",
-   "verdict": "swift's _dependency_capture requires module names of 2+ characters ([a-zA-Z_][\\w.]+), so 'import a' captures nothing: the corpus's swift chain never resolves, popularity stays 0, and no orphan->api conversion fires. Real single-letter modules are rare but the +-quantifier looks unintentional next to other languages' * shapes.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2543",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "go-import-counts-bypass",
-   "signal": "safety_bypasses",
-   "languages_seen": [
-    "go"
-   ],
-   "disposition": "upstream-question",
-   "status": "validated",
-   "verdict": "go's safety_bypasses rule's dot-import alternation (\\bimport\\s+(?:\\.[ \\t]+)?\") matches EVERY quoted import, not just dot-imports: +1 bypasses per importing file corpus-wide. The (?:\\.[ \\t]+)? being optional makes the dot-import detector fire on all imports.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2542",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "visibility-morphology-encapsulation",
-   "signal": "encapsulation",
-   "languages_seen": [
-    "go",
-    "perl"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), perl's counts every my declaration (3-4 per file). Correct morphology, but cross-language encapsulation comparisons must expect these to run structurally hot.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "ts-callparen-args",
-   "signal": "args",
-   "languages_seen": [
-    "apex",
-    "groovy",
-    "objective-c",
-    "typescript"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params — a.ts args 5 for 3 declarations (finditer-confirmed). Plants that are bare calls contaminate args in ts. Batch 4: apex and groovy count statement-position calls the same way (main args 7 = 4 sigs + 3 dispatch calls); objective-c over-counts via selector-colon segments (related morphology, recorded per-manifest).",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "no-dependency-capture-languages",
-   "signal": "import DAG / popularity",
-   "languages_seen": [
-    "m4",
-    "markdown",
-    "scheme",
-    "yacc"
-   ],
-   "disposition": "upstream-question",
-   "status": "validated",
-   "verdict": "m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never convert, corpus-wide. Two whole languages invisible to network_risk_sensor by construction — worth an upstream note whether deliberate. Batch 5: yacc (#include counted, capture None) and markdown (no import rule at all) join — four registry languages structurally invisible to the DAG.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "embedded-python-per-file-classification",
-   "signal": "(language classification)",
-   "languages_seen": [
-    "embedded_python"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "Classification is per-file with no folder-context bleed: a .py file without its own micropython marker (import machine etc.) classifies as plain python even when every sibling is embedded — verified via the DB language column, twice (machine.idle() alone was NOT a sufficient discriminator; import machine was). Also two rule-level divergences on byte-similar code: embedded io drops os./sys. (python counts them), and orphan->api conversion does not fire under embedded classification. UPDATE 2026-08-31: the no-conversion divergence was fixed upstream by gitgalaxy#2548 (embedded_python never wired into Python-family indentation scoping — found independently by a tri-comparison sweep); orphan->api conversion now fires under embedded classification (api 6, verified by the CI gate's fresh scan against gitgalaxy main). The per-file classification and io-rule divergences still stand. First ledger entry re-baselined by an upstream fix — the GATING self-improvement loop closing end to end.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2548 (conversion half, fixed)",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "indented-declaration-globals",
-   "signal": "globals",
-   "languages_seen": [
-    "dart",
-    "zig"
-   ],
-   "disposition": "upstream-question",
-   "status": "validated",
-   "verdict": "dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local finals; zig b 2 from function-local vars). Other languages' globals rules are top-level-anchored; these two look unanchored by accident.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "batch4-dual-keyword-overlaps",
-   "signal": "(various)",
-   "languages_seen": [
-    "agc_assembly",
-    "apex",
-    "dart",
-    "dockerfile",
-    "embedded_python",
-    "groovy",
-    "livecode",
-    "m4",
-    "makefile",
-    "matlab",
-    "objective-c",
-    "powershell",
-    "scala",
-    "scheme",
-    "tcl",
-    "zig"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals).",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "html-script-func-start-unreachable",
-   "signal": "func_start",
-   "languages_seen": [
-    "html"
-   ],
-   "disposition": "upstream-bug",
-   "status": "validated",
-   "verdict": "html's func_start rule (<script>/<style> tags) never fires end-to-end: the polyglot splitter consumes the tags before html's rules run (micro-repro: <script>var x=1;</script> records the JS body's state signal on the html row but func 0; raw regex matches all 13 corpus tags, engine records 0). Rule passes direct-detector tests but is dead in production scans.",
-   "upstream_issue": "squid-protocol/gitgalaxy#2549",
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "batch5-tier2-morphology-shapes",
-   "signal": "(various)",
-   "languages_seen": [
-    "markdown",
-    "jcl",
-    "css",
-    "html",
-    "yaml",
-    "yacc",
-    "solidity"
-   ],
-   "disposition": "keyword-overlap",
-   "status": "validated",
-   "verdict": "Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import url); jcl EXEC PGM= is high_risk per step (probes use EXEC <proc>), api appears only via orphan conversion (no api rule defined); yaml counts every name:/description: as doc and embeds shell inside run: strings; solidity SPDX line = ownership on every file; html meta author is dual doc+ownership.",
-   "upstream_issue": null,
-   "investigated_by": "claude-sonnet-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "jcl-2610-rebaseline-residual-morphology",
-   "signal": "cleanup|doc|test|globals|dependency_links|comment_lines",
-   "languages_seen": [
-    "jcl"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "Post-gitgalaxy#2610 (PR #2611: prism strips //* to the comment surface; jcl gains safety=COND=, safety_bypasses=COND=EVEN/ONLY, telemetry=MSGLEVEL=/MSGCLASS=, shared debt rules) the shell re-plants args 13 (PARM= per EXEC step), safety 2, safety_bypasses 2, telemetry 2, fragile/planned debt 1/1 -- all land exactly (report-confirmed 2026-08-31). Remaining zeros are intended morphology, not extraction gaps: cleanup deliberately has NO jcl rule because the honest idiom DISP=(...,DELETE) would double-count io's DISP= (decision recorded in gitgalaxy#2610); doc has no JCL doc-comment idiom distinct from //* comments; test has no JCL concept; globals has no scoped-vs-global distinction (JOBLIB/STEPLIB plants would inflate io + dependency_links). dependency_links 4 vs planted 3 = the DD DSN= capture on CORPUS.DATA -- deliberate blast-radius design (datasets ARE jcl dependencies), finditer-confirmed. comment_lines stays below median even with the comment surface live: JCL permits no blank lines and the metric (total_loc - coding_loc) counts other languages' blank-line style as comment mass. branch 3 / state_mutation 2 match planted intent exactly; their red/amber standing is inflation of the cross-language median by the #2545 return-in-branch family and #2546 flux weighting, and re-baselines when those land. 2026-09-01: the comment_lines clause of this entry is RESOLVED by gitgalaxy#2625 (PR #2632 + rosetta bias_report doc_loc switch): the metric now reads prism's real doc_loc, blank lines no longer count as documentation, and jcl sits at 11 vs median 12 (-8%, green).",
-   "upstream_issue": "squid-protocol/gitgalaxy#2610",
-   "investigated_by": "claude-fable-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "cobol-args-clause-match-morphology",
-   "signal": "args",
-   "languages_seen": [
-    "cobol"
-   ],
-   "disposition": "intended-morphology",
-   "status": "validated",
-   "verdict": "cobol args 1 vs planted 13 is intended morphology, not an authoring gap (bucket-3 test run before ledgering, jcl PARM= precedent checked). (1) Paragraphs — the corpus's 12 probe functions — declare no parameters in COBOL; the language's only argument surface is the program-level PROCEDURE DIVISION USING (1 clause). (2) The file-level args metric counts rule MATCHES, not captured names — verified empirically 2026-08-31 by scanning a modified shell whose PROCEDURE DIVISION USING carried 13 parameter names: file_data.struct_args still records 1 (the per-function args_count path splits names, but the bias metric reads the file-level hit count). (3) Every construct that would add per-probe USING/RETURNING matches (CALL ... USING, ENTRY ... USING, INVOKE ... RETURNING) is ALSO an api-rule keyword (ENTRY|LINKAGE SECTION|CALL|INVOKE|EXPORT), so planting 12 of them would trade one red for api distortion — overlap-cost rejection, same precedent as jcl's DISP= cleanup decision (ledger jcl-2610-rebaseline-residual-morphology).",
-   "upstream_issue": null,
-   "investigated_by": "claude-fable-5",
-   "validated_at": "2026-08-31",
-   "still_reproduces": true
-  },
-  {
-   "id": "comment-lines-manifest-doc-classification",
-   "signal": "comment_lines",
-   "languages_seen": [
-    "javascript",
-    "python"
-   ],
-   "disposition": "engine-semantic",
-   "status": "validated",
-   "verdict": "Guidestar manifest files carry no executable code, so the engine classifies their non-blank lines as doc_loc (package.json: total 8/coding 0/doc 7; pyproject.toml: doc 4). Only the 3 manifest-bearing corpus folders (javascript/python/rust, deliberate guidestar test design per #2557) inherit this extra doc mass; at the honest post-#2625 median of 12 real comment lines, javascript's +7 lands red (19, +58%) and python's +4 stays in-band (15, +25%). Verified 2026-09-01 by per-file doc_loc scans against engine pull/2632/head. Quirk noted for a possible future issue, not chased: rust's Cargo.toml produces NO file_data row at all (excluded before recording), while package.json and pyproject.toml are scanned and counted -- inconsistent manifest treatment across ecosystems.",
-   "upstream_issue": null,
-   "investigated_by": "claude-fable-5",
-   "validated_at": "2026-09-01",
-   "still_reproduces": true
-  },
-  {
-   "id": "markdown-prose-is-doc-morphology",
-   "signal": "comment_lines",
-   "languages_seen": [
-    "markdown"
-   ],
-   "disposition": "intended-morphology",
-   "status": "validated",
-   "verdict": "markdown's entire prose content is its documentation surface: prism classifies the non-blank .md lines as doc_loc (34 across the 4 shells vs median 12, +183%). A documentation format measuring high on a documentation-mass metric is correct morphology, not bias. Verified 2026-09-01 per-file (a 8 / b 8 / c 7 / main 11) against engine pull/2632/head.",
-   "upstream_issue": null,
-   "investigated_by": "claude-fable-5",
-   "validated_at": "2026-09-01",
-   "still_reproduces": true
-  },
-  {
-   "id": "markdown-lit-plane-morphology",
-   "signal": "args|branch|class_start|cleanup|doc|fragile_debt|func_start|globals|high_risk_execution|import|io|ownership|planned_debt|safety|safety_bypasses|state_mutation|telemetry|test",
-   "languages_seen": [
-    "markdown"
-   ],
-   "disposition": "intended-morphology",
-   "status": "validated",
-   "verdict": "markdown is a markup format deliberately measured on the lit_* literary plane (engine markdown.py wires ONLY lit_code_blocks/lit_diagrams/lit_headers/lit_links; detector's #691 prose deflection routes the whole body to the doc surface, code payload stays empty). Reviewed all 18 absent-rule cells per GATING's n/a rule 1: none is a missing-rule gap. No callable units or control flow exist (func_start/args/class_start/branch -- lit_headers are the probe analogue, hence functions_found 0); io/state_mutation/globals/test/safety/safety_bypasses/high_risk_execution/telemetry/cleanup have no markdown idiom -- prose ABOUT those concepts is documentation, not executable signal (bucket-2 test fails: no construct a practitioner would defend as the language's own idiom); doc as a keyword rule would double-count the prose mass prism already routes to doc_loc (see markdown-prose-is-doc-morphology); planned_debt/fragile_debt keywords in prose are content, not code debt, and the empty code payload means the rules could never fire; ownership has no comment syntax to carry an author tag (HTML comments exist but are unplanted and rare as authorship idiom); import stays n/a because links are already counted on the lit plane (lit_links) AND now feed the DAG directly via _dependency_capture (gitgalaxy#2638) -- an import keyword rule would triple-count the same construct. keyword_hits (-45% amber) is the arithmetic shadow of the lit plane: only 4 lit rules can hit. SS3 risk metrics floor for a no-code language and are structurally incomparable (risk_documentation measures documentation OF code; with zero coding_loc the formula bottoms out at its constant terms) -- downstream, not chased, per the epic. dependency_links was the one real gap in this family and is FIXED upstream by gitgalaxy#2638 (relative links -> DAG edges: main->a->b->c resolves, import_count main/a/b=1 c=0, popularity a/b/c=1; api stays 0 since orphan->api conversion needs functions).",
-   "upstream_issue": "squid-protocol/gitgalaxy#2638",
-   "investigated_by": "claude-fable-5",
-   "validated_at": "2026-09-01",
-   "still_reproduces": true
-  }
- ]
+  "_doc": "One entry per deviation shape. Lifecycle and gating rules: docs/GATING.md. Never delete entries; never flip still_reproduces without a fresh verifying scan.",
+  "entries": [
+    {
+      "id": "api-contextual-baseline-fix",
+      "signal": "api",
+      "languages_seen": [
+        "python"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording. Micro-repro: 2-def file imported by a sibling records api=4, un-imported records api=2. With the spec's main->a->b->c chain and uncalled probes, api = defs x 2 in a/b/c, defs in main. Deliberate scoring semantics; raw counts unrecoverable from the DB (filed squid-protocol/gitgalaxy#2536 asking for raw recording).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2536",
+      "investigated_by": "claude-sonnet-5 + user session",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "string-literal-selective-shielding",
+      "signal": "branch|safety|io vs high_risk_execution",
+      "languages_seen": [
+        "abap",
+        "ada",
+        "agc_assembly",
+        "apex",
+        "assembly",
+        "c",
+        "cobol",
+        "cpp",
+        "csharp",
+        "dart",
+        "dockerfile",
+        "embedded_python",
+        "fortran",
+        "go",
+        "groovy",
+        "haskell",
+        "java",
+        "javascript",
+        "kotlin",
+        "livecode",
+        "lua",
+        "m4",
+        "makefile",
+        "matlab",
+        "objective-c",
+        "perl",
+        "php",
+        "powershell",
+        "python",
+        "ruby",
+        "rust",
+        "scala",
+        "scheme",
+        "shell",
+        "solidity",
+        "sqlite",
+        "swift",
+        "tcl",
+        "typescript",
+        "zig"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes to sec_tainted_injection instead). Micro-repro: identical files differing only in literal content, scanned end-to-end. Comments are fully stripped (verified 0 contribution); strings are inconsistently half-counted. 2026-08-31 cross-language extension: javascript reproduces python exactly (same decoy sentence, if/try count, eval does not); cobol does NOT shield at all (ALTER counts high_risk_execution from inside a DISPLAY literal) — the shielding is lexical-family-dependent, i.e. itself a language bias. 2026-08-31 legacy batch: fortran/ada/assembly count literals like cobol (fortran IF+GOTO+OPEN all count; ada 'if' counts; asm jmp/syscall count, and ARM's single-letter 'b' mnemonic even matches the filename inside %include \"b.asm\"); abap is a THIRD profile — shields branch/high_risk/io but NOT safety (TRY in a literal counts safety, isolated by micro-repro with comment-only vs string-only files). Worst amplification: a branch keyword inside a literal creates phantom branch context that triples state_mutation via the flux weighting (see state-flux-branch-weighting). Current behavior baked into manifests; whether intentional is the upstream question. 2026-08-31 batch 3 (12 mainstream languages): the selective profile (high-risk family shielded, branch/safety/io count) holds for c/cpp/csharp/java/go/kotlin/typescript/php/lua/swift; ruby counts eval from the literal (eval-as-bypass, like shell); perl's eval survives only because its bypass rule requires eval-followed-by-quote/paren (syntax shielding, not surface shielding); swift's api rule counts the word 'open' inside the literal (API-exposure mass from prose). try counts branch in csharp/java/kotlin/php/perl/swift/typescript. Swift's bare-open api FP filed as squid-protocol/gitgalaxy#2544. 2026-08-31 batch 4 (Tier-1 completion): a FOURTH profile — scheme's sexp-anchored branch keywords shield strings by SYNTAX (bare 'if' in a literal cannot match the paren-anchored rule) while its unanchored eval still counts; m4 is fully inert by the same mechanism (macro-name keywords). matlab and tcl join shell/ruby in counting eval-as-bypass from literals. dockerfile/makefile/livecode count literals wholesale. swift-open-style api hit not repeated elsewhere. RESOLVED-AS-EXPLAINED 2026-09-01: gitgalaxy#2535 closed as not-a-bug after root-cause isolation. There is NO string-literal shielding mechanism anywhere in the engine -- strings are never stripped/masked from the code stream for any structural signal, in any language (only comments are). Every observed 'shielding' shape here is the ordinary Silencer Region dampener (spatial_correlation.py apply_dampener_correlations Block 2: high_risk_execution <- safety, 500-char radius) firing because the shared decoy sentence 'if eval fails, try open' happens to contain both a real danger keyword AND a real safety keyword for SOME languages, by accident of English-word/rule-vocabulary overlap -- not a deliberate per-language shielding design. Isolated via direct micro-repro: python state_danger 0->1 the instant 'try' is swapped out of the decoy with nothing else changed. Per-language explanation for the profiles recorded above: python/js/haskell/abap ('shielded'/'inverted') all have TRY (or their language's equivalent) in their OWN safety rule, so the dampener fires; cobol/fortran/ada/assembly ('unshielded') do NOT have TRY in their safety rule (cobol's is END-IF/END-PERFORM/.../VALIDATE/CHECK), so it never fires; rust's 'shielded' reading was actually a THIRD, unrelated cause -- its high_risk_execution rule has no 'eval' concept at all (panic!/todo!/process::exit), a morphology mismatch, not shielding. The #2546 'phantom branch trigger from string literals' shares this exact explanation (no shielding exists, so a genuinely-present branch keyword correctly triggers the flux dampener regardless of surface). Follow-up filed as a CORPUS issue (decoy sentence design), not an engine issue -- see keyword-rosetta issue tracking decoy redesign. capstones jcl.md/cobol.md/python.md corrected to match. DECOY REDESIGN PILOT 2026-09-01 (keyword-rosetta#17): python/fortran/rust re-authored to a danger-only literal ('plain eval|ASSIGN|abort decoy text') per the redesigned SPEC §String decoy. All three profiles converge on the same clean read -- the danger keyword counts +1 from inside the literal, undampened: python eval +1 (was 0 under the old sentence's try-collision), fortran ASSIGN +1 (GOTO retired from the decoy: it doubles as a branch keyword and fed the x3 flux -- state_mutation 6->2), rust abort +1 (the first time rust's decoy tested anything; eval matches nothing in its danger rule; state 6->2). One new engine fact surfaced by the pilot and now recorded in SPEC: dampener correlations are function-scoped, but MODULE-LEVEL code falls back to flat 500-char-radius behavior (apply_dampener_correlations docstring) -- python's literal initially read 0 at module level because probe_safety's assert sat ~450 chars away; moving it inside probe_globals isolated it. Remaining 37 languages_seen re-author per-language as their rosetta sweeps touch them, per the issue's scoping.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2535",
+      "investigated_by": "claude-sonnet-5 + user session",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "assert-overlaps-safety-and-test",
+      "signal": "safety+test",
+      "languages_seen": [
+        "c",
+        "perl"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "python's test rule includes \\bassert\\b and the safety rule includes assert: one planted assert counts both. Legitimate overlapping taxonomies; record +1 test wherever a safety assert is planted. Also c (bare assert( in both rules) and perl (ok( in the test rule alongside croak/confess safety plants). RESOLVED for python via gitgalaxy #2626 (assert removed from the test rule, still matched by safety): a.py test dropped 3->2. Still reproduces for c/perl (their own rule files are unchanged).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2626",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "os-sys-prefix-overlaps-io",
+      "signal": "globals+io",
+      "languages_seen": [],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "python-family io rule matches the os./sys. prefixes that the globals plants (os.environ, sys.argv) necessarily carry: +2 io in whichever file hosts probe_globals. RESOLVED for python via gitgalaxy #2626 (io rule gained negative lookaheads excluding os.environ/sys.argv from the io match): a.py io dropped 3->1. No other language currently in languages_seen.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2626",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "cobol-hyphen-identifier-debt-leak",
+      "signal": "fragile_debt|planned_debt",
+      "languages_seen": [
+        "cobol",
+        "scheme"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "Debt rules are whole-text, not comment-anchored, and '-' is a regex word boundary: HACK-LEVEL (data item, 2 code occurrences) counts fragile_debt, PROBE-TODO (paragraph name) counts planned_debt. Python's HACK_LEVEL is inert only because '_' is a word character — tokenization luck, not surface anchoring. Real-world FP shapes: COBOL BUG-COUNT/WS-FIX-FLAG, css .bug-icon, lisp fix-me. Filed upstream; observed counts baked into cobol manifest until fixed. Batch 4: scheme reproduces it — (define (probe-todo ...)) records planned_debt 2 (comment + identifier), confirming the lisp-family exposure predicted in #2537. RESOLVED 2026-08-31: fixed upstream by gitgalaxy PR #2622 (closes #2537) — hyphenated-identifier guards ((?<![A-Za-z0-9]-) / (?!-[A-Za-z0-9])) on the shared GLOBAL_FRAGILE_DEBT/GLOBAL_PLANNED_DEBT patterns. Fresh verifying scan (engine at PR #2622 head): cobol c.cpy fragile_debt 3->1, planned_debt 2->1; scheme c.scm planned_debt 2->1 — only the planted * HACK: / * TODO: / ;; TODO: comments count. Real comment markers incl. the hyphen-adjacent family (-- TODO, --TODO, TODO--) verified still counting via the upstream PR's strict tests. Manifests re-baselined in the same change per GATING step 4.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2537",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "cobol-area-b-bare-token-paragraph",
+      "signal": "func_start",
+      "languages_seen": [
+        "cobol"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "A bare token + period in Area B (CEE3DMP. / CEEMOUT., column 12) is counted as a paragraph header: func_start regex's post-sequence-area [ \\t]* tolerates any indentation (relaxed/free-format support). By strict reference format a paragraph-name must start in Area A. b.cpy records func_start 5 (3 real paragraphs + 2). Whether the relaxed tolerance is deliberate is the upstream question. RESOLVED 2026-08-31: fixed upstream by gitgalaxy PR #2552 (closes #2538 -- func_start no longer mistakes LE service calls for paragraphs). Fresh verifying scan (engine at gitgalaxy main post-#2552/#2611): b.cpy func_start 5->3, api 5->3 (orphan conversion follows), telemetry/safety_bypasses/state_mutation unchanged at 2/2/2 -- only the two bare-token FPs vanished. Manifest re-baselined in the same change per GATING step 4. Surfaced by the first all-language CI run since #2552 merged (rosetta PR #5, which touches no data/ so the gate ran all 46).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2538",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "js-with-statement-func-start-fp",
+      "signal": "func_start|args",
+      "languages_seen": [
+        "javascript"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "'with (shape) {}' is parsed as a function named 'with' by the identifier(args){ alternation: the keyword exclusion list has if/for/while/switch/catch/return but not with. finditer-confirmed; switch (flag) {} in the same corpus is correctly excluded. b.js records func_start/args 4 for 3 functions. RESOLVED via gitgalaxy#2539 ('with' added to the func_start/args statement-keyword exclusions, JS and TS): b.js func_start/args/api 4->3.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2539",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "cobol-working-storage-globals",
+      "signal": "globals",
+      "languages_seen": [
+        "cobol"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "cobol globals pattern includes WORKING-STORAGE\\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1. keyword_menu.py missed it (multi-word alternation; the miner only validates single-token candidates) — menu-tool improvement noted. main.cbl globals 1 baked in.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "identifier-name-token-collision",
+      "signal": "(any token signal)",
+      "languages_seen": [
+        "javascript"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "Token signals match ordinary identifiers that happen to spell a keyword: js probeIo's parameter named 'path' counts io +1 (path is a js io keyword). Inherent to keyword-based signals. Authoring guidance: avoid naming identifiers after menu keywords unless the collision is the point; record it when unavoidable.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "state-flux-branch-weighting",
+      "signal": "state_mutation",
+      "languages_seen": [
+        "ada",
+        "apex",
+        "assembly",
+        "c",
+        "cpp",
+        "csharp",
+        "dockerfile",
+        "fortran",
+        "go",
+        "java",
+        "kotlin",
+        "livecode",
+        "lua",
+        "makefile",
+        "matlab",
+        "objective-c",
+        "perl",
+        "php",
+        "powershell",
+        "ruby",
+        "swift",
+        "tcl",
+        "typescript"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name). Micro-repro: one := inside a real ada if -> 3; one := with no branch -> 1; the multiplier applies file-wide to all mutations. python/cobol corpus files were exact only because their b files had no branch context. Consequence of #2535: a branch keyword inside a string literal creates PHANTOM branch context and triples unrelated real mutations ('while' in a string: 2 raw := -> 6). REFINED (batch 3, go micro-evidence): the x3 weighting is PER-FUNCTION, not per-file — go b.go records 11 = probe_state's 3 raw x3 (its own string carries the branch keyword) + probe_bypass's 2 raw x1 (no branch context in that function). Reproduces in all 12 batch-3 languages whose state rules have raw hits alongside the string decoy. Batch 4 adds the three cleanest per-function proofs: matlab main = 12 = one function's 3 raw x3 + three functions' 1 raw x1; powershell c stays x1 because probe_debt has no return/branch while its sibling does; dockerfile scopes flux per RUN instruction (4 = 1x3 + 1x1). DOCUMENTED 2026-09-01: gitgalaxy PR #2631 (closes #2546) resolves the upstream question as deliberate design, kept and now documented + test-pinned. SEMANTICS CORRECTION to this entry's earlier description: the x3 is a 150-CHARACTER proximity radius per mutation within the same function (spatial_correlation.py Block 6, correlate_scoped) -- NOT a blanket per-function branch-context toggle; corpus probe functions were simply shorter than the radius, which masked the distinction (the per-function refinement was correct about scoping, wrong about the trigger being function-wide). Raw counts are recoverable as recorded - 2*amplified_cascading_flux (per-file mitigation_telemetry, audit report 'Contextual Mitigations & Amplifications'). Behavior unchanged, so still_reproduces stays true; the actionable blocker for the corpus's state_mutation median inflation is now #2535 ALONE (the phantom literal trigger) -- language tracking issues' state_mutation residuals re-point there. 2026-09-01 (gitgalaxy#2634 / #2545 landing): this entry's powershell `c` evidence line no longer discriminates — with `return` out of `branch`, probe_todo has no branch context either, so powershell c is x1 throughout and c branch is 0. The go / matlab / dockerfile per-function proofs are untouched and remain this entry's evidence. Same landing removes the phantom `return` context that was tripling apex c.cls (state_mutation 3 -> 1, re-baselined with it): a real reduction in flux inflation, not a semantics change.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2546 (also #2535 for the phantom trigger)",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "fortran-use-case-insensitive-dag",
+      "signal": "import DAG / popularity",
+      "languages_seen": [
+        "fortran"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves. Fortran is case-insensitive, the suffix-map lookup is not. Corpus lowercased its USE targets to keep the DAG probe live; real uppercase legacy fortran (very common) silently loses its dependency graph. RESOLVED via gitgalaxy#2540 (per-language case-folded fallback in the DAG suffix-map lookup for fortran/cobol/haskell, scoped to the importing language's own files): uppercase 'USE A' now resolves; corpus values unchanged (targets were lowercased as the workaround).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2540",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "ada-end-if-branch-inflation",
+      "signal": "branch",
+      "languages_seen": [
+        "ada"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "ada's closing 'end if' re-matches \\bif\\b: every well-formed if statement counts branch at least twice (if + end if). Same class would apply to fortran 'END IF' spelled with a space (corpus used ENDIF, which is inert). Inherent to token-based branch counting on block-closed languages; baked in (main.adb branch 4).",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "fortran-goto-dual-branch-highrisk",
+      "signal": "branch+high_risk_execution",
+      "languages_seen": [
+        "fortran"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "GOTO is in both fortran's branch rule and its high_risk_execution rule — one planted GOTO counts both. finditer-confirmed.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "asm-call-ret-in-branch",
+      "signal": "branch",
+      "languages_seen": [
+        "assembly"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "assembly's branch rule includes call and ret (all control transfers) — correct for asm morphology but it means every probe body's ret and every glue call counts branch (main.asm: 10 = 3 call + 4 ret + 3 planted jumps). Cross-language branch comparisons must expect asm to run structurally hot.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "asm-single-letter-mnemonic-in-path",
+      "signal": "branch",
+      "languages_seen": [
+        "assembly"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "ARM's single-letter 'b' branch mnemonic matches the word b anywhere literals count — including the filename inside %include \"b.asm\" (a.asm branch +1, finditer-confirmed). Any asm file mentioning a bare 'b' in a string/path gains branch mass. Sub-case of #2535's literal counting; not filed separately.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2535 (noted in comment)",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "haskell-caf-bindings-count-as-functions",
+      "signal": "func_start|args",
+      "languages_seen": [
+        "haskell"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "Top-level value bindings (CAFs like 'region = unsafePerformIO ...') count func_start/args like any function binding — morphologically correct for haskell, where top-level values ARE nullary functions. a.hs records 5 (3 probes + 2 planted globals). Type-signature + binding pairs count once, not twice (verified).",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "haskell-finally-dual-cleanup-safety",
+      "signal": "cleanup+safety",
+      "languages_seen": [
+        "haskell"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "finally is in both haskell's cleanup and safety rules (finditer-confirmed on c.hs) — one planted finally counts both.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "shell-test-brackets-in-branch",
+      "signal": "branch",
+      "languages_seen": [
+        "shell"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "shell's branch rule counts the test brackets [ and ] as branch tokens (finditer on main.sh: if,[,],then,fi = 5 for one conditional) — every bracketed test costs +2 branch on top of if/then/fi. Defensible ([ is the test builtin) but a strong per-language inflation for cross-language branch comparisons.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "shell-trap-signal-env-collision",
+      "signal": "globals",
+      "languages_seen": [
+        "shell"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "'trap : TERM' counts globals: the TERM signal name collides with the TERM env-var keyword in shell's globals rule (a.sh globals 3 for 2 planted). Any trap handler naming TERM/USER-adjacent signals inherits this.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "orphan-conversion-opaque-counts",
+      "signal": "api",
+      "languages_seen": [
+        "dockerfile",
+        "livecode",
+        "lua",
+        "matlab",
+        "powershell",
+        "ruby",
+        "shell",
+        "sqlite"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: shell a/b convert 4 with 3 functions (the extra tracks the source line), sqlite converts 2/4/3 with 3 CREATE INDEX each and main.sql records orphaned_logic 7 for 4 indexes. Recorded as observed; gitgalaxy#2536 (raw hit_vector recording) would make these auditable. RESOLVED 2026-08-31: fixed upstream by gitgalaxy PR #2618 (closes #2547 -- synthetic slicer bucket names excluded from the orphan/duplicate census). Fresh verifying scans (engine at gitgalaxy main post-#2618): the inflating orphans were the synthetic buckets themselves -- __global_context__ in livecode/lua/matlab/ruby/shell a- AND b-files (api -1 each; lua a 9->8, b 10->9), and sqlite b.sql/c.sql whose 'functions' are ALL synthetic names (CREATE_Statement/SELECT_Statement/UPDATE_Statement/Declarative_Block), so every conversion there vanishes (a.sql 2->0, b.sql 4->0, c.sql 3->0). Real probe functions unaffected everywhere; 13 manifest cells re-baselined in this change per GATING step 4. lua/ruby added to languages_seen (same __global_context__ shape, confirmed). dockerfile/powershell manifests needed no change (their counts never included the bucket). First live catch of the #2557 rosetta-audit system (run locally against pull/2618/head pre-merge).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2547 (also #2536)",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "sqlite-dot-read-dual-import-io",
+      "signal": "import+io",
+      "languages_seen": [
+        "sqlite"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "^.read counts BOTH import and io (finditer-confirmed) — every corpus chain link adds +1 io in sqlite. By design (a .read is file io), but a cross-language io comparison must expect it.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "census-requires-git-tracked",
+      "signal": "(whole-file exclusion)",
+      "languages_seen": [
+        "all"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning. Authoring workflow requires commit-before-verify (SPEC.md).",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "php-open-tag-counts-branch",
+      "signal": "branch",
+      "languages_seen": [
+        "php"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "The <?php open tag's ? matches php's branch rule bare ternary-? alternation (finditer-confirmed): EVERY php file records branch >= 1 from its own open tag. A systematic per-file +1 on all real-world PHP; worth an upstream look at excluding ?> / <? tag context from the ? alternation. RESOLVED via gitgalaxy#2541 (tag context excluded from the ternary-? alternation via (?<!<)?(?!>) guards): per-file tag +1 gone, corpus php branch main 4->3, a/c 1->0, b 3->2.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2541",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "kotlin-return-in-branch",
+      "signal": "branch",
+      "languages_seen": [
+        "apex",
+        "kotlin",
+        "objective-c",
+        "powershell",
+        "solidity",
+        "zig"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3). Same cross-language-inflation class as assembly's call/ret. Batch 4: apex, objective-c, powershell, and zig (pattern-confirmed) also count return — it is a 5-language family, not a kotlin quirk; scala/dart/groovy siblings do not. Strengthens #2545's inconsistency framing. Batch 5: solidity is the 6th member (main branch 8 = 5 returns + 3 keywords). RESOLVED 2026-09-01: fixed upstream by gitgalaxy#2545 (PR #2634). Checked 11 close siblings across every relevant family (java/c/rust/go/csharp/scala/dart/groovy/swift/typescript/cpp) -- none count bare return as branch, including rust/csharp which share kotlin/zig's exact early-return idiom; no defensible rationale found for any of the 6. Fix split by whether return was already tracked elsewhere: kotlin/apex/powershell/zig had it duplicated under structural_boundaries already (pure de-dup); objective-c/solidity had no other rule tracking it, so return moved there instead of being deleted (signal preserved, same convention). Re-verified against engine pull/2634/head: all 6 gates PASS, branch now matches planted intent EXACTLY in every file (main 3, b 2, a/c 0) across all 6 languages. Real downstream ripple confirmed and re-baselined: apex c.cls state_mutation 3->1 (the manifest's own pre-fix note had already predicted this -- c's return was providing phantom branch context that #2546's x3 flux weighting amplified; removing return-as-branch removed the phantom trigger, leaving the raw hit).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2545",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "kotlin-object-dual-globals-classstart",
+      "signal": "globals+class_start",
+      "languages_seen": [
+        "kotlin"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "kotlin's object declaration is the globals plant AND counts class_start (a.kt class_start 2) — a documented tier-1 exception to the no-classes tripwire, like cobol's PROGRAM-ID: object IS kotlin's singleton-class construct.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "swift-import-capture-min-two-chars",
+      "signal": "import DAG / popularity",
+      "languages_seen": [
+        "swift"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "swift's _dependency_capture requires module names of 2+ characters ([a-zA-Z_][\\w.]+), so 'import a' captures nothing: the corpus's swift chain never resolves, popularity stays 0, and no orphan->api conversion fires. Real single-letter modules are rare but the +-quantifier looks unintentional next to other languages' * shapes. RESOLVED via gitgalaxy#2543 (capture tail [\\w.]+ -> [\\w.]*): 'import a' captures, the swift chain resolves, orphan->api conversion fires (a/c api 0->3, b 1->4).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2543",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "go-import-counts-bypass",
+      "signal": "safety_bypasses",
+      "languages_seen": [
+        "go"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "go's safety_bypasses rule's dot-import alternation (\\bimport\\s+(?:\\.[ \\t]+)?\") matches EVERY quoted import, not just dot-imports: +1 bypasses per importing file corpus-wide. The (?:\\.[ \\t]+)? being optional makes the dot-import detector fire on all imports. RESOLVED via gitgalaxy#2542 (dot made mandatory in the alternation): plain quoted imports no longer count, corpus go safety_bypasses main/a 1->0, b 3->2.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2542",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "visibility-morphology-encapsulation",
+      "signal": "encapsulation",
+      "languages_seen": [
+        "go",
+        "perl"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), perl's counts every my declaration (3-4 per file). Correct morphology, but cross-language encapsulation comparisons must expect these to run structurally hot.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "ts-callparen-args",
+      "signal": "args",
+      "languages_seen": [
+        "apex",
+        "groovy",
+        "objective-c",
+        "typescript"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params — a.ts args 5 for 3 declarations (finditer-confirmed). Plants that are bare calls contaminate args in ts. Batch 4: apex and groovy count statement-position calls the same way (main args 7 = 4 sigs + 3 dispatch calls); objective-c over-counts via selector-colon segments (related morphology, recorded per-manifest).",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "no-dependency-capture-languages",
+      "signal": "import DAG / popularity",
+      "languages_seen": [
+        "m4",
+        "markdown",
+        "scheme",
+        "yacc"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never convert, corpus-wide. Two whole languages invisible to network_risk_sensor by construction — worth an upstream note whether deliberate. Batch 5: yacc (#include counted, capture None) and markdown (no import rule at all) join — four registry languages structurally invisible to the DAG.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "embedded-python-per-file-classification",
+      "signal": "(language classification)",
+      "languages_seen": [
+        "embedded_python"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "Classification is per-file with no folder-context bleed: a .py file without its own micropython marker (import machine etc.) classifies as plain python even when every sibling is embedded — verified via the DB language column, twice (machine.idle() alone was NOT a sufficient discriminator; import machine was). Also two rule-level divergences on byte-similar code: embedded io drops os./sys. (python counts them), and orphan->api conversion does not fire under embedded classification. UPDATE 2026-08-31: the no-conversion divergence was fixed upstream by gitgalaxy#2548 (embedded_python never wired into Python-family indentation scoping — found independently by a tri-comparison sweep); orphan->api conversion now fires under embedded classification (api 6, verified by the CI gate's fresh scan against gitgalaxy main). The per-file classification and io-rule divergences still stand. First ledger entry re-baselined by an upstream fix — the GATING self-improvement loop closing end to end.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2548 (conversion half, fixed)",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "indented-declaration-globals",
+      "signal": "globals",
+      "languages_seen": [
+        "dart",
+        "zig"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local finals; zig b 2 from function-local vars). Other languages' globals rules are top-level-anchored; these two look unanchored by accident.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "batch4-dual-keyword-overlaps",
+      "signal": "(various)",
+      "languages_seen": [
+        "agc_assembly",
+        "apex",
+        "dart",
+        "dockerfile",
+        "embedded_python",
+        "groovy",
+        "livecode",
+        "m4",
+        "makefile",
+        "matlab",
+        "objective-c",
+        "powershell",
+        "scala",
+        "scheme",
+        "tcl",
+        "zig"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals).",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "html-script-func-start-unreachable",
+      "signal": "func_start",
+      "languages_seen": [
+        "html"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "html's func_start rule (<script>/<style> tags) never fires end-to-end: the polyglot splitter consumes the tags before html's rules run (micro-repro: <script>var x=1;</script> records the JS body's state signal on the html row but func 0; raw regex matches all 13 corpus tags, engine records 0). Rule passes direct-detector tests but is dead in production scans.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2549",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "batch5-tier2-morphology-shapes",
+      "signal": "(various)",
+      "languages_seen": [
+        "markdown",
+        "jcl",
+        "css",
+        "html",
+        "yaml",
+        "yacc",
+        "solidity"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import url); jcl EXEC PGM= is high_risk per step (probes use EXEC <proc>), api appears only via orphan conversion (no api rule defined); yaml counts every name:/description: as doc and embeds shell inside run: strings; solidity SPDX line = ownership on every file; html meta author is dual doc+ownership.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "jcl-2610-rebaseline-residual-morphology",
+      "signal": "cleanup|doc|test|globals|dependency_links|comment_lines",
+      "languages_seen": [
+        "jcl"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "Post-gitgalaxy#2610 (PR #2611: prism strips //* to the comment surface; jcl gains safety=COND=, safety_bypasses=COND=EVEN/ONLY, telemetry=MSGLEVEL=/MSGCLASS=, shared debt rules) the shell re-plants args 13 (PARM= per EXEC step), safety 2, safety_bypasses 2, telemetry 2, fragile/planned debt 1/1 -- all land exactly (report-confirmed 2026-08-31). Remaining zeros are intended morphology, not extraction gaps: cleanup deliberately has NO jcl rule because the honest idiom DISP=(...,DELETE) would double-count io's DISP= (decision recorded in gitgalaxy#2610); doc has no JCL doc-comment idiom distinct from //* comments; test has no JCL concept; globals has no scoped-vs-global distinction (JOBLIB/STEPLIB plants would inflate io + dependency_links). dependency_links 4 vs planted 3 = the DD DSN= capture on CORPUS.DATA -- deliberate blast-radius design (datasets ARE jcl dependencies), finditer-confirmed. comment_lines stays below median even with the comment surface live: JCL permits no blank lines and the metric (total_loc - coding_loc) counts other languages' blank-line style as comment mass. branch 3 / state_mutation 2 match planted intent exactly; their red/amber standing is inflation of the cross-language median by the #2545 return-in-branch family and #2546 flux weighting, and re-baselines when those land. 2026-09-01: the comment_lines clause of this entry is RESOLVED by gitgalaxy#2625 (PR #2632 + rosetta bias_report doc_loc switch): the metric now reads prism's real doc_loc, blank lines no longer count as documentation, and jcl sits at 11 vs median 12 (-8%, green).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2610",
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "cobol-args-clause-match-morphology",
+      "signal": "args",
+      "languages_seen": [
+        "cobol"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "cobol args 1 vs planted 13 is intended morphology, not an authoring gap (bucket-3 test run before ledgering, jcl PARM= precedent checked). (1) Paragraphs — the corpus's 12 probe functions — declare no parameters in COBOL; the language's only argument surface is the program-level PROCEDURE DIVISION USING (1 clause). (2) The file-level args metric counts rule MATCHES, not captured names — verified empirically 2026-08-31 by scanning a modified shell whose PROCEDURE DIVISION USING carried 13 parameter names: file_data.struct_args still records 1 (the per-function args_count path splits names, but the bias metric reads the file-level hit count). (3) Every construct that would add per-probe USING/RETURNING matches (CALL ... USING, ENTRY ... USING, INVOKE ... RETURNING) is ALSO an api-rule keyword (ENTRY|LINKAGE SECTION|CALL|INVOKE|EXPORT), so planting 12 of them would trade one red for api distortion — overlap-cost rejection, same precedent as jcl's DISP= cleanup decision (ledger jcl-2610-rebaseline-residual-morphology).",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-08-31",
+      "still_reproduces": true
+    },
+    {
+      "id": "comment-lines-manifest-doc-classification",
+      "signal": "comment_lines",
+      "languages_seen": [
+        "javascript",
+        "python"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "Guidestar manifest files carry no executable code, so the engine classifies their non-blank lines as doc_loc (package.json: total 8/coding 0/doc 7; pyproject.toml: doc 4). Only the 3 manifest-bearing corpus folders (javascript/python/rust, deliberate guidestar test design per #2557) inherit this extra doc mass; at the honest post-#2625 median of 12 real comment lines, javascript's +7 lands red (19, +58%) and python's +4 stays in-band (15, +25%). Verified 2026-09-01 by per-file doc_loc scans against engine pull/2632/head. Quirk noted for a possible future issue, not chased: rust's Cargo.toml produces NO file_data row at all (excluded before recording), while package.json and pyproject.toml are scanned and counted -- inconsistent manifest treatment across ecosystems.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-01",
+      "still_reproduces": true
+    },
+    {
+      "id": "markdown-prose-is-doc-morphology",
+      "signal": "comment_lines",
+      "languages_seen": [
+        "markdown"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "markdown's entire prose content is its documentation surface: prism classifies the non-blank .md lines as doc_loc (34 across the 4 shells vs median 12, +183%). A documentation format measuring high on a documentation-mass metric is correct morphology, not bias. Verified 2026-09-01 per-file (a 8 / b 8 / c 7 / main 11) against engine pull/2632/head.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-01",
+      "still_reproduces": true
+    },
+    {
+      "id": "markdown-lit-plane-morphology",
+      "signal": "args|branch|class_start|cleanup|doc|fragile_debt|func_start|globals|high_risk_execution|import|io|ownership|planned_debt|safety|safety_bypasses|state_mutation|telemetry|test",
+      "languages_seen": [
+        "markdown"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "markdown is a markup format deliberately measured on the lit_* literary plane (engine markdown.py wires ONLY lit_code_blocks/lit_diagrams/lit_headers/lit_links; detector's #691 prose deflection routes the whole body to the doc surface, code payload stays empty). Reviewed all 18 absent-rule cells per GATING's n/a rule 1: none is a missing-rule gap. No callable units or control flow exist (func_start/args/class_start/branch -- lit_headers are the probe analogue, hence functions_found 0); io/state_mutation/globals/test/safety/safety_bypasses/high_risk_execution/telemetry/cleanup have no markdown idiom -- prose ABOUT those concepts is documentation, not executable signal (bucket-2 test fails: no construct a practitioner would defend as the language's own idiom); doc as a keyword rule would double-count the prose mass prism already routes to doc_loc (see markdown-prose-is-doc-morphology); planned_debt/fragile_debt keywords in prose are content, not code debt, and the empty code payload means the rules could never fire; ownership has no comment syntax to carry an author tag (HTML comments exist but are unplanted and rare as authorship idiom); import stays n/a because links are already counted on the lit plane (lit_links) AND now feed the DAG directly via _dependency_capture (gitgalaxy#2638) -- an import keyword rule would triple-count the same construct. keyword_hits (-45% amber) is the arithmetic shadow of the lit plane: only 4 lit rules can hit. SS3 risk metrics floor for a no-code language and are structurally incomparable (risk_documentation measures documentation OF code; with zero coding_loc the formula bottoms out at its constant terms) -- downstream, not chased, per the epic. dependency_links was the one real gap in this family and is FIXED upstream by gitgalaxy#2638 (relative links -> DAG edges: main->a->b->c resolves, import_count main/a/b=1 c=0, popularity a/b/c=1; api stays 0 since orphan->api conversion needs functions).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2638",
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-01",
+      "still_reproduces": true
+    }
+  ]
 }

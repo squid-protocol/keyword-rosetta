@@ -5,7 +5,7 @@
   "files": {
     "main.php": {
       "class_start": 0,
-      "branch": 4,
+      "branch": 3,
       "io": 3,
       "high_risk_execution": 2,
       "func_start": 4,
@@ -33,7 +33,7 @@
       "globals": 2,
       "test": 2,
       "safety": 2,
-      "branch": 1,
+      "branch": 0,
       "state_mutation": 0,
       "high_risk_execution": 0,
       "io": 0,
@@ -52,7 +52,7 @@
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 6,
-      "branch": 3,
+      "branch": 2,
       "safety": 1,
       "high_risk_execution": 0,
       "io": 0,
@@ -71,7 +71,7 @@
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
-      "branch": 1,
+      "branch": 0,
       "state_mutation": 0,
       "io": 0,
       "safety": 0,
@@ -105,5 +105,5 @@
       "outcome": "HACK/TODO comments count exactly 1 each"
     }
   ],
-  "notes": "EVERY php file records branch >= 1: the <?php open tag's ? matches the branch rule's bare ternary-? alternation (finditer-confirmed; ledger php-open-tag-counts-branch — a real per-file FP on all PHP). main branch 4 = tag + if/else/switch; a/c branch 1 = tag alone; b branch 3 = tag + string if/try. Locked from hand-verified run 2026-08-31."
+  "notes": "branch no longer counts the <?php open tag: the per-file tag-? FP RESOLVED via gitgalaxy#2541 (tag-context excluded from the ternary-? alternation; ledger php-open-tag-counts-branch). main branch 3 = if/else/switch; a/c branch 0; b branch 2 = string if/try. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 against gitgalaxy#2641."
 }
