@@ -17,5 +17,5 @@ function probe_telemetry {
 function probe_state {
     param($items)
     $counter = 1
-    $note = "if eval fails, try iwr"
+    $note = "plain kill decoy text"
 }
