@@ -44,6 +44,15 @@ PLANTED = {
 def gather(language, colmap):
     """Scan one language folder; return (signal_totals, risk_means, struct_totals)."""
     language_dir = REPO_ROOT / "data" / language
+    # rosetta#25: the scan sweeps the whole folder, so expected_signals.json
+    # itself lands in file_data and its generically-parsed hits used to inflate
+    # every aggregate (28% of haskell's keyword_hits came from its own
+    # manifest). Restrict the census to exactly the shell files the manifest
+    # defines — that also drops any future stray non-source file, and keeps
+    # the aggregates aligned with what verify_language.py actually gates.
+    shell_files = set(
+        json.loads((language_dir / "expected_signals.json").read_text()).get("files", {})
+    )
     with tempfile.TemporaryDirectory(prefix=f"rosetta_bias_{language}_") as tmp:
         db_path = vl.scan(language_dir, pathlib.Path(tmp))
         conn = sqlite3.connect(db_path)
@@ -54,8 +63,9 @@ def gather(language, colmap):
         struct_cols = [c for c in ("function_count", "class_count", "import_count",
                                    "total_loc", "coding_loc", "doc_loc", "pagerank_score") if c in have]
         rows = conn.execute(
-            f"SELECT {', '.join(sig_cols + risk_cols + struct_cols)} FROM file_data"
+            f"SELECT file_name, {', '.join(sig_cols + risk_cols + struct_cols)} FROM file_data"
         ).fetchall()
+        rows = [r for r in rows if r["file_name"] in shell_files]
 
     totals = {colmap[c]: 0 for c in sig_cols}
     risks = {c: [] for c in risk_cols}
