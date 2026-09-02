@@ -17,6 +17,6 @@ end
 def probe_state(items)
   items.push(1)
   items.pop
-  note = "if eval fails, try open"
+  note = "plain system decoy text"
   note
 end
