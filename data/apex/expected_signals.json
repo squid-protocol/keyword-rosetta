@@ -45,15 +45,15 @@
   },
   "b.cls": {
    "class_start": 0,
-   "branch": 2,
+   "branch": 0,
    "io": 0,
-   "high_risk_execution": 0,
+   "high_risk_execution": 1,
    "globals": 0,
    "test": 0,
-   "safety": 1,
+   "safety": 0,
    "safety_bypasses": 2,
    "telemetry": 2,
-   "state_mutation": 6,
+   "state_mutation": 2,
    "cleanup": 0,
    "fragile_debt": 0,
    "planned_debt": 0,
@@ -87,13 +87,13 @@
  "decoys": [
   {
    "file": "b.cls",
-   "line_hint": "note = 'if eval fails, try open'",
+   "line_hint": "String note = 'plain emptyRecycleBin decoy text'; (probeState)",
    "surface": "string",
    "signals": [
-    "branch"
+    "high_risk_execution"
    ],
-   "outcome": "if + try count branch +2 (apex branch includes try); insert/update 2 raw state tripled to 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+   "outcome": "danger-only decoy (#17 redesign): \"emptyRecycleBin\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
   }
  ],
- "notes": "apex branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3 = if/else/for; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). args counts statement-position calls (ts-callparen family; main 7 = 4 sigs + 3 dispatch calls). import counts qualified Type.Member references (Logger.info etc; b import 2, c 1 = conn.clear -- apex import-as-reference morphology; no Type.forName planted so no DAG chain and no orphan conversion). Database.query is dual high_risk+bypasses (+1 main). c state_mutation 3->1 after #2545: clear( was amplified x3 by #2546's flux weighting because c's return provided phantom branch context (correctly predicted here before the fix landed) -- now the raw hit, unamplified, since return no longer counts as branch. Locked 2026-08-31; branch/state_mutation re-baselined 2026-09-01."
+ "notes": "apex branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3 = if/else/for; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). args counts statement-position calls (ts-callparen family; main 7 = 4 sigs + 3 dispatch calls). import counts qualified Type.Member references (Logger.info etc; b import 2, c 1 = conn.clear -- apex import-as-reference morphology; no Type.forName planted so no DAG chain and no orphan conversion). Database.query is dual high_risk+bypasses (+1 main). c state_mutation 3->1 after #2545: clear( was amplified x3 by #2546's flux weighting because c's return provided phantom branch context (correctly predicted here before the fix landed) -- now the raw hit, unamplified, since return no longer counts as branch. Locked 2026-08-31; branch/state_mutation re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"emptyRecycleBin\" literal inside probeState \u2014 b.cls high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
 }
