@@ -663,6 +663,188 @@
       "investigated_by": "claude-fable-5",
       "validated_at": "2026-09-01",
       "still_reproduces": true
+    },
+    {
+      "id": "agc-assembly-class-start-no-struct-pseudoop",
+      "signal": "class_start",
+      "languages_seen": [
+        "agc_assembly"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "AGC's real 1960s YUL/GAP instruction set (agc_assembly.py:99-101, comment: 'AGC lacks native objects') has no struct/record-defining pseudo-op -- its data/memory constructs (ERASABLE/FIXED MEMORY, EQUALS, 2DEC/2OCT, CADR/ECADR) are already fully covered by globals/memory_alloc/pointers. Contrast with the generic `assembly` entry (assembly.py:105-108), which DOES map class_start to struc/STRUCT/.struct macros -- proof the engine already detects struct pseudo-ops where they exist. AGC's narrower, real historical ISA genuinely has no equivalent directive; this is not an oversight relative to its sibling, it's a real capability gap between two different real assemblers.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "m4-class-start-no-object-concept",
+      "signal": "class_start",
+      "languages_seen": [
+        "m4"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "GNU M4 is a pure text-substitution macro processor; neither M4 nor Autoconf (the corpus's real-world use case) has any record/object/type-declaration concept. func_start already covers macro definition (m4_define/AC_DEFUN); reviewing the full rules dict (m4.py) finds no other m4/autoconf idiom resembling a compound-type or entity boundary. Unlike yacc or fortran, there is no sibling 'macro processor with a type system' in the registry to suggest this is an engine gap rather than the language's actual shape.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "makefile-class-start-no-entity-declaration",
+      "signal": "class_start",
+      "languages_seen": [
+        "makefile"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "GNU Make's model is variables plus file/phony targets; it has no entity or type-declaration concept. The one candidate construct, `define ... endef` (a named multi-line template), is already correctly wired to `macros` (makefile.py:216) rather than an object/entity boundary -- it defines a reusable text template, not a typed record, and double-wiring it to class_start would misrepresent it as an OOP-like boundary it isn't. No record/struct idiom exists anywhere in real Makefile usage.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "shell-class-start-no-oop-morphology",
+      "signal": "class_start",
+      "languages_seen": [
+        "shell"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "Comment at shell.py:119-121: 'Shell is strictly procedural.' The one candidate construct, associative arrays (`declare -A`), is a data-structure instance, not a type/entity declaration, and isn't wired anywhere (pointers/immutability_locks/encapsulation cover declare -n/-r but not -A). Unlike tcl, which has real, idiomatic OOP frameworks (TclOO/Snit/Itcl, wired at tcl.py:70-72) precisely because tcl programmers commonly use them, there is no comparably common bash-native class convention in real-world scripts to anchor a rule to.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "css-declarative-no-runtime-payload-morphology",
+      "signal": "cleanup|state_mutation|telemetry",
+      "languages_seen": [
+        "css"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "CSS is purely declarative with no embedded imperative/scripting payload, unlike the other languages that wire these three signals only against such payload: html's cleanup/telemetry fire on inline JS (removeEventListener/clearInterval, <script src=analytics>/sendBeacon); dockerfile's fire on shell build steps (apt-get clean, LOG_LEVEL); yaml's telemetry fires on GH Actions workflow commands (::debug/::warning/::error). CSS never carries any of that. cleanup: no destructor/teardown lifecycle exists -- rules are declaratively re-evaluated per paint; the closest analog (unset/initial/revert/revert-layer) is already claimed by panics_and_aborts, so a cleanup rule over the same tokens would double-count; clear:both is a layout primitive, not resource teardown. state_mutation: custom-property declarations and cascade overrides are declaration/specificity resolution, not temporal reassignment (no 'was A, now B' model) -- mirrors html's identical state_mutation=None/identical stated reasoning; css and html are the two purely-declarative languages in the taxonomy that null this signal while dockerfile/yaml (imperative-payload-bearing) wire it. telemetry: no logging/analytics primitive; scroll-driven-animation constructs are already captured by events/listeners. Corpus-confirmed: data/css/{b,c}.css's probe-state/probe-telemetry/probe-cleanup keyframes are empty placeholders -- bucket-3 test (could the shell plant something real?) fails for all three; nothing exists to author.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "css-import-url-io-triple-overlap",
+      "signal": "io",
+      "languages_seen": [
+        "css"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "io stays None correctly, but css.py's inline comment gives the wrong reason ('url()/@import don't block a computational thread'); that doesn't hold against html's own io rule, which fires on non-blocking async fetches (src=/href=/<img>/<iframe>) and is legitimately counted as I/O -- blocking-vs-non-blocking is not the actual deciding factor. The real reason: css already wires the identical url()/@import tokens to TWO other signals. Verified live via data/css/main.css's '@import url(\"a.css\");': args's regex includes 'url' in its bounded call-pattern alternation (manifest: args=1), import's regex is @import\\b (manifest: import=1), and _dependency_capture extracts the same target for the dependency DAG -- one token already produces three hits. Adding an io rule over the same construct would be a fourth count of one line, the same overlap-rejection shape as jcl's cleanup-vs-DISP= rejection (gitgalaxy#2610) and the already-ledgered sqlite-dot-read-dual-import-io. Recommend (doc-only, not filed as an issue -- no behavior change needed) correcting the inline comment's stated rationale so the next reader doesn't inherit the blocking/non-blocking framing.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "html-2578-declarative-globals-state-mutation-morphology",
+      "signal": "globals|state_mutation",
+      "languages_seen": [
+        "html"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "html has no native idiom for scoped-vs-global variables or state mutation -- it is purely declarative markup; both concepts are inherently imperative/scripting concepts that live in embedded JS. Micro-repro (window.myGlobal=1; document.getElementById(...).innerHTML=...; let y=2; inside a real <script> tag, committed scratch scan against engine main a837c3a): arch_globals=2, state_flux=1 on the html file row -- confirming these DO populate via the <script>/<style> HANDSHAKE_REGISTRY bucket-continuation (same mechanism ledger html-script-func-start-unreachable/gitgalaxy#2549 already documents for func_start) whenever a real <script> tag is present; a pure-markup file with no embedded script scores 0 for both, correctly, since html's own rules are None. The only candidate HTML-native constructs for globals (data-* config attributes on <html>/<body>, <meta> site config) are already fully claimed by the args rule (generic data-[a-zA-Z0-9_-]+) and doc/api rules (meta name=.../property=...) -- overlap-cost test fails, same precedent as jcl's globals ledger entry ('no scoped-vs-global distinction'). The only candidate for state_mutation (<details open>/<dialog open> user-toggled state) is already claimed by the branch rule's <details|summary|noscript> match. No unclaimed construct a practitioner would defend as HTML's own idiom for either concept exists.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "yacc-test-no-native-testing-concept",
+      "signal": "test",
+      "languages_seen": [
+        "yacc"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "yacc.py's test rule is None. Bison's only assertion-shaped construct is %expect N / %expect-rr N (declared conflict counts), but the engine already claims those tokens inside internal_discriminator (yacc.py ~L48) purely for C-vs-yacc file routing, not as a measured signal -- and %expect is a single declarative pragma, not a repeatable per-case test idiom like pytest markers or Foundry's test*/assertEq (which solidity's own test rule captures). Embedded C action blocks are NOT routed through a separate C rule set: detector.py's Mode_A_Labels (~L2392, yacc has no entry in _lens_config.py's HANDSHAKE_REGISTRY) applies yacc's own rules over the whole rule body including its {..} actions, so a stray assert() in an action already lands under yacc's safety rule rather than going unmeasured. Corpus confirms this by construction: a.y's 'probe_test : TWO ;' is a deliberately action-less production (test: 0 planted) -- there is no way to write a genuine test idiom inside a .y grammar file that isn't either generic C already caught elsewhere or the routing-only %expect pragma. Real absence of morphology, not an engine gap.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "solidity-io-observable-output-via-events",
+      "signal": "io",
+      "languages_seen": [
+        "solidity"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "solidity.py's io rule is None with an explicit comment ('EVM blockchains are closed systems'). Checked whether emit/event -- solidity's real observable-output idiom -- is folded into telemetry: it is not; telemetry is narrowly console.log (Hardhat debug only, L181). The actual destination is a dedicated events rule (emit|event, L168), reinforced by ipc_rpc_bridges (.call{value:, emit [A-Z]\\w*, L224-226) for cross-contract calls, and globals (msg.sender/block.*, L110-112) for chain-context reads -- solidity's engine already gives io's real-world equivalents (outbound chain interaction, logging) first-class dedicated signals, more specific than a generic io bucket would be. main.sol's probeIo function is deliberately inert (return route; only) and expected_signals.json plants io:0 across every file, matching this being a deliberate design choice already partly self-documented in the corpus manifest notes ('io is undefined for solidity... counted under globals/ipc instead'). Real absence of morphology -- io-intent is already measured, just under more precise signal names (events/ipc_rpc_bridges/globals) rather than an engine gap.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "yacc-union-class-start-gap",
+      "signal": "class_start",
+      "languages_seen": [
+        "yacc"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "yacc's class_start is None, but bison's %union { ... } directive declares a real compound type (the C union spanning every rule's semantic value) -- the exact shape the engine already maps to class_start for other non-OOP languages (fortran TYPE...END TYPE, cobol PROGRAM-ID/CLASS-ID, generic assembly struc/STRUCT). yacc.py's own internal_discriminator already lists union among its %-directive routing markers, but no signal rule counts it. 2/2 real crucible .y files (freebsd config.y, jailparse.y) use %union in the standard form. Engine gap, not real morphology; cell stays n/a until the rule lands, then the corpus can plant a %union probe (same choreography as jcl COND=/#2610).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2644",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "html-srcdoc-invisible-execution-gap",
+      "signal": "high_risk_execution",
+      "languages_seen": [
+        "html"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "html's high_risk_execution is None and the srcdoc attribute is invisible engine-wide: a file of just <iframe srcdoc=\"<script>eval(1)</script>\"> scores state_danger=0 (micro-repro, committed scratch scan) because the JS handshake trigger requires ^[ \\t]*<script starting a line (never fires inside a quoted attribute) and io's attribute list (src|href|action|poster|data) omits srcdoc; grep -rn srcdoc across the engine returns zero hits. The REST of html's inline attack surface is measured, just elsewhere: isolated probes show on[a-z]+= lands in listeners + reflection_metaprogramming and href=\"javascript:...\" lands in safety_bypasses (no double-count wanted there). Engine gap for srcdoc specifically; cell stays n/a until the rule lands.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2645",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "yaml-ownership-author-key-gap",
+      "signal": "ownership",
+      "languages_seen": [
+        "yaml"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "yaml's ownership is None, but the two ecosystems this language definition explicitly targets each carry a standard single-key ownership field: action.yml's top-level author: (sibling of name:/description:, which yaml's doc rule already matches) and OpenAPI's info.contact: block (openapi.yaml is a discriminator). Neither overlaps any current rule (checked doc/globals/state_mutation/import). Direct precedent: jcl's Author:|Maintainer: and dockerfile's MAINTAINER/LABEL maintainer= ownership rules. Engine gap; cell stays n/a until the rule lands.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2646",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
+    },
+    {
+      "id": "yaml-cleanup-embedded-teardown-gap",
+      "signal": "cleanup",
+      "languages_seen": [
+        "yaml"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "yaml's cleanup is None. GitLab's after_script: is correctly excluded (already routed to func_start as an executable-logic anchor, test-asserted -- a cleanup rule over it would double-count, same rejection shape as jcl DISP=(...,DELETE)/#2610). The real gap: yaml's philosophy counts shell embedded in run:/script: like code (branch/io/high_risk_execution all reach into it), yet teardown verbs there are invisible to every signal -- rm -rf <non-root-path> (high_risk_execution's rm -rf is deliberately root-only, test-asserted), docker rm/stop/down (nothing), bare kill <pid> (panics_and_aborts only catches kill -N). Engine gap; cell stays n/a until the rule lands.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2647",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
     }
   ]
 }

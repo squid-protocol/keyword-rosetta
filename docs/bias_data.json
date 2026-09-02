@@ -1827,40 +1827,40 @@
  },
  "na": {
   "class_start": {
-   "shell": "unreviewed",
-   "agc_assembly": "unreviewed",
-   "makefile": "unreviewed",
+   "shell": "ledgered",
+   "agc_assembly": "ledgered",
+   "makefile": "ledgered",
    "markdown": "ledgered",
-   "yacc": "unreviewed",
-   "m4": "unreviewed"
+   "yacc": "ledgered",
+   "m4": "ledgered"
   },
   "globals": {
-   "html": "unreviewed",
+   "html": "ledgered",
    "markdown": "ledgered",
    "jcl": "ledgered"
   },
   "high_risk_execution": {
-   "html": "unreviewed",
+   "html": "ledgered",
    "markdown": "ledgered"
   },
   "state_mutation": {
-   "html": "unreviewed",
-   "css": "unreviewed",
+   "html": "ledgered",
+   "css": "ledgered",
    "markdown": "ledgered"
   },
   "cleanup": {
-   "css": "unreviewed",
+   "css": "ledgered",
    "markdown": "ledgered",
-   "yaml": "unreviewed",
+   "yaml": "ledgered",
    "jcl": "ledgered"
   },
   "io": {
-   "css": "unreviewed",
-   "solidity": "unreviewed",
+   "css": "ledgered",
+   "solidity": "ledgered",
    "markdown": "ledgered"
   },
   "telemetry": {
-   "css": "unreviewed",
+   "css": "ledgered",
    "markdown": "ledgered"
   },
   "args": {
@@ -1884,7 +1884,7 @@
   },
   "ownership": {
    "markdown": "ledgered",
-   "yaml": "unreviewed"
+   "yaml": "ledgered"
   },
   "planned_debt": {
    "markdown": "ledgered"
@@ -1897,7 +1897,7 @@
   },
   "test": {
    "markdown": "ledgered",
-   "yacc": "unreviewed",
+   "yacc": "ledgered",
    "jcl": "ledgered"
   }
  }
