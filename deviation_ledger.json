@@ -490,12 +490,11 @@
       "languages_seen": [
         "m4",
         "markdown",
-        "scheme",
         "yacc"
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never convert, corpus-wide. Two whole languages invisible to network_risk_sensor by construction — worth an upstream note whether deliberate. Batch 5: yacc (#include counted, capture None) and markdown (no import rule at all) join — four registry languages structurally invisible to the DAG.",
+      "verdict": "m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never convert, corpus-wide. Two whole languages invisible to network_risk_sensor by construction — worth an upstream note whether deliberate. Batch 5: yacc (#include counted, capture None) and markdown (no import rule at all) join — four registry languages structurally invisible to the DAG. scheme RESOLVED via gitgalaxy#2652 (added _dependency_capture handling both the corpus's bare (import a) form and real R7RS/Guile library-list forms) -- removed from languages_seen; m4/markdown/yacc remain.",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
@@ -524,11 +523,11 @@
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local finals; zig b 2 from function-local vars). Other languages' globals rules are top-level-anchored; these two look unanchored by accident.",
-      "upstream_issue": null,
+      "verdict": "dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local finals; zig b 2 from function-local vars). Other languages' globals rules are top-level-anchored; these two look unanchored by accident. RESOLVED via gitgalaxy#2651 (anchored to true column 0 in both languages): dart b/c and zig b/c globals counts drop to the correct 0 for function-local declarations.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2651",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "batch4-dual-keyword-overlaps",
@@ -845,6 +844,81 @@
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-09-02",
       "still_reproduces": true
+    },
+    {
+      "id": "powershell-2656-param-if-switch-not-api",
+      "signal": "api",
+      "languages_seen": [
+        "powershell"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "powershell's api rule's bare-identifier alternative lacked the keyword exclusions func_start/args already carry, so param(/if(/switch( lines miscounted as API surface -- RESOLVED via gitgalaxy#2656 (same exclusion set added). main.ps1 api 6->0 (all 6 old raw matches were param()/switch(/if(, zero real API surface); a/b/c.ps1 6->3 (raw contribution drops to 0, the +3 orphan-conversion credit per file is unaffected).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2656",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": false
+    },
+    {
+      "id": "lua-2657-indented-return-not-module-export",
+      "signal": "api",
+      "languages_seen": [
+        "lua"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "lua's api rule's module-export 'return <ident>' alternative allowed any indentation, so ordinary function-body returns miscounted as module exports -- RESOLVED via gitgalaxy#2657 (anchored to column 0). main.lua api 6->4, a/b/c.lua 8/9/9->6/6/6 (raw regex contribution drops to just the real function-declaration matches; orphan-conversion credit unaffected).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2657",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": false
+    },
+    {
+      "id": "doc-ownership-author-collision-batch2",
+      "signal": "doc",
+      "languages_seen": [
+        "abap",
+        "agc_assembly",
+        "fortran",
+        "livecode",
+        "html"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double-counted doc+ownership -- RESOLVED via gitgalaxy#2650 (abap) and gitgalaxy#2659 (agc_assembly, fortran, livecode, html). Each language's main file doc drops from 2 to the correct 1. cobol shares the identical pattern but was deliberately excluded (its shell has no other doc-idiom content, so the fix would drop doc to 0, not 1) -- tracked separately as gitgalaxy#2661, needs a corpus-side doc line planted first.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2650, squid-protocol/gitgalaxy#2659",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": false
+    },
+    {
+      "id": "python-2658-docstring-delimiter-double-count",
+      "signal": "doc",
+      "languages_seen": [
+        "python",
+        "embedded_python"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "the doc rule matched opening and closing docstring delimiters independently with no pairing, so one docstring counted doc=2 -- RESOLVED via gitgalaxy#2658 (matches the full delimited span as a single bounded non-greedy hit). Both languages' main file doc drops from 2 to the correct 1.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2658",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": false
+    },
+    {
+      "id": "makefile-2648-slicer-fallthrough",
+      "signal": "functions_found|api|state_mutation",
+      "languages_seen": [
+        "makefile"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "makefile had zero brace-delimited bodies but was missing from detector.py's Mode_A_Labels tuple, silently falling through to Mode_B_Braces and dropping ~100% of real functions -- RESOLVED via gitgalaxy#2648 (added to the tuple, alongside ada). Corpus-wide effect: real function extraction now works, enabling orphan->api conversion (a/b/c.mk api 0/0/1 -> 3/3/5) and correcting b.mk's state_mutation (6->2, the x3 flux multiplier no longer phantom-fires once function boundaries are correctly recognized).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2648",
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": false
     }
   ]
 }

@@ -48,7 +48,7 @@
       "branch": 2,
       "io": 0,
       "high_risk_execution": 0,
-      "globals": 1,
+      "globals": 0,
       "test": 0,
       "safety": 1,
       "safety_bypasses": 2,
@@ -67,7 +67,7 @@
       "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
-      "globals": 1,
+      "globals": 0,
       "test": 0,
       "safety": 0,
       "safety_bypasses": 0,
@@ -96,5 +96,5 @@
       "outcome": "if + try count (dart branch includes try, finditer-confirmed; try also safety +1); setState/notifyListeners 2 raw tripled to 6. The final declaration itself counts globals +1 (dart globals matches ANY indented final/const/var-with-=, hence globals 1 in b and c). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "dart globals counts every final/const/var initialization at any indent — function-local finals contribute 'globals' (b/c +1 each). Spaced assignments (x = 1) do NOT count dart state (the rule requires a non-space char before =). Locked 2026-08-31."
+  "notes": "dart globals: the any-indentation-anchor bug RESOLVED via gitgalaxy#2651 (anchored to true column 0) -- b.dart's and c.dart's function-local finals no longer count as globals (b/c globals 1 -> 0 each). Spaced assignments (x = 1) do NOT count dart state (the rule requires a non-space char before =). Locked 2026-08-31; globals re-baselined 2026-09-02 against gitgalaxy#2651."
 }

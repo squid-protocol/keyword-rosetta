@@ -20,7 +20,7 @@
       "func_start": 0,
       "args": 1,
       "api": 1,
-      "doc": 2,
+      "doc": 1,
       "ownership": 1,
       "import": 1
     },
@@ -99,5 +99,5 @@
       "outcome": "func_start 0 EVERYWHERE despite raw-regex matches: the polyglot splitter consumes the <script>/<style> tags before html's rules run (micro-repro: a script with real JS records the JS body's signals but func 0). Ledger html-script-func-start-unreachable; gitgalaxy#2549"
     }
   ],
-  "notes": "html func_start is unreachable end-to-end (gitgalaxy#2549) — 0 baked in. branch = details/summary/noscript tags; io = the chain link's href= (1 per importing file); doc 2 = title + meta author (meta author dual doc+ownership); import = link rel=stylesheet (chain resolves as capture but no conversion observed). Locked 2026-08-31."
+  "notes": "html func_start is unreachable end-to-end (gitgalaxy#2549) -- 0 baked in. branch = details/summary/noscript tags; io = the chain link's href= (1 per importing file); doc 1 = title only: the meta name=author-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (author removed from doc's meta-name alternative; ownership still captures meta name=author exclusively); import = link rel=stylesheet (chain resolves as capture but no conversion observed). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659."
 }

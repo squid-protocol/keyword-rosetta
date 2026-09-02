@@ -11,7 +11,7 @@
       "args": 4,
       "api": 4,
       "import": 1,
-      "doc": 2,
+      "doc": 1,
       "ownership": 1,
       "class_start": 0,
       "state_mutation": 0,
@@ -115,5 +115,5 @@
       "outcome": "inert (underscore tokenization, as python) — but the assignment itself counts state_mutation +1 (fortran counts every NAME = value)"
     }
   ],
-  "notes": "branch includes GOTO (main = if/elseif/else + goto = 4; ledger fortran-goto-dual-branch-highrisk). state_mutation counts every plain assignment (fortran-family rule), and the file-level flux weighting multiplies it x3 when branch context exists in the file (b.f90: 2 raw x 3 = 6; ledger state-flux-branch-weighting). api counts subroutine definitions (main 4) and a/b/c get orphan conversion (+3 each, api-contextual-baseline-fix) — which only worked after lowercasing USE targets: 'USE A' does not resolve to a.f90, the DAG lookup is case-sensitive though fortran is not (ledger fortran-use-case-insensitive-dag; upstream issue). COMMON counts globals AND safety_bypasses (+1 bypasses in a.f90). doc 2 in main = Author: + Description: (Author matches both doc and ownership). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-01): ASSIGN-only literal (GOTO removed -- it doubles as a branch keyword and fed the x3 flux weighting; state_mutation 6->2, branch 2->0, io 1->0). Case-sensitive USE resolution RESOLVED via gitgalaxy#2540 (per-language case-folded DAG lookup): uppercase 'USE A' now resolves too; the corpus's lowercase targets are no longer load-bearing, values unchanged."
+  "notes": "branch includes GOTO (main = if/elseif/else + goto = 4; ledger fortran-goto-dual-branch-highrisk). state_mutation counts every plain assignment (fortran-family rule), and the file-level flux weighting multiplies it x3 when branch context exists in the file (b.f90: 2 raw x 3 = 6; ledger state-flux-branch-weighting). api counts subroutine definitions (main 4) and a/b/c get orphan conversion (+3 each, api-contextual-baseline-fix). COMMON counts globals AND safety_bypasses (+1 bypasses in a.f90). doc 1 in main = Description: only: the Author:-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (Author removed from doc's alternation; ownership still captures it exclusively). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-01). Case-sensitive USE resolution RESOLVED via gitgalaxy#2540. doc re-baselined 2026-09-02 against gitgalaxy#2659."
 }

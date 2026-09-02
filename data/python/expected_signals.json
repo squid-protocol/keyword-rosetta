@@ -1,146 +1,146 @@
 {
- "language": "python",
- "tier": 1,
- "generator": "claude-sonnet-5 (hand-verified reference)",
- "files": {
-  "main.py": {
-   "branch": 3,
-   "io": 3,
-   "high_risk_execution": 2,
-   "doc": 2,
-   "ownership": 1,
-   "encapsulation": 1,
-   "import": 1,
-   "func_start": 4,
-   "args": 4,
-   "api": 4,
-   "class_start": 0,
-   "globals": 0,
-   "test": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "state_mutation": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "dead_code": 0
+  "language": "python",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.py": {
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "doc": 1,
+      "ownership": 1,
+      "encapsulation": 1,
+      "import": 1,
+      "func_start": 4,
+      "args": 4,
+      "api": 4,
+      "class_start": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "dead_code": 0
+    },
+    "a.py": {
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 6,
+      "globals": 2,
+      "io": 0,
+      "test": 2,
+      "safety": 2,
+      "branch": 0,
+      "high_risk_execution": 1,
+      "class_start": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "safety_bypasses": 0,
+      "doc": 0,
+      "ownership": 0,
+      "encapsulation": 0
+    },
+    "b.py": {
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 6,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "branch": 0,
+      "class_start": 0,
+      "io": 0,
+      "test": 0,
+      "safety": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "high_risk_execution": 0,
+      "doc": 0
+    },
+    "c.py": {
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 6,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "class_start": 0,
+      "branch": 0,
+      "state_mutation": 0,
+      "encapsulation": 0,
+      "high_risk_execution": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "io": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "dead_code": 0
+    }
   },
-  "a.py": {
-   "import": 1,
-   "func_start": 3,
-   "args": 3,
-   "api": 6,
-   "globals": 2,
-   "io": 0,
-   "test": 2,
-   "safety": 2,
-   "branch": 0,
-   "high_risk_execution": 1,
-   "class_start": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "telemetry": 0,
-   "state_mutation": 0,
-   "cleanup": 0,
-   "safety_bypasses": 0,
-   "doc": 0,
-   "ownership": 0,
-   "encapsulation": 0
-  },
-  "b.py": {
-   "import": 1,
-   "func_start": 3,
-   "args": 3,
-   "api": 6,
-   "safety_bypasses": 2,
-   "telemetry": 2,
-   "state_mutation": 2,
-   "branch": 0,
-   "class_start": 0,
-   "io": 0,
-   "test": 0,
-   "safety": 0,
-   "globals": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "high_risk_execution": 0,
-   "doc": 0
-  },
-  "c.py": {
-   "import": 0,
-   "func_start": 3,
-   "args": 3,
-   "api": 6,
-   "cleanup": 2,
-   "fragile_debt": 1,
-   "planned_debt": 1,
-   "class_start": 0,
-   "branch": 0,
-   "state_mutation": 0,
-   "encapsulation": 0,
-   "high_risk_execution": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "io": 0,
-   "test": 0,
-   "globals": 0,
-   "doc": 0,
-   "ownership": 0,
-   "dead_code": 0
-  }
- },
- "decoys": [
-  {
-   "file": "main.py",
-   "line_hint": "never calls eval and no while loop",
-   "surface": "comment",
-   "signals": [
-    "high_risk_execution",
-    "branch"
-   ],
-   "outcome": "stripped: contributed 0 (prism comment stripping works)"
-  },
-  {
-   "file": "a.py",
-   "line_hint": "could open a socket in prose only",
-   "surface": "comment",
-   "signals": [
-    "branch",
-    "io"
-   ],
-   "outcome": "stripped: contributed 0"
-  },
-  {
-   "file": "a.py",
-   "line_hint": "message = \"plain eval decoy text\" (inside probe_globals)",
-   "surface": "string",
-   "signals": [
-    "high_risk_execution"
-   ],
-   "outcome": "danger-only decoy (#17 redesign): eval COUNTS from inside the literal (+1), undampened -- proves strings count like code for the high-risk family too. The old sentence's eval read 0 only because its own 'try' fed python's safety rule and the Silencer Region dampener (high_risk <- safety, 500-char radius) fired; see string-literal-selective-shielding. PLACEMENT RULE: the literal sits INSIDE probe_globals -- module-level code falls back to flat-radius dampening (apply_dampener_correlations docstring), where probe_safety's assert would re-dampen it."
-  },
-  {
-   "file": "b.py",
-   "line_hint": "the try keyword stays in prose",
-   "surface": "comment",
-   "signals": [
-    "branch",
-    "safety"
-   ],
-   "outcome": "stripped: contributed 0"
-  },
-  {
-   "file": "c.py",
-   "line_hint": "HACK_LEVEL = level",
-   "surface": "code",
-   "signals": [
-    "fragile_debt"
-   ],
-   "outcome": "reverse decoy works: identifier did not count, the # HACK comment did (fragile_debt = 1 exactly)"
-  }
- ],
- "notes": "api = public defs PLUS the Contextual Baseline Fix (galaxyscope.py ~2145): a file imported by others (popularity > 0) has its orphaned_logic converted into api — a/b/c are each imported and their 3 probes are never called, so api = 3 + 3 = 6; main.py is imported by nobody and stays at 4. #2593 engine fix: python's io rule no longer matches os.environ/sys.argv (owned by globals) — a.py io dropped from 3 to 1 (only the shielded 'open' inside MESSAGE still counts); python's test rule no longer matches bare assert (owned by safety) — a.py test dropped from 3 to 2 (unittest + pytest only, probe_safety's assert no longer cross-counts). See ledger entries os-sys-prefix-overlaps-io (now resolved for python) and assert-overlaps-safety-and-test (python removed from languages_seen; still reproduces for c/perl). All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv against the #2593 engine fix branch. String decoy redesigned per keyword-rosetta#17 (2026-09-01): danger-only literal in probe_globals; the old 'if eval fails, try open' branch/safety/io contributions (branch 2->0, safety 3->2, io 1->0) are gone and eval now counts (+1)."
+  "decoys": [
+    {
+      "file": "main.py",
+      "line_hint": "never calls eval and no while loop",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution",
+        "branch"
+      ],
+      "outcome": "stripped: contributed 0 (prism comment stripping works)"
+    },
+    {
+      "file": "a.py",
+      "line_hint": "could open a socket in prose only",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "io"
+      ],
+      "outcome": "stripped: contributed 0"
+    },
+    {
+      "file": "a.py",
+      "line_hint": "message = \"plain eval decoy text\" (inside probe_globals)",
+      "surface": "string",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "danger-only decoy (#17 redesign): eval COUNTS from inside the literal (+1), undampened -- proves strings count like code for the high-risk family too. The old sentence's eval read 0 only because its own 'try' fed python's safety rule and the Silencer Region dampener (high_risk <- safety, 500-char radius) fired; see string-literal-selective-shielding. PLACEMENT RULE: the literal sits INSIDE probe_globals -- module-level code falls back to flat-radius dampening (apply_dampener_correlations docstring), where probe_safety's assert would re-dampen it."
+    },
+    {
+      "file": "b.py",
+      "line_hint": "the try keyword stays in prose",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "safety"
+      ],
+      "outcome": "stripped: contributed 0"
+    },
+    {
+      "file": "c.py",
+      "line_hint": "HACK_LEVEL = level",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "reverse decoy works: identifier did not count, the # HACK comment did (fragile_debt = 1 exactly)"
+    }
+  ],
+  "notes": "api = public defs PLUS the Contextual Baseline Fix (galaxyscope.py ~2145): a/b/c are each imported and their 3 probes are never called, so api = 3 + 3 = 6; main.py is imported by nobody and stays at 4. doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (doc rule now matches the full \"\"\"...\"\"\" span as a single bounded hit instead of counting open+close delimiters separately). See ledger entries os-sys-prefix-overlaps-io (resolved) and assert-overlaps-safety-and-test (python removed, still reproduces for c/perl). String decoy redesigned per keyword-rosetta#17 (2026-09-01). doc re-baselined 2026-09-02 against gitgalaxy#2658."
 }
