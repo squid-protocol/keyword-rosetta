@@ -1,5 +1,7 @@
 // keyword rosetta control shell: apex / a
 // decoy: config reads are safe and the query words stay in prose
+Type.forName('b');
+
 static Integer probeGlobals(Integer env) {
     UserInfo who;
     System.Label tag;

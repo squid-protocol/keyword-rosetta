@@ -20,9 +20,9 @@
    "func_start": 4,
    "args": 7,
    "api": 0,
-   "doc": 2,
+   "doc": 1,
    "ownership": 1,
-   "import": 0
+   "import": 1
   },
   "a.cls": {
    "class_start": 0,
@@ -38,10 +38,10 @@
    "cleanup": 0,
    "fragile_debt": 0,
    "planned_debt": 0,
-   "import": 0,
+   "import": 1,
    "func_start": 3,
    "args": 5,
-   "api": 0
+   "api": 3
   },
   "b.cls": {
    "class_start": 0,
@@ -57,10 +57,10 @@
    "cleanup": 0,
    "fragile_debt": 0,
    "planned_debt": 0,
-   "import": 2,
+   "import": 3,
    "func_start": 3,
    "args": 3,
-   "api": 0
+   "api": 3
   },
   "c.cls": {
    "class_start": 0,
@@ -79,7 +79,7 @@
    "import": 1,
    "func_start": 3,
    "args": 3,
-   "api": 0,
+   "api": 3,
    "doc": 0,
    "ownership": 0
   }
@@ -95,5 +95,5 @@
    "outcome": "danger-only decoy (#17 redesign): \"emptyRecycleBin\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
   }
  ],
- "notes": "apex branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3 = if/else/for; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). args counts statement-position calls (ts-callparen family; main 7 = 4 sigs + 3 dispatch calls). import counts qualified Type.Member references (Logger.info etc; b import 2, c 1 = conn.clear -- apex import-as-reference morphology; no Type.forName planted so no DAG chain and no orphan conversion). Database.query is dual high_risk+bypasses (+1 main). c state_mutation 3->1 after #2545: clear( was amplified x3 by #2546's flux weighting because c's return provided phantom branch context (correctly predicted here before the fix landed) -- now the raw hit, unamplified, since return no longer counts as branch. Locked 2026-08-31; branch/state_mutation re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"emptyRecycleBin\" literal inside probeState \u2014 b.cls high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
+ "notes": "apex branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3 = if/else/for; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). args counts statement-position calls (ts-callparen family; main 7 = 4 sigs + 3 dispatch calls). import counts qualified Type.Member references (Logger.info etc; b import 2, c 1 = conn.clear -- apex import-as-reference morphology; no Type.forName planted so no DAG chain and no orphan conversion). Database.query is dual high_risk+bypasses (+1 main). c state_mutation 3->1 after #2545: clear( was amplified x3 by #2546's flux weighting because c's return provided phantom branch context (correctly predicted here before the fix landed) -- now the raw hit, unamplified, since return no longer counts as branch. Locked 2026-08-31; branch/state_mutation re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"emptyRecycleBin\" literal inside probeState \u2014 b.cls high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. A.3 (gitgalaxy#2669): apex had NO dependency chain \u2014 the SPEC's main->a->b->c is expressed here as Type.forName('a'/'b'/'c'), the one idiom apex's _dependency_capture rule reads, planted at file top where every other language puts its import. That alone took dependency_links 0 -> live and popularity/betweenness/closeness/producer_ratio/dependency_density off 0 for a/b/c, and the resulting popularity > 0 converts each file's 3 uncalled probes into api 3 (ledger api-contextual-baseline-fix, apex added). import +1 per planting file (main 0->1, a 0->1, b 2->3); c stays the leaf. Collateral, deliberate: Type.forName is also a reflection_metaprogramming hit x3, which is an input to risk_cognitive_load \u2014 honest morphology for dynamic class loading, attribute any cog movement at the next regen here. Header swapped from '// @author:' to '// Author:': apex's doc rule still lists @author, which the ownership rule owns exclusively (the gitgalaxy#2659 shape, still open for apex and collected by #2669 B.1), so the header was counting doc+ownership and doc read 2 against a planted 1. The 'Author:' form gives ownership 1 with no doc hit, leaving doc 1 from '@description' \u2014 corpus-side half of the fix, exactly the cobol #2661 step-1 pattern."
 }

@@ -1,5 +1,7 @@
 // keyword rosetta control shell: apex / b
 // decoy: nothing risky lives here and the merge word stays in prose
+Type.forName('c');
+
 @SuppressWarnings('rosetta')
 static Integer probeBypass(Integer shape) {
     return shape;

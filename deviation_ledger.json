@@ -5,11 +5,12 @@
       "id": "api-contextual-baseline-fix",
       "signal": "api",
       "languages_seen": [
+        "apex",
         "python"
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording. Micro-repro: 2-def file imported by a sibling records api=4, un-imported records api=2. With the spec's main->a->b->c chain and uncalled probes, api = defs x 2 in a/b/c, defs in main. Deliberate scoring semantics; raw counts unrecoverable from the DB (filed squid-protocol/gitgalaxy#2536 asking for raw recording).",
+      "verdict": "galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording. Micro-repro: 2-def file imported by a sibling records api=4, un-imported records api=2. With the spec's main->a->b->c chain and uncalled probes, api = defs x 2 in a/b/c, defs in main. Deliberate scoring semantics; raw counts unrecoverable from the DB (filed squid-protocol/gitgalaxy#2536 asking for raw recording). apex added 2026-09-02 (gitgalaxy#2669 A.3): it had no import chain at all until Type.forName('a'/'b'/'c') was planted, so a/b/c had popularity 0 and api 0; with the chain live their 3 uncalled probes convert to api 3 each, exactly this shape.",
       "upstream_issue": "squid-protocol/gitgalaxy#2536",
       "investigated_by": "claude-sonnet-5 + user session",
       "validated_at": "2026-08-31",
