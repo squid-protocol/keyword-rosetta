@@ -10,14 +10,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 |---|---|---|---|---|---|
 | [abap](#abap) | 3 | 3 | 0 | 2 | #2535 |
 | [ada](#ada) | 3 | 2 | 0 | 4 | #2535 #2546 |
-| [agc_assembly](#agc_assembly) | 5 | 2 | 1 | 3 | #2535 |
+| [agc_assembly](#agc_assembly) | 5 | 2 | 1 | 4 | #2535 |
 | [apex](#apex) | 6 | 4 | 0 | 6 | #2535 #2545 #2546 |
 | [assembly](#assembly) | 2 | 2 | 0 | 5 | #2535 #2546 |
 | [c](#c) | 4 | 3 | 0 | 4 | #2535 #2546 #2626 |
 | [cobol](#cobol) | 3 | 4 | 0 | 6 | #2535 #2537 #2538 |
 | [cpp](#cpp) | 0 | 2 | 0 | 3 | #2535 #2546 |
 | [csharp](#csharp) | 0 | 2 | 0 | 3 | #2535 #2546 |
-| [css](#css) | 10 | 5 | 4 | 2 | — |
+| [css](#css) | 10 | 5 | 4 | 4 | — |
 | [dart](#dart) | 1 | 1 | 0 | 4 | #2535 |
 | [dockerfile](#dockerfile) | 5 | 11 | 0 | 5 | #2535 #2546 #2547 |
 | [embedded_python](#embedded_python) | 5 | 4 | 0 | 4 | #2535 #2548 |
@@ -25,15 +25,15 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [go](#go) | 2 | 0 | 0 | 5 | #2535 #2542 #2546 |
 | [groovy](#groovy) | 2 | 2 | 0 | 4 | #2535 |
 | [haskell](#haskell) | 6 | 4 | 0 | 4 | #2535 |
-| [html](#html) | 11 | 6 | 3 | 3 | #2549 |
+| [html](#html) | 11 | 6 | 3 | 5 | #2549 #2645 |
 | [java](#java) | 2 | 1 | 0 | 3 | #2535 #2546 |
 | [javascript](#javascript) | 3 | 4 | 0 | 5 | #2535 #2539 |
 | [jcl](#jcl) | 2 | 7 | 4 | 3 | #2610 |
 | [kotlin](#kotlin) | 1 | 0 | 0 | 5 | #2535 #2545 #2546 |
 | [livecode](#livecode) | 3 | 7 | 0 | 5 | #2535 #2546 #2547 |
 | [lua](#lua) | 4 | 2 | 0 | 4 | #2535 #2546 #2547 |
-| [m4](#m4) | 8 | 5 | 1 | 4 | #2535 |
-| [makefile](#makefile) | 3 | 5 | 1 | 4 | #2535 #2546 |
+| [m4](#m4) | 8 | 5 | 1 | 5 | #2535 |
+| [makefile](#makefile) | 3 | 5 | 1 | 5 | #2535 #2546 |
 | [markdown](#markdown) | 11 | 1 | 18 | 5 | #2638 |
 | [matlab](#matlab) | 5 | 4 | 0 | 5 | #2535 #2546 #2547 |
 | [objective-c](#objective-c) | 2 | 2 | 0 | 6 | #2535 #2545 #2546 |
@@ -45,14 +45,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 | [rust](#rust) | 2 | 2 | 0 | 2 | #2535 |
 | [scala](#scala) | 3 | 1 | 0 | 3 | #2535 |
 | [scheme](#scheme) | 4 | 3 | 0 | 5 | #2535 #2537 |
-| [shell](#shell) | 1 | 4 | 1 | 5 | #2535 #2547 |
-| [solidity](#solidity) | 3 | 1 | 1 | 4 | #2535 #2545 |
+| [shell](#shell) | 1 | 4 | 1 | 6 | #2535 #2547 |
+| [solidity](#solidity) | 3 | 1 | 1 | 5 | #2535 #2545 |
 | [sqlite](#sqlite) | 7 | 5 | 0 | 4 | #2535 #2547 |
 | [swift](#swift) | 1 | 0 | 0 | 4 | #2535 #2543 #2546 |
 | [tcl](#tcl) | 2 | 3 | 0 | 4 | #2535 #2546 |
 | [typescript](#typescript) | 1 | 0 | 0 | 4 | #2535 #2546 |
-| [yacc](#yacc) | 8 | 3 | 2 | 3 | — |
-| [yaml](#yaml) | 6 | 6 | 2 | 2 | — |
+| [yacc](#yacc) | 8 | 3 | 2 | 5 | #2644 |
+| [yaml](#yaml) | 6 | 6 | 2 | 4 | #2646 #2647 |
 | [zig](#zig) | 3 | 2 | 0 | 5 | #2535 #2545 |
 
 ## abap
@@ -116,12 +116,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `risk_spec_match`: 65.3333 vs median 96 (-32%)
 - 🟡 `risk_verification`: 1.72414 vs median 2.36136 (-27%)
 
-**Not expressible as measured (n/a):** `class_start`†
+**Not expressible as measured (n/a):** `class_start`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `agc-assembly-class-start-no-struct-pseudoop` | intended-morphology | — | — | AGC's real 1960s YUL/GAP instruction set (agc_assembly.py:99-101, comment: 'AGC lacks native objects') has no struct/record-defining pseudo-op -- its data/memory constru… |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -300,12 +301,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `risk_verification`: 1.27414 vs median 2.36136 (-46%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 
-**Not expressible as measured (n/a):** `cleanup`†, `io`†, `state_mutation`†, `telemetry`†
+**Not expressible as measured (n/a):** `cleanup`, `io`, `state_mutation`, `telemetry`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `css-declarative-no-runtime-payload-morphology` | intended-morphology | — | — | CSS is purely declarative with no embedded imperative/scripting payload, unlike the other languages that wire these three signals only against such payload: html's clean… |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
+| `css-import-url-io-triple-overlap` | keyword-overlap | — | — | io stays None correctly, but css.py's inline comment gives the wrong reason ('url()/@import don't block a computational thread'); that doesn't hold against html's own io… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -522,13 +525,15 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 - 🟡 `risk_verification`: 1.1948 vs median 2.36136 (-49%)
 
-**Not expressible as measured (n/a):** `globals`†, `high_risk_execution`†, `state_mutation`†
+**Not expressible as measured (n/a):** `globals`, `high_risk_execution`, `state_mutation`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `html-2578-declarative-globals-state-mutation-morphology` | intended-morphology | — | — | html has no native idiom for scoped-vs-global variables or state mutation -- it is purely declarative markup; both concepts are inherently imperative/scripting concepts … |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `html-script-func-start-unreachable` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | main.html | html's func_start rule (<script>/<style> tags) never fires end-to-end: the polyglot splitter consumes the tags before html's rules run (micro-repro: <script>var x=1;</sc… |
+| `html-srcdoc-invisible-execution-gap` | upstream-bug | [#2645](https://github.com/squid-protocol/gitgalaxy/issues/2645) | — | html's high_risk_execution is None and the srcdoc attribute is invisible engine-wide: a file of just <iframe srcdoc="<script>eval(1)</script>"> scores state_danger=0 (mi… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -703,12 +708,13 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `risk_verification`: 1.28776 vs median 2.36136 (-45%)
 - 🟡 `state_mutation`: 4 vs median 6 (-33%)
 
-**Not expressible as measured (n/a):** `class_start`†
+**Not expressible as measured (n/a):** `class_start`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `m4-class-start-no-object-concept` | intended-morphology | — | — | GNU M4 is a pure text-substitution macro processor; neither M4 nor Autoconf (the corpus's real-world use case) has any record/object/type-declaration concept |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `no-dependency-capture-languages` | upstream-question | — | — | m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never c… |
 
@@ -731,13 +737,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `risk_cognitive_load`: 10.0272 vs median 14.9506 (-33%)
 - 🟡 `risk_tech_debt`: 20 vs median 39.5943 (-49%)
 
-**Not expressible as measured (n/a):** `class_start`†
+**Not expressible as measured (n/a):** `class_start`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.mk | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.mk | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `makefile-class-start-no-entity-declaration` | intended-morphology | — | — | GNU Make's model is variables plus file/phony targets; it has no entity or type-declaration concept |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -1037,13 +1044,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `risk_documentation`: 69.9741 vs median 54.777 (+28%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
-**Not expressible as measured (n/a):** `class_start`†
+**Not expressible as measured (n/a):** `class_start`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `shell-test-brackets-in-branch` | engine-semantic | — | (notes) | shell's branch rule counts the test brackets [ and ] as branch tokens (finditer on main.sh: if,[,],then,fi = 5 for one conditional) — every bracketed test costs +2 branc… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sh | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `shell-class-start-no-oop-morphology` | intended-morphology | — | — | Comment at shell.py:119-121: 'Shell is strictly procedural.' The one candidate construct, associative arrays (`declare -A`), is a data-structure instance, not a type/ent… |
 | `shell-trap-signal-env-collision` | keyword-overlap | — | (notes) | 'trap : TERM' counts globals: the TERM signal name collides with the TERM env-var keyword in shell's globals rule (a.sh globals 3 for 2 planted) |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
@@ -1064,11 +1072,12 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🔴 `risk_cognitive_load`: 25.3615 vs median 14.9506 (+70%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 
-**Not expressible as measured (n/a):** `io`†
+**Not expressible as measured (n/a):** `io`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `solidity-io-observable-output-via-events` | engine-semantic | — | — | solidity.py's io rule is None with an explicit comment ('EVM blockchains are closed systems') |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sol | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | b.sol | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
@@ -1191,13 +1200,15 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `keyword_hits`: 153 vs median 254.5 (-40%)
 - 🟡 `risk_verification`: 1.30806 vs median 2.36136 (-45%)
 
-**Not expressible as measured (n/a):** `class_start`†, `test`†
+**Not expressible as measured (n/a):** `class_start`, `test`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `yacc-test-no-native-testing-concept` | engine-semantic | — | — | yacc.py's test rule is None |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `no-dependency-capture-languages` | upstream-question | — | (notes) | m4 and scheme have _dependency_capture = None: include()/(import ...) count the import signal but can never produce a DAG edge, so popularity stays 0 and orphans never c… |
+| `yacc-union-class-start-gap` | upstream-question | [#2644](https://github.com/squid-protocol/gitgalaxy/issues/2644) | — | yacc's class_start is None, but bison's %union { .. |
 
 
 ## yaml
@@ -1217,12 +1228,14 @@ n/a cells (a signal the language's registry defines no rule for) are incomparabl
 - 🟡 `safety_bypasses`: 1 vs median 2 (-50%)
 - 🟡 `test`: 1 vs median 2 (-50%)
 
-**Not expressible as measured (n/a):** `cleanup`†, `ownership`†
+**Not expressible as measured (n/a):** `cleanup`, `ownership`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
+| `yaml-cleanup-embedded-teardown-gap` | upstream-question | [#2647](https://github.com/squid-protocol/gitgalaxy/issues/2647) | — | yaml's cleanup is None |
+| `yaml-ownership-author-key-gap` | upstream-question | [#2646](https://github.com/squid-protocol/gitgalaxy/issues/2646) | — | yaml's ownership is None, but the two ecosystems this language definition explicitly targets each carry a standard single-key ownership field: action.yml's top-level aut… |
 
 
 ## zig
