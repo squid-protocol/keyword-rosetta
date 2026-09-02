@@ -3,8 +3,8 @@
 jobs:
   tail:
     steps:
-      - run: ':'
-      - run: ':'
+      - run: 'rm -rf /tmp/build-artifact'
+      - run: 'docker compose down'
       - run: ':'
 # HACK: shortcut kept deliberately for the rosetta corpus
 # TODO: fill in the probe body later
