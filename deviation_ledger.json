@@ -919,6 +919,35 @@
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-09-02",
       "still_reproduces": false
+    },
+    {
+      "id": "path-and-extension-modifiers",
+      "signal": "(risk_* scores: locational multipliers)",
+      "languages_seen": [
+        "c",
+        "cobol",
+        "cpp",
+        "css",
+        "embedded_python",
+        "go",
+        "html",
+        "java",
+        "javascript",
+        "jcl",
+        "makefile",
+        "markdown",
+        "python",
+        "rust",
+        "sqlite",
+        "typescript"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cross-language differences into the risk_* columns that no signal count explains. Micro-repro: SignalProcessor()._get_locational_multipliers('data/jcl/main.jcl') -> {'cog': 0.7, 'safety': 0.85}; 'data/c/a.c' -> {'safety': 0.85}. Survey over all 184 shell files (2026-09-02, engine 3ac91822): (1) 'data/' matches the data-directory rule -> safety x0.85 on EVERY file, uniform, no bias; (2) the 'config' rule (?:^|/)(?:configs?|settings|environments?|setup|makefile|\\.env|cntl|jcl)\\b matches the folder names data/jcl/ and data/makefile/ -> cognitive_load x0.70 on all 8 files of those two languages -- the only case where the corpus's folder NAME, not its content, moves a score; (3) the header/declaration extension rule (.h/.hpp/.hxx/.cpy) -> cog x0.85 on cobol a/b/c.cpy; (4) entry-point file-name rule on main.{c,cpp,go,java,js,py,rs,ts} -> dead_code x1.25 (main files of the other 38 languages are not matched); (5) markup/data extension rules zero a metric outright: css/html async x0.0 (concurrency), markdown doc x0.0, sqlite state_mutation x0.0. (2) is the actionable one for cross-language reading: jcl and makefile cognitive_load sits 30% low by construction. Deliberate engine behaviour for real repositories (config directories are declarative); recorded here so bias_report readers do not chase it as a rule or formula deviation. Found during the gitgalaxy#2655 design pass, whose identical-input grouping had to key on these multipliers before the evidence-mass floor's invariance showed as exactly 0.00.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2655",
+      "investigated_by": "claude-fable-5.1 (gitgalaxy#2655 design pass)",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
     }
   ]
 }

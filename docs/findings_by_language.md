@@ -8,58 +8,60 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | language | red-zone metrics | amber | n/a cells | ledgered shapes | upstream issues |
 |---|---|---|---|---|---|
-| [abap](#abap) | 2 | 7 | 0 | 3 | #2535 #2650 #2659 |
+| [abap](#abap) | 4 | 7 | 0 | 3 | #2535 #2650 #2659 |
 | [ada](#ada) | 3 | 4 | 0 | 4 | #2535 #2546 |
-| [agc_assembly](#agc_assembly) | 7 | 7 | 1 | 5 | #2535 #2650 #2659 |
-| [apex](#apex) | 11 | 5 | 0 | 6 | #2535 #2545 #2546 |
-| [assembly](#assembly) | 8 | 3 | 0 | 5 | #2535 #2546 |
-| [c](#c) | 5 | 5 | 0 | 4 | #2535 #2546 #2626 |
-| [cobol](#cobol) | 5 | 7 | 0 | 6 | #2535 #2537 #2538 |
-| [cpp](#cpp) | 0 | 6 | 0 | 3 | #2535 #2546 |
-| [csharp](#csharp) | 2 | 2 | 0 | 3 | #2535 #2546 |
-| [css](#css) | 22 | 6 | 5 | 4 | — |
-| [dart](#dart) | 1 | 2 | 0 | 4 | #2535 #2651 |
-| [dockerfile](#dockerfile) | 12 | 15 | 0 | 5 | #2535 #2546 #2547 |
-| [embedded_python](#embedded_python) | 5 | 8 | 0 | 5 | #2535 #2548 #2658 |
-| [fortran](#fortran) | 5 | 7 | 0 | 6 | #2535 #2540 #2546 #2650 #2659 |
-| [go](#go) | 3 | 2 | 0 | 5 | #2535 #2542 #2546 |
-| [groovy](#groovy) | 2 | 4 | 0 | 4 | #2535 |
-| [haskell](#haskell) | 10 | 9 | 0 | 4 | #2535 |
-| [html](#html) | 23 | 6 | 3 | 6 | #2549 #2645 #2650 #2659 |
-| [java](#java) | 1 | 3 | 0 | 3 | #2535 #2546 |
-| [javascript](#javascript) | 7 | 9 | 0 | 5 | #2535 #2539 |
-| [jcl](#jcl) | 8 | 10 | 6 | 3 | #2610 |
+| [agc_assembly](#agc_assembly) | 7 | 6 | 1 | 5 | #2535 #2650 #2659 |
+| [apex](#apex) | 10 | 7 | 0 | 6 | #2535 #2545 #2546 |
+| [assembly](#assembly) | 9 | 2 | 0 | 5 | #2535 #2546 |
+| [c](#c) | 5 | 3 | 0 | 5 | #2535 #2546 #2626 #2655 |
+| [cobol](#cobol) | 5 | 9 | 0 | 7 | #2535 #2537 #2538 #2655 |
+| [cpp](#cpp) | 0 | 7 | 0 | 4 | #2535 #2546 #2655 |
+| [csharp](#csharp) | 1 | 6 | 0 | 3 | #2535 #2546 |
+| [css](#css) | 20 | 6 | 5 | 5 | #2655 |
+| [dart](#dart) | 0 | 6 | 0 | 4 | #2535 #2651 |
+| [dockerfile](#dockerfile) | 10 | 12 | 0 | 5 | #2535 #2546 #2547 |
+| [embedded_python](#embedded_python) | 6 | 6 | 0 | 6 | #2535 #2548 #2655 #2658 |
+| [fortran](#fortran) | 6 | 7 | 0 | 6 | #2535 #2540 #2546 #2650 #2659 |
+| [go](#go) | 2 | 4 | 0 | 6 | #2535 #2542 #2546 #2655 |
+| [groovy](#groovy) | 1 | 4 | 0 | 4 | #2535 |
+| [haskell](#haskell) | 7 | 8 | 0 | 4 | #2535 |
+| [html](#html) | 23 | 5 | 3 | 7 | #2549 #2645 #2650 #2655 #2659 |
+| [java](#java) | 2 | 5 | 0 | 4 | #2535 #2546 #2655 |
+| [javascript](#javascript) | 9 | 9 | 0 | 6 | #2535 #2539 #2655 |
+| [jcl](#jcl) | 8 | 7 | 6 | 4 | #2610 #2655 |
 | [kotlin](#kotlin) | 1 | 4 | 0 | 5 | #2535 #2545 #2546 |
-| [livecode](#livecode) | 5 | 10 | 0 | 6 | #2535 #2546 #2547 #2650 #2659 |
-| [lua](#lua) | 4 | 5 | 0 | 5 | #2535 #2546 #2547 #2657 |
-| [m4](#m4) | 20 | 7 | 2 | 5 | #2535 |
-| [makefile](#makefile) | 4 | 7 | 1 | 6 | #2535 #2546 #2648 |
-| [markdown](#markdown) | 16 | 2 | 27 | 5 | #2638 |
+| [livecode](#livecode) | 7 | 9 | 0 | 6 | #2535 #2546 #2547 #2650 #2659 |
+| [lua](#lua) | 4 | 6 | 0 | 5 | #2535 #2546 #2547 #2657 |
+| [m4](#m4) | 16 | 8 | 2 | 5 | #2535 |
+| [makefile](#makefile) | 5 | 6 | 1 | 7 | #2535 #2546 #2648 #2655 |
+| [markdown](#markdown) | 16 | 2 | 27 | 6 | #2638 #2655 |
 | [matlab](#matlab) | 7 | 4 | 0 | 5 | #2535 #2546 #2547 |
-| [objective-c](#objective-c) | 2 | 1 | 0 | 6 | #2535 #2545 #2546 |
-| [perl](#perl) | 5 | 12 | 0 | 5 | #2535 #2546 #2626 |
+| [objective-c](#objective-c) | 1 | 3 | 0 | 6 | #2535 #2545 #2546 |
+| [perl](#perl) | 4 | 13 | 0 | 5 | #2535 #2546 #2626 |
 | [php](#php) | 1 | 4 | 0 | 4 | #2535 #2541 #2546 |
-| [powershell](#powershell) | 11 | 5 | 0 | 7 | #2535 #2545 #2546 #2547 #2656 |
-| [python](#python) | 5 | 9 | 0 | 5 | #2535 #2536 #2658 |
-| [ruby](#ruby) | 1 | 4 | 0 | 4 | #2535 #2546 #2547 |
-| [rust](#rust) | 5 | 5 | 0 | 2 | #2535 |
-| [scala](#scala) | 3 | 4 | 0 | 3 | #2535 |
-| [scheme](#scheme) | 2 | 10 | 0 | 4 | #2535 #2537 |
-| [shell](#shell) | 6 | 4 | 1 | 6 | #2535 #2547 |
-| [solidity](#solidity) | 4 | 2 | 1 | 5 | #2535 #2545 |
-| [sqlite](#sqlite) | 12 | 9 | 0 | 4 | #2535 #2547 |
-| [swift](#swift) | 2 | 3 | 0 | 4 | #2535 #2543 #2546 |
-| [tcl](#tcl) | 8 | 4 | 0 | 4 | #2535 #2546 |
-| [typescript](#typescript) | 3 | 1 | 0 | 4 | #2535 #2546 |
-| [yacc](#yacc) | 23 | 4 | 3 | 5 | #2644 |
-| [yaml](#yaml) | 12 | 14 | 2 | 4 | #2646 #2647 |
-| [zig](#zig) | 2 | 3 | 0 | 5 | #2535 #2545 #2651 |
+| [powershell](#powershell) | 11 | 6 | 0 | 7 | #2535 #2545 #2546 #2547 #2656 |
+| [python](#python) | 6 | 10 | 0 | 6 | #2535 #2536 #2655 #2658 |
+| [ruby](#ruby) | 1 | 5 | 0 | 4 | #2535 #2546 #2547 |
+| [rust](#rust) | 6 | 7 | 0 | 3 | #2535 #2655 |
+| [scala](#scala) | 4 | 2 | 0 | 3 | #2535 |
+| [scheme](#scheme) | 3 | 11 | 0 | 4 | #2535 #2537 |
+| [shell](#shell) | 5 | 6 | 1 | 6 | #2535 #2547 |
+| [solidity](#solidity) | 4 | 3 | 1 | 5 | #2535 #2545 |
+| [sqlite](#sqlite) | 13 | 7 | 0 | 5 | #2535 #2547 #2655 |
+| [swift](#swift) | 2 | 6 | 0 | 4 | #2535 #2543 #2546 |
+| [tcl](#tcl) | 8 | 5 | 0 | 4 | #2535 #2546 |
+| [typescript](#typescript) | 2 | 5 | 0 | 5 | #2535 #2546 #2655 |
+| [yacc](#yacc) | 20 | 6 | 3 | 5 | #2644 |
+| [yaml](#yaml) | 15 | 12 | 2 | 4 | #2646 #2647 |
+| [zig](#zig) | 1 | 3 | 0 | 5 | #2535 #2545 #2651 |
 
 ## abap
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_cognitive_load`: 8.41007 vs median 19.3179 (-56%)
+- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
+- 🔴 `risk_cognitive_load`: 2.3577 vs median 6.67188 (-65%)
+- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
@@ -88,11 +90,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `avg_func_args`: 3 vs median 1 (+200%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.64072 (-100%)
-- 🔴 `risk_cognitive_load`: 29.826 vs median 19.3179 (+54%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
+- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
 - 🟡 `control_flow_ratio`: 0.08375 vs median 0.1665 (-50%)
 - 🟡 `dependency_density`: 0.541667 vs median 0.369792 (+46%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
+- 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `token_mass`: 154.25 vs median 121.25 (+27%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -118,14 +120,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_args`: 0.166667 vs median 1 (-83%)
 - 🔴 `avg_func_loc`: 2.375 vs median 5.10417 (-53%)
 - 🔴 `func_internal_density`: 0.125 vs median 0.06125 (+104%)
-- 🔴 `risk_api_exposure`: 2.35928 vs median 6.64072 (-64%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
+- 🔴 `risk_api_exposure`: 1.54255 vs median 5.28878 (-71%)
+- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `coding_loc`: 8.5 vs median 17 (-50%)
-- 🟡 `cog_raw`: 0.86525 vs median 0.585 (+48%)
+- 🟡 `cog_raw`: 0.085 vs median 0.1375 (-38%)
 - 🟡 `dependency_density`: 0.55 vs median 0.369792 (+49%)
-- 🟡 `risk_spec_match`: 56.6666 vs median 95 (-40%)
-- 🟡 `risk_verification`: 1.58075 vs median 2.38558 (-34%)
+- 🟡 `risk_cognitive_load`: 4.21785 vs median 6.67188 (-37%)
 - 🟡 `structural_mass`: 7.92 vs median 11.43 (-31%)
 - 🟡 `total_loc`: 13.5 vs median 24.625 (-45%)
 
@@ -156,13 +157,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.64072 (-100%)
-- 🔴 `risk_cognitive_load`: 32.5663 vs median 19.3179 (+69%)
-- 🔴 `risk_state_flux`: 44.36 vs median 24.9999 (+77%)
-- 🔴 `risk_tech_debt`: 99.9625 vs median 49.9144 (+100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
+- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
+- 🔴 `risk_tech_debt`: 96.8963 vs median 46.5703 (+108%)
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `risk_safety_score`: 67.457 vs median 46.7386 (+44%)
+- 🟡 `cog_raw`: 0.1845 vs median 0.1375 (+34%)
+- 🟡 `risk_safety_score`: 58.0227 vs median 40.669 (+43%)
+- 🟡 `risk_state_flux`: 28.7798 vs median 22.9207 (+26%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
@@ -187,13 +189,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `avg_func_complexity`: 1.79167 vs median 0.270833 (+562%)
 - 🔴 `branch`: 25 vs median 5 (+400%)
+- 🔴 `cog_raw`: 0.285 vs median 0.1375 (+107%)
 - 🔴 `control_flow_ratio`: 0.5965 vs median 0.1665 (+258%)
 - 🔴 `dependency_density`: 0.0702614 vs median 0.369792 (-81%)
 - 🔴 `func_internal_density`: 0.341731 vs median 0.06125 (+458%)
 - 🔴 `max_func_complexity`: 2.75 vs median 1 (+175%)
-- 🔴 `risk_cognitive_load`: 39.2924 vs median 19.3179 (+103%)
+- 🔴 `risk_cognitive_load`: 13.901 vs median 6.67188 (+108%)
 - 🔴 `structural_mass`: 18.045 vs median 11.43 (+58%)
-- 🟡 `cog_raw`: 0.84325 vs median 0.585 (+44%)
 - 🟡 `func_complexity_gini`: 0.197222 vs median 0.354167 (-44%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 
@@ -218,19 +220,18 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `io`: 5 vs median 3 (+67%)
-- 🔴 `risk_api_exposure`: 14.4611 vs median 6.64072 (+118%)
-- 🔴 `risk_state_flux`: 48.4549 vs median 24.9999 (+94%)
+- 🔴 `risk_api_exposure`: 11.8351 vs median 5.28878 (+124%)
+- 🔴 `risk_documentation`: 95.1146 vs median 54.7722 (+74%)
 - 🔴 `state_mutation`: 11 vs median 6 (+83%)
 - 🔴 `structural_mass`: 19.53 vs median 11.43 (+71%)
-- 🟡 `cog_raw`: 0.433 vs median 0.585 (-26%)
 - 🟡 `func_internal_density`: 0.045625 vs median 0.06125 (-26%)
-- 🟡 `risk_cognitive_load`: 24.6579 vs median 19.3179 (+28%)
-- 🟡 `risk_documentation`: 94.3108 vs median 67.0052 (+41%)
+- 🟡 `risk_state_flux`: 33.1372 vs median 22.9207 (+45%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.c | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.c | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `assert-overlaps-safety-and-test` | keyword-overlap | [#2626](https://github.com/squid-protocol/gitgalaxy/issues/2626) | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
@@ -248,20 +249,23 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `risk_cognitive_load`: 8.20235 vs median 19.3179 (-58%)
+- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🔴 `structural_mass`: 2.3275 vs median 11.43 (-80%)
 - 🟡 `avg_func_loc`: 3.1875 vs median 5.10417 (-38%)
+- 🟡 `cog_raw`: 0.085 vs median 0.1375 (-38%)
 - 🟡 `encapsulation_ratio`: 0.5 vs median 0.75 (-33%)
 - 🟡 `func_internal_density`: 0.0777778 vs median 0.06125 (+27%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_safety_score`: 66.4019 vs median 46.7386 (+42%)
+- 🟡 `risk_cognitive_load`: 3.94015 vs median 6.67188 (-41%)
+- 🟡 `risk_safety_score`: 55.7707 vs median 40.669 (+37%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.cpy | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `cobol-args-clause-match-morphology` | intended-morphology | — | (notes) | cobol args 1 vs planted 13 is intended morphology, not an authoring gap (bucket-3 test run before ledgering, jcl PARM= precedent checked) |
 | `cobol-working-storage-globals` | keyword-overlap | — | (notes) | cobol globals pattern includes WORKING-STORAGE\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1 |
@@ -281,15 +285,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `cog_raw`: 0.381 vs median 0.585 (-35%)
 - 🟡 `dependency_density`: 0.194444 vs median 0.369792 (-47%)
 - 🟡 `func_complexity_gini`: 0.520833 vs median 0.354167 (+47%)
+- 🟡 `risk_cognitive_load`: 8.4069 vs median 6.67188 (+26%)
+- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.cpp | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cpp | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 
@@ -305,8 +311,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `avg_func_complexity`: 0.416667 vs median 0.270833 (+54%)
-- 🔴 `cog_raw`: 0.2445 vs median 0.585 (-58%)
+- 🟡 `cog_raw`: 0.09 vs median 0.1375 (-35%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
+- 🟡 `risk_cognitive_load`: 4.593 vs median 6.67188 (-31%)
+- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -330,7 +339,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `avg_func_loc`: 1 vs median 5.10417 (-80%)
 - 🔴 `coding_loc`: 4.75 vs median 17 (-72%)
-- 🔴 `cog_raw`: 1.23325 vs median 0.585 (+111%)
+- 🔴 `cog_raw`: 0.04 vs median 0.1375 (-71%)
 - 🔴 `dependency_density`: 0.583333 vs median 0.369792 (+58%)
 - 🔴 `doc`: 0 vs median 1 (-100%)
 - 🔴 `func_complexity_gini`: 0.0625 vs median 0.354167 (-82%)
@@ -339,19 +348,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `keyword_hits`: 44 vs median 149.5 (-71%)
 - 🔴 `max_func_complexity`: 0.25 vs median 1 (-75%)
 - 🔴 `ownership`: 0 vs median 1 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.64072 (-100%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
-- 🔴 `risk_documentation`: 27.2636 vs median 67.0052 (-59%)
-- 🔴 `risk_spec_match`: 31.6667 vs median 95 (-67%)
-- 🔴 `risk_state_flux`: 0 vs median 24.9999 (-100%)
-- 🔴 `risk_verification`: 1.01825 vs median 2.38558 (-57%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
+- 🔴 `risk_cognitive_load`: 2.15685 vs median 6.67188 (-68%)
+- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
+- 🔴 `risk_state_flux`: 0 vs median 22.9207 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🔴 `structural_mass`: 0.2175 vs median 11.43 (-98%)
 - 🔴 `total_loc`: 11.75 vs median 24.625 (-52%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
-- 🟡 `risk_safety_score`: 24.8106 vs median 46.7386 (-47%)
+- 🟡 `risk_safety_score`: 21.0441 vs median 40.669 (-48%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `token_mass`: 65.5 vs median 121.25 (-46%)
 
@@ -360,6 +367,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `css-declarative-no-runtime-payload-morphology` | intended-morphology | — | — | CSS is purely declarative with no embedded imperative/scripting payload, unlike the other languages that wire these three signals only against such payload: html's clean… |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `css-import-url-io-triple-overlap` | keyword-overlap | — | — | io stays None correctly, but css.py's inline comment gives the wrong reason ('url()/@import don't block a computational thread'); that doesn't hold against html's own io… |
@@ -374,8 +382,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.2585 vs median 0.585 (-56%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
+- 🟡 `cog_raw`: 0.0905 vs median 0.1375 (-34%)
+- 🟡 `risk_cognitive_load`: 4.60507 vs median 6.67188 (-31%)
+- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -399,14 +410,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `avg_func_loc`: 1.2 vs median 5.10417 (-76%)
 - 🔴 `coding_loc`: 7.75 vs median 17 (-54%)
-- 🔴 `cog_raw`: 0.97075 vs median 0.585 (+66%)
 - 🔴 `control_flow_ratio`: 0.375 vs median 0.1665 (+125%)
 - 🔴 `dependency_density`: 0.5875 vs median 0.369792 (+59%)
 - 🔴 `func_internal_density`: 0.135417 vs median 0.06125 (+121%)
 - 🔴 `io`: 6 vs median 3 (+100%)
-- 🔴 `risk_api_exposure`: 1.31325 vs median 6.64072 (-80%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
-- 🔴 `risk_state_flux`: 49.9978 vs median 24.9999 (+100%)
+- 🔴 `risk_api_exposure`: 0.88145 vs median 5.28878 (-83%)
+- 🔴 `risk_documentation`: 12.1465 vs median 54.7722 (-78%)
 - 🟡 `avg_func_complexity`: 0.2 vs median 0.270833 (-26%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
 - 🟡 `func_start`: 17 vs median 13 (+31%)
@@ -414,10 +423,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `import`: 4 vs median 3 (+33%)
 - 🟡 `keyword_hits`: 83 vs median 149.5 (-44%)
-- 🟡 `risk_documentation`: 41.7536 vs median 67.0052 (-38%)
-- 🟡 `risk_safety_score`: 69.5313 vs median 46.7386 (+49%)
-- 🟡 `risk_spec_match`: 51.6667 vs median 95 (-46%)
-- 🟡 `risk_verification`: 1.55255 vs median 2.38558 (-35%)
+- 🟡 `risk_safety_score`: 58.4078 vs median 40.669 (+44%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `structural_mass`: 7.58 vs median 11.43 (-34%)
 - 🟡 `token_mass`: 75.5 vs median 121.25 (-38%)
@@ -444,14 +450,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `dependency_density`: 1.01667 vs median 0.369792 (+175%)
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `import`: 7 vs median 3 (+133%)
-- 🔴 `risk_api_exposure`: 10.9406 vs median 6.64072 (+65%)
+- 🔴 `risk_api_exposure`: 9.06108 vs median 5.28878 (+71%)
+- 🔴 `risk_documentation`: 91.0673 vs median 54.7722 (+66%)
 - 🔴 `safety`: 5 vs median 2 (+150%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
 - 🟡 `control_flow_ratio`: 0.10775 vs median 0.1665 (-35%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `keyword_hits`: 198 vs median 149.5 (+32%)
-- 🟡 `risk_cognitive_load`: 28.4161 vs median 19.3179 (+47%)
-- 🟡 `risk_documentation`: 87.5405 vs median 67.0052 (+31%)
 - 🟡 `structural_mass`: 14.415 vs median 11.43 (+26%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
@@ -459,6 +464,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `embedded-python-per-file-classification` | engine-semantic | [#2548](https://github.com/squid-protocol/gitgalaxy/issues/2548) | — | Classification is per-file with no folder-context bleed: a .py file without its own micropython marker (import machine etc.) classifies as plain python even when every s… |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `python-2658-docstring-delimiter-double-count` | upstream-bug | [#2658](https://github.com/squid-protocol/gitgalaxy/issues/2658) | — | the doc rule matched opening and closing docstring delimiters independently with no pairing, so one docstring counted doc=2 -- RESOLVED via gitgalaxy#2658 (matches the f… |
@@ -474,16 +480,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
+- 🔴 `cog_raw`: 0.045 vs median 0.1375 (-67%)
 - 🔴 `func_complexity_gini`: 0.15625 vs median 0.354167 (-56%)
-- 🔴 `risk_api_exposure`: 12.1633 vs median 6.64072 (+83%)
-- 🔴 `risk_cognitive_load`: 7.17047 vs median 19.3179 (-63%)
-- 🔴 `risk_safety_score`: 87.4514 vs median 46.7386 (+87%)
-- 🔴 `risk_state_flux`: 46.3208 vs median 24.9999 (+85%)
+- 🔴 `risk_api_exposure`: 9.4704 vs median 5.28878 (+79%)
+- 🔴 `risk_cognitive_load`: 2.04145 vs median 6.67188 (-69%)
+- 🔴 `risk_documentation`: 91.0673 vs median 54.7722 (+66%)
+- 🔴 `risk_safety_score`: 74.5186 vs median 40.669 (+83%)
 - 🟡 `control_flow_ratio`: 0.111 vs median 0.1665 (-33%)
 - 🟡 `dependency_density`: 0.525 vs median 0.369792 (+42%)
 - 🟡 `func_internal_density`: 0.0434783 vs median 0.06125 (-29%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
-- 🟡 `risk_documentation`: 84.3011 vs median 67.0052 (+26%)
+- 🟡 `risk_state_flux`: 14.7927 vs median 22.9207 (-35%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
 
@@ -508,15 +515,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.23975 vs median 0.585 (-59%)
-- 🔴 `risk_api_exposure`: 2.3646 vs median 6.64072 (-64%)
+- 🔴 `risk_api_exposure`: 1.89112 vs median 5.28878 (-64%)
 - 🔴 `state_mutation`: 11 vs median 6 (+83%)
 - 🟡 `control_flow_ratio`: 0.11675 vs median 0.1665 (-30%)
 - 🟡 `func_internal_density`: 0.045625 vs median 0.06125 (-26%)
+- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.go | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.go | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `visibility-morphology-encapsulation` | engine-semantic | — | — | Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), … |
@@ -534,7 +543,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_cognitive_load`: 29.1156 vs median 19.3179 (+51%)
 - 🟡 `args`: 19 vs median 13 (+46%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
 - 🟡 `control_flow_ratio`: 0.11325 vs median 0.1665 (-32%)
@@ -558,21 +566,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `avg_func_loc`: 2.25 vs median 5.10417 (-56%)
-- 🔴 `cog_raw`: 0.9645 vs median 0.585 (+65%)
 - 🔴 `control_flow_ratio`: 0.375 vs median 0.1665 (+125%)
 - 🔴 `func_internal_density`: 0.129464 vs median 0.06125 (+111%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.64072 (-100%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
-- 🔴 `risk_safety_score`: 70.4394 vs median 46.7386 (+51%)
-- 🔴 `risk_state_flux`: 49.8591 vs median 24.9999 (+99%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
+- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
 - 🔴 `safety`: 4 vs median 2 (+100%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `coding_loc`: 8.5 vs median 17 (-50%)
 - 🟡 `keyword_hits`: 105 vs median 149.5 (-30%)
-- 🟡 `risk_documentation`: 43.2987 vs median 67.0052 (-35%)
-- 🟡 `risk_spec_match`: 56.6666 vs median 95 (-40%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
-- 🟡 `risk_verification`: 1.6737 vs median 2.38558 (-30%)
+- 🟡 `risk_safety_score`: 58.2103 vs median 40.669 (+43%)
+- 🟡 `risk_state_flux`: 32.8642 vs median 22.9207 (+43%)
+- 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `state_mutation`: 8 vs median 6 (+33%)
 - 🟡 `structural_mass`: 8.545 vs median 11.43 (-25%)
 - 🟡 `total_loc`: 17 vs median 24.625 (-31%)
@@ -602,7 +606,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_loc`: 0 vs median 5.10417 (-100%)
 - 🔴 `cleanup`: 0 vs median 2 (-100%)
 - 🔴 `coding_loc`: 6 vs median 17 (-65%)
-- 🔴 `cog_raw`: 1.10775 vs median 0.585 (+89%)
+- 🔴 `cog_raw`: 0.04 vs median 0.1375 (-71%)
 - 🔴 `control_flow_ratio`: 0.25 vs median 0.1665 (+50%)
 - 🔴 `func_complexity_gini`: 0 vs median 0.354167 (-100%)
 - 🔴 `func_internal_density`: 0 vs median 0.06125 (-100%)
@@ -610,20 +614,19 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `keyword_hits`: 33 vs median 149.5 (-78%)
 - 🔴 `max_func_complexity`: 0 vs median 1 (-100%)
-- 🔴 `risk_api_exposure`: 1.31325 vs median 6.64072 (-80%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
-- 🔴 `risk_safety_score`: 0 vs median 46.7386 (-100%)
-- 🔴 `risk_spec_match`: 40 vs median 95 (-58%)
-- 🔴 `risk_state_flux`: 0 vs median 24.9999 (-100%)
-- 🔴 `risk_verification`: 0.919075 vs median 2.38558 (-61%)
+- 🔴 `risk_api_exposure`: 0.88145 vs median 5.28878 (-83%)
+- 🔴 `risk_cognitive_load`: 1.89803 vs median 6.67188 (-72%)
+- 🔴 `risk_documentation`: 11.3461 vs median 54.7722 (-79%)
+- 🔴 `risk_safety_score`: 0 vs median 40.669 (-100%)
+- 🔴 `risk_spec_match`: 0 vs median 100 (-100%)
+- 🔴 `risk_state_flux`: 0 vs median 22.9207 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🔴 `telemetry`: 0 vs median 2 (-100%)
 - 🔴 `total_loc`: 9.5 vs median 24.625 (-61%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `dependency_density`: 0.525 vs median 0.369792 (+42%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
-- 🟡 `risk_documentation`: 34.9701 vs median 67.0052 (-48%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
+- 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `token_mass`: 63.25 vs median 121.25 (-48%)
 
 **Not expressible as measured (n/a):** `globals`, `high_risk_execution`, `state_mutation`
@@ -631,6 +634,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `html-2578-declarative-globals-state-mutation-morphology` | intended-morphology | — | — | html has no native idiom for scoped-vs-global variables or state mutation -- it is purely declarative markup; both concepts are inherently imperative/scripting concepts … |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
@@ -648,13 +652,17 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
+- 🔴 `risk_cognitive_load`: 10.765 vs median 6.67188 (+61%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `risk_cognitive_load`: 28.1057 vs median 19.3179 (+45%)
+- 🟡 `cog_raw`: 0.1805 vs median 0.1375 (+31%)
+- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.java | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.java | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 
@@ -671,10 +679,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
-- 🔴 `cog_raw`: 0.258 vs median 0.585 (-56%)
+- 🔴 `cog_raw`: 0.0545 vs median 0.1375 (-60%)
 - 🔴 `func_internal_density`: 0.0288462 vs median 0.06125 (-53%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
+- 🔴 `risk_cognitive_load`: 3.25245 vs median 6.67188 (-51%)
+- 🔴 `risk_state_flux`: 6.33765 vs median 22.9207 (-72%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
 - 🟡 `encapsulation_ratio`: 0.9445 vs median 0.75 (+26%)
@@ -683,13 +693,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `normalized_blast_radius`: 166.667 vs median 223.983 (-26%)
 - 🟡 `pagerank`: 0.166667 vs median 0.223983 (-26%)
 - 🟡 `pagerank_score`: 0.166667 vs median 0.223983 (-26%)
-- 🟡 `risk_cognitive_load`: 10.7152 vs median 19.3179 (-45%)
+- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `comment-lines-manifest-doc-classification` | engine-semantic | — | — | Guidestar manifest files carry no executable code, so the engine classifies their non-blank lines as doc_loc (package.json: total 8/coding 0/doc 7; pyproject.toml: doc 4) |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.js | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `identifier-name-token-collision` | keyword-overlap | — | (notes) | Token signals match ordinary identifiers that happen to spell a keyword: js probeIo's parameter named 'path' counts io +1 (path is a js io keyword) |
 | `js-with-statement-func-start-fp` | upstream-bug | [#2539](https://github.com/squid-protocol/gitgalaxy/issues/2539) | (notes) | 'with (shape) {}' is parsed as a function named 'with' by the identifier(args){ alternation: the keyword exclusion list has if/for/while/switch/catch/return but not with |
@@ -709,10 +720,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `avg_func_loc`: 1.47917 vs median 5.10417 (-71%)
 - 🔴 `coding_loc`: 6 vs median 17 (-65%)
-- 🔴 `cog_raw`: 1.20275 vs median 0.585 (+106%)
+- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
 - 🔴 `dependency_density`: 0.6 vs median 0.369792 (+62%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
-- 🔴 `risk_spec_match`: 40 vs median 95 (-58%)
+- 🔴 `risk_cognitive_load`: 2.6792 vs median 6.67188 (-60%)
+- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🔴 `total_loc`: 9.75 vs median 24.625 (-60%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
@@ -722,9 +733,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
 - 🟡 `func_internal_density`: 0.0833333 vs median 0.06125 (+36%)
 - 🟡 `keyword_hits`: 87 vs median 149.5 (-42%)
-- 🟡 `risk_api_exposure`: 8.67195 vs median 6.64072 (+31%)
-- 🟡 `risk_documentation`: 34.8127 vs median 67.0052 (-48%)
-- 🟡 `risk_verification`: 1.3125 vs median 2.38558 (-45%)
 
 **Not expressible as measured (n/a):** `cleanup`, `doc`, `globals`, `risk_concurrency`†, `risk_dead_code`†, `test`
 
@@ -732,6 +740,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `jcl-2610-rebaseline-residual-morphology` | engine-semantic | [#2610](https://github.com/squid-protocol/gitgalaxy/issues/2610) | — | Post-gitgalaxy#2610 (PR #2611: prism strips //* to the comment surface; jcl gains safety=COND=, safety_bypasses=COND=EVEN/ONLY, telemetry=MSGLEVEL=/MSGCLASS=, shared deb… |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 
 
@@ -741,9 +750,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `cog_raw`: 0.37425 vs median 0.585 (-36%)
 - 🟡 `control_flow_ratio`: 0.11325 vs median 0.1665 (-32%)
 - 🟡 `keyword_hits`: 187 vs median 149.5 (+25%)
+- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -764,18 +773,19 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
+- 🔴 `cog_raw`: 0.27625 vs median 0.1375 (+101%)
 - 🔴 `control_flow_ratio`: 0.51675 vs median 0.1665 (+210%)
 - 🔴 `dependency_density`: 0.0870879 vs median 0.369792 (-76%)
 - 🔴 `func_complexity_gini`: 0.575 vs median 0.354167 (+62%)
 - 🔴 `max_func_complexity`: 1.75 vs median 1 (+75%)
+- 🔴 `risk_cognitive_load`: 15.7832 vs median 6.67188 (+137%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `avg_func_complexity`: 0.3875 vs median 0.270833 (+43%)
 - 🟡 `branch`: 7 vs median 5 (+40%)
-- 🟡 `risk_api_exposure`: 9.2665 vs median 6.64072 (+40%)
-- 🟡 `risk_cognitive_load`: 9.74635 vs median 19.3179 (-50%)
-- 🟡 `risk_documentation`: 85.4854 vs median 67.0052 (+28%)
-- 🟡 `risk_safety_score`: 67.9833 vs median 46.7386 (+45%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
+- 🟡 `risk_api_exposure`: 7.33545 vs median 5.28878 (+39%)
+- 🟡 `risk_documentation`: 76.1418 vs median 54.7722 (+39%)
+- 🟡 `risk_safety_score`: 58.2803 vs median 40.669 (+43%)
+- 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 - 🟡 `structural_mass`: 14.57 vs median 11.43 (+27%)
@@ -800,14 +810,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 11.8286 vs median 6.64072 (+78%)
-- 🔴 `risk_cognitive_load`: 31.0755 vs median 19.3179 (+61%)
-- 🔴 `risk_safety_score`: 87.2348 vs median 46.7386 (+87%)
+- 🔴 `risk_api_exposure`: 9.4704 vs median 5.28878 (+79%)
+- 🔴 `risk_documentation`: 90.9609 vs median 54.7722 (+66%)
+- 🔴 `risk_safety_score`: 74.2803 vs median 40.669 (+83%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
+- 🟡 `cog_raw`: 0.17975 vs median 0.1375 (+31%)
 - 🟡 `control_flow_ratio`: 0.089 vs median 0.1665 (-47%)
 - 🟡 `func_internal_density`: 0.0353423 vs median 0.06125 (-42%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_documentation`: 90.923 vs median 67.0052 (+36%)
+- 🟡 `risk_cognitive_load`: 9.01727 vs median 6.67188 (+35%)
 - 🟡 `structural_mass`: 15.2 vs median 11.43 (+33%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -833,27 +844,24 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
 - 🔴 `coding_loc`: 4 vs median 17 (-76%)
-- 🔴 `cog_raw`: 1.73325 vs median 0.585 (+196%)
+- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
 - 🔴 `control_flow_ratio`: 0.25 vs median 0.1665 (+50%)
 - 🔴 `dependency_density`: 0 vs median 0.369792 (-100%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
 - 🔴 `func_internal_density`: 0.1875 vs median 0.06125 (+206%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.64072 (-100%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
-- 🔴 `risk_documentation`: 22.733 vs median 67.0052 (-66%)
-- 🔴 `risk_safety_score`: 71.7554 vs median 46.7386 (+54%)
-- 🔴 `risk_spec_match`: 26.6667 vs median 95 (-72%)
-- 🔴 `risk_state_flux`: 50 vs median 24.9999 (+100%)
-- 🔴 `risk_tech_debt`: 100 vs median 49.9144 (+100%)
-- 🔴 `risk_verification`: 1.03527 vs median 2.38558 (-57%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
+- 🔴 `risk_cognitive_load`: 2.3577 vs median 6.67188 (-65%)
+- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
+- 🔴 `risk_tech_debt`: 99.868 vs median 46.5703 (+114%)
 - 🔴 `total_loc`: 9 vs median 24.625 (-63%)
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
 - 🟡 `keyword_hits`: 76 vs median 149.5 (-49%)
+- 🟡 `risk_safety_score`: 57.1258 vs median 40.669 (+40%)
 - 🟡 `state_mutation`: 4 vs median 6 (-33%)
 - 🟡 `structural_mass`: 7.005 vs median 11.43 (-39%)
 
@@ -880,11 +888,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0.125 vs median 1 (-88%)
 - 🔴 `control_flow_ratio`: 0.5 vs median 0.1665 (+200%)
+- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `avg_func_loc`: 3.3125 vs median 5.10417 (-35%)
 - 🟡 `cleanup`: 3 vs median 2 (+50%)
 - 🟡 `coding_loc`: 11.25 vs median 17 (-34%)
-- 🟡 `cog_raw`: 0.74225 vs median 0.585 (+27%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `keyword_hits`: 95 vs median 149.5 (-36%)
 - 🟡 `token_mass`: 84.75 vs median 121.25 (-30%)
@@ -894,6 +902,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.mk | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.mk | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `makefile-class-start-no-entity-declaration` | intended-morphology | — | — | GNU Make's model is variables plus file/phony targets; it has no entity or type-declaration concept |
@@ -914,7 +923,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_complexity`: 0 vs median 0.270833 (-100%)
 - 🔴 `avg_func_loc`: 0 vs median 5.10417 (-100%)
 - 🔴 `coding_loc`: 0 vs median 17 (-100%)
-- 🔴 `cog_raw`: 0 vs median 0.585 (-100%)
+- 🔴 `cog_raw`: 0 vs median 0.1375 (-100%)
 - 🔴 `comment_lines`: 34 vs median 12 (+183%)
 - 🔴 `control_flow_ratio`: 0 vs median 0.1665 (-100%)
 - 🔴 `dependency_density`: 0.75 vs median 0.369792 (+103%)
@@ -924,7 +933,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `keyword_hits`: 30 vs median 149.5 (-80%)
 - 🔴 `max_func_complexity`: 0 vs median 1 (-100%)
 - 🔴 `risk_stability`: 0 vs median 50 (-100%)
-- 🔴 `risk_tech_debt`: 0 vs median 49.9144 (-100%)
+- 🔴 `risk_tech_debt`: 0 vs median 46.5703 (-100%)
 - 🔴 `structural_mass`: 1 vs median 11.43 (-91%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 - 🟡 `total_loc`: 14.5 vs median 24.625 (-41%)
@@ -934,6 +943,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `markdown-lit-plane-morphology` | intended-morphology | [#2638](https://github.com/squid-protocol/gitgalaxy/issues/2638) | (notes) | markdown is a markup format deliberately measured on the lit_* literary plane (engine markdown.py wires ONLY lit_code_blocks/lit_diagrams/lit_headers/lit_links; detector… |
 | `markdown-prose-is-doc-morphology` | intended-morphology | — | — | markdown's entire prose content is its documentation surface: prism classifies the non-blank .md lines as doc_loc (34 across the 4 shells vs median 12, +183%) |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
@@ -945,10 +955,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `cleanup`: 4 vs median 2 (+100%)
-- 🔴 `cog_raw`: 1.125 vs median 0.585 (+92%)
-- 🔴 `risk_cognitive_load`: 54.7706 vs median 19.3179 (+184%)
-- 🔴 `risk_safety_score`: 89.1483 vs median 46.7386 (+91%)
-- 🔴 `risk_state_flux`: 99.8873 vs median 24.9999 (+300%)
+- 🔴 `cog_raw`: 0.46475 vs median 0.1375 (+238%)
+- 🔴 `risk_cognitive_load`: 31.6379 vs median 6.67188 (+374%)
+- 🔴 `risk_safety_score`: 78.5444 vs median 40.669 (+93%)
+- 🔴 `risk_state_flux`: 83.1009 vs median 22.9207 (+263%)
 - 🔴 `state_mutation`: 33 vs median 6 (+450%)
 - 🔴 `structural_mass`: 19.16 vs median 11.43 (+68%)
 - 🟡 `func_internal_density`: 0.0441558 vs median 0.06125 (-28%)
@@ -975,7 +985,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `args`: 21 vs median 13 (+62%)
-- 🔴 `risk_cognitive_load`: 29.7124 vs median 19.3179 (+54%)
+- 🟡 `cog_raw`: 0.175 vs median 0.1375 (+27%)
+- 🟡 `risk_cognitive_load`: 8.69535 vs median 6.67188 (+30%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -998,8 +1009,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `func_complexity_gini`: 0.166667 vs median 0.354167 (-53%)
-- 🔴 `risk_api_exposure`: 3.017 vs median 6.64072 (-55%)
-- 🔴 `risk_state_flux`: 43.1624 vs median 24.9999 (+73%)
+- 🔴 `risk_api_exposure`: 2.3925 vs median 5.28878 (-55%)
 - 🔴 `state_mutation`: 10 vs median 6 (+67%)
 - 🔴 `structural_mass`: 35.605 vs median 11.43 (+212%)
 - 🟡 `avg_func_complexity`: 0.166667 vs median 0.270833 (-38%)
@@ -1009,9 +1019,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `functions_found`: 9 vs median 13 (-31%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `max_func_complexity`: 0.5 vs median 1 (-50%)
-- 🟡 `risk_cognitive_load`: 28.7715 vs median 19.3179 (+49%)
-- 🟡 `risk_safety_score`: 66.9358 vs median 46.7386 (+43%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
+- 🟡 `risk_cognitive_load`: 8.62155 vs median 6.67188 (+29%)
+- 🟡 `risk_safety_score`: 58.2094 vs median 40.669 (+43%)
+- 🟡 `risk_state_flux`: 30.2026 vs median 22.9207 (+32%)
+- 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
@@ -1036,8 +1047,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `cog_raw`: 0.3725 vs median 0.585 (-36%)
 - 🟡 `control_flow_ratio`: 0.118 vs median 0.1665 (-29%)
+- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1061,18 +1072,19 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_complexity`: 0.520833 vs median 0.270833 (+92%)
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
+- 🔴 `cog_raw`: 0.2195 vs median 0.1375 (+60%)
 - 🔴 `control_flow_ratio`: 0.28325 vs median 0.1665 (+70%)
 - 🔴 `dependency_density`: 0.111111 vs median 0.369792 (-70%)
 - 🔴 `func_internal_density`: 0.0955128 vs median 0.06125 (+56%)
 - 🔴 `max_func_complexity`: 1.75 vs median 1 (+75%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🔴 `risk_cognitive_load`: 35.7812 vs median 19.3179 (+85%)
-- 🔴 `risk_state_flux`: 43.1624 vs median 24.9999 (+73%)
+- 🔴 `risk_cognitive_load`: 10.4288 vs median 6.67188 (+56%)
 - 🟡 `branch`: 7 vs median 5 (+40%)
 - 🟡 `func_complexity_gini`: 0.520833 vs median 0.354167 (+47%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `risk_safety_score`: 66.5919 vs median 46.7386 (+42%)
+- 🟡 `risk_safety_score`: 57.4478 vs median 40.669 (+41%)
+- 🟡 `risk_state_flux`: 28.7798 vs median 22.9207 (+26%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1096,10 +1108,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.23975 vs median 0.585 (-59%)
+- 🔴 `cog_raw`: 0.0345 vs median 0.1375 (-75%)
 - 🔴 `control_flow_ratio`: 0.0625 vs median 0.1665 (-62%)
-- 🔴 `risk_api_exposure`: 11.1054 vs median 6.64072 (+67%)
-- 🔴 `risk_cognitive_load`: 5.8968 vs median 19.3179 (-69%)
+- 🔴 `risk_api_exposure`: 9.06108 vs median 5.28878 (+71%)
+- 🔴 `risk_cognitive_load`: 1.64835 vs median 6.67188 (-75%)
+- 🔴 `risk_state_flux`: 8.40653 vs median 22.9207 (-63%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
 - 🟡 `betweenness_score`: 0.05 vs median 0.0833335 (-40%)
@@ -1109,13 +1122,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `func_internal_density`: 0.03125 vs median 0.06125 (-49%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `keyword_hits`: 197 vs median 149.5 (+32%)
-- 🟡 `risk_safety_score`: 60.0013 vs median 46.7386 (+28%)
+- 🟡 `risk_documentation`: 81.0601 vs median 54.7722 (+48%)
+- 🟡 `risk_safety_score`: 51.1893 vs median 40.669 (+26%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `api-contextual-baseline-fix` | engine-semantic | [#2536](https://github.com/squid-protocol/gitgalaxy/issues/2536) | — | galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `comment-lines-manifest-doc-classification` | engine-semantic | — | — | Guidestar manifest files carry no executable code, so the engine classifies their non-blank lines as doc_loc (package.json: total 8/coding 0/doc 7; pyproject.toml: doc 4) |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.py | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `python-2658-docstring-delimiter-double-count` | upstream-bug | [#2658](https://github.com/squid-protocol/gitgalaxy/issues/2658) | — | the doc rule matched opening and closing docstring delimiters independently with no pairing, so one docstring counted doc=2 -- RESOLVED via gitgalaxy#2658 (matches the f… |
 
@@ -1136,7 +1151,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_complexity_gini`: 0.575 vs median 0.354167 (+62%)
 - 🟡 `dependency_density`: 0.194444 vs median 0.369792 (-47%)
 - 🟡 `func_internal_density`: 0.0453272 vs median 0.06125 (-26%)
-- 🟡 `risk_cognitive_load`: 28.0706 vs median 19.3179 (+45%)
+- 🟡 `risk_cognitive_load`: 8.42952 vs median 6.67188 (+26%)
+- 🟡 `risk_documentation`: 40.8436 vs median 54.7722 (-25%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1157,20 +1173,24 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.0985 vs median 0.585 (-83%)
+- 🔴 `cog_raw`: 0.0205 vs median 0.1375 (-85%)
 - 🔴 `control_flow_ratio`: 0.05775 vs median 0.1665 (-65%)
 - 🔴 `func_internal_density`: 0.03 vs median 0.06125 (-51%)
-- 🔴 `risk_cognitive_load`: 6.58553 vs median 19.3179 (-66%)
+- 🔴 `risk_cognitive_load`: 1.29535 vs median 6.67188 (-81%)
+- 🔴 `risk_state_flux`: 7.75065 vs median 22.9207 (-66%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
 - 🟡 `dependency_density`: 0.541667 vs median 0.369792 (+46%)
 - 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
+- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -1187,10 +1207,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `control_flow_ratio`: 0.35425 vs median 0.1665 (+113%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
-- 🔴 `risk_api_exposure`: 11.6059 vs median 6.64072 (+75%)
+- 🔴 `risk_api_exposure`: 9.4704 vs median 5.28878 (+79%)
+- 🔴 `risk_documentation`: 90.627 vs median 54.7722 (+65%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
-- 🟡 `risk_cognitive_load`: 28.1455 vs median 19.3179 (+46%)
-- 🟡 `risk_documentation`: 93.9347 vs median 67.0052 (+40%)
 - 🟡 `structural_mass`: 14.655 vs median 11.43 (+28%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1209,8 +1228,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
+- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
 - 🔴 `control_flow_ratio`: 0.25 vs median 0.1665 (+50%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
+- 🔴 `risk_cognitive_load`: 2.3577 vs median 6.67188 (-65%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
 - 🟡 `avg_func_loc`: 3.0625 vs median 5.10417 (-40%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
@@ -1219,6 +1239,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
 - 🟡 `high_risk_execution`: 3 vs median 2 (+50%)
 - 🟡 `keyword_hits`: 98 vs median 149.5 (-34%)
+- 🟡 `risk_state_flux`: 14.3611 vs median 22.9207 (-37%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
 - 🟡 `total_loc`: 18.25 vs median 24.625 (-26%)
 
@@ -1245,10 +1266,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `control_flow_ratio`: 0.33325 vs median 0.1665 (+100%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🔴 `risk_cognitive_load`: 35.0145 vs median 19.3179 (+81%)
+- 🟡 `cog_raw`: 0.19375 vs median 0.1375 (+41%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `max_func_complexity`: 1.5 vs median 1 (+50%)
+- 🟡 `risk_cognitive_load`: 9.53823 vs median 6.67188 (+43%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
 **Not expressible as measured (n/a):** `class_start`
@@ -1277,8 +1299,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `control_flow_ratio`: 0.0825 vs median 0.1665 (-50%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `ownership`: 4 vs median 1 (+300%)
-- 🔴 `risk_cognitive_load`: 31.7019 vs median 19.3179 (+64%)
+- 🔴 `risk_cognitive_load`: 10.8948 vs median 6.67188 (+63%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
+- 🟡 `cog_raw`: 0.205 vs median 0.1375 (+49%)
 - 🟡 `state_mutation`: 9 vs median 6 (+50%)
 
 **Not expressible as measured (n/a):** `io`
@@ -1310,23 +1333,23 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `functions_found`: 28 vs median 13 (+115%)
 - 🔴 `io`: 11 vs median 3 (+267%)
 - 🔴 `keyword_hits`: 61 vs median 149.5 (-59%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.64072 (-100%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
-- 🔴 `risk_state_flux`: 0 vs median 24.9999 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
+- 🔴 `risk_cognitive_load`: 2.9892 vs median 6.67188 (-55%)
+- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
+- 🔴 `risk_state_flux`: 0 vs median 22.9207 (-100%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🟡 `avg_func_complexity`: 0.15625 vs median 0.270833 (-42%)
-- 🟡 `cog_raw`: 0.84725 vs median 0.585 (+45%)
+- 🟡 `cog_raw`: 0.072 vs median 0.1375 (-48%)
 - 🟡 `dependency_density`: 0.541667 vs median 0.369792 (+46%)
 - 🟡 `func_complexity_gini`: 0.21875 vs median 0.354167 (-38%)
-- 🟡 `risk_documentation`: 42.2022 vs median 67.0052 (-37%)
-- 🟡 `risk_spec_match`: 55 vs median 95 (-42%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
+- 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `state_mutation`: 3 vs median 6 (-50%)
 - 🟡 `total_loc`: 15.5 vs median 24.625 (-37%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sql | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `sqlite-dot-read-dual-import-io` | keyword-overlap | — | (notes) | ^.read counts BOTH import and io (finditer-confirmed) — every corpus chain link adds +1 io in sqlite |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
@@ -1345,9 +1368,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `avg_func_complexity`: 0.416667 vs median 0.270833 (+54%)
 - 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
-- 🟡 `cog_raw`: 0.32075 vs median 0.585 (-45%)
+- 🟡 `cog_raw`: 0.0975 vs median 0.1375 (-29%)
 - 🟡 `control_flow_ratio`: 0.11225 vs median 0.1665 (-33%)
 - 🟡 `max_func_complexity`: 1.5 vs median 1 (+50%)
+- 🟡 `risk_cognitive_load`: 4.74487 vs median 6.67188 (-29%)
+- 🟡 `risk_documentation`: 33.436 vs median 54.7722 (-39%)
+- 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1374,7 +1400,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_internal_density`: 0 vs median 0.06125 (-100%)
 - 🔴 `io`: 8 vs median 3 (+167%)
 - 🔴 `max_func_complexity`: 0 vs median 1 (-100%)
-- 🔴 `risk_cognitive_load`: 6.7288 vs median 19.3179 (-65%)
+- 🔴 `risk_cognitive_load`: 10.4832 vs median 6.67188 (+57%)
+- 🟡 `cog_raw`: 0.195 vs median 0.1375 (+42%)
 - 🟡 `control_flow_ratio`: 0.2375 vs median 0.1665 (+43%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
@@ -1397,14 +1424,18 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.2585 vs median 0.585 (-56%)
 - 🔴 `safety`: 4 vs median 2 (+100%)
 - 🔴 `structural_mass`: 1.135 vs median 11.43 (-90%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
+- 🟡 `cog_raw`: 0.0905 vs median 0.1375 (-34%)
+- 🟡 `risk_cognitive_load`: 4.60507 vs median 6.67188 (-31%)
+- 🟡 `risk_documentation`: 29.8964 vs median 54.7722 (-45%)
+- 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.ts | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.ts | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `ts-callparen-args` | engine-semantic | — | (notes) | typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params — a.ts args 5 for 3 declarations (finditer-co… |
@@ -1426,7 +1457,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
 - 🔴 `coding_loc`: 5 vs median 17 (-71%)
-- 🔴 `cog_raw`: 1.45 vs median 0.585 (+148%)
 - 🔴 `control_flow_ratio`: 0.25 vs median 0.1665 (+50%)
 - 🔴 `dependency_density`: 0 vs median 0.369792 (-100%)
 - 🔴 `dependency_links`: 0 vs median 3 (-100%)
@@ -1434,18 +1464,18 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `keyword_hits`: 62 vs median 149.5 (-59%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.64072 (-100%)
-- 🔴 `risk_cognitive_load`: 5 vs median 19.3179 (-74%)
-- 🔴 `risk_documentation`: 27.813 vs median 67.0052 (-58%)
-- 🔴 `risk_spec_match`: 33.3333 vs median 95 (-65%)
-- 🔴 `risk_tech_debt`: 100 vs median 49.9144 (+100%)
-- 🔴 `risk_verification`: 1.06065 vs median 2.38558 (-56%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
+- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
+- 🔴 `risk_state_flux`: 9.43853 vs median 22.9207 (-59%)
+- 🔴 `risk_tech_debt`: 99.8145 vs median 46.5703 (+114%)
 - 🔴 `state_mutation`: 2 vs median 6 (-67%)
 - 🔴 `structural_mass`: 5 vs median 11.43 (-56%)
 - 🔴 `total_loc`: 11.25 vs median 24.625 (-54%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
 - 🟡 `branch`: 3 vs median 5 (-40%)
+- 🟡 `cog_raw`: 0.0895 vs median 0.1375 (-35%)
 - 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
+- 🟡 `risk_cognitive_load`: 3.78875 vs median 6.67188 (-43%)
 - 🟡 `token_mass`: 79.25 vs median 121.25 (-35%)
 
 **Not expressible as measured (n/a):** `class_start`, `risk_concurrency`†, `test`
@@ -1468,11 +1498,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_loc`: 1.375 vs median 5.10417 (-73%)
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
+- 🔴 `cog_raw`: 0.055 vs median 0.1375 (-60%)
 - 🔴 `doc`: 2 vs median 1 (+100%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 6.64072 (-100%)
-- 🔴 `risk_cognitive_load`: 9.2228 vs median 19.3179 (-52%)
+- 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
+- 🔴 `risk_cognitive_load`: 2.0362 vs median 6.67188 (-69%)
+- 🔴 `risk_documentation`: 0 vs median 54.7722 (-100%)
+- 🔴 `risk_state_flux`: 5.35412 vs median 22.9207 (-77%)
 - 🔴 `state_mutation`: 1 vs median 6 (-83%)
 - 🔴 `structural_mass`: 4.805 vs median 11.43 (-58%)
 - 🟡 `avg_func_complexity`: 0.1875 vs median 0.270833 (-31%)
@@ -1481,9 +1514,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `dependency_density`: 0.520833 vs median 0.369792 (+41%)
 - 🟡 `func_complexity_gini`: 0.1875 vs median 0.354167 (-47%)
 - 🟡 `keyword_hits`: 88 vs median 149.5 (-41%)
-- 🟡 `risk_documentation`: 47.3147 vs median 67.0052 (-29%)
-- 🟡 `risk_spec_match`: 66.6667 vs median 95 (-30%)
-- 🟡 `risk_tech_debt`: 25 vs median 49.9144 (-50%)
+- 🟡 `risk_tech_debt`: 25 vs median 46.5703 (-46%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
 - 🟡 `safety_bypasses`: 1 vs median 2 (-50%)
 - 🟡 `test`: 1 vs median 2 (-50%)
@@ -1504,8 +1535,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_api_exposure`: 2.62262 vs median 6.64072 (-61%)
-- 🔴 `risk_cognitive_load`: 30.3437 vs median 19.3179 (+57%)
+- 🔴 `risk_api_exposure`: 2.07773 vs median 5.28878 (-61%)
 - 🟡 `avg_func_complexity`: 0.354167 vs median 0.270833 (+31%)
 - 🟡 `keyword_hits`: 202 vs median 149.5 (+35%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
