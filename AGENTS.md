@@ -46,6 +46,30 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
        GITGALAXY_PATH=<gitgalaxy> python tools/bias_report.py
    ```
 
+7. **A green corpus does NOT mean a green engine golden master.** These are two different
+   corpora asking two different questions. This repo's manifests pin what the engine measures
+   on a *planted* 12-probe shell; gitgalaxy's `tests/golden_master_*.json` pin what it measures
+   on ~80 *real* repositories. An engine fix routinely holds every planted value here while
+   rewriting hundreds of golden-master entries there — a rule that only ever fired on real-world
+   syntax the shell doesn't contain moves nothing here and plenty there. "`verify_language.py`
+   PASS" is therefore never evidence that an engine PR needs no bless. Check both, and say which
+   one you checked.
+
+8. **Adding a missing rule is a corpus-visible change, even though it adds no keyword.**
+   `docs/GATING.md`'s n/a semantics make a cell incomparable *because its rule is `None`*. The
+   moment a rule exists, the cell becomes comparable — and if the corpus plants nothing that
+   the new rule matches, it lands as a measured **0**, which against a positive median is a
+   fresh red cell. So an engine PR that fills a `None` rule must ship with a corpus PR planting
+   the idiom, or it converts an honest n/a into a manufactured deviation. Check what the corpus
+   actually contains before assuming a rule addition is inert (`grep` the `data/<lang>/` folder
+   for the idiom the new rule matches).
+
+9. **Measure over the language's whole file set, not just its canonical extension.** Several
+   languages own more than one: groovy owns `.gradle` (and `Jenkinsfile`) as well as `.groovy`,
+   and in the real-world crucible corpus the `.gradle` files are 40% of the sample. A
+   before/after count taken over one extension can be right in direction and wrong in
+   magnitude — and a magnitude quoted in an issue is what the next session builds on.
+
 ## Tools & skills
 
 - `tools/verify_language.py <lang> [--report]` — the per-language gate.
