@@ -6,7 +6,9 @@ way a hand-written matrix would. Point GITGALAXY_PATH at the checkout; the defau
 assumes the sibling layout used on the dev box.
 """
 
+import ast
 import os
+import pathlib
 import sys
 
 GITGALAXY_PATH = os.environ.get(
@@ -65,7 +67,7 @@ def active_rules(definitions):
 NA_EXEMPT = {"api"}
 
 
-def unmeasurable_signals(definitions, signals):
+def unmeasurable_signals(definitions, signals, include_exempt=False):
     """{language: sorted [signal]} where the rule is None/absent in the registry.
 
     For these cells the engine can never report a nonzero -- a measured 0 there is
@@ -76,11 +78,20 @@ def unmeasurable_signals(definitions, signals):
     proved JCL has real error-handling morphology) -- the rosetta-language-sweep
     skill's bucket-2 check plus a validated ledger entry is what upgrades an
     absence from "unreviewed" to "ledgered". See docs/GATING.md.
+
+    `include_exempt` keeps the NA_EXEMPT signals (api) in the result. The exemption
+    exists because rule-absence alone does not make `api` unmeasurable -- orphan
+    conversion synthesizes it -- so it must stay out of the planted-signal n/a
+    table. But `api` is a governed input to two risk formulas, so when a derived
+    cell's n/a rests on it the governance still needs a reviewable row to point at;
+    without one the cell is marked unreviewed and nothing in the baseline says why.
     """
     out = {}
     for lang, rules in active_rules(definitions).items():
         missing = sorted(
-            s for s in signals if s not in NA_EXEMPT and rules.get(s) is None
+            s
+            for s in signals
+            if (include_exempt or s not in NA_EXEMPT) and rules.get(s) is None
         )
         if missing:
             out[lang] = missing
@@ -97,3 +108,135 @@ def tier_report(definitions):
         else:
             tier1.append(lang)
     return tier1, tier2
+
+
+# ---------------------------------------------------------------------------
+# Derived-metric dependencies (risk_* columns)
+# ---------------------------------------------------------------------------
+# Same doctrine as load_definitions(): derive from the live engine source rather
+# than hand-copying a table, so an engine refactor surfaces as a derivation
+# failure instead of a silently stale map. We AST-parse the risk vector
+# assembly in metrics/signal_processor.py and record, per risk metric, which
+# signals its formula actually consumes.
+SIGNAL_PROCESSOR = "gitgalaxy/metrics/signal_processor.py"
+EXPOSURE_VECTOR = "exposure_vector"
+
+
+class _SignalUses(ast.NodeVisitor):
+    """Collects `raw_signals.get("x")` / `raw_signals["x"]` keys in one function."""
+
+    def __init__(self):
+        self.keys = set()
+
+    @staticmethod
+    def _is_signals(node):
+        return isinstance(node, ast.Name) and "signal" in node.id
+
+    def visit_Call(self, node):
+        f = node.func
+        if (
+            isinstance(f, ast.Attribute)
+            and f.attr == "get"
+            and self._is_signals(f.value)
+            and node.args
+            and isinstance(node.args[0], ast.Constant)
+            and isinstance(node.args[0].value, str)
+        ):
+            self.keys.add(node.args[0].value)
+        self.generic_visit(node)
+
+    def visit_Subscript(self, node):
+        if (
+            self._is_signals(node.value)
+            and isinstance(node.slice, ast.Constant)
+            and isinstance(node.slice.value, str)
+        ):
+            self.keys.add(node.slice.value)
+        self.generic_visit(node)
+
+
+def _calc_name(node):
+    """`self._calc_x(...)` / `_calc_x(...)` -> "_calc_x", else None."""
+    if not isinstance(node, ast.Call):
+        return None
+    f = node.func
+    if isinstance(f, ast.Attribute) and f.attr.startswith("_calc"):
+        return f.attr
+    if isinstance(f, ast.Name) and f.id.startswith("_calc"):
+        return f.id
+    return None
+
+
+def risk_dependencies(governed_signals):
+    """{risk_metric: {"calc","governed","engine"}} derived from the live engine.
+
+    `governed` are inputs the LANGUAGE_DEFINITIONS registry controls (so a None
+    rule pins them to zero for that language); `engine` are inputs synthesized
+    downstream of the registry (orphaned_logic, duplicate_logic, the sec_*
+    family) which can be nonzero no matter what the registry says, and which
+    therefore block the metric from ever being called unmeasurable.
+
+    Raises RuntimeError if the engine's risk assembly no longer looks the way
+    this parser expects -- a loud failure is the point: a stale dependency map
+    would quietly mark comparable cells n/a.
+    """
+    path = pathlib.Path(GITGALAXY_PATH) / SIGNAL_PROCESSOR
+    if not path.exists():
+        raise RuntimeError(f"engine source not found: {path} (set GITGALAXY_PATH)")
+    tree = ast.parse(path.read_text())
+
+    per_calc, owner = {}, {}
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("_calc"):
+            v = _SignalUses()
+            v.visit(node)
+            per_calc[node.name] = v.keys
+        # `cog_score, cog_raw = self._calc_cog_load(...)` / `x = self._calc_y(...)`
+        if isinstance(node, ast.Assign):
+            fn = _calc_name(node.value)
+            if fn:
+                for tgt in node.targets:
+                    names = tgt.elts if isinstance(tgt, ast.Tuple) else [tgt]
+                    for n in names:
+                        if isinstance(n, ast.Name):
+                            owner[n.id] = fn
+
+    vector = None
+    for node in ast.walk(tree):
+        if (
+            isinstance(node, ast.Assign)
+            and any(isinstance(t, ast.Name) and t.id == EXPOSURE_VECTOR for t in node.targets)
+            and isinstance(node.value, ast.Dict)
+        ):
+            vector = node.value
+            break
+    if vector is None:
+        raise RuntimeError(
+            f"could not find the `{EXPOSURE_VECTOR} = {{...}}` risk assembly in {path}"
+        )
+
+    out = {}
+    for k, v in zip(vector.keys, vector.values):
+        if not (isinstance(k, ast.Constant) and isinstance(k.value, str)):
+            continue
+        fn = _calc_name(v) or (owner.get(v.id) if isinstance(v, ast.Name) else None)
+        # A key with no _calc_ behind it (churn's literal 0.0, stability's
+        # separately-computed score) has no derivable signal dependency: it is
+        # recorded with an empty map and can never qualify as unmeasurable.
+        keys = per_calc.get(fn, set()) if fn else set()
+        out[f"risk_{k.value}"] = {
+            "calc": fn,
+            "governed": sorted(x for x in keys if x in governed_signals),
+            "engine": sorted(x for x in keys if x not in governed_signals),
+        }
+    if not out:
+        raise RuntimeError(f"risk assembly in {path} yielded no metrics")
+    return out
+
+
+def registry_signals(definitions):
+    """Every signal key the registry controls, across all languages."""
+    keys = set()
+    for rules in active_rules(definitions).values():
+        keys |= set(rules)
+    return keys

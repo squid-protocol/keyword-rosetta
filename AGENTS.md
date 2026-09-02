@@ -31,6 +31,20 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
    then `gh run rerun <run-id> --failed` + `gh pr ready`.
 5. **Cross-repo PRs carry a "Cross-repo" note** (companion PR links, merge order, what re-runs
    after) — see the ecosystem doc's PR convention.
+6. **Always regenerate the bias report at full precision.** In Zero-Dependency Mode (any of
+   networkx / tiktoken / numpy / pandas / xgboost / pyyaml missing) the recorder nulls every
+   network metric, so pagerank, blast radius, betweenness, closeness and producer ratio drop
+   out of the comparison with no error and no note — two reports then differ by five whole
+   columns for reasons nothing in them explains. Three things enforce it now, so it cannot
+   happen by accident: `bias_report.py` reads the mode from the scan DB and **aborts** unless
+   it is full precision (`--allow-zero-dependency` to override on purpose), the mode is
+   stamped in the report header and recorded as `engine_mode` in `docs/bias_data.json`, and
+   `verify.yml` fails any PR whose committed cache says anything but `full-precision`.
+
+   ```sh
+   GALAXYSCOPE_BIN=<gitgalaxy>/.crucible_venvs/full_precision/bin/galaxyscope \
+       GITGALAXY_PATH=<gitgalaxy> python tools/bias_report.py
+   ```
 
 ## Tools & skills
 
@@ -44,4 +58,23 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
   five-cause deviation taxonomy and the cross-repo choreography above.
 
 Env: `GALAXYSCOPE_BIN=<gitgalaxy>/.crucible_venvs/full_precision/bin/galaxyscope`,
-`GITGALAXY_PATH` for the registry loader (defaults to the sibling checkout).
+`GITGALAXY_PATH` for the registry loader (defaults to the sibling checkout). The
+`zero_dependency` venv exists for degraded-engine investigation only — never for
+regenerating the report (hard rule 6).
+
+## What the bias report scores
+
+Three groups, all of them "the same program in 46 languages — does the engine describe it
+the same way?": the planted signals (SPEC probe table), the `risk_*` formulas over them, and
+the **engine measures** (topology, size, shape, function morphology). Non-planted signal
+columns (`pointers`, `macros`, `generics`, the `sec_*` family, ...) are deliberately excluded:
+the SPEC plants no intent for them, so a C-vs-Python divergence there is language expression,
+not measurement bias. To make one comparable, plant it in `SPEC.md` and add it to `PLANTED` —
+never score it unplanted.
+
+Metrics are scored two ways. A positive median scores on the ±25% band; a **zero** median
+scores on *exact agreement* (marked `‖`), because a relative deviation against zero is
+undefined — that is what keeps `class_start`, `classes_found`, `risk_concurrency` and
+`risk_dead_code` in the report instead of silently dropped. A metric that records 0 in every
+language is **inert**, excluded from the average entirely: it asked no question, so scoring it
+100% would only inflate the headline.

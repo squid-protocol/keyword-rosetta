@@ -10,9 +10,21 @@ verifier uses, then compares three groups of metrics across languages:
 Because the planted intent is identical everywhere, divergence IS measured language
 bias. Output: docs/bias_report.md + docs/bias_variance_chart.svg (strip plot, one
 unlabeled dot per language per metric, zone-count stamps; regenerated together).
+
+MUST run against a full-precision engine. In Zero-Dependency Mode (any of networkx /
+tiktoken / numpy-ML / pyyaml missing) the recorder nulls every network metric, so
+pagerank vanishes from the comparison with no error and no note -- two reports then
+differ by a whole column for reasons nothing in them explains. The mode is read from
+the scan DB's repo_data.is_zero_dependency_mode, recorded in docs/bias_data.json as
+`engine_mode`, stamped in the report header, and aborts the run unless
+--allow-zero-dependency is passed:
+
+    GALAXYSCOPE_BIN=<gitgalaxy>/.crucible_venvs/full_precision/bin/galaxyscope \
+        python tools/bias_report.py
 """
 
 import json
+import math
 import pathlib
 import sqlite3
 import statistics
@@ -21,7 +33,12 @@ import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import verify_language as vl
-from _registry import load_definitions, unmeasurable_signals
+from _registry import (
+    load_definitions,
+    registry_signals,
+    risk_dependencies,
+    unmeasurable_signals,
+)
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = REPO_ROOT / "docs" / "bias_report.md"
@@ -31,6 +48,44 @@ CHART = REPO_ROOT / "docs" / "bias_variance_chart.svg"
 GREEN_DEV = 0.25   # within ±25% of median: acceptable clustering
 AMBER_DEV = 0.50   # within ±50%: caution
 # beyond ±50%: red zone — any dot here fails the metric's cross-language validation
+
+# Engine measures beyond the planted signals, reported as means per file. These are
+# derived descriptions of the SAME program -- topology, shape, size, complexity -- so
+# identical planted intent should produce identical values, exactly the argument that
+# already justified pagerank. They were being computed on every scan and thrown away.
+#
+# Deliberately NOT included: the other ~77 signal columns (pointers, macros, generics,
+# decorators, the sec_* family, ...). The SPEC probe table does not plant those, so a
+# C-vs-Python divergence in `pointers` is language expression, not measurement bias --
+# scoring it would fill the report with divergence that means nothing. If a signal
+# should be comparable, the fix is to plant it in SPEC.md and add it to PLANTED, not
+# to score it unplanted.
+MEASURE_COLS = [
+    # network topology (NULL in Zero-Dependency Mode -- hence the mode guard)
+    "pagerank_score",
+    "normalized_blast_radius",
+    "betweenness_score",
+    "closeness_score",
+    "producer_ratio",
+    # size and shape
+    "total_loc",
+    "coding_loc",
+    "structural_mass",
+    "token_mass",
+    "control_flow_ratio",
+    # function-level morphology
+    "avg_func_loc",
+    "avg_func_complexity",
+    "max_func_complexity",
+    "avg_func_args",
+    "func_complexity_gini",
+    "func_internal_density",
+    # graph and encapsulation shape
+    "dependency_density",
+    "encapsulation_ratio",
+    "popularity",
+    "cog_raw",
+]
 
 # SPEC.md probe table: what every language plants, before any engine semantics.
 PLANTED = {
@@ -42,7 +97,7 @@ PLANTED = {
 
 
 def gather(language, colmap):
-    """Scan one language folder; return (signal_totals, risk_means, struct_totals)."""
+    """Scan one language: (signals, risk_means, struct, measure_means, zero_dep)."""
     language_dir = REPO_ROOT / "data" / language
     # rosetta#25: the scan sweeps the whole folder, so expected_signals.json
     # itself lands in file_data and its generically-parsed hits used to inflate
@@ -62,13 +117,25 @@ def gather(language, colmap):
         risk_cols = sorted(c for c in have if c.startswith("risk_"))
         struct_cols = [c for c in ("function_count", "class_count", "import_count",
                                    "total_loc", "coding_loc", "doc_loc", "pagerank_score") if c in have]
+        measure_cols = [c for c in MEASURE_COLS if c in have and c not in struct_cols]
         rows = conn.execute(
-            f"SELECT file_name, {', '.join(sig_cols + risk_cols + struct_cols)} FROM file_data"
+            "SELECT file_name, "
+            + ", ".join(sig_cols + risk_cols + struct_cols + measure_cols)
+            + " FROM file_data"
         ).fetchall()
         rows = [r for r in rows if r["file_name"] in shell_files]
+        # Which mode the engine actually ran in, straight from the recorder rather
+        # than inferred. Zero-Dependency Mode (any of networkx/tiktoken/numpy-ML/
+        # pyyaml missing) nulls every network metric, so pagerank silently drops
+        # out of the comparison -- a whole column vanishing with no error and no
+        # note in the report. verify.yml installs all six for exactly this reason.
+        zero_dep = bool(
+            (conn.execute("SELECT is_zero_dependency_mode FROM repo_data").fetchone() or [0])[0]
+        )
 
     totals = {colmap[c]: 0 for c in sig_cols}
     risks = {c: [] for c in risk_cols}
+    measures = {c: [] for c in MEASURE_COLS}
     struct = {"functions_found": 0, "classes_found": 0, "dependency_links": 0,
               "keyword_hits": 0, "comment_lines": 0, "pagerank": []}
     for row in rows:
@@ -78,6 +145,9 @@ def gather(language, colmap):
         for c in risk_cols:
             if row[c] is not None:
                 risks[c].append(row[c])
+        for c in measures:
+            if c in row.keys() and row[c] is not None:
+                measures[c].append(row[c])
         struct["functions_found"] += row["function_count"] or 0
         struct["classes_found"] += row["class_count"] or 0
         struct["dependency_links"] += row["import_count"] or 0
@@ -94,27 +164,53 @@ def gather(language, colmap):
         if "pagerank_score" in row.keys() and row["pagerank_score"] is not None:
             struct["pagerank"].append(row["pagerank_score"])
     risk_means = {c: (statistics.mean(v) if v else None) for c, v in risks.items()}
+    measure_means = {c: (statistics.mean(v) if v else None) for c, v in measures.items()}
     struct["pagerank"] = statistics.mean(struct["pagerank"]) if struct["pagerank"] else None
-    return totals, risk_means, struct
+    return totals, risk_means, struct, measure_means, zero_dep
 
 
 def _row_stats(values):
-    """(devs, green_share, median) for one metric across languages; None if unusable.
+    """(devs, share, median, basis) for one metric across languages; None if unusable.
 
-    green_share = fraction of languages whose deviation sits inside the green band —
-    the metric's cross-language consistency score (one outlier no longer flips a
-    binary verdict; it just costs its share)."""
+    `share` is the metric's cross-language consistency score (one outlier no longer
+    flips a binary verdict; it just costs its share). `basis` says what it measures:
+    "band" = fraction inside ±GREEN_DEV of a positive median; "agreement" = fraction
+    exactly ON a zero median, the only meaningful reading when a relative deviation
+    would divide by zero. Returns None only when the row is unusable: no values at
+    all, or inert (every language records 0, so nothing was asked)."""
     vals = [v for v in values if v is not None]
     if not vals:
         return None
     med = statistics.median(vals)
     if med <= 0:
+        # All-zero used to score a free 1.0 ("every language agrees"). It does not:
+        # a metric that records nothing anywhere asked no cross-language question,
+        # and badging it 100% inflated the headline average. Dropped as inert.
         if all(v == 0 for v in vals):
-            return ([0.0] * len(vals), 1.0, 0.0) if len(set(vals)) == 1 else None
-        return None
+            return None
+        # Zero median with disagreement is the interesting case, and it used to be
+        # dropped entirely -- hiding real bias. Relative deviation is undefined
+        # against a 0 median, but exact agreement is not: score the share of
+        # languages sitting ON the median and push every disagreeing language
+        # off-scale, where the chart reads it as red. class_start is the worked
+        # example: planted 0 everywhere, yet 6 languages report 1-7.
+        devs = [0.0 if v == med else math.copysign(1.0, v - med) for v in vals]
+        return devs, sum(1 for v in vals if v == med) / len(vals), med, "agreement"
     devs = [(v - med) / med for v in vals]
     green_share = sum(1 for d in devs if abs(d) <= GREEN_DEV) / len(devs)
-    return devs, green_share, med
+    return devs, green_share, med, "band"
+
+
+def is_inert(values):
+    """True when every comparable language records exactly 0 for this metric.
+
+    Not a consistency result -- an inert metric asked no cross-language question
+    (risk_churn is a hardcoded 0.0 in the risk assembly; risk_secrets_risk needs
+    sec_* signals no corpus shell plants). Reported separately from rows that are
+    merely median-less.
+    """
+    vals = [v for v in values if v is not None]
+    return bool(vals) and all(v == 0 for v in vals)
 
 
 def _share_color(share):
@@ -153,6 +249,91 @@ def classify_na(ledger_entries, na_map):
     return out
 
 
+def unmeasurable_risk_cells(deps, definitions, observed):
+    """n/a cells among the DERIVED risk_* metrics, plus the mismatches found.
+
+    The planted signals get n/a straight off the registry: no rule, no nonzero,
+    incomparable (docs/GATING.md). The risk_* columns are one step downstream --
+    formulas over those same signals -- and had no n/a mechanism at all, so a
+    language whose inputs are structurally absent was scored as a -100% outlier
+    against languages that actually measured something.
+
+    A risk metric is n/a for a language only when ALL FOUR hold:
+
+      1. its formula consumes at least one registry-governed signal;
+      2. every one of those signals has a None rule for that language;
+      3. it consumes no engine-derived input (orphaned_logic, duplicate_logic,
+         the sec_* family) that can be nonzero regardless of the registry;
+      4. the observed value really is 0 -- the scan confirming that 1-3 pinned it.
+
+    (4) is what keeps this from becoming a rug in the other direction. Rule
+    absence alone is NOT sufficient for a derived metric, because these formulas
+    also read structure the registry does not govern (loc, doc_lines, the call
+    graph, popularity). A cell that passes 1-3 but measures nonzero anyway is
+    returned as a *mismatch* and left comparable: it means this dependency map
+    is incomplete, or the engine synthesizes the input downstream of the registry
+    the way orphan conversion synthesizes `api` (ledger:
+    api-contextual-baseline-fix). Mismatches are printed loudly, never absorbed.
+
+    Returns ({language: sorted [risk metric]}, [(language, metric, observed)]).
+    """
+    rules = {lang: d.get("rules") or {} for lang, d in definitions.items()}
+    na, mismatches = {}, []
+    for metric, dep in sorted(deps.items()):
+        governed, engine = dep["governed"], dep["engine"]
+        if not governed or engine:
+            continue
+        for lang, values in sorted(observed.items()):
+            if lang not in rules or metric not in values:
+                continue
+            if any(rules[lang].get(sig) is not None for sig in governed):
+                continue
+            value = values[metric]
+            if value:
+                mismatches.append((lang, metric, value))
+            else:
+                na.setdefault(lang, []).append(metric)
+    return {k: sorted(v) for k, v in na.items()}, mismatches
+
+
+def na_audit_signals(deps):
+    """Every signal whose absence the n/a governance has to have an opinion about.
+
+    The planted 18, plus the extra inputs read by the risk formulas that can
+    actually qualify for a derived n/a. Formulas blocked by an engine-synthesized
+    input (risk_tech_debt, risk_secrets_risk) are excluded on purpose: their
+    absences can never make a cell incomparable, so demanding a ledger entry for
+    `llm_api` in the 40 languages that do not define it would be review theatre.
+    """
+    extra = {
+        sig
+        for dep in deps.values()
+        if dep["governed"] and not dep["engine"]
+        for sig in dep["governed"]
+    }
+    return sorted(set(PLANTED) | extra)
+
+
+def classify_risk_na(risk_na, deps, signal_na_state):
+    """{metric: {lang: "ledgered"|"unreviewed"}} for derived n/a cells.
+
+    A derived n/a is a mechanical consequence of its input signals' absences, so
+    it inherits their review status rather than opening a parallel backlog: the
+    cell is "ledgered" only when EVERY governed input is itself ledgered for that
+    language. An input nobody has reviewed keeps the derived cell loud too --
+    GATING.md rule 2, composed. `signal_na_state` is classify_na()'s output.
+    """
+    out = {}
+    for lang, metrics in risk_na.items():
+        for metric in metrics:
+            covered = all(
+                signal_na_state.get(sig, {}).get(lang) == "ledgered"
+                for sig in deps[metric]["governed"]
+            )
+            out.setdefault(metric, {})[lang] = "ledgered" if covered else "unreviewed"
+    return out
+
+
 def write_variance_chart(groups, n_langs, na_by_metric=None):
     """Strip-plot SVG. groups = [(title, {metric: [values-per-language]})].
 
@@ -169,16 +350,18 @@ def write_variance_chart(groups, n_langs, na_by_metric=None):
     def x_of(dev):
         return label_w + pad + half + max(-1.1, min(1.1, dev)) * px_per_dev
 
-    prepared, shares, n_rows, skipped = [], {}, 0, []
+    prepared, shares, n_rows, skipped, inert, agreement = [], {}, 0, [], [], []
     for title, metrics in groups:
         rows = []
         for name, values in metrics.items():
             st = _row_stats(values)
             if st is None:
-                skipped.append(name)
+                (inert if is_inert(values) else skipped).append(name)
                 continue
             rows.append((name, *st))
             shares[name] = st[1]
+            if st[3] == "agreement":
+                agreement.append(name)
         if rows:
             prepared.append((title, rows))
             n_rows += len(rows)
@@ -205,7 +388,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None):
         y += 24
         s.append(f'<text x="{pad}" y="{y - 8}" font-size="12" font-weight="bold" '
                  f'fill="#444" letter-spacing="1">{title.upper()}</text>')
-        for name, devs, green_share, med in rows:
+        for name, devs, green_share, med, basis in rows:
             cy = y + row_h / 2
             for lo, hi, color in zone_edges:
                 bx, bw = x_of(lo), x_of(hi) - x_of(lo)
@@ -213,7 +396,8 @@ def write_variance_chart(groups, n_langs, na_by_metric=None):
                          f'height="{row_h - 8}" fill="{color}"/>')
             s.append(f'<line x1="{x_of(0):.1f}" y1="{y + 4}" x2="{x_of(0):.1f}" '
                      f'y2="{y + row_h - 4}" stroke="#999" stroke-dasharray="2,2"/>')
-            s.append(f'<text x="{pad}" y="{cy + 4}" fill="#1a1a1a">{name}</text>')
+            label = name if basis == "band" else f"{name} ‖"
+            s.append(f'<text x="{pad}" y="{cy + 4}" fill="#1a1a1a">{label}</text>')
             # zone-count stamps, upper corner of each zone
             for lo, hi, _ in zone_edges:
                 n = sum(1 for d in devs
@@ -237,10 +421,14 @@ def write_variance_chart(groups, n_langs, na_by_metric=None):
             y += row_h
     s.append("</svg>")
     CHART.write_text("\n".join(s) + "\n")
-    return shares, skipped
+    return shares, skipped, inert, agreement
 
 
 def main():
+    # The report is only comparable to itself if every run measures the same engine.
+    # Full precision is the contract (AGENTS.md, and verify.yml installs all six deps);
+    # the escape hatch exists so a degraded engine can still be investigated on purpose.
+    allow_zero_dependency = "--allow-zero-dependency" in sys.argv
     languages = sorted(
         p.parent.name for p in (REPO_ROOT / "data").glob("*/expected_signals.json")
     )
@@ -253,31 +441,103 @@ def main():
 
     # n/a (incomparable) cells: the language's registry defines no rule for the
     # signal, so a 0 there means "not expressible as measured", not "missed".
+    definitions = load_definitions()
     na_map = {
         lang: sigs
-        for lang, sigs in unmeasurable_signals(load_definitions(), list(PLANTED)).items()
+        for lang, sigs in unmeasurable_signals(definitions, list(PLANTED)).items()
         if lang in languages
     }
     na_by_metric = classify_na(ledger["entries"], na_map)
-    unreviewed = sorted(
+
+    # ...and the same question one step downstream, for the derived risk_*
+    # columns. Their inputs are read off the live engine's risk assembly rather
+    # than hand-listed, so an engine refactor fails loudly here instead of
+    # leaving a stale map quietly marking comparable cells n/a.
+    deps = risk_dependencies(registry_signals(definitions))
+    audit_signals = na_audit_signals(deps)
+    dep_na_state = classify_na(
+        ledger["entries"],
+        {
+            lang: sigs
+            for lang, sigs in unmeasurable_signals(
+                definitions, audit_signals, include_exempt=True
+            ).items()
+            if lang in languages
+        },
+    )
+    # Absences of inputs the risk formulas read but the probe table never planted.
+    # The #2560 review sweep only ever covered the planted 18, so these have had
+    # no bucket-2 pass at all -- they are why some derived cells below are n/a†.
+    dep_unreviewed = sorted(
         f"{lang}/{sig}"
-        for sig, per_lang in na_by_metric.items()
+        for sig, per_lang in dep_na_state.items()
+        if sig not in PLANTED
         for lang, state in per_lang.items()
         if state == "unreviewed"
     )
 
     colmap = vl._signal_columns()
-    all_totals, all_risks, all_struct = {}, {}, {}
+    all_totals, all_risks, all_struct, all_measures, zero_dep = {}, {}, {}, {}, {}
     for lang in languages:
         print(f"scanning {lang}...")
-        all_totals[lang], all_risks[lang], all_struct[lang] = gather(lang, colmap)
+        (
+            all_totals[lang],
+            all_risks[lang],
+            all_struct[lang],
+            all_measures[lang],
+            zero_dep[lang],
+        ) = gather(lang, colmap)
+        # Fail on the FIRST degraded scan rather than after all 46: the mode is a
+        # property of the binary, so language 1 already settles it.
+        if zero_dep[lang] and not allow_zero_dependency:
+            print(
+                f"ABORT: {lang} scanned in Zero-Dependency Mode. Network metrics are "
+                "NULL there, so pagerank silently drops out of the comparison and the "
+                "published report is not cell-for-cell comparable with a full-precision "
+                "one. Point GALAXYSCOPE_BIN at the full-precision venv (AGENTS.md):\n"
+                "  GALAXYSCOPE_BIN=<gitgalaxy>/.crucible_venvs/full_precision/bin/galaxyscope\n"
+                "Deliberately reporting on a degraded engine? Re-run with "
+                "--allow-zero-dependency; the report will say so in its header."
+            )
+            return 1
+    degraded = sorted(lang for lang, z in zero_dep.items() if z)
+
+    risk_na, risk_mismatches = unmeasurable_risk_cells(deps, definitions, all_risks)
+    risk_na_by_metric = classify_risk_na(risk_na, deps, dep_na_state)
+    na_by_metric.update(risk_na_by_metric)
+    for lang, metrics in risk_na.items():
+        for metric in metrics:
+            all_risks[lang][metric] = None
+    if risk_mismatches:
+        print(
+            f"MISMATCH: {len(risk_mismatches)} derived cell(s) whose every registry "
+            "input is absent still measured nonzero (left comparable):"
+        )
+        for lang, metric, value in risk_mismatches:
+            print(f"  {lang}/{metric} = {value:.4f} (inputs: {deps[metric]['governed']})")
+
+    # Planted signals only. A derived risk cell is never its own audit row: its †
+    # comes from an unreviewed *input*, already listed in dep_unreviewed above.
+    # Listing it here too would give one backlog two incompatible counts -- derived
+    # cells in this report vs. the input cells na_check.py actually gates on.
+    unreviewed = sorted(
+        f"{lang}/{sig}"
+        for sig, per_lang in na_by_metric.items()
+        if sig in PLANTED
+        for lang, state in per_lang.items()
+        if state == "unreviewed"
+    )
 
     risk_names = sorted({c for r in all_risks.values() for c in r})
     struct_names = ["functions_found", "classes_found", "dependency_links",
                     "keyword_hits", "comment_lines", "pagerank"]
+    measure_names = [c for c in MEASURE_COLS
+                     if any(all_measures[lang].get(c) is not None for lang in languages)]
     groups = [
         ("risk exposure (mean per file)",
          {c: [all_risks[lang].get(c) for lang in languages] for c in risk_names}),
+        ("engine measures (mean per file)",
+         {c: [all_measures[lang].get(c) for lang in languages] for c in measure_names}),
         ("structure found (corpus totals)",
          {c: [all_struct[lang].get(c) for lang in languages] for c in struct_names}),
         ("planted signals (corpus totals)",
@@ -287,7 +547,16 @@ def main():
     # scan cache: lets findings_report.py (and ad hoc queries) reuse this run.
     # n/a cells are stored as null (never 0 -- the engine cannot produce a nonzero
     # there), with the classification carried separately under "na".
-    cache = {"languages": languages, "metrics": {}, "na": na_by_metric}
+    cache = {
+        "languages": languages,
+        "metrics": {},
+        "na": na_by_metric,
+        # Which engine mode produced these numbers. Zero-Dependency Mode nulls the
+        # network metrics, so a cache generated there is not comparable cell-for-cell
+        # with one generated at full precision (rosetta: the pre-#30 report had
+        # pagerank NULL in all 46 columns and nothing said why).
+        "engine_mode": "zero-dependency" if degraded else "full-precision",
+    }
     for _, metrics in groups:
         for name, values in metrics.items():
             cache["metrics"][name] = dict(zip(languages, values))
@@ -295,7 +564,9 @@ def main():
         json.dumps(cache, indent=1) + "\n"
     )
 
-    shares, skipped = write_variance_chart(groups, len(languages), na_by_metric)
+    shares, skipped, inert, agreement = write_variance_chart(
+        groups, len(languages), na_by_metric
+    )
     avg_share = statistics.mean(shares.values()) if shares else 0
     n_strong = sum(1 for v in shares.values() if v >= 0.8)
     weakest = sorted(shares.items(), key=lambda kv: kv[1])[:5]
@@ -305,6 +576,15 @@ def main():
         "",
         f"Generated by `tools/bias_report.py` over {len(languages)} locked language(s): "
         + ", ".join(languages) + ".",
+        "",
+        ("**Engine mode: full precision** — all six optional dependencies present, so "
+         "the network metrics (pagerank) are live."
+         if not degraded else
+         f"**WARNING — engine mode: Zero-Dependency Mode** for {len(degraded)} language(s) "
+         f"({', '.join(degraded)}). Network metrics are NULL there, so pagerank silently "
+         "drops out of the comparison. `verify.yml` installs all six dependencies for "
+         "exactly this reason; point `GALAXYSCOPE_BIN` at the full-precision venv "
+         "(AGENTS.md) and regenerate before trusting these numbers."),
         "",
         "Planted intent is identical in every language (SPEC.md probe table), so any "
         "column-to-column divergence below is measured language bias — an extraction "
@@ -317,16 +597,52 @@ def main():
         lines += [f"**WARNING: unvalidated ledger entries present: {open_entries} — "
                   "treat this report as provisional (docs/GATING.md).**", ""]
 
-    n_na = sum(len(v) for v in na_by_metric.values())
-    if n_na:
+    n_na_signal = sum(len(v) for k, v in na_by_metric.items() if k in PLANTED)
+    n_na_risk = sum(len(v) for v in risk_na_by_metric.values())
+    if n_na_signal:
         lines += [
-            f"**n/a semantics:** {n_na} language/signal cells are marked n/a — the "
+            f"**n/a semantics:** {n_na_signal} language/signal cells are marked n/a — the "
             "language's registry entry defines no rule for that signal, so the engine "
             "cannot ever report a nonzero there. Those cells are *incomparable*, not "
             "zero: they are excluded from medians, deviation bands, and consistency "
             "scores rather than counted as −100% divergence. An n/a does **not** "
             "certify the absence is correct — that takes a validated ledger entry "
             "(docs/GATING.md).",
+            "",
+        ]
+    if n_na_risk:
+        lines += [
+            f"**Derived metrics:** a further {n_na_risk} cells are n/a in the "
+            "`risk_*` columns. Those are formulas over the same signals, so a language "
+            "whose every governed input is absent has a structurally pinned score, not "
+            "a low one — it used to be scored as a −100% outlier against languages that "
+            "actually measured something. The inputs are read live off the engine's risk "
+            "assembly, and a derived cell qualifies only when its formula reads no "
+            "engine-synthesized input **and** the scan confirms the observed value is 0 "
+            "(rule absence alone is not enough: these formulas also read structure the "
+            "registry does not govern — LOC, doc lines, the call graph, popularity). Its "
+            "review status is inherited, not invented: it counts as ledgered only when "
+            "every governed input is itself ledgered for that language.",
+            "",
+        ]
+    if risk_mismatches:
+        lines += [
+            "**Registry/engine mismatches** (left comparable, never absorbed): every "
+            "registry input to these cells is absent, yet the engine still measured a "
+            "value — so either the derived dependency map is incomplete, or the input is "
+            "synthesized downstream of the registry the way orphan conversion synthesizes "
+            "`api` (ledger `api-contextual-baseline-fix`): "
+            + ", ".join(f"`{lang}/{metric}` = {value:.3f}" for lang, metric, value in risk_mismatches)
+            + ".",
+            "",
+        ]
+    if dep_unreviewed:
+        lines += [
+            "**WARNING: unreviewed absences among the risk formulas' non-planted inputs** "
+            "(these are not in the probe table, so the #2560 sweep never reviewed them; "
+            "each is either real morphology to ledger or a missing-rule engine gap, and "
+            "each keeps every derived cell built on it marked n/a†): "
+            + ", ".join(f"`{x}`" for x in dep_unreviewed) + ".",
             "",
         ]
     if unreviewed:
@@ -346,7 +662,14 @@ def main():
               f"{n_strong} metrics hold ≥80% of languages in the green band. "
               f"Weakest metrics: "
               + ", ".join(f"{k} {v:.0%}" for k, v in weakest) + ". "
-              + (f"Skipped (no comparable data): {', '.join(skipped)}." if skipped else ""),
+              + (f"‖ marks a metric scored on **exact agreement** with a zero median "
+                 f"(relative deviation is undefined there, so the score is the share of "
+                 f"languages sitting exactly on it): {', '.join(agreement)}. "
+                 if agreement else "")
+              + (f"Skipped (no values recorded): {', '.join(skipped)}. " if skipped else "")
+              + (f"**Inert** (every language records exactly 0, so the column asks no "
+                 f"cross-language question — scored as no result rather than as unanimous "
+                 f"agreement): {', '.join(inert)}." if inert else ""),
               ""]
 
     lines += ["## Signal totals vs. planted intent", "",
@@ -363,7 +686,7 @@ def main():
                 comparable.append(v)
         mark = " ⚠" if (len(set(comparable)) > 1 or any(v != want for v in comparable)) else ""
         lines.append(f"| {sig}{mark} | {want} | " + " | ".join(cells) + " |")
-    if n_na:
+    if n_na_signal:
         lines += ["", "n/a = no rule defined for this language (incomparable, excluded "
                   "from bands and medians); † = absence not yet backed by a validated "
                   "ledger entry."]
@@ -384,8 +707,31 @@ def main():
     for col in risk_names:
         vals = []
         for lang in languages:
+            if col in risk_na.get(lang, ()):
+                vals.append("n/a" if risk_na_by_metric[col][lang] == "ledgered" else "n/a†")
+                continue
             v = all_risks[lang].get(col)
             vals.append("—" if v is None else f"{v:.3f}")
+        lines.append(f"| {col} | " + " | ".join(vals) + " |")
+    if n_na_risk:
+        lines += ["", "n/a = every registry-governed input to this formula is absent for "
+                  "the language and the scan confirms the score is pinned at 0 "
+                  "(incomparable, excluded from bands and medians); † = at least one of "
+                  "those input absences is not yet backed by a validated ledger entry."]
+
+    lines += ["", "## Engine measures (mean per file)", "",
+              "Derived descriptions of the same program — topology, size, shape, "
+              "complexity. Identical planted intent should produce identical values "
+              "here for the same reason it should for pagerank; a spread is the engine "
+              "describing one program differently depending on the language it is "
+              "written in.", "",
+              "| measure | " + " | ".join(languages) + " |",
+              "|---|" + "---|" * len(languages)]
+    for col in measure_names:
+        vals = []
+        for lang in languages:
+            v = all_measures[lang].get(col)
+            vals.append("—" if v is None else f"{v:.4g}")
         lines.append(f"| {col} | " + " | ".join(vals) + " |")
 
     lines += ["", "A risk-score spread on identical intent is the bottom-line bias number: "
