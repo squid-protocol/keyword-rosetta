@@ -45,15 +45,15 @@
     },
     "b.tcl": {
       "class_start": 0,
-      "branch": 2,
-      "io": 2,
-      "high_risk_execution": 0,
+      "branch": 0,
+      "io": 1,
+      "high_risk_execution": 1,
       "globals": 0,
       "test": 0,
-      "safety": 1,
-      "safety_bypasses": 3,
+      "safety": 0,
+      "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 9,
+      "state_mutation": 3,
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
@@ -87,15 +87,12 @@
   "decoys": [
     {
       "file": "b.tcl",
-      "line_hint": "set note \"if eval fails, try open\"",
+      "line_hint": "set note \"plain exec decoy text\" (probe_state)",
       "surface": "string",
       "signals": [
-        "branch",
-        "safety",
-        "safety_bypasses",
-        "io"
+        "high_risk_execution"
       ],
-      "outcome": "if + try count branch (tcl branch includes try; try also safety +1), open counts io +1, AND eval counts safety_bypasses +1 (tcl eval-as-bypass counted from literals, like shell/ruby/matlab); the set itself is a 3rd raw state hit, tripled to 9. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"exec\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
   "notes": "source is dual import+io (main io 4 = 3 planted + source; every chain link adds io — sqlite .read family). close is dual cleanup+io (c io 1). a branch 1 = trap (dual safety+branch, finditer-confirmed). Locked 2026-08-31."

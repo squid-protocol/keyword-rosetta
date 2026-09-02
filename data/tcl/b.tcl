@@ -15,5 +15,5 @@ proc probe_telemetry {msg} {
 proc probe_state {items} {
     set counter 1
     lappend items 2
-    set note "if eval fails, try open"
+    set note "plain exec decoy text"
 }
