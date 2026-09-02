@@ -948,6 +948,20 @@
       "investigated_by": "claude-fable-5.1 (gitgalaxy#2655 design pass)",
       "validated_at": "2026-09-02",
       "still_reproduces": true
+    },
+    {
+      "id": "perl-pod-delimiter-double-count",
+      "signal": "doc",
+      "languages_seen": [
+        "perl"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "perl's doc rule lists =cut in the same alternation as the POD openers and nothing pairs them, so a correctly closed POD block counts doc=2 (opener + =cut). Identical to the shape gitgalaxy#2658 fixed for python docstring delimiters. Differential micro-repro on data/perl/main.pl, engine main @3ac91822, full_precision: adding the single line '=cut' takes doc 1 -> 2 with every other recorded signal unchanged. The corpus previously read doc=1 only because its POD block was left UNTERMINATED, which was itself hiding a much larger effect: detector.py ~L3042 (the #2239 POD strip) blanks from a POD opener to the next =cut or, failing that, to end of file, so all of main.pl was invisible to the structural slicer -- avg_func_loc 0.0, avg_func_complexity 0.0, func_internal_density 0.0, structural_mass 104.52 against siblings' 8-11, and functions_found 9 against a 13 median. Closing the block restores all of them (6.75 / 0.75 / 0.111 / 11.9). doc=2 is baked in per GATING (the corpus measures what the engine does); filed as gitgalaxy#2670, to be folded into gitgalaxy#2669 B.1's doc-block family fix.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2670",
+      "investigated_by": "claude-opus-5",
+      "validated_at": "2026-09-02",
+      "still_reproduces": true
     }
   ]
 }

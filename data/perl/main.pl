@@ -2,6 +2,8 @@
 # Author: keyword-rosetta generator
 =pod
 # decoy: this suite never spawns a process and the qx word stays in prose
+=cut
+
 use a;
 
 sub entry {
