@@ -10,4 +10,4 @@ RUN echo LOG_LEVEL
 RUN echo LOG_LEVEL
 
 RUN export COUNTER=1
-RUN export NOTE="if eval fails, try curl"
+RUN export NOTE="plain eval decoy text"

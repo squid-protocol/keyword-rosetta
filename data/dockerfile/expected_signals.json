@@ -45,15 +45,15 @@
     },
     "b.dockerfile": {
       "class_start": 1,
-      "branch": 1,
-      "io": 1,
+      "branch": 0,
+      "io": 0,
       "high_risk_execution": 1,
       "globals": 0,
       "test": 0,
       "safety": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 4,
+      "state_mutation": 2,
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
@@ -87,15 +87,12 @@
   "decoys": [
     {
       "file": "b.dockerfile",
-      "line_hint": "RUN export NOTE=\"if eval fails, try curl\"",
+      "line_hint": "RUN export NOTE=\"plain eval decoy text\" (the NOTE export line)",
       "surface": "string",
       "signals": [
-        "branch",
-        "io",
-        "high_risk_execution",
-        "state_mutation"
+        "high_risk_execution"
       ],
-      "outcome": "if (branch +1), curl (io +1) AND eval (high_risk +1) all count — dockerfile is unshielded. state 4 = this export's 1 raw x3 (its own literal provides the branch context — per-RUN flux scope) + the COUNTER export x1. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"eval\" was already dockerfile's own danger keyword and still COUNTS from inside the literal (+1) — what the redesign removes is the branch/io contamination that made the old read ambiguous. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 4->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
   "notes": "dockerfile morphology: functions are RUN/CMD/HEALTHCHECK instructions (main 5 = 4 RUN + CMD; HEALTHCHECK is dual func+safety in a); class_start 1 per file = FROM (the stage/base = class construct, tier-1 exception); args = ARG instructions (1 per file); import = FROM (chain main->a->b->c; c FROM scratch is the leaf). ENV is dual globals+state (a state 2). io includes package managers (c io 2 = apt-get + yum, finditer-confirmed). c func 4 = 4 RUN incl the clean: — no. 4 RUN lines. makefile-style api: a api 1 recorded as observed (opaque conversion). Locked 2026-08-31."
