@@ -18,7 +18,7 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "func_start": 4,
-      "args": 0,
+      "args": 4,
       "api": 0,
       "doc": 1,
       "ownership": 1,
@@ -40,7 +40,7 @@
       "planned_debt": 0,
       "import": 1,
       "func_start": 3,
-      "args": 0,
+      "args": 3,
       "api": 3
     },
     "b.agc": {
@@ -59,7 +59,7 @@
       "planned_debt": 0,
       "import": 1,
       "func_start": 3,
-      "args": 2,
+      "args": 3,
       "api": 3
     },
     "c.agc": {
@@ -78,7 +78,7 @@
       "planned_debt": 1,
       "import": 0,
       "func_start": 3,
-      "args": 0,
+      "args": 3,
       "api": 3,
       "doc": 0,
       "ownership": 0
@@ -96,5 +96,5 @@
       "outcome": "RESUME is dual cleanup+branch (control transfer; finditer-confirmed) — c.agc branch 1"
     }
   ],
-  "notes": "AGC morphology: functions are labels followed by a real opcode; args are register-target ops (TS A / XCH Q = 2 in b, the only file with them). BANK chain resolves (a/b/c api 3 = pure orphan conversion). doc 1 in main = PURPOSE only: the AUTHOR-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (AUTHOR removed from doc's alternation; ownership still captures it exclusively). encapsulation counts every line-start token (agc rule is ^token -- unasserted). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659."
+  "notes": "AGC morphology: functions are labels followed by a real opcode; args are register-target ops (TS A / XCH Q = 2 in b, the only file with them). BANK chain resolves (a/b/c api 3 = pure orphan conversion). doc 1 in main = PURPOSE only: the AUTHOR-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (AUTHOR removed from doc's alternation; ownership still captures it exclusively). encapsulation counts every line-start token (agc rule is ^token -- unasserted). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. A.3 (gitgalaxy#2669): args planted to SPEC's one-per-function, 13 total (4/3/3/3). AGC's args rule is register-target ops -- \\b(CA|CS|TS|AD|SU|MULT|DV|MASK|DXCH|LXCH|QXCH|XCH|INDEX|AUG|DIM|INCR|CCS)[ \\t]+(A|Q|L|Z)\\b -- so each function now opens its body with 'CA A', the AGC calling convention's 'the argument arrives in the accumulator'. Note CAF ZERO does NOT match despite the Z: \\bZ\\b fails against ZERO. b.agc's PROBESTATE had TWO args hits (its label line 'TS A' plus 'XCH Q'), so 'XCH Q' became 'XCH TEMP' -- keeps the state_mutation hit, drops the surplus arg. Was args 2 corpus-wide against a planted and median 13 (-85%), with avg_func_args -83%."
 }
