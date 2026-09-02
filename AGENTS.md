@@ -26,9 +26,12 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
    core rule.
 4. **Engine version matters.** Tools run whatever `GALAXYSCOPE_BIN` points at (default: the
    sibling gitgalaxy checkout's venv, an editable install of that checkout's current branch) —
-   but this repo's CI checks out gitgalaxy **main**. A corpus PR that depends on unmerged
-   engine rules stays **draft**, with its body naming the engine PR, until that PR merges;
-   then `gh run rerun <run-id> --failed` + `gh pr ready`.
+   but this repo's CI checks out the engine at the committed **`ENGINE_REF`**, normally `main`.
+   A corpus PR that depends on unmerged engine rules sets `ENGINE_REF` to `pull/<N>/head` so its
+   gates build against that PR immediately and go green now — no draft limbo, no post-merge
+   rerun — then resets it to `main` before merging. See `docs/GATING.md`'s "Cross-repo
+   choreography", including the table of which pin takes a ref name and which takes a full SHA:
+   they are opposite, and crossing them breaks CI silently.
 5. **Cross-repo PRs carry a "Cross-repo" note** (companion PR links, merge order, what re-runs
    after) — see the ecosystem doc's PR convention.
 6. **Always regenerate the bias report at full precision.** In Zero-Dependency Mode (any of
