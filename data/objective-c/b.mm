@@ -17,6 +17,6 @@
 - (int)probeState:(int)items {
     counter = 1;
     items++;
-    NSString *note = @"if eval fails, try open";
+    NSString *note = @"plain abort decoy text";
     return items;
 }
