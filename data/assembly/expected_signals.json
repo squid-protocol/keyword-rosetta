@@ -17,8 +17,8 @@
     },
     "b.asm": {
       "import": 1, "func_start": 3, "args": 3, "api": 3, "safety_bypasses": 2,
-      "telemetry": 2, "state_mutation": 6, "branch": 6, "io": 1,
-      "class_start": 0, "safety": 0, "high_risk_execution": 0, "test": 0,
+      "telemetry": 2, "state_mutation": 6, "branch": 5, "io": 0,
+      "class_start": 0, "safety": 0, "high_risk_execution": 1, "test": 0,
       "globals": 0, "cleanup": 0, "fragile_debt": 0, "planned_debt": 0
     },
     "c.asm": {
@@ -31,8 +31,8 @@
   },
   "decoys": [
     {"file": "main.asm", "line_hint": "never halts and the branch words stay in prose", "surface": "comment", "signals": ["high_risk_execution", "branch"], "outcome": "stripped: contributed 0"},
-    {"file": "b.asm", "line_hint": "msg db \"if jmp fails try syscall again\"", "surface": "string", "signals": ["branch", "io"], "outcome": "COUNTED: jmp (branch +1), syscall (io +1); if/try inert in asm rules. Triggers flux weighting: inc+dec 2 raw -> state_mutation 6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"},
+    {"file": "b.asm", "line_hint": "msg db \"plain sys_exit decoy text\" (inside probe_state)", "surface": "string", "signals": ["high_risk_execution"], "outcome": "danger-only decoy (#17 redesign, wave 3): sys_exit COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword. Retiring the shared sentence dropped branch 6->5 (its 'jmp') and io 1->0 (its 'syscall'). state_mutation stays 6: probe_state's own 'ret' is a branch keyword too, so the x3 flux weighting on inc/dec survives the loss of the phantom jmp — unlike the other 35 languages, where the retired 'if' was the only branch in that scope. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"},
     {"file": "c.asm", "line_hint": "mov rax, hack_level", "surface": "code", "signals": ["fragile_debt"], "outcome": "inert (underscore + lowercase)"}
   ],
-  "notes": "branch counts call/ret as control transfers (correct asm morphology, ledger asm-call-ret-in-branch): main 10 = 3 call + 4 ret + jmp/je/jne; c 5 = 3 ret + 2 'call free' (each cleanup plant also counts branch via its call). a.asm branch 4 = 3 ret + the ARM mnemonic 'b' matching the literal filename inside %include \"b.asm\" (ledger asm-single-letter-mnemonic-in-path — single-letter mnemonics collide with prose/paths wherever literals count). args = calling-convention register mentions (one 'mov rdi, N' per probe = 13 corpus-wide; rax/rbx deliberately used elsewhere as they are NOT in the args register list). api = 0 planted + orphan conversion (a/b/c: 3 each). Locked from hand-verified run 2026-08-31."
+  "notes": "branch counts call/ret as control transfers (correct asm morphology, ledger asm-call-ret-in-branch): main 10 = 3 call + 4 ret + jmp/je/jne; c 5 = 3 ret + 2 'call free' (each cleanup plant also counts branch via its call). a.asm branch 4 = 3 ret + the ARM mnemonic 'b' matching the literal filename inside %include \"b.asm\" (ledger asm-single-letter-mnemonic-in-path — single-letter mnemonics collide with prose/paths wherever literals count). args = calling-convention register mentions (one 'mov rdi, N' per probe = 13 corpus-wide; rax/rbx deliberately used elsewhere as they are NOT in the args register list). api = 0 planted + orphan conversion (a/b/c: 3 each). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 — gitgalaxy#2669 A.3): danger-only 'plain sys_exit decoy text' inside probe_state — b.asm branch 6->5, io 1->0, high_risk_execution 0->1. state_mutation stays 6 because probe_state's 'ret' is itself a branch keyword, so the x3 flux weighting survives the retired 'jmp'."
 }
