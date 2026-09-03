@@ -96,6 +96,11 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
   `tools/bias_report.py --gate` exits nonzero while any cell is unexplained: that is the
   epic close criterion, and it is off by default so a routine regen still writes its
   artifacts and exits 0. `language_deviations.py` fails per-language on the same basis.
+- `tools/issue_status.py <lang> [--post]` — the per-language tracking issue's status comment,
+  generated from `bias_data.json` + the ledger with the same verdicts the gate uses, so an
+  issue can never disagree with `bias_report.py --gate` about what is left. `--all --post`
+  after each batch regen (gitgalaxy#2669 E.2); it resolves each issue by title search rather
+  than storing a mapping that would go stale.
 - Skills live in `.claude/skills/` (`.agents/skills` is a symlink to the same directory):
   **`rosetta-language-sweep`** — the end-to-end workflow for working one language's
   cross-language-consistency tracking issue (gitgalaxy epic #2560's children), including the
