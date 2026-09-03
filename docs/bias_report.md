@@ -21,31 +21,24 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 12 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 116 | a validated deviation-ledger entry names this language and this metric |
-| derived | 92 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
-| **unexplained** | **224** | **survived all three -- the real work remaining** |
+| ledgered | 184 | a validated deviation-ledger entry names this language and this metric |
+| derived | 73 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| **unexplained** | **175** | **survived all three -- the real work remaining** |
 
 Unexplained cells, by metric:
 
 - `args` — m4
-- `avg_func_args` — ada
-- `avg_func_loc` — cobol, tcl
 - `betweenness_score` — javascript, python
 - `class_start` — cobol, css, jcl, yaml
 - `classes_found` — cobol, css, dockerfile, jcl, kotlin
 - `coding_loc` — agc_assembly, css, dockerfile, haskell, html, jcl, m4, makefile, markdown, scheme, sqlite, yacc, yaml
-- `cog_raw` — c, dart, go, java, javascript, kotlin, matlab, php, python, rust, typescript
-- `control_flow_ratio` — cobol, css, dockerfile, embedded_python, groovy, haskell, html, jcl, kotlin, lua, m4, markdown, perl, php, python, rust, scala, scheme, solidity, yacc, yaml
 - `dependency_density` — assembly, cpp, dockerfile, embedded_python, livecode, makefile, markdown, powershell, ruby, tcl
 - `dependency_links` — dockerfile, embedded_python
 - `encapsulation_ratio` — cobol, html, javascript, jcl, markdown
-- `func_complexity_gini` — css
-- `func_internal_density` — haskell, jcl, lua, matlab, scheme
 - `functions_found` — dockerfile, html, sqlite
 - `globals` — csharp
 - `high_risk_execution` — yacc
 - `keyword_hits` — css, dockerfile, embedded_python, haskell, html, jcl, m4, makefile, markdown, python, rust, scheme, sqlite, yacc, yaml, zig
-- `max_func_complexity` — css
 - `risk_api_exposure` — ada, agc_assembly, c, css, dockerfile, embedded_python, fortran, go, haskell, html, livecode, lua, perl, python, scala, sqlite, yaml, zig
 - `risk_cognitive_load` — agc_assembly, apex, assembly, csharp, dart, kotlin, livecode, matlab, php, powershell, ruby, swift, tcl, yacc
 - `risk_concurrency` — agc_assembly, swift
@@ -56,7 +49,6 @@ Unexplained cells, by metric:
 - `risk_state_flux` — apex, assembly, dart, dockerfile, fortran, haskell, kotlin, livecode, m4, matlab, objective-c, perl, powershell, scala, scheme, solidity, swift, tcl, yaml
 - `risk_tech_debt` — ada, csharp, dart, go, haskell, html, java, livecode, markdown, rust, sqlite, swift, typescript, yaml
 - `state_mutation` — yaml
-- `structural_mass` — c, embedded_python, lua, matlab, python, scala, typescript
 - `test` — yaml
 - `token_mass` — ada, css, dockerfile, html, makefile, yacc, yaml
 - `total_loc` — agc_assembly, css, dockerfile, haskell, html, jcl, m4, markdown, scheme, sqlite, yacc, yaml

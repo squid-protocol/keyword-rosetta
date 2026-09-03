@@ -1031,6 +1031,116 @@
       "validated_at": "2026-09-02",
       "still_reproduces": true,
       "verdict": "A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to. haskell safety_bypasses +2: probe_globals MUST use unsafePerformIO twice, because the globals rule requires `IORef|TVar|MVar ... unsafePerformIO`, and unsafePerformIO is genuinely the canonical Haskell safety bypass -- the only member of this family with no alternative at all. c/lua/tcl io +1 each: probe_cleanup's close idiom (`close(0)`, `io.close(conn)`, `close $conn`) is in both the cleanup and io rules, since closing a channel really is both. tcl io +3 additionally: `source` is tcl's dependency idiom AND an io keyword, the exact sibling of sqlite's `.read` (see sqlite-dot-read-dual-import-io), and it genuinely does read and evaluate a file."
+    },
+    {
+      "id": "control-flow-ratio-denominator-is-a-vocabulary-tally",
+      "signal": "control_flow_ratio",
+      "languages_seen": [
+        "cobol",
+        "css",
+        "dockerfile",
+        "embedded_python",
+        "groovy",
+        "haskell",
+        "html",
+        "jcl",
+        "kotlin",
+        "lua",
+        "m4",
+        "markdown",
+        "perl",
+        "php",
+        "python",
+        "rust",
+        "scala",
+        "scheme",
+        "solidity",
+        "yacc",
+        "yaml"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288). The corpus pins the numerator -- branch is 3-4 in every language by design -- and never plants, gates or reports the denominator, so the whole cross-language spread is structural_boundaries, measured 0-45. It cannot be equalised by planting, because it is not a structural count: it is a per-language KEYWORD VOCABULARY tally, and the vocabularies differ in kind. ada matches six structural words (procedure|function|package|begin|end|return); python matches sixteen; solidity matches those plus every type name (uint\\d*, int\\d*, bytes, address, mapping); assembly matches every instruction mnemonic (mov, lea, push, pop, add, sub, ldr, str). Measured on the a.* files, where planted intent is identical: solidity 10 hits of which SIX are the type name 'uint', python 9 (def x3, return x3, from, import, assert), ada 9 (procedure x3, begin x3, end x3). Every typed declaration in solidity scores a hit its python equivalent cannot. VERDICT: the metric is not broken and no engine change is wanted -- gitgalaxy compares control_flow_ratio between files WITHIN one repository (security_auditor.py reads it that way), where the vocabulary is held constant and the ratio means what it claims. Only the cross-language comparison this corpus performs is meaningless, so the cells are explained, not fixed. Recorded in gitgalaxy#2689 (Batch D.1) bucket B, which originally proposed planting the denominator -- that recommendation was withdrawn once the rule was read.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2689",
+      "investigated_by": "claude-opus-5",
+      "validated_at": "2026-09-03",
+      "still_reproduces": true
+    },
+    {
+      "id": "synthetic-global-context-bucket-counts-as-a-function",
+      "signal": "avg_func_args|avg_func_complexity|avg_func_loc|cog_raw|func_complexity_gini|func_internal_density|functions_found|max_func_complexity|structural_mass",
+      "languages_seen": [
+        "livecode",
+        "lua",
+        "matlab",
+        "ruby",
+        "shell"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "These five languages report functions_found = 16 against 13 planted. The three extra are not functions: the slicer synthesizes a __global_context__ bucket per file to hold top-level statements, and it is counted in the function population. Measured directly from the scan DB -- matlab and lua each carry exactly three __global_context__ rows in function_data alongside the 13 real probes, while python carries none. Every per-function descriptor therefore divides by 16 over a population containing three non-functions, diluting each by roughly 3/16, and cog_raw and structural_mass inherit it downstream. Same family as gitgalaxy#2547, which taught the orphan/duplicate checks to skip synthetic names via _is_synthetic_satellite_name; the per-function denominators were never given the same treatment. Filed upstream as gitgalaxy#2691 with that fix shape. Baking the current behaviour in per GATING.md rule 3 (the corpus measures what the engine does, not what it should); when #2691 lands, functions_found returns to the planted 13 and these manifests re-baseline in the same PR that flips still_reproduces.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2691",
+      "investigated_by": "claude-opus-5",
+      "validated_at": "2026-09-03",
+      "still_reproduces": true
+    },
+    {
+      "id": "composite-nonlinearity-amplifies-in-band-inputs",
+      "signal": "cog_raw|structural_mass",
+      "languages_seen": [
+        "c",
+        "dart",
+        "embedded_python",
+        "go",
+        "java",
+        "javascript",
+        "kotlin",
+        "php",
+        "python",
+        "rust",
+        "scala",
+        "typescript"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch, args and LOC all green -- yet whose composite is not. The cause is the formula's deliberate non-linearity (signal_processor.py ~L800): sum_function_impacts = ((branch + 1) * sqrt(args + 1) + 0.05 * min(loc, (branch + args + 1) * 10)) * 10. A product and a clamp amplify input differences too small to flag on their own, which is precisely what makes cog_raw a cognitive-load proxy rather than a count -- a linear metric would just restate its inputs. VERDICT (gitgalaxy#2689 bucket E): affirmed as intended engine semantics, not bias, so no engine change and no re-banding. Widening the band for composites was considered and rejected: it would mask real regressions later, and the amplification is the signal. Also recorded there, so it is not re-proposed: the hypothesis that the median mixes procedural and config/DSL populations was TESTED AND REJECTED -- recomputing each metric's median over procedural languages only moves the out-of-band count by 0-1 cells (cog_raw 14 -> 14, avg_func_complexity 5 -> 5, func_internal_density 5 -> 6).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2689",
+      "investigated_by": "claude-opus-5",
+      "validated_at": "2026-09-03",
+      "still_reproduces": true
+    },
+    {
+      "id": "ada-typed-parameter-splits-into-three-args",
+      "signal": "avg_func_args",
+      "languages_seen": [
+        "ada"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "ada measures avg_func_args 3.0 against a corpus median of 1.0 (+200%) while planting exactly one parameter per probe function, like every other language. Cause traced to detector.py ~L6169: when a captured signature contains no comma the counter falls back to len(args_str.split()), a whitespace split written for Lisp/Scheme/Shell space-separated arguments. Ada's 'procedure Probe_Globals (Env : Integer)' captures 'Env : Integer', which splits into ['Env', ':', 'Integer'] -- one parameter counted as three. Confirmed per function in the scan DB: all 13 ada probes report args=3 where python's identical probes report 1. Ada is the ONLY language above the median here; the 0.825 cluster is the synthetic-bucket dilution (synthetic-global-context-bucket-counts-as-a-function) and the low outliers are args-no-parameter-surface-morphology. Multi-parameter ada is worse, not better, since Ada separates parameters with semicolons: 'X : Integer; Y : Integer' splits into six. Filed upstream as gitgalaxy#2692 with the fix shape; baking current behaviour in per GATING.md rule 3 until it lands.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2692",
+      "investigated_by": "claude-opus-5",
+      "validated_at": "2026-09-03",
+      "still_reproduces": true
+    },
+    {
+      "id": "function-body-length-morphology",
+      "signal": "avg_func_loc|func_complexity_gini|func_internal_density|max_func_complexity",
+      "languages_seen": [
+        "cobol",
+        "css",
+        "haskell",
+        "jcl",
+        "scheme",
+        "tcl"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted intent occupies a different number of lines per language, and every one of these metrics is normalised by function body length. Measured against a corpus median avg_func_loc of 5.125: tcl 1.0 (-80%, a proc body the slicer captures as a single line) and cobol 3.19 (-38%) sit below, so their per-line densities and complexity spreads compress; haskell 0.094, jcl 0.083 and scheme 0.058 func_internal_density sit ABOVE a 0.034 median (+175%/+144%/+69%) for the mirror-image reason -- their function bodies are the shortest in the corpus (haskell 8.5 coding_loc, jcl 6.0) so the same planted signals concentrate into fewer lines. css is the degenerate case of the same rule: its 13 'functions' are selectors, which carry no branching at all, so max_func_complexity 0.25 vs 0.75 and func_complexity_gini 0.062 vs 0.188 are measuring the absence of a construct rather than a deviation in one. VERDICT: intended morphology, no engine change -- a language cannot be made to express the same logic in the same number of lines, which is the entire premise these metrics normalise against. Distinct from the ada, synthetic-bucket and composite-non-linearity entries, each of which has a mechanical cause; this one is the irreducible remainder.",
+      "upstream_issue": null,
+      "investigated_by": "claude-opus-5",
+      "validated_at": "2026-09-03",
+      "still_reproduces": true
     }
   ]
 }
