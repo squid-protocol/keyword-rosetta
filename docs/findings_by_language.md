@@ -11,7 +11,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [abap](#abap) | 0 | 0 | 0 | 3 | #2535 #2650 #2659 |
 | [ada](#ada) | 3 | 6 | 0 | 4 | #2535 #2546 |
 | [agc_assembly](#agc_assembly) | 5 | 6 | 1 | 5 | #2535 #2650 #2659 |
-| [apex](#apex) | 3 | 4 | 0 | 8 | #2535 #2536 #2545 #2546 #2671 |
+| [apex](#apex) | 3 | 3 | 0 | 8 | #2535 #2536 #2545 #2546 #2671 |
 | [assembly](#assembly) | 11 | 0 | 0 | 5 | #2535 #2546 |
 | [c](#c) | 5 | 4 | 0 | 6 | #2535 #2546 #2626 #2655 |
 | [cobol](#cobol) | 3 | 6 | 0 | 9 | #2535 #2537 #2538 #2655 #2661 |
@@ -25,12 +25,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [go](#go) | 4 | 3 | 0 | 6 | #2535 #2542 #2546 #2655 |
 | [groovy](#groovy) | 0 | 2 | 0 | 3 | #2535 |
 | [haskell](#haskell) | 9 | 6 | 0 | 5 | #2535 |
-| [html](#html) | 19 | 6 | 2 | 8 | #2549 #2645 #2650 #2655 #2659 |
+| [html](#html) | 17 | 6 | 2 | 8 | #2549 #2645 #2650 #2655 #2659 |
 | [java](#java) | 1 | 3 | 0 | 4 | #2535 #2546 #2655 |
 | [javascript](#javascript) | 4 | 9 | 0 | 6 | #2535 #2539 #2655 |
 | [jcl](#jcl) | 4 | 5 | 6 | 4 | #2610 #2655 |
 | [kotlin](#kotlin) | 1 | 4 | 0 | 5 | #2535 #2545 #2546 |
-| [livecode](#livecode) | 7 | 8 | 0 | 6 | #2535 #2546 #2547 #2650 #2659 |
+| [livecode](#livecode) | 7 | 7 | 0 | 6 | #2535 #2546 #2547 #2650 #2659 |
 | [lua](#lua) | 2 | 4 | 0 | 6 | #2535 #2546 #2547 #2657 |
 | [m4](#m4) | 16 | 4 | 2 | 5 | #2535 |
 | [makefile](#makefile) | 7 | 9 | 1 | 8 | #2535 #2546 #2648 #2655 |
@@ -47,12 +47,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [scheme](#scheme) | 3 | 5 | 0 | 3 | #2535 #2537 |
 | [shell](#shell) | 7 | 3 | 1 | 6 | #2535 #2547 |
 | [solidity](#solidity) | 3 | 1 | 1 | 5 | #2535 #2545 |
-| [sqlite](#sqlite) | 15 | 4 | 0 | 6 | #2535 #2547 #2655 |
-| [swift](#swift) | 1 | 9 | 0 | 4 | #2535 #2543 #2546 |
+| [sqlite](#sqlite) | 13 | 5 | 0 | 6 | #2535 #2547 #2655 |
+| [swift](#swift) | 1 | 8 | 0 | 4 | #2535 #2543 #2546 |
 | [tcl](#tcl) | 8 | 5 | 0 | 5 | #2535 #2546 |
 | [typescript](#typescript) | 3 | 4 | 0 | 5 | #2535 #2546 #2655 |
 | [yacc](#yacc) | 19 | 3 | 3 | 5 | #2644 |
-| [yaml](#yaml) | 12 | 11 | 0 | 5 | #2646 #2647 |
+| [yaml](#yaml) | 12 | 10 | 0 | 5 | #2646 #2647 |
 | [zig](#zig) | 1 | 1 | 0 | 4 | #2535 #2545 #2651 |
 
 ## abap
@@ -138,12 +138,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.12375 vs median 0.055 (+125%)
-- 🔴 `risk_cognitive_load`: 5.8306 vs median 2.3577 (+147%)
+- 🔴 `cog_raw`: 0.0895 vs median 0.055 (+63%)
+- 🔴 `risk_cognitive_load`: 3.78875 vs median 2.3577 (+61%)
 - 🔴 `risk_state_flux`: 14.7927 vs median 9.43853 (+57%)
 - 🟡 `args`: 18 vs median 13 (+38%)
-- 🟡 `risk_safety_score`: 59.4033 vs median 42.0539 (+41%)
-- 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
+- 🟡 `risk_safety_score`: 58.7982 vs median 42.0539 (+40%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -177,7 +176,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_cognitive_load`: 13.5452 vs median 2.3577 (+475%)
 - 🔴 `risk_state_flux`: 23.4257 vs median 9.43853 (+148%)
 - 🔴 `state_mutation`: 6 vs median 2 (+200%)
-- 🔴 `structural_mass`: 17.695 vs median 9.845 (+80%)
+- 🔴 `structural_mass`: 17.695 vs median 9.915 (+78%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -203,7 +202,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_documentation`: 95.1146 vs median 55.5369 (+71%)
 - 🔴 `risk_state_flux`: 19.1679 vs median 9.43853 (+103%)
 - 🔴 `state_mutation`: 5 vs median 2 (+150%)
-- 🔴 `structural_mass`: 17.68 vs median 9.845 (+80%)
+- 🔴 `structural_mass`: 17.68 vs median 9.915 (+78%)
 - 🟡 `cog_raw`: 0.0345 vs median 0.055 (-37%)
 - 🟡 `io`: 4 vs median 3 (+33%)
 - 🟡 `risk_cognitive_load`: 1.64835 vs median 2.3577 (-30%)
@@ -231,7 +230,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `structural_mass`: 2.315 vs median 9.845 (-76%)
+- 🔴 `structural_mass`: 2.315 vs median 9.915 (-77%)
 - 🟡 `avg_func_loc`: 3.1875 vs median 5.125 (-38%)
 - 🟡 `control_flow_ratio`: 0.06825 vs median 0.09375 (-27%)
 - 🟡 `encapsulation_ratio`: 0.5 vs median 0.75 (-33%)
@@ -328,7 +327,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_api_exposure`: 0.440725 vs median 5.28878 (-92%)
 - 🔴 `risk_documentation`: 10.9966 vs median 55.5369 (-80%)
 - 🔴 `risk_state_flux`: 0 vs median 9.43853 (-100%)
-- 🔴 `structural_mass`: 0.235 vs median 9.845 (-98%)
+- 🔴 `structural_mass`: 0.235 vs median 9.915 (-98%)
 - 🟡 `cog_raw`: 0.04 vs median 0.055 (-27%)
 - 🟡 `control_flow_ratio`: 0.125 vs median 0.09375 (+33%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
@@ -397,7 +396,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `keyword_hits`: 76 vs median 148 (-49%)
 - 🟡 `risk_safety_score`: 57.9983 vs median 42.0539 (+38%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
-- 🟡 `structural_mass`: 6.855 vs median 9.845 (-30%)
+- 🟡 `structural_mass`: 6.855 vs median 9.915 (-31%)
 - 🟡 `token_mass`: 75.25 vs median 122 (-38%)
 - 🟡 `total_loc`: 14.75 vs median 24.75 (-40%)
 
@@ -428,7 +427,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `safety`: 4 vs median 2 (+100%)
 - 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
 - 🟡 `keyword_hits`: 190 vs median 148 (+28%)
-- 🟡 `structural_mass`: 12.715 vs median 9.845 (+29%)
+- 🟡 `structural_mass`: 12.715 vs median 9.915 (+28%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -460,7 +459,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `func_internal_density`: 0.0434783 vs median 0.0340909 (+28%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
-- 🟡 `structural_mass`: 13.275 vs median 9.845 (+35%)
+- 🟡 `structural_mass`: 13.275 vs median 9.915 (+34%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -544,7 +543,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `risk_safety_score`: 59.5606 vs median 42.0539 (+42%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `safety`: 3 vs median 2 (+50%)
-- 🟡 `structural_mass`: 7.195 vs median 9.845 (-27%)
+- 🟡 `structural_mass`: 7.195 vs median 9.915 (-27%)
 - 🟡 `total_loc`: 17 vs median 24.75 (-31%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -577,21 +576,19 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_internal_density`: 0 vs median 0.0340909 (-100%)
 - 🔴 `func_start`: 0 vs median 13 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
-- 🔴 `keyword_hits`: 49 vs median 148 (-67%)
+- 🔴 `keyword_hits`: 59 vs median 148 (-60%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `risk_api_exposure`: 0.88145 vs median 5.28878 (-83%)
 - 🔴 `risk_documentation`: 11.3461 vs median 55.5369 (-80%)
-- 🔴 `risk_safety_score`: 21.0098 vs median 42.0539 (-50%)
 - 🔴 `risk_spec_match`: 0 vs median 100 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 9.43853 (-100%)
-- 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
 - 🔴 `total_loc`: 10.5 vs median 24.75 (-58%)
 - 🟡 `cog_raw`: 0.04 vs median 0.055 (-27%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
-- 🟡 `structural_mass`: 13.89 vs median 9.845 (+41%)
-- 🟡 `token_mass`: 76.75 vs median 122 (-37%)
+- 🟡 `structural_mass`: 13.89 vs median 9.915 (+40%)
+- 🟡 `token_mass`: 79.75 vs median 122 (-35%)
 
 **Not expressible as measured (n/a):** `globals`, `state_mutation`
 
@@ -738,7 +735,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `risk_documentation`: 76.1418 vs median 55.5369 (+37%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
-- 🟡 `structural_mass`: 12.37 vs median 9.845 (+26%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -765,7 +761,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `control_flow_ratio`: 0.05775 vs median 0.09375 (-38%)
 - 🟡 `func_internal_density`: 0.0234375 vs median 0.0340909 (-31%)
 - 🟡 `io`: 4 vs median 3 (+33%)
-- 🟡 `structural_mass`: 13.85 vs median 9.845 (+41%)
+- 🟡 `structural_mass`: 13.85 vs median 9.915 (+40%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -806,7 +802,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `keyword_hits`: 76 vs median 148 (-49%)
 - 🟡 `risk_safety_score`: 59.1497 vs median 42.0539 (+41%)
-- 🟡 `structural_mass`: 7.005 vs median 9.845 (-29%)
+- 🟡 `structural_mass`: 7.005 vs median 9.915 (-29%)
 
 **Not expressible as measured (n/a):** `class_start`, `risk_concurrency`†
 
@@ -882,7 +878,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `risk_stability`: 0 vs median 50 (-100%)
 - 🔴 `risk_tech_debt`: 0 vs median 46.5703 (-100%)
-- 🔴 `structural_mass`: 1 vs median 9.845 (-90%)
+- 🔴 `structural_mass`: 1 vs median 9.915 (-90%)
 - 🟡 `dependency_density`: 0.75 vs median 0.53125 (+41%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 - 🟡 `total_loc`: 14.5 vs median 24.75 (-41%)
@@ -907,7 +903,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_safety_score`: 78.3034 vs median 42.0539 (+86%)
 - 🔴 `risk_state_flux`: 81.5294 vs median 9.43853 (+764%)
 - 🔴 `state_mutation`: 25 vs median 2 (+1150%)
-- 🔴 `structural_mass`: 16.46 vs median 9.845 (+67%)
+- 🔴 `structural_mass`: 16.46 vs median 9.915 (+66%)
 - 🟡 `func_internal_density`: 0.0214286 vs median 0.0340909 (-37%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1045,7 +1041,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `keyword_hits`: 197 vs median 148 (+33%)
 - 🟡 `risk_cognitive_load`: 1.64835 vs median 2.3577 (-30%)
 - 🟡 `risk_documentation`: 81.0601 vs median 55.5369 (+46%)
-- 🟡 `structural_mass`: 12.725 vs median 9.845 (+29%)
+- 🟡 `structural_mass`: 12.725 vs median 9.915 (+28%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1125,7 +1121,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_api_exposure`: 9.4704 vs median 5.28878 (+79%)
 - 🔴 `risk_documentation`: 90.9609 vs median 55.5369 (+64%)
 - 🟡 `risk_state_flux`: 5.35412 vs median 9.43853 (-43%)
-- 🟡 `structural_mass`: 12.955 vs median 9.845 (+32%)
+- 🟡 `structural_mass`: 12.955 vs median 9.915 (+31%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1230,23 +1226,22 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0.0625 vs median 1 (-94%)
-- 🔴 `avg_func_loc`: 1.27232 vs median 5.125 (-75%)
+- 🔴 `avg_func_loc`: 1.25645 vs median 5.125 (-75%)
 - 🔴 `branch`: 5 vs median 3 (+67%)
-- 🔴 `coding_loc`: 8.25 vs median 17.125 (-52%)
 - 🔴 `control_flow_ratio`: 0.15625 vs median 0.09375 (+67%)
 - 🔴 `func_internal_density`: 0.113636 vs median 0.0340909 (+233%)
-- 🔴 `functions_found`: 28 vs median 13 (+115%)
+- 🔴 `functions_found`: 30 vs median 13 (+131%)
 - 🔴 `io`: 9 vs median 3 (+200%)
-- 🔴 `keyword_hits`: 59 vs median 148 (-60%)
+- 🔴 `keyword_hits`: 67 vs median 148 (-55%)
 - 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
 - 🔴 `risk_documentation`: 0 vs median 55.5369 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 9.43853 (-100%)
-- 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
+- 🟡 `coding_loc`: 8.75 vs median 17.125 (-49%)
 - 🟡 `cog_raw`: 0.072 vs median 0.055 (+31%)
 - 🟡 `risk_cognitive_load`: 2.9892 vs median 2.3577 (+27%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
-- 🟡 `total_loc`: 15.5 vs median 24.75 (-37%)
+- 🟡 `total_loc`: 16 vs median 24.75 (-35%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1269,7 +1264,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `safety_bypasses`: 0 vs median 2 (-100%)
+- 🔴 `risk_state_flux`: 2.98007 vs median 9.43853 (-68%)
 - 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
 - 🟡 `branch`: 4 vs median 3 (+33%)
 - 🟡 `cog_raw`: 0.0275 vs median 0.055 (-50%)
@@ -1277,7 +1272,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
 - 🟡 `risk_cognitive_load`: 1.43515 vs median 2.3577 (-39%)
 - 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
-- 🟡 `risk_state_flux`: 5.78688 vs median 9.43853 (-39%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1332,7 +1326,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `cog_raw`: 0.0205 vs median 0.055 (-63%)
 - 🔴 `risk_state_flux`: 4.19955 vs median 9.43853 (-56%)
-- 🔴 `structural_mass`: 0.965 vs median 9.845 (-90%)
+- 🔴 `structural_mass`: 0.965 vs median 9.915 (-90%)
 - 🟡 `risk_cognitive_load`: 1.29535 vs median 2.3577 (-45%)
 - 🟡 `risk_documentation`: 29.8964 vs median 55.5369 (-46%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 46.5703 (-36%)
@@ -1377,7 +1371,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_tech_debt`: 99.8145 vs median 46.5703 (+114%)
 - 🔴 `total_loc`: 11.25 vs median 24.75 (-55%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
-- 🟡 `structural_mass`: 5 vs median 9.845 (-49%)
+- 🟡 `structural_mass`: 5 vs median 9.915 (-50%)
 - 🟡 `token_mass`: 79.25 vs median 122 (-35%)
 
 **Not expressible as measured (n/a):** `class_start`, `risk_concurrency`†, `test`
@@ -1406,17 +1400,16 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
 - 🔴 `risk_documentation`: 0 vs median 55.5369 (-100%)
-- 🔴 `structural_mass`: 4.805 vs median 9.845 (-51%)
+- 🔴 `structural_mass`: 4.805 vs median 9.915 (-52%)
 - 🟡 `coding_loc`: 10.25 vs median 17.125 (-40%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
-- 🟡 `keyword_hits`: 87 vs median 148 (-41%)
+- 🟡 `keyword_hits`: 88 vs median 148 (-41%)
 - 🟡 `risk_state_flux`: 5.35412 vs median 9.43853 (-43%)
 - 🟡 `risk_tech_debt`: 24.5504 vs median 46.5703 (-47%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
-- 🟡 `safety_bypasses`: 1 vs median 2 (-50%)
 - 🟡 `state_mutation`: 1 vs median 2 (-50%)
 - 🟡 `test`: 1 vs median 2 (-50%)
-- 🟡 `token_mass`: 86.5 vs median 122 (-29%)
+- 🟡 `token_mass`: 88.25 vs median 122 (-28%)
 - 🟡 `total_loc`: 13.75 vs median 24.75 (-44%)
 
 | defect | type | issue | evidence in this folder | summary |
