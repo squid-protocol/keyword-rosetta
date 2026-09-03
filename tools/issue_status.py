@@ -54,6 +54,7 @@ def build(lang, data, ledger):
     verdicts = explain_out_of_band(
         metrics, data["languages"], ledger["entries"],
         {"functions_found": metrics.get("functions_found", {})},
+        risk_inputs=data.get("risk_inputs"),
     )
 
     rows, unreviewed = [], []

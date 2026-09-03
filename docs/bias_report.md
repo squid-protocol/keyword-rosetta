@@ -22,8 +22,8 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 |---|---|---|
 | undefined | 12 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
 | ledgered | 169 | a validated deviation-ledger entry names this language and this metric |
-| derived | 88 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
-| **unexplained** | **175** | **survived all three -- the real work remaining** |
+| derived | 146 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| **unexplained** | **151** | **survived all three -- the real work remaining** |
 
 Unexplained cells, by metric:
 
@@ -32,6 +32,7 @@ Unexplained cells, by metric:
 - `class_start` — cobol, css, jcl, yaml
 - `classes_found` — cobol, css, dockerfile, jcl, kotlin
 - `coding_loc` — agc_assembly, css, dockerfile, haskell, html, jcl, m4, makefile, markdown, scheme, sqlite, yacc, yaml
+- `def_encapsulation` — agc_assembly, css, embedded_python, go, perl, python, zig
 - `dependency_density` — assembly, cpp, dockerfile, embedded_python, livecode, makefile, markdown, powershell, ruby, tcl
 - `dependency_links` — dockerfile, embedded_python
 - `encapsulation_ratio` — cobol, html, javascript, jcl, markdown
@@ -39,16 +40,17 @@ Unexplained cells, by metric:
 - `globals` — csharp
 - `high_risk_execution` — yacc
 - `keyword_hits` — css, dockerfile, embedded_python, haskell, html, jcl, m4, makefile, markdown, python, rust, scheme, sqlite, yacc, yaml, zig
-- `risk_api_exposure` — ada, agc_assembly, c, css, dockerfile, embedded_python, fortran, go, haskell, html, livecode, lua, perl, python, scala, sqlite, yaml, zig
-- `risk_cognitive_load` — agc_assembly, apex, assembly, csharp, dart, kotlin, livecode, matlab, php, powershell, ruby, swift, tcl, yacc
+- `raw_arch_api` — c, css, embedded_python, fortran, html, livecode, lua, makefile, python, scala
+- `raw_state_slop_orphans` — abap, ada, cobol, css, dockerfile, haskell, html, jcl, livecode, m4, makefile, markdown, objective-c, scheme, sqlite, yaml
+- `risk_api_exposure` — ada, dockerfile, haskell, sqlite, yaml
+- `risk_cognitive_load` — dart, kotlin, php, yacc
 - `risk_concurrency` — agc_assembly, swift
-- `risk_documentation` — ada, csharp, dart, dockerfile, fortran, haskell, kotlin, livecode, lua, php, ruby, scala, swift, yaml
-- `risk_safety_score` — apex, dockerfile, fortran, haskell, m4, matlab, perl, powershell
-- `risk_spec_match` — html
+- `risk_documentation` — ada, csharp, dart, dockerfile, haskell, kotlin, php, ruby, swift, yaml
 - `risk_stability` — markdown
-- `risk_state_flux` — apex, assembly, dart, dockerfile, fortran, haskell, kotlin, livecode, m4, matlab, objective-c, perl, powershell, scala, scheme, solidity, swift, tcl, yaml
-- `risk_tech_debt` — ada, csharp, dart, go, haskell, html, java, livecode, markdown, rust, sqlite, swift, typescript, yaml
+- `risk_state_flux` — dart, kotlin, scala, swift
+- `risk_tech_debt` — csharp, dart, go, java, rust, swift, typescript
 - `state_mutation` — yaml
+- `state_slop_duplicates` — dockerfile
 - `test` — yaml
 - `token_mass` — ada, css, dockerfile, html, makefile, yacc, yaml
 - `total_loc` — agc_assembly, css, dockerfile, haskell, html, jcl, m4, markdown, scheme, sqlite, yacc, yaml
@@ -57,7 +59,7 @@ Unexplained cells, by metric:
 
 ![variance chart](bias_variance_chart.svg)
 
-Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 55 metrics: 82%**; 35 metrics hold ≥80% of languages in the green band. Weakest metrics: control_flow_ratio 30%, risk_documentation 42%, risk_state_flux 42%, cog_raw 43%, risk_cognitive_load 47%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): risk_concurrency, risk_dead_code, classes_found, class_start. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_churn, risk_secrets_risk.
+Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 59 metrics: 82%**; 37 metrics hold ≥80% of languages in the green band. Weakest metrics: control_flow_ratio 30%, risk_documentation 42%, risk_state_flux 42%, cog_raw 43%, risk_cognitive_load 47%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): risk_concurrency, risk_dead_code, raw_arch_api, def_encapsulation, state_slop_duplicates, classes_found, class_start. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_churn, risk_secrets_risk.
 
 ## Signal totals vs. planted intent
 
@@ -141,5 +143,9 @@ Derived descriptions of the same program — topology, size, shape, complexity. 
 | encapsulation_ratio | 0.8333 | 0.75 | 0.75 | 0.75 | 0.75 | 0.875 | 0.5 | 0.75 | 0.6667 | 0.75 | 0.75 | 0.875 | 0.9167 | 0.75 | 0.75 | 0.8333 | 0.9285 | 1 | 0.8333 | 0.9445 | 1 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 1 | 0.9375 | 0.75 | 0.75 | 0.75 | 0.75 | 0.9285 | 0.9167 | 0.9167 | 0.9 | 0.75 | 0.75 | 0.75 | 0.75 | 0.9 | 0.75 | 0.9167 | 0.75 | 0.75 | 0.9285 |
 | popularity | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 |
 | cog_raw | 0.055 | 0.06175 | 0.085 | 0.0895 | 0.28 | 0.0345 | 0.055 | 0.0495 | 0.02 | 0.04 | 0.0205 | 0.056 | 0.055 | 0.045 | 0.0205 | 0.055 | 0.055 | 0.04 | 0.0205 | 0.0345 | 0.055 | 0.0345 | 0.09175 | 0.055 | 0.055 | 0.1395 | 0 | 0.22 | 0.055 | 0.055 | 0.0345 | 0.1245 | 0.0345 | 0.0495 | 0.0205 | 0.055 | 0.055 | 0.06875 | 0.055 | 0.072 | 0.0275 | 0.07 | 0.0205 | 0.0895 | 0.055 | 0.055 |
+| raw_arch_api | 0 | 0 | 0 | 0 | 0 | 7.25 | 0 | 0 | 0 | 0.25 | 0 | 0 | 3.25 | 3.25 | 0 | 0 | 0 | 0.25 | 0 | 0 | 0 | 0 | 3.25 | 3.25 | 0 | 0.25 | 0 | 0 | 0 | 0 | 0 | 0 | 3.25 | 0 | 0 | 3.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| raw_state_slop_orphans | 3.25 | 0 | 2.75 | 2.5 | 2.5 | 2.5 | 3.25 | 2.5 | 2.5 | 1 | 2.5 | 0.25 | 2.5 | 2.5 | 2.5 | 2.5 | 0 | 0 | 2.5 | 2.5 | 3.25 | 2.5 | 0 | 2.5 | 3.25 | 3.25 | 0 | 2.5 | 3.25 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 3.25 | 2.5 | 2.5 | 0 | 2.5 | 2.5 | 2.5 | 3 | 0 | 2.5 |
+| def_encapsulation | 0 | 0 | 11.5 | 0 | 0 | 0 | 0 | 0 | 0 | 0.25 | 0 | 0 | 0.25 | 0 | 6.75 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3.75 | 0 | 0 | 0.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4.5 |
+| state_slop_duplicates | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 A risk-score spread on identical intent is the bottom-line bias number: same program, different measured risk, purely from language expression plus the ledgered engine behaviors.
