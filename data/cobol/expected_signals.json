@@ -1,121 +1,121 @@
 {
- "language": "cobol",
- "tier": 1,
- "generator": "claude-sonnet-5 (hand-verified reference)",
- "files": {
-  "main.cbl": {
-   "branch": 3,
-   "io": 3,
-   "high_risk_execution": 2,
-   "func_start": 4,
-   "args": 1,
-   "class_start": 1,
-   "doc": 2,
-   "ownership": 1,
-   "import": 1,
-   "globals": 1,
-   "api": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "state_mutation": 0,
-   "test": 0,
-   "encapsulation": 0
+  "language": "cobol",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.cbl": {
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 1,
+      "class_start": 1,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "globals": 1,
+      "api": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "test": 0,
+      "encapsulation": 0
+    },
+    "a.cpy": {
+      "import": 1,
+      "func_start": 3,
+      "api": 3,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "branch": 0,
+      "high_risk_execution": 1,
+      "io": 0,
+      "class_start": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "safety_bypasses": 0,
+      "args": 0,
+      "doc": 0,
+      "ownership": 0
+    },
+    "b.cpy": {
+      "import": 1,
+      "func_start": 3,
+      "api": 3,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "branch": 0,
+      "class_start": 0,
+      "io": 0,
+      "test": 0,
+      "safety": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "high_risk_execution": 0,
+      "doc": 0
+    },
+    "c.cpy": {
+      "import": 0,
+      "func_start": 3,
+      "api": 3,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "state_mutation": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "encapsulation": 0,
+      "high_risk_execution": 0
+    }
   },
-  "a.cpy": {
-   "import": 1,
-   "func_start": 3,
-   "api": 3,
-   "globals": 2,
-   "test": 2,
-   "safety": 2,
-   "branch": 0,
-   "high_risk_execution": 1,
-   "io": 0,
-   "class_start": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "telemetry": 0,
-   "state_mutation": 0,
-   "cleanup": 0,
-   "safety_bypasses": 0,
-   "args": 0,
-   "doc": 0,
-   "ownership": 0
-  },
-  "b.cpy": {
-   "import": 1,
-   "func_start": 3,
-   "api": 3,
-   "safety_bypasses": 2,
-   "telemetry": 2,
-   "state_mutation": 2,
-   "branch": 0,
-   "class_start": 0,
-   "io": 0,
-   "test": 0,
-   "safety": 0,
-   "globals": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "high_risk_execution": 0,
-   "doc": 0
-  },
-  "c.cpy": {
-   "import": 0,
-   "func_start": 3,
-   "api": 3,
-   "cleanup": 2,
-   "fragile_debt": 1,
-   "planned_debt": 1,
-   "class_start": 0,
-   "branch": 0,
-   "io": 0,
-   "state_mutation": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "test": 0,
-   "globals": 0,
-   "doc": 0,
-   "ownership": 0,
-   "encapsulation": 0,
-   "high_risk_execution": 0
-  }
- },
- "decoys": [
-  {
-   "file": "main.cbl",
-   "line_hint": "never ALTER this flow and no PERFORM loop",
-   "surface": "comment",
-   "signals": [
-    "high_risk_execution",
-    "branch"
-   ],
-   "outcome": "stripped: contributed 0"
-  },
-  {
-   "file": "a.cpy",
-   "line_hint": "DISPLAY 'PLAIN ALTER DECOY TEXT'. (inside PROBE-GLOBALS)",
-   "surface": "string",
-   "signals": [
-    "high_risk_execution"
-   ],
-   "outcome": "danger-only decoy (#17 redesign, wave 3): ALTER is cobol's own danger keyword and was already in the retired sentence, counting +1 undampened — cobol shields nothing and PROBE-GLOBALS carries no safety keyword, so high_risk_execution does not move. What the redesign removes is the contamination: branch 1->0 (the old 'IF') and io 1->0 (the old 'OPEN'). Ledger: string-literal-selective-shielding"
-  },
-  {
-   "file": "c.cpy",
-   "line_hint": "77 HACK-LEVEL PIC 9. / DISPLAY HACK-LEVEL.",
-   "surface": "code",
-   "signals": [
-    "fragile_debt"
-   ],
-   "outcome": "INERT (fixed): gitgalaxy#2537 (PR #2622) added hyphenated-identifier guards to the shared debt patterns, so \\bHACK\\b no longer matches inside HACK-LEVEL and the PROBE-TODO paragraph name no longer adds planned_debt — c.cpy now records exactly the planted * HACK: / * TODO: comments (1 each). Ledger: cobol-hyphen-identifier-debt-leak (resolved)"
-  }
- ],
- "notes": "class_start 1 in main.cbl is the deliberate tier-1 exception: PROGRAM-ID is cobol's program-unit construct, the same 'closest class-shaped construct' precedent as the tri-comparison ledger. globals 1 in main.cbl = WORKING-STORAGE SECTION (in the globals pattern; multi-word so keyword_menu.py missed it — ledger cobol-working-storage-globals). func_start 3 in b.cpy = the 3 real paragraphs; the CEE3DMP./CEEMOUT. bare-token FPs were fixed upstream (gitgalaxy#2538 -> PR #2552), see ledger cobol-area-b-bare-token-paragraph bare-token-period lines read as paragraphs (ledger cobol-area-b-bare-token-paragraph; gitgalaxy#2538). api in a/b/c = 0 planted + orphan conversion of every func_start shape (ledger api-contextual-baseline-fix) — confirms the COPY chain resolves in the dependency DAG. All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv. 2026-08-31 #2567 sweep: (1) shells re-authored with idiomatic blank lines and banner comments (cobol was the only corpus language authored with zero blank lines — comment mass 14 vs the 46-language median 30; signal placement unchanged); (2) fragile_debt/planned_debt re-baselined 3→1 / 2→1 after gitgalaxy#2537's fix (PR #2622); (3) args stays 1: the file-level args metric counts USING/RETURNING clause MATCHES, not captured parameter names (verified: a 13-name PROCEDURE DIVISION USING still records struct_args 1), and every per-probe alternative (CALL/ENTRY/INVOKE ... USING) is also an api keyword — overlap-cost rejection, ledger cobol-args-clause-match-morphology. A.3 (gitgalaxy#2669, step 1 of gitgalaxy#2661): main.cbl now carries a genuine structured doc line, '*> @return the probe result' (COBOL 2002+ inline form, already in cobol's doc rule). Until then its ONLY doc-matching line was 'AUTHOR.', which cobol's ownership rule owns exclusively -- the gitgalaxy#2659 collision, from which cobol was excluded precisely because removing AUTHOR from doc would have taken it to 0 rather than to the planted 1. doc therefore reads 2 in the interim (AUTHOR. + *> @return) and settles at 1 when #2661 step 2 lands. cobol cannot dodge this the way apex did: its ownership rule matches ONLY 'AUTHOR.', so there is no alternative header form. Ledger: cobol-2661-author-doc-collision. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 — gitgalaxy#2669 A.3): danger-only 'PLAIN ALTER DECOY TEXT' inside PROBE-GLOBALS in a.cpy — branch 1->0, io 1->0, high_risk_execution unchanged at 1 (ALTER was already counting, undampened). A.4 (gitgalaxy#2669): the args shape is now also carried by the cross-language entry args-no-parameter-surface-morphology, which extends it to avg_func_args and to css/dockerfile/html/makefile/sqlite/yacc/yaml."
+  "decoys": [
+    {
+      "file": "main.cbl",
+      "line_hint": "never ALTER this flow and no PERFORM loop",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution",
+        "branch"
+      ],
+      "outcome": "stripped: contributed 0"
+    },
+    {
+      "file": "a.cpy",
+      "line_hint": "DISPLAY 'PLAIN ALTER DECOY TEXT'. (inside PROBE-GLOBALS)",
+      "surface": "string",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "danger-only decoy (#17 redesign, wave 3): ALTER is cobol's own danger keyword and was already in the retired sentence, counting +1 undampened \u2014 cobol shields nothing and PROBE-GLOBALS carries no safety keyword, so high_risk_execution does not move. What the redesign removes is the contamination: branch 1->0 (the old 'IF') and io 1->0 (the old 'OPEN'). Ledger: string-literal-selective-shielding"
+    },
+    {
+      "file": "c.cpy",
+      "line_hint": "77 HACK-LEVEL PIC 9. / DISPLAY HACK-LEVEL.",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "INERT (fixed): gitgalaxy#2537 (PR #2622) added hyphenated-identifier guards to the shared debt patterns, so \\bHACK\\b no longer matches inside HACK-LEVEL and the PROBE-TODO paragraph name no longer adds planned_debt \u2014 c.cpy now records exactly the planted * HACK: / * TODO: comments (1 each). Ledger: cobol-hyphen-identifier-debt-leak (resolved)"
+    }
+  ],
+  "notes": "class_start 1 in main.cbl is the deliberate tier-1 exception: PROGRAM-ID is cobol's program-unit construct, the same 'closest class-shaped construct' precedent as the tri-comparison ledger. globals 1 in main.cbl = WORKING-STORAGE SECTION (in the globals pattern; multi-word so keyword_menu.py missed it \u2014 ledger cobol-working-storage-globals). func_start 3 in b.cpy = the 3 real paragraphs; the CEE3DMP./CEEMOUT. bare-token FPs were fixed upstream (gitgalaxy#2538 -> PR #2552), see ledger cobol-area-b-bare-token-paragraph bare-token-period lines read as paragraphs (ledger cobol-area-b-bare-token-paragraph; gitgalaxy#2538). api in a/b/c = 0 planted + orphan conversion of every func_start shape (ledger api-contextual-baseline-fix) \u2014 confirms the COPY chain resolves in the dependency DAG. All values locked from a hand-verified galaxyscope --db-only run, 2026-08-31, full_precision venv. 2026-08-31 #2567 sweep: (1) shells re-authored with idiomatic blank lines and banner comments (cobol was the only corpus language authored with zero blank lines \u2014 comment mass 14 vs the 46-language median 30; signal placement unchanged); (2) fragile_debt/planned_debt re-baselined 3\u21921 / 2\u21921 after gitgalaxy#2537's fix (PR #2622); (3) args stays 1: the file-level args metric counts USING/RETURNING clause MATCHES, not captured parameter names (verified: a 13-name PROCEDURE DIVISION USING still records struct_args 1), and every per-probe alternative (CALL/ENTRY/INVOKE ... USING) is also an api keyword \u2014 overlap-cost rejection, ledger cobol-args-clause-match-morphology. A.3 (gitgalaxy#2669, step 1 of gitgalaxy#2661): main.cbl now carries a genuine structured doc line, '*> @return the probe result' (COBOL 2002+ inline form, already in cobol's doc rule). Until then its ONLY doc-matching line was 'AUTHOR.', which cobol's ownership rule owns exclusively -- the gitgalaxy#2659 collision, from which cobol was excluded precisely because removing AUTHOR from doc would have taken it to 0 rather than to the planted 1. doc therefore reads 2 in the interim (AUTHOR. + *> @return) and settles at 1 when #2661 step 2 lands. cobol cannot dodge this the way apex did: its ownership rule matches ONLY 'AUTHOR.', so there is no alternative header form. Ledger: cobol-2661-author-doc-collision. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 \u2014 gitgalaxy#2669 A.3): danger-only 'PLAIN ALTER DECOY TEXT' inside PROBE-GLOBALS in a.cpy \u2014 branch 1->0, io 1->0, high_risk_execution unchanged at 1 (ALTER was already counting, undampened). A.4 (gitgalaxy#2669): the args shape is now also carried by the cross-language entry args-no-parameter-surface-morphology, which extends it to avg_func_args and to css/dockerfile/html/makefile/sqlite/yacc/yaml. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1."
 }

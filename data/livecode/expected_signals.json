@@ -32,7 +32,7 @@
       "globals": 2,
       "test": 2,
       "safety": 2,
-      "safety_bypasses": 2,
+      "safety_bypasses": 0,
       "telemetry": 0,
       "state_mutation": 0,
       "cleanup": 0,
@@ -92,7 +92,7 @@
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"answer\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"answer\" COUNTS from inside the literal (+1), undampened \u2014 probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "a.lc",
@@ -104,5 +104,5 @@
       "outcome": "global is dual globals+safety_bypasses in livecode (a bypasses 2, predicted from the menus before scanning)"
     }
   ],
-  "notes": "branch 4 in main = if + then + else + the closing 'end if' (livecode counts then, and end-if re-matches if -- ada-family closing-keyword inflation). a branch 1 = throw (dual safety+branch, finditer-confirmed). api counts public handlers + opaque conversion (main/a/b 4, c 3). doc 1 in main = the structured @-tagged form only: the bare Author:-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (Author removed from doc's bare-tag alternation; ownership still captures it exclusively; genuine @author-style structured tags remain in doc). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"answer\" literal inside probe_state \u2014 b.lc high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 9->3."
+  "notes": "branch 4 in main = if + then + else + the closing 'end if' (livecode counts then, and end-if re-matches if -- ada-family closing-keyword inflation). a branch 1 = throw (dual safety+branch, finditer-confirmed). api counts public handlers + opaque conversion (main/a/b 4, c 3). doc 1 in main = the structured @-tagged form only: the bare Author:-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (Author removed from doc's bare-tag alternation; ownership still captures it exclusively; genuine @author-style structured tags remain in doc). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"answer\" literal inside probe_state \u2014 b.lc high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 9->3. gitgalaxy#2675: safety_bypasses claimed `global `, which globals owns exclusively; dropped, so safety_bypasses records the planted 2."
 }

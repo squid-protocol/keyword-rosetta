@@ -1,112 +1,112 @@
 {
- "language": "solidity",
- "tier": 2,
- "generator": "claude-sonnet-5 (hand-verified reference)",
- "files": {
-  "main.sol": {
-   "branch": 3,
-   "io": 0,
-   "high_risk_execution": 2,
-   "globals": 0,
-   "test": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "state_mutation": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "class_start": 0,
-   "func_start": 4,
-   "args": 4,
-   "api": 0,
-   "doc": 2,
-   "ownership": 1,
-   "import": 1
+  "language": "solidity",
+  "tier": 2,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.sol": {
+      "branch": 3,
+      "io": 0,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1
+    },
+    "a.sol": {
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 1,
+      "import": 1
+    },
+    "b.sol": {
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 1,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 3,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 1,
+      "import": 1
+    },
+    "c.sol": {
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "class_start": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "doc": 0,
+      "ownership": 1,
+      "import": 0
+    }
   },
-  "a.sol": {
-   "branch": 0,
-   "io": 0,
-   "high_risk_execution": 0,
-   "globals": 2,
-   "test": 2,
-   "safety": 2,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "state_mutation": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "class_start": 0,
-   "func_start": 3,
-   "args": 3,
-   "api": 3,
-   "doc": 0,
-   "ownership": 1,
-   "import": 1
-  },
-  "b.sol": {
-   "branch": 0,
-   "io": 0,
-   "high_risk_execution": 1,
-   "globals": 0,
-   "test": 0,
-   "safety": 0,
-   "safety_bypasses": 2,
-   "telemetry": 2,
-   "state_mutation": 3,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "class_start": 0,
-   "func_start": 3,
-   "args": 3,
-   "api": 3,
-   "doc": 0,
-   "ownership": 1,
-   "import": 1
-  },
-  "c.sol": {
-   "branch": 0,
-   "io": 0,
-   "high_risk_execution": 0,
-   "globals": 0,
-   "test": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "state_mutation": 0,
-   "cleanup": 2,
-   "fragile_debt": 1,
-   "planned_debt": 1,
-   "class_start": 0,
-   "func_start": 3,
-   "args": 3,
-   "api": 3,
-   "doc": 0,
-   "ownership": 1,
-   "import": 0
-  }
- },
- "decoys": [
-  {
-   "file": "b.sol",
-   "line_hint": "string memory note = \"plain selfdestruct decoy text\"; (probeState)",
-   "surface": "string",
-   "signals": [
-    "high_risk_execution"
-   ],
-   "outcome": "danger-only decoy (#17 redesign): \"selfdestruct\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
-  },
-  {
-   "file": "c.sol",
-   "line_hint": "uint hack_level;",
-   "surface": "code",
-   "signals": [
-    "fragile_debt"
-   ],
-   "outcome": "inert (underscore)"
-  }
- ],
- "notes": "branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). return is now tracked under structural_boundaries instead (added by #2545, solidity had no other rule capturing it). ownership 1 per file = the idiomatic // SPDX-License-Identifier line (solidity's ownership rule matches it -- every real .sol file records ownership). io is undefined for solidity (0 by absence -- its 'io' is chain interaction, counted under globals/ipc instead: msg.sender/block.number planted as globals). class_start 0 kept as tripwire (no contract declared; bare functions are broken-but-scannable). doc 2 = /// + @param on one natspec line. Locked 2026-08-31; branch re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"selfdestruct\" literal inside probeState \u2014 b.sol high_risk_execution 0->1, branch 2->0, state_mutation 9->3."
+  "decoys": [
+    {
+      "file": "b.sol",
+      "line_hint": "string memory note = \"plain selfdestruct decoy text\"; (probeState)",
+      "surface": "string",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "danger-only decoy (#17 redesign): \"selfdestruct\" COUNTS from inside the literal (+1), undampened \u2014 probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.sol",
+      "line_hint": "uint hack_level;",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (underscore)"
+    }
+  ],
+  "notes": "branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). return is now tracked under structural_boundaries instead (added by #2545, solidity had no other rule capturing it). ownership 1 per file = the idiomatic // SPDX-License-Identifier line (solidity's ownership rule matches it -- every real .sol file records ownership). io is undefined for solidity (0 by absence -- its 'io' is chain interaction, counted under globals/ipc instead: msg.sender/block.number planted as globals). class_start 0 kept as tripwire (no contract declared; bare functions are broken-but-scannable). doc 2 = /// + @param on one natspec line. Locked 2026-08-31; branch re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"selfdestruct\" literal inside probeState \u2014 b.sol high_risk_execution 0->1, branch 2->0, state_mutation 9->3. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1."
 }
