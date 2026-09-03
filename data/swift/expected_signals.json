@@ -49,7 +49,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "safety_bypasses": 0,
+      "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 2,
       "branch": 0,
@@ -92,7 +92,7 @@
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"assertionFailure\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, api 4->3, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"assertionFailure\" COUNTS from inside the literal (+1), undampened \u2014 probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, api 4->3, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.swift",
@@ -104,5 +104,5 @@
       "outcome": "inert (camelCase)"
     }
   ],
-  "notes": "branch 4 in main = if + else + guard + the guard's own else clause. Orphan->api conversion now fires on the a->b->c chain: the 2+-char _dependency_capture minimum RESOLVED via gitgalaxy#2543 ('import a' captures, popularity rises, a/c api 0->3, b 1->4; ledger swift-import-capture-min-two-chars) -- matching every sibling language. Locked from hand-verified run 2026-08-31; api re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"assertionFailure\" literal inside probeState \u2014 b.swift high_risk_execution 0->1, branch 2->0, api 4->3, state_mutation 6->2."
+  "notes": "branch 4 in main = if + else + guard + the guard's own else clause. Orphan->api conversion now fires on the a->b->c chain: the 2+-char _dependency_capture minimum RESOLVED via gitgalaxy#2543 ('import a' captures, popularity rises, a/c api 0->3, b 1->4; ledger swift-import-capture-min-two-chars) -- matching every sibling language. Locked from hand-verified run 2026-08-31; api re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"assertionFailure\" literal inside probeState \u2014 b.swift high_risk_execution 0->1, branch 2->0, api 4->3, state_mutation 6->2.  keyword-rosetta#33: probe_bypass had an empty body; planted `unowned` x2. The rule's `// swiftlint:disable` alternative is NOT usable -- comments land in comment_stream and safety_bypasses is only counted over code_stream, so that alternative can never fire."
 }

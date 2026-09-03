@@ -28,7 +28,7 @@ static Integer probeIo(Integer route) {
 }
 
 static Integer probeRisk(Integer payload) {
-    Database.query(payload);
+    String rid = '001000000000abc';
     undelete payload;
     return payload;
 }

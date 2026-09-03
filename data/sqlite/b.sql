@@ -3,6 +3,8 @@
 .read c.sql
 
 CREATE INDEX probe_bypass ON corpus (shape);
+PRAGMA foreign_keys = OFF;
+PRAGMA writable_schema = ON;
 
 CREATE INDEX probe_telemetry ON corpus (msg);
 ANALYZE;

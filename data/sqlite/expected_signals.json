@@ -1,118 +1,118 @@
 {
- "language": "sqlite",
- "tier": 1,
- "generator": "claude-sonnet-5 (hand-verified reference)",
- "files": {
-  "main.sql": {
-   "branch": 5,
-   "io": 5,
-   "high_risk_execution": 2,
-   "func_start": 4,
-   "args": 1,
-   "doc": 1,
-   "ownership": 1,
-   "import": 1,
-   "api": 0,
-   "class_start": 0,
-   "state_mutation": 0,
-   "globals": 0,
-   "test": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0
+  "language": "sqlite",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.sql": {
+      "branch": 5,
+      "io": 5,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 1,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "api": 0,
+      "class_start": 0,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "a.sql": {
+      "import": 1,
+      "func_start": 3,
+      "api": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "io": 1,
+      "args": 0,
+      "branch": 0,
+      "class_start": 0,
+      "state_mutation": 0,
+      "high_risk_execution": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "b.sql": {
+      "import": 1,
+      "func_start": 3,
+      "api": 0,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "io": 3,
+      "args": 0,
+      "branch": 0,
+      "class_start": 0,
+      "safety": 0,
+      "high_risk_execution": 1,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "safety_bypasses": 2
+    },
+    "c.sql": {
+      "import": 0,
+      "func_start": 3,
+      "api": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "args": 0,
+      "class_start": 0,
+      "branch": 0,
+      "state_mutation": 0,
+      "io": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0
+    }
   },
-  "a.sql": {
-   "import": 1,
-   "func_start": 3,
-   "api": 0,
-   "globals": 2,
-   "test": 2,
-   "safety": 2,
-   "io": 1,
-   "args": 0,
-   "branch": 0,
-   "class_start": 0,
-   "state_mutation": 0,
-   "high_risk_execution": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0
-  },
-  "b.sql": {
-   "import": 1,
-   "func_start": 3,
-   "api": 0,
-   "telemetry": 2,
-   "state_mutation": 2,
-   "io": 3,
-   "args": 0,
-   "branch": 0,
-   "class_start": 0,
-   "safety": 0,
-   "high_risk_execution": 1,
-   "test": 0,
-   "globals": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0,
-   "safety_bypasses": 0
-  },
-  "c.sql": {
-   "import": 0,
-   "func_start": 3,
-   "api": 0,
-   "cleanup": 2,
-   "fragile_debt": 1,
-   "planned_debt": 1,
-   "args": 0,
-   "class_start": 0,
-   "branch": 0,
-   "state_mutation": 0,
-   "io": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "test": 0,
-   "globals": 0,
-   "doc": 0,
-   "ownership": 0,
-   "high_risk_execution": 0
-  }
- },
- "decoys": [
-  {
-   "file": "main.sql",
-   "line_hint": "never detaches a database and no shell word",
-   "surface": "comment",
-   "signals": [
-    "cleanup",
-    "high_risk_execution"
-   ],
-   "outcome": "stripped: contributed 0"
-  },
-  {
-   "file": "b.sql",
-   "line_hint": "SELECT 'plain DROP DATABASE decoy text'; (probe_state's carrier statement)",
-   "surface": "string",
-   "signals": [
-    "high_risk_execution"
-   ],
-   "outcome": "danger-only decoy (#17 redesign, wave 3): 'DROP DATABASE' COUNTS from inside the literal (+1). sqlite's danger vocabulary is multi-word (PRAGMA legacy_alter_table | DROP DATABASE) or a line-anchored dot-command, so a single bare token cannot express it — this is the one language where the decoy needs two words. Retiring the shared sentence dropped io 5->3 (its UPDATE and SELECT both being io keywords) and state_mutation 3->2 (its UPDATE). The carrier SELECT keeps its own io hit; b.sql io 3 is now planted UPDATE + carrier SELECT + .read. Ledger: string-literal-selective-shielding"
-  },
-  {
-   "file": "c.sql",
-   "line_hint": "hack_level;",
-   "surface": "code",
-   "signals": [
-    "fragile_debt"
-   ],
-   "outcome": "inert (underscore + lowercase)"
-  }
- ],
- "notes": "functions are CREATE INDEX statements (sqlite's closest function-shaped construct per the #2513 tri-comparison precedent; 13 corpus-wide) and NO CREATE TABLE anywhere keeps class_start 0 as a live tripwire \u2014 deliberate contrast with cobol's PROGRAM-ID exception. branch 5 = one CASE expression (CASE/WHEN/THEN/ELSE/END all count \u2014 like ada/shell, syntax words inflate a single conditional). .read is dual import+io (finditer-confirmed; ledger sqlite-dot-read-dual-import-io). args 1 = the single VALUES( in main; index probes carry no args (sqlite args = placeholders/VALUES, a real morphology gap like cobol's). api = 0 planted (no views); a/b/c api 2/4/3 conversion counts are opaque (main's orphaned_logic 7 shows the orphan census includes non-function shapes; ledger orphan-conversion-opaque-counts). state 3 in b = UPDATE + SET + UPDATE-in-literal. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 \u2014 gitgalaxy#2669 A.3): danger-only 'plain DROP DATABASE decoy text' \u2014 b.sql io 5->3, state_mutation 3->2, high_risk_execution 0->1. sqlite's danger vocabulary is multi-word, so this decoy carries two words rather than one. NOTE for gitgalaxy#2669 B.4: two of the corpus-wide sqlite io hits were the decoy sentence's own UPDATE/SELECT, so the residual io deviation must be re-read after this change, not before. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology \u2014 CREATE INDEX takes no parameters, and every DML verb that could carry a placeholder or VALUES( is also an io keyword here, so each args plant would cost +1 io (ledger args-no-parameter-surface-morphology)."
+  "decoys": [
+    {
+      "file": "main.sql",
+      "line_hint": "never detaches a database and no shell word",
+      "surface": "comment",
+      "signals": [
+        "cleanup",
+        "high_risk_execution"
+      ],
+      "outcome": "stripped: contributed 0"
+    },
+    {
+      "file": "b.sql",
+      "line_hint": "SELECT 'plain DROP DATABASE decoy text'; (probe_state's carrier statement)",
+      "surface": "string",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "danger-only decoy (#17 redesign, wave 3): 'DROP DATABASE' COUNTS from inside the literal (+1). sqlite's danger vocabulary is multi-word (PRAGMA legacy_alter_table | DROP DATABASE) or a line-anchored dot-command, so a single bare token cannot express it \u2014 this is the one language where the decoy needs two words. Retiring the shared sentence dropped io 5->3 (its UPDATE and SELECT both being io keywords) and state_mutation 3->2 (its UPDATE). The carrier SELECT keeps its own io hit; b.sql io 3 is now planted UPDATE + carrier SELECT + .read. Ledger: string-literal-selective-shielding"
+    },
+    {
+      "file": "c.sql",
+      "line_hint": "hack_level;",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (underscore + lowercase)"
+    }
+  ],
+  "notes": "functions are CREATE INDEX statements (sqlite's closest function-shaped construct per the #2513 tri-comparison precedent; 13 corpus-wide) and NO CREATE TABLE anywhere keeps class_start 0 as a live tripwire \u2014 deliberate contrast with cobol's PROGRAM-ID exception. branch 5 = one CASE expression (CASE/WHEN/THEN/ELSE/END all count \u2014 like ada/shell, syntax words inflate a single conditional). .read is dual import+io (finditer-confirmed; ledger sqlite-dot-read-dual-import-io). args 1 = the single VALUES( in main; index probes carry no args (sqlite args = placeholders/VALUES, a real morphology gap like cobol's). api = 0 planted (no views); a/b/c api 2/4/3 conversion counts are opaque (main's orphaned_logic 7 shows the orphan census includes non-function shapes; ledger orphan-conversion-opaque-counts). state 3 in b = UPDATE + SET + UPDATE-in-literal. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 \u2014 gitgalaxy#2669 A.3): danger-only 'plain DROP DATABASE decoy text' \u2014 b.sql io 5->3, state_mutation 3->2, high_risk_execution 0->1. sqlite's danger vocabulary is multi-word, so this decoy carries two words rather than one. NOTE for gitgalaxy#2669 B.4: two of the corpus-wide sqlite io hits were the decoy sentence's own UPDATE/SELECT, so the residual io deviation must be re-read after this change, not before. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology \u2014 CREATE INDEX takes no parameters, and every DML verb that could carry a placeholder or VALUES( is also an io keyword here, so each args plant would cost +1 io (ledger args-no-parameter-surface-morphology).  keyword-rosetta#33: probe_bypass had no body; planted PRAGMA foreign_keys=OFF + writable_schema=ON. DROP TABLE was rejected -- sqlite's cleanup rule owns it, and cleanup is a planted signal."
 }

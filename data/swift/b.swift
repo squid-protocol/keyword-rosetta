@@ -3,6 +3,8 @@
 import c
 
 func probeBypass(_ shape: Int) -> Int {
+    unowned let raw = shape
+    unowned let alias = shape
     return shape
 }
 
