@@ -86,6 +86,22 @@ MEASURE_COLS = [
     "encapsulation_ratio",
     "popularity",
     "cog_raw",
+    # Inputs the risk_* formulas read that this report previously scored the
+    # OUTPUT of without ever measuring. `risk_documentation` and
+    # `risk_api_exposure` depend on api/encapsulation, and `risk_tech_debt` on
+    # orphaned/duplicate logic -- so 46 out-of-band risk cells could not be
+    # attributed to an upstream deviation even in principle, the same structural
+    # gap `control_flow_ratio` has with its unplanted denominator.
+    #
+    # The RAW (pre-adjustment) columns are deliberate: galaxyscope's Contextual
+    # Baseline Fix rewrites api and orphaned_logic in place for any file with
+    # popularity > 0, so the adjusted values carry the DAG's bias into a column
+    # meant to measure extraction. #2536 added these snapshots for exactly this
+    # consumer.
+    "raw_arch_api",
+    "raw_state_slop_orphans",
+    "def_encapsulation",
+    "state_slop_duplicates",
 ]
 
 # SPEC.md probe table: what every language plants, before any engine semantics.
@@ -313,6 +329,18 @@ DERIVED_INPUTS = {
 }
 
 
+# The risk formulas name their inputs with registry signal names; the recorder
+# stores several of them under different column names, and for two the RAW
+# pre-adjustment snapshot is the honest one to compare (see MEASURE_COLS).
+# Without this map the derivation edges below silently never match.
+RISK_INPUT_COLUMNS = {
+    "api": "raw_arch_api",
+    "encapsulation": "def_encapsulation",
+    "orphaned_logic": "raw_state_slop_orphans",
+    "duplicate_logic": "state_slop_duplicates",
+}
+
+
 def out_of_band_cells(metrics, languages):
     """{(metric, lang)} for every comparable cell outside the green band.
 
@@ -337,14 +365,22 @@ def out_of_band_cells(metrics, languages):
     return out
 
 
-def explain_out_of_band(metrics, languages, ledger_entries, structure):
+def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inputs=None):
     """{(metric, lang): (status, detail)} for every out-of-band cell.
 
     status is one of:
       "undefined"   -- a per-function descriptor for a language with no functions
       "ledgered"    -- a validated ledger entry names this language AND this metric
       "derived"     -- a composite whose deviation entered through an input that is
-                       itself out of band for this language
+                       itself out of band for this language. For the risk_*
+                       family the edges come from `risk_inputs`, read off the
+                       engine's own risk assembly by `_registry.risk_dependencies`
+                       rather than hand-listed -- the epic has always treated
+                       these as downstream shadows in prose ("re-baselines as
+                       upstream fixes land"); this is that statement made
+                       machine-checkable. A hand-written table went stale within
+                       a day (see DERIVED_INPUTS' own history), which is the
+                       argument for deriving these from the engine.
       "unexplained" -- survived all three; the only kind the gate fails on
     """
     validated = [e for e in ledger_entries if e.get("status") == "validated"]
@@ -363,7 +399,18 @@ def explain_out_of_band(metrics, languages, ledger_entries, structure):
         if named:
             verdicts[(metric, lang)] = ("ledgered", ", ".join(named))
             continue
-        inherited = [i for i in DERIVED_INPUTS.get(metric, ()) if (i, lang) in oob]
+        edges = DERIVED_INPUTS.get(metric)
+        if edges is None and risk_inputs:
+            spec = risk_inputs.get(metric, {})
+            # `engine` inputs (orphaned_logic, duplicate_logic, the sec_* family)
+            # are synthesized downstream of the registry, so a None rule cannot
+            # pin them -- but they are still real inputs, and two of them are now
+            # measured columns, so they belong in the derivation edges.
+            edges = tuple(
+                RISK_INPUT_COLUMNS.get(i, i)
+                for i in (*spec.get("governed", ()), *spec.get("engine", ()))
+            )
+        inherited = [i for i in (edges or ()) if (i, lang) in oob]
         if inherited:
             verdicts[(metric, lang)] = ("derived", "inherits " + ", ".join(inherited))
             continue
@@ -676,6 +723,10 @@ def main():
         "languages": languages,
         "metrics": {},
         "na": na_by_metric,
+        # E.1 follow-on: the risk_* derivation edges, read off the engine's own
+        # risk assembly at regen time so every consumer of this cache attributes
+        # downstream shadows the same way without importing the engine.
+        "risk_inputs": deps,
         # Which engine mode produced these numbers. Zero-Dependency Mode nulls the
         # network metrics, so a cache generated there is not comparable cell-for-cell
         # with one generated at full precision (rosetta: the pre-#30 report had
@@ -694,6 +745,7 @@ def main():
         cache["metrics"], languages, ledger["entries"],
         {c: dict(zip(languages, [all_struct[lang].get(c) for lang in languages]))
          for c in struct_names},
+        risk_inputs=deps,
     )
     unexplained = sorted(k for k, (st, _) in verdicts.items() if st == "unexplained")
     by_status = collections.Counter(st for st, _ in verdicts.values())

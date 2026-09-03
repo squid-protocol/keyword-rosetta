@@ -94,6 +94,7 @@ def main():
     verdicts = explain_out_of_band(
         data["metrics"], data["languages"], ledger["entries"],
         {m: data["metrics"].get(m, {}) for m in ("functions_found",)},
+        risk_inputs=data.get("risk_inputs"),
     )
 
     rows = []

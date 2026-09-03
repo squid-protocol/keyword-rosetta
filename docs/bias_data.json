@@ -1632,6 +1632,198 @@
    "yaml": 0.055,
    "zig": 0.055
   },
+  "raw_arch_api": {
+   "abap": 0,
+   "ada": 0,
+   "agc_assembly": 0,
+   "apex": 0,
+   "assembly": 0,
+   "c": 7.25,
+   "cobol": 0,
+   "cpp": 0,
+   "csharp": 0,
+   "css": 0.25,
+   "dart": 0,
+   "dockerfile": 0,
+   "embedded_python": 3.25,
+   "fortran": 3.25,
+   "go": 0,
+   "groovy": 0,
+   "haskell": 0,
+   "html": 0.25,
+   "java": 0,
+   "javascript": 0,
+   "jcl": 0,
+   "kotlin": 0,
+   "livecode": 3.25,
+   "lua": 3.25,
+   "m4": 0,
+   "makefile": 0.25,
+   "markdown": 0,
+   "matlab": 0,
+   "objective-c": 0,
+   "perl": 0,
+   "php": 0,
+   "powershell": 0,
+   "python": 3.25,
+   "ruby": 0,
+   "rust": 0,
+   "scala": 3.25,
+   "scheme": 0,
+   "shell": 0,
+   "solidity": 0,
+   "sqlite": 0,
+   "swift": 0,
+   "tcl": 0,
+   "typescript": 0,
+   "yacc": 0,
+   "yaml": 0,
+   "zig": 0
+  },
+  "raw_state_slop_orphans": {
+   "abap": 3.25,
+   "ada": 0,
+   "agc_assembly": 2.75,
+   "apex": 2.5,
+   "assembly": 2.5,
+   "c": 2.5,
+   "cobol": 3.25,
+   "cpp": 2.5,
+   "csharp": 2.5,
+   "css": 1,
+   "dart": 2.5,
+   "dockerfile": 0.25,
+   "embedded_python": 2.5,
+   "fortran": 2.5,
+   "go": 2.5,
+   "groovy": 2.5,
+   "haskell": 0,
+   "html": 0,
+   "java": 2.5,
+   "javascript": 2.5,
+   "jcl": 3.25,
+   "kotlin": 2.5,
+   "livecode": 0,
+   "lua": 2.5,
+   "m4": 3.25,
+   "makefile": 3.25,
+   "markdown": 0,
+   "matlab": 2.5,
+   "objective-c": 3.25,
+   "perl": 2.5,
+   "php": 2.5,
+   "powershell": 2.5,
+   "python": 2.5,
+   "ruby": 2.5,
+   "rust": 2.5,
+   "scala": 2.5,
+   "scheme": 3.25,
+   "shell": 2.5,
+   "solidity": 2.5,
+   "sqlite": 0,
+   "swift": 2.5,
+   "tcl": 2.5,
+   "typescript": 2.5,
+   "yacc": 3,
+   "yaml": 0,
+   "zig": 2.5
+  },
+  "def_encapsulation": {
+   "abap": 0,
+   "ada": 0,
+   "agc_assembly": 11.5,
+   "apex": 0,
+   "assembly": 0,
+   "c": 0,
+   "cobol": 0,
+   "cpp": 0,
+   "csharp": 0,
+   "css": 0.25,
+   "dart": 0,
+   "dockerfile": 0,
+   "embedded_python": 0.25,
+   "fortran": 0,
+   "go": 6.75,
+   "groovy": 0,
+   "haskell": 0,
+   "html": 0,
+   "java": 0,
+   "javascript": 0,
+   "jcl": 0,
+   "kotlin": 0,
+   "livecode": 0,
+   "lua": 0,
+   "m4": 0,
+   "makefile": 0,
+   "markdown": 0,
+   "matlab": 0,
+   "objective-c": 0,
+   "perl": 3.75,
+   "php": 0,
+   "powershell": 0,
+   "python": 0.25,
+   "ruby": 0,
+   "rust": 0,
+   "scala": 0,
+   "scheme": 0,
+   "shell": 0,
+   "solidity": 0,
+   "sqlite": 0,
+   "swift": 0,
+   "tcl": 0,
+   "typescript": 0,
+   "yacc": 0,
+   "yaml": 0,
+   "zig": 4.5
+  },
+  "state_slop_duplicates": {
+   "abap": 0,
+   "ada": 0,
+   "agc_assembly": 0,
+   "apex": 0,
+   "assembly": 0,
+   "c": 0,
+   "cobol": 0,
+   "cpp": 0,
+   "csharp": 0,
+   "css": 0,
+   "dart": 0,
+   "dockerfile": 1,
+   "embedded_python": 0,
+   "fortran": 0,
+   "go": 0,
+   "groovy": 0,
+   "haskell": 0,
+   "html": 0,
+   "java": 0,
+   "javascript": 0,
+   "jcl": 0,
+   "kotlin": 0,
+   "livecode": 0,
+   "lua": 0,
+   "m4": 0,
+   "makefile": 0,
+   "markdown": 0,
+   "matlab": 0,
+   "objective-c": 0,
+   "perl": 0,
+   "php": 0,
+   "powershell": 0,
+   "python": 0,
+   "ruby": 0,
+   "rust": 0,
+   "scala": 0,
+   "scheme": 0,
+   "shell": 0,
+   "solidity": 0,
+   "sqlite": 0,
+   "swift": 0,
+   "tcl": 0,
+   "typescript": 0,
+   "yacc": 0,
+   "yaml": 0,
+   "zig": 0
+  },
   "functions_found": {
    "abap": 13,
    "ada": 13,
@@ -2888,6 +3080,121 @@
   },
   "risk_verification": {
    "markdown": "ledgered"
+  }
+ },
+ "risk_inputs": {
+  "risk_cognitive_load": {
+   "calc": "_calc_cog_load",
+   "governed": [
+    "branch",
+    "concurrency",
+    "doc",
+    "reflection_metaprogramming",
+    "state_mutation"
+   ],
+   "engine": []
+  },
+  "risk_safety_score": {
+   "calc": "_calc_safety",
+   "governed": [
+    "doc",
+    "high_risk_execution",
+    "safety",
+    "safety_bypasses",
+    "state_mutation",
+    "test"
+   ],
+   "engine": []
+  },
+  "risk_tech_debt": {
+   "calc": "_calc_tech_debt",
+   "governed": [
+    "fragile_debt",
+    "planned_debt"
+   ],
+   "engine": [
+    "duplicate_logic",
+    "orphaned_logic"
+   ]
+  },
+  "risk_verification": {
+   "calc": "_calc_verification",
+   "governed": [
+    "high_risk_execution"
+   ],
+   "engine": []
+  },
+  "risk_api_exposure": {
+   "calc": "_calc_api_exposure",
+   "governed": [
+    "api",
+    "encapsulation"
+   ],
+   "engine": []
+  },
+  "risk_concurrency": {
+   "calc": "_calc_concurrency",
+   "governed": [
+    "concurrency",
+    "sync_locks"
+   ],
+   "engine": []
+  },
+  "risk_state_flux": {
+   "calc": "_calc_state_flux",
+   "governed": [
+    "immutability_locks",
+    "state_mutation"
+   ],
+   "engine": []
+  },
+  "risk_dead_code": {
+   "calc": "_calc_graveyard",
+   "governed": [
+    "dead_code"
+   ],
+   "engine": []
+  },
+  "risk_spec_match": {
+   "calc": "_calc_spec_alignment",
+   "governed": [
+    "class_start",
+    "func_start",
+    "spec_exposure"
+   ],
+   "engine": []
+  },
+  "risk_stability": {
+   "calc": "_calc_raw_temporal_signals",
+   "governed": [],
+   "engine": []
+  },
+  "risk_churn": {
+   "calc": null,
+   "governed": [],
+   "engine": []
+  },
+  "risk_documentation": {
+   "calc": "_calc_documentation",
+   "governed": [
+    "api",
+    "doc",
+    "ownership"
+   ],
+   "engine": []
+  },
+  "risk_secrets_risk": {
+   "calc": "_calc_secrets_risk",
+   "governed": [
+    "dead_code",
+    "debug_prints",
+    "globals",
+    "llm_api"
+   ],
+   "engine": [
+    "sec_hardcoded_secrets",
+    "sec_reflection_metaprogramming"
+   ]
   }
  },
  "engine_mode": "full-precision"
