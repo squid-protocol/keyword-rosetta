@@ -286,8 +286,24 @@ PER_FUNCTION_METRICS = frozenset({
 # here yet. It is listed with the one input the corpus does control.
 DERIVED_INPUTS = {
     "control_flow_ratio": ("branch",),
-    "cog_raw": ("branch", "args", "total_loc", "coding_loc"),
-    "structural_mass": ("branch", "args", "total_loc", "coding_loc", "func_start"),
+    # `_calc_cog_load` (signal_processor.py ~L1357) reads branch, state_mutation
+    # (as flux_density), concurrency, reflection_metaprogramming (as
+    # heat_density), LOC and func_gini. The first cut of this table listed only
+    # branch/args/LOC and so left matlab's cog_raw unexplained once the
+    # synthetic-bucket entry retired -- matlab's state_mutation is +1150% (the
+    # gitgalaxy#2654 return-convention shape), which is precisely an input
+    # deviation this table exists to attribute.
+    "cog_raw": (
+        "branch", "state_mutation", "concurrency", "reflection_metaprogramming",
+        "total_loc", "coding_loc", "func_complexity_gini",
+    ),
+    # `file_mass` (~L820), recorded as `file_impact` and read here as
+    # structural_mass: sum(per-function impacts) + api + concurrency +
+    # state_mutation + loc/50.
+    "structural_mass": (
+        "branch", "args", "api", "concurrency", "state_mutation",
+        "total_loc", "coding_loc", "func_start",
+    ),
     "avg_func_complexity": ("branch", "func_start"),
     "max_func_complexity": ("branch", "func_start"),
     "func_complexity_gini": ("branch", "func_start"),

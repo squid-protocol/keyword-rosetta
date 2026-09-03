@@ -1069,20 +1069,14 @@
     {
       "id": "synthetic-global-context-bucket-counts-as-a-function",
       "signal": "avg_func_args|avg_func_complexity|avg_func_loc|cog_raw|func_complexity_gini|func_internal_density|functions_found|max_func_complexity|structural_mass",
-      "languages_seen": [
-        "livecode",
-        "lua",
-        "matlab",
-        "ruby",
-        "shell"
-      ],
+      "languages_seen": [],
       "disposition": "upstream-bug",
       "status": "validated",
-      "verdict": "These five languages report functions_found = 16 against 13 planted. The three extra are not functions: the slicer synthesizes a __global_context__ bucket per file to hold top-level statements, and it is counted in the function population. Measured directly from the scan DB -- matlab and lua each carry exactly three __global_context__ rows in function_data alongside the 13 real probes, while python carries none. Every per-function descriptor therefore divides by 16 over a population containing three non-functions, diluting each by roughly 3/16, and cog_raw and structural_mass inherit it downstream. Same family as gitgalaxy#2547, which taught the orphan/duplicate checks to skip synthetic names via _is_synthetic_satellite_name; the per-function denominators were never given the same treatment. Filed upstream as gitgalaxy#2691 with that fix shape. Baking the current behaviour in per GATING.md rule 3 (the corpus measures what the engine does, not what it should); when #2691 lands, functions_found returns to the planted 13 and these manifests re-baseline in the same PR that flips still_reproduces.",
+      "verdict": "These five languages report functions_found = 16 against 13 planted. The three extra are not functions: the slicer synthesizes a __global_context__ bucket per file to hold top-level statements, and it is counted in the function population. Measured directly from the scan DB -- matlab and lua each carry exactly three __global_context__ rows in function_data alongside the 13 real probes, while python carries none. Every per-function descriptor therefore divides by 16 over a population containing three non-functions, diluting each by roughly 3/16, and cog_raw and structural_mass inherit it downstream. Same family as gitgalaxy#2547, which taught the orphan/duplicate checks to skip synthetic names via _is_synthetic_satellite_name; the per-function denominators were never given the same treatment. Filed upstream as gitgalaxy#2691 with that fix shape. Baking the current behaviour in per GATING.md rule 3 (the corpus measures what the engine does, not what it should); when #2691 lands, functions_found returns to the planted 13 and these manifests re-baseline in the same PR that flips still_reproduces. RESOLVED (gitgalaxy#2691, merged in gitgalaxy#2693): the engine now excludes its synthetic top-level buckets from the function population, via a `_UNCOUNTABLE_SLICE_NAMES` set narrower than the orphan check's own synthetic-name test. Verified by a fresh full-precision scan against the merged engine, not by hand: functions_found is 13 -- the planted value -- for all five languages (livecode, lua, matlab, ruby, shell), matching python. The buckets still exist and their signals are still counted at file level; only the population changed. Worth recording for whoever touches this next: the first version of the fix reused the broad orphan-check helper, which also covers \"Main\", and that removed go's real `func main()` from the count -- caught by tree-sitter accuracy at found_functions 897 -> 896.",
       "upstream_issue": "squid-protocol/gitgalaxy#2691",
       "investigated_by": "claude-opus-5",
       "validated_at": "2026-09-03",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "composite-nonlinearity-amplifies-in-band-inputs",
@@ -1095,6 +1089,7 @@
         "java",
         "javascript",
         "kotlin",
+        "lua",
         "php",
         "python",
         "rust",
@@ -1103,7 +1098,7 @@
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch, args and LOC all green -- yet whose composite is not. The cause is the formula's deliberate non-linearity (signal_processor.py ~L800): sum_function_impacts = ((branch + 1) * sqrt(args + 1) + 0.05 * min(loc, (branch + args + 1) * 10)) * 10. A product and a clamp amplify input differences too small to flag on their own, which is precisely what makes cog_raw a cognitive-load proxy rather than a count -- a linear metric would just restate its inputs. VERDICT (gitgalaxy#2689 bucket E): affirmed as intended engine semantics, not bias, so no engine change and no re-banding. Widening the band for composites was considered and rejected: it would mask real regressions later, and the amplification is the signal. Also recorded there, so it is not re-proposed: the hypothesis that the median mixes procedural and config/DSL populations was TESTED AND REJECTED -- recomputing each metric's median over procedural languages only moves the out-of-band count by 0-1 cells (cog_raw 14 -> 14, avg_func_complexity 5 -> 5, func_internal_density 5 -> 6).",
+      "verdict": "These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch, args and LOC all green -- yet whose composite is not. The cause is the formula's deliberate non-linearity (signal_processor.py ~L800): sum_function_impacts = ((branch + 1) * sqrt(args + 1) + 0.05 * min(loc, (branch + args + 1) * 10)) * 10. A product and a clamp amplify input differences too small to flag on their own, which is precisely what makes cog_raw a cognitive-load proxy rather than a count -- a linear metric would just restate its inputs. VERDICT (gitgalaxy#2689 bucket E): affirmed as intended engine semantics, not bias, so no engine change and no re-banding. Widening the band for composites was considered and rejected: it would mask real regressions later, and the amplification is the signal. Also recorded there, so it is not re-proposed: the hypothesis that the median mixes procedural and config/DSL populations was TESTED AND REJECTED -- recomputing each metric's median over procedural languages only moves the out-of-band count by 0-1 cells (cog_raw 14 -> 14, avg_func_complexity 5 -> 5, func_internal_density 5 -> 6). SCOPE EXTENSION (2026-09-03, after gitgalaxy#2691 landed): lua's structural_mass joins this entry. It was previously attributed to the synthetic-bucket shape, and when that entry retired the cell resurfaced -- correctly, because the dilution was never the whole story for lua. Re-measured against the fixed engine: functions_found is now the planted 13 and every input is in band (branch +0%, args +0%, total_loc -5%, coding_loc -5%, state_mutation +0%), yet structural_mass sits at +41%. That is this entry's mechanism exactly. matlab's cog_raw and structural_mass resurfaced at the same moment and are NOT added here: matlab's state_mutation is +1150% (gitgalaxy#2654's return-convention shape), so its composites are attributed to that input deviation instead -- which the E.1 derivation table now does automatically, once it was corrected to include the inputs `_calc_cog_load` and `file_mass` actually read.",
       "upstream_issue": "squid-protocol/gitgalaxy#2689",
       "investigated_by": "claude-opus-5",
       "validated_at": "2026-09-03",
@@ -1112,16 +1107,14 @@
     {
       "id": "ada-typed-parameter-splits-into-three-args",
       "signal": "avg_func_args",
-      "languages_seen": [
-        "ada"
-      ],
+      "languages_seen": [],
       "disposition": "upstream-bug",
       "status": "validated",
-      "verdict": "ada measures avg_func_args 3.0 against a corpus median of 1.0 (+200%) while planting exactly one parameter per probe function, like every other language. Cause traced to detector.py ~L6169: when a captured signature contains no comma the counter falls back to len(args_str.split()), a whitespace split written for Lisp/Scheme/Shell space-separated arguments. Ada's 'procedure Probe_Globals (Env : Integer)' captures 'Env : Integer', which splits into ['Env', ':', 'Integer'] -- one parameter counted as three. Confirmed per function in the scan DB: all 13 ada probes report args=3 where python's identical probes report 1. Ada is the ONLY language above the median here; the 0.825 cluster is the synthetic-bucket dilution (synthetic-global-context-bucket-counts-as-a-function) and the low outliers are args-no-parameter-surface-morphology. Multi-parameter ada is worse, not better, since Ada separates parameters with semicolons: 'X : Integer; Y : Integer' splits into six. Filed upstream as gitgalaxy#2692 with the fix shape; baking current behaviour in per GATING.md rule 3 until it lands.",
+      "verdict": "ada measures avg_func_args 3.0 against a corpus median of 1.0 (+200%) while planting exactly one parameter per probe function, like every other language. Cause traced to detector.py ~L6169: when a captured signature contains no comma the counter falls back to len(args_str.split()), a whitespace split written for Lisp/Scheme/Shell space-separated arguments. Ada's 'procedure Probe_Globals (Env : Integer)' captures 'Env : Integer', which splits into ['Env', ':', 'Integer'] -- one parameter counted as three. Confirmed per function in the scan DB: all 13 ada probes report args=3 where python's identical probes report 1. Ada is the ONLY language above the median here; the 0.825 cluster is the synthetic-bucket dilution (synthetic-global-context-bucket-counts-as-a-function) and the low outliers are args-no-parameter-surface-morphology. Multi-parameter ada is worse, not better, since Ada separates parameters with semicolons: 'X : Integer; Y : Integer' splits into six. Filed upstream as gitgalaxy#2692 with the fix shape; baking current behaviour in per GATING.md rule 3 until it lands. RESOLVED (gitgalaxy#2692, merged in gitgalaxy#2693): the comma-free argument fallback now splits on `;` first and treats a colon adjacent to whitespace as a type annotation, so a single typed parameter counts as one. Verified by fresh scan: ada avg_func_args is 1.0, exactly the corpus median and the planted value. The whitespace requirement is what preserves Lisp identifiers carrying a bare colon (`foo:bar`) as the separate arguments they are.",
       "upstream_issue": "squid-protocol/gitgalaxy#2692",
       "investigated_by": "claude-opus-5",
       "validated_at": "2026-09-03",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "function-body-length-morphology",
