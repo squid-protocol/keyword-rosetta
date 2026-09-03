@@ -19,7 +19,15 @@ n/a rows (the language's registry defines no rule for the signal -- incomparable
 not zero) are excluded from the red/amber tally; an n/a with no validated ledger
 entry recording WHY prints as an unreviewed warning instead.
 
-Exit status: 0 if every comparable metric is in-band AND no n/a cell is
+Out-of-band cells carry a verdict (gitgalaxy#2669 E.1): a red or amber cell is
+"explained" when a validated ledger entry names it, when it is a per-function
+descriptor for a language with no functions (the quotient is undefined, not
+deviant), or when it is a composite whose deviation entered through an input that
+is itself out of band. Explained cells still print -- with the reason -- but do
+not fail the gate, because the epic's close criterion is "nothing UNEXPLAINED
+remains", not "nothing deviates".
+
+Exit status: 0 if every out-of-band metric is explained AND no n/a cell is
 unreviewed, 1 otherwise -- so a sweep can be gate-checked
 (`python tools/language_deviations.py jcl && echo clean`).
 """
@@ -29,7 +37,7 @@ import pathlib
 import statistics
 import sys
 
-from bias_report import AMBER_DEV, GREEN_DEV, PLANTED
+from bias_report import AMBER_DEV, GREEN_DEV, PLANTED, explain_out_of_band
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 BIAS_DATA = REPO_ROOT / "docs" / "bias_data.json"
@@ -80,6 +88,14 @@ def main():
         sys.exit(f"unknown language {lang!r} -- not in {BIAS_DATA}")
     na = data.get("na", {})  # {metric: {lang: "ledgered"|"unreviewed"}}
 
+    # E.1: the same verdicts bias_report.py gates on, so per-language triage and
+    # the corpus-wide gate can never disagree about what is left to do.
+    ledger = json.loads((REPO_ROOT / "deviation_ledger.json").read_text())
+    verdicts = explain_out_of_band(
+        data["metrics"], data["languages"], ledger["entries"],
+        {m: data["metrics"].get(m, {}) for m in ("functions_found",)},
+    )
+
     rows = []
     for metric, values in sorted(data["metrics"].items()):
         if not isinstance(values, dict) or lang not in values:
@@ -96,12 +112,15 @@ def main():
     rows.sort(key=lambda r: (r[0][0], r[1]))
     dot = {"green": "\U0001f7e2", "amber": "\U0001f7e1", "red": "\U0001f534",
            "zero-median": "◦", "na-ledgered": "—", "na-unreviewed": "⚠"}
-    reds = ambers = comparable = unreviewed = 0
+    reds = ambers = comparable = unreviewed = explained = 0
     current_group = None
     for (gnum, gname), metric, value, median, band, dev in rows:
         if band not in ("zero-median", "na-ledgered", "na-unreviewed"):
             comparable += 1
-        if band == "red":
+        verdict = verdicts.get((metric, lang), (None, ""))[0]
+        if band in ("red", "amber") and verdict and verdict != "unexplained":
+            explained += 1
+        elif band == "red":
             reds += 1
         elif band == "amber":
             ambers += 1
@@ -134,9 +153,17 @@ def main():
             continue
         dev_txt = f"{dev:+.0%}" if dev is not None else "(median 0 -- morphology, check manifest notes)"
         planted = f"  planted={PLANTED[metric]}" if metric in PLANTED else ""
-        print(f"{dot[band]} {metric:24s} {value:>10.4g}  median {median:<10.4g} {dev_txt}{planted}")
+        status, detail = verdicts.get((metric, lang), (None, ""))
+        mark = ""
+        if status and status != "unexplained":
+            # Explained: shown, reasoned, and excluded from the gate's tally.
+            mark = f"  [{status}" + (f": {detail}" if detail else "") + "]"
+        print(f"{dot[band]} {metric:24s} {value:>10.4g}  median {median:<10.4g} {dev_txt}{planted}{mark}")
 
-    tail = f"\n{lang}: {reds} red / {ambers} amber across {comparable} comparable metrics"
+    tail = (f"\n{lang}: {reds} red / {ambers} amber UNEXPLAINED across {comparable} "
+            f"comparable metrics")
+    if explained:
+        tail += f"; {explained} further out-of-band cell(s) explained (see [tags] above)"
     if unreviewed:
         tail += f"; WARNING {unreviewed} unreviewed n/a cell(s)"
     print(tail)
