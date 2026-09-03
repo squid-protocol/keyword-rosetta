@@ -5,6 +5,13 @@ name: verify-languages
 # fresh GitGalaxy checkout. A generated language folder that passes is correct
 # by construction; one that fails is a bad generation or a real engine change —
 # either way it must not merge silently (docs/GATING.md).
+#
+# The engine is always checked out at its `main` (gitgalaxy#2682 retired the
+# committed ENGINE_REF file and the pin on the other side). A corpus PR that
+# re-blesses after an engine change therefore opens AFTER that engine PR merges,
+# and is green by construction. To verify against an unmerged engine PR in CI --
+# the rare case -- dispatch this workflow with `engine_ref=pull/<N>/head`; it is
+# a run parameter, so there is nothing committed to reset afterwards.
 
 on:
   pull_request:
@@ -12,12 +19,13 @@ on:
       - "data/**"
       - "tools/**"
       - "SPEC.md"
-      # ENGINE_REF changes what every gate builds against -- a pin-only PR
-      # (e.g. the choreography's restore-to-main step) must run the full
-      # 46-gate sweep, not merge unchecked. Found via rosetta#14: the
-      # ENGINE_REF restore after gitgalaxy#2626 triggered no checks at all.
-      - "ENGINE_REF"
+      - ".github/workflows/verify.yml"
   workflow_dispatch:
+    inputs:
+      engine_ref:
+        description: "gitgalaxy ref to verify against (main, a branch, or pull/<N>/head)"
+        required: false
+        default: "main"
 
 jobs:
   verify:
@@ -27,16 +35,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      # The engine ref to verify against lives in the committed ENGINE_REF file.
-      # Default is `main`. A corpus PR that depends on a NOT-yet-merged engine PR
-      # sets it to that PR's persistent ref (`refs/pull/<N>/head`) so this gate
-      # goes green immediately instead of sitting draft+red until the engine
-      # merges -- then resets it to `main` before (or right after) merging here.
-      # See docs/GATING.md "Cross-repo choreography".
       - name: Resolve engine ref
         id: engineref
         run: |
-          ref=$(head -1 ENGINE_REF | tr -d '[:space:]')
+          ref="${{ github.event.inputs.engine_ref || 'main' }}"
           case "$ref" in pull/*) ref="refs/$ref";; esac
           echo "ref=$ref" >> "$GITHUB_OUTPUT"
           echo "engine ref: $ref"
@@ -66,20 +68,35 @@ jobs:
             langs=$(ls data)
           else
             langs=$(git diff --name-only "origin/${{ github.base_ref }}"...HEAD -- data/ | cut -d/ -f2 | sort -u)
-            # tools/SPEC changes without data changes: re-verify everything
+            # tools/SPEC/workflow changes without data changes: re-verify everything
             if [ -z "$langs" ]; then langs=$(ls data); fi
           fi
           echo "langs=$(echo $langs | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
           echo "verifying: $langs"
 
+      # A run that verified nothing must not pass (gitgalaxy#2682): the loop
+      # counts what it actually ran, and a verifier that crashed instead of
+      # printing PASS/FAIL is a failure too, not a skipped language.
       - name: Run gates
         env:
           GITGALAXY_PATH: ${{ github.workspace }}/gitgalaxy
         run: |
-          rc=0
+          set -o pipefail
+          rc=0; checked=0; failed=""
           for L in ${{ steps.langs.outputs.langs }}; do
-            python tools/verify_language.py "$L" || rc=1
+            checked=$((checked + 1))
+            if ! python tools/verify_language.py "$L" | tee "/tmp/verify_$L.log"; then rc=1; failed="$failed $L"; fi
+            if ! grep -qE "^(PASS|FAIL) $L" "/tmp/verify_$L.log"; then
+              echo "::error::$L: verify_language.py exited without reporting PASS or FAIL -- infrastructure failure, not corpus drift"
+              rc=2
+            fi
           done
+          total=$(ls data | wc -l)
+          echo "verified $checked of $total language folders${failed:+; failed:$failed}"
+          if [ "$checked" -eq 0 ]; then
+            echo "::error::0 languages verified -- the gate did not run"
+            exit 2
+          fi
           exit $rc
 
       # Baseline-gated: fails only on unreviewed rule-absent (n/a) cells beyond

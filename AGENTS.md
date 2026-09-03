@@ -26,12 +26,12 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
    core rule.
 4. **Engine version matters.** Tools run whatever `GALAXYSCOPE_BIN` points at (default: the
    sibling gitgalaxy checkout's venv, an editable install of that checkout's current branch) —
-   but this repo's CI checks out the engine at the committed **`ENGINE_REF`**, normally `main`.
-   A corpus PR that depends on unmerged engine rules sets `ENGINE_REF` to `pull/<N>/head` so its
-   gates build against that PR immediately and go green now — no draft limbo, no post-merge
-   rerun — then resets it to `main` before merging. See `docs/GATING.md`'s "Cross-repo
-   choreography", including the table of which pin takes a ref name and which takes a full SHA:
-   they are opposite, and crossing them breaks CI silently.
+   but this repo's CI always checks out the engine at **`main`**, and gitgalaxy's `rosetta-audit`
+   always checks out this repo at **`main`**; there is no pin in either direction (gitgalaxy#2682).
+   So a corpus PR that re-blesses after an engine change opens **after** that engine PR merges,
+   and is green by construction. See `docs/GATING.md`'s "Cross-repo flow". To verify against an
+   unmerged engine PR in CI, dispatch `verify.yml` with `engine_ref=pull/<N>/head` — a run
+   parameter, nothing committed, nothing to reset.
 5. **Cross-repo PRs carry a "Cross-repo" note** (companion PR links, merge order, what re-runs
    after) — see the ecosystem doc's PR convention.
 6. **Always regenerate the bias report at full precision.** In Zero-Dependency Mode (any of
@@ -48,6 +48,11 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
    GALAXYSCOPE_BIN=<gitgalaxy>/.crucible_venvs/full_precision/bin/galaxyscope \
        GITGALAXY_PATH=<gitgalaxy> python tools/bias_report.py
    ```
+
+   You no longer have to ship the regenerated artifacts in a corpus PR: `bias-history.yml`
+   regenerates them at full precision against engine main after every push to main (and daily),
+   commits them, and keeps the *"corpus owes a re-bless against engine main"* issue in sync.
+   Regenerate locally when you want to see the effect before merging, not because CI needs it.
 
 7. **A green corpus does NOT mean a green engine golden master.** These are two different
    corpora asking two different questions. This repo's manifests pin what the engine measures
@@ -104,7 +109,7 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
 - Skills live in `.claude/skills/` (`.agents/skills` is a symlink to the same directory):
   **`rosetta-language-sweep`** — the end-to-end workflow for working one language's
   cross-language-consistency tracking issue (gitgalaxy epic #2560's children), including the
-  five-cause deviation taxonomy and the cross-repo choreography above.
+  five-cause deviation taxonomy and the cross-repo flow above.
 
 Env: `GALAXYSCOPE_BIN=<gitgalaxy>/.crucible_venvs/full_precision/bin/galaxyscope`,
 `GITGALAXY_PATH` for the registry loader (defaults to the sibling checkout). The

@@ -47,7 +47,8 @@ docs/menus/<language>.json     # generated keyword menus (regenerate, don't hand
 4. Record each deviation in `deviation_ledger.json` per `docs/GATING.md`, lock the manifest,
    and the plain `verify_language.py <language>` gate must PASS.
 5. `python tools/bias_report.py` — rebuilds the report, the variance chart, and the
-   per-language findings doc together.
+   per-language findings doc together. CI (`bias-history.yml`) does the same against engine
+   main after every merge and daily, so this step is for seeing the effect, not for CI.
 
 Tools need a GitGalaxy checkout (`GITGALAXY_PATH`, default sibling `gitgalaxy/v6`) and a
 `galaxyscope` binary (`GALAXYSCOPE_BIN`).

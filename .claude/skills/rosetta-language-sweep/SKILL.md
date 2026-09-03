@@ -21,7 +21,8 @@ the cheap classification instruments now inlined in the bucket descriptions belo
   a working engine venv: `GALAXYSCOPE_BIN=<gitgalaxy>/.crucible_venvs/full_precision/bin/galaxyscope`.
 - Know which engine build you are measuring. The verifier/bias tools run whatever
   `GALAXYSCOPE_BIN` points at (an editable install → that checkout's current branch), but this
-  repo's CI checks out gitgalaxy **main** — see "Cross-repo choreography" before opening PRs.
+  repo's CI checks out gitgalaxy **main** — so the engine PR merges before the corpus PR opens
+  (Phase 5).
 
 ## Phase 0 — read before triaging (all primary sources, no memory)
 
@@ -156,35 +157,36 @@ question — file it as a corpus issue (redesign the decoy), not a gitgalaxy iss
   every consumer), pin everything else on the specific merged engine PR, and say so in the
   corpus PR body.
 - `python tools/language_deviations.py <lang>` — the before/after for the issue update.
+- Shipping the regenerated `docs/bias_*` in the corpus PR is optional since gitgalaxy#2682:
+  `bias-history.yml` regenerates and commits them against engine main after the merge. Run
+  the regen locally to *see* the effect and attribute movers; do not run it to satisfy CI.
 
-## Phase 5 — cross-repo PR choreography (ENGINE_REF + the pinned gate)
+## Phase 5 — cross-repo PR order (no pins)
 
-Two gates hold the repos together (gitgalaxy#2557; full protocol in docs/GATING.md
-"Cross-repo choreography"): this repo's `verify.yml` checks out the engine at the committed
-**`ENGINE_REF`** file's ref, and gitgalaxy's `rosetta-audit.yml` runs this corpus (pinned via
-the `KEYWORD_ROSETTA_REF` Actions variable) against every engine PR that touches parsing code.
+Two advisory checks hold the repos together (full description in docs/GATING.md "Cross-repo
+flow"): this repo's `verify.yml` checks out engine **main**, and gitgalaxy's `rosetta-audit.yml`
+checks out this corpus at **main** and classifies each failing language as a regression the PR
+introduces or drift the corpus already carries. There is no `ENGINE_REF` and no
+`KEYWORD_ROSETTA_REF`.
 
 For a sweep that changes engine behavior:
 
-1. Open the gitgalaxy PR `N`; its `rosetta-audit` check **fails — that is expected and
-   correct** (the drift caught at the source). Never bless around it.
-2. Open this repo's corpus PR with `ENGINE_REF` set to `pull/N/head` → its gates run against
-   the engine PR's build and go green immediately. No draft, no waiting, no rerun.
-3. When the engine PR is approved: restore `ENGINE_REF` to `main` in the corpus PR, merge the
-   corpus PR, then the engine PR bumps `KEYWORD_ROSETTA_REF` to the new corpus commit and
-   merges green. (The brief window where corpus main is ahead of engine main is covered by
-   gitgalaxy's pinned gate.) After the bump, a `workflow_dispatch` of `rosetta-audit.yml` on
-   gitgalaxy main (`gh workflow run rosetta-audit.yml --ref main`) is a cheap end-to-end
-   proof the loop closed — all 46 gates against the new pin, no waiting for the next engine
-   PR to find out.
-4. `tools/na_check.py --ci` runs in both gates — a sweep that removes/nulls a rule must ship
-   the validated ledger entry in the same corpus PR, or shrink `docs/na_baseline.json` via
+1. Open the gitgalaxy PR `N`. Its `rosetta-audit` **names the languages it moves — expected and
+   correct.** Add the `rosetta:rebless-owed` label so the check goes green with those languages
+   still listed in its summary; never bless around it. The user merges.
+2. Open this repo's corpus PR against engine main: manifests + ledger. `verify.yml` is green by
+   construction. Merge. `bias-history.yml` regenerates the chart and closes the *"corpus owes a
+   re-bless"* issue it opened for those languages.
+3. `tools/na_check.py --ci` runs in both checks — a sweep that removes/nulls a rule must ship
+   the validated ledger entry in the corpus PR, or shrink `docs/na_baseline.json` via
    `--regenerate` only for cells actually reviewed.
 
 Also still true: verify locally against the engine branch anytime via `GALAXYSCOPE_BIN` —
-CI choreography never blocks local iteration. **A PR touching only `tools/` runs ALL 46
-gates** (no data diff → full sweep), which is by design: it is how stale baselines from
-already-merged engine changes get caught (the cobol #2552/#2538 case).
+CI never blocks local iteration — and `gh workflow run verify.yml -f engine_ref=pull/N/head`
+runs this repo's full sweep against an unmerged engine PR when you want CI proof early.
+**A PR touching only `tools/` runs ALL 46 gates** (no data diff → full sweep), which is by
+design: it is how stale baselines from already-merged engine changes get caught (the cobol
+#2552/#2538 case), alongside the daily `bias-history` run.
 
 ## Phase 6 — close out
 
@@ -209,7 +211,9 @@ already-merged engine changes get caught (the cobol #2552/#2538 case).
       re-blessed with an expected-shape diff; crucible_check + audit_check clean
 - [ ] Corpus: shells committed BEFORE `--report`; every delta accounted; manifest notes updated;
       ledger entry validated with evidence; gate PASS
-- [ ] `bias_report.py` regenerated; only the swept language (+ medians) moved
-- [ ] PRs sequenced: engine PR green → user merges → rerun corpus CI → un-draft
+- [ ] `bias_report.py` run locally; only the swept language (+ medians) moved (shipping the
+      regenerated docs is optional — `bias-history.yml` does it after merge)
+- [ ] PRs sequenced: engine PR labelled `rosetta:rebless-owed` if it moves the corpus → user
+      merges → corpus PR against engine main → merge
 - [ ] Issue comment posted; epic checkbox state checked; language_status §10 capstone written
 - [ ] Memory/notes updated with any new engine facts discovered
