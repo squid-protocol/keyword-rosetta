@@ -23,6 +23,7 @@ the scan DB's repo_data.is_zero_dependency_mode, recorded in docs/bias_data.json
         python tools/bias_report.py
 """
 
+import collections
 import json
 import math
 import pathlib
@@ -249,6 +250,111 @@ def classify_na(ledger_entries, na_map):
     return out
 
 
+# ==============================================================================
+# E.1 (gitgalaxy#2669): WHEN IS AN OUT-OF-BAND CELL "EXPLAINED"?
+# ==============================================================================
+# An out-of-band cell is not automatically a defect. gitgalaxy#2689's measurement
+# of the shape-descriptor family found three mechanisms that make a red or amber
+# cell already-accounted-for, and only what survives all three is a real finding.
+# The epic's close criterion is "no UNEXPLAINED out-of-band cells", not "no
+# out-of-band cells", so this is what the gate has to count.
+
+# Descriptors that divide by the function count. When a language has no functions
+# at all the quotient is undefined, not deviant -- markdown and html record
+# functions_found = 0 and every one of these lands red against a median built from
+# languages that do have functions. docs/GATING.md already draws this line one
+# layer over: a cell is n/a BECAUSE the rule is None.
+PER_FUNCTION_METRICS = frozenset({
+    "avg_func_complexity",
+    "avg_func_loc",
+    "avg_func_args",
+    "max_func_complexity",
+    "func_complexity_gini",
+    "func_internal_density",
+})
+
+# Composite metrics and the measured inputs they are built from, so a deviation
+# that entered through an input is not counted a second time as its own finding.
+# Sources, so this stays checkable against the engine rather than drifting:
+#   control_flow_ratio  detector.py  ~L1288  branch / (branch + structural_boundaries)
+#   cog_raw             signal_processor.py ~L800  ((branch+1) * sqrt(args+1)
+#                                                   + 0.05 * min(loc, (signals+1)*10)) * 10
+#   the avg_/max_/gini/density family  per-function aggregates of the same inputs
+# NOTE (gitgalaxy#2689 bucket B): control_flow_ratio's other input,
+# structural_boundaries, is not in this table because the corpus never plants,
+# gates or reports it -- which is exactly why that metric cannot be validated
+# here yet. It is listed with the one input the corpus does control.
+DERIVED_INPUTS = {
+    "control_flow_ratio": ("branch",),
+    "cog_raw": ("branch", "args", "total_loc", "coding_loc"),
+    "structural_mass": ("branch", "args", "total_loc", "coding_loc", "func_start"),
+    "avg_func_complexity": ("branch", "func_start"),
+    "max_func_complexity": ("branch", "func_start"),
+    "func_complexity_gini": ("branch", "func_start"),
+    "avg_func_loc": ("total_loc", "coding_loc", "func_start"),
+    "avg_func_args": ("args", "func_start"),
+    "func_internal_density": ("branch", "args", "func_start"),
+}
+
+
+def out_of_band_cells(metrics, languages):
+    """{(metric, lang)} for every comparable cell outside the green band.
+
+    Mirrors _row_stats' banding: a zero median is scored on exact agreement, so a
+    nonzero value there is out of band and everything else is in.
+    """
+    out = set()
+    for metric, values in metrics.items():
+        nums = [v for v in (values.get(lang) for lang in languages) if isinstance(v, (int, float))]
+        if not nums:
+            continue
+        med = statistics.median(nums)
+        for lang in languages:
+            v = values.get(lang)
+            if not isinstance(v, (int, float)):
+                continue
+            if med == 0:
+                if v != 0:
+                    out.add((metric, lang))
+            elif abs((v - med) / med) > GREEN_DEV:
+                out.add((metric, lang))
+    return out
+
+
+def explain_out_of_band(metrics, languages, ledger_entries, structure):
+    """{(metric, lang): (status, detail)} for every out-of-band cell.
+
+    status is one of:
+      "undefined"   -- a per-function descriptor for a language with no functions
+      "ledgered"    -- a validated ledger entry names this language AND this metric
+      "derived"     -- a composite whose deviation entered through an input that is
+                       itself out of band for this language
+      "unexplained" -- survived all three; the only kind the gate fails on
+    """
+    validated = [e for e in ledger_entries if e.get("status") == "validated"]
+    oob = out_of_band_cells(metrics, languages)
+    verdicts = {}
+    for metric, lang in sorted(oob):
+        funcs = (structure.get("functions_found") or {}).get(lang)
+        if metric in PER_FUNCTION_METRICS and funcs == 0:
+            verdicts[(metric, lang)] = ("undefined", "language records no functions")
+            continue
+        named = [
+            e["id"] for e in validated
+            if lang in e.get("languages_seen", [])
+            and metric in (e.get("signal") or "").split("|")
+        ]
+        if named:
+            verdicts[(metric, lang)] = ("ledgered", ", ".join(named))
+            continue
+        inherited = [i for i in DERIVED_INPUTS.get(metric, ()) if (i, lang) in oob]
+        if inherited:
+            verdicts[(metric, lang)] = ("derived", "inherits " + ", ".join(inherited))
+            continue
+        verdicts[(metric, lang)] = ("unexplained", "")
+    return verdicts
+
+
 def unmeasurable_risk_cells(deps, definitions, observed):
     """n/a cells among the DERIVED risk_* metrics, plus the mismatches found.
 
@@ -429,6 +535,9 @@ def main():
     # Full precision is the contract (AGENTS.md, and verify.yml installs all six deps);
     # the escape hatch exists so a degraded engine can still be investigated on purpose.
     allow_zero_dependency = "--allow-zero-dependency" in sys.argv
+    # E.1: the epic close criterion. Off by default so a routine regen still
+    # writes its artifacts and exits 0; CI and the epic gate pass --gate.
+    gate = "--gate" in sys.argv
     languages = sorted(
         p.parent.name for p in (REPO_ROOT / "data").glob("*/expected_signals.json")
     )
@@ -564,6 +673,15 @@ def main():
         json.dumps(cache, indent=1) + "\n"
     )
 
+    # E.1 (gitgalaxy#2669): which out-of-band cells are already accounted for.
+    verdicts = explain_out_of_band(
+        cache["metrics"], languages, ledger["entries"],
+        {c: dict(zip(languages, [all_struct[lang].get(c) for lang in languages]))
+         for c in struct_names},
+    )
+    unexplained = sorted(k for k, (st, _) in verdicts.items() if st == "unexplained")
+    by_status = collections.Counter(st for st, _ in verdicts.values())
+
     shares, skipped, inert, agreement = write_variance_chart(
         groups, len(languages), na_by_metric
     )
@@ -653,6 +771,29 @@ def main():
             + ", ".join(f"`{x}`" for x in unreviewed) + ".",
             "",
         ]
+
+    lines += ["## Out-of-band cells: explained vs. unexplained", "",
+              "An out-of-band cell is not automatically a defect. Three mechanisms account for one "
+              "without anything being wrong with the engine, and the epic's close criterion is that "
+              "nothing survives all three (`--gate` exits nonzero while anything does).", "",
+              "| verdict | cells | meaning |",
+              "|---|---|---|",
+              f"| undefined | {by_status.get('undefined', 0)} | a per-function descriptor for a "
+              "language with no functions -- the quotient has no value, it is not a deviation |",
+              f"| ledgered | {by_status.get('ledgered', 0)} | a validated deviation-ledger entry "
+              "names this language and this metric |",
+              f"| derived | {by_status.get('derived', 0)} | a composite whose deviation entered "
+              "through an input that is itself out of band, so it is the same finding counted twice |",
+              f"| **unexplained** | **{len(unexplained)}** | **survived all three -- the real work "
+              "remaining** |",
+              ""]
+    if unexplained:
+        shown = collections.defaultdict(list)
+        for metric, lang in unexplained:
+            shown[metric].append(lang)
+        lines += ["Unexplained cells, by metric:", ""]
+        lines += [f"- `{m}` — {', '.join(sorted(langs))}" for m, langs in sorted(shown.items())]
+        lines += [""]
 
     lines += ["## Cross-language variance chart", "",
               "![variance chart](bias_variance_chart.svg)", "",
@@ -745,6 +886,14 @@ def main():
 
     import findings_report
     findings_report.generate()
+    print(
+        f"out-of-band cells: {len(unexplained)} unexplained "
+        f"({by_status.get('undefined', 0)} undefined, {by_status.get('ledgered', 0)} ledgered, "
+        f"{by_status.get('derived', 0)} derived)"
+    )
+    if gate and unexplained:
+        print("--gate: unexplained out-of-band cells remain; epic close criterion not met")
+        return 1
     return 0
 
 

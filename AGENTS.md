@@ -79,6 +79,23 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
 - `tools/language_deviations.py <lang>` — vs-median band table from the cached
   `docs/bias_data.json` (run `tools/bias_report.py` to refresh the cache; it rescans all 46
   languages and regenerates the report/chart/findings docs).
+- **An out-of-band cell is not automatically a defect** (gitgalaxy#2669 E.1). Both tools
+  tag each red/amber cell with a verdict, and only `unexplained` counts as work remaining:
+  - `ledgered` — a validated `deviation_ledger.json` entry names this language *and* this
+    metric (its `signal` field is the `|`-joined list normalised in Batch A.4);
+  - `undefined` — a per-function descriptor (`avg_func_*`, `max_func_complexity`,
+    `func_complexity_gini`, `func_internal_density`) for a language with
+    `functions_found = 0`; the quotient has no value, the same way `docs/GATING.md` treats
+    a `None` rule as `n/a` rather than as a zero;
+  - `derived` — a composite (`cog_raw`, `structural_mass`, `control_flow_ratio`, the
+    per-function family) whose deviation entered through an input that is itself out of
+    band, so counting it again is counting one finding twice. The metric→inputs table is
+    `DERIVED_INPUTS` in `bias_report.py`, with the engine formula each row came from cited
+    beside it — check it against the engine when a formula changes.
+
+  `tools/bias_report.py --gate` exits nonzero while any cell is unexplained: that is the
+  epic close criterion, and it is off by default so a routine regen still writes its
+  artifacts and exits 0. `language_deviations.py` fails per-language on the same basis.
 - Skills live in `.claude/skills/` (`.agents/skills` is a symlink to the same directory):
   **`rosetta-language-sweep`** — the end-to-end workflow for working one language's
   cross-language-consistency tracking issue (gitgalaxy epic #2560's children), including the
