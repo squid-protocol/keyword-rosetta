@@ -56,12 +56,12 @@ occurrence — a shape appearing in 30 languages is one systematic cause, not 30
 
 ## Relationship to gitgalaxy's own gates
 
-This corpus sits *outside* gitgalaxy's CI today. The eventual integration (issue #1096
-Phase 5) is a pinned-tag arrangement like the language-crucible's `LANGUAGE_CRUCIBLE_REF`:
-gitgalaxy CI runs `verify_language.py` across the corpus at a pinned tag, and an engine PR
-that changes corpus-observed counts must update the manifests + ledger here (cross-repo,
-same as `RELEASING.md` golden-master steps). Until then, the gate is enforced by review
-discipline plus the verifier.
+This corpus is inside gitgalaxy's CI: its `rosetta-audit` check runs `verify_language.py`
+across every folder here (at this repo's `main`) against each engine PR's build, and reports
+which languages that build moves — modelled on gitgalaxy's tri-comparison audit, and like it
+advisory and baseline-gated. An engine PR that changes corpus-observed counts merges first;
+the manifests + ledger here are re-blessed against engine main afterwards. See "Cross-repo
+flow" below.
 
 ## Working a per-language tracking issue
 
@@ -163,58 +163,47 @@ cross-language question. `risk_churn` (a hardcoded `0.0` in the risk assembly) a
 100% and folded into the headline average, inflating it. They are now reported as **inert**
 and excluded from the average, alongside the separate "no comparable median" list.
 
-## Cross-repo choreography (ENGINE_REF + the gitgalaxy-side pin)
+## Cross-repo flow (no pins)
 
-Two CI gates hold the corpus and the engine together (gitgalaxy#2557), asymmetrically pinned:
+Two CI checks hold the corpus and the engine together, symmetrically and without pins
+(gitgalaxy#2557, simplified by gitgalaxy#2682):
 
-- **This repo's `verify.yml`** checks out the engine at the ref in the committed **`ENGINE_REF`**
-  file — normally `main`. A corpus PR that depends on a not-yet-merged engine PR sets it to that
-  PR's persistent ref (`pull/<N>/head`), so the gate runs against the right engine immediately —
-  no draft-PR limbo, no post-merge rerun. Reset it to `main` before merging here (the engine PR
-  should merge first; the reset is part of the same corpus PR's final state).
-- **gitgalaxy's `rosetta-audit.yml`** checks out THIS repo at the pinned `KEYWORD_ROSETTA_REF`
-  Actions variable and runs every language gate plus `tools/na_check.py --ci` against the engine
-  PR's build — so an engine change that shifts corpus-observed counts, or removes a rule without
-  a ledger entry, fails **at the source**, in the PR that caused it, not days later here.
+- **This repo's `verify.yml`** checks out the engine at **`main`** and runs the gates for the
+  languages a PR touches (all of them for a tools/SPEC change or a dispatch).
+- **gitgalaxy's `rosetta-audit.yml`** checks out THIS repo at **`main`** and runs every gate
+  against the engine PR's build, then re-runs anything that failed against engine main. A
+  language that fails on both is *pre-existing drift* (this corpus has not caught up yet) and
+  is a notice; one that fails only on the PR is a *regression* that PR introduces.
 
-### The two pins take OPPOSITE formats — do not cross them
+Neither repo requires a status check to merge; both checks are advisory. That is what makes
+the flow a straight line:
 
-| | lives in | format | resolved by |
-|---|---|---|---|
-| **`ENGINE_REF`** | a committed file in this repo | a **ref name** — `main` or `pull/<N>/head` | `verify.yml` prepends `refs/`, then `actions/checkout` |
-| **`KEYWORD_ROSETTA_REF`** | a GitHub Actions variable in gitgalaxy | a **full 40-character SHA** | `actions/checkout` directly |
+1. **Engine PR `N` merges first.** Its `rosetta-audit` names the languages it moves. If that is
+   intended, the author adds the `rosetta:rebless-owed` label (regressions become warnings)
+   and merges. Nothing in this repo is edited beforehand.
+2. **Corpus re-bless PR here, against engine main:** manifests + ledger per step 4 of the
+   lifecycle above. `verify.yml` is green by construction once the numbers are right.
+3. **Merge it.** `bias-history.yml` regenerates the report, chart, cache and findings doc and
+   commits them; nothing to pin, nothing to reset.
 
-`actions/checkout` treats a 40-char hex string as a commit SHA and anything shorter as a ref
-name, which is why the gitgalaxy-side pin must be the full SHA (see that repo's
-`docs/self_scan/BUMPING_THE_ROSETTA_PIN.md`; an abbreviated one took `rosetta-audit` down on
-2026-09-02). The rule does **not** transfer here. `ENGINE_REF` is deliberately a *moving* ref:
-`pull/<N>/head` tracks the engine PR's head commit, so every push to that PR re-runs this
-repo's gates against the newest engine build automatically. Pinning a SHA there freezes the
-corpus gate to one commit and silently stops tracking the PR.
+Between steps 1 and 2, `bias-history.yml` (daily, and on every corpus push) keeps one issue,
+*"corpus owes a re-bless against engine main"*, open with the failing languages. Unrelated
+engine PRs stay green during that window because their audit classifies the drift as
+pre-existing.
 
-`verify.yml` reads it as `head -1 ENGINE_REF | tr -d '[:space:]'`, then normalises a leading
-`pull/` to `refs/pull/`, so both `pull/N/head` and `refs/pull/N/head` work. One line, no
-trailing content.
+**What was retired, and why.** Until 2026-09-03 this repo carried a committed `ENGINE_REF`
+file pointing `verify.yml` at an engine ref, and gitgalaxy pinned this repo by a
+`KEYWORD_ROSETTA_REF` SHA variable. The two pins pointed at each other: the corpus PR needed
+`ENGINE_REF=pull/N/head` to pass, had to be back on `main` before merging, and then failed
+against `main` because the engine PR was not in it yet, while the engine PR waited for a
+corpus SHA that only existed after that merge. No ordering satisfied all three; in practice
+the corpus merged with a knowingly wrong ref and owed a reset nothing enforced
+(keyword-rosetta#39 was a PR whose only content was that reset). Both pins were only ever
+making an advisory check green before a merge that happened anyway, so both are gone.
 
-**Check it actually took.** A malformed `ENGINE_REF` fails at checkout, which looks identical
-to a real gate failure in the checks list. `verify.yml` echoes the ref it resolved:
-
-```sh
-gh run view <run-id> --log | grep 'engine ref:'    # -> engine ref: refs/pull/2681/head
-```
-
-The full flow for an intentional count-changing engine fix:
-
-1. Engine PR `N` opens in gitgalaxy → its `rosetta-audit` fails (expected — that's the gate
-   catching the drift at the source).
-2. Corpus re-baseline PR here: manifests + ledger per this doc's step 4, with `ENGINE_REF` set
-   to `pull/N/head` so this repo's gates build against the unmerged engine PR and go green now.
-3. Once engine PR `N` is approved, flip `ENGINE_REF` back to `main` in this same corpus PR and
-   merge it. This repo's main then briefly floats ahead of engine main — that window is exactly
-   what gitgalaxy's pinned `KEYWORD_ROSETTA_REF` gate covers, since the engine PR is still
-   pinned to the *old* corpus commit until step 4.
-4. Engine PR `N` bumps `KEYWORD_ROSETTA_REF` to this repo's new commit → `rosetta-audit` green
-   → merge.
+**Verifying against an unmerged engine PR** is still possible, as a run parameter rather than
+a committed file: `gh workflow run verify.yml -f engine_ref=pull/<N>/head` (or locally, point
+`GALAXYSCOPE_BIN` at that branch's build). There is nothing to reset afterwards.
 
 `tools/na_check.py` is the n/a governance gate (see "n/a semantics" above): baseline-gated on
 `docs/na_baseline.json`, it fails only on NEW unreviewed rule absences. Shrink the baseline with

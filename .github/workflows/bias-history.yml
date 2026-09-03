@@ -1,0 +1,180 @@
+name: bias-history
+
+# Push-to-main companion to verify.yml, the twin of gitgalaxy's
+# tri-comparison-history.yml (gitgalaxy#2682). verify.yml only ever MEASURES a
+# PR; this workflow keeps the published bias artifacts current by itself, so a
+# corpus PR no longer has to regenerate them by hand, and an engine merge that
+# moves the corpus is noticed within a day instead of on the next unrelated PR.
+#
+# What it does, against gitgalaxy MAIN at full precision:
+#   1. runs every language gate and records which languages the corpus currently
+#      fails against the engine -- the "re-bless owed" list;
+#   2. regenerates docs/bias_report.md, docs/bias_variance_chart.svg,
+#      docs/bias_data.json and docs/findings_by_language.md via tools/bias_report.py
+#      and commits them straight to main if anything changed;
+#   3. keeps exactly one open issue titled "corpus owes a re-bless" in sync with
+#      the list from step 1 -- opened/updated while languages fail, closed when
+#      the corpus is green again.
+#
+# It NEVER touches data/**/expected_signals.json or deviation_ledger.json: those
+# stay human-blessed under docs/GATING.md, exactly as tri-comparison-history
+# never touches gitgalaxy's tests/tri_comparison_baseline_*.json.
+#
+# Why a direct commit rather than an auto-merged PR: this repo has no automation
+# PAT and "Allow GitHub Actions to create and approve pull requests" is off, so
+# the workflow token cannot open one. A token push never re-triggers workflows,
+# so there is no loop to guard against either. Same mechanism squid-telemetry
+# uses for its daily chart renders.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "deviation_ledger.json"
+      - "tools/**"
+      - "SPEC.md"
+      - ".github/workflows/bias-history.yml"
+  schedule:
+    # Daily: catches engine merges, which this repo cannot see as events.
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Regenerate and report, but do not push or touch the issue"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: bias-history
+  cancel-in-progress: false
+
+jobs:
+  bias-history:
+    runs-on: ubuntu-latest
+    env:
+      DRY_RUN: ${{ github.event.inputs.dry_run == 'true' }}
+      ISSUE_TITLE: "corpus owes a re-bless against engine main"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: squid-protocol/gitgalaxy
+          ref: main
+          path: gitgalaxy
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install GitGalaxy (full precision)
+        run: |
+          pip install networkx tiktoken numpy pandas xgboost pyyaml
+          pip install -e ./gitgalaxy
+
+      - name: Record the engine commit
+        id: engine
+        run: |
+          sha=$(git -C gitgalaxy rev-parse HEAD)
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "short=${sha:0:7}" >> "$GITHUB_OUTPUT"
+          echo "engine main: $sha"
+
+      # Does not fail the job: a failing language here is the corpus owing a
+      # re-bless, which is exactly what step 3 reports. A verifier that never
+      # printed PASS/FAIL, or a run that checked nothing, DOES fail -- that is a
+      # broken audit, and the report must not be regenerated on top of it.
+      - name: Run all language gates against engine main
+        id: gates
+        env:
+          GITGALAXY_PATH: ${{ github.workspace }}/gitgalaxy
+        run: |
+          checked=0; failed=""; broken=0
+          for d in data/*/; do
+            L=$(basename "$d")
+            [ -f "$d/expected_signals.json" ] || continue
+            checked=$((checked + 1))
+            python tools/verify_language.py "$L" > "/tmp/verify_$L.log" 2>&1 || failed="$failed $L"
+            if ! grep -qE "^(PASS|FAIL) $L" "/tmp/verify_$L.log"; then
+              echo "::error::$L: verify_language.py exited without reporting PASS or FAIL"
+              tail -20 "/tmp/verify_$L.log"
+              broken=$((broken + 1))
+            fi
+          done
+          failed=$(echo $failed)
+          echo "checked=$checked" >> "$GITHUB_OUTPUT"
+          echo "failed=$failed" >> "$GITHUB_OUTPUT"
+          echo "verified $checked language folders; failing against engine main: ${failed:-none}"
+          if [ "$checked" -eq 0 ] || [ "$broken" -ne 0 ]; then
+            echo "::error::audit did not run cleanly (checked=$checked, broken=$broken)"
+            exit 2
+          fi
+          for L in $failed; do echo "--- $L"; grep -E "^  - " "/tmp/verify_$L.log" | head -20; done
+
+      - name: Regenerate the bias report, chart, cache and findings
+        env:
+          GITGALAXY_PATH: ${{ github.workspace }}/gitgalaxy
+        run: python tools/bias_report.py
+
+      - name: Commit regenerated artifacts to main
+        run: |
+          git add docs/bias_report.md docs/bias_variance_chart.svg docs/bias_data.json docs/findings_by_language.md
+          if git diff --cached --quiet; then
+            echo "no artifact changed -- nothing to commit"
+            exit 0
+          fi
+          git --no-pager diff --cached --stat
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "dry run: not pushing"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "docs: auto-update bias report (engine ${{ steps.engine.outputs.short }})" \
+            -m "Regenerated by bias-history.yml against squid-protocol/gitgalaxy@${{ steps.engine.outputs.sha }}. Manifests and the ledger are untouched."
+          git push origin HEAD:main
+
+      # One issue, kept in sync. Found by exact title so nothing stored can go stale.
+      - name: Sync the "re-bless owed" issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FAILED: ${{ steps.gates.outputs.failed }}
+          CHECKED: ${{ steps.gates.outputs.checked }}
+          ENGINE_SHA: ${{ steps.engine.outputs.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          existing=$(gh issue list --state open --search "\"$ISSUE_TITLE\" in:title" --json number,title \
+            --jq ".[] | select(.title == \"$ISSUE_TITLE\") | .number" | head -1)
+          short="${ENGINE_SHA:0:7}"
+          if [ -n "$FAILED" ]; then
+            n=$(echo $FAILED | wc -w)
+            langs=$(for L in $FAILED; do printf '`%s` ' "$L"; done)
+            cat > /tmp/issue_body.md <<EOF
+          The corpus fails **$n of $CHECKED** language gates against engine main \`$short\` (squid-protocol/gitgalaxy@$ENGINE_SHA).
+
+          Languages: $langs
+
+          Each needs a re-bless PR here per \`docs/GATING.md\` (manifest + validated ledger entry), opened against engine main -- \`verify.yml\` is green by construction once the numbers are right. The engine PR that moved them has already merged; there is nothing to pin.
+
+          Details in the [bias-history run]($RUN_URL). This issue is maintained by that workflow: it updates while languages fail and closes itself when the corpus is green again.
+          EOF
+            if [ "$DRY_RUN" = "true" ]; then echo "dry run: would open/update issue:"; cat /tmp/issue_body.md; exit 0; fi
+            if [ -n "$existing" ]; then
+              gh issue edit "$existing" --body-file /tmp/issue_body.md
+              gh issue comment "$existing" --body "Still owed against engine \`$short\`: $(echo $FAILED | sed 's/ /, /g') ([run]($RUN_URL))"
+            else
+              gh issue create --title "$ISSUE_TITLE" --body-file /tmp/issue_body.md
+            fi
+          elif [ -n "$existing" ]; then
+            if [ "$DRY_RUN" = "true" ]; then echo "dry run: would close #$existing"; exit 0; fi
+            gh issue close "$existing" --comment "All $CHECKED language gates pass against engine \`$short\` ([run]($RUN_URL)). Closing."
+          else
+            echo "corpus is green against engine main; no issue to maintain"
+          fi
