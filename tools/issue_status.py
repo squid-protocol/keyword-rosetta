@@ -31,7 +31,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from bias_report import CONTEXT_METRICS, GREEN_DEV, explain_out_of_band  # noqa: E402
+from bias_report import CONTEXT_METRICS, GREEN_DEV, explain_out_of_band, reference_medians  # noqa: E402
 from language_deviations import STRUCTURE_METRICS, classify, group_of  # noqa: E402
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -51,24 +51,30 @@ def build(lang, data, ledger):
     """Returns (markdown, is_clean) for one language."""
     metrics = data["metrics"]
     na = data.get("na", {})
+    tiers = data.get("tiers") or {}
+    tier_sensitive = data.get("tier_sensitive") or []
+    ungated = set(data.get("ungated_metrics") or CONTEXT_METRICS)
+    refs = reference_medians(metrics, data["languages"], tiers, tier_sensitive)
     verdicts = explain_out_of_band(
         metrics, data["languages"], ledger["entries"],
         {"functions_found": metrics.get("functions_found", {})},
-        risk_inputs=data.get("risk_inputs"),
+        risk_inputs=data.get("risk_inputs"), tiers=tiers, tier_sensitive=tier_sensitive,
+        ungated=ungated,
     )
 
     rows, unreviewed, context = [], [], []
     for metric, values in sorted(metrics.items()):
         if not isinstance(values, dict) or lang not in values:
             continue
-        if metric in CONTEXT_METRICS:
-            # F.1: program length is reported, never gated -- it neither counts
-            # against the language nor needs a verdict.
-            nums = [v for v in values.values() if isinstance(v, (int, float))]
-            if isinstance(values[lang], (int, float)) and nums:
-                band, dev = classify(values[lang], statistics.median(nums))
-                if band in ("red", "amber"):
-                    context.append((metric, values[lang], statistics.median(nums), dev))
+        if metric in ungated:
+            # F.1/F.3: length, unplanted inputs and temporal columns are reported,
+            # never gated -- they neither count against the language nor need a
+            # verdict.
+            med = refs.get(metric, {}).get(lang)
+            if isinstance(values[lang], (int, float)) and med is not None:
+                band, dev = classify(values[lang], med)
+                if band in ("red", "amber", "zero-median"):
+                    context.append((metric, values[lang], med, dev))
             continue
         state = na.get(metric, {}).get(lang)
         if state:
@@ -77,11 +83,13 @@ def build(lang, data, ledger):
             continue
         if values[lang] is None:
             continue
-        nums = [v for v in values.values() if isinstance(v, (int, float))]
-        band, dev = classify(values[lang], statistics.median(nums))
+        med = refs.get(metric, {}).get(lang)
+        if med is None:
+            continue
+        band, dev = classify(values[lang], med)
         if band in ("red", "amber"):
             status = verdicts.get((metric, lang), ("unexplained", ""))
-            rows.append((metric, values[lang], statistics.median(nums), dev, band, status))
+            rows.append((metric, values[lang], med, dev, band, status))
 
     unexplained = [r for r in rows if r[5][0] == "unexplained"]
     explained = [r for r in rows if r[5][0] != "unexplained"]
@@ -132,11 +140,11 @@ def build(lang, data, ledger):
 
     if context:
         out.append(
-            "**Program length (context, not gated):** "
-            + ", ".join(f"`{m}` {v:.4g} vs median {med:.4g} ({dev:+.0%})"
+            "**Reported, not gated** (program length, unplanted risk inputs, commit age -- "
+            "gitgalaxy#2669 F.1/F.3): "
+            + ", ".join(f"`{m}` {v:.4g} vs median {med:.4g}" + (f" ({dev:+.0%})" if dev is not None else "")
                         for m, v, med, dev in context)
-            + " — how long this language's shell came out, which the SPEC does not plant "
-            "(gitgalaxy#2669 F.1); shown for orientation only."
+            + ". None of these is a planted signal; a derived risk cell above may inherit from one."
         )
         out.append("")
 

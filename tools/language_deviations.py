@@ -44,7 +44,9 @@ from bias_report import (
     CONTEXT_METRICS,
     GREEN_DEV,
     PLANTED,
+    TEMPORAL_METRICS,
     explain_out_of_band,
+    reference_medians,
 )
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -76,10 +78,15 @@ def classify(value, median):
     return "red", dev
 
 
-def group_of(metric):
+def group_of(metric, ungated=()):
     if metric in CONTEXT_METRICS:
         # F.1 (gitgalaxy#2669): program length is reported, never gated.
         return 4, "program length (context -- reported, not gated)"
+    if metric in TEMPORAL_METRICS:
+        return 6, "temporal (commit age -- reported, not gated)"
+    if metric in ungated:
+        # F.3: registry signals the risk formulas read but the SPEC never plants.
+        return 5, "unplanted risk inputs (reported, not gated)"
     if metric.startswith("risk_"):
         return 3, "risk (downstream -- re-baselines as upstream fixes land)"
     if metric in STRUCTURE_METRICS:
@@ -102,10 +109,18 @@ def main():
     # E.1: the same verdicts bias_report.py gates on, so per-language triage and
     # the corpus-wide gate can never disagree about what is left to do.
     ledger = json.loads((REPO_ROOT / "deviation_ledger.json").read_text())
+    # F.3: tier-reading risk metrics are banded within tier; the ungated set
+    # (length, unplanted inputs, temporal) comes from the cache so this tool and
+    # bias_report.py can never disagree about what counts.
+    tiers = data.get("tiers") or {}
+    tier_sensitive = data.get("tier_sensitive") or []
+    ungated = set(data.get("ungated_metrics") or CONTEXT_METRICS)
+    refs = reference_medians(data["metrics"], data["languages"], tiers, tier_sensitive)
     verdicts = explain_out_of_band(
         data["metrics"], data["languages"], ledger["entries"],
         {m: data["metrics"].get(m, {}) for m in ("functions_found",)},
-        risk_inputs=data.get("risk_inputs"),
+        risk_inputs=data.get("risk_inputs"), tiers=tiers, tier_sensitive=tier_sensitive,
+        ungated=ungated,
     )
 
     rows = []
@@ -113,13 +128,14 @@ def main():
         if not isinstance(values, dict) or lang not in values:
             continue
         if lang in na.get(metric, {}) or values[lang] is None:
-            rows.append((group_of(metric), metric, None, None,
+            rows.append((group_of(metric, ungated), metric, None, None,
                          "na-" + na.get(metric, {}).get(lang, "ledgered"), None))
             continue
-        nums = [v for v in values.values() if isinstance(v, (int, float))]
-        median = statistics.median(nums)
+        median = refs.get(metric, {}).get(lang)
+        if median is None:
+            continue
         band, dev = classify(values[lang], median)
-        rows.append((group_of(metric), metric, values[lang], median, band, dev))
+        rows.append((group_of(metric, ungated), metric, values[lang], median, band, dev))
 
     rows.sort(key=lambda r: (r[0][0], r[1]))
     dot = {"green": "\U0001f7e2", "amber": "\U0001f7e1", "red": "\U0001f534",
@@ -127,7 +143,7 @@ def main():
     reds = ambers = comparable = unreviewed = explained = 0
     current_group = None
     for (gnum, gname), metric, value, median, band, dev in rows:
-        is_context = metric in CONTEXT_METRICS
+        is_context = metric in ungated
         verdict = verdicts.get((metric, lang), (None, ""))[0]
         if is_context:
             # F.1: length is shown for orientation and counts toward nothing.
@@ -175,9 +191,16 @@ def main():
         mark = ""
         if metric in CONTEXT_METRICS:
             mark = "  [context: program length, not gated]"
+        elif metric in TEMPORAL_METRICS:
+            mark = "  [temporal: commit age, not gated]"
+        elif metric in ungated:
+            mark = "  [unplanted input: not gated; a derived cell may inherit it]"
         elif status and status != "unexplained":
             # Explained: shown, reasoned, and excluded from the gate's tally.
             mark = f"  [{status}" + (f": {detail}" if detail else "") + "]"
+        if metric in tier_sensitive and tiers and metric not in ungated:
+            # F.3: the median this row is banded against is the language's own tier's.
+            mark = f"  (vs {tiers.get(lang)} median)" + mark
         print(f"{dot[band]} {metric:24s} {value:>10.4g}  median {median:<10.4g} {dev_txt}{planted}{mark}")
 
     tail = (f"\n{lang}: {reds} red / {ambers} amber UNEXPLAINED across {comparable} "

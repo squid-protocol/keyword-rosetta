@@ -63,7 +63,10 @@ def generate():
 
     # per-language red/amber zone membership. The program-length columns are
     # context (gitgalaxy#2669 F.1): reported by bias_report.py, never a finding.
-    context_metrics = set(cache.get("context_metrics", ()))
+    context_metrics = set(cache.get("ungated_metrics") or cache.get("context_metrics", ()))
+    # F.3: tier-reading risk metrics are banded within the language's own tier.
+    tiers = cache.get("tiers") or {}
+    tier_sensitive = set(cache.get("tier_sensitive") or ())
     zone = {lang: [] for lang in languages}
     for metric, values in metrics.items():
         if metric in context_metrics:
@@ -71,10 +74,17 @@ def generate():
         vals = {l: v for l, v in values.items() if v is not None}
         if len(vals) < 2:
             continue
-        med = statistics.median(vals.values())
-        if med <= 0:
-            continue
+        global_med = statistics.median(vals.values())
+        tier_med = {}
+        if tiers and metric in tier_sensitive:
+            by_tier = {}
+            for l, v in vals.items():
+                by_tier.setdefault(tiers.get(l, "tier3"), []).append(v)
+            tier_med = {t: statistics.median(vs) for t, vs in by_tier.items()}
         for lang, v in vals.items():
+            med = tier_med.get(tiers.get(lang, "tier3"), global_med) if tier_med else global_med
+            if med <= 0:
+                continue
             dev = (v - med) / med
             if abs(dev) > AMBER_DEV:
                 zone[lang].append((metric, v, med, dev, "red"))

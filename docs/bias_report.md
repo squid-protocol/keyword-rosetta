@@ -21,9 +21,9 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 157 | a validated deviation-ledger entry names this language and this metric |
-| derived | 147 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
-| **unexplained** | **91** | **survived all three -- the real work remaining** |
+| ledgered | 147 | a validated deviation-ledger entry names this language and this metric |
+| derived | 152 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| **unexplained** | **67** | **survived all three -- the real work remaining** |
 
 Unexplained cells, by metric:
 
@@ -39,15 +39,37 @@ Unexplained cells, by metric:
 - `raw_arch_api` — c, css, embedded_python, fortran, html, livecode, lua, makefile, python, scala
 - `raw_state_slop_orphans` — abap, ada, cobol, css, dockerfile, haskell, html, jcl, livecode, m4, makefile, markdown, objective-c, scheme, sqlite, yaml
 - `risk_api_exposure` — ada, dockerfile, haskell, sqlite, yaml
-- `risk_cognitive_load` — dart, kotlin, php, yacc
-- `risk_concurrency` — agc_assembly, swift
-- `risk_documentation` — ada, csharp, dart, dockerfile, haskell, kotlin, php, ruby, swift, yaml
-- `risk_stability` — markdown
-- `risk_state_flux` — dart, kotlin, scala, swift
-- `risk_tech_debt` — csharp, dart, go, java, rust, swift, typescript
+- `risk_documentation` — ada, dockerfile, haskell, yaml
 - `state_mutation` — yaml
 - `state_slop_duplicates` — dockerfile
 - `test` — yaml
+
+## Tier constants are design; the report bands within tier
+
+`signal_processor._get_tier` assigns every language a scoring tier by literal set membership, and the formulas below read its constants (a flat `irc / mass_loc` term, an `fc` scale on defence credit, `ot` on verification) -- wiki 08-03 documents this as deliberate (gitgalaxy#2653). Against a global median that reads as bias: the seven tier-1 languages report identical `risk_tech_debt` with inputs identical to the median language. So each tier-reading metric is banded against **the median of the language's own tier** (gitgalaxy#2669 F.3), and the per-tier medians are the documented offset, printed here rather than hidden. Which metrics read tier is taken off the engine source at regen time, never hand-listed. Tier membership: **tier1** = csharp, dart, go, java, rust, swift, typescript; **tier2** = c, cpp, javascript, kotlin, php, python, ruby; every other language is tier3.
+
+| metric | tier1 median (n) | tier2 median (n) | tier3 median (n) | global median |
+|---|---|---|---|---|
+| `risk_cognitive_load` | 1.295 (7) | 1.648 (7) | 2.358 (31) | 2.358 |
+| `risk_concurrency` | 0.000 (7) | 0.000 (7) | 0.000 (27) | 0.000 |
+| `risk_documentation` | 29.896 (7) | 40.844 (7) | 55.806 (31) | 55.806 |
+| `risk_safety_score` | 39.811 (7) | 39.377 (7) | 42.054 (31) | 42.054 |
+| `risk_state_flux` | 7.751 (7) | 8.407 (7) | 9.439 (31) | 9.439 |
+| `risk_tech_debt` | 29.878 (7) | 38.665 (7) | 46.570 (32) | 46.570 |
+| `risk_verification` | 2.372 (7) | 2.383 (7) | 2.406 (31) | 2.396 |
+
+## Unplanted risk inputs
+
+The risk formulas read registry signals the SPEC does not plant: `concurrency`, `dead_code`, `debug_prints`, `immutability_locks`, `llm_api`, `reflection_metaprogramming`, `spec_exposure`, `sync_locks`. A shell that idiomatically writes `val`/`let`/`final` carries `immutability_locks` a `var` shell does not, and `risk_state_flux` then differs with `state_mutation` on plant. These columns are reported (below, and in the chart) but never gated; an out-of-band cell here gets no verdict, but a derived risk cell may inherit from it and say so. 33 such cells are out of band now:
+
+- `concurrency` — agc_assembly 1, java 6, swift 1
+- `dead_code` — makefile 7
+- `debug_prints` — abap 5, cobol 7, dockerfile 2, scheme 2, yaml 2
+- `immutability_locks` — abap 1, c 1, cpp 1, dart 2, fortran 1, html 1, javascript 17, kotlin 6, php 1, ruby 1, scala 3, swift 11, typescript 14, zig 3
+- `reflection_metaprogramming` — apex 3, fortran 2, html 2, makefile 1, powershell 1, solidity 1, yacc 4
+- `sync_locks` — agc_assembly 2, solidity 1, zig 1
+
+`risk_stability` and `risk_churn` read commit age, not content, and are reported as temporal context on the same terms.
 
 ## Program length is context, and the x-axis of the leak check
 
@@ -57,18 +79,17 @@ Unexplained cells, by metric:
 
 | metric | languages | tier | rho | verdict | inputs held in band | where length enters |
 |---|---|---|---|---|---|---|
-| `control_flow_ratio` | 21 | tier3 | -0.67 | **leak** | `branch` | branch / (branch + structural_boundaries); structural_boundaries is a per-language token tally that grows with the file (detector.py ~L1288) |
-| `risk_cognitive_load` | 8 | tier3 | -0.58 | weak | `branch`, `doc`, `state_mutation` | the same _calc_cog_load densities, post-sigmoid |
+| `control_flow_ratio` | 21 | tier3 | -0.67 | vocabulary, not length | `branch` | branch / (branch + structural_boundaries); structural_boundaries is a per-language token tally that grows with the file (detector.py ~L1288) |
 | `risk_tech_debt` | 16 | tier3 | -0.58 | weak | `fragile_debt`, `planned_debt`, `state_slop_duplicates`, `raw_state_slop_orphans` | _calc_tech_debt: stress / _mass_loc(loc) (signal_processor.py ~L1478) |
-| `cog_raw` | 9 | tier3 | -0.55 | weak | `branch`, `state_mutation`, `func_complexity_gini` | _calc_cog_load: every density divides by _mass_loc(loc), floored at 50 by #2655 (signal_processor.py ~L1360-1390) -- every rosetta shell is below the floor, so no length term should survive; a residual correlation is an unheld input (concurrency, reflection_metaprogramming are not cached) or aggregation |
 | `risk_verification` | 25 | tier3 | +0.48 | weak | `high_risk_execution` | **not located yet** — the more interesting finding |
 | `classes_found` | 31 | tier3 | -0.41 | weak | *(none known)* | **not located yet** — the more interesting finding |
+| `risk_state_flux` | 10 | tier3 | +0.41 | weak | `immutability_locks`, `state_mutation` | **not located yet** — the more interesting finding |
 
 ## Cross-language variance chart
 
 ![variance chart](bias_variance_chart.svg)
 
-Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 53 metrics: 83%**; 35 metrics hold ≥80% of languages in the green band. Weakest metrics: control_flow_ratio 30%, risk_documentation 42%, risk_state_flux 42%, cog_raw 46%, risk_cognitive_load 49%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): risk_concurrency, risk_dead_code, raw_arch_api, def_encapsulation, state_slop_duplicates, classes_found, class_start. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_churn, risk_secrets_risk.
+Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 52 metrics: 84%**; 34 metrics hold ≥80% of languages in the green band. Weakest metrics: control_flow_ratio 30%, risk_state_flux 42%, cog_raw 46%, state_mutation 58%, risk_api_exposure 60%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): risk_concurrency, risk_dead_code, raw_arch_api, def_encapsulation, state_slop_duplicates, classes_found, class_start, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, sync_locks. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_secrets_risk, llm_api, spec_exposure, risk_churn.
 
 ## Signal totals vs. planted intent
 

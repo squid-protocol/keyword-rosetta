@@ -168,7 +168,10 @@ def _calc_name(node):
 
 
 def risk_dependencies(governed_signals):
-    """{risk_metric: {"calc","governed","engine"}} derived from the live engine.
+    """{risk_metric: {"calc","governed","engine","tier"}} derived from the live engine.
+
+    `tier` is True when the formula reads the scoring-tier constants (irc/fc/ot),
+    so the bias report bands that metric within tier (gitgalaxy#2669 F.3).
 
     `governed` are inputs the LANGUAGE_DEFINITIONS registry controls (so a None
     rule pins them to zero for that language); `engine` are inputs synthesized
@@ -185,12 +188,17 @@ def risk_dependencies(governed_signals):
         raise RuntimeError(f"engine source not found: {path} (set GITGALAXY_PATH)")
     tree = ast.parse(path.read_text())
 
-    per_calc, owner = {}, {}
+    per_calc, owner, reads_tier = {}, {}, {}
     for node in ast.walk(tree):
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("_calc"):
             v = _SignalUses()
             v.visit(node)
             per_calc[node.name] = v.keys
+            # F.3: does the formula read the tier constants (irc / fc / ot)? A
+            # bare-name reference anywhere in the body counts; the constants are
+            # only ever passed in under these three names.
+            names = {n.id for n in ast.walk(node) if isinstance(n, ast.Name)}
+            reads_tier[node.name] = bool(names & {"irc", "fc", "ot"})
         # `cog_score, cog_raw = self._calc_cog_load(...)` / `x = self._calc_y(...)`
         if isinstance(node, ast.Assign):
             fn = _calc_name(node.value)
@@ -228,6 +236,7 @@ def risk_dependencies(governed_signals):
             "calc": fn,
             "governed": sorted(x for x in keys if x in governed_signals),
             "engine": sorted(x for x in keys if x not in governed_signals),
+            "tier": bool(fn and reads_tier.get(fn, False)),
         }
     if not out:
         raise RuntimeError(f"risk assembly in {path} yielded no metrics")
