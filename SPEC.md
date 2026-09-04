@@ -23,6 +23,11 @@ both outcomes are the point of this corpus.
 4. **Exact counts.** Each planted signal appears the exact number of times listed below.
    Incidental extra matches (e.g. a `for` needed as glue syntax) must be counted into
    the manifest, not left unrecorded — prefer restructuring to avoid them.
+5. **Length is not planted.** How many lines, tokens or total keyword matches a shell
+   comes to is a property of the language, not a target: never pad or compress a shell to
+   move `total_loc`, `coding_loc`, `token_mass` or `keyword_hits`. The bias report treats
+   those four as context, not consistency claims (docs/GATING.md, "Program length is
+   context").
 
 ## File layout (per language folder)
 

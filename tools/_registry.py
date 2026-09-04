@@ -240,3 +240,43 @@ def registry_signals(definitions):
     for rules in active_rules(definitions).values():
         keys |= set(rules)
     return keys
+
+
+# ---------------------------------------------------------------------------
+# Scoring tiers (Fc / Irc constants, gitgalaxy#2653)
+# ---------------------------------------------------------------------------
+# signal_processor._get_tier assigns every language one of three scoring tiers by
+# literal set membership; tier3 (the default) carries an implicit-risk term
+# (irc / mass_loc) and a lower documentation credit than tier1. The rosetta
+# corpus reads that as cross-language bias unless it is held equal, so the
+# length-leak check (gitgalaxy#2669 F.1) needs the sets and F.3 will normalise
+# by them. Read off the live source, never hand-copied.
+def scoring_tiers(languages):
+    """{language: "tier1"|"tier2"|"tier3"} as signal_processor._get_tier assigns them."""
+    src = pathlib.Path(GITGALAXY_PATH, SIGNAL_PROCESSOR).read_text()
+    sets = {}
+    for node in ast.walk(ast.parse(src)):
+        if isinstance(node, ast.FunctionDef) and node.name == "_get_tier":
+            for stmt in node.body:
+                if (
+                    isinstance(stmt, ast.Assign)
+                    and len(stmt.targets) == 1
+                    and isinstance(stmt.targets[0], ast.Name)
+                    and isinstance(stmt.value, ast.Set)
+                ):
+                    sets[stmt.targets[0].id] = {
+                        e.value for e in stmt.value.elts
+                        if isinstance(e, ast.Constant) and isinstance(e.value, str)
+                    }
+            break
+    if "explicit" not in sets or "structured" not in sets:
+        raise RuntimeError(
+            "signal_processor._get_tier no longer defines the `explicit`/`structured` "
+            "sets this loader reads -- update scoring_tiers() to match the engine"
+        )
+    return {
+        lang: "tier1" if lang in sets["explicit"]
+        else "tier2" if lang in sets["structured"]
+        else "tier3"
+        for lang in languages
+    }
