@@ -6,6 +6,10 @@
 
 . ./a.sh
 
+export PROBE_BRANCH=1
+export PROBE_IO=1
+export PROBE_RISK=1
+
 dispatch() {
     : "$1"
     probe_branch

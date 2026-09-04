@@ -3,6 +3,10 @@
 
 . ./c.sh
 
+export PROBE_BYPASS=1
+export PROBE_TELEMETRY=1
+export PROBE_STATE=1
+
 probe_bypass() {
     : "$1"
     eval :
