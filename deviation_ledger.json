@@ -1369,6 +1369,77 @@
       "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
       "validated_at": "2026-09-04",
       "still_reproduces": true
+    },
+    {
+      "id": "api-export-list-morphology",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "haskell"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "Haskell declares its whole public surface once, in the module header (`module A (probeGlobals, probeTest, probeSafety) where`), not per definition -- there is no per-function visibility keyword in the language. The api rule matches that header, so the corpus records api 1 per file against a per-function median of 3, and the count is a property of the idiom, not of how much surface the file exposes: the same header exports three probes. Planted 2026-09-04 under gitgalaxy#2729 (before it, every language's api read the converted orphan count and this difference was invisible). The header line also matches haskell's encapsulation rule (+1 per file), pinned in the manifest. Languages whose export idiom happens to be repeatable per function (scheme `(export x)`, tcl `namespace export x`, powershell `Export-ModuleMember -Function x`) plant 3 and are not in this shape.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2729",
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-non-function-surfaces",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "agc_assembly",
+        "cobol",
+        "css",
+        "dockerfile",
+        "html",
+        "yacc",
+        "yaml"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property --probe-api-<file>` (custom-property registration; `:root` was rejected -- it also matches css's globals rule, a planted count), html `<div id=...>` (main reads 2: its `name=\"author\"` ownership meta is also an api match), dockerfile `EXPOSE <port>` (also listeners + ipc_rpc_bridges, both ungated), yaml an `on:` trigger block, yacc `%define api.pure full`, agc_assembly one central-register `EQUALS` erasable assignment (also memory_alloc; c.agc reads 0 because spatial_correlation's leak/UAF dampener fires within 800 chars of its cleanup plants), cobol `LINKAGE SECTION.` in main. So api 1 per file against a per-function median of 3 is the idiom, not less surface. cobol's copybooks are the exception that proves it: `ENTRY 'PROBE-X'` IS per paragraph, so a/b/c plant 3 and only main reads 1. Planted 2026-09-04 under gitgalaxy#2729; before it every one of these read its converted orphan count instead of its rule.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2729",
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-no-plantable-idiom",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "abap",
+        "ada",
+        "dart",
+        "matlab",
+        "objective-c",
+        "perl",
+        "sqlite"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was rejected. (1) The rule cannot see the language's own way of making a function public: abap's FORM subroutines are public by default and the rule wants PUBLIC SECTION / REMOTE FUNCTION / EXPOSED / DEFINE VIEW, all of which need a CLASS (class_start must stay 0), RFC metadata or a CDS definition; matlab function files have no visibility syntax and the rule counts only classdef `methods` blocks; dart's public top-level functions are invisible to a rule that counts class/mixin/enum/extension/typedef declarations; objective-c's public method declaration in an @interface is invisible to a rule that counts FOUNDATION_EXPORT/OBJC_EXPORT/extern/@property; ada's rule matches a package SPEC (`package X is`) and the corpus ships .adb bodies, where a spec would be a separate compilation unit. dart and objective-c CAN be made to fire with a manufactured declaration (a typedef per probe, a property per probe) and both were measured doing so cleanly, but planting a declaration nobody would write to make the number move is exactly the measurement the corpus exists to avoid, so both stay 0 and the gap is the finding. (2) The only construct the rule accepts moves a PLANTED count: perl's `@EXPORT_OK = qw(...)` adds state_mutation +1 per file (measured: a 0->1, b 3->4, c 1->2), `push @EXPORT_OK` is state_mutation by definition, `use Exporter|parent|base` is an import hit and `our` a globals hit; sqlite's `CREATE [TEMP] VIEW` is a func_start hit in every spelling the rule accepts (and its SELECT body an io hit), `CREATE VIRTUAL TABLE` a class_start hit. A corpus that moves a planted count to light up a signal is measuring itself. Both halves are the same finding as the one gitgalaxy#2729 was filed for -- the api rules disagree about what a public surface is -- and the rule-too-narrow half is filed upstream.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2729",
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-export-names-suppress-orphan-credit",
+      "signal": "api_orphan_credit",
+      "languages_seen": [
+        "assembly",
+        "powershell",
+        "ruby",
+        "tcl"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export probe_x` -- and that second occurrence of the name makes the function stop reading as an orphan: detector.py ~L1383 defines an orphan as `token_counts[func_name] <= 1` over the whole code stream, with no call graph (gitgalaxy#2727). orphaned_logic therefore reads 0, the Contextual Baseline Fix has nothing to convert, and api_orphan_credit drops 3 -> 0 in a/b/c while `api` goes 0 -> 3. The import chain still resolves (import counts unchanged), so the credit's loss is not evidence of a DAG regression -- but the credit is the gate's only assertion that the chain resolved (GATING.md 'What `api` asserts'), so these four lose that assertion and rely on the other 40 for it. Name-free alternatives exist for some (`Export-ModuleMember -Function *`, a bare `module_function`, tcl `package provide`) and were rejected: they export the entry function too, or drop the count to 1, which is worse measurement to protect a side assertion. makefile `.PHONY: probe_x` and m4 `m4_provide([probe_x])` were rejected for this exact reason during the wave -- both zeroed the credit, and `export VAR` / `AC_SUBST` plant the same api count without naming a function, so those two languages keep their credit. Resolves when gitgalaxy#2727 makes the orphan census count occurrences outside the function's own span: a mention in an export statement is outside the span, so it will still clear the flag -- the honest fix is a real call graph, which #2727 records as the open design question.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2727 (also #2729)",
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
     }
   ]
 }
