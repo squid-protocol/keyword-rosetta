@@ -12,3 +12,5 @@
 [data-testid="bench"] {}
 
 @keyframes probe-safety {}
+
+@property --probe-api-a {}
