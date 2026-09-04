@@ -139,7 +139,18 @@ PLANTED = {
 #   * coding_loc is the x-axis of length_leaks(): the same program at 46
 #     lengths is the ideal fixture for asking which engine formulas read length
 #     when they should be reading content.
-CONTEXT_METRICS = ("total_loc", "coding_loc", "token_mass", "keyword_hits")
+#
+# Two more joined on the same test ("would a perfect engine give the same value for
+# the same program at two lengths?" -- no, by definition): avg_func_loc is lines
+# per function, i.e. length divided by a planted 13; comment_lines is a count of
+# documentation LINES where the SPEC plants one doc marker and one ownership
+# marker per file, never a line count. Metrics that SHOULD be invariant and are
+# not (control_flow_ratio, func_internal_density, structural_mass, cog_raw) stay
+# gated: their spread is an engine finding (gitgalaxy#2705), not size.
+CONTEXT_METRICS = (
+    "total_loc", "coding_loc", "token_mass", "keyword_hits",
+    "avg_func_loc", "comment_lines",
+)
 
 
 def gather(language, colmap):
@@ -354,7 +365,9 @@ DERIVED_INPUTS = {
     "func_complexity_gini": ("branch", "func_start"),
     "avg_func_loc": ("total_loc", "coding_loc", "func_start"),
     "avg_func_args": ("args", "func_start"),
-    "func_internal_density": ("branch", "args", "func_start"),
+    # record_keeper.py ~L487: avg_comp / avg_loc -- it divides by avg_func_loc
+    # (context), so a short-shell language inherits its deviation from length.
+    "func_internal_density": ("branch", "args", "func_start", "avg_func_loc"),
     # F.2 (gitgalaxy#2669): the graph family. record_keeper.py ~L489:
     #   dependency_density = import_count / max(int(coding_loc * control_flow_ratio), 1)
     # so a language whose only deviation is a short file or an off-median
@@ -498,7 +511,6 @@ LEAK_WEAK_RHO = 0.4      # in [0.4, 0.6): reported as weak, not asserted
 # finding: its length term has not been found yet. Line numbers are approximate
 # and dated 2026-09-04 (engine a334839) -- re-verify when the formula moves.
 LENGTH_TERMS = {
-    "avg_func_loc": "loc / functions_found -- length by definition (record_keeper.py)",
     "func_internal_density": "avg_func_complexity / avg_func_loc (record_keeper.py ~L487)",
     "cog_raw": "_calc_cog_load: every density divides by _mass_loc(loc), floored at 50 by "
                "#2655 (signal_processor.py ~L1360-1390) -- every rosetta shell is below the "

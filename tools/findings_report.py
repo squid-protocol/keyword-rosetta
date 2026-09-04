@@ -97,7 +97,7 @@ def generate():
         "score is pinned at 0 (docs/GATING.md). † marks an absence not yet backed by "
         "a validated ledger entry — for a derived cell, that means at least one of "
         "its inputs is unreviewed. The program-length columns (`total_loc`, `coding_loc`, "
-        "`token_mass`, `keyword_hits`) are context, not findings, and are not listed "
+        "`token_mass`, `keyword_hits`, `avg_func_loc`, `comment_lines`) are context, not findings, and are not listed "
         "(gitgalaxy#2669 F.1; see the length-leak table in `bias_report.md`).",
         "",
         "## Index",
