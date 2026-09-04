@@ -109,17 +109,17 @@ def main():
     # E.1: the same verdicts bias_report.py gates on, so per-language triage and
     # the corpus-wide gate can never disagree about what is left to do.
     ledger = json.loads((REPO_ROOT / "deviation_ledger.json").read_text())
-    # F.3: tier-reading risk metrics are banded within tier; the ungated set
+    # F.3: constant-reading risk metrics are banded within stratum; the ungated set
     # (length, unplanted inputs, temporal) comes from the cache so this tool and
     # bias_report.py can never disagree about what counts.
-    tiers = data.get("tiers") or {}
-    tier_sensitive = data.get("tier_sensitive") or []
+    strata = data.get("strata") or {}
+    constant_sensitive = data.get("constant_sensitive") or []
     ungated = set(data.get("ungated_metrics") or CONTEXT_METRICS)
-    refs = reference_medians(data["metrics"], data["languages"], tiers, tier_sensitive)
+    refs = reference_medians(data["metrics"], data["languages"], strata, constant_sensitive)
     verdicts = explain_out_of_band(
         data["metrics"], data["languages"], ledger["entries"],
         {m: data["metrics"].get(m, {}) for m in ("functions_found",)},
-        risk_inputs=data.get("risk_inputs"), tiers=tiers, tier_sensitive=tier_sensitive,
+        risk_inputs=data.get("risk_inputs"), strata=strata, constant_sensitive=constant_sensitive,
         ungated=ungated,
     )
 
@@ -198,9 +198,9 @@ def main():
         elif status and status != "unexplained":
             # Explained: shown, reasoned, and excluded from the gate's tally.
             mark = f"  [{status}" + (f": {detail}" if detail else "") + "]"
-        if metric in tier_sensitive and tiers and metric not in ungated:
-            # F.3: the median this row is banded against is the language's own tier's.
-            mark = f"  (vs {tiers.get(lang)} median)" + mark
+        if metric in constant_sensitive and strata and metric not in ungated:
+            # F.3: the median this row is banded against is its own strictness stratum's.
+            mark = f"  (vs {strata.get(lang)} median)" + mark
         print(f"{dot[band]} {metric:24s} {value:>10.4g}  median {median:<10.4g} {dev_txt}{planted}{mark}")
 
     tail = (f"\n{lang}: {reds} red / {ambers} amber UNEXPLAINED across {comparable} "

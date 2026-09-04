@@ -168,10 +168,11 @@ def _calc_name(node):
 
 
 def risk_dependencies(governed_signals):
-    """{risk_metric: {"calc","governed","engine","tier"}} derived from the live engine.
+    """{risk_metric: {"calc","governed","engine","reads_constant"}} from the live engine.
 
-    `tier` is True when the formula reads the scoring-tier constants (irc/fc/ot),
-    so the bias report bands that metric within tier (gitgalaxy#2669 F.3).
+    `reads_constant` is True when the formula reads a language-level constant
+    (irc/ot/fid), so the bias report bands that metric within its strictness
+    stratum (gitgalaxy#2669 F.3, re-pointed at #2718's table).
 
     `governed` are inputs the LANGUAGE_DEFINITIONS registry controls (so a None
     rule pins them to zero for that language); `engine` are inputs synthesized
@@ -188,17 +189,44 @@ def risk_dependencies(governed_signals):
         raise RuntimeError(f"engine source not found: {path} (set GITGALAXY_PATH)")
     tree = ast.parse(path.read_text())
 
+    # gitgalaxy#2669 F.4: scan EVERY method, not only the _calc_ ones, so a
+    # formula that reads its signals through a helper is still attributed.
+    # gitgalaxy#2719 introduced exactly that: `_calc_documentation` and
+    # `_calc_cog_load` no longer subscript raw_signals["reflection_metaprogramming"]
+    # themselves, they call `self._dynamism(raw_signals)` -- and this map silently
+    # lost the input, which had been carrying F.3's yacc cognitive-load verdict.
+    per_method, calls_out = {}, {}
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            v = _SignalUses()
+            v.visit(node)
+            per_method[node.name] = v.keys
+            calls_out[node.name] = {
+                n.func.attr for n in ast.walk(node)
+                if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)
+            }
+
+    def _signals_of(name, seen=None):
+        """A method's signal keys plus those of the methods it calls (transitive)."""
+        seen = seen or set()
+        if name in seen or name not in per_method:
+            return set()
+        seen.add(name)
+        keys = set(per_method[name])
+        for callee in calls_out.get(name, ()):
+            keys |= _signals_of(callee, seen)
+        return keys
+
     per_calc, owner, reads_tier = {}, {}, {}
     for node in ast.walk(tree):
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("_calc"):
-            v = _SignalUses()
-            v.visit(node)
-            per_calc[node.name] = v.keys
-            # F.3: does the formula read the tier constants (irc / fc / ot)? A
+            per_calc[node.name] = _signals_of(node.name)
+            # F.3: does the formula read a language-level constant (irc / ot, and
+            # the per-signal fidelity map that replaced the scalar fc in #2718)? A
             # bare-name reference anywhere in the body counts; the constants are
-            # only ever passed in under these three names.
+            # only ever passed in under these names.
             names = {n.id for n in ast.walk(node) if isinstance(n, ast.Name)}
-            reads_tier[node.name] = bool(names & {"irc", "fc", "ot"})
+            reads_tier[node.name] = bool(names & {"irc", "fc", "ot", "fid"})
         # `cog_score, cog_raw = self._calc_cog_load(...)` / `x = self._calc_y(...)`
         if isinstance(node, ast.Assign):
             fn = _calc_name(node.value)
@@ -236,7 +264,7 @@ def risk_dependencies(governed_signals):
             "calc": fn,
             "governed": sorted(x for x in keys if x in governed_signals),
             "engine": sorted(x for x in keys if x not in governed_signals),
-            "tier": bool(fn and reads_tier.get(fn, False)),
+            "reads_constant": bool(fn and reads_tier.get(fn, False)),
         }
     if not out:
         raise RuntimeError(f"risk assembly in {path} yielded no metrics")
@@ -252,40 +280,50 @@ def registry_signals(definitions):
 
 
 # ---------------------------------------------------------------------------
-# Scoring tiers (Fc / Irc constants, gitgalaxy#2653)
+# Scoring strata (the language-level risk constants, gitgalaxy#2716)
 # ---------------------------------------------------------------------------
-# signal_processor._get_tier assigns every language one of three scoring tiers by
-# literal set membership; tier3 (the default) carries an implicit-risk term
-# (irc / mass_loc) and a lower documentation credit than tier1. The rosetta
-# corpus reads that as cross-language bias unless it is held equal, so the
-# length-leak check (gitgalaxy#2669 F.1) needs the sets and F.3 will normalise
-# by them. Read off the live source, never hand-copied.
-def scoring_tiers(languages):
-    """{language: "tier1"|"tier2"|"tier3"} as signal_processor._get_tier assigns them."""
-    src = pathlib.Path(GITGALAXY_PATH, SIGNAL_PROCESSOR).read_text()
-    sets = {}
-    for node in ast.walk(ast.parse(src)):
-        if isinstance(node, ast.FunctionDef) and node.name == "_get_tier":
-            for stmt in node.body:
-                if (
-                    isinstance(stmt, ast.Assign)
-                    and len(stmt.targets) == 1
-                    and isinstance(stmt.targets[0], ast.Name)
-                    and isinstance(stmt.value, ast.Set)
-                ):
-                    sets[stmt.targets[0].id] = {
-                        e.value for e in stmt.value.elts
-                        if isinstance(e, ast.Constant) and isinstance(e.value, str)
-                    }
-            break
-    if "explicit" not in sets or "structured" not in sets:
-        raise RuntimeError(
-            "signal_processor._get_tier no longer defines the `explicit`/`structured` "
-            "sets this loader reads -- update scoring_tiers() to match the engine"
+# Until gitgalaxy#2718 the engine assigned every language one of three scoring
+# tiers by literal set membership, and this loader AST-read the two sets out of
+# `signal_processor._get_tier`. That function is gone: the language-level term is
+# now `analysis_lens.LANGUAGE_STRICTNESS`, four yes/no columns per language, and
+# `strictness_constants()` turns the count of False columns into (Irc, Ot) --
+# Irc = gaps, Ot = 1 + 0.1 x gaps. A language's stratum is therefore its gap
+# count, and languages with the same count carry the identical constant.
+#
+# The corpus still has to hold that constant equal before banding a risk metric
+# (gitgalaxy#2669 F.3's decision, one layer down), which is what this feeds. It
+# is imported live rather than AST-read: the engine exports the function, so
+# there is nothing to re-derive and family inheritance (embedded_python -> python)
+# comes for free.
+#
+# NOT held equal: the per-language x per-signal fidelity coefficients
+# (`gitgalaxy/standards/fidelity_table.py`, also #2718). Those are generated FROM
+# this corpus, so holding them equal here would be circular; a defence-credit
+# deviation that survives banding may still be a fidelity cell, and the report
+# says so rather than pretending otherwise.
+def scoring_strata(languages):
+    """{language: "irc0".."irc4"} -- languages sharing a strictness gap count."""
+    if GITGALAXY_PATH not in sys.path:
+        sys.path.insert(0, GITGALAXY_PATH)
+    try:
+        from gitgalaxy.standards.analysis_lens import (
+            LANGUAGE_STRICTNESS,
+            resolve_language_family,
+            strictness_constants,
         )
-    return {
-        lang: "tier1" if lang in sets["explicit"]
-        else "tier2" if lang in sets["structured"]
-        else "tier3"
-        for lang in languages
-    }
+    except ImportError as exc:  # pragma: no cover - loud on an engine rename
+        raise RuntimeError(
+            "analysis_lens.strictness_constants is gone -- the engine's language-level "
+            "risk term moved again; update scoring_strata() to match it"
+        ) from exc
+
+    # A `None` row (data / markup / config) and a four-True row BOTH yield Irc 0,
+    # but they are not the same population and must not share a reference median:
+    # one is haskell/java/rust/swift, the other is css/html/markdown/yaml, whose
+    # risk scores sit near zero for want of any code to score. Lumping them made
+    # swift read as an outlier against a median that was really markup's.
+    out = {}
+    for lang in languages:
+        row = LANGUAGE_STRICTNESS.get(resolve_language_family(lang))
+        out[lang] = "unprofiled" if row is None else f"irc{strictness_constants(lang)[0]}"
+    return out

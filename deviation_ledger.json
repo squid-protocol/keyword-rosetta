@@ -1133,6 +1133,242 @@
       "investigated_by": "claude-opus-5",
       "validated_at": "2026-09-03",
       "still_reproduces": true
+    },
+    {
+      "id": "orphan-detection-is-name-recurrence",
+      "signal": "raw_state_slop_orphans",
+      "languages_seen": [
+        "abap",
+        "ada",
+        "cobol",
+        "css",
+        "dockerfile",
+        "haskell",
+        "html",
+        "jcl",
+        "livecode",
+        "m4",
+        "makefile",
+        "markdown",
+        "objective-c",
+        "scheme",
+        "sqlite",
+        "yaml"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier appears once in the file. token_counts is over the entire code stream INCLUDING the definition's own tokens, so the count is a property of the language's syntax, not of whether anything calls the function. There is no call graph behind this metric. Measured over the corpus (galaxyscope --db-only --debug, 46 languages, engine 4c283edf); baseline is 2.50 orphans/file (13 probe functions, 3 called from main). Five shapes, all of them here: (1) NAME REPEATED BY SYNTAX -> 0.00: ada closes with `end Probe_Globals;`, haskell writes `probeGlobals :: Int -> Int` above the equation, livecode ends the handler by name, so the token count is 2 before anything calls it. (2) SLICE NAME SYNTHETIC OR SHORT -> 0.00: yaml's 13 slices are all named `run` (3 chars, fails the len > 3 test); sqlite's are `Declarative_Block`/`CREATE_Statement`, excluded by _is_synthetic_satellite_name. (3) NO FUNCTIONS -> 0.00: html and markdown extract none, so the count has no value (D.2's undefined family, one metric further on). (4) NAME NEVER RECURS -> 3.25, i.e. every function orphaned: cobol paragraphs, m4 macros, scheme defines, make targets, abap forms, jcl steps and objective-c methods are written once and invoked by other means. (5) css 1.00: its three @keyframes slices share the name `keyframes`, which suppresses them, leaving only main.css's media/supports/container. Identical planted intent in every language, so the whole spread is measurement. Filed upstream as gitgalaxy#2727 with the fix shape (count occurrences outside the function's own [start_idx, end_idx] span, which leaves recursion correctly reading as unused); current behaviour baked into the manifests per docs/GATING.md until it lands.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2727",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-column-is-rule-hits-only",
+      "signal": "raw_arch_api",
+      "languages_seen": [
+        "c",
+        "css",
+        "embedded_python",
+        "fortran",
+        "html",
+        "livecode",
+        "lua",
+        "makefile",
+        "python",
+        "scala"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-contextual-baseline-fix entry for the conversion itself). Measured: the rule fires in only 10 of the 44 languages that define one, so the corpus median is 0 and these ten read as the outliers -- c 7.25, python / embedded_python / fortran / lua / scala / livecode 3.25, css / makefile / html 0.25. They are not deviant; they are the only languages measuring anything. The other 36 read 0 because the probe programs contain no construct their api rule recognises: shell's rule is `^export NAME` and no probe exports, go's is `^func [A-Z]...` and every probe function is lowercase. Per file, shell/a.sh: manifest 3, rule 0, orphans converted 3, gate reads 3; go/a.go the same; python/a.py manifest 6 = rule 3 + orphans 3; c/a.c manifest 12 = rule 9 + orphans 3. verify_language.py builds its column map from RecordKeeper.SHORT_KEY_MAP, which maps api -> arch_api (the conflated column), so the manifests were recorded post-conversion and the gate cannot see an api rule that never fires. Filed as gitgalaxy#2729, which carries the two-part fix shape (gate reads raw_arch_api the way bias_report.py's RISK_INPUT_COLUMNS already does; then ~36 languages need either an exported construct planted in their own vocabulary or a wider rule -- a corpus wave of its own, deliberately not folded into F.4). Current behaviour baked in meanwhile.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2729",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "risk-api-exposure-zero-api-shortcircuit",
+      "signal": "risk_api_exposure",
+      "languages_seen": [
+        "ada",
+        "dockerfile",
+        "haskell",
+        "sqlite",
+        "yaml"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "_calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0`. These five languages score a flat 0 because their api input is 0, and it is 0 for a reason that is now traced end to end: scoring reads the ADJUSTED api, which for most languages is entirely converted orphans (see api-column-is-rule-hits-only), and these languages produce no orphans to convert -- ada/haskell because their syntax repeats the function name, yaml/sqlite because their slices are short or synthetic, dockerfile because its RUN buckets are 3-char keywords (orphan-detection-is-name-recurrence, shapes 1, 2 and 5). The input column raw_arch_api sits exactly on the corpus median of 0, so no derivation edge can carry this: the input looks normal and the output is pinned. Deliberate zero-evidence semantics of the same family as #2655 -- a file with no public surface has no public surface to expose -- so the deviation is real, explained, and not a defect on either side. It resolves when gitgalaxy#2727 gives these languages orphans again.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "risk-documentation-zero-evidence-guard",
+      "signal": "risk_documentation",
+      "languages_seen": [
+        "ada",
+        "dockerfile",
+        "haskell",
+        "yaml"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "_calc_documentation (signal_processor.py L1535-L1553) builds measured_risk = opaque_execution + api x 2.0 and returns 0.0 when it is zero: 'a file with no public surface and no load-bearing undocumented block has nothing to document, whatever it does at runtime' (#2655's zero-evidence convention, and the comment names the rosetta html/css files as the case it was written for). These four have api 0 for the reason traced in risk-api-exposure-zero-api-shortcircuit and no function whose impact exceeds 50 without a docstring, so both terms are zero. sqlite is NOT listed: it carries load-bearing undocumented slices, so its documentation risk is measured rather than pinned. Same resolution path -- gitgalaxy#2727.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "encapsulation-is-language-idiom",
+      "signal": "def_encapsulation",
+      "languages_seen": [
+        "agc_assembly",
+        "css",
+        "embedded_python",
+        "go",
+        "perl",
+        "python",
+        "zig"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons. Measured per file: go 6.75 (the rule counts unexported lowercase identifiers, which every probe function is), zig 4.50, perl 3.75 (`my` scoping), agc_assembly 11.50 with nothing planted at all, css / python / embedded_python 0.25. The corpus median is 0 because the other 38 languages' idiom does not trip the rule. This is a vocabulary column in the sense F.3 gave control_flow_ratio: it counts how a language spells privacy, not how much privacy the planted program has, and no plant can equalise it without changing what the probes mean. Reported, not a defect; if a future batch wants it gated it needs a planted private-member construct per language first, which is a SPEC change.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "encapsulation-ratio-tracks-unplanted-local-declarations",
+      "signal": "encapsulation_ratio",
+      "languages_seen": [
+        "cobol",
+        "html",
+        "javascript",
+        "jcl",
+        "markdown"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero. `globals` is planted (2 in a.*); `core_var_decl` is NOT in the probe table, so the metric is a ratio of one controlled quantity to one uncontrolled one and moves with how many local declarations a language's syntax requires. Measured per file: html / jcl / markdown 1.0 in every file because they define no globals rule at all (n/a), so the numerator is structurally zero whatever the local count; cobol a.cpy var_decl 0 / globals 2 -> 0.0 and main.cbl 0 / 1 -> 0.0, mean 0.50, because COBOL declares its state in WORKING-STORAGE and has no local declarations to balance it (the same language fact the engine's LANGUAGE_STRICTNESS table records as no_implicit_globals: False); javascript a.js var_decl 7 / globals 2 -> 0.778, mean 0.9445, because its probe declares seven locals where the median language declares fewer. The whole corpus spread comes from the single file per language that plants globals. Deliberate formula reading an unplanted input -- the same disposition F.3 gave the risk formulas' unplanted inputs, kept as a ledger entry here because encapsulation_ratio is a measured column rather than a risk composite.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "duplicate-check-counts-slicer-buckets",
+      "signal": "state_slop_duplicates",
+      "languages_seen": [
+        "dockerfile"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "dockerfile is the only nonzero duplicate cell in 46 languages (1.00 mean) and it is a phantom. The slicer names its Mode-D/E buckets after the igniter keyword, so b.dockerfile extracts ['RUN','RUN','RUN','RUN','RUN'] and a.dockerfile ['RUN','RUN','HEALTHCHECK']. _is_synthetic_satellite_name (detector.py L830) recognises `<KEYWORD>_Statement` plus two literals, but not a bare keyword, so these reach the duplicate check at L1377 as ordinary functions -- same name, materially identical bodies, recorded as copy-pasted logic. The #2547 shape, in the duplicate check this time rather than the orphan one. Filed as gitgalaxy#2728 with the fix shape (read the is_synthetic_slice flag #2691 already stamps on every function, with the bucket names generated from the slicer's igniter table rather than hand-listed). Current behaviour baked in per docs/GATING.md.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2728",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "container-construct-reads-as-class-start",
+      "signal": "class_start",
+      "languages_seen": [
+        "cobol",
+        "css",
+        "jcl",
+        "yaml"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0. Any language whose file cannot BE a file without a container declaration therefore reads out of band, and each of these four is that: cobol main.cbl `PROGRAM-ID. ROSETTA-MAIN.` (a COBOL program IS the compilation unit) = 1; jcl main.jcl `//ROSETTA JOB` (the job card) = 1; css c.css `.rosetta-risk { ... }` -- the class selector carrying the planted `expression()`/`behavior()` bypass, and a CSS class is literally what the rule names = 1; yaml `jobs:` and the `chain:` mapping that follows it = 7 across four files, planted and gated. The engine reading is correct in every case -- these are the languages' structural containers -- and no plant can equalise it without making the probe program invalid in that language.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "container-construct-reads-as-class",
+      "signal": "classes_found",
+      "languages_seen": [
+        "cobol",
+        "css",
+        "dockerfile",
+        "jcl",
+        "kotlin"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types. cobol/jcl/css as in that entry (1 each). dockerfile: `FROM b` opens a build stage, the language's only container, one per file = 4. kotlin a.kt: `object Region {}` / `object Home {}` = 2 -- these ARE the corpus's two planted `globals`, because Kotlin has no module-level mutable state and a singleton object is how the plant has to be written; the class count is a consequence of the globals plant, not a second deviation. Fixing it would mean planting kotlin's globals as something Kotlin does not have.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "m4-parameters-are-use-sites",
+      "signal": "args",
+      "languages_seen": [
+        "m4"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "m4 args 18 vs a median of 13 (SPEC: 13 function definitions, one argument each). m4 macros have no parameter list -- `define(probe_globals, ...)` names no parameters and `$1` inside the body IS the parameter, so the rule counts one arg per USE, not per declaration: a.m4 5, b.m4 4, c.m4 3, main.m4 6 against 3/3/3/4 definitions. Every other language declares its one argument once in a signature and uses it however often it likes. The plant is correct (each macro takes exactly one argument); the count is the language's syntax, and equalising it would mean writing macros that never reference their own argument.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "csharp-environment-exit-is-global-and-danger",
+      "signal": "globals",
+      "languages_seen": [
+        "csharp"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "csharp globals 3 vs a median of 2. a.cs carries the two planted globals (`ConfigurationManager`, `AsyncLocal`); the third is in main.cs, where the planted high_risk_execution call `Environment.Exit(payload)` also matches the globals rule's `Environment.` prefix -- one token, two rules, both correct in isolation. C# has no way to spell process exit that does not go through a static ambient class, which is exactly what the globals rule looks for. Baked into the manifest (main.cs globals 1); the alternative is to plant a different danger call, which would test a less idiomatic construct.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "slicer-segments-statements-not-functions",
+      "signal": "functions_found",
+      "languages_seen": [
+        "dockerfile",
+        "sqlite"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry). Neither language has functions, so the slicer's statement modes segment on the igniter keyword instead: dockerfile yields one bucket per RUN/CMD/HEALTHCHECK (5 in b.dockerfile alone), sqlite one per `CREATE_Statement`/`Declarative_Block` (7/9/6/8). The count is what the modes are designed to produce -- a statement-oriented language has no 13-function shape to match -- and the numbers scale with statement count, not with the planted program. Related but distinct: gitgalaxy#2728 is about those same buckets reaching the duplicate and orphan checks as if they were real identifiers, which IS a defect; the population count itself is not.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2728",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "html-probe-bodies-are-empty-by-design",
+      "signal": "functions_found",
+      "languages_seen": [
+        "html"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "functions_found html 0 against a median of 13. The html func_start rule DOES match: three `<script` openers in a.html, one in b.html, three in c.html, two in main.html (nine in total, verified through coding_analysis). They do not survive into the recorded equations because the elements are empty -- `<script></script>` with no body -- so `splice` extracts no function and records func_start 0, which the manifest bakes. The emptiness is deliberate corpus design (gitgalaxy#2669 A.2 planted html's probe bodies as empty elements carrying only the signal tokens). Filling twelve script bodies would move html toward the median but changes what the html probe is testing; that is a SPEC decision, not a cell fix.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "package-manifest-adds-a-graph-node",
+      "signal": "betweenness_score",
+      "languages_seen": [
+        "javascript",
+        "python"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "betweenness_score javascript and python 0.05 against a median of 0.0833335, with identical dependency_links (3) and popularity (0.75) -- so the DAG's edges are right and its SIZE is not. These are the only two language folders carrying an ecosystem manifest beside the four probe files: `package.json` and `pyproject.toml`. Betweenness is normalised by node count (network_risk_sensor.py's nx.betweenness_centrality), so a fifth scanned artifact lowers every centrality in the folder -- pagerank 0.2029 vs 0.2240 and closeness 0.1917 vs 0.2396 move with it. The manifests are deliberate (they are what exercises dependency extraction and the SBOM for those two ecosystems); the alternative is to exclude non-probe artifacts from the graph, which would change what the corpus measures about real repositories.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
     }
   ]
 }

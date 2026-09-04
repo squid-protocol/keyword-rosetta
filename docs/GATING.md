@@ -189,28 +189,35 @@ in the consistency average, no verdict, never counted by `--gate`. Two consequen
   not be written; the length itself is already accounted for by being context.
 - `coding_loc` is the x-axis of the report's **length-leak check**: for each derived metric,
   across the languages whose measured inputs are all in band (content held equal) *and* that
-  share the engine's scoring tier (gitgalaxy#2653's Fc/Irc constants — the tier-3 languages
-  are largely the short shells, so a tier effect would otherwise read as a length effect), the
-  rank correlation against `coding_loc`. A leak (|rho| ≥ 0.6 over ≥ 8 languages) is one
-  finding on one engine formula — the same program at 46 lengths should score the same —
-  filed as an engine design issue in the gitgalaxy#2655 shape. It never alters a cell's
-  verdict. The tier map is read off `signal_processor._get_tier` at regen time and stored as
-  `tiers` in `docs/bias_data.json`.
+  share the engine's strictness stratum (gitgalaxy#2653/#2718's Irc/Ot constants — the
+  high-gap languages are largely the short shells, so a strictness effect would otherwise read
+  as a length effect), the rank correlation against `coding_loc`. A leak (|rho| ≥ 0.6 over ≥ 8
+  languages) is one finding on one engine formula — the same program at 46 lengths should
+  score the same — filed as an engine design issue in the gitgalaxy#2655 shape. It never
+  alters a cell's verdict. The stratum map is read off `analysis_lens.strictness_constants` at
+  regen time and stored as `strata` in `docs/bias_data.json`.
 
-## Tier constants are design; unplanted inputs are not signals (gitgalaxy#2669 F.3)
+## The language-level constant is design; unplanted inputs are not signals (gitgalaxy#2669 F.3)
 
-`signal_processor._get_tier` assigns every language a scoring tier by literal set membership
-(tier1 = rust, go, swift, java, typescript, csharp, dart; tier2 = python, javascript, cpp, c,
-ruby, kotlin, php; everything else tier3), and seven risk formulas read its constants — a flat
-`irc / mass_loc` term, an `fc` scale on defence credit, `ot` on verification. Wiki 08-03
-documents this as deliberate (gitgalaxy#2653). Against a global median it reads as bias: the
-seven tier-1 languages report `risk_tech_debt` 29.88 with inputs identical to the median
-language. The report therefore bands each **tier-reading** risk metric against **the median of
-the language's own tier**, prints the per-tier medians as the documented offset, and stores the
-tier map (`tiers`) and the metric list (`tier_sensitive`) in `docs/bias_data.json`. Which
-metrics read tier is taken off the engine source at regen time (`_registry.risk_dependencies`
-records `tier`), never hand-listed. A ledger entry that says "this language is tier 3" is not a
-valid explanation for any cell; the tier is already accounted for by the reference median.
+`analysis_lens.LANGUAGE_STRICTNESS` gives every language four yes/no columns (static types,
+enforced errors, memory safety, no implicit globals) and `strictness_constants()` turns the
+count of `False` columns into the constants the risk formulas read: `Irc` = gaps, `Ot` =
+1 + 0.1 × gaps. Wiki 08-03 documents this as deliberate (gitgalaxy#2653, implemented by
+#2718 — which deleted the three hand-listed scoring tiers this section used to describe;
+`signal_processor._get_tier` no longer exists). Against a global median it reads as bias:
+languages sharing a gap count report identical risk values with inputs identical to the median
+language. The report therefore bands each **constant-reading** risk metric against **the median
+of its own strictness stratum**, prints the per-stratum medians as the documented offset, and
+stores the stratum map (`strata`, keyed `irc0`…`irc4`) and the metric list
+(`constant_sensitive`) in `docs/bias_data.json`. Which metrics read a constant is taken off the
+engine source at regen time (`_registry.risk_dependencies` records `reads_constant`), never
+hand-listed. A ledger entry that says "this language is loosely typed" is not a valid
+explanation for any cell; the constant is already accounted for by the reference median.
+
+**Not held equal:** the per-language × per-signal fidelity coefficients
+(`gitgalaxy/standards/fidelity_table.py`), which replaced the scalar `Fc` in #2718, are
+*generated from this corpus*. Banding against them would be circular — a defence-credit
+deviation that survives banding may still be a fidelity cell, and the report says so.
 
 The risk formulas also read registry signals the SPEC never plants (`immutability_locks`,
 `concurrency`, `sync_locks`, `reflection_metaprogramming`, `debug_prints`, `spec_exposure`,

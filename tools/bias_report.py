@@ -38,7 +38,7 @@ from _registry import (
     load_definitions,
     registry_signals,
     risk_dependencies,
-    scoring_tiers,
+    scoring_strata,
     unmeasurable_signals,
 )
 
@@ -157,16 +157,19 @@ CONTEXT_METRICS = (
 # ==============================================================================
 # Two more things a cell can be that are not "the engine read the same program
 # differently":
-#   * TIER. signal_processor._get_tier assigns each language a scoring tier and
-#     seven risk formulas read its constants (a flat irc/mass_loc term, an fc
-#     scale on defence credit, ot on verification) -- wiki 08-03 documents it as
-#     deliberate. Against a global median the seven tier-1 languages read
-#     risk_tech_debt 29.88 with inputs identical to the median language: that is
-#     the constant, not a defect (gitgalaxy#2653). So a tier-reading metric is
-#     banded against the median of the language's OWN tier (reference_medians),
-#     and the per-tier medians are printed as the documented offset rather than
-#     hidden. Which metrics read tier comes off the engine source
-#     (_registry.risk_dependencies()[...]["tier"]), never a hand list.
+#   * LANGUAGE-LEVEL CONSTANT. analysis_lens.LANGUAGE_STRICTNESS assigns each
+#     language four yes/no strictness columns, and strictness_constants() turns
+#     the count of False columns into Irc (= gaps) and Ot (= 1 + 0.1 x gaps),
+#     which the risk formulas read -- wiki 08-03 documents it as deliberate.
+#     Against a global median that reads as bias: languages sharing a gap count
+#     report identical risk values with inputs identical to the median language,
+#     which is the constant, not a defect (gitgalaxy#2653, #2718). So a
+#     constant-reading metric is banded against the median of its OWN stratum
+#     (reference_medians), and the per-stratum medians are printed as the
+#     documented offset rather than hidden. Which metrics read one comes off the
+#     engine source (_registry.risk_dependencies()[...]["reads_constant"]), never a hand
+#     list. The per-signal fidelity table is deliberately NOT held equal: it is
+#     generated from this corpus, so holding it equal would be circular.
 #   * UNPLANTED INPUTS. The risk formulas also read registry signals the SPEC
 #     never plants (immutability_locks, concurrency, sync_locks, ...). A shell
 #     that idiomatically writes `val`/`let`/`final` carries freeze hits a `var`
@@ -184,13 +187,13 @@ def ungated_metrics(unplanted_inputs=()):
     return set(CONTEXT_METRICS) | set(unplanted_inputs) | set(TEMPORAL_METRICS)
 
 
-def reference_medians(metrics, languages, tiers=None, tier_sensitive=()):
+def reference_medians(metrics, languages, strata=None, constant_sensitive=()):
     """{metric: {lang: median}} -- what each cell is banded against.
 
-    The global median for everything except the tier-reading risk metrics, which
-    use the median of the language's own scoring tier when `tiers` is given. The
-    tier-1 and tier-2 groups are seven languages each; the same program seven
-    times is still a median.
+    The global median for everything except the risk metrics that read a
+    language-level constant, which use the median of the language's own strictness
+    stratum when `strata` is given (gitgalaxy#2718: Irc = strictness gaps). The
+    same program N times is still a median.
     """
     refs = {}
     for metric, values in metrics.items():
@@ -202,12 +205,12 @@ def reference_medians(metrics, languages, tiers=None, tier_sensitive=()):
         }
         if not nums:
             continue
-        if tiers and metric in tier_sensitive:
-            by_tier = {}
+        if strata and metric in constant_sensitive:
+            by_stratum = {}
             for lang, v in nums.items():
-                by_tier.setdefault(tiers.get(lang, "tier3"), []).append(v)
-            tier_med = {t: statistics.median(vs) for t, vs in by_tier.items()}
-            refs[metric] = {lang: tier_med[tiers.get(lang, "tier3")] for lang in nums}
+                by_stratum.setdefault(strata.get(lang, "irc0"), []).append(v)
+            stratum_med = {t: statistics.median(vs) for t, vs in by_stratum.items()}
+            refs[metric] = {lang: stratum_med[strata.get(lang, "irc0")] for lang in nums}
         else:
             global_med = statistics.median(nums.values())
             refs[metric] = {lang: global_med for lang in nums}
@@ -298,7 +301,7 @@ def _row_stats(values, medians=None):
     all, or inert (every language records 0, so nothing was asked).
 
     `medians`, when given, is the per-language reference aligned with `values`
-    (F.3: a tier-reading risk metric is banded against its own tier's median);
+    (F.3: a constant-reading risk metric is banded against its own stratum's median);
     the returned median is still the global one, for the label."""
     vals = [v for v in values if v is not None]
     if not vals:
@@ -494,11 +497,11 @@ def out_of_band_cells(metrics, languages, refs=None):
 
 
 def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inputs=None,
-                        tiers=None, tier_sensitive=(), ungated=None):
+                        strata=None, constant_sensitive=(), ungated=None):
     """{(metric, lang): (status, detail)} for every out-of-band cell.
 
-    `tiers` + `tier_sensitive` band the tier-reading risk metrics against their
-    own tier's median (F.3); `ungated` is the set of reported-but-never-gated
+    `strata` + `constant_sensitive` band the constant-reading risk metrics against
+    their own stratum's median (F.3); `ungated` is the set of reported-but-never-gated
     metrics (defaults to the length context; the cache carries the full set as
     `ungated_metrics`). An ungated cell gets no verdict but stays in the
     out-of-band set so a derived metric can inherit from it.
@@ -520,7 +523,7 @@ def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inpu
     """
     validated = [e for e in ledger_entries if e.get("status") == "validated"]
     ungated = set(ungated) if ungated is not None else set(CONTEXT_METRICS)
-    refs = reference_medians(metrics, languages, tiers, tier_sensitive)
+    refs = reference_medians(metrics, languages, strata, constant_sensitive)
     oob = out_of_band_cells(metrics, languages, refs)
     verdicts = {}
     for metric, lang in sorted(oob):
@@ -609,6 +612,23 @@ LENGTH_TERMS = {
     "dependency_density": "import_count / max(int(coding_loc * control_flow_ratio), 1) "
                           "(record_keeper.py ~L489)",
     "risk_tech_debt": "_calc_tech_debt: stress / _mass_loc(loc) (signal_processor.py ~L1478)",
+    # gitgalaxy#2669 F.4: located while re-banding onto the strictness strata. The
+    # numerator of each of these grows with the program (opaque_execution adds
+    # 5 + log1p(impact) per load-bearing undocumented function; api x 2.0 grows
+    # with the surface; verification counts per-function coverage), while the
+    # denominator is _mass_loc / max(total_loc, 50) -- floored at the #2655
+    # evidence mass. EVERY file in this corpus is under that floor, so the
+    # denominator is a constant here and the numerator's growth is unopposed.
+    # That is the floor behaving as designed (below it, score on counts), not a
+    # new length term: the same formulas divide correctly on real files.
+    "risk_documentation": "_calc_documentation: (opaque_execution + api x 2 + dynamism) / "
+                          "(_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the "
+                          "denominator is the #2655 floor, constant for every file in this "
+                          "corpus, so the numerator's growth with program length is unopposed",
+    "risk_api_exposure": "_calc_api_exposure: log1p(api) / log1p(max(total_loc, 50)) "
+                         "(signal_processor.py ~L1738) -- same floor, same constant denominator",
+    "risk_verification": "_calc_verification: untested impact / _mass_loc(loc) "
+                         "(signal_processor.py ~L1664) -- same floor, same constant denominator",
 }
 
 
@@ -647,9 +667,9 @@ def _spearman(xs, ys):
 VOCABULARY_DENOMINATORS = {"control_flow_ratio": "structural_boundaries"}
 
 
-def length_leaks(metrics, languages, risk_inputs=None, tiers=None, x_axis="coding_loc",
-                 tier_sensitive=(), ungated=None):
-    """[{metric, n, rho, verdict, held, tier, where}], strongest |rho| first.
+def length_leaks(metrics, languages, risk_inputs=None, strata=None, x_axis="coding_loc",
+                 constant_sensitive=(), ungated=None):
+    """[{metric, n, rho, verdict, held, stratum, where}], strongest |rho| first.
 
     verdict is "leak" (|rho| >= LEAK_RHO), "weak", or "vocabulary" for a metric in
     VOCABULARY_DENOMINATORS at any reportable |rho|.
@@ -662,16 +682,16 @@ def length_leaks(metrics, languages, risk_inputs=None, tiers=None, x_axis="codin
     there is nothing to hold equal, so the result is weaker evidence and says so
     through an empty `held`.
 
-    `tiers` ({language: scoring tier}) is held equal too when given: the risk
-    formulas add a flat `irc / mass_loc` term and scale documentation credit by
-    tier (gitgalaxy#2653), and the tier-3 languages are, by and large, the short
-    shells -- so without this a tier effect reads as a length effect. The
-    correlation runs inside the largest tier among the qualifying languages and
-    the row says which.
+    `strata` ({language: strictness stratum}) is held equal too when given: the
+    risk formulas add a flat `Irc / mass_loc` term and scale verification by `Ot`
+    (gitgalaxy#2653, #2718), and the high-gap languages are, by and large, the
+    short shells -- so without this a strictness effect reads as a length effect.
+    The correlation runs inside the largest stratum among the qualifying languages
+    and the row says which.
     """
     ungated = set(ungated) if ungated is not None else set(CONTEXT_METRICS)
     oob = out_of_band_cells(
-        metrics, languages, reference_medians(metrics, languages, tiers, tier_sensitive)
+        metrics, languages, reference_medians(metrics, languages, strata, constant_sensitive)
     )
     xs_all = metrics.get(x_axis, {})
     out = []
@@ -688,11 +708,11 @@ def length_leaks(metrics, languages, risk_inputs=None, tiers=None, x_axis="codin
                 for i in held
             )
         ]
-        tier = None
-        if tiers:
-            by_tier = collections.Counter(tiers.get(lang, "tier3") for lang in langs)
-            tier = max(by_tier, key=by_tier.get) if by_tier else None
-            langs = [lang for lang in langs if tiers.get(lang, "tier3") == tier]
+        stratum = None
+        if strata:
+            by_stratum = collections.Counter(strata.get(lang, "irc0") for lang in langs)
+            stratum = max(by_stratum, key=by_stratum.get) if by_stratum else None
+            langs = [lang for lang in langs if strata.get(lang, "irc0") == stratum]
         if len(langs) < LEAK_MIN_LANGUAGES or len({values[lang] for lang in langs}) < 2:
             continue
         rho = _spearman([xs_all[lang] for lang in langs], [values[lang] for lang in langs])
@@ -708,7 +728,7 @@ def length_leaks(metrics, languages, risk_inputs=None, tiers=None, x_axis="codin
             "rho": round(rho, 3),
             "verdict": verdict,
             "held": list(held),
-            "tier": tier,
+            "stratum": stratum,
             "where": LENGTH_TERMS.get(metric),
         })
     out.sort(key=lambda r: -abs(r["rho"]))
@@ -804,7 +824,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None):
     """Strip-plot SVG. groups = [(title, {metric: [values-per-language]}, gated)].
 
     `medians` = {metric: [per-language reference median]} for the rows that are
-    banded against something other than the global median (F.3 tier rows).
+    banded against something other than the global median (F.3 stratum rows).
 
     One unlabeled dot per language; translucent so overlap darkens; each colored
     zone carries a small count of the dots inside it, so a tight 11-dot (or 40-dot)
@@ -1020,9 +1040,9 @@ def main():
             context_values[c] = [all_measures[lang].get(c) for lang in languages]
         elif c in struct_names:
             context_values[c] = [all_struct[lang].get(c) for lang in languages]
-    # F.3: which risk formulas read the tier constants, and which registry signals
+    # F.3: which risk formulas read a language-level constant, and which registry signals
     # they read that the SPEC never plants -- both off the engine's risk assembly.
-    tier_sensitive = sorted(m for m, d in deps.items() if d.get("tier"))
+    constant_sensitive = sorted(m for m, d in deps.items() if d.get("reads_constant"))
     # (api and encapsulation are governed-but-unplanted too, but they are already
     # measured columns -- raw_arch_api / def_encapsulation -- so they stay there.)
     unplanted_inputs = sorted(
@@ -1030,7 +1050,7 @@ def main():
          if s not in PLANTED and s not in RISK_INPUT_COLUMNS}
     )
     ungated = ungated_metrics(unplanted_inputs)
-    tiers = scoring_tiers(languages)
+    strata = scoring_strata(languages)
     groups = [
         ("risk exposure (mean per file)",
          {c: [all_risks[lang].get(c) for lang in languages]
@@ -1071,13 +1091,13 @@ def main():
         # F.1: which columns are length (context, never gated), so every consumer
         # of this cache draws the line in the same place.
         "context_metrics": list(CONTEXT_METRICS),
-        # The engine's scoring tier per language (signal_processor._get_tier, read
+        # The engine's strictness stratum per language (analysis_lens, read
         # off the source): held equal by the leak check, banded within by F.3.
-        "tiers": tiers,
-        # F.3: the risk metrics banded against their own tier's median, the
+        "strata": strata,
+        # F.3: the risk metrics banded against their own stratum's median, the
         # registry signals the formulas read but the SPEC never plants, and the
         # full reported-not-gated set every consumer must skip.
-        "tier_sensitive": tier_sensitive,
+        "constant_sensitive": constant_sensitive,
         "unplanted_inputs": unplanted_inputs,
         "ungated_metrics": sorted(ungated),
     }
@@ -1086,8 +1106,8 @@ def main():
             cache["metrics"][name] = dict(zip(languages, values))
     # F.1: the length-leak findings ride in the cache too, so issue_status.py and
     # ad hoc readers see the same table the report prints.
-    leaks = length_leaks(cache["metrics"], languages, deps, tiers=tiers,
-                         tier_sensitive=tier_sensitive, ungated=ungated)
+    leaks = length_leaks(cache["metrics"], languages, deps, strata=strata,
+                         constant_sensitive=constant_sensitive, ungated=ungated)
     cache["length_leaks"] = leaks
     (REPO_ROOT / "docs" / "bias_data.json").write_text(
         json.dumps(cache, indent=1) + "\n"
@@ -1098,15 +1118,15 @@ def main():
         cache["metrics"], languages, ledger["entries"],
         {c: dict(zip(languages, [all_struct[lang].get(c) for lang in languages]))
          for c in struct_names},
-        risk_inputs=deps, tiers=tiers, tier_sensitive=tier_sensitive, ungated=ungated,
+        risk_inputs=deps, strata=strata, constant_sensitive=constant_sensitive, ungated=ungated,
     )
     unexplained = sorted(k for k, (st, _) in verdicts.items() if st == "unexplained")
     by_status = collections.Counter(st for st, _ in verdicts.values())
 
-    refs = reference_medians(cache["metrics"], languages, tiers, tier_sensitive)
+    refs = reference_medians(cache["metrics"], languages, strata, constant_sensitive)
     shares, skipped, inert, agreement = write_variance_chart(
         groups, len(languages), na_by_metric,
-        medians={m: [refs[m].get(lang) for lang in languages] for m in tier_sensitive if m in refs},
+        medians={m: [refs[m].get(lang) for lang in languages] for m in constant_sensitive if m in refs},
     )
     avg_share = statistics.mean(shares.values()) if shares else 0
     n_strong = sum(1 for v in shares.values() if v >= 0.8)
@@ -1223,31 +1243,39 @@ def main():
         lines += [f"- `{m}` — {', '.join(sorted(langs))}" for m, langs in sorted(shown.items())]
         lines += [""]
 
-    lines += ["## Tier constants are design; the report bands within tier", "",
-              "`signal_processor._get_tier` assigns every language a scoring tier by literal set "
-              "membership, and the formulas below read its constants (a flat `irc / mass_loc` term, "
-              "an `fc` scale on defence credit, `ot` on verification) -- wiki 08-03 documents this as "
-              "deliberate (gitgalaxy#2653). Against a global median that reads as bias: the seven "
-              "tier-1 languages report identical `risk_tech_debt` with inputs identical to the median "
-              "language. So each tier-reading metric is banded against **the median of the language's "
-              "own tier** (gitgalaxy#2669 F.3), and the per-tier medians are the documented offset, "
-              "printed here rather than hidden. Which metrics read tier is taken off the engine "
-              "source at regen time, never hand-listed. Tier membership: "
+    present = sorted({strata.get(l) for l in languages if strata.get(l)})
+    lines += ["## The language-level risk constant is design; the report bands within it", "",
+              "`analysis_lens.LANGUAGE_STRICTNESS` gives every language four yes/no columns (static "
+              "types, enforced errors, memory safety, no implicit globals) and "
+              "`strictness_constants()` turns the count of `False` columns into the constants the "
+              "formulas below read: `Irc` = gaps, `Ot` = 1 + 0.1 x gaps (gitgalaxy#2718, which "
+              "replaced the three hand-listed scoring tiers this section used to read out of "
+              "`signal_processor._get_tier`). Wiki 08-03 documents the term as deliberate. Against a "
+              "global median it reads as bias: languages carrying the same gap count report identical "
+              "risk values with inputs identical to the median language. So each metric that reads a "
+              "language-level constant is banded against **the median of its own stratum** "
+              "(gitgalaxy#2669 F.3), and the per-stratum medians are the documented offset, printed "
+              "here rather than hidden. Which metrics read one is taken off the engine source at "
+              "regen time, never hand-listed. Strata (`ircN` = N strictness gaps): "
               + "; ".join(
-                  f"**{t}** = " + ", ".join(sorted(l for l in languages if tiers.get(l) == t))
-                  for t in ("tier1", "tier2")
-              ) + "; every other language is tier3.", "",
-              "| metric | tier1 median (n) | tier2 median (n) | tier3 median (n) | global median |",
-              "|---|---|---|---|---|"]
-    for m in tier_sensitive:
+                  f"**{t}** = " + ", ".join(sorted(l for l in languages if strata.get(l) == t))
+                  for t in present
+              ) + ".", "",
+              "**Not held equal:** the per-language x per-signal fidelity coefficients "
+              "(`gitgalaxy/standards/fidelity_table.py`) that replaced the scalar `fc`. They are "
+              "generated FROM this corpus, so banding against them would be circular -- a surviving "
+              "defence-credit deviation may still be a fidelity cell.", "",
+              "| metric | " + " | ".join(f"{t} median (n)" for t in present) + " | global median |",
+              "|---" * (len(present) + 2) + "|"]
+    for m in constant_sensitive:
         vals = cache["metrics"].get(m, {})
         cells = []
-        for t in ("tier1", "tier2", "tier3"):
-            vs = [v for lang, v in vals.items() if tiers.get(lang) == t and isinstance(v, (int, float))]
+        for t in present:
+            vs = [v for lang, v in vals.items() if strata.get(lang) == t and isinstance(v, (int, float))]
             cells.append(f"{statistics.median(vs):.3f} ({len(vs)})" if vs else "—")
         allv = [v for v in vals.values() if isinstance(v, (int, float))]
-        lines.append(f"| `{m}` | " + " | ".join(cells)
-                     + f" | {statistics.median(allv):.3f} |" if allv else f"| `{m}` | — | — | — | — |")
+        tail = f" | {statistics.median(allv):.3f} |" if allv else " | — |"
+        lines.append(f"| `{m}` | " + " | ".join(cells) + tail)
     lines += ["", "## Unplanted risk inputs", "",
               "The risk formulas read registry signals the SPEC does not plant: "
               + ", ".join(f"`{s}`" for s in unplanted_inputs)
@@ -1278,22 +1306,22 @@ def main():
               f"|rho| ≥ {LEAK_RHO} across ≥ {LEAK_MIN_LANGUAGES} languages is a **leak**: the formula "
               "reads length where it should read content. That is one finding per formula, not one "
               "per language — each is an engine design question in the gitgalaxy#2655 shape, filed "
-              "against the cited line — and it changes no cell's verdict above. The engine's scoring "
-              "tier (gitgalaxy#2653: a flat `irc / mass_loc` term and a documentation-credit scale) is "
-              "held equal as well, inside the largest tier among the qualifying languages, because "
-              "the tier-3 languages are largely the short shells and a tier effect would otherwise "
-              "read as a length effect. A metric with no known inputs is correlated over every "
+              "against the cited line — and it changes no cell's verdict above. The engine's "
+              "language-level constant (gitgalaxy#2653/#2718: a flat `Irc / mass_loc` term and an "
+              "`Ot` scale) is held equal as well, inside the largest strictness stratum among the "
+              "qualifying languages, because the high-gap languages are largely the short shells and "
+              "a strictness effect would otherwise read as a length effect. A metric with no known inputs is correlated over every "
               "language that records it (nothing held), which is weaker evidence and is marked as "
               "such.", ""]
     if leaks:
-        lines += ["| metric | languages | tier | rho | verdict | inputs held in band | where length enters |",
+        lines += ["| metric | languages | stratum | rho | verdict | inputs held in band | where length enters |",
                   "|---|---|---|---|---|---|---|"]
         for r in leaks:
             held = ", ".join(f"`{h}`" for h in r["held"]) if r["held"] else "*(none known)*"
             where = r["where"] or "**not located yet** — the more interesting finding"
             label = {"leak": "**leak**", "weak": "weak",
                      "vocabulary": "vocabulary, not length"}[r["verdict"]]
-            lines.append(f"| `{r['metric']}` | {r['n']} | {r.get('tier') or '—'} | {r['rho']:+.2f} | "
+            lines.append(f"| `{r['metric']}` | {r['n']} | {r.get('stratum') or '—'} | {r['rho']:+.2f} | "
                          f"{label} | {held} | {where} |")
         lines += [""]
     else:
