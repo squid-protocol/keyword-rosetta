@@ -3,19 +3,19 @@
 
 import c from './c.js';
 
-function probeBypass(shape) {
+export function probeBypass(shape) {
   const nothing = void 0;
   with (shape) {}
   return nothing;
 }
 
-function probeTelemetry(msg) {
+export function probeTelemetry(msg) {
   logger.info(msg);
   winston.error(msg);
   return msg;
 }
 
-function probeState(items) {
+export function probeState(items) {
   let first = items;
   var second = items;
   return [first, second];
