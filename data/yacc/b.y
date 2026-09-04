@@ -1,6 +1,7 @@
 /* keyword rosetta control shell: yacc / b */
 /* decoy: nothing risky lives here in prose */
 #include "c.y"
+%define api.pure full
 %%
 probe_bypass : ONE { goto done; void *raw; } ;
 
