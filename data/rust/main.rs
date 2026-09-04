@@ -13,7 +13,7 @@ fn entry(argv: i32) -> i32 {
     result + stream + runner + chain
 }
 
-fn probe_branch(flag: i32) -> i32 {
+pub fn probe_branch(flag: i32) -> i32 {
     if flag > 0 {
         1
     } else {
@@ -21,14 +21,14 @@ fn probe_branch(flag: i32) -> i32 {
     }
 }
 
-fn probe_io(path: i32) -> i32 {
+pub fn probe_io(path: i32) -> i32 {
     let disk = std::fs;
     let net = std::net;
     let web = reqwest;
     path
 }
 
-fn probe_risk(payload: i32) -> i32 {
+pub fn probe_risk(payload: i32) -> i32 {
     let quit = process::exit;
     let stop = abort;
     payload

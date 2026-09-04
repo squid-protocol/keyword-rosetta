@@ -12,7 +12,7 @@
    "doc": 1,
    "ownership": 1,
    "import": 1,
-   "api": 0,
+   "api": 3,
    "api_orphan_credit": 0,
    "class_start": 0,
    "state_mutation": 0,
@@ -23,13 +23,14 @@
    "telemetry": 0,
    "cleanup": 0,
    "fragile_debt": 0,
-   "planned_debt": 0
+   "planned_debt": 0,
+   "encapsulation": 3
   },
   "a.rs": {
    "import": 1,
    "func_start": 3,
    "args": 3,
-   "api": 0,
+   "api": 3,
    "api_orphan_credit": 3,
    "globals": 2,
    "test": 2,
@@ -43,13 +44,14 @@
    "telemetry": 0,
    "cleanup": 0,
    "fragile_debt": 0,
-   "planned_debt": 0
+   "planned_debt": 0,
+   "encapsulation": 3
   },
   "b.rs": {
    "import": 1,
    "func_start": 3,
    "args": 3,
-   "api": 0,
+   "api": 3,
    "api_orphan_credit": 3,
    "safety_bypasses": 2,
    "telemetry": 2,
@@ -63,13 +65,14 @@
    "globals": 0,
    "cleanup": 0,
    "fragile_debt": 0,
-   "planned_debt": 0
+   "planned_debt": 0,
+   "encapsulation": 3
   },
   "c.rs": {
    "import": 0,
    "func_start": 3,
    "args": 3,
-   "api": 0,
+   "api": 3,
    "api_orphan_credit": 3,
    "cleanup": 2,
    "fragile_debt": 1,
@@ -85,7 +88,8 @@
    "globals": 0,
    "doc": 0,
    "ownership": 0,
-   "high_risk_execution": 0
+   "high_risk_execution": 0,
+   "encapsulation": 3
   }
  },
  "decoys": [
@@ -117,5 +121,5 @@
    "outcome": "inert (underscore + lowercase)"
   }
  ],
- "notes": "api deliberately 0 planted (rust api = \\bpub\\b; no pub anywhere) so a/b/c's api 3 is pure orphan conversion — the cleanest view of the Contextual Baseline Fix in the corpus. branch planted as if/else/loop (match avoided: it is also a rust safety keyword). state planted as two let-mut (avoided mut everywhere else, RefCell avoided as dual state keyword). panics_and_aborts 2 in main = process::exit/abort dual-mapped (unasserted). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-01): abort-only literal (rust's own danger keyword replaces the meaningless eval; state_mutation 6->2, branch 1->0, high_risk_execution 0->1)."
+ "notes": "api deliberately 0 planted (rust api = \\bpub\\b; no pub anywhere) so a/b/c's api 3 is pure orphan conversion — the cleanest view of the Contextual Baseline Fix in the corpus. branch planted as if/else/loop (match avoided: it is also a rust safety keyword). state planted as two let-mut (avoided mut everywhere else, RefCell avoided as dual state keyword). panics_and_aborts 2 in main = process::exit/abort dual-mapped (unasserted). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-01): abort-only literal (rust's own danger keyword replaces the meaningless eval; state_mutation 6->2, branch 1->0, high_risk_execution 0->1). api (gitgalaxy#2729): 'pub fn' on the three probe functions per file (entry stays private): api 3/3/3/3 (main/a/b/c) -- supersedes the 'api deliberately 0 planted' sentence above; a/b/c's orphan conversion is now pinned by api_orphan_credit instead. Carried: rust's encapsulation rule is the same \\bpub\\b token, so encapsulation (newly recorded) is 3 per file, one per pub."
 }
