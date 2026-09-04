@@ -19,3 +19,7 @@ def probe_safety(value)
 rescue
   value
 end
+
+module_function :probe_globals
+module_function :probe_test
+module_function :probe_safety

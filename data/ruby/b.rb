@@ -20,3 +20,7 @@ def probe_state(items)
   note = "plain system decoy text"
   note
 end
+
+module_function :probe_bypass
+module_function :probe_telemetry
+module_function :probe_state
