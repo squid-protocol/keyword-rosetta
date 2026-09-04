@@ -163,6 +163,33 @@ cross-language question. `risk_churn` (a hardcoded `0.0` in the risk assembly) a
 100% and folded into the headline average, inflating it. They are now reported as **inert**
 and excluded from the average, alongside the separate "no comparable median" list.
 
+## Program length is context (gitgalaxy#2669 F.1)
+
+Four columns — `total_loc`, `coding_loc`, `token_mass`, `keyword_hits` — measure how long a
+language's 12-probe program came out. The SPEC plants counts, never length: a Dockerfile with
+the same 12 probes cannot be as long as the Java version without padding, and padding would
+move the planted signals. On 2026-09-04 every procedural language sat within a few percent of
+the `coding_loc` median, and the out-of-band tail was exactly the non-procedural shells
+(markdown, m4, yacc, jcl, css, html, dockerfile, makefile, yaml, sqlite) plus the two dense
+ones (haskell, scheme): 49 cells with no honest fix on either side.
+
+The bias tooling therefore treats them as **context**: reported and charted, no badge, no share
+in the consistency average, no verdict, never counted by `--gate`. Two consequences:
+
+- A context column that is out of band for a language may still explain a `derived` cell there
+  (`derived: inherits coding_loc`) — that is a deviation entering through length. A ledger
+  entry saying "this program is shorter" is **not** a valid explanation for any cell and must
+  not be written; the length itself is already accounted for by being context.
+- `coding_loc` is the x-axis of the report's **length-leak check**: for each derived metric,
+  across the languages whose measured inputs are all in band (content held equal) *and* that
+  share the engine's scoring tier (gitgalaxy#2653's Fc/Irc constants — the tier-3 languages
+  are largely the short shells, so a tier effect would otherwise read as a length effect), the
+  rank correlation against `coding_loc`. A leak (|rho| ≥ 0.6 over ≥ 8 languages) is one
+  finding on one engine formula — the same program at 46 lengths should score the same —
+  filed as an engine design issue in the gitgalaxy#2655 shape. It never alters a cell's
+  verdict. The tier map is read off `signal_processor._get_tier` at regen time and stored as
+  `tiers` in `docs/bias_data.json`.
+
 ## Cross-repo flow (no pins)
 
 Two CI checks hold the corpus and the engine together, symmetrically and without pins

@@ -31,7 +31,7 @@ import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
-from bias_report import GREEN_DEV, explain_out_of_band  # noqa: E402
+from bias_report import CONTEXT_METRICS, GREEN_DEV, explain_out_of_band  # noqa: E402
 from language_deviations import STRUCTURE_METRICS, classify, group_of  # noqa: E402
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -57,9 +57,18 @@ def build(lang, data, ledger):
         risk_inputs=data.get("risk_inputs"),
     )
 
-    rows, unreviewed = [], []
+    rows, unreviewed, context = [], [], []
     for metric, values in sorted(metrics.items()):
         if not isinstance(values, dict) or lang not in values:
+            continue
+        if metric in CONTEXT_METRICS:
+            # F.1: program length is reported, never gated -- it neither counts
+            # against the language nor needs a verdict.
+            nums = [v for v in values.values() if isinstance(v, (int, float))]
+            if isinstance(values[lang], (int, float)) and nums:
+                band, dev = classify(values[lang], statistics.median(nums))
+                if band in ("red", "amber"):
+                    context.append((metric, values[lang], statistics.median(nums), dev))
             continue
         state = na.get(metric, {}).get(lang)
         if state:
@@ -120,6 +129,16 @@ def build(lang, data, ledger):
             for metric, detail in sorted(items):
                 out.append(f"- `{metric}`" + (f" — {detail}" if detail else ""))
             out.append("")
+
+    if context:
+        out.append(
+            "**Program length (context, not gated):** "
+            + ", ".join(f"`{m}` {v:.4g} vs median {med:.4g} ({dev:+.0%})"
+                        for m, v, med, dev in context)
+            + " — how long this language's shell came out, which the SPEC does not plant "
+            "(gitgalaxy#2669 F.1); shown for orientation only."
+        )
+        out.append("")
 
     if unreviewed:
         out.append("### Unreviewed n/a cells")

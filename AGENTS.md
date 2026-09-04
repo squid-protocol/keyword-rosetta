@@ -97,6 +97,18 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
     band, so counting it again is counting one finding twice. The metric→inputs table is
     `DERIVED_INPUTS` in `bias_report.py`, with the engine formula each row came from cited
     beside it — check it against the engine when a formula changes.
+  - **context** (gitgalaxy#2669 F.1) — `total_loc`, `coding_loc`, `token_mass` and
+    `keyword_hits` measure how long the program came out, which the SPEC never plants. They
+    are charted without a badge, excluded from the consistency average and from `--gate`,
+    and never get a verdict of their own; a `derived` cell may still inherit from one. A
+    ledger entry saying "this program is shorter" is not a valid explanation for any cell.
+    `coding_loc` is also the x-axis of the report's **length-leak check**: a derived metric
+    that rank-correlates with `coding_loc` (|rho| ≥ 0.6 over ≥ 8 languages) across languages
+    whose measured inputs are all in band *and* that share the engine's scoring tier (the
+    #2653 constants would otherwise read as length — the tier map is `tiers` in the cache,
+    read off `signal_processor._get_tier`) is reading length, not content — one engine
+    finding per formula (`LENGTH_TERMS` cites where length enters), filed as an engine design
+    issue in the #2655 shape, never used to change a cell's verdict.
 
   `tools/bias_report.py --gate` exits nonzero while any cell is unexplained: that is the
   epic close criterion, and it is off by default so a routine regen still writes its

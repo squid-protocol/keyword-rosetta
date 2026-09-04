@@ -25,7 +25,9 @@ descriptor for a language with no functions (the quotient is undefined, not
 deviant), or when it is a composite whose deviation entered through an input that
 is itself out of band. Explained cells still print -- with the reason -- but do
 not fail the gate, because the epic's close criterion is "nothing UNEXPLAINED
-remains", not "nothing deviates".
+remains", not "nothing deviates". The four program-length columns (total_loc,
+coding_loc, token_mass, keyword_hits) print in their own group as context and
+count toward nothing (gitgalaxy#2669 F.1).
 
 Exit status: 0 if every out-of-band metric is explained AND no n/a cell is
 unreviewed, 1 otherwise -- so a sweep can be gate-checked
@@ -37,7 +39,13 @@ import pathlib
 import statistics
 import sys
 
-from bias_report import AMBER_DEV, GREEN_DEV, PLANTED, explain_out_of_band
+from bias_report import (
+    AMBER_DEV,
+    CONTEXT_METRICS,
+    GREEN_DEV,
+    PLANTED,
+    explain_out_of_band,
+)
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 BIAS_DATA = REPO_ROOT / "docs" / "bias_data.json"
@@ -69,6 +77,9 @@ def classify(value, median):
 
 
 def group_of(metric):
+    if metric in CONTEXT_METRICS:
+        # F.1 (gitgalaxy#2669): program length is reported, never gated.
+        return 4, "program length (context -- reported, not gated)"
     if metric.startswith("risk_"):
         return 3, "risk (downstream -- re-baselines as upstream fixes land)"
     if metric in STRUCTURE_METRICS:
@@ -116,10 +127,16 @@ def main():
     reds = ambers = comparable = unreviewed = explained = 0
     current_group = None
     for (gnum, gname), metric, value, median, band, dev in rows:
-        if band not in ("zero-median", "na-ledgered", "na-unreviewed"):
-            comparable += 1
+        is_context = metric in CONTEXT_METRICS
         verdict = verdicts.get((metric, lang), (None, ""))[0]
-        if band in ("red", "amber") and verdict and verdict != "unexplained":
+        if is_context:
+            # F.1: length is shown for orientation and counts toward nothing.
+            pass
+        elif band not in ("zero-median", "na-ledgered", "na-unreviewed"):
+            comparable += 1
+        if is_context:
+            pass
+        elif band in ("red", "amber") and verdict and verdict != "unexplained":
             explained += 1
         elif band == "red":
             reds += 1
@@ -156,7 +173,9 @@ def main():
         planted = f"  planted={PLANTED[metric]}" if metric in PLANTED else ""
         status, detail = verdicts.get((metric, lang), (None, ""))
         mark = ""
-        if status and status != "unexplained":
+        if metric in CONTEXT_METRICS:
+            mark = "  [context: program length, not gated]"
+        elif status and status != "unexplained":
             # Explained: shown, reasoned, and excluded from the gate's tally.
             mark = f"  [{status}" + (f": {detail}" if detail else "") + "]"
         print(f"{dot[band]} {metric:24s} {value:>10.4g}  median {median:<10.4g} {dev_txt}{planted}{mark}")

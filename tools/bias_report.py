@@ -38,6 +38,7 @@ from _registry import (
     load_definitions,
     registry_signals,
     risk_dependencies,
+    scoring_tiers,
     unmeasurable_signals,
 )
 
@@ -111,6 +112,34 @@ PLANTED = {
     "cleanup": 2, "fragile_debt": 1, "planned_debt": 1, "import": 3,
     "func_start": 13, "args": 13, "class_start": 0, "doc": 1, "ownership": 1,
 }
+
+# ==============================================================================
+# F.1 (gitgalaxy#2669): PROGRAM LENGTH IS CONTEXT, NOT A CONSISTENCY CLAIM
+# ==============================================================================
+# Four columns measure how LONG each language's 12-probe program came out, not
+# whether the engine read it the same way: total_loc (blank-inclusive lines),
+# coding_loc (lines after prism strips comments and blanks), token_mass (tokens
+# in those lines) and keyword_hits (every rule match in the file summed over
+# every signal -- the planted counts plus whatever glue syntax matched). The SPEC
+# plants counts, never length: a 12-probe Dockerfile cannot be as long as the
+# Java one without padding, and padding would move the signals that ARE planted.
+# On the 2026-09-04 cache every procedural language sat within a few percent of
+# the coding_loc median (go 18.5, perl 18.75, ada 18.5 vs 17.1); the out-of-band
+# tail was exactly the non-procedural shells (markdown 0, m4 4, yacc 5, jcl 6,
+# css/html/dockerfile/makefile/yaml/sqlite) and the two dense ones (haskell,
+# scheme) -- 49 cells that no engine fix and no honest corpus edit could close.
+#
+# So these four are CONTEXT: charted without a badge, excluded from the
+# consistency average, never given a verdict of their own, never counted by
+# --gate. Two things they still do, deliberately:
+#   * a context metric that is out of band for a language can still EXPLAIN a
+#     derived cell there ("derived: inherits coding_loc") -- that is a deviation
+#     entering through length, which is what length_leaks() measures one level
+#     up, on the formula instead of the cell;
+#   * coding_loc is the x-axis of length_leaks(): the same program at 46
+#     lengths is the ideal fixture for asking which engine formulas read length
+#     when they should be reading content.
+CONTEXT_METRICS = ("total_loc", "coding_loc", "token_mass", "keyword_hits")
 
 
 def gather(language, colmap):
@@ -326,6 +355,17 @@ DERIVED_INPUTS = {
     "avg_func_loc": ("total_loc", "coding_loc", "func_start"),
     "avg_func_args": ("args", "func_start"),
     "func_internal_density": ("branch", "args", "func_start"),
+    # F.2 (gitgalaxy#2669): the graph family. record_keeper.py ~L489:
+    #   dependency_density = import_count / max(int(coding_loc * control_flow_ratio), 1)
+    # so a language whose only deviation is a short file or an off-median
+    # control_flow_ratio reads as import-dense with the same three imports.
+    "dependency_density": ("import", "coding_loc", "control_flow_ratio"),
+    # record_keeper.py: import_count = len(raw_imports) -- the capture output the
+    # corpus plants as `import` (3 per shell).
+    "dependency_links": ("import",),
+    # network_risk_sensor.py ~L371: nx.betweenness_centrality over the import DAG,
+    # whose edges are exactly the captured imports.
+    "betweenness_score": ("dependency_links",),
 }
 
 
@@ -387,6 +427,10 @@ def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inpu
     oob = out_of_band_cells(metrics, languages)
     verdicts = {}
     for metric, lang in sorted(oob):
+        if metric in CONTEXT_METRICS:
+            # F.1: length is reported, never gated. The cell stays in `oob` so a
+            # derived metric can still inherit from it below.
+            continue
         funcs = (structure.get("functions_found") or {}).get(lang)
         if metric in PER_FUNCTION_METRICS and funcs == 0:
             verdicts[(metric, lang)] = ("undefined", "language records no functions")
@@ -399,23 +443,157 @@ def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inpu
         if named:
             verdicts[(metric, lang)] = ("ledgered", ", ".join(named))
             continue
-        edges = DERIVED_INPUTS.get(metric)
-        if edges is None and risk_inputs:
-            spec = risk_inputs.get(metric, {})
-            # `engine` inputs (orphaned_logic, duplicate_logic, the sec_* family)
-            # are synthesized downstream of the registry, so a None rule cannot
-            # pin them -- but they are still real inputs, and two of them are now
-            # measured columns, so they belong in the derivation edges.
-            edges = tuple(
-                RISK_INPUT_COLUMNS.get(i, i)
-                for i in (*spec.get("governed", ()), *spec.get("engine", ()))
-            )
-        inherited = [i for i in (edges or ()) if (i, lang) in oob]
+        edges = derivation_inputs(metric, risk_inputs, include_context=True)
+        inherited = [i for i in edges if (i, lang) in oob]
         if inherited:
             verdicts[(metric, lang)] = ("derived", "inherits " + ", ".join(inherited))
             continue
         verdicts[(metric, lang)] = ("unexplained", "")
     return verdicts
+
+
+def derivation_inputs(metric, risk_inputs=None, include_context=False):
+    """The measured inputs a derived metric is built from, as cache column names.
+
+    DERIVED_INPUTS for the structural composites; the engine's own risk assembly
+    (`risk_inputs`, read off `_registry.risk_dependencies` at regen time) for the
+    risk_* family; () for a metric with no known edges. `engine` inputs
+    (orphaned_logic, duplicate_logic, the sec_* family) are synthesized downstream
+    of the registry, so a None rule cannot pin them -- but they are still real
+    inputs, and two of them are measured columns, so they belong in the edges.
+    Context metrics (length) are dropped unless `include_context`: the verdict
+    machinery may inherit from them, the leak check must not hold them equal.
+    """
+    edges = DERIVED_INPUTS.get(metric)
+    if edges is None and risk_inputs and metric in risk_inputs:
+        spec = risk_inputs[metric]
+        edges = tuple(
+            RISK_INPUT_COLUMNS.get(i, i)
+            for i in (*spec.get("governed", ()), *spec.get("engine", ()))
+        )
+    edges = tuple(edges or ())
+    if include_context:
+        return edges
+    return tuple(i for i in edges if i not in CONTEXT_METRICS)
+
+
+# ------------------------------------------------------------------------------
+# F.1 (gitgalaxy#2669): THE LENGTH-LEAK CHECK
+# ------------------------------------------------------------------------------
+# The rosetta corpus is one program written at 46 lengths. For a derived metric,
+# take the languages whose planted inputs for it are all in band -- content held
+# equal, so length is the only thing left to vary -- and rank-correlate the metric
+# against coding_loc across them. A strong correlation is ONE finding on that
+# formula (it reads length where it should read content), not N language cells:
+# it is reported once, cited to the line where length enters, and filed as an
+# engine design question in the gitgalaxy#2655 shape. It never changes a cell's
+# verdict -- the cells of a leaking formula keep whatever verdict they had; the
+# leak is the formula-level reason they were out of band to begin with.
+LEAK_MIN_LANGUAGES = 8   # fewer than this and a rank correlation is noise
+LEAK_RHO = 0.6           # |Spearman rho| at or above: leak
+LEAK_WEAK_RHO = 0.4      # in [0.4, 0.6): reported as weak, not asserted
+
+# Where length enters the formula, for the metrics whose LOC term is already
+# located. A metric that leaks WITHOUT an entry here is the more interesting
+# finding: its length term has not been found yet. Line numbers are approximate
+# and dated 2026-09-04 (engine a334839) -- re-verify when the formula moves.
+LENGTH_TERMS = {
+    "avg_func_loc": "loc / functions_found -- length by definition (record_keeper.py)",
+    "func_internal_density": "avg_func_complexity / avg_func_loc (record_keeper.py ~L487)",
+    "cog_raw": "_calc_cog_load: every density divides by _mass_loc(loc), floored at 50 by "
+               "#2655 (signal_processor.py ~L1360-1390) -- every rosetta shell is below the "
+               "floor, so no length term should survive; a residual correlation is an unheld "
+               "input (concurrency, reflection_metaprogramming are not cached) or aggregation",
+    "risk_cognitive_load": "the same _calc_cog_load densities, post-sigmoid",
+    "control_flow_ratio": "branch / (branch + structural_boundaries); structural_boundaries "
+                          "is a per-language token tally that grows with the file "
+                          "(detector.py ~L1288)",
+    "structural_mass": "file_mass adds loc / 50 (signal_processor.py ~L820)",
+    "dependency_density": "import_count / max(int(coding_loc * control_flow_ratio), 1) "
+                          "(record_keeper.py ~L489)",
+    "risk_tech_debt": "_calc_tech_debt: stress / _mass_loc(loc) (signal_processor.py ~L1478)",
+}
+
+
+def _spearman(xs, ys):
+    """Spearman rank correlation, average ranks on ties; 0.0 when degenerate."""
+    def ranks(a):
+        order = sorted(range(len(a)), key=lambda i: a[i])
+        r = [0.0] * len(a)
+        i = 0
+        while i < len(order):
+            j = i
+            while j + 1 < len(order) and a[order[j + 1]] == a[order[i]]:
+                j += 1
+            for k in range(i, j + 1):
+                r[order[k]] = (i + j) / 2 + 1
+            i = j + 1
+        return r
+
+    rx, ry = ranks(xs), ranks(ys)
+    n = len(xs)
+    mx, my = sum(rx) / n, sum(ry) / n
+    cov = sum((a - mx) * (b - my) for a, b in zip(rx, ry))
+    sx = math.sqrt(sum((a - mx) ** 2 for a in rx))
+    sy = math.sqrt(sum((b - my) ** 2 for b in ry))
+    return cov / (sx * sy) if sx and sy else 0.0
+
+
+def length_leaks(metrics, languages, risk_inputs=None, tiers=None, x_axis="coding_loc"):
+    """[{metric, n, rho, verdict, held, tier, where}], strongest |rho| first.
+
+    One row per derived metric that rank-correlates with `x_axis` at |rho| >=
+    LEAK_WEAK_RHO across at least LEAK_MIN_LANGUAGES languages whose measured
+    inputs for that metric (`held`) are all inside the green band. Planted
+    signals and the context metrics themselves are never candidates. A metric
+    with no known edges is correlated over every language that records it --
+    there is nothing to hold equal, so the result is weaker evidence and says so
+    through an empty `held`.
+
+    `tiers` ({language: scoring tier}) is held equal too when given: the risk
+    formulas add a flat `irc / mass_loc` term and scale documentation credit by
+    tier (gitgalaxy#2653), and the tier-3 languages are, by and large, the short
+    shells -- so without this a tier effect reads as a length effect. The
+    correlation runs inside the largest tier among the qualifying languages and
+    the row says which.
+    """
+    oob = out_of_band_cells(metrics, languages)
+    xs_all = metrics.get(x_axis, {})
+    out = []
+    for metric, values in metrics.items():
+        if metric in PLANTED or metric in CONTEXT_METRICS or not isinstance(values, dict):
+            continue
+        held = tuple(i for i in derivation_inputs(metric, risk_inputs) if i in metrics)
+        langs = [
+            lang for lang in languages
+            if isinstance(values.get(lang), (int, float))
+            and isinstance(xs_all.get(lang), (int, float)) and xs_all[lang] > 0
+            and all(
+                (i, lang) not in oob and isinstance(metrics[i].get(lang), (int, float))
+                for i in held
+            )
+        ]
+        tier = None
+        if tiers:
+            by_tier = collections.Counter(tiers.get(lang, "tier3") for lang in langs)
+            tier = max(by_tier, key=by_tier.get) if by_tier else None
+            langs = [lang for lang in langs if tiers.get(lang, "tier3") == tier]
+        if len(langs) < LEAK_MIN_LANGUAGES or len({values[lang] for lang in langs}) < 2:
+            continue
+        rho = _spearman([xs_all[lang] for lang in langs], [values[lang] for lang in langs])
+        if abs(rho) < LEAK_WEAK_RHO:
+            continue
+        out.append({
+            "metric": metric,
+            "n": len(langs),
+            "rho": round(rho, 3),
+            "verdict": "leak" if abs(rho) >= LEAK_RHO else "weak",
+            "held": list(held),
+            "tier": tier,
+            "where": LENGTH_TERMS.get(metric),
+        })
+    out.sort(key=lambda r: -abs(r["rho"]))
+    return out
 
 
 def unmeasurable_risk_cells(deps, definitions, observed):
@@ -520,7 +698,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None):
         return label_w + pad + half + max(-1.1, min(1.1, dev)) * px_per_dev
 
     prepared, shares, n_rows, skipped, inert, agreement = [], {}, 0, [], [], []
-    for title, metrics in groups:
+    for title, metrics, gated in groups:
         rows = []
         for name, values in metrics.items():
             st = _row_stats(values)
@@ -528,11 +706,14 @@ def write_variance_chart(groups, n_langs, na_by_metric=None):
                 (inert if is_inert(values) else skipped).append(name)
                 continue
             rows.append((name, *st))
-            shares[name] = st[1]
+            if gated:
+                # F.1: a context row is drawn but carries no badge and no share --
+                # a length spread is not a consistency result.
+                shares[name] = st[1]
             if st[3] == "agreement":
                 agreement.append(name)
         if rows:
-            prepared.append((title, rows))
+            prepared.append((title, rows, gated))
             n_rows += len(rows)
 
     height = 60 + sum(24 for _ in prepared) + n_rows * row_h + 14
@@ -553,7 +734,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None):
     zone_edges = [(-1.1, -AMBER_DEV, "#f8d7da"), (-AMBER_DEV, -GREEN_DEV, "#fff3cd"),
                   (-GREEN_DEV, GREEN_DEV, "#d4edda"), (GREEN_DEV, AMBER_DEV, "#fff3cd"),
                   (AMBER_DEV, 1.1, "#f8d7da")]
-    for title, rows in prepared:
+    for title, rows, gated in prepared:
         y += 24
         s.append(f'<text x="{pad}" y="{y - 8}" font-size="12" font-weight="bold" '
                  f'fill="#444" letter-spacing="1">{title.upper()}</text>')
@@ -582,11 +763,15 @@ def write_variance_chart(groups, n_langs, na_by_metric=None):
             if n_na:
                 s.append(f'<text x="{label_w + strip_w + pad - 3:.1f}" y="{y + 13}" '
                          f'font-size="9" fill="#888" text-anchor="end">n/a {n_na}</text>')
-            badge_fill = _share_color(green_share)
             bx = label_w + strip_w + pad * 2
-            s.append(f'<rect x="{bx}" y="{cy - 10}" width="{badge_w}" height="20" rx="4" fill="{badge_fill}"/>')
-            s.append(f'<text x="{bx + badge_w / 2}" y="{cy + 4}" text-anchor="middle" '
-                     f'fill="#fff" font-weight="bold" font-size="11">{green_share:.0%}</text>')
+            if gated:
+                badge_fill = _share_color(green_share)
+                s.append(f'<rect x="{bx}" y="{cy - 10}" width="{badge_w}" height="20" rx="4" fill="{badge_fill}"/>')
+                s.append(f'<text x="{bx + badge_w / 2}" y="{cy + 4}" text-anchor="middle" '
+                         f'fill="#fff" font-weight="bold" font-size="11">{green_share:.0%}</text>')
+            else:
+                s.append(f'<text x="{bx + badge_w / 2}" y="{cy + 4}" text-anchor="middle" '
+                         f'fill="#888" font-size="10">context</text>')
             y += row_h
     s.append("</svg>")
     CHART.write_text("\n".join(s) + "\n")
@@ -705,16 +890,27 @@ def main():
                     "keyword_hits", "comment_lines", "pagerank"]
     measure_names = [c for c in MEASURE_COLS
                      if any(all_measures[lang].get(c) is not None for lang in languages)]
+    # F.1: the length columns leave their groups for a context group of their own
+    # (the tables below still print them where they always were).
+    context_values = {}
+    for c in CONTEXT_METRICS:
+        if c in measure_names:
+            context_values[c] = [all_measures[lang].get(c) for lang in languages]
+        elif c in struct_names:
+            context_values[c] = [all_struct[lang].get(c) for lang in languages]
     groups = [
         ("risk exposure (mean per file)",
-         {c: [all_risks[lang].get(c) for lang in languages] for c in risk_names}),
+         {c: [all_risks[lang].get(c) for lang in languages] for c in risk_names}, True),
         ("engine measures (mean per file)",
-         {c: [all_measures[lang].get(c) for lang in languages] for c in measure_names}),
+         {c: [all_measures[lang].get(c) for lang in languages]
+          for c in measure_names if c not in CONTEXT_METRICS}, True),
         ("structure found (corpus totals)",
-         {c: [all_struct[lang].get(c) for lang in languages] for c in struct_names}),
+         {c: [all_struct[lang].get(c) for lang in languages]
+          for c in struct_names if c not in CONTEXT_METRICS}, True),
         ("planted signals (corpus totals)",
          {c: [None if c in na_map.get(lang, ()) else all_totals[lang].get(c, 0)
-              for lang in languages] for c in PLANTED}),
+              for lang in languages] for c in PLANTED}, True),
+        ("program length (context -- reported, not gated)", context_values, False),
     ]
     # scan cache: lets findings_report.py (and ad hoc queries) reuse this run.
     # n/a cells are stored as null (never 0 -- the engine cannot produce a nonzero
@@ -732,10 +928,20 @@ def main():
         # with one generated at full precision (rosetta: the pre-#30 report had
         # pagerank NULL in all 46 columns and nothing said why).
         "engine_mode": "zero-dependency" if degraded else "full-precision",
+        # F.1: which columns are length (context, never gated), so every consumer
+        # of this cache draws the line in the same place.
+        "context_metrics": list(CONTEXT_METRICS),
+        # The engine's scoring tier per language (signal_processor._get_tier, read
+        # off the source): held equal by the leak check, and what F.3 normalises by.
+        "tiers": scoring_tiers(languages),
     }
-    for _, metrics in groups:
+    for _, metrics, _gated in groups:
         for name, values in metrics.items():
             cache["metrics"][name] = dict(zip(languages, values))
+    # F.1: the length-leak findings ride in the cache too, so issue_status.py and
+    # ad hoc readers see the same table the report prints.
+    leaks = length_leaks(cache["metrics"], languages, deps, tiers=cache["tiers"])
+    cache["length_leaks"] = leaks
     (REPO_ROOT / "docs" / "bias_data.json").write_text(
         json.dumps(cache, indent=1) + "\n"
     )
@@ -840,10 +1046,16 @@ def main():
             "",
         ]
 
+    n_context_oob = sum(
+        1 for metric, _ in out_of_band_cells(cache["metrics"], languages)
+        if metric in CONTEXT_METRICS
+    )
     lines += ["## Out-of-band cells: explained vs. unexplained", "",
               "An out-of-band cell is not automatically a defect. Three mechanisms account for one "
               "without anything being wrong with the engine, and the epic's close criterion is that "
-              "nothing survives all three (`--gate` exits nonzero while anything does).", "",
+              "nothing survives all three (`--gate` exits nonzero while anything does). The four "
+              "program-length columns are context, not consistency claims, and are not counted here "
+              f"at all ({n_context_oob} of their cells are out of band; see the next section).", "",
               "| verdict | cells | meaning |",
               "|---|---|---|",
               f"| undefined | {by_status.get('undefined', 0)} | a per-function descriptor for a "
@@ -862,6 +1074,40 @@ def main():
         lines += ["Unexplained cells, by metric:", ""]
         lines += [f"- `{m}` — {', '.join(sorted(langs))}" for m, langs in sorted(shown.items())]
         lines += [""]
+
+    lines += ["## Program length is context, and the x-axis of the leak check", "",
+              "`" + "`, `".join(CONTEXT_METRICS) + "` measure how long each language's 12-probe "
+              "program came out, which the SPEC does not plant (gitgalaxy#2669 F.1): a 12-probe "
+              "Dockerfile cannot be as long as the Java one without padding, and padding would move "
+              "the planted signals. They are charted without a badge, excluded from the consistency "
+              "average, and never gated. A context column that is out of band for a language can "
+              "still explain a derived cell there (`derived: inherits coding_loc` is a deviation that "
+              "entered through length), and `coding_loc` is the x-axis of the check below.", "",
+              "**Length leaks.** For each derived metric, over the languages whose measured inputs "
+              "for it are all in band (content held equal, so length is the only free variable), the "
+              "Spearman rank correlation against `coding_loc`. "
+              f"|rho| ≥ {LEAK_RHO} across ≥ {LEAK_MIN_LANGUAGES} languages is a **leak**: the formula "
+              "reads length where it should read content. That is one finding per formula, not one "
+              "per language — each is an engine design question in the gitgalaxy#2655 shape, filed "
+              "against the cited line — and it changes no cell's verdict above. The engine's scoring "
+              "tier (gitgalaxy#2653: a flat `irc / mass_loc` term and a documentation-credit scale) is "
+              "held equal as well, inside the largest tier among the qualifying languages, because "
+              "the tier-3 languages are largely the short shells and a tier effect would otherwise "
+              "read as a length effect. A metric with no known inputs is correlated over every "
+              "language that records it (nothing held), which is weaker evidence and is marked as "
+              "such.", ""]
+    if leaks:
+        lines += ["| metric | languages | tier | rho | verdict | inputs held in band | where length enters |",
+                  "|---|---|---|---|---|---|---|"]
+        for r in leaks:
+            held = ", ".join(f"`{h}`" for h in r["held"]) if r["held"] else "*(none known)*"
+            where = r["where"] or "**not located yet** — the more interesting finding"
+            lines.append(f"| `{r['metric']}` | {r['n']} | {r.get('tier') or '—'} | {r['rho']:+.2f} | "
+                         f"{'**leak**' if r['verdict'] == 'leak' else 'weak'} | {held} | {where} |")
+        lines += [""]
+    else:
+        lines += ["No derived metric correlates with `coding_loc` at "
+                  f"|rho| ≥ {LEAK_WEAK_RHO} over ≥ {LEAK_MIN_LANGUAGES} languages.", ""]
 
     lines += ["## Cross-language variance chart", "",
               "![variance chart](bias_variance_chart.svg)", "",
@@ -957,7 +1203,13 @@ def main():
     print(
         f"out-of-band cells: {len(unexplained)} unexplained "
         f"({by_status.get('undefined', 0)} undefined, {by_status.get('ledgered', 0)} ledgered, "
-        f"{by_status.get('derived', 0)} derived)"
+        f"{by_status.get('derived', 0)} derived; {n_context_oob} context cells not counted)"
+    )
+    n_leak = sum(1 for r in leaks if r["verdict"] == "leak")
+    print(
+        f"length leaks: {n_leak} leak / {len(leaks) - n_leak} weak -- "
+        + (", ".join(f"{r['metric']} {r['rho']:+.2f}" for r in leaks if r["verdict"] == "leak")
+           or "none")
     )
     if gate and unexplained:
         print("--gate: unexplained out-of-band cells remain; epic close criterion not met")

@@ -61,9 +61,13 @@ def generate():
         mp = REPO_ROOT / "data" / lang / "expected_signals.json"
         manifests[lang] = json.loads(mp.read_text()) if mp.exists() else {}
 
-    # per-language red/amber zone membership
+    # per-language red/amber zone membership. The program-length columns are
+    # context (gitgalaxy#2669 F.1): reported by bias_report.py, never a finding.
+    context_metrics = set(cache.get("context_metrics", ()))
     zone = {lang: [] for lang in languages}
     for metric, values in metrics.items():
+        if metric in context_metrics:
+            continue
         vals = {l: v for l, v in values.items() if v is not None}
         if len(vals) < 2:
             continue
@@ -92,7 +96,9 @@ def generate():
         "registry-governed input to its formula is absent and the scan confirms the "
         "score is pinned at 0 (docs/GATING.md). † marks an absence not yet backed by "
         "a validated ledger entry — for a derived cell, that means at least one of "
-        "its inputs is unreviewed.",
+        "its inputs is unreviewed. The program-length columns (`total_loc`, `coding_loc`, "
+        "`token_mass`, `keyword_hits`) are context, not findings, and are not listed "
+        "(gitgalaxy#2669 F.1; see the length-leak table in `bias_report.md`).",
         "",
         "## Index",
         "",
