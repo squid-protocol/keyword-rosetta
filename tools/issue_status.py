@@ -51,14 +51,14 @@ def build(lang, data, ledger):
     """Returns (markdown, is_clean) for one language."""
     metrics = data["metrics"]
     na = data.get("na", {})
-    tiers = data.get("tiers") or {}
-    tier_sensitive = data.get("tier_sensitive") or []
+    strata = data.get("strata") or {}
+    constant_sensitive = data.get("constant_sensitive") or []
     ungated = set(data.get("ungated_metrics") or CONTEXT_METRICS)
-    refs = reference_medians(metrics, data["languages"], tiers, tier_sensitive)
+    refs = reference_medians(metrics, data["languages"], strata, constant_sensitive)
     verdicts = explain_out_of_band(
         metrics, data["languages"], ledger["entries"],
         {"functions_found": metrics.get("functions_found", {})},
-        risk_inputs=data.get("risk_inputs"), tiers=tiers, tier_sensitive=tier_sensitive,
+        risk_inputs=data.get("risk_inputs"), strata=strata, constant_sensitive=constant_sensitive,
         ungated=ungated,
     )
 

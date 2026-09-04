@@ -106,16 +106,18 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
     ledger entry saying "this program is shorter" is not a valid explanation for any cell.
     `coding_loc` is also the x-axis of the report's **length-leak check**: a derived metric
     that rank-correlates with `coding_loc` (|rho| ≥ 0.6 over ≥ 8 languages) across languages
-    whose measured inputs are all in band *and* that share the engine's scoring tier (the
-    #2653 constants would otherwise read as length — the tier map is `tiers` in the cache,
-    read off `signal_processor._get_tier`) is reading length, not content — one engine
+    whose measured inputs are all in band *and* that share the engine's strictness stratum
+    (the #2653/#2718 constants would otherwise read as length — the map is `strata` in the
+    cache, read off `analysis_lens.strictness_constants`) is reading length, not content — one engine
     finding per formula (`LENGTH_TERMS` cites where length enters), filed as an engine design
     issue in the #2655 shape, never used to change a cell's verdict.
 
-  - **tier** (gitgalaxy#2669 F.3) — the seven risk formulas that read `_get_tier`'s constants
-    (`tier_sensitive` in the cache, off the engine source) are banded against the median of the
-    language's own tier, and the per-tier medians are printed as the documented offset
-    (docs/GATING.md "Tier constants are design"). Never ledger a cell as "tier 3".
+  - **strictness stratum** (gitgalaxy#2669 F.3, re-pointed at #2718 by F.4) — the risk formulas
+    that read a language-level constant (`constant_sensitive` in the cache, off the engine
+    source) are banded against the median of their own strictness stratum (`strata`, `irc0`…
+    `irc4` = the language's count of `False` strictness columns), and the per-stratum medians
+    are printed as the documented offset (docs/GATING.md "The language-level constant is
+    design"). Never ledger a cell as "this language is loose".
   - **unplanted inputs / temporal** — registry signals the risk formulas read but the SPEC never
     plants (`unplanted_inputs`), plus `risk_stability`/`risk_churn` (commit age), are reported
     but never gated (`ungated_metrics` is the full set every tool skips). A derived risk cell may

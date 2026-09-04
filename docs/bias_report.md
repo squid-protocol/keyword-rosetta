@@ -21,9 +21,9 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 147 | a validated deviation-ledger entry names this language and this metric |
-| derived | 152 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
-| **unexplained** | **67** | **survived all three -- the real work remaining** |
+| ledgered | 186 | a validated deviation-ledger entry names this language and this metric |
+| derived | 148 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| **unexplained** | **20** | **survived all three -- the real work remaining** |
 
 Unexplained cells, by metric:
 
@@ -31,42 +31,36 @@ Unexplained cells, by metric:
 - `betweenness_score` — javascript, python
 - `class_start` — cobol, css, jcl, yaml
 - `classes_found` — cobol, css, dockerfile, jcl, kotlin
-- `def_encapsulation` — agc_assembly, css, embedded_python, go, perl, python, zig
-- `encapsulation_ratio` — cobol, html, javascript, jcl, markdown
 - `functions_found` — dockerfile, html, sqlite
 - `globals` — csharp
 - `high_risk_execution` — yacc
-- `raw_arch_api` — c, css, embedded_python, fortran, html, livecode, lua, makefile, python, scala
-- `raw_state_slop_orphans` — abap, ada, cobol, css, dockerfile, haskell, html, jcl, livecode, m4, makefile, markdown, objective-c, scheme, sqlite, yaml
-- `risk_api_exposure` — ada, dockerfile, haskell, sqlite, yaml
-- `risk_documentation` — ada, dockerfile, haskell, yaml
+- `risk_documentation` — swift
 - `state_mutation` — yaml
-- `state_slop_duplicates` — dockerfile
 - `test` — yaml
 
-## Tier constants are design; the report bands within tier
+## The language-level risk constant is design; the report bands within it
 
-`signal_processor._get_tier` assigns every language a scoring tier by literal set membership, and the formulas below read its constants (a flat `irc / mass_loc` term, an `fc` scale on defence credit, `ot` on verification) -- wiki 08-03 documents this as deliberate (gitgalaxy#2653). Against a global median that reads as bias: the seven tier-1 languages report identical `risk_tech_debt` with inputs identical to the median language. So each tier-reading metric is banded against **the median of the language's own tier** (gitgalaxy#2669 F.3), and the per-tier medians are the documented offset, printed here rather than hidden. Which metrics read tier is taken off the engine source at regen time, never hand-listed. Tier membership: **tier1** = csharp, dart, go, java, rust, swift, typescript; **tier2** = c, cpp, javascript, kotlin, php, python, ruby; every other language is tier3.
+`analysis_lens.LANGUAGE_STRICTNESS` gives every language four yes/no columns (static types, enforced errors, memory safety, no implicit globals) and `strictness_constants()` turns the count of `False` columns into the constants the formulas below read: `Irc` = gaps, `Ot` = 1 + 0.1 x gaps (gitgalaxy#2718, which replaced the three hand-listed scoring tiers this section used to read out of `signal_processor._get_tier`). Wiki 08-03 documents the term as deliberate. Against a global median it reads as bias: languages carrying the same gap count report identical risk values with inputs identical to the median language. So each metric that reads a language-level constant is banded against **the median of its own stratum** (gitgalaxy#2669 F.3), and the per-stratum medians are the documented offset, printed here rather than hidden. Which metrics read one is taken off the engine source at regen time, never hand-listed. Strata (`ircN` = N strictness gaps): **irc0** = css, haskell, html, java, markdown, rust, swift, yaml; **irc1** = abap, ada, apex, csharp, dart, go, kotlin, scala, solidity, typescript, zig; **irc2** = c, cobol, cpp, embedded_python, matlab, objective-c, php, powershell, python, ruby, scheme, sqlite, tcl; **irc3** = dockerfile, fortran, groovy, javascript, jcl, livecode, lua, m4, makefile, perl, shell; **irc4** = agc_assembly, assembly, yacc.
 
-| metric | tier1 median (n) | tier2 median (n) | tier3 median (n) | global median |
-|---|---|---|---|---|
-| `risk_cognitive_load` | 1.295 (7) | 1.648 (7) | 2.358 (31) | 2.358 |
-| `risk_concurrency` | 0.000 (7) | 0.000 (7) | 0.000 (27) | 0.000 |
-| `risk_documentation` | 29.896 (7) | 40.844 (7) | 55.806 (31) | 55.806 |
-| `risk_safety_score` | 39.811 (7) | 39.377 (7) | 42.054 (31) | 42.054 |
-| `risk_state_flux` | 7.751 (7) | 8.407 (7) | 9.439 (31) | 9.439 |
-| `risk_tech_debt` | 29.878 (7) | 38.665 (7) | 46.570 (32) | 46.570 |
-| `risk_verification` | 2.372 (7) | 2.383 (7) | 2.406 (31) | 2.396 |
+**Not held equal:** the per-language x per-signal fidelity coefficients (`gitgalaxy/standards/fidelity_table.py`) that replaced the scalar `fc`. They are generated FROM this corpus, so banding against them would be circular -- a surviving defence-credit deviation may still be a fidelity cell.
+
+| metric | irc0 median (n) | irc1 median (n) | irc2 median (n) | irc3 median (n) | irc4 median (n) | global median |
+|---|---|---|---|---|---|---|
+| `risk_cognitive_load` | 1.295 (7) | 1.295 (11) | 1.295 (13) | 1.295 (11) | 2.795 (3) | 1.295 |
+| `risk_documentation` | 3.742 (7) | 29.896 (11) | 29.896 (13) | 29.896 (11) | 29.896 (3) | 29.896 |
+| `risk_safety_score` | 39.811 (7) | 41.131 (11) | 42.583 (13) | 43.601 (11) | 42.064 (3) | 42.314 |
+| `risk_tech_debt` | 25.159 (8) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 38.665 |
+| `risk_verification` | 2.365 (7) | 2.380 (11) | 2.387 (13) | 2.396 (11) | 2.398 (3) | 2.385 |
 
 ## Unplanted risk inputs
 
-The risk formulas read registry signals the SPEC does not plant: `concurrency`, `dead_code`, `debug_prints`, `immutability_locks`, `llm_api`, `reflection_metaprogramming`, `spec_exposure`, `sync_locks`. A shell that idiomatically writes `val`/`let`/`final` carries `immutability_locks` a `var` shell does not, and `risk_state_flux` then differs with `state_mutation` on plant. These columns are reported (below, and in the chart) but never gated; an out-of-band cell here gets no verdict, but a derived risk cell may inherit from it and say so. 33 such cells are out of band now:
+The risk formulas read registry signals the SPEC does not plant: `concurrency`, `dead_code`, `debug_prints`, `immutability_locks`, `llm_api`, `reflection_metaprogramming`, `spec_exposure`, `sync_locks`. A shell that idiomatically writes `val`/`let`/`final` carries `immutability_locks` a `var` shell does not, and `risk_state_flux` then differs with `state_mutation` on plant. These columns are reported (below, and in the chart) but never gated; an out-of-band cell here gets no verdict, but a derived risk cell may inherit from it and say so. 34 such cells are out of band now:
 
 - `concurrency` — agc_assembly 1, java 6, swift 1
 - `dead_code` — makefile 7
 - `debug_prints` — abap 5, cobol 7, dockerfile 2, scheme 2, yaml 2
 - `immutability_locks` — abap 1, c 1, cpp 1, dart 2, fortran 1, html 1, javascript 17, kotlin 6, php 1, ruby 1, scala 3, swift 11, typescript 14, zig 3
-- `reflection_metaprogramming` — apex 3, fortran 2, html 2, makefile 1, powershell 1, solidity 1, yacc 4
+- `reflection_metaprogramming` — apex 3, fortran 2, html 2, makefile 1, powershell 1, shell 2, solidity 1, yacc 4
 - `sync_locks` — agc_assembly 2, solidity 1, zig 1
 
 `risk_stability` and `risk_churn` read commit age, not content, and are reported as temporal context on the same terms.
@@ -75,21 +69,20 @@ The risk formulas read registry signals the SPEC does not plant: `concurrency`, 
 
 `total_loc`, `coding_loc`, `token_mass`, `keyword_hits`, `avg_func_loc`, `comment_lines` measure how long each language's 12-probe program came out, which the SPEC does not plant (gitgalaxy#2669 F.1): a 12-probe Dockerfile cannot be as long as the Java one without padding, and padding would move the planted signals. They are charted without a badge, excluded from the consistency average, and never gated. A context column that is out of band for a language can still explain a derived cell there (`derived: inherits coding_loc` is a deviation that entered through length), and `coding_loc` is the x-axis of the check below.
 
-**Length leaks.** For each derived metric, over the languages whose measured inputs for it are all in band (content held equal, so length is the only free variable), the Spearman rank correlation against `coding_loc`. |rho| ≥ 0.6 across ≥ 8 languages is a **leak**: the formula reads length where it should read content. That is one finding per formula, not one per language — each is an engine design question in the gitgalaxy#2655 shape, filed against the cited line — and it changes no cell's verdict above. The engine's scoring tier (gitgalaxy#2653: a flat `irc / mass_loc` term and a documentation-credit scale) is held equal as well, inside the largest tier among the qualifying languages, because the tier-3 languages are largely the short shells and a tier effect would otherwise read as a length effect. A metric with no known inputs is correlated over every language that records it (nothing held), which is weaker evidence and is marked as such.
+**Length leaks.** For each derived metric, over the languages whose measured inputs for it are all in band (content held equal, so length is the only free variable), the Spearman rank correlation against `coding_loc`. |rho| ≥ 0.6 across ≥ 8 languages is a **leak**: the formula reads length where it should read content. That is one finding per formula, not one per language — each is an engine design question in the gitgalaxy#2655 shape, filed against the cited line — and it changes no cell's verdict above. The engine's language-level constant (gitgalaxy#2653/#2718: a flat `Irc / mass_loc` term and an `Ot` scale) is held equal as well, inside the largest strictness stratum among the qualifying languages, because the high-gap languages are largely the short shells and a strictness effect would otherwise read as a length effect. A metric with no known inputs is correlated over every language that records it (nothing held), which is weaker evidence and is marked as such.
 
-| metric | languages | tier | rho | verdict | inputs held in band | where length enters |
+| metric | languages | stratum | rho | verdict | inputs held in band | where length enters |
 |---|---|---|---|---|---|---|
-| `control_flow_ratio` | 21 | tier3 | -0.67 | vocabulary, not length | `branch` | branch / (branch + structural_boundaries); structural_boundaries is a per-language token tally that grows with the file (detector.py ~L1288) |
-| `risk_tech_debt` | 16 | tier3 | -0.58 | weak | `fragile_debt`, `planned_debt`, `state_slop_duplicates`, `raw_state_slop_orphans` | _calc_tech_debt: stress / _mass_loc(loc) (signal_processor.py ~L1478) |
-| `risk_verification` | 25 | tier3 | +0.48 | weak | `high_risk_execution` | **not located yet** — the more interesting finding |
-| `classes_found` | 31 | tier3 | -0.41 | weak | *(none known)* | **not located yet** — the more interesting finding |
-| `risk_state_flux` | 10 | tier3 | +0.41 | weak | `immutability_locks`, `state_mutation` | **not located yet** — the more interesting finding |
+| `risk_documentation` | 9 | irc2 | +0.64 | **leak** | `raw_arch_api`, `doc`, `ownership`, `reflection_metaprogramming` | _calc_documentation: (opaque_execution + api x 2 + dynamism) / (_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the denominator is the #2655 floor, constant for every file in this corpus, so the numerator's growth with program length is unopposed |
+| `risk_api_exposure` | 10 | irc2 | +0.53 | weak | `raw_arch_api`, `def_encapsulation` | _calc_api_exposure: log1p(api) / log1p(max(total_loc, 50)) (signal_processor.py ~L1738) -- same floor, same constant denominator |
+| `functions_found` | 13 | irc2 | -0.47 | weak | *(none known)* | **not located yet** — the more interesting finding |
+| `risk_verification` | 13 | irc2 | +0.41 | weak | `high_risk_execution` | _calc_verification: untested impact / _mass_loc(loc) (signal_processor.py ~L1664) -- same floor, same constant denominator |
 
 ## Cross-language variance chart
 
 ![variance chart](bias_variance_chart.svg)
 
-Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 52 metrics: 84%**; 34 metrics hold ≥80% of languages in the green band. Weakest metrics: control_flow_ratio 30%, risk_state_flux 42%, cog_raw 46%, state_mutation 58%, risk_api_exposure 60%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): risk_concurrency, risk_dead_code, raw_arch_api, def_encapsulation, state_slop_duplicates, classes_found, class_start, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, sync_locks. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_secrets_risk, llm_api, spec_exposure, risk_churn.
+Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 52 metrics: 85%**; 35 metrics hold ≥80% of languages in the green band. Weakest metrics: control_flow_ratio 30%, risk_state_flux 40%, state_mutation 58%, risk_api_exposure 60%, structural_mass 63%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): risk_concurrency, risk_dead_code, raw_arch_api, def_encapsulation, state_slop_duplicates, classes_found, class_start, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, sync_locks. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_secrets_risk, llm_api, spec_exposure, risk_churn.
 
 ## Signal totals vs. planted intent
 
@@ -123,7 +116,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 30 | 13 | 13 | 13 | 13 | 13 | 13 |
 | classes_found | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| keyword_hits | 125 | 131 | 175 | 139 | 161 | 165 | 132 | 134 | 152 | 58 | 155 | 76 | 190 | 171 | 169 | 155 | 100 | 59 | 141 | 185 | 87 | 181 | 131 | 152 | 76 | 95 | 30 | 151 | 165 | 176 | 139 | 144 | 197 | 152 | 186 | 168 | 98 | 120 | 161 | 67 | 181 | 128 | 175 | 62 | 88 | 196 |
+| keyword_hits | 125 | 131 | 175 | 139 | 161 | 165 | 132 | 134 | 152 | 58 | 155 | 76 | 190 | 171 | 169 | 155 | 100 | 59 | 141 | 185 | 87 | 181 | 131 | 152 | 76 | 95 | 30 | 151 | 165 | 176 | 139 | 144 | 197 | 152 | 186 | 168 | 98 | 122 | 161 | 67 | 181 | 128 | 175 | 62 | 88 | 196 |
 | comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 11 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 12 | 10 | 12 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
@@ -133,17 +126,17 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | risk_api_exposure | 5.289 | 0.000 | 1.211 | 5.289 | 5.289 | 11.835 | 5.289 | 5.289 | 5.289 | 0.441 | 5.289 | 0.881 | 9.061 | 9.470 | 1.891 | 5.289 | 0.000 | 0.881 | 5.289 | 5.289 | 5.289 | 5.289 | 7.335 | 9.470 | 5.289 | 5.804 | n/a† | 5.289 | 5.289 | 2.393 | 5.289 | 5.289 | 9.061 | 5.289 | 5.289 | 9.470 | 5.289 | 5.289 | 5.289 | 0.000 | 5.289 | 5.289 | 5.289 | 5.289 | 0.000 | 2.078 |
 | risk_churn | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
-| risk_cognitive_load | 2.358 | 2.599 | 4.218 | 3.789 | 13.545 | 1.648 | 2.358 | 3.136 | 1.283 | 1.898 | 1.295 | 2.392 | 2.358 | 2.041 | 1.295 | 2.358 | 2.358 | 1.898 | 1.295 | 1.648 | 2.679 | 1.648 | 4.461 | 2.358 | 2.358 | 6.282 | n/a† | 2.358 | 2.358 | 2.358 | 1.648 | 5.793 | 1.648 | 3.136 | 1.295 | 2.358 | 2.358 | 2.862 | 2.358 | 2.989 | 1.435 | 3.760 | 1.295 | 3.789 | 2.358 | 2.358 |
-| risk_concurrency | 0.000 | 0.000 | 9.243 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a† | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 24.697 | 0.000 | n/a† | 0.000 | 0.000 | 0.000 | n/a† | 0.000 | n/a† | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | n/a† | 0.000 | 0.000 |
+| risk_cognitive_load | 1.295 | 1.435 | 2.795 | 2.143 | 9.389 | 1.295 | 1.295 | 2.575 | 1.283 | 1.190 | 1.295 | 1.303 | 1.295 | 1.283 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.619 | 1.295 | 2.715 | 1.295 | 1.295 | 3.872 | n/a† | 1.295 | 1.295 | 1.295 | 1.295 | 3.523 | 1.295 | 2.575 | 1.295 | 1.295 | 1.295 | 1.589 | 1.295 | 1.626 | 1.435 | 2.470 | 1.295 | 2.143 | 1.295 | 1.295 |
+| risk_concurrency | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a† | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 24.697 | 0.000 | n/a† | 0.000 | 0.000 | 0.000 | n/a† | 0.000 | n/a† | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | n/a† | 0.000 | 0.000 |
 | risk_dead_code | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a† | 0.000 | 0.000 | 0.000 | 0.000 | 50.636 | n/a† | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
-| risk_documentation | 55.806 | 0.000 | 55.806 | 55.806 | 55.806 | 95.115 | 55.537 | 40.844 | 29.896 | 10.997 | 29.896 | 12.147 | 91.067 | 91.067 | 29.896 | 55.806 | 0.000 | 11.346 | 29.896 | 40.844 | 55.806 | 40.844 | 76.142 | 90.961 | 55.806 | 59.828 | n/a† | 55.806 | 55.806 | 55.806 | 40.844 | 55.806 | 81.060 | 40.844 | 29.896 | 90.961 | 55.806 | 55.806 | 54.772 | 0.000 | 29.896 | 55.806 | 29.896 | 55.806 | 0.000 | 55.806 |
-| risk_safety_score | 42.054 | 42.054 | 40.030 | 58.798 | 42.837 | 51.101 | 55.771 | 39.377 | 39.811 | 39.460 | 39.811 | 57.998 | 41.320 | 74.519 | 40.770 | 42.054 | 59.561 | 39.426 | 39.811 | 51.189 | 40.064 | 39.109 | 42.263 | 42.054 | 59.150 | 42.054 | n/a | 59.008 | 42.263 | 59.008 | 39.109 | 58.798 | 51.189 | 39.109 | 39.811 | 42.054 | 42.263 | 42.054 | 42.263 | 42.054 | 39.811 | 42.263 | 39.811 | 40.030 | 39.733 | 42.054 |
+| risk_documentation | 29.896 | 0.000 | 29.896 | 33.412 | 29.896 | 91.824 | 29.331 | 29.896 | 29.896 | 3.452 | 29.896 | 4.476 | 71.029 | 73.004 | 29.896 | 29.896 | 0.000 | 3.742 | 29.896 | 29.896 | 29.896 | 29.896 | 41.665 | 70.735 | 29.896 | 36.836 | n/a† | 29.896 | 29.896 | 29.896 | 29.896 | 29.896 | 71.029 | 29.896 | 29.896 | 70.735 | 29.896 | 33.436 | 30.479 | 0.000 | 29.896 | 29.896 | 29.896 | 35.147 | 0.000 | 29.896 |
+| risk_safety_score | 41.131 | 41.131 | 42.064 | 55.230 | 45.044 | 55.083 | 53.496 | 42.583 | 41.131 | 35.586 | 41.131 | 57.986 | 41.726 | 73.604 | 41.988 | 43.364 | 54.085 | 35.516 | 39.811 | 57.496 | 40.920 | 41.131 | 43.601 | 43.364 | 59.989 | 43.364 | n/a | 57.721 | 42.583 | 59.743 | 42.314 | 57.452 | 55.190 | 42.314 | 39.811 | 41.131 | 42.583 | 43.364 | 41.434 | 42.314 | 39.811 | 42.583 | 41.131 | 42.064 | 36.012 | 41.131 |
 | risk_secrets_risk | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | risk_spec_match | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 0.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | n/a† | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 |
 | risk_stability | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 0.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 |
-| risk_state_flux | 9.439 | 9.439 | 9.439 | 14.793 | 23.426 | 19.168 | 9.439 | 10.761 | 7.751 | 0.000 | 5.787 | 18.877 | 9.439 | 14.793 | 20.800 | 9.439 | 18.877 | 0.000 | 7.751 | 6.338 | 9.439 | 4.636 | 14.361 | 9.439 | 18.877 | 9.439 | n/a† | 19.715 | 14.361 | 19.715 | 8.407 | 14.793 | 8.407 | 8.407 | 7.751 | 5.354 | 14.361 | 9.439 | 14.361 | 0.000 | 2.980 | 14.361 | 4.200 | 9.439 | 5.354 | 9.439 |
-| risk_tech_debt | 49.542 | 24.550 | 49.101 | 46.570 | 46.570 | 38.665 | 49.542 | 38.665 | 29.878 | 49.542 | 29.878 | 49.999 | 46.570 | 46.570 | 29.878 | 46.570 | 24.550 | 24.550 | 29.878 | 38.665 | 49.542 | 38.665 | 24.550 | 46.570 | 49.542 | 49.489 | 0.000 | 46.570 | 49.542 | 46.570 | 38.665 | 46.570 | 38.665 | 38.665 | 29.878 | 46.570 | 49.542 | 46.570 | 46.570 | 24.550 | 29.878 | 46.570 | 29.878 | 49.489 | 24.550 | 46.570 |
-| risk_verification | 2.403 | 2.414 | 2.402 | 2.417 | 2.526 | 2.383 | 2.372 | 2.389 | 2.377 | 2.372 | 2.372 | 2.390 | 2.397 | 2.409 | 2.372 | 2.408 | 2.395 | 2.306 | 2.372 | 2.384 | 2.398 | 2.383 | 2.432 | 2.422 | 2.396 | 2.386 | n/a | 2.424 | 2.407 | 2.406 | 2.383 | 2.419 | 2.382 | 2.402 | 2.372 | 2.407 | 2.401 | 2.438 | 2.407 | 2.458 | 2.377 | 2.388 | 2.372 | 2.372 | 2.373 | 2.412 |
+| risk_state_flux | 7.751 | 7.751 | 7.751 | 11.950 | 22.921 | 17.783 | 7.751 | 10.033 | 7.751 | 0.000 | 5.787 | 15.501 | 7.751 | 11.950 | 20.800 | 7.751 | 15.501 | 0.000 | 7.751 | 5.787 | 7.751 | 4.200 | 12.500 | 7.751 | 15.501 | 7.751 | n/a† | 16.700 | 12.500 | 16.700 | 7.751 | 11.950 | 7.751 | 7.751 | 7.751 | 4.200 | 12.500 | 7.751 | 12.500 | 0.000 | 2.980 | 12.500 | 4.200 | 7.751 | 4.200 | 7.751 |
+| risk_tech_debt | 46.958 | 22.020 | 48.534 | 34.520 | 44.707 | 38.665 | 48.066 | 38.665 | 34.520 | 45.338 | 34.520 | 49.997 | 38.665 | 42.091 | 34.520 | 42.091 | 20.439 | 20.439 | 29.878 | 42.091 | 48.792 | 34.520 | 23.814 | 42.091 | 48.792 | 48.647 | 0.000 | 38.665 | 48.066 | 42.091 | 38.665 | 38.665 | 38.665 | 38.665 | 29.878 | 34.520 | 48.066 | 42.091 | 34.520 | 23.104 | 29.878 | 38.665 | 34.520 | 49.165 | 20.439 | 34.520 |
+| risk_verification | 2.378 | 2.385 | 2.398 | 2.393 | 2.519 | 2.389 | 2.361 | 2.392 | 2.385 | 2.349 | 2.380 | 2.379 | 2.383 | 2.398 | 2.380 | 2.396 | 2.365 | 2.303 | 2.372 | 2.396 | 2.388 | 2.380 | 2.417 | 2.409 | 2.387 | 2.378 | n/a | 2.402 | 2.387 | 2.396 | 2.387 | 2.397 | 2.386 | 2.406 | 2.372 | 2.380 | 2.383 | 2.423 | 2.380 | 2.432 | 2.377 | 2.375 | 2.380 | 2.372 | 2.350 | 2.385 |
 
 n/a = every registry-governed input to this formula is absent for the language and the scan confirms the score is pinned at 0 (incomparable, excluded from bands and medians); † = at least one of those input absences is not yet backed by a validated ledger entry.
 
@@ -172,7 +165,7 @@ Derived descriptions of the same program — topology, size, shape, complexity. 
 | dependency_density | 0.5312 | 0.5417 | 0.5625 | 0.5278 | 0.07373 | 0.5278 | 0.5417 | 0.3611 | 0.525 | 0.5833 | 0.5312 | 0.775 | 1.35 | 0.525 | 0.5312 | 0.5417 | 0.5278 | 0.525 | 0.5312 | 0.5312 | 0.6 | 0.5417 | 0.2871 | 0.55 | 0.55 | 0.2884 | 0.75 | 0.525 | 0.5312 | 0.5417 | 0.5417 | 0.3194 | 0.5417 | 0.3611 | 0.5417 | 0.5132 | 0.5179 | 0.5125 | 0.5625 | 0.5417 | 0.5417 | 0.369 | 0.5312 | 0.5417 | 0.5208 | 0.5278 |
 | encapsulation_ratio | 0.8333 | 0.75 | 0.75 | 0.75 | 0.75 | 0.875 | 0.5 | 0.75 | 0.6667 | 0.75 | 0.75 | 0.875 | 0.9167 | 0.75 | 0.75 | 0.8333 | 0.9285 | 1 | 0.8333 | 0.9445 | 1 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 1 | 0.9375 | 0.75 | 0.75 | 0.75 | 0.75 | 0.9285 | 0.9167 | 0.9167 | 0.9 | 0.75 | 0.75 | 0.75 | 0.75 | 0.9 | 0.75 | 0.9167 | 0.75 | 0.75 | 0.9285 |
 | popularity | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 |
-| cog_raw | 0.055 | 0.06175 | 0.085 | 0.0895 | 0.28 | 0.0345 | 0.055 | 0.0495 | 0.02 | 0.04 | 0.0205 | 0.056 | 0.055 | 0.045 | 0.0205 | 0.055 | 0.055 | 0.04 | 0.0205 | 0.0345 | 0.055 | 0.0345 | 0.09175 | 0.055 | 0.055 | 0.1395 | 0 | 0.055 | 0.055 | 0.055 | 0.0345 | 0.1245 | 0.0345 | 0.0495 | 0.0205 | 0.055 | 0.055 | 0.06875 | 0.055 | 0.072 | 0.0275 | 0.07 | 0.0205 | 0.0895 | 0.055 | 0.055 |
+| cog_raw | 0.0205 | 0.0275 | 0.035 | 0.055 | 0.18 | 0.0205 | 0.0205 | 0.0255 | 0.02 | 0.015 | 0.0205 | 0.021 | 0.0205 | 0.02 | 0.0205 | 0.0205 | 0.0205 | 0.015 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0325 | 0.0205 | 0.0205 | 0.08 | 0 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.065 | 0.0205 | 0.0255 | 0.0205 | 0.0205 | 0.0205 | 0.0345 | 0.0205 | 0.036 | 0.0275 | 0.02 | 0.0205 | 0.055 | 0.0205 | 0.0205 |
 | raw_arch_api | 0 | 0 | 0 | 0 | 0 | 7.25 | 0 | 0 | 0 | 0.25 | 0 | 0 | 3.25 | 3.25 | 0 | 0 | 0 | 0.25 | 0 | 0 | 0 | 0 | 3.25 | 3.25 | 0 | 0.25 | 0 | 0 | 0 | 0 | 0 | 0 | 3.25 | 0 | 0 | 3.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | raw_state_slop_orphans | 3.25 | 0 | 2.75 | 2.5 | 2.5 | 2.5 | 3.25 | 2.5 | 2.5 | 1 | 2.5 | 0.25 | 2.5 | 2.5 | 2.5 | 2.5 | 0 | 0 | 2.5 | 2.5 | 3.25 | 2.5 | 0 | 2.5 | 3.25 | 3.25 | 0 | 2.5 | 3.25 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 3.25 | 2.5 | 2.5 | 0 | 2.5 | 2.5 | 2.5 | 3 | 0 | 2.5 |
 | def_encapsulation | 0 | 0 | 11.5 | 0 | 0 | 0 | 0 | 0 | 0 | 0.25 | 0 | 0 | 0.25 | 0 | 6.75 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3.75 | 0 | 0 | 0.25 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 4.5 |
