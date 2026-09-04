@@ -11,7 +11,7 @@ fun entry(argv: Int): Int {
     return 0
 }
 
-fun probeBranch(flag: Int): Int {
+public fun probeBranch(flag: Int): Int {
     if (flag > 0) {
         return 1
     } else {
@@ -20,14 +20,14 @@ fun probeBranch(flag: Int): Int {
     when (flag) {}
 }
 
-fun probeIo(route: Int): Int {
+public fun probeIo(route: Int): Int {
     val disk = File
     val web = Retrofit
     val net = Ktor
     return route
 }
 
-fun probeRisk(payload: Int): Int {
+public fun probeRisk(payload: Int): Int {
     exitProcess(payload)
     System.exit(payload)
     return payload

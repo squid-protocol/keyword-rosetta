@@ -10,7 +10,7 @@
       "high_risk_execution": 2,
       "func_start": 4,
       "args": 4,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
@@ -30,7 +30,7 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3,
       "globals": 2,
       "test": 2,
@@ -50,7 +50,7 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
@@ -70,7 +70,7 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3,
       "cleanup": 2,
       "fragile_debt": 1,
@@ -108,5 +108,5 @@
       "outcome": "inert (camelCase)"
     }
   ],
-  "notes": "kotlin's branch rule counted return (ledger kotlin-return-in-branch) until gitgalaxy#2545 (PR #2634): every file's branch dropped to its real branch-keyword count only (main 8->3 = if/else/when; a/c 3->0 = returns only, now 0; b 5->2). class_start 2 in a.kt = the two 'object' declarations planted for globals -- object is dual globals+class_start (ledger kotlin-object-dual-globals-classstart), a deliberate exception like cobol's PROGRAM-ID. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 after #2545. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"System.exit\" literal inside probeState — b.kt high_risk_execution 0->1, branch 2->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1."
+  "notes": "kotlin's branch rule counted return (ledger kotlin-return-in-branch) until gitgalaxy#2545 (PR #2634): every file's branch dropped to its real branch-keyword count only (main 8->3 = if/else/when; a/c 3->0 = returns only, now 0; b 5->2). class_start 2 in a.kt = the two 'object' declarations planted for globals -- object is dual globals+class_start (ledger kotlin-object-dual-globals-classstart), a deliberate exception like cobol's PROGRAM-ID. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 after #2545. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"System.exit\" literal inside probeState — b.kt high_risk_execution 0->1, branch 2->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. api (gitgalaxy#2729): explicit `public` modifier on every probe definition (`public fun probeX(...)`), 3 per file in main/a/b/c (entry keeps the implicit default); the rule's `\\b(public|internal)\\b` alternation. No overlap: func_start, args and api_orphan_credit unchanged."
 }
