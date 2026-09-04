@@ -5,17 +5,17 @@ _ = @import("b.zig");
 const region = 1;
 const home_zone = 2;
 
-fn probeGlobals(env: i32) i32 {
+pub fn probeGlobals(env: i32) i32 {
     return env;
 }
 
-fn probeTest(kit: i32) i32 {
+pub fn probeTest(kit: i32) i32 {
     _ = std.testing.expect(kit);
     _ = std.testing.expectEqual(kit, kit);
     return kit;
 }
 
-fn probeSafety(value: i32) i32 {
+pub fn probeSafety(value: i32) i32 {
     errdefer unlock();
     std.debug.assert(value > 0);
     return value;
