@@ -10,7 +10,7 @@
       "high_risk_execution": 2,
       "func_start": 4,
       "args": 4,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
@@ -30,7 +30,7 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3,
       "globals": 2,
       "test": 2,
@@ -50,7 +50,7 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
@@ -70,7 +70,7 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3,
       "cleanup": 2,
       "fragile_debt": 1,
@@ -108,5 +108,5 @@
       "outcome": "inert"
     }
   ],
-  "notes": "doc 2 in main = /** plus @param on the same javadoc line. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Unsafe\" literal inside probeState — b.java high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1."
+  "notes": "doc 2 in main = /** plus @param on the same javadoc line. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Unsafe\" literal inside probeState — b.java high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. api (gitgalaxy#2729): `public` prefixed on every probe definition (`public static int probeX(...)`), 3 per file in main/a/b/c (entry stays package-private); the rule's `\\b(public|protected)\\b` alternation. No overlap: func_start, args and api_orphan_credit unchanged."
 }

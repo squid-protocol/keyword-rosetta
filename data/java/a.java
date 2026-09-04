@@ -2,19 +2,19 @@
 // decoy: config reads are safe and no exit word runs outside prose
 import b;
 
-static int probeGlobals(int env) {
+public static int probeGlobals(int env) {
     ThreadLocal region;
     System.getenv(env);
     return env;
 }
 
 @Test
-static int probeTest(int kit) {
+public static int probeTest(int kit) {
     assertEquals(kit, kit);
     return kit;
 }
 
-static int probeSafety(int value) {
+public static int probeSafety(int value) {
     assert value > 0;
     boolean kind = value instanceof Integer;
     return value;
