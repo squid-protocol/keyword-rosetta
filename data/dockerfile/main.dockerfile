@@ -4,6 +4,7 @@
 FROM a
 MAINTAINER keyword-rosetta generator
 ARG FLAG
+EXPOSE 8080
 
 RUN if true; then :; elif false; then :; fi
 
