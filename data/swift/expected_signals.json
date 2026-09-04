@@ -10,7 +10,7 @@
       "high_risk_execution": 2,
       "func_start": 4,
       "args": 4,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
@@ -30,7 +30,7 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3,
       "globals": 2,
       "test": 2,
@@ -50,7 +50,7 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
@@ -70,7 +70,7 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3,
       "cleanup": 2,
       "fragile_debt": 1,
@@ -108,5 +108,5 @@
       "outcome": "inert (camelCase)"
     }
   ],
-  "notes": "branch 4 in main = if + else + guard + the guard's own else clause. Orphan->api conversion now fires on the a->b->c chain: the 2+-char _dependency_capture minimum RESOLVED via gitgalaxy#2543 ('import a' captures, popularity rises, a/c api 0->3, b 1->4; ledger swift-import-capture-min-two-chars) -- matching every sibling language. Locked from hand-verified run 2026-08-31; api re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"assertionFailure\" literal inside probeState — b.swift high_risk_execution 0->1, branch 2->0, api 4->3, state_mutation 6->2.  keyword-rosetta#33: probe_bypass had an empty body; planted `unowned` x2. The rule's `// swiftlint:disable` alternative is NOT usable -- comments land in comment_stream and safety_bypasses is only counted over code_stream, so that alternative can never fire."
+  "notes": "branch 4 in main = if + else + guard + the guard's own else clause. Orphan->api conversion now fires on the a->b->c chain: the 2+-char _dependency_capture minimum RESOLVED via gitgalaxy#2543 ('import a' captures, popularity rises, a/c api 0->3, b 1->4; ledger swift-import-capture-min-two-chars) -- matching every sibling language. Locked from hand-verified run 2026-08-31; api re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"assertionFailure\" literal inside probeState — b.swift high_risk_execution 0->1, branch 2->0, api 4->3, state_mutation 6->2.  keyword-rosetta#33: probe_bypass had an empty body; planted `unowned` x2. The rule's `// swiftlint:disable` alternative is NOT usable -- comments land in comment_stream and safety_bypasses is only counted over code_stream, so that alternative can never fire. api (gitgalaxy#2729): `public` prefixed on every probe definition (`public func probeX(...)`), 3 per file in main/a/b/c (entry keeps the implicit internal default); the rule's `\\b(?:public|package)\\b` alternation. No overlap: func_start, args and api_orphan_credit unchanged."
 }

@@ -11,7 +11,7 @@ func entry(_ argv: Int) -> Int {
     return 0
 }
 
-func probeBranch(_ flag: Int) -> Int {
+public func probeBranch(_ flag: Int) -> Int {
     if flag > 0 {
         return 1
     } else {
@@ -20,14 +20,14 @@ func probeBranch(_ flag: Int) -> Int {
     guard flag > 0 else { return 3 }
 }
 
-func probeIo(_ route: Int) -> Int {
+public func probeIo(_ route: Int) -> Int {
     let session = URLSession
     let files = FileManager
     let handle = FileHandle
     return route
 }
 
-func probeRisk(_ payload: Int) -> Int {
+public func probeRisk(_ payload: Int) -> Int {
     fatalError(payload)
     abort(payload)
     return payload
