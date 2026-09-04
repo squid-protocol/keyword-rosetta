@@ -20,6 +20,7 @@
       "func_start": 4,
       "args": 4,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1
@@ -40,7 +41,8 @@
       "class_start": 0,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 1,
       "import": 1
@@ -61,7 +63,8 @@
       "class_start": 0,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 1,
       "import": 1
@@ -82,7 +85,8 @@
       "class_start": 0,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 1,
       "import": 0
@@ -96,7 +100,7 @@
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"selfdestruct\" COUNTS from inside the literal (+1), undampened \u2014 probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"selfdestruct\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.sol",
@@ -108,5 +112,5 @@
       "outcome": "inert (underscore)"
     }
   ],
-  "notes": "branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). return is now tracked under structural_boundaries instead (added by #2545, solidity had no other rule capturing it). ownership 1 per file = the idiomatic // SPDX-License-Identifier line (solidity's ownership rule matches it -- every real .sol file records ownership). io is undefined for solidity (0 by absence -- its 'io' is chain interaction, counted under globals/ipc instead: msg.sender/block.number planted as globals). class_start 0 kept as tripwire (no contract declared; bare functions are broken-but-scannable). doc 2 = /// + @param on one natspec line. Locked 2026-08-31; branch re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"selfdestruct\" literal inside probeState \u2014 b.sol high_risk_execution 0->1, branch 2->0, state_mutation 9->3. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1."
+  "notes": "branch counted return until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3; a/c 3->0; b 5->2 -- kotlin-return-in-branch family). return is now tracked under structural_boundaries instead (added by #2545, solidity had no other rule capturing it). ownership 1 per file = the idiomatic // SPDX-License-Identifier line (solidity's ownership rule matches it -- every real .sol file records ownership). io is undefined for solidity (0 by absence -- its 'io' is chain interaction, counted under globals/ipc instead: msg.sender/block.number planted as globals). class_start 0 kept as tripwire (no contract declared; bare functions are broken-but-scannable). doc 2 = /// + @param on one natspec line. Locked 2026-08-31; branch re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"selfdestruct\" literal inside probeState — b.sol high_risk_execution 0->1, branch 2->0, state_mutation 9->3. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1."
 }

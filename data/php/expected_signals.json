@@ -11,6 +11,7 @@
       "func_start": 4,
       "args": 4,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1,
@@ -29,7 +30,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "globals": 2,
       "test": 2,
       "safety": 2,
@@ -48,7 +50,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 2,
@@ -67,7 +70,8 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
@@ -92,7 +96,7 @@
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"popen\" COUNTS from inside the literal (+1), undampened \u2014 probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"popen\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.php",
@@ -104,5 +108,5 @@
       "outcome": "HACK/TODO comments count exactly 1 each"
     }
   ],
-  "notes": "branch no longer counts the <?php open tag: the per-file tag-? FP RESOLVED via gitgalaxy#2541 (tag-context excluded from the ternary-? alternation; ledger php-open-tag-counts-branch). main branch 3 = if/else/switch; a/c branch 0; b branch 2 = string if/try. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"popen\" literal inside probe_state \u2014 b.php high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1."
+  "notes": "branch no longer counts the <?php open tag: the per-file tag-? FP RESOLVED via gitgalaxy#2541 (tag-context excluded from the ternary-? alternation; ledger php-open-tag-counts-branch). main branch 3 = if/else/switch; a/c branch 0; b branch 2 = string if/try. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"popen\" literal inside probe_state — b.php high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1."
 }

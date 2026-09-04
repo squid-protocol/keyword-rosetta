@@ -20,6 +20,7 @@
       "func_start": 4,
       "args": 4,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1
@@ -41,7 +42,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3
+      "api": 0,
+      "api_orphan_credit": 3
     },
     "b.agc": {
       "class_start": 0,
@@ -60,7 +62,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3
+      "api": 0,
+      "api_orphan_credit": 3
     },
     "c.agc": {
       "class_start": 0,
@@ -79,7 +82,8 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 0
     }

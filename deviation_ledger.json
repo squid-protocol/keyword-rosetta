@@ -3,14 +3,14 @@
   "entries": [
     {
       "id": "api-contextual-baseline-fix",
-      "signal": "api",
+      "signal": "api_orphan_credit",
       "languages_seen": [
         "apex",
         "python"
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording. Micro-repro: 2-def file imported by a sibling records api=4, un-imported records api=2. With the spec's main->a->b->c chain and uncalled probes, api = defs x 2 in a/b/c, defs in main. Deliberate scoring semantics; raw counts unrecoverable from the DB (filed squid-protocol/gitgalaxy#2536 asking for raw recording). apex added 2026-09-02 (gitgalaxy#2669 A.3): it had no import chain at all until Type.forName('a'/'b'/'c') was planted, so a/b/c had popularity 0 and api 0; with the chain live their 3 uncalled probes convert to api 3 each, exactly this shape.",
+      "verdict": "galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording. Micro-repro: 2-def file imported by a sibling records api=4, un-imported records api=2. With the spec's main->a->b->c chain and uncalled probes, api = defs x 2 in a/b/c, defs in main. Deliberate scoring semantics; raw counts unrecoverable from the DB (filed squid-protocol/gitgalaxy#2536 asking for raw recording). apex added 2026-09-02 (gitgalaxy#2669 A.3): it had no import chain at all until Type.forName('a'/'b'/'c') was planted, so a/b/c had popularity 0 and api 0; with the chain live their 3 uncalled probes convert to api 3 each, exactly this shape. GATE KEY CHANGE (gitgalaxy#2729, 2026-09-04): the conversion no longer reaches the manifest's `api` -- verify_language.py reads raw_arch_api there -- and is pinned instead as `api_orphan_credit` = arch_api - raw_arch_api, which this entry now covers. Semantics unchanged: credit = the file's uncalled probe count in a/b/c (3), 0 in main (popularity 0). Still the gate's only assertion that the main->a->b->c import chain resolved.",
       "upstream_issue": "squid-protocol/gitgalaxy#2536",
       "investigated_by": "claude-sonnet-5 + user session",
       "validated_at": "2026-08-31",
@@ -1165,7 +1165,7 @@
     },
     {
       "id": "api-column-is-rule-hits-only",
-      "signal": "raw_arch_api",
+      "signal": "api|raw_arch_api",
       "languages_seen": [
         "c",
         "css",
@@ -1180,11 +1180,11 @@
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-contextual-baseline-fix entry for the conversion itself). Measured: the rule fires in only 10 of the 44 languages that define one, so the corpus median is 0 and these ten read as the outliers -- c 7.25, python / embedded_python / fortran / lua / scala / livecode 3.25, css / makefile / html 0.25. They are not deviant; they are the only languages measuring anything. The other 36 read 0 because the probe programs contain no construct their api rule recognises: shell's rule is `^export NAME` and no probe exports, go's is `^func [A-Z]...` and every probe function is lowercase. Per file, shell/a.sh: manifest 3, rule 0, orphans converted 3, gate reads 3; go/a.go the same; python/a.py manifest 6 = rule 3 + orphans 3; c/a.c manifest 12 = rule 9 + orphans 3. verify_language.py builds its column map from RecordKeeper.SHORT_KEY_MAP, which maps api -> arch_api (the conflated column), so the manifests were recorded post-conversion and the gate cannot see an api rule that never fires. Filed as gitgalaxy#2729, which carries the two-part fix shape (gate reads raw_arch_api the way bias_report.py's RISK_INPUT_COLUMNS already does; then ~36 languages need either an exported construct planted in their own vocabulary or a wider rule -- a corpus wave of its own, deliberately not folded into F.4). Current behaviour baked in meanwhile.",
+      "verdict": "raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-contextual-baseline-fix entry for the conversion itself). Measured: the rule fires in only 10 of the 44 languages that define one, so the corpus median is 0 and these ten read as the outliers -- c 7.25, python / embedded_python / fortran / lua / scala / livecode 3.25, css / makefile / html 0.25. They are not deviant; they are the only languages measuring anything. The other 36 read 0 because the probe programs contain no construct their api rule recognises: shell's rule is `^export NAME` and no probe exports, go's is `^func [A-Z]...` and every probe function is lowercase. Per file, shell/a.sh: manifest 3, rule 0, orphans converted 3, gate reads 3; go/a.go the same; python/a.py manifest 6 = rule 3 + orphans 3; c/a.c manifest 12 = rule 9 + orphans 3. verify_language.py builds its column map from RecordKeeper.SHORT_KEY_MAP, which maps api -> arch_api (the conflated column), so the manifests were recorded post-conversion and the gate cannot see an api rule that never fires. Filed as gitgalaxy#2729, which carries the two-part fix shape (gate reads raw_arch_api the way bias_report.py's RISK_INPUT_COLUMNS already does; then ~36 languages need either an exported construct planted in their own vocabulary or a wider rule -- a corpus wave of its own, deliberately not folded into F.4). Current behaviour baked in meanwhile. RESOLVED 2026-09-04 (keyword-rosetta, gitgalaxy#2729 both halves): verify_language.py now reads raw_arch_api as `api` (RAW_COLUMNS) and pins arch_api - raw_arch_api as `api_orphan_credit` (DERIVED_KEYS), so a manifest's `api` is what the rule found and nothing else. Every manifest was re-blessed mechanically first (api := raw, credit := adjusted - raw; 36 languages honestly read 0), then the corpus wave planted an explicit public surface in each language's own vocabulary on every probe function its api rule can see. The remaining 0/1 languages are ledgered by shape (api-export-list-morphology, api-non-function-surfaces, api-no-plantable-idiom).",
       "upstream_issue": "squid-protocol/gitgalaxy#2729",
       "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
       "validated_at": "2026-09-04",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "risk-api-exposure-zero-api-shortcircuit",

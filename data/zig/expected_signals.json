@@ -20,6 +20,7 @@
       "func_start": 4,
       "args": 4,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1,
@@ -42,7 +43,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "encapsulation": 5
     },
     "b.zig": {
@@ -62,7 +64,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "encapsulation": 5
     },
     "c.zig": {
@@ -82,7 +85,8 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "encapsulation": 4,
       "doc": 0,
       "ownership": 0
@@ -99,5 +103,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"std.process.exit\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "zig counted return as branch (kotlin-return family) until gitgalaxy#2545. globals: the any-indentation-anchor bug RESOLVED via gitgalaxy#2651 (anchored to true column 0) -- b.zig's 2 function-local vars and c.zig's function-local const no longer count (b/c globals 2/1 -> 0/0); a.zig's 2 genuine top-level consts are unaffected. encapsulation counts fn/const/var keywords (recorded). _ = expr plants avoid both. Locked 2026-08-31; branch re-baselined 2026-09-01; globals re-baselined 2026-09-02 against gitgalaxy#2651. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"std.process.exit\" literal inside probeState \u2014 b.zig high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
+  "notes": "zig counted return as branch (kotlin-return family) until gitgalaxy#2545. globals: the any-indentation-anchor bug RESOLVED via gitgalaxy#2651 (anchored to true column 0) -- b.zig's 2 function-local vars and c.zig's function-local const no longer count (b/c globals 2/1 -> 0/0); a.zig's 2 genuine top-level consts are unaffected. encapsulation counts fn/const/var keywords (recorded). _ = expr plants avoid both. Locked 2026-08-31; branch re-baselined 2026-09-01; globals re-baselined 2026-09-02 against gitgalaxy#2651. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"std.process.exit\" literal inside probeState — b.zig high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
 }

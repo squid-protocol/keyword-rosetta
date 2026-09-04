@@ -11,6 +11,7 @@
       "func_start": 4,
       "args": 4,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1,
@@ -29,7 +30,8 @@
       "import": 1,
       "func_start": 3,
       "args": 5,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "globals": 2,
       "test": 2,
       "safety": 3,
@@ -48,7 +50,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 2,
@@ -67,7 +70,8 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
@@ -104,5 +108,5 @@
       "outcome": "inert (underscore)"
     }
   ],
-  "notes": "args 5 in a.ts = 3 function params + describe(kit)/expect(kit): ts args counts statement-position call parens (finditer-confirmed; ledger ts-callparen-args) so test plants contaminate args. safety 3 in a.ts = unknown x2 (param type + local) + never. io kept clean by naming the probeIo param 'route' (the js folder's 'path' collision, avoided). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probeState \u2014 b.ts high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
+  "notes": "args 5 in a.ts = 3 function params + describe(kit)/expect(kit): ts args counts statement-position call parens (finditer-confirmed; ledger ts-callparen-args) so test plants contaminate args. safety 3 in a.ts = unknown x2 (param type + local) + never. io kept clean by naming the probeIo param 'route' (the js folder's 'path' collision, avoided). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probeState — b.ts high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
 }

@@ -20,6 +20,7 @@
       "func_start": 4,
       "args": 0,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1
@@ -41,6 +42,7 @@
       "func_start": 3,
       "args": 0,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0,
       "import": 1
@@ -62,6 +64,7 @@
       "func_start": 3,
       "args": 0,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0,
       "import": 1
@@ -83,11 +86,12 @@
       "func_start": 3,
       "args": 0,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0,
       "import": 0
     }
   },
   "decoys": [],
-  "notes": "GitHub-Actions morphology: functions are run: steps, classes are jobs:/job blocks (2 per file with a uses:-carrying job, 1 in the leaf), import = uses:, branch/io/risk live inside run: shell strings (if/else/fi, curl/wget/yum, eval/exec \u2014 yaml embeds shell and counts it). state 1 = the env: block; telemetry = ::debug/::warning workflow commands; doc counts EVERY name:/description: line so step names are deliberately absent. Locked 2026-08-31. A.3 (gitgalaxy#2669): main.yml carried BOTH 'name:' and 'description:', and yaml's doc rule matches each independently (^[ \\t]*name:[ \\t]+.* | ^[ \\t]*description:[ \\t]+.*), so doc read 2 against a planted 1. Dropped 'description:' and kept 'name:' -- 'name:' is the real GitHub-Actions workflow key, 'description:' belongs to composite actions, so the remaining line is also the idiomatic one. Step names stay deliberately absent for the same reason (every name: line is another doc hit). A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology \u2014 the args rule matches a `with:` block, which binds to `uses:` and never to the corpus's `run:` steps; planting it would add fake edges to the planted main->a->b->c DAG (ledger args-no-parameter-surface-morphology). gitgalaxy#2646/#2647: yaml's ownership and cleanup rules were None (cells n/a). Now wired, with `author:` planted in main.yml and two teardown verbs replacing no-op run: steps in c.yml, so both record their planted values.  keyword-rosetta#33: probe_bypass was half-planted (1 of 2); the no-op run: step became `chmod 777`, so func_start stays at its planted 3. `curl ... | bash` was rejected -- curl is also an io keyword."
+  "notes": "GitHub-Actions morphology: functions are run: steps, classes are jobs:/job blocks (2 per file with a uses:-carrying job, 1 in the leaf), import = uses:, branch/io/risk live inside run: shell strings (if/else/fi, curl/wget/yum, eval/exec — yaml embeds shell and counts it). state 1 = the env: block; telemetry = ::debug/::warning workflow commands; doc counts EVERY name:/description: line so step names are deliberately absent. Locked 2026-08-31. A.3 (gitgalaxy#2669): main.yml carried BOTH 'name:' and 'description:', and yaml's doc rule matches each independently (^[ \\t]*name:[ \\t]+.* | ^[ \\t]*description:[ \\t]+.*), so doc read 2 against a planted 1. Dropped 'description:' and kept 'name:' -- 'name:' is the real GitHub-Actions workflow key, 'description:' belongs to composite actions, so the remaining line is also the idiomatic one. Step names stay deliberately absent for the same reason (every name: line is another doc hit). A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology — the args rule matches a `with:` block, which binds to `uses:` and never to the corpus's `run:` steps; planting it would add fake edges to the planted main->a->b->c DAG (ledger args-no-parameter-surface-morphology). gitgalaxy#2646/#2647: yaml's ownership and cleanup rules were None (cells n/a). Now wired, with `author:` planted in main.yml and two teardown verbs replacing no-op run: steps in c.yml, so both record their planted values.  keyword-rosetta#33: probe_bypass was half-planted (1 of 2); the no-op run: step became `chmod 777`, so func_start stays at its planted 3. `curl ... | bash` was rejected -- curl is also an io keyword."
 }

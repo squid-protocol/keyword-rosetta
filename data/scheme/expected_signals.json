@@ -20,6 +20,7 @@
       "func_start": 4,
       "args": 4,
       "api": 0,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1
@@ -41,7 +42,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3
+      "api": 0,
+      "api_orphan_credit": 3
     },
     "b.scm": {
       "class_start": 0,
@@ -60,7 +62,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3
+      "api": 0,
+      "api_orphan_credit": 3
     },
     "c.scm": {
       "class_start": 0,
@@ -79,7 +82,8 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 0
     }
@@ -104,5 +108,5 @@
       "outcome": "INERT (fixed): gitgalaxy#2537 (PR #2622) hyphenated-identifier guards — \\bTODO\\b no longer matches inside the probe-todo symbol; c.scm planned_debt re-baselined 2→1 (the ;; TODO: comment only). Kebab-case symbols no longer feed debt scoring."
     }
   ],
-  "notes": "scheme now HAS _dependency_capture (gitgalaxy#2652, RESOLVED): (import a) produces a real DAG edge, matching every sibling brace-family language. Orphan->api conversion fires: a/b/c.scm each have 3 uncalled probe functions in an imported file -> api 0->3 each (main stays 4, imported by nobody). Top-level (define name value) counts globals, (define (name ...)) counts func -- cleanly separated. Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2652. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probe-state \u2014 b.scm no count moved."
+  "notes": "scheme now HAS _dependency_capture (gitgalaxy#2652, RESOLVED): (import a) produces a real DAG edge, matching every sibling brace-family language. Orphan->api conversion fires: a/b/c.scm each have 3 uncalled probe functions in an imported file -> api 0->3 each (main stays 4, imported by nobody). Top-level (define name value) counts globals, (define (name ...)) counts func -- cleanly separated. Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2652. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probe-state — b.scm no count moved."
 }

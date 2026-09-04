@@ -13,6 +13,7 @@
    "ownership": 1,
    "import": 1,
    "api": 0,
+   "api_orphan_credit": 0,
    "class_start": 0,
    "state_mutation": 0,
    "globals": 0,
@@ -28,7 +29,8 @@
    "import": 1,
    "func_start": 3,
    "args": 3,
-   "api": 3,
+   "api": 0,
+   "api_orphan_credit": 3,
    "globals": 3,
    "test": 2,
    "safety": 2,
@@ -47,7 +49,8 @@
    "import": 1,
    "func_start": 3,
    "args": 3,
-   "api": 3,
+   "api": 0,
+   "api_orphan_credit": 3,
    "safety_bypasses": 2,
    "telemetry": 2,
    "state_mutation": 2,
@@ -66,7 +69,8 @@
    "import": 0,
    "func_start": 3,
    "args": 3,
-   "api": 3,
+   "api": 0,
+   "api_orphan_credit": 3,
    "cleanup": 2,
    "fragile_debt": 1,
    "planned_debt": 1,
@@ -114,5 +118,5 @@
    "outcome": "inert (underscore + lowercase)"
   }
  ],
- "notes": "branch 5 in main = if + then + fi + the test brackets [ and ] (shell's branch rule counts them \u2014 finditer: if,[,],then,fi; every bracketed test costs +2 branch; ledger shell-test-brackets-in-branch). globals 3 in a.sh = PATH + HOME + the TERM signal name in 'trap : TERM' colliding with the TERM env var (ledger shell-trap-signal-env-collision). args planted as one ': \"$1\"' per function (shell args = positional-parameter mentions, epic #1518 precedent). api = 0 planted (no export); a/b api 4 vs c api 3 \u2014 conversion exceeds the 3 visible function orphans by 1 in the files carrying a source line (ledger orphan-conversion-opaque-counts, not root-caused). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"sudo\" literal inside probe_state \u2014 b.sh high_risk_execution 0->1, branch 1->0, io 1->0, safety_bypasses 3->2, state_mutation 6->2."
+ "notes": "branch 5 in main = if + then + fi + the test brackets [ and ] (shell's branch rule counts them — finditer: if,[,],then,fi; every bracketed test costs +2 branch; ledger shell-test-brackets-in-branch). globals 3 in a.sh = PATH + HOME + the TERM signal name in 'trap : TERM' colliding with the TERM env var (ledger shell-trap-signal-env-collision). args planted as one ': \"$1\"' per function (shell args = positional-parameter mentions, epic #1518 precedent). api = 0 planted (no export); a/b api 4 vs c api 3 — conversion exceeds the 3 visible function orphans by 1 in the files carrying a source line (ledger orphan-conversion-opaque-counts, not root-caused). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"sudo\" literal inside probe_state — b.sh high_risk_execution 0->1, branch 1->0, io 1->0, safety_bypasses 3->2, state_mutation 6->2."
 }

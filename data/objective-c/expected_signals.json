@@ -20,6 +20,7 @@
    "func_start": 4,
    "args": 6,
    "api": 0,
+   "api_orphan_credit": 0,
    "doc": 1,
    "ownership": 1,
    "import": 1
@@ -41,7 +42,8 @@
    "import": 1,
    "func_start": 3,
    "args": 5,
-   "api": 3
+   "api": 0,
+   "api_orphan_credit": 3
   },
   "b.mm": {
    "class_start": 0,
@@ -60,7 +62,8 @@
    "import": 1,
    "func_start": 3,
    "args": 5,
-   "api": 3
+   "api": 0,
+   "api_orphan_credit": 3
   },
   "c.mm": {
    "class_start": 0,
@@ -79,7 +82,8 @@
    "import": 0,
    "func_start": 3,
    "args": 5,
-   "api": 3,
+   "api": 0,
+   "api_orphan_credit": 3,
    "doc": 0,
    "ownership": 0
   }
@@ -95,5 +99,5 @@
    "outcome": "danger-only decoy (#17 redesign): \"abort\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
   }
  ],
- "notes": "objective-c counted return as branch until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3 = if/else/switch; a/c 3->0; b 4->1 -- kotlin-return-in-branch family). return is now tracked under structural_boundaries instead (added by #2545, objc had no other rule capturing it). args counts selector-colon segments beyond declarations (recorded as observed; selector morphology). .mm extension used to avoid the .m matlab collision. Locked 2026-08-31; branch re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"abort\" literal inside probeState \u2014 b.mm high_risk_execution 0->1, branch 1->0, state_mutation 9->3."
+ "notes": "objective-c counted return as branch until gitgalaxy#2545 (PR #2634): every file dropped to its real branch-keyword count (main 8->3 = if/else/switch; a/c 3->0; b 4->1 -- kotlin-return-in-branch family). return is now tracked under structural_boundaries instead (added by #2545, objc had no other rule capturing it). args counts selector-colon segments beyond declarations (recorded as observed; selector morphology). .mm extension used to avoid the .m matlab collision. Locked 2026-08-31; branch re-baselined 2026-09-01. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"abort\" literal inside probeState — b.mm high_risk_execution 0->1, branch 1->0, state_mutation 9->3."
 }

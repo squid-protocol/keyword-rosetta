@@ -20,6 +20,7 @@
       "func_start": 4,
       "args": 4,
       "api": 4,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 2,
@@ -42,7 +43,8 @@
       "import": 2,
       "func_start": 3,
       "args": 3,
-      "api": 6
+      "api": 3,
+      "api_orphan_credit": 3
     },
     "b.py": {
       "class_start": 0,
@@ -61,7 +63,8 @@
       "import": 2,
       "func_start": 3,
       "args": 3,
-      "api": 6
+      "api": 3,
+      "api_orphan_credit": 3
     },
     "c.py": {
       "class_start": 0,
@@ -80,7 +83,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 6,
+      "api": 3,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 0
     }
@@ -105,5 +109,5 @@
       "outcome": "inert (underscore)"
     }
   ],
-  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON. Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Under embedded classification the io rule has NO os./sys. alternation and orphan->api conversion fires (api 3 raw + 3 converted = 6, matching plain python; gitgalaxy#2548). doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (shares python's doc regex fix). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2658. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"machine.reset\" literal inside probe_state \u2014 b.py high_risk_execution 0->1, branch 2->0, safety 3->2, io 1->0, state_mutation 6->2."
+  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON. Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Under embedded classification the io rule has NO os./sys. alternation and orphan->api conversion fires (api 3 raw + 3 converted = 6, matching plain python; gitgalaxy#2548). doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (shares python's doc regex fix). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2658. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"machine.reset\" literal inside probe_state — b.py high_risk_execution 0->1, branch 2->0, safety 3->2, io 1->0, state_mutation 6->2."
 }

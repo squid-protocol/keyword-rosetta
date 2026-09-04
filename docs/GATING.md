@@ -79,9 +79,11 @@ A signal whose rule is `None`/absent in the language's `LANGUAGE_DEFINITIONS` en
 be reported nonzero by the engine — a measured 0 there means "**not expressible as measured**",
 not "the engine found nothing". The bias tooling (`bias_report.py`, the chart,
 `findings_report.py`, `language_deviations.py`) renders those cells **n/a**: excluded from
-medians, deviation bands, and consistency scores, never counted as −100% divergence. (`api` is
-exempt from this inference: the orphan-conversion mechanism synthesizes `api` even where no
-rule exists — see ledger `api-contextual-baseline-fix`.)
+medians, deviation bands, and consistency scores, never counted as −100% divergence. (`api` was
+exempt from this inference while the gate read the adjusted `arch_api` column, which the
+orphan-conversion mechanism synthesizes even where no rule exists; since gitgalaxy#2729 the
+gate reads the raw rule count — see "What `api` asserts" below — and the exemption survives
+only for the derived cells, next section.)
 
 **Filling a `None` rule flips the cell to comparable — plan the corpus edit with it.** Because
 n/a rests on rule *absence*, an engine PR that adds the missing rule ends the exemption whether
@@ -149,11 +151,43 @@ excluded on purpose: demanding a ledger entry for `llm_api` in the 40 languages 
 define it would be review theatre, not review.
 
 The `api` exemption gets one extra turn here. `api` stays out of the *planted signal* n/a
-table (rule-absence does not make it unmeasurable — orphan conversion synthesizes it), but it
-is a governed input to `risk_api_exposure` and `risk_documentation`, so a derived cell can
-rest its n/a on it. Those absences are therefore audited (`markdown/api`, `jcl/api`) even
-though they never appear as n/a signals: otherwise the derived cell is marked `n/a†` with
-nothing in the baseline to explain the marker, and the reviewer has no row to chase.
+table, but it is a governed input to `risk_api_exposure` and `risk_documentation`, and the
+engine's scoring reads the **adjusted** `api` (rule hits plus converted orphans — see below),
+so a language with no api rule can still score nonzero there (`jcl/risk_api_exposure` above).
+A derived cell can therefore rest its n/a on `api` only when the scan confirms the 0, and those
+absences are audited (`markdown/api`, `jcl/api`) even though they never appear as n/a signals:
+otherwise the derived cell is marked `n/a†` with nothing in the baseline to explain the marker,
+and the reviewer has no row to chase.
+
+## What `api` asserts (gitgalaxy#2729)
+
+galaxyscope's Contextual Baseline Fix rewrites `api` in place for any file another file
+imports: its uncalled functions (`orphaned_logic`) are added to `api` and its orphan count is
+zeroed. The recorder keeps the pre-adjustment count in `raw_arch_api` (gitgalaxy#2536). Until
+2026-09-04 the gate read the adjusted `arch_api` column, so every a/b/c manifest recorded its
+three converted probes as `api` and **36 of the 44 languages with an api rule passed `api`
+without the rule matching anything** (shell's rule is `^export NAME`; no probe exported;
+go's is a capitalised `func`; every probe was lowercase). The manifests asserted the import
+chain, not the rule.
+
+Two keys now carry the two facts, and a manifest lists both:
+
+- **`api`** reads `raw_arch_api`: what the language's api rule found. This is the planted
+  signal in the SPEC's sense — the file's *declared* public surface, in the language's own
+  vocabulary (`pub`, `public`, `export`, a capitalised Go identifier, an `EXPOSE` line, a
+  `%define`), and 0 where the language has no such construct the shell can carry.
+- **`api_orphan_credit`** is `arch_api − raw_arch_api`: the orphans the conversion credited.
+  Expect the file's uncalled-function count in a/b/c and 0 in main (popularity 0). It is kept
+  in the gate because it is the gate's only proof that the main→a→b→c chain resolved — the
+  swift and fortran DAG bugs (`swift-import-capture-min-two-chars`,
+  `fortran-use-case-insensitive-dag`) were caught through exactly this number.
+
+`bias_report.py` was never fooled — it measured `raw_arch_api` as its own column and had the
+ten rule-firing languages ledgered as the outliers (`api-column-is-rule-hits-only`) — but a
+raw column whose corpus median is 0 asks no question. The corpus wave that followed the gate
+change gives every language whose api rule accepts a construct the shell can carry an
+explicit public surface; the languages that still read 0 or 1 are ledgered by shape, not by
+language (`api-export-list-morphology`, `api-non-function-surfaces`, `api-no-plantable-idiom`).
 
 ## Inert metrics
 
