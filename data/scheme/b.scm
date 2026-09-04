@@ -1,6 +1,9 @@
 ;; keyword rosetta control shell: scheme / b
 ;; decoy: nothing risky lives here and the cond word stays in prose
 (import c)
+(export probe-bypass)
+(export probe-telemetry)
+(export probe-state)
 
 (define (probe-bypass shape)
   (set-car! shape 1)

@@ -1,6 +1,9 @@
 ;; keyword rosetta control shell: scheme / a
 ;; decoy: config reads are safe and the exit word stays in prose
 (import b)
+(export probe-globals)
+(export probe-test)
+(export probe-safety)
 
 (define region 1)
 (define home 2)
