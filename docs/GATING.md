@@ -165,13 +165,20 @@ and excluded from the average, alongside the separate "no comparable median" lis
 
 ## Program length is context (gitgalaxy#2669 F.1)
 
-Four columns — `total_loc`, `coding_loc`, `token_mass`, `keyword_hits` — measure how long a
+Six columns — `total_loc`, `coding_loc`, `token_mass`, `keyword_hits`, and the two that are
+length by definition, `avg_func_loc` (lines per function, over a planted 13) and
+`comment_lines` (documentation *lines*, where the SPEC plants markers) — measure how long a
 language's 12-probe program came out. The SPEC plants counts, never length: a Dockerfile with
 the same 12 probes cannot be as long as the Java version without padding, and padding would
 move the planted signals. On 2026-09-04 every procedural language sat within a few percent of
 the `coding_loc` median, and the out-of-band tail was exactly the non-procedural shells
 (markdown, m4, yacc, jcl, css, html, dockerfile, makefile, yaml, sqlite) plus the two dense
 ones (haskell, scheme): 49 cells with no honest fix on either side.
+
+The test for membership: *would a perfect engine give the same value for the same program at
+two lengths?* If no by definition, the metric is size and belongs here. If yes but the engine
+does not (`control_flow_ratio`, `func_internal_density`, `structural_mass`, `cog_raw`), it
+stays gated — its spread is an engine finding (gitgalaxy#2705), and demoting it would hide one.
 
 The bias tooling therefore treats them as **context**: reported and charted, no badge, no share
 in the consistency average, no verdict, never counted by `--gate`. Two consequences:
