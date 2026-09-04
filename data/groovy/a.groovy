@@ -2,19 +2,19 @@
 // decoy: config reads are safe and the exit word stays in prose
 import b
 
-def probeGlobals(env) {
+public def probeGlobals(env) {
     System.getenv(env)
     project.ext
     return env
 }
 
 @Test
-def probeTest(kit) {
+public def probeTest(kit) {
     assertEquals(kit, kit)
     return kit
 }
 
-def probeSafety(value) {
+public def probeSafety(value) {
     boolean kind = value instanceof Integer
     Optional guard
     return value

@@ -11,7 +11,7 @@ def entry(argv) {
     return 0
 }
 
-def probeBranch(flag) {
+public def probeBranch(flag) {
     if (flag > 0) {
         return 1
     } else {
@@ -20,14 +20,14 @@ def probeBranch(flag) {
     switch (flag) {}
 }
 
-def probeIo(route) {
+public def probeIo(route) {
     File disk
     Paths trail
     Socket plug
     return route
 }
 
-def probeRisk(payload) {
+public def probeRisk(payload) {
     System.exit(payload)
     payload.execute()
     return payload
