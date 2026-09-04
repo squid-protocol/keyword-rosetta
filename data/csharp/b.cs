@@ -2,19 +2,19 @@
 // decoy: nothing risky lives here and the switch word stays in prose
 using c;
 
-static int ProbeBypass(int shape) {
+public static int ProbeBypass(int shape) {
     dynamic loose = shape;
     dynamic strict = shape;
     return shape;
 }
 
-static int ProbeTelemetry(int msg) {
+public static int ProbeTelemetry(int msg) {
     _logger.LogInformation(msg);
     Log.LogError(msg);
     return msg;
 }
 
-static int ProbeState(int items) {
+public static int ProbeState(int items) {
     Mutate(ref items);
     Mutate(out items);
     var note = "plain Process.Start decoy text";
