@@ -306,10 +306,24 @@ def scoring_strata(languages):
     if GITGALAXY_PATH not in sys.path:
         sys.path.insert(0, GITGALAXY_PATH)
     try:
-        from gitgalaxy.standards.analysis_lens import strictness_constants
+        from gitgalaxy.standards.analysis_lens import (
+            LANGUAGE_STRICTNESS,
+            resolve_language_family,
+            strictness_constants,
+        )
     except ImportError as exc:  # pragma: no cover - loud on an engine rename
         raise RuntimeError(
             "analysis_lens.strictness_constants is gone -- the engine's language-level "
             "risk term moved again; update scoring_strata() to match it"
         ) from exc
-    return {lang: f"irc{strictness_constants(lang)[0]}" for lang in languages}
+
+    # A `None` row (data / markup / config) and a four-True row BOTH yield Irc 0,
+    # but they are not the same population and must not share a reference median:
+    # one is haskell/java/rust/swift, the other is css/html/markdown/yaml, whose
+    # risk scores sit near zero for want of any code to score. Lumping them made
+    # swift read as an outlier against a median that was really markup's.
+    out = {}
+    for lang in languages:
+        row = LANGUAGE_STRICTNESS.get(resolve_language_family(lang))
+        out[lang] = "unprofiled" if row is None else f"irc{strictness_constants(lang)[0]}"
+    return out

@@ -21,9 +21,9 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 186 | a validated deviation-ledger entry names this language and this metric |
-| derived | 148 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
-| **unexplained** | **20** | **survived all three -- the real work remaining** |
+| ledgered | 184 | a validated deviation-ledger entry names this language and this metric |
+| derived | 149 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| **unexplained** | **19** | **survived all three -- the real work remaining** |
 
 Unexplained cells, by metric:
 
@@ -34,23 +34,22 @@ Unexplained cells, by metric:
 - `functions_found` — dockerfile, html, sqlite
 - `globals` — csharp
 - `high_risk_execution` — yacc
-- `risk_documentation` — swift
 - `state_mutation` — yaml
 - `test` — yaml
 
 ## The language-level risk constant is design; the report bands within it
 
-`analysis_lens.LANGUAGE_STRICTNESS` gives every language four yes/no columns (static types, enforced errors, memory safety, no implicit globals) and `strictness_constants()` turns the count of `False` columns into the constants the formulas below read: `Irc` = gaps, `Ot` = 1 + 0.1 x gaps (gitgalaxy#2718, which replaced the three hand-listed scoring tiers this section used to read out of `signal_processor._get_tier`). Wiki 08-03 documents the term as deliberate. Against a global median it reads as bias: languages carrying the same gap count report identical risk values with inputs identical to the median language. So each metric that reads a language-level constant is banded against **the median of its own stratum** (gitgalaxy#2669 F.3), and the per-stratum medians are the documented offset, printed here rather than hidden. Which metrics read one is taken off the engine source at regen time, never hand-listed. Strata (`ircN` = N strictness gaps): **irc0** = css, haskell, html, java, markdown, rust, swift, yaml; **irc1** = abap, ada, apex, csharp, dart, go, kotlin, scala, solidity, typescript, zig; **irc2** = c, cobol, cpp, embedded_python, matlab, objective-c, php, powershell, python, ruby, scheme, sqlite, tcl; **irc3** = dockerfile, fortran, groovy, javascript, jcl, livecode, lua, m4, makefile, perl, shell; **irc4** = agc_assembly, assembly, yacc.
+`analysis_lens.LANGUAGE_STRICTNESS` gives every language four yes/no columns (static types, enforced errors, memory safety, no implicit globals) and `strictness_constants()` turns the count of `False` columns into the constants the formulas below read: `Irc` = gaps, `Ot` = 1 + 0.1 x gaps (gitgalaxy#2718, which replaced the three hand-listed scoring tiers this section used to read out of `signal_processor._get_tier`). Wiki 08-03 documents the term as deliberate. Against a global median it reads as bias: languages carrying the same gap count report identical risk values with inputs identical to the median language. So each metric that reads a language-level constant is banded against **the median of its own stratum** (gitgalaxy#2669 F.3), and the per-stratum medians are the documented offset, printed here rather than hidden. Which metrics read one is taken off the engine source at regen time, never hand-listed. Strata (`ircN` = N strictness gaps): **irc0** = haskell, java, rust, swift; **irc1** = abap, ada, apex, csharp, dart, go, kotlin, scala, solidity, typescript, zig; **irc2** = c, cobol, cpp, embedded_python, matlab, objective-c, php, powershell, python, ruby, scheme, sqlite, tcl; **irc3** = dockerfile, fortran, groovy, javascript, jcl, livecode, lua, m4, makefile, perl, shell; **irc4** = agc_assembly, assembly, yacc; **unprofiled** = css, html, markdown, yaml.
 
 **Not held equal:** the per-language x per-signal fidelity coefficients (`gitgalaxy/standards/fidelity_table.py`) that replaced the scalar `fc`. They are generated FROM this corpus, so banding against them would be circular -- a surviving defence-credit deviation may still be a fidelity cell.
 
-| metric | irc0 median (n) | irc1 median (n) | irc2 median (n) | irc3 median (n) | irc4 median (n) | global median |
-|---|---|---|---|---|---|---|
-| `risk_cognitive_load` | 1.295 (7) | 1.295 (11) | 1.295 (13) | 1.295 (11) | 2.795 (3) | 1.295 |
-| `risk_documentation` | 3.742 (7) | 29.896 (11) | 29.896 (13) | 29.896 (11) | 29.896 (3) | 29.896 |
-| `risk_safety_score` | 39.811 (7) | 41.131 (11) | 42.583 (13) | 43.601 (11) | 42.064 (3) | 42.314 |
-| `risk_tech_debt` | 25.159 (8) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 38.665 |
-| `risk_verification` | 2.365 (7) | 2.380 (11) | 2.387 (13) | 2.396 (11) | 2.398 (3) | 2.385 |
+| metric | irc0 median (n) | irc1 median (n) | irc2 median (n) | irc3 median (n) | irc4 median (n) | unprofiled median (n) | global median |
+|---|---|---|---|---|---|---|---|
+| `risk_cognitive_load` | 1.295 (4) | 1.295 (11) | 1.295 (13) | 1.295 (11) | 2.795 (3) | 1.190 (3) | 1.295 |
+| `risk_documentation` | 29.896 (4) | 29.896 (11) | 29.896 (13) | 29.896 (11) | 29.896 (3) | 3.452 (3) | 29.896 |
+| `risk_safety_score` | 39.811 (4) | 41.131 (11) | 42.583 (13) | 43.601 (11) | 42.064 (3) | 35.586 (3) | 42.314 |
+| `risk_tech_debt` | 29.878 (4) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 20.439 (4) | 38.665 |
+| `risk_verification` | 2.372 (4) | 2.380 (11) | 2.387 (13) | 2.396 (11) | 2.398 (3) | 2.349 (3) | 2.385 |
 
 ## Unplanted risk inputs
 
