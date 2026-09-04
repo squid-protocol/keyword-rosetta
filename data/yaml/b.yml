@@ -8,6 +8,8 @@ jobs:
       - run: 'echo ::debug::probe'
       - run: 'echo ::warning::probe'
       - run: 'chmod 777 /tmp/probe'
+        env:
+          COUNTER: 2
     env:
       COUNTER: 1
       NOTE: go

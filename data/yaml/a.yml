@@ -5,6 +5,8 @@ jobs:
     uses: ./b.yml
     steps:
       - run: ': ${{ github.actor }} $HOME'
-      - run: pytest
+      - run: |
+          pytest
+          pytest
       - run: ':'
     continue-on-error: false

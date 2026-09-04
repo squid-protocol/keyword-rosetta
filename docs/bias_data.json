@@ -332,8 +332,8 @@
    "swift": 39.811,
    "tcl": 42.58275,
    "typescript": 41.13145,
-   "yacc": 42.0636,
-   "yaml": 36.012125,
+   "yacc": 44.290000000000006,
+   "yaml": 36.49605,
    "zig": 41.13145
   },
   "risk_secrets_risk": {
@@ -477,7 +477,7 @@
    "tcl": 12.5,
    "typescript": 4.19955,
    "yacc": 7.75065,
-   "yaml": 4.19955,
+   "yaml": 7.75065,
    "zig": 7.75065
   },
   "risk_tech_debt": {
@@ -572,8 +572,8 @@
    "swift": 2.376525,
    "tcl": 2.3748,
    "typescript": 2.37965,
-   "yacc": 2.371975,
-   "yaml": 2.350175,
+   "yacc": 2.376025,
+   "yaml": 2.3499,
    "zig": 2.384975
   },
   "pagerank_score": {
@@ -861,7 +861,7 @@
    "tcl": 8.18,
    "typescript": 0.965,
    "yacc": 7.25,
-   "yaml": 4.805,
+   "yaml": 5.075,
    "zig": 9.675
   },
   "control_flow_ratio": {
@@ -1868,7 +1868,7 @@
    "swift": 3,
    "tcl": 3,
    "typescript": 3,
-   "yacc": 2,
+   "yacc": 3,
    "yaml": 2,
    "zig": 3
   },
@@ -1965,7 +1965,7 @@
    "tcl": 2,
    "typescript": 2,
    "yacc": null,
-   "yaml": 1,
+   "yaml": 2,
    "zig": 2
   },
   "safety": {
@@ -2157,7 +2157,7 @@
    "tcl": 3,
    "typescript": 2,
    "yacc": 2,
-   "yaml": 1,
+   "yaml": 2,
    "zig": 2
   },
   "cleanup": {
@@ -2637,7 +2637,7 @@
    "tcl": 22.5,
    "typescript": 25.5,
    "yacc": 11.25,
-   "yaml": 13.75,
+   "yaml": 14.75,
    "zig": 25
   },
   "coding_loc": {
@@ -2685,7 +2685,7 @@
    "tcl": 15.25,
    "typescript": 17.5,
    "yacc": 5,
-   "yaml": 10.25,
+   "yaml": 11.25,
    "zig": 17.5
   },
   "token_mass": {
@@ -2732,8 +2732,8 @@
    "swift": 137.5,
    "tcl": 115.25,
    "typescript": 137.25,
-   "yacc": 79.25,
-   "yaml": 88.25,
+   "yacc": 81.5,
+   "yaml": 92,
    "zig": 143
   },
   "keyword_hits": {
@@ -2780,8 +2780,8 @@
    "swift": 181,
    "tcl": 128,
    "typescript": 175,
-   "yacc": 62,
-   "yaml": 88,
+   "yacc": 64,
+   "yaml": 95,
    "zig": 196
   },
   "avg_func_loc": {
@@ -2829,7 +2829,7 @@
    "tcl": 1.0,
    "typescript": 5.229166666666667,
    "yacc": 1.0,
-   "yaml": 1.375,
+   "yaml": 1.7083333333333335,
    "zig": 5.0625
   },
   "comment_lines": {

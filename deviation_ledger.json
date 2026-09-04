@@ -1268,6 +1268,107 @@
       "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
       "validated_at": "2026-09-04",
       "still_reproduces": true
+    },
+    {
+      "id": "container-construct-reads-as-class-start",
+      "signal": "class_start",
+      "languages_seen": [
+        "cobol",
+        "css",
+        "jcl",
+        "yaml"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0. Any language whose file cannot BE a file without a container declaration therefore reads out of band, and each of these four is that: cobol main.cbl `PROGRAM-ID. ROSETTA-MAIN.` (a COBOL program IS the compilation unit) = 1; jcl main.jcl `//ROSETTA JOB` (the job card) = 1; css c.css `.rosetta-risk { ... }` -- the class selector carrying the planted `expression()`/`behavior()` bypass, and a CSS class is literally what the rule names = 1; yaml `jobs:` and the `chain:` mapping that follows it = 7 across four files, planted and gated. The engine reading is correct in every case -- these are the languages' structural containers -- and no plant can equalise it without making the probe program invalid in that language.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "container-construct-reads-as-class",
+      "signal": "classes_found",
+      "languages_seen": [
+        "cobol",
+        "css",
+        "dockerfile",
+        "jcl",
+        "kotlin"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types. cobol/jcl/css as in that entry (1 each). dockerfile: `FROM b` opens a build stage, the language's only container, one per file = 4. kotlin a.kt: `object Region {}` / `object Home {}` = 2 -- these ARE the corpus's two planted `globals`, because Kotlin has no module-level mutable state and a singleton object is how the plant has to be written; the class count is a consequence of the globals plant, not a second deviation. Fixing it would mean planting kotlin's globals as something Kotlin does not have.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "m4-parameters-are-use-sites",
+      "signal": "args",
+      "languages_seen": [
+        "m4"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "m4 args 18 vs a median of 13 (SPEC: 13 function definitions, one argument each). m4 macros have no parameter list -- `define(probe_globals, ...)` names no parameters and `$1` inside the body IS the parameter, so the rule counts one arg per USE, not per declaration: a.m4 5, b.m4 4, c.m4 3, main.m4 6 against 3/3/3/4 definitions. Every other language declares its one argument once in a signature and uses it however often it likes. The plant is correct (each macro takes exactly one argument); the count is the language's syntax, and equalising it would mean writing macros that never reference their own argument.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "csharp-environment-exit-is-global-and-danger",
+      "signal": "globals",
+      "languages_seen": [
+        "csharp"
+      ],
+      "disposition": "keyword-overlap",
+      "status": "validated",
+      "verdict": "csharp globals 3 vs a median of 2. a.cs carries the two planted globals (`ConfigurationManager`, `AsyncLocal`); the third is in main.cs, where the planted high_risk_execution call `Environment.Exit(payload)` also matches the globals rule's `Environment.` prefix -- one token, two rules, both correct in isolation. C# has no way to spell process exit that does not go through a static ambient class, which is exactly what the globals rule looks for. Baked into the manifest (main.cs globals 1); the alternative is to plant a different danger call, which would test a less idiomatic construct.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "slicer-segments-statements-not-functions",
+      "signal": "functions_found",
+      "languages_seen": [
+        "dockerfile",
+        "sqlite"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry). Neither language has functions, so the slicer's statement modes segment on the igniter keyword instead: dockerfile yields one bucket per RUN/CMD/HEALTHCHECK (5 in b.dockerfile alone), sqlite one per `CREATE_Statement`/`Declarative_Block` (7/9/6/8). The count is what the modes are designed to produce -- a statement-oriented language has no 13-function shape to match -- and the numbers scale with statement count, not with the planted program. Related but distinct: gitgalaxy#2728 is about those same buckets reaching the duplicate and orphan checks as if they were real identifiers, which IS a defect; the population count itself is not.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2728",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "html-probe-bodies-are-empty-by-design",
+      "signal": "functions_found",
+      "languages_seen": [
+        "html"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "functions_found html 0 against a median of 13. The html func_start rule DOES match: three `<script` openers in a.html, one in b.html, three in c.html, two in main.html (nine in total, verified through coding_analysis). They do not survive into the recorded equations because the elements are empty -- `<script></script>` with no body -- so `splice` extracts no function and records func_start 0, which the manifest bakes. The emptiness is deliberate corpus design (gitgalaxy#2669 A.2 planted html's probe bodies as empty elements carrying only the signal tokens). Filling twelve script bodies would move html toward the median but changes what the html probe is testing; that is a SPEC decision, not a cell fix.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "package-manifest-adds-a-graph-node",
+      "signal": "betweenness_score",
+      "languages_seen": [
+        "javascript",
+        "python"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "betweenness_score javascript and python 0.05 against a median of 0.0833335, with identical dependency_links (3) and popularity (0.75) -- so the DAG's edges are right and its SIZE is not. These are the only two language folders carrying an ecosystem manifest beside the four probe files: `package.json` and `pyproject.toml`. Betweenness is normalised by node count (network_risk_sensor.py's nx.betweenness_centrality), so a fifth scanned artifact lowers every centrality in the folder -- pagerank 0.2029 vs 0.2240 and closeness 0.1917 vs 0.2396 move with it. The manifests are deliberate (they are what exercises dependency extraction and the SBOM for those two ecosystems); the alternative is to exclude non-probe artifacts from the graph, which would change what the corpus measures about real repositories.",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
     }
   ]
 }

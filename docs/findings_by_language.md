@@ -14,25 +14,25 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [apex](#apex) | 3 | 3 | 0 | 8 | #2535 #2536 #2545 #2546 #2671 |
 | [assembly](#assembly) | 11 | 0 | 0 | 5 | #2535 #2546 |
 | [c](#c) | 5 | 3 | 0 | 8 | #2535 #2546 #2626 #2655 #2689 #2729 |
-| [cobol](#cobol) | 3 | 5 | 0 | 13 | #2535 #2537 #2538 #2655 #2661 #2689 #2727 |
+| [cobol](#cobol) | 3 | 5 | 0 | 15 | #2535 #2537 #2538 #2655 #2661 #2689 #2727 |
 | [cpp](#cpp) | 3 | 7 | 0 | 4 | #2535 #2546 #2655 |
-| [csharp](#csharp) | 0 | 4 | 0 | 3 | #2535 #2546 |
-| [css](#css) | 9 | 4 | 5 | 11 | #2655 #2689 #2727 #2729 |
+| [csharp](#csharp) | 0 | 4 | 0 | 4 | #2535 #2546 |
+| [css](#css) | 9 | 4 | 5 | 13 | #2655 #2689 #2727 #2729 |
 | [dart](#dart) | 0 | 1 | 0 | 4 | #2535 #2651 #2689 |
-| [dockerfile](#dockerfile) | 8 | 8 | 0 | 11 | #2535 #2546 #2547 #2689 #2727 #2728 |
+| [dockerfile](#dockerfile) | 8 | 8 | 0 | 13 | #2535 #2546 #2547 #2689 #2727 #2728 |
 | [embedded_python](#embedded_python) | 6 | 3 | 0 | 10 | #2535 #2548 #2655 #2658 #2689 #2729 |
 | [fortran](#fortran) | 4 | 6 | 0 | 8 | #2535 #2540 #2546 #2650 #2659 #2729 |
 | [go](#go) | 3 | 0 | 0 | 8 | #2535 #2542 #2546 #2655 #2689 |
 | [groovy](#groovy) | 0 | 2 | 0 | 4 | #2535 #2689 |
 | [haskell](#haskell) | 7 | 4 | 0 | 10 | #2535 #2689 #2727 |
-| [html](#html) | 13 | 4 | 2 | 12 | #2549 #2645 #2650 #2655 #2659 #2689 #2727 #2729 |
+| [html](#html) | 13 | 4 | 2 | 13 | #2549 #2645 #2650 #2655 #2659 #2689 #2727 #2729 |
 | [java](#java) | 0 | 0 | 0 | 5 | #2535 #2546 #2655 #2689 |
-| [javascript](#javascript) | 0 | 5 | 0 | 8 | #2535 #2539 #2655 #2689 |
-| [jcl](#jcl) | 0 | 5 | 6 | 8 | #2610 #2655 #2689 #2727 |
-| [kotlin](#kotlin) | 0 | 2 | 0 | 7 | #2535 #2545 #2546 #2689 |
+| [javascript](#javascript) | 0 | 5 | 0 | 9 | #2535 #2539 #2655 #2689 |
+| [jcl](#jcl) | 0 | 5 | 6 | 10 | #2610 #2655 #2689 #2727 |
+| [kotlin](#kotlin) | 0 | 2 | 0 | 8 | #2535 #2545 #2546 #2689 |
 | [livecode](#livecode) | 10 | 6 | 0 | 8 | #2535 #2546 #2547 #2650 #2659 #2727 #2729 |
 | [lua](#lua) | 2 | 3 | 0 | 9 | #2535 #2546 #2547 #2657 #2689 #2729 |
-| [m4](#m4) | 3 | 3 | 2 | 6 | #2535 #2689 #2727 |
+| [m4](#m4) | 3 | 3 | 2 | 7 | #2535 #2689 #2727 |
 | [makefile](#makefile) | 6 | 7 | 1 | 10 | #2535 #2546 #2648 #2655 #2727 #2729 |
 | [markdown](#markdown) | 11 | 2 | 27 | 7 | #2638 #2655 #2689 #2727 |
 | [matlab](#matlab) | 3 | 1 | 0 | 4 | #2535 #2547 |
@@ -40,19 +40,19 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [perl](#perl) | 3 | 3 | 0 | 8 | #2535 #2546 #2626 #2670 #2689 |
 | [php](#php) | 0 | 1 | 0 | 6 | #2535 #2541 #2546 #2689 |
 | [powershell](#powershell) | 9 | 3 | 0 | 7 | #2535 #2545 #2546 #2547 #2656 |
-| [python](#python) | 2 | 4 | 0 | 10 | #2535 #2536 #2655 #2658 #2689 #2729 |
+| [python](#python) | 2 | 4 | 0 | 11 | #2535 #2536 #2655 #2658 #2689 #2729 |
 | [ruby](#ruby) | 3 | 5 | 0 | 4 | #2535 #2546 #2547 |
 | [rust](#rust) | 0 | 1 | 0 | 5 | #2535 #2655 #2689 |
 | [scala](#scala) | 3 | 2 | 0 | 5 | #2535 #2689 #2729 |
 | [scheme](#scheme) | 2 | 2 | 0 | 6 | #2535 #2537 #2689 #2727 |
 | [shell](#shell) | 6 | 1 | 1 | 6 | #2535 #2547 |
 | [solidity](#solidity) | 3 | 1 | 1 | 6 | #2535 #2545 #2689 |
-| [sqlite](#sqlite) | 12 | 2 | 0 | 8 | #2535 #2547 #2655 #2727 |
+| [sqlite](#sqlite) | 12 | 2 | 0 | 9 | #2535 #2547 #2655 #2727 #2728 |
 | [swift](#swift) | 1 | 6 | 0 | 4 | #2535 #2543 #2546 |
 | [tcl](#tcl) | 7 | 4 | 0 | 6 | #2535 #2546 |
 | [typescript](#typescript) | 1 | 2 | 0 | 6 | #2535 #2546 #2655 #2689 |
-| [yacc](#yacc) | 4 | 2 | 3 | 5 | #2644 #2689 |
-| [yaml](#yaml) | 7 | 5 | 0 | 9 | #2646 #2647 #2689 #2727 |
+| [yacc](#yacc) | 4 | 1 | 3 | 5 | #2644 #2689 |
+| [yaml](#yaml) | 6 | 3 | 0 | 10 | #2646 #2647 #2689 #2727 |
 | [zig](#zig) | 1 | 0 | 0 | 5 | #2535 #2545 #2651 |
 
 ## abap
@@ -246,6 +246,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
+| `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
@@ -310,6 +312,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.cs | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cs | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `csharp-environment-exit-is-global-and-danger` | keyword-overlap | — | — | csharp globals 3 vs a median of 2 |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -341,6 +344,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
+| `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
@@ -401,9 +406,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
 | `risk-documentation-zero-evidence-guard` | engine-semantic | — | — | _calc_documentation (signal_processor.py L1535-L1553) builds measured_risk = opaque_execution + api x 2.0 and returns 0.0 when it is zero: 'a file with no public surface… |
+| `slicer-segments-statements-not-functions` | engine-semantic | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry) |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.dockerfile | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dockerfile | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
@@ -598,6 +605,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
+| `html-probe-bodies-are-empty-by-design` | engine-semantic | — | — | functions_found html 0 against a median of 13 |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `html-2578-declarative-globals-state-mutation-morphology` | intended-morphology | — | — | html has no native idiom for scoped-vs-global variables or state mutation -- it is purely declarative markup; both concepts are inherently imperative/scripting concepts … |
@@ -651,6 +659,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.js | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `package-manifest-adds-a-graph-node` | intended-morphology | — | — | betweenness_score javascript and python 0.05 against a median of 0.0833335, with identical dependency_links (3) and popularity (0.75) -- so the DAG's edges are right and… |
 | `identifier-name-token-collision` | keyword-overlap | — | (notes) | Token signals match ordinary identifiers that happen to spell a keyword: js probeIo's parameter named 'path' counts io +1 (path is a js io keyword) |
 | `js-with-statement-func-start-fp` | upstream-bug | [#2539](https://github.com/squid-protocol/gitgalaxy/issues/2539) | (notes) | 'with (shape) {}' is parsed as a function named 'with' by the identifier(args){ alternation: the keyword exclusion list has if/for/while/switch/catch/return but not with |
 
@@ -678,6 +687,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
+| `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
@@ -698,6 +709,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
+| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.kt | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.kt | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
@@ -798,6 +810,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.m4 | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `m4-class-start-no-object-concept` | intended-morphology | — | — | GNU M4 is a pure text-substitution macro processor; neither M4 nor Autoconf (the corpus's real-world use case) has any record/object/type-declaration concept |
+| `m4-parameters-are-use-sites` | intended-morphology | — | — | m4 args 18 vs a median of 13 (SPEC: 13 function definitions, one argument each) |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 
@@ -1029,6 +1042,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.py | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
+| `package-manifest-adds-a-graph-node` | intended-morphology | — | — | betweenness_score javascript and python 0.05 against a median of 0.0833335, with identical dependency_links (3) and popularity (0.75) -- so the DAG's edges are right and… |
 | `python-2658-docstring-delimiter-double-count` | upstream-bug | [#2658](https://github.com/squid-protocol/gitgalaxy/issues/2658) | — | the doc rule matched opening and closing docstring delimiters independently with no pairing, so one docstring counted doc=2 -- RESOLVED via gitgalaxy#2658 (matches the f… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
@@ -1222,6 +1236,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
+| `slicer-segments-statements-not-functions` | engine-semantic | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sql | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `sqlite-dot-read-dual-import-io` | keyword-overlap | — | (notes) | ^.read counts BOTH import and io (finditer-confirmed) — every corpus chain link adds +1 io in sqlite |
@@ -1325,7 +1340,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_args`: 0.0833333 vs median 1 (-92%)
 - 🔴 `cog_raw`: 0.055 vs median 0.0205 (+168%)
 - 🔴 `control_flow_ratio`: 0.25 vs median 0.09375 (+167%)
-- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 - 🟡 `structural_mass`: 7.25 vs median 9.845 (-26%)
 
 **Not expressible as measured (n/a):** `class_start`, `risk_concurrency`†, `test`
@@ -1349,16 +1363,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_state_slop_orphans`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 5.28878 (-100%)
 - 🔴 `risk_documentation`: 0 vs median 3.4517 (-100%)
-- 🔴 `structural_mass`: 4.805 vs median 9.845 (-51%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
-- 🟡 `risk_state_flux`: 4.19955 vs median 7.75065 (-46%)
 - 🟡 `safety`: 1 vs median 2 (-50%)
-- 🟡 `state_mutation`: 1 vs median 2 (-50%)
-- 🟡 `test`: 1 vs median 2 (-50%)
+- 🟡 `structural_mass`: 5.075 vs median 9.845 (-48%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
 | `risk-documentation-zero-evidence-guard` | engine-semantic | — | — | _calc_documentation (signal_processor.py L1535-L1553) builds measured_risk = opaque_execution + api x 2.0 and returns 0.0 when it is zero: 'a file with no public surface… |
