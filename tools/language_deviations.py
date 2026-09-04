@@ -25,9 +25,9 @@ descriptor for a language with no functions (the quotient is undefined, not
 deviant), or when it is a composite whose deviation entered through an input that
 is itself out of band. Explained cells still print -- with the reason -- but do
 not fail the gate, because the epic's close criterion is "nothing UNEXPLAINED
-remains", not "nothing deviates". The four program-length columns (total_loc,
-coding_loc, token_mass, keyword_hits) print in their own group as context and
-count toward nothing (gitgalaxy#2669 F.1).
+remains", not "nothing deviates". The program-length columns (total_loc,
+coding_loc, token_mass, keyword_hits, avg_func_loc, comment_lines) print in their
+own group as context and count toward nothing (gitgalaxy#2669 F.1).
 
 Exit status: 0 if every out-of-band metric is explained AND no n/a cell is
 unreviewed, 1 otherwise -- so a sweep can be gate-checked

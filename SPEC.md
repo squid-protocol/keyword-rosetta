@@ -25,8 +25,8 @@ both outcomes are the point of this corpus.
    the manifest, not left unrecorded — prefer restructuring to avoid them.
 5. **Length is not planted.** How many lines, tokens or total keyword matches a shell
    comes to is a property of the language, not a target: never pad or compress a shell to
-   move `total_loc`, `coding_loc`, `token_mass` or `keyword_hits`. The bias report treats
-   those four as context, not consistency claims (docs/GATING.md, "Program length is
+   move `total_loc`, `coding_loc`, `token_mass`, `keyword_hits`, `avg_func_loc` or
+   `comment_lines`. The bias report treats those six as context, not consistency claims (docs/GATING.md, "Program length is
    context").
 
 ## File layout (per language folder)

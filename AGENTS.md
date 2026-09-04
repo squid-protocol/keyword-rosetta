@@ -97,8 +97,10 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
     band, so counting it again is counting one finding twice. The metric→inputs table is
     `DERIVED_INPUTS` in `bias_report.py`, with the engine formula each row came from cited
     beside it — check it against the engine when a formula changes.
-  - **context** (gitgalaxy#2669 F.1) — `total_loc`, `coding_loc`, `token_mass` and
-    `keyword_hits` measure how long the program came out, which the SPEC never plants. They
+  - **context** (gitgalaxy#2669 F.1) — `total_loc`, `coding_loc`, `token_mass`, `keyword_hits`,
+    `avg_func_loc` and `comment_lines` measure how long the program came out, which the SPEC
+    never plants (test: a perfect engine would still give different values at different
+    lengths; a metric that *should* be invariant stays gated — its spread is an engine finding). They
     are charted without a badge, excluded from the consistency average and from `--gate`,
     and never get a verdict of their own; a `derived` cell may still inherit from one. A
     ledger entry saying "this program is shorter" is not a valid explanation for any cell.
