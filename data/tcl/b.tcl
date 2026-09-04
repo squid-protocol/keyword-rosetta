@@ -1,6 +1,9 @@
 # keyword rosetta control shell: tcl / b
 # decoy: nothing risky lives here and the elseif word stays in prose
 source c.tcl
+namespace export probe_bypass
+namespace export probe_telemetry
+namespace export probe_state
 
 proc probe_bypass {shape} {
     uplevel $shape
