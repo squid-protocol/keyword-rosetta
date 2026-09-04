@@ -112,6 +112,16 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
     finding per formula (`LENGTH_TERMS` cites where length enters), filed as an engine design
     issue in the #2655 shape, never used to change a cell's verdict.
 
+  - **tier** (gitgalaxy#2669 F.3) — the seven risk formulas that read `_get_tier`'s constants
+    (`tier_sensitive` in the cache, off the engine source) are banded against the median of the
+    language's own tier, and the per-tier medians are printed as the documented offset
+    (docs/GATING.md "Tier constants are design"). Never ledger a cell as "tier 3".
+  - **unplanted inputs / temporal** — registry signals the risk formulas read but the SPEC never
+    plants (`unplanted_inputs`), plus `risk_stability`/`risk_churn` (commit age), are reported
+    but never gated (`ungated_metrics` is the full set every tool skips). A derived risk cell may
+    inherit from one (`inherits immutability_locks`) — that names the cause; it does not close
+    the question of whether the shell should be carrying that keyword.
+
   `tools/bias_report.py --gate` exits nonzero while any cell is unexplained: that is the
   epic close criterion, and it is off by default so a routine regen still writes its
   artifacts and exits 0. `language_deviations.py` fails per-language on the same basis.

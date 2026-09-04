@@ -197,6 +197,34 @@ in the consistency average, no verdict, never counted by `--gate`. Two consequen
   verdict. The tier map is read off `signal_processor._get_tier` at regen time and stored as
   `tiers` in `docs/bias_data.json`.
 
+## Tier constants are design; unplanted inputs are not signals (gitgalaxy#2669 F.3)
+
+`signal_processor._get_tier` assigns every language a scoring tier by literal set membership
+(tier1 = rust, go, swift, java, typescript, csharp, dart; tier2 = python, javascript, cpp, c,
+ruby, kotlin, php; everything else tier3), and seven risk formulas read its constants — a flat
+`irc / mass_loc` term, an `fc` scale on defence credit, `ot` on verification. Wiki 08-03
+documents this as deliberate (gitgalaxy#2653). Against a global median it reads as bias: the
+seven tier-1 languages report `risk_tech_debt` 29.88 with inputs identical to the median
+language. The report therefore bands each **tier-reading** risk metric against **the median of
+the language's own tier**, prints the per-tier medians as the documented offset, and stores the
+tier map (`tiers`) and the metric list (`tier_sensitive`) in `docs/bias_data.json`. Which
+metrics read tier is taken off the engine source at regen time (`_registry.risk_dependencies`
+records `tier`), never hand-listed. A ledger entry that says "this language is tier 3" is not a
+valid explanation for any cell; the tier is already accounted for by the reference median.
+
+The risk formulas also read registry signals the SPEC never plants (`immutability_locks`,
+`concurrency`, `sync_locks`, `reflection_metaprogramming`, `debug_prints`, `spec_exposure`,
+`llm_api`, `dead_code`). A shell that idiomatically writes `val`/`let`/`final` carries freeze
+hits a `var` shell does not, and `risk_state_flux` then differs with `state_mutation` on plant.
+Those signals are cached as an **ungated** group (`unplanted_inputs`; the full reported-but-
+never-gated set is `ungated_metrics`): an out-of-band cell there gets no verdict, but a derived
+risk cell may inherit from it and say so (`derived: inherits immutability_locks`). That is the
+honest reading — the cause is named, and the corpus can decide whether to plant the signal
+everywhere or write it out of the shell — and it is not a licence to ignore the group: an
+unplanted signal that fires where it should not is still a rule question for the language's
+tracking issue. `risk_stability` and `risk_churn` read commit age, not content, and sit in the
+same ungated set as temporal context.
+
 ## Cross-repo flow (no pins)
 
 Two CI checks hold the corpus and the engine together, symmetrically and without pins
