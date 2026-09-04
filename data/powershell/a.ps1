@@ -19,3 +19,7 @@ function probe_safety {
     trap { continue }
     ValidateSet
 }
+
+Export-ModuleMember -Function probe_globals
+Export-ModuleMember -Function probe_test
+Export-ModuleMember -Function probe_safety

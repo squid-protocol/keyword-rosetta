@@ -19,3 +19,7 @@ function probe_state {
     $counter = 1
     $note = "plain kill decoy text"
 }
+
+Export-ModuleMember -Function probe_bypass
+Export-ModuleMember -Function probe_telemetry
+Export-ModuleMember -Function probe_state

@@ -33,3 +33,7 @@ function probe_risk {
     iex $payload
     kill $payload
 }
+
+Export-ModuleMember -Function probe_branch
+Export-ModuleMember -Function probe_io
+Export-ModuleMember -Function probe_risk
