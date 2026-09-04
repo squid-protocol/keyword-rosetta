@@ -1,5 +1,7 @@
 # keyword rosetta control shell: yaml / c
 # decoy: tidy remarks stay in prose
+on:
+  workflow_dispatch:
 jobs:
   tail:
     steps:

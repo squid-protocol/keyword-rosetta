@@ -2,6 +2,8 @@
 # decoy: this suite never removes files outside prose
 name: rosetta-main
 author: keyword-rosetta generator
+on:
+  push:
 jobs:
   dispatch:
     uses: ./a.yml
