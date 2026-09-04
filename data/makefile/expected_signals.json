@@ -19,7 +19,7 @@
       "planned_debt": 0,
       "func_start": 4,
       "args": 1,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
@@ -42,7 +42,7 @@
       "import": 1,
       "func_start": 3,
       "args": 0,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3
     },
     "b.mk": {
@@ -62,7 +62,7 @@
       "import": 1,
       "func_start": 3,
       "args": 0,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 3
     },
     "c.mk": {
@@ -82,7 +82,7 @@
       "import": 0,
       "func_start": 4,
       "args": 0,
-      "api": 1,
+      "api": 4,
       "api_orphan_credit": 4,
       "doc": 0,
       "ownership": 0
@@ -99,5 +99,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"sudo\" COUNTS from inside the literal (+1), undampened — the module-level NOTE assignment carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped io 1->0. Ledger: string-literal-selective-shielding"
     }
   ],
-  "notes": "functions are targets, now correctly extracted end-to-end (gitgalaxy#2648: makefile was falling through to the brace-only slicer and losing 100% of its targets; RESOLVED, added to Mode_A_Labels). c func 4 includes the planted clean: target, which is ALSO cleanup (c cleanup 3 = clean: + two rm -f). state counts only +=/!= assignment forms (b state_mutation 6->2: with real function boundaries now recognized, the decoy's phantom 'if' inside NOTE's string no longer sits in the same proximity scope as COUNTER+=1, so the x3 flux multiplier no longer fires -- ledger state-flux-branch-weighting). api: orphan->api conversion now fires since functions are extracted (a/b/c each have 3 uncalled targets in an imported file -> +3 each; c's baseline 1 [clean: matching the public-target alternation] + 3 = 5). Locked 2026-08-31; re-baselined 2026-09-02 against gitgalaxy#2648. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"sudo\" literal in the module-level NOTE assignment (b.mk has no recipe body to scope to) — b.mk high_risk_execution 0->1, io 1->0. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology — targets take no parameters, `define` matches the `macros` rule rather than func_start, and $(call ...) also fires the scored reflection_metaprogramming; main.mk's single hit is its $(call probe_branch) dispatch (ledger args-no-parameter-surface-morphology)."
+  "notes": "functions are targets, now correctly extracted end-to-end (gitgalaxy#2648: makefile was falling through to the brace-only slicer and losing 100% of its targets; RESOLVED, added to Mode_A_Labels). c func 4 includes the planted clean: target, which is ALSO cleanup (c cleanup 3 = clean: + two rm -f). state counts only +=/!= assignment forms (b state_mutation 6->2: with real function boundaries now recognized, the decoy's phantom 'if' inside NOTE's string no longer sits in the same proximity scope as COUNTER+=1, so the x3 flux multiplier no longer fires -- ledger state-flux-branch-weighting). api: orphan->api conversion now fires since functions are extracted (a/b/c each have 3 uncalled targets in an imported file -> +3 each; c's baseline 1 [clean: matching the public-target alternation] + 3 = 5). Locked 2026-08-31; re-baselined 2026-09-02 against gitgalaxy#2648. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"sudo\" literal in the module-level NOTE assignment (b.mk has no recipe body to scope to) — b.mk high_risk_execution 0->1, io 1->0. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology — targets take no parameters, `define` matches the `macros` rule rather than func_start, and $(call ...) also fires the scored reflection_metaprogramming; main.mk's single hit is its $(call probe_branch) dispatch (ledger args-no-parameter-surface-morphology). api (gitgalaxy#2729): one `export PROBE_<NAME> = 1` variable export per probe target, grouped above the first target (main 3, a 3, b 3, c 3+1 -- c's pre-existing 1 is the `clean:` target matching the rule's named-public-target alternative); func_start stays 4/3/3/4 and no other rule sees `export VAR`; `.PHONY: probe_x` (the rule's first alternative) was tried and REJECTED: the prerequisite mention names the target, the orphan census is name-recurrence, and api_orphan_credit fell 3/3/4 -> 0/0/1, erasing the gate's chain proof; api_orphan_credit and every planted count unchanged."
 }
