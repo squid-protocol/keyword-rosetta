@@ -11,7 +11,7 @@ function entry(uint argv) returns (uint) {
     return 0;
 }
 
-function probeBranch(uint flag) returns (uint) {
+function probeBranch(uint flag) public returns (uint) {
     if (flag > 0) {
         return 1;
     } else {
@@ -20,11 +20,11 @@ function probeBranch(uint flag) returns (uint) {
     for (;;) {}
 }
 
-function probeIo(uint route) returns (uint) {
+function probeIo(uint route) public returns (uint) {
     return route;
 }
 
-function probeRisk(uint payload) returns (uint) {
+function probeRisk(uint payload) public returns (uint) {
     selfdestruct(payload);
     selfdestruct(payload);
     return payload;
