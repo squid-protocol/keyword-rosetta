@@ -1,6 +1,9 @@
 ; Keyword Rosetta control shell: assembly / a
 ; decoy: config reads are safe and the io words stay in prose only
 %include "b.asm"
+global probe_globals
+global probe_test
+global probe_safety
 
 probe_globals:
     mov rdi, 5

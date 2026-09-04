@@ -3,6 +3,9 @@
 ; @brief dispatch each probe once
 ; decoy: this suite never halts and the branch words stay in prose
 %include "a.asm"
+global probe_branch
+global probe_io
+global probe_risk
 
 dispatch:
     mov rdi, 1

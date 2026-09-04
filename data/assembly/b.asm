@@ -1,6 +1,9 @@
 ; Keyword Rosetta control shell: assembly / b
 ; decoy: nothing risky lives here and the halt word stays in prose
 %include "c.asm"
+global probe_bypass
+global probe_telemetry
+global probe_state
 
 probe_bypass:
     mov rdi, 8
