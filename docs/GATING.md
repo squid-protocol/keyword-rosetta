@@ -177,8 +177,17 @@ ones (haskell, scheme): 49 cells with no honest fix on either side.
 
 The test for membership: *would a perfect engine give the same value for the same program at
 two lengths?* If no by definition, the metric is size and belongs here. If yes but the engine
-does not (`control_flow_ratio`, `func_internal_density`, `structural_mass`, `cog_raw`), it
-stays gated — its spread is an engine finding (gitgalaxy#2705), and demoting it would hide one.
+does not (`func_internal_density`, `cog_raw`), it stays gated — its spread is an engine finding
+(gitgalaxy#2705), and demoting it would hide one.
+
+**Vocabulary is context too.** `control_flow_ratio` and `structural_mass` are built on
+`structural_boundaries`, a per-language keyword *tally* (solidity matches every
+`uint|address|bool|string|mapping`, perl every `my`): the same program spans 16× across
+languages on it while `coding_loc` spans 4.7×. They measure how the language spells the program,
+not what it does. #2705 decided not to redefine `control_flow_ratio` (a pre-trained ML feature),
+the finding is ledgered (`control-flow-ratio-denominator-is-a-vocabulary-tally`), and a ledgered
+finding that can never turn green is a fixture, not a gate — so both are charted as context
+(`vocabulary_metrics` in `docs/bias_data.json`), out of the consistency average and the gate.
 
 The bias tooling therefore treats them as **context**: reported and charted, no badge, no share
 in the consistency average, no verdict, never counted by `--gate`. Two consequences:

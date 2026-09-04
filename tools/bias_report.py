@@ -1,15 +1,21 @@
 """Cross-language bias report: identical planted intent, divergent measurements.
 
 For every language folder with a locked manifest, runs the same end-to-end scan the
-verifier uses, then compares three groups of metrics across languages:
+verifier uses, then compares four gated groups of metrics across languages, in
+pipeline order:
 
-  1. every risk_* score the recorder produces (mean per file),
-  2. structure found (functions, classes, imports, keyword hits, comment mass, pagerank),
-  3. the SPEC's planted signals (corpus totals).
+  1. planted keyword signals (corpus totals -- the extraction layer),
+  2. structure counts (functions, classes, dependency edges, pagerank),
+  3. shape descriptors (per-function and graph measures derived from the signals),
+  4. risk scores (mean per file -- what the product reports),
+
+plus four context groups that are reported but never gated: program length,
+vocabulary (token tallies), unplanted risk inputs, commit age.
 
 Because the planted intent is identical everywhere, divergence IS measured language
 bias. Output: docs/bias_report.md + docs/bias_variance_chart.svg (strip plot, one
-unlabeled dot per language per metric, zone-count stamps; regenerated together).
+dot per language per metric coloured by zone, rows best -> worst per group, red-zone
+outliers named, consistency badge per gated row; regenerated together).
 
 MUST run against a full-precision engine. In Zero-Dependency Mode (any of networkx /
 tiktoken / numpy-ML / pyyaml missing) the recorder nulls every network metric, so
@@ -145,12 +151,30 @@ PLANTED = {
 # per function, i.e. length divided by a planted 13; comment_lines is a count of
 # documentation LINES where the SPEC plants one doc marker and one ownership
 # marker per file, never a line count. Metrics that SHOULD be invariant and are
-# not (control_flow_ratio, func_internal_density, structural_mass, cog_raw) stay
-# gated: their spread is an engine finding (gitgalaxy#2705), not size.
+# not (func_internal_density, cog_raw) stay gated: their spread is an engine
+# finding (gitgalaxy#2705), not size.
 CONTEXT_METRICS = (
     "total_loc", "coding_loc", "token_mass", "keyword_hits",
     "avg_func_loc", "comment_lines",
 )
+
+# ==============================================================================
+# VOCABULARY IS CONTEXT TOO (gitgalaxy#2669, after #2705 / #2716)
+# ==============================================================================
+# Two columns measure how a language SPELLS the program, not what the program
+# does. `structural_boundaries` is a per-language keyword tally (solidity matches
+# every `uint|address|bool|string|mapping`, perl every `my`, java every
+# `var|new|return`); the same 12-probe program spans 16x across languages on it
+# while coding_loc spans 4.7x (#2705). `control_flow_ratio` is
+# branch / (branch + structural_boundaries) and `structural_mass` is the tally
+# itself, so both inherit that spread by construction. #2705 decided NOT to
+# redefine control_flow_ratio (it is a pre-trained ML feature in two scoring
+# paths); the finding is ledgered (`control-flow-ratio-denominator-is-a-
+# vocabulary-tally`), and a ledgered finding that can never turn green is not a
+# gate, it is a fixture. So both leave the consistency average and the gate and
+# are charted as context, exactly like length. cog_raw stays gated: it is
+# branch/flux/heat density over mass_loc, not the tally.
+VOCABULARY_METRICS = ("control_flow_ratio", "structural_mass")
 
 # ==============================================================================
 # F.3 (gitgalaxy#2669): TIER CONSTANTS ARE DESIGN; UNPLANTED INPUTS ARE NOT SIGNALS
@@ -183,8 +207,9 @@ TEMPORAL_METRICS = ("risk_stability", "risk_churn")
 
 
 def ungated_metrics(unplanted_inputs=()):
-    """Everything reported but never gated: length, unplanted inputs, temporal."""
-    return set(CONTEXT_METRICS) | set(unplanted_inputs) | set(TEMPORAL_METRICS)
+    """Everything reported but never gated: length, vocabulary, unplanted inputs, temporal."""
+    return (set(CONTEXT_METRICS) | set(VOCABULARY_METRICS) | set(unplanted_inputs)
+            | set(TEMPORAL_METRICS))
 
 
 def reference_medians(metrics, languages, strata=None, constant_sensitive=()):
@@ -664,15 +689,18 @@ def _spearman(xs, ys):
 # `control-flow-ratio-denominator-is-a-vocabulary-tally` owns the cells. The row
 # is kept in the table, labelled for what it is, so it stops reappearing as a
 # length finding at every regen.
-VOCABULARY_DENOMINATORS = {"control_flow_ratio": "structural_boundaries"}
+# The vocabulary-denominator label this check used to attach to control_flow_ratio
+# is gone: control_flow_ratio and structural_mass are VOCABULARY_METRICS now,
+# reported as context and never in this table (the ledger entry
+# `control-flow-ratio-denominator-is-a-vocabulary-tally` owns the finding).
 
 
 def length_leaks(metrics, languages, risk_inputs=None, strata=None, x_axis="coding_loc",
                  constant_sensitive=(), ungated=None):
     """[{metric, n, rho, verdict, held, stratum, where}], strongest |rho| first.
 
-    verdict is "leak" (|rho| >= LEAK_RHO), "weak", or "vocabulary" for a metric in
-    VOCABULARY_DENOMINATORS at any reportable |rho|.
+    verdict is "leak" (|rho| >= LEAK_RHO) or "weak"; vocabulary metrics are context
+    and never appear here.
 
     One row per derived metric that rank-correlates with `x_axis` at |rho| >=
     LEAK_WEAK_RHO across at least LEAK_MIN_LANGUAGES languages whose measured
@@ -718,10 +746,7 @@ def length_leaks(metrics, languages, risk_inputs=None, strata=None, x_axis="codi
         rho = _spearman([xs_all[lang] for lang in langs], [values[lang] for lang in langs])
         if abs(rho) < LEAK_WEAK_RHO:
             continue
-        if metric in VOCABULARY_DENOMINATORS:
-            verdict = "vocabulary"
-        else:
-            verdict = "leak" if abs(rho) >= LEAK_RHO else "weak"
+        verdict = "leak" if abs(rho) >= LEAK_RHO else "weak"
         out.append({
             "metric": metric,
             "n": len(langs),
@@ -820,101 +845,203 @@ def classify_risk_na(risk_na, deps, signal_na_state):
     return out
 
 
-def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None):
+# Plain-English row labels for the chart; anything not listed falls back to the
+# key with underscores as spaces. The key itself is always printed alongside,
+# small and monospaced, so nothing is renamed away from the report tables.
+PRETTY_METRIC = {
+    "risk_api_exposure": "API exposure", "risk_cognitive_load": "Cognitive load",
+    "risk_concurrency": "Concurrency", "risk_dead_code": "Dead code",
+    "risk_documentation": "Documentation", "risk_safety_score": "Safety",
+    "risk_spec_match": "Spec alignment", "risk_state_flux": "State flux",
+    "risk_tech_debt": "Tech debt", "risk_verification": "Verification",
+    "risk_secrets_risk": "Secrets", "risk_stability": "Stability", "risk_churn": "Churn",
+    "pagerank_score": "PageRank", "pagerank": "PageRank (total)",
+    "normalized_blast_radius": "Blast radius", "betweenness_score": "Betweenness",
+    "closeness_score": "Closeness", "producer_ratio": "Producer ratio",
+    "avg_func_complexity": "Avg function complexity", "max_func_complexity": "Max function complexity",
+    "avg_func_args": "Avg function args", "func_complexity_gini": "Complexity Gini",
+    "func_internal_density": "Function internal density", "dependency_density": "Dependency density",
+    "encapsulation_ratio": "Encapsulation ratio", "popularity": "Popularity",
+    "cog_raw": "Cognitive density (raw)", "raw_arch_api": "API surface (raw)",
+    "raw_state_slop_orphans": "Orphaned functions", "def_encapsulation": "Encapsulation (raw)",
+    "state_slop_duplicates": "Duplicate logic", "functions_found": "Functions found",
+    "classes_found": "Classes found", "dependency_links": "Dependency links",
+    "control_flow_ratio": "Control-flow ratio", "structural_mass": "Structural mass",
+    "total_loc": "Total lines", "coding_loc": "Coding lines", "token_mass": "Token mass",
+    "keyword_hits": "Keyword hits", "avg_func_loc": "Lines per function",
+    "comment_lines": "Comment lines", "high_risk_execution": "High-risk execution",
+    "safety_bypasses": "Safety bypasses", "state_mutation": "State mutation",
+    "planned_debt": "Planned debt", "fragile_debt": "Fragile debt", "func_start": "Functions",
+    "class_start": "Classes", "io": "I/O", "api": "API", "doc": "Documentation",
+    "reflection_metaprogramming": "Reflection",
+    "immutability_locks": "Immutability locks", "sync_locks": "Sync locks",
+    "debug_prints": "Debug prints", "dead_code": "Dead code", "concurrency": "Concurrency",
+    "spec_exposure": "Spec exposure", "llm_api": "LLM API",
+}
+
+# Group titles carry a one-line definition on the chart; keyed by the title
+# string main() builds the groups with.
+GROUP_BLURBS = {
+    "planted keyword signals": "the extraction layer: does each rule find the constructs the SPEC planted?",
+    "structure counts": "functions, classes and dependency edges the slicer and graph found",
+    "shape descriptors": "per-function and graph measures derived from the signals",
+    "risk scores": "what the product reports, per file (banded within the strictness stratum where a constant is read)",
+    "program length": "how long the same program came out -- context, never gated",
+    "vocabulary": "how the language spells it -- token tallies, context, never gated",
+    "unplanted inputs": "signals the risk formulas read that the SPEC never plants -- context",
+    "commit age": "temporal, not content -- context",
+}
+
+
+def _pretty(name):
+    return PRETTY_METRIC.get(name, name.replace("_", " ").capitalize())
+
+
+def _kept_languages(languages, values, medians):
+    """The languages _row_stats kept for this row, in the order its devs come back."""
+    if languages is None:
+        return None
+    if medians is not None:
+        pairs = [(l, v, m) for l, v, m in zip(languages, values, medians) if v is not None and m is not None]
+        if pairs and all(m > 0 for _, _, m in pairs):
+            return [l for l, _, _ in pairs]
+    return [l for l, v in zip(languages, values) if v is not None]
+
+
+def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
+                         languages=None, unexplained=()):
     """Strip-plot SVG. groups = [(title, {metric: [values-per-language]}, gated)].
 
     `medians` = {metric: [per-language reference median]} for the rows that are
     banded against something other than the global median (F.3 stratum rows).
+    `languages` (aligned with each metric's value list) lets the chart name the
+    red-zone outliers; `unexplained` = {(metric, lang)} cells that survived every
+    verdict, drawn as a red ring so the gate state is visible on the picture.
 
-    One unlabeled dot per language; translucent so overlap darkens; each colored
-    zone carries a small count of the dots inside it, so a tight 11-dot (or 40-dot)
-    stack reads as a number in the green zone rather than a smudge. Any dot in the
-    red zone fails the metric.
+    Rows are ordered best -> worst inside each group; each group prints its
+    average. Dots are coloured by zone (green / amber / red) and translucent so a
+    stack darkens; the count of dots inside the green band sits at its edge. A
+    context row is drawn but carries no badge and no share -- a length or
+    vocabulary spread is not a consistency result.
     """
-    label_w, strip_w, row_h, pad, badge_w = 200, 420, 30, 10, 64
-    width = label_w + strip_w + badge_w + pad * 3
+    label_w, strip_w, row_h, pad, badge_w = 300, 430, 26, 16, 118
+    width = label_w + strip_w + badge_w + pad * 4
     half = strip_w / 2
     px_per_dev = half / 1.1
+    unexplained = set(unexplained)
 
     def x_of(dev):
-        return label_w + pad + half + max(-1.1, min(1.1, dev)) * px_per_dev
+        return label_w + pad * 2 + half + max(-1.1, min(1.1, dev)) * px_per_dev
 
     prepared, shares, n_rows, skipped, inert, agreement = [], {}, 0, [], [], []
     for title, metrics, gated in groups:
         rows = []
         for name, values in metrics.items():
-            st = _row_stats(values, (medians or {}).get(name))
+            row_meds = (medians or {}).get(name)
+            st = _row_stats(values, row_meds)
             if st is None:
                 (inert if is_inert(values) else skipped).append(name)
                 continue
-            rows.append((name, *st))
+            rows.append((name, *st, _kept_languages(languages, values, row_meds)))
             if gated:
-                # F.1: a context row is drawn but carries no badge and no share --
-                # a length spread is not a consistency result.
                 shares[name] = st[1]
             if st[3] == "agreement":
                 agreement.append(name)
+        rows.sort(key=lambda r: -r[2])
         if rows:
             prepared.append((title, rows, gated))
             n_rows += len(rows)
 
-    height = 60 + sum(24 for _ in prepared) + n_rows * row_h + 14
+    avg_share = statistics.mean(shares.values()) if shares else 0.0
+    n_strong = sum(1 for v in shares.values() if v >= 0.8)
+    height = 128 + sum(48 for _ in prepared) + n_rows * row_h + 28
+    ink, muted, faint = "#14213d", "#5f6670", "#9aa3ad"
     s = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
-        f'font-family="system-ui, sans-serif" font-size="12">',
+        f'font-family="Inter, system-ui, sans-serif" font-size="12">',
         f'<rect width="{width}" height="{height}" fill="#ffffff"/>',
-        f'<text x="{pad}" y="20" font-size="14" font-weight="bold" fill="#1a1a1a">'
-        f"One program, {n_langs} languages — does GitGalaxy measure it the same everywhere?</text>",
-        f'<text x="{pad}" y="36" fill="#666">identical planted code per language · each dot = one '
-        f"language's deviation from the cross-language median</text>",
-        f'<text x="{pad}" y="50" fill="#666">badge = share of languages inside the green band '
-        f"(the metric's consistency score) · red dots mark outliers · small numbers = dots per zone"
-        f" · n/a = languages whose registry defines no rule for the signal (incomparable, excluded)</text>",
+        f'<text x="{pad}" y="30" font-size="19" font-weight="700" fill="{ink}">'
+        f"One program, {n_langs} languages — does GitGalaxy read it the same everywhere?</text>",
+        f'<text x="{pad}" y="52" fill="{muted}">Identical planted code in every language. Each dot is one '
+        f"language's deviation from the cross-language median: green ±{GREEN_DEV:.0%}, amber ±{AMBER_DEV:.0%}, "
+        f"red beyond.</text>",
+        f'<text x="{pad}" y="68" fill="{muted}">Rows run best → worst inside each group. Every dot outside '
+        f"the green band has a verdict in the deviation ledger; an unexplained one is drawn as a red ring.</text>",
     ]
+    tiles = [
+        (f"{avg_share:.0%}", "average consistency, gated metrics"),
+        (f"{n_strong} / {len(shares)}", "gated metrics at ≥ 80% green"),
+        (f"{len(unexplained)}", "unexplained out-of-band cells"),
+        (f"{n_langs}", "languages"),
+    ]
+    tile_w = (width - pad * 2) / len(tiles)
+    for i, (big, cap) in enumerate(tiles):
+        tx = pad + i * tile_w
+        s.append(f'<text x="{tx:.0f}" y="102" font-size="22" font-weight="700" fill="{ink}">{big}</text>')
+        s.append(f'<text x="{tx:.0f}" y="118" font-size="10.5" fill="{muted}">{cap}</text>')
     na_by_metric = na_by_metric or {}
-    y = 60
-    zone_edges = [(-1.1, -AMBER_DEV, "#f8d7da"), (-AMBER_DEV, -GREEN_DEV, "#fff3cd"),
-                  (-GREEN_DEV, GREEN_DEV, "#d4edda"), (GREEN_DEV, AMBER_DEV, "#fff3cd"),
-                  (AMBER_DEV, 1.1, "#f8d7da")]
+    y = 128
     for title, rows, gated in prepared:
         y += 24
-        s.append(f'<text x="{pad}" y="{y - 8}" font-size="12" font-weight="bold" '
-                 f'fill="#444" letter-spacing="1">{title.upper()}</text>')
-        for name, devs, green_share, med, basis in rows:
+        s.append(f'<line x1="{pad}" y1="{y - 14}" x2="{width - pad}" y2="{y - 14}" stroke="#e3e6ea"/>')
+        s.append(f'<text x="{pad}" y="{y + 4}" font-size="13" font-weight="700" fill="{ink}" '
+                 f'letter-spacing=".6">{title.upper()}</text>')
+        blurb = GROUP_BLURBS.get(title, "")
+        if blurb:
+            s.append(f'<text x="{pad + 8.2 * len(title) + 36:.0f}" y="{y + 4}" font-size="11.5" fill="{muted}">{blurb}</text>')
+        if gated and rows:
+            gavg = statistics.mean(r[2] for r in rows)
+            s.append(f'<text x="{width - pad}" y="{y + 4}" font-size="11.5" fill="{muted}" '
+                     f'text-anchor="end">group average {gavg:.0%}</text>')
+        y += 24
+        for name, devs, green_share, med, basis, kept in rows:
             cy = y + row_h / 2
-            for lo, hi, color in zone_edges:
-                bx, bw = x_of(lo), x_of(hi) - x_of(lo)
-                s.append(f'<rect x="{bx:.1f}" y="{y + 4}" width="{bw:.1f}" '
-                         f'height="{row_h - 8}" fill="{color}"/>')
-            s.append(f'<line x1="{x_of(0):.1f}" y1="{y + 4}" x2="{x_of(0):.1f}" '
-                     f'y2="{y + row_h - 4}" stroke="#999" stroke-dasharray="2,2"/>')
-            label = name if basis == "band" else f"{name} ‖"
-            s.append(f'<text x="{pad}" y="{cy + 4}" fill="#1a1a1a">{label}</text>')
-            # zone-count stamps, upper corner of each zone
-            for lo, hi, _ in zone_edges:
-                n = sum(1 for d in devs
-                        if (max(-1.1, min(1.1, d)) >= lo if lo != -1.1 else True)
-                        and (max(-1.1, min(1.1, d)) < hi if hi != 1.1 else True))
-                if n:
-                    s.append(f'<text x="{x_of(lo) + 3:.1f}" y="{y + 13}" font-size="9" '
-                             f'fill="#555">{n}</text>')
-            for d in devs:
-                s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="4.5" '
-                         f'fill="#1f3a5f" fill-opacity="0.3"/>')
+            s.append(f'<rect x="{x_of(-1.1):.1f}" y="{y + 5}" width="{strip_w}" height="{row_h - 10}" fill="#f4f5f7" rx="3"/>')
+            s.append(f'<rect x="{x_of(-GREEN_DEV):.1f}" y="{y + 5}" width="{x_of(GREEN_DEV) - x_of(-GREEN_DEV):.1f}" '
+                     f'height="{row_h - 10}" fill="#dcefe0"/>')
+            for e in (-AMBER_DEV, AMBER_DEV):
+                s.append(f'<line x1="{x_of(e):.1f}" y1="{y + 5}" x2="{x_of(e):.1f}" y2="{y + row_h - 5}" '
+                         f'stroke="#e8c98a" stroke-dasharray="2,2"/>')
+            s.append(f'<line x1="{x_of(0):.1f}" y1="{y + 5}" x2="{x_of(0):.1f}" y2="{y + row_h - 5}" stroke="{faint}"/>')
+            s.append(f'<text x="{pad}" y="{cy + 4}" fill="#1a1a1a" font-size="12.5">{_pretty(name)}</text>')
             n_na = len(na_by_metric.get(name, {}))
+            key = name if basis == "band" else f"{name} · exact"
             if n_na:
-                s.append(f'<text x="{label_w + strip_w + pad - 3:.1f}" y="{y + 13}" '
-                         f'font-size="9" fill="#888" text-anchor="end">n/a {n_na}</text>')
-            bx = label_w + strip_w + pad * 2
+                key += f" · n/a {n_na}"
+            s.append(f'<text x="{label_w - 4}" y="{cy + 4}" fill="{faint}" font-size="9.5" '
+                     f'font-family="ui-monospace, Menlo, monospace" text-anchor="end">{key}</text>')
+            outl = []
+            for i, d in enumerate(devs):
+                lang = kept[i] if kept and i < len(kept) else None
+                col = "#2f855a" if abs(d) <= GREEN_DEV else ("#c98a1a" if abs(d) <= AMBER_DEV else "#c0392b")
+                s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="4.2" fill="{col}" fill-opacity=".55"/>')
+                if lang and (name, lang) in unexplained:
+                    s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="7" fill="none" stroke="#c0392b" stroke-width="1.8"/>')
+                if abs(d) > AMBER_DEV and lang:
+                    outl.append((d, lang))
+            n_green = sum(1 for d in devs if abs(d) <= GREEN_DEV)
+            s.append(f'<text x="{x_of(GREEN_DEV) + 4:.1f}" y="{y + 13}" font-size="9" fill="#2f855a">{n_green}</text>')
+            left = [l for d, l in sorted(outl) if d < 0][:3]
+            right = [l for d, l in sorted(outl, reverse=True) if d > 0][:3]
+            if left:
+                s.append(f'<text x="{x_of(-1.1) + 3:.1f}" y="{y + row_h - 1}" font-size="8" fill="#a33">{", ".join(left)}</text>')
+            if right:
+                s.append(f'<text x="{x_of(1.1) - 3:.1f}" y="{y + row_h - 1}" font-size="8" fill="#a33" '
+                         f'text-anchor="end">{", ".join(right)}</text>')
+            bx = label_w + strip_w + pad * 3
             if gated:
-                badge_fill = _share_color(green_share)
-                s.append(f'<rect x="{bx}" y="{cy - 10}" width="{badge_w}" height="20" rx="4" fill="{badge_fill}"/>')
-                s.append(f'<text x="{bx + badge_w / 2}" y="{cy + 4}" text-anchor="middle" '
-                         f'fill="#fff" font-weight="bold" font-size="11">{green_share:.0%}</text>')
+                col = "#2f855a" if green_share >= 0.8 else ("#c98a1a" if green_share >= 0.6 else "#c0392b")
+                bar_w = badge_w - 42
+                s.append(f'<rect x="{bx}" y="{cy - 6}" width="{bar_w}" height="12" fill="#eceff2" rx="2"/>')
+                s.append(f'<rect x="{bx}" y="{cy - 6}" width="{bar_w * green_share:.1f}" height="12" fill="{col}" rx="2"/>')
+                s.append(f'<text x="{bx + badge_w - 2}" y="{cy + 4}" font-size="12" font-weight="700" fill="{col}" '
+                         f'text-anchor="end">{green_share:.0%}</text>')
             else:
-                s.append(f'<text x="{bx + badge_w / 2}" y="{cy + 4}" text-anchor="middle" '
-                         f'fill="#888" font-size="10">context</text>')
+                s.append(f'<text x="{bx + badge_w - 2}" y="{cy + 4}" font-size="10.5" fill="{faint}" text-anchor="end">context</text>')
             y += row_h
+    s.append(f'<text x="{pad}" y="{height - 10}" font-size="10" fill="{faint}">keyword-rosetta · tools/bias_report.py · '
+             f'band ±{GREEN_DEV:.0%} of the cross-language median (exact agreement where the median is 0) · '
+             f"n/a = the language's registry defines no rule for the signal</text>")
     s.append("</svg>")
     CHART.write_text("\n".join(s) + "\n")
     return shares, skipped, inert, agreement
@@ -1051,24 +1178,30 @@ def main():
     )
     ungated = ungated_metrics(unplanted_inputs)
     strata = scoring_strata(languages)
+    # Pipeline order, top to bottom: what was planted -> what the slicer found ->
+    # the descriptors derived from it -> the scores the product reports; then the
+    # context groups (reported, never gated). Titles are keyed by GROUP_BLURBS.
     groups = [
-        ("risk exposure (mean per file)",
-         {c: [all_risks[lang].get(c) for lang in languages]
-          for c in risk_names if c not in TEMPORAL_METRICS}, True),
-        ("engine measures (mean per file)",
-         {c: [all_measures[lang].get(c) for lang in languages]
-          for c in measure_names if c not in CONTEXT_METRICS}, True),
-        ("structure found (corpus totals)",
-         {c: [all_struct[lang].get(c) for lang in languages]
-          for c in struct_names if c not in CONTEXT_METRICS}, True),
-        ("planted signals (corpus totals)",
+        ("planted keyword signals",
          {c: [None if c in na_map.get(lang, ()) else all_totals[lang].get(c, 0)
               for lang in languages] for c in PLANTED}, True),
-        ("program length (context -- reported, not gated)", context_values, False),
-        ("unplanted risk inputs (reported, not gated)",
+        ("structure counts",
+         {c: [all_struct[lang].get(c) for lang in languages]
+          for c in struct_names if c not in CONTEXT_METRICS}, True),
+        ("shape descriptors",
+         {c: [all_measures[lang].get(c) for lang in languages]
+          for c in measure_names if c not in CONTEXT_METRICS and c not in VOCABULARY_METRICS}, True),
+        ("risk scores",
+         {c: [all_risks[lang].get(c) for lang in languages]
+          for c in risk_names if c not in TEMPORAL_METRICS}, True),
+        ("program length", context_values, False),
+        ("vocabulary",
+         {c: [all_measures[lang].get(c) for lang in languages]
+          for c in VOCABULARY_METRICS if c in measure_names}, False),
+        ("unplanted inputs",
          {s: [None if lang in dep_na_state.get(s, {}) else all_totals[lang].get(s, 0)
               for lang in languages] for s in unplanted_inputs}, False),
-        ("temporal (commit age -- reported, not gated)",
+        ("commit age",
          {c: [all_risks[lang].get(c) for lang in languages]
           for c in risk_names if c in TEMPORAL_METRICS}, False),
     ]
@@ -1091,6 +1224,8 @@ def main():
         # F.1: which columns are length (context, never gated), so every consumer
         # of this cache draws the line in the same place.
         "context_metrics": list(CONTEXT_METRICS),
+        # Vocabulary columns (token tallies): context like length, never gated.
+        "vocabulary_metrics": list(VOCABULARY_METRICS),
         # The engine's strictness stratum per language (analysis_lens, read
         # off the source): held equal by the leak check, banded within by F.3.
         "strata": strata,
@@ -1127,6 +1262,7 @@ def main():
     shares, skipped, inert, agreement = write_variance_chart(
         groups, len(languages), na_by_metric,
         medians={m: [refs[m].get(lang) for lang in languages] for m in constant_sensitive if m in refs},
+        languages=languages, unexplained=set(unexplained),
     )
     avg_share = statistics.mean(shares.values()) if shares else 0
     n_strong = sum(1 for v in shares.values() if v >= 0.8)
@@ -1319,8 +1455,7 @@ def main():
         for r in leaks:
             held = ", ".join(f"`{h}`" for h in r["held"]) if r["held"] else "*(none known)*"
             where = r["where"] or "**not located yet** — the more interesting finding"
-            label = {"leak": "**leak**", "weak": "weak",
-                     "vocabulary": "vocabulary, not length"}[r["verdict"]]
+            label = {"leak": "**leak**", "weak": "weak"}[r["verdict"]]
             lines.append(f"| `{r['metric']}` | {r['n']} | {r.get('stratum') or '—'} | {r['rho']:+.2f} | "
                          f"{label} | {held} | {where} |")
         lines += [""]
@@ -1346,7 +1481,7 @@ def main():
                  f"agreement): {', '.join(inert)}." if inert else ""),
               ""]
 
-    lines += ["## Signal totals vs. planted intent", "",
+    lines += ["## Planted keyword signals (corpus totals vs. planted intent)", "",
               "| signal | planted | " + " | ".join(languages) + " |",
               "|---|---|" + "---|" * len(languages)]
     for sig, want in PLANTED.items():
@@ -1365,7 +1500,7 @@ def main():
                   "from bands and medians); † = absence not yet backed by a validated "
                   "ledger entry."]
 
-    lines += ["", "## Structure found (corpus totals)", "",
+    lines += ["", "## Structure counts (corpus totals)", "",
               "| metric | " + " | ".join(languages) + " |",
               "|---|" + "---|" * len(languages)]
     for name in struct_names:
@@ -1375,7 +1510,7 @@ def main():
             vals.append("—" if v is None else (f"{v:.4f}" if isinstance(v, float) else str(v)))
         lines.append(f"| {name} | " + " | ".join(vals) + " |")
 
-    lines += ["", "## Mean per-file risk scores", "",
+    lines += ["", "## Risk scores (mean per file)", "",
               "| risk | " + " | ".join(languages) + " |",
               "|---|" + "---|" * len(languages)]
     for col in risk_names:
@@ -1393,7 +1528,7 @@ def main():
                   "(incomparable, excluded from bands and medians); † = at least one of "
                   "those input absences is not yet backed by a validated ledger entry."]
 
-    lines += ["", "## Engine measures (mean per file)", "",
+    lines += ["", "## Shape descriptors (mean per file)", "",
               "Derived descriptions of the same program — topology, size, shape, "
               "complexity. Identical planted intent should produce identical values "
               "here for the same reason it should for pagerank; a spread is the engine "
@@ -1426,9 +1561,8 @@ def main():
         "unplanted-input cells not counted)"
     )
     n_leak = sum(1 for r in leaks if r["verdict"] == "leak")
-    n_vocab = sum(1 for r in leaks if r["verdict"] == "vocabulary")
     print(
-        f"length leaks: {n_leak} leak / {len(leaks) - n_leak - n_vocab} weak / {n_vocab} vocabulary -- "
+        f"length leaks: {n_leak} leak / {len(leaks) - n_leak} weak -- "
         + (", ".join(f"{r['metric']} {r['rho']:+.2f}" for r in leaks if r["verdict"] == "leak")
            or "none")
     )

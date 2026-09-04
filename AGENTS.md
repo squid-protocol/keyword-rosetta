@@ -144,16 +144,22 @@ regenerating the report (hard rule 6).
 
 ## What the bias report scores
 
-Three groups, all of them "the same program in 46 languages — does the engine describe it
-the same way?": the planted signals (SPEC probe table), the `risk_*` formulas over them, and
-the **engine measures** (topology, size, shape, function morphology). Non-planted signal
+Four gated groups, in pipeline order, all of them "the same program in 46 languages — does the
+engine describe it the same way?": **planted keyword signals** (SPEC probe table — the
+extraction layer), **structure counts** (functions, classes, dependency edges, pagerank),
+**shape descriptors** (per-function and graph measures derived from the signals), and **risk
+scores** (the `risk_*` formulas, mean per file). Four more groups are reported but never gated —
+**program length**, **vocabulary** (`control_flow_ratio`, `structural_mass`: token tallies that
+measure how the language spells the program), **unplanted inputs** and **commit age**; see
+`docs/GATING.md`. The chart (`docs/bias_variance_chart.svg`) orders rows best → worst inside each
+group and prints each gated group's average. Non-planted signal
 columns (`pointers`, `macros`, `generics`, the `sec_*` family, ...) are deliberately excluded:
 the SPEC plants no intent for them, so a C-vs-Python divergence there is language expression,
 not measurement bias. To make one comparable, plant it in `SPEC.md` and add it to `PLANTED` —
 never score it unplanted.
 
 Metrics are scored two ways. A positive median scores on the ±25% band; a **zero** median
-scores on *exact agreement* (marked `‖`), because a relative deviation against zero is
+scores on *exact agreement* (marked `‖` in the tables, `· exact` on the chart), because a relative deviation against zero is
 undefined — that is what keeps `class_start`, `classes_found`, `risk_concurrency` and
 `risk_dead_code` in the report instead of silently dropped. A metric that records 0 in every
 language is **inert**, excluded from the average entirely: it asked no question, so scoring it
