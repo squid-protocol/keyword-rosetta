@@ -3,18 +3,18 @@
 Type.forName('c');
 
 @SuppressWarnings('rosetta')
-static Integer probeBypass(Integer shape) {
+global static Integer probeBypass(Integer shape) {
     return shape;
 }
 
 @SuppressWarnings('rosetta')
-static Integer probeTelemetry(Integer msg) {
+global static Integer probeTelemetry(Integer msg) {
     Logger.info(msg);
     Log.error(msg);
     return msg;
 }
 
-static Integer probeState(Integer items) {
+global static Integer probeState(Integer items) {
     insert items;
     update items;
     String note = 'plain emptyRecycleBin decoy text';
