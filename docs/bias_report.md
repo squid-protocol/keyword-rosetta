@@ -21,8 +21,8 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 162 | a validated deviation-ledger entry names this language and this metric |
-| derived | 148 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| ledgered | 157 | a validated deviation-ledger entry names this language and this metric |
+| derived | 147 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **91** | **survived all three -- the real work remaining** |
 
 Unexplained cells, by metric:
@@ -57,7 +57,6 @@ Unexplained cells, by metric:
 
 | metric | languages | tier | rho | verdict | inputs held in band | where length enters |
 |---|---|---|---|---|---|---|
-| `func_internal_density` | 11 | tier3 | -0.96 | **leak** | `branch`, `args`, `func_start` | avg_func_complexity / avg_func_loc (record_keeper.py ~L487) |
 | `control_flow_ratio` | 21 | tier3 | -0.67 | **leak** | `branch` | branch / (branch + structural_boundaries); structural_boundaries is a per-language token tally that grows with the file (detector.py ~L1288) |
 | `risk_cognitive_load` | 8 | tier3 | -0.58 | weak | `branch`, `doc`, `state_mutation` | the same _calc_cog_load densities, post-sigmoid |
 | `risk_tech_debt` | 16 | tier3 | -0.58 | weak | `fragile_debt`, `planned_debt`, `state_slop_duplicates`, `raw_state_slop_orphans` | _calc_tech_debt: stress / _mass_loc(loc) (signal_processor.py ~L1478) |
@@ -148,7 +147,7 @@ Derived descriptions of the same program — topology, size, shape, complexity. 
 | max_func_complexity | 0.75 | 1 | 0.75 | 0.75 | 2.75 | 0.75 | 0.75 | 1 | 0.75 | 0.25 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0 | 0.75 | 0.75 | 0.75 | 0.75 | 1.25 | 0.75 | 0.75 | 1 | 0 | 0.75 | 0.75 | 0.75 | 0.75 | 1.25 | 0.75 | 1 | 0.75 | 0.75 | 0.75 | 1.25 | 0.75 | 1.25 | 1 | 0 | 0.75 | 0.75 | 0.75 | 0.75 |
 | avg_func_args | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0.125 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0.0625 | 1 | 1 | 1 | 0.08333 | 0 | 1 |
 | func_complexity_gini | 0.1875 | 0.1875 | 0.3125 | 0.1875 | 0.2083 | 0.1875 | 0.1875 | 0.3542 | 0.1562 | 0.0625 | 0.1875 | 0.2 | 0.1875 | 0.1562 | 0.1875 | 0.1875 | 0.1875 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.3542 | 0.1875 | 0.1875 | 0.3542 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.3542 | 0.1875 | 0.3542 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.2188 | 0.1875 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 |
-| func_internal_density | 0.03571 | 0.03704 | 0.08482 | 0.03 | 0.3261 | 0.03 | 0.05 | 0.04471 | 0.04 | 0.1875 | 0.03 | 0.09375 | 0.03261 | 0.04348 | 0.03 | 0.02778 | 0.09375 | 0 | 0.03 | 0.02885 | 0.08333 | 0.03 | 0.06845 | 0.03261 | 0.1875 | 0.07273 | 0 | 0.02885 | 0.03409 | 0.02778 | 0.03125 | 0.06218 | 0.03125 | 0.04667 | 0.03 | 0.03 | 0.05769 | 0.05435 | 0.03409 | 0.1136 | 0.04 | 0 | 0.03 | 0.1875 | 0.075 | 0.03 |
+| func_internal_density | 0.01562 | 0.02083 | 0.02257 | 0.01562 | 0.1424 | 0.01562 | 0.01562 | 0.02257 | 0.02083 | 0.01562 | 0.01562 | 0.0125 | 0.01562 | 0.02083 | 0.01562 | 0.01562 | 0.01562 | 0 | 0.01562 | 0.01562 | 0.01562 | 0.01562 | 0.02778 | 0.01562 | 0.01562 | 0.02257 | 0 | 0.01562 | 0.01562 | 0.01562 | 0.01562 | 0.02951 | 0.01562 | 0.02257 | 0.01562 | 0.01562 | 0.01562 | 0.02604 | 0.01562 | 0.01302 | 0.02083 | 0 | 0.01562 | 0.01562 | 0.01562 | 0.01562 |
 | dependency_density | 0.5312 | 0.5417 | 0.5625 | 0.5278 | 0.07373 | 0.5278 | 0.5417 | 0.3611 | 0.525 | 0.5833 | 0.5312 | 0.775 | 1.35 | 0.525 | 0.5312 | 0.5417 | 0.5278 | 0.525 | 0.5312 | 0.5312 | 0.6 | 0.5417 | 0.2871 | 0.55 | 0.55 | 0.2884 | 0.75 | 0.525 | 0.5312 | 0.5417 | 0.5417 | 0.3194 | 0.5417 | 0.3611 | 0.5417 | 0.5132 | 0.5179 | 0.5125 | 0.5625 | 0.5417 | 0.5417 | 0.369 | 0.5312 | 0.5417 | 0.5208 | 0.5278 |
 | encapsulation_ratio | 0.8333 | 0.75 | 0.75 | 0.75 | 0.75 | 0.875 | 0.5 | 0.75 | 0.6667 | 0.75 | 0.75 | 0.875 | 0.9167 | 0.75 | 0.75 | 0.8333 | 0.9285 | 1 | 0.8333 | 0.9445 | 1 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 1 | 0.9375 | 0.75 | 0.75 | 0.75 | 0.75 | 0.9285 | 0.9167 | 0.9167 | 0.9 | 0.75 | 0.75 | 0.75 | 0.75 | 0.9 | 0.75 | 0.9167 | 0.75 | 0.75 | 0.9285 |
 | popularity | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 |
