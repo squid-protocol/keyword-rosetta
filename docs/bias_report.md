@@ -21,8 +21,8 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 200 | a validated deviation-ledger entry names this language and this metric |
-| derived | 148 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| ledgered | 173 | a validated deviation-ledger entry names this language and this metric |
+| derived | 126 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **0** | **survived all three -- the real work remaining** |
 
 ## The language-level risk constant is design; the report bands within it
@@ -69,9 +69,9 @@ The risk formulas read registry signals the SPEC does not plant: `concurrency`, 
 
 ![variance chart](bias_variance_chart.svg)
 
-Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 52 metrics: 85%**; 35 metrics hold ≥80% of languages in the green band. Weakest metrics: control_flow_ratio 30%, risk_state_flux 42%, risk_api_exposure 60%, state_mutation 60%, structural_mass 63%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): risk_concurrency, risk_dead_code, raw_arch_api, def_encapsulation, state_slop_duplicates, classes_found, class_start, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, sync_locks. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_secrets_risk, llm_api, spec_exposure, risk_churn.
+Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 50 metrics: 86%**; 35 metrics hold ≥80% of languages in the green band. Weakest metrics: risk_state_flux 42%, risk_api_exposure 60%, state_mutation 60%, raw_state_slop_orphans 65%, avg_func_complexity 67%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): class_start, classes_found, raw_arch_api, def_encapsulation, state_slop_duplicates, risk_concurrency, risk_dead_code, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, sync_locks. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_secrets_risk, llm_api, spec_exposure, risk_churn.
 
-## Signal totals vs. planted intent
+## Planted keyword signals (corpus totals vs. planted intent)
 
 | signal | planted | abap | ada | agc_assembly | apex | assembly | c | cobol | cpp | csharp | css | dart | dockerfile | embedded_python | fortran | go | groovy | haskell | html | java | javascript | jcl | kotlin | livecode | lua | m4 | makefile | markdown | matlab | objective-c | perl | php | powershell | python | ruby | rust | scala | scheme | shell | solidity | sqlite | swift | tcl | typescript | yacc | yaml | zig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -96,7 +96,7 @@ Each metric's badge is its **consistency score**: the share of languages inside 
 
 n/a = no rule defined for this language (incomparable, excluded from bands and medians); † = absence not yet backed by a validated ledger entry.
 
-## Structure found (corpus totals)
+## Structure counts (corpus totals)
 
 | metric | abap | ada | agc_assembly | apex | assembly | c | cobol | cpp | csharp | css | dart | dockerfile | embedded_python | fortran | go | groovy | haskell | html | java | javascript | jcl | kotlin | livecode | lua | m4 | makefile | markdown | matlab | objective-c | perl | php | powershell | python | ruby | rust | scala | scheme | shell | solidity | sqlite | swift | tcl | typescript | yacc | yaml | zig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -107,7 +107,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 11 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 12 | 10 | 12 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
-## Mean per-file risk scores
+## Risk scores (mean per file)
 
 | risk | abap | ada | agc_assembly | apex | assembly | c | cobol | cpp | csharp | css | dart | dockerfile | embedded_python | fortran | go | groovy | haskell | html | java | javascript | jcl | kotlin | livecode | lua | m4 | makefile | markdown | matlab | objective-c | perl | php | powershell | python | ruby | rust | scala | scheme | shell | solidity | sqlite | swift | tcl | typescript | yacc | yaml | zig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -127,7 +127,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 
 n/a = every registry-governed input to this formula is absent for the language and the scan confirms the score is pinned at 0 (incomparable, excluded from bands and medians); † = at least one of those input absences is not yet backed by a validated ledger entry.
 
-## Engine measures (mean per file)
+## Shape descriptors (mean per file)
 
 Derived descriptions of the same program — topology, size, shape, complexity. Identical planted intent should produce identical values here for the same reason it should for pagerank; a spread is the engine describing one program differently depending on the language it is written in.
 
