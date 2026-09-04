@@ -3,6 +3,8 @@
 -- | Dispatch each probe once.
 -- decoy: this suite never dies and the exit words stay in prose
 
+module Main (probeBranch, probeIo, probeRisk) where
+
 import A
 
 entry :: Int -> Int

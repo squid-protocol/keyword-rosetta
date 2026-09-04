@@ -1,6 +1,8 @@
 -- Keyword Rosetta control shell: haskell / a
 -- decoy: config reads are safe and no die word runs outside prose
 
+module A (probeGlobals, probeTest, probeSafety) where
+
 import B
 
 region :: IORef Int

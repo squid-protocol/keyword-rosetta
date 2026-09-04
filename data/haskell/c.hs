@@ -1,6 +1,8 @@
 -- Keyword Rosetta control shell: haskell / c
 -- decoy: tidy remarks stay in prose and the work happens elsewhere
 
+module C (probeCleanup, probeDebt, probeTodo) where
+
 probeCleanup :: Int -> Int
 probeCleanup conn = hClose finally
 
