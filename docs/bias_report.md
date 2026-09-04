@@ -16,14 +16,14 @@ Planted intent is identical in every language (SPEC.md probe table), so any colu
 
 ## Out-of-band cells: explained vs. unexplained
 
-An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does).
+An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does). The four program-length columns are context, not consistency claims, and are not counted here at all (49 of their cells are out of band; see the next section).
 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 12 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
 | ledgered | 169 | a validated deviation-ledger entry names this language and this metric |
-| derived | 143 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
-| **unexplained** | **152** | **survived all three -- the real work remaining** |
+| derived | 155 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| **unexplained** | **91** | **survived all three -- the real work remaining** |
 
 Unexplained cells, by metric:
 
@@ -31,15 +31,11 @@ Unexplained cells, by metric:
 - `betweenness_score` — javascript, python
 - `class_start` — cobol, css, jcl, yaml
 - `classes_found` — cobol, css, dockerfile, jcl, kotlin
-- `coding_loc` — agc_assembly, css, dockerfile, haskell, html, jcl, m4, makefile, markdown, scheme, sqlite, yacc, yaml
 - `def_encapsulation` — agc_assembly, css, embedded_python, go, perl, python, zig
-- `dependency_density` — assembly, cpp, dockerfile, embedded_python, livecode, makefile, markdown, powershell, ruby, tcl
-- `dependency_links` — dockerfile, embedded_python
 - `encapsulation_ratio` — cobol, html, javascript, jcl, markdown
 - `functions_found` — dockerfile, html, sqlite
 - `globals` — csharp
 - `high_risk_execution` — yacc
-- `keyword_hits` — css, dockerfile, embedded_python, haskell, html, javascript, jcl, m4, makefile, markdown, python, rust, scheme, sqlite, yacc, yaml, zig
 - `raw_arch_api` — c, css, embedded_python, fortran, html, livecode, lua, makefile, python, scala
 - `raw_state_slop_orphans` — abap, ada, cobol, css, dockerfile, haskell, html, jcl, livecode, m4, makefile, markdown, objective-c, scheme, sqlite, yaml
 - `risk_api_exposure` — ada, dockerfile, haskell, sqlite, yaml
@@ -52,14 +48,29 @@ Unexplained cells, by metric:
 - `state_mutation` — yaml
 - `state_slop_duplicates` — dockerfile
 - `test` — yaml
-- `token_mass` — ada, css, dockerfile, html, makefile, yacc, yaml
-- `total_loc` — agc_assembly, css, dockerfile, haskell, html, jcl, m4, markdown, scheme, sqlite, yacc, yaml
+
+## Program length is context, and the x-axis of the leak check
+
+`total_loc`, `coding_loc`, `token_mass`, `keyword_hits` measure how long each language's 12-probe program came out, which the SPEC does not plant (gitgalaxy#2669 F.1): a 12-probe Dockerfile cannot be as long as the Java one without padding, and padding would move the planted signals. They are charted without a badge, excluded from the consistency average, and never gated. A context column that is out of band for a language can still explain a derived cell there (`derived: inherits coding_loc` is a deviation that entered through length), and `coding_loc` is the x-axis of the check below.
+
+**Length leaks.** For each derived metric, over the languages whose measured inputs for it are all in band (content held equal, so length is the only free variable), the Spearman rank correlation against `coding_loc`. |rho| ≥ 0.6 across ≥ 8 languages is a **leak**: the formula reads length where it should read content. That is one finding per formula, not one per language — each is an engine design question in the gitgalaxy#2655 shape, filed against the cited line — and it changes no cell's verdict above. The engine's scoring tier (gitgalaxy#2653: a flat `irc / mass_loc` term and a documentation-credit scale) is held equal as well, inside the largest tier among the qualifying languages, because the tier-3 languages are largely the short shells and a tier effect would otherwise read as a length effect. A metric with no known inputs is correlated over every language that records it (nothing held), which is weaker evidence and is marked as such.
+
+| metric | languages | tier | rho | verdict | inputs held in band | where length enters |
+|---|---|---|---|---|---|---|
+| `func_internal_density` | 11 | tier3 | -0.96 | **leak** | `branch`, `args`, `func_start` | avg_func_complexity / avg_func_loc (record_keeper.py ~L487) |
+| `avg_func_loc` | 29 | tier3 | +0.92 | **leak** | `func_start` | loc / functions_found -- length by definition (record_keeper.py) |
+| `control_flow_ratio` | 21 | tier3 | -0.67 | **leak** | `branch` | branch / (branch + structural_boundaries); structural_boundaries is a per-language token tally that grows with the file (detector.py ~L1288) |
+| `risk_cognitive_load` | 8 | tier3 | -0.58 | weak | `branch`, `doc`, `state_mutation` | the same _calc_cog_load densities, post-sigmoid |
+| `risk_tech_debt` | 16 | tier3 | -0.58 | weak | `fragile_debt`, `planned_debt`, `state_slop_duplicates`, `raw_state_slop_orphans` | _calc_tech_debt: stress / _mass_loc(loc) (signal_processor.py ~L1478) |
+| `cog_raw` | 9 | tier3 | -0.55 | weak | `branch`, `state_mutation`, `func_complexity_gini` | _calc_cog_load: every density divides by _mass_loc(loc), floored at 50 by #2655 (signal_processor.py ~L1360-1390) -- every rosetta shell is below the floor, so no length term should survive; a residual correlation is an unheld input (concurrency, reflection_metaprogramming are not cached) or aggregation |
+| `risk_verification` | 25 | tier3 | +0.48 | weak | `high_risk_execution` | **not located yet** — the more interesting finding |
+| `classes_found` | 31 | tier3 | -0.41 | weak | *(none known)* | **not located yet** — the more interesting finding |
 
 ## Cross-language variance chart
 
 ![variance chart](bias_variance_chart.svg)
 
-Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 59 metrics: 82%**; 37 metrics hold ≥80% of languages in the green band. Weakest metrics: control_flow_ratio 30%, risk_documentation 42%, risk_state_flux 42%, cog_raw 46%, risk_cognitive_load 49%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): risk_concurrency, risk_dead_code, raw_arch_api, def_encapsulation, state_slop_duplicates, classes_found, class_start. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_churn, risk_secrets_risk.
+Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 55 metrics: 83%**; 36 metrics hold ≥80% of languages in the green band. Weakest metrics: control_flow_ratio 30%, risk_documentation 42%, risk_state_flux 42%, cog_raw 46%, risk_cognitive_load 49%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): risk_concurrency, risk_dead_code, raw_arch_api, def_encapsulation, state_slop_duplicates, classes_found, class_start. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): risk_churn, risk_secrets_risk.
 
 ## Signal totals vs. planted intent
 
