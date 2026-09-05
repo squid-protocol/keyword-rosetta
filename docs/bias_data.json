@@ -165,7 +165,7 @@
    "html": 2,
    "java": 3,
    "javascript": 3,
-   "jcl": 2,
+   "jcl": 0,
    "kotlin": 3,
    "livecode": 3,
    "lua": 3,
@@ -213,7 +213,7 @@
    "html": null,
    "java": 2,
    "javascript": 2,
-   "jcl": null,
+   "jcl": 2,
    "kotlin": 2,
    "livecode": 2,
    "lua": 2,
@@ -501,7 +501,7 @@
    "html": 2,
    "java": 2,
    "javascript": 2,
-   "jcl": null,
+   "jcl": 0,
    "kotlin": 2,
    "livecode": 2,
    "lua": 2,
@@ -1653,7 +1653,7 @@
    "html": 1.0,
    "java": 0.83325,
    "javascript": 0.9445,
-   "jcl": 1.0,
+   "jcl": 0.9,
    "kotlin": 0.75,
    "livecode": 0.75,
    "lua": 0.75,
@@ -2229,7 +2229,7 @@
    "html": 35.516,
    "java": 39.811,
    "javascript": 57.495775,
-   "jcl": 40.919775,
+   "jcl": 19.213125,
    "kotlin": 41.13145,
    "livecode": 43.601425,
    "lua": 43.363974999999996,
@@ -2469,7 +2469,7 @@
    "html": 2.30335,
    "java": 2.372325,
    "javascript": 2.39565,
-   "jcl": 2.388,
+   "jcl": 2.38015,
    "kotlin": 2.3796749999999998,
    "livecode": 2.4173,
    "lua": 2.4095,
@@ -3371,8 +3371,7 @@
   },
   "globals": {
    "html": "ledgered",
-   "markdown": "ledgered",
-   "jcl": "ledgered"
+   "markdown": "ledgered"
   },
   "state_mutation": {
    "html": "ledgered",
@@ -3381,8 +3380,7 @@
   },
   "cleanup": {
    "css": "ledgered",
-   "markdown": "ledgered",
-   "jcl": "ledgered"
+   "markdown": "ledgered"
   },
   "io": {
    "css": "ledgered",
