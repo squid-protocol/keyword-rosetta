@@ -18,3 +18,7 @@ function probe_todo {
     # TODO: fill in the probe body later
     return $plan
 }
+
+Export-ModuleMember -Function probe_cleanup
+Export-ModuleMember -Function probe_debt
+Export-ModuleMember -Function probe_todo

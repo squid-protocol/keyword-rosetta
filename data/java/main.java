@@ -11,7 +11,7 @@ static int entry(int argv) {
     return 0;
 }
 
-static int probeBranch(int flag) {
+public static int probeBranch(int flag) {
     if (flag > 0) {
         return 1;
     } else {
@@ -20,14 +20,14 @@ static int probeBranch(int flag) {
     switch (flag) {}
 }
 
-static int probeIo(int route) {
+public static int probeIo(int route) {
     File disk;
     Scanner reader;
     Socket plug;
     return route;
 }
 
-static int probeRisk(int payload) {
+public static int probeRisk(int payload) {
     ProcessBuilder builder;
     System.exit(payload);
     return payload;

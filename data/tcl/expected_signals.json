@@ -19,7 +19,8 @@
       "planned_debt": 0,
       "func_start": 4,
       "args": 4,
-      "api": 0,
+      "api": 3,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1
@@ -41,7 +42,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3
+      "api": 3,
+      "api_orphan_credit": 0
     },
     "b.tcl": {
       "class_start": 0,
@@ -60,7 +62,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3
+      "api": 3,
+      "api_orphan_credit": 0
     },
     "c.tcl": {
       "class_start": 0,
@@ -80,6 +83,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
+      "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0
     }
@@ -95,5 +99,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"exec\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "source is dual import+io (main io 4 = 3 planted + source; every chain link adds io — sqlite .read family). close is dual cleanup+io (c io 1). a branch 1 = trap (dual safety+branch, finditer-confirmed). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exec\" literal inside probe_state — b.tcl high_risk_execution 0->1, branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3."
+  "notes": "source is dual import+io (main io 4 = 3 planted + source; every chain link adds io — sqlite .read family). close is dual cleanup+io (c io 1). a branch 1 = trap (dual safety+branch, finditer-confirmed). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exec\" literal inside probe_state — b.tcl high_risk_execution 0->1, branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3. api (gitgalaxy#2729): one `namespace export probe_x` per probe proc, placed directly after the source line (after the header in c.tcl), count 3 per file main/a/b/c (probe_dispatch not exported); matches only tcl's api rule (structural_boundaries, ungated, picks up `namespace`). api_orphan_credit 3->0 in a/b/c: the export line is a second occurrence of each proc's name in its file, and the orphan check (detector.py, token_counts[name] <= 1) is name-recurrence, so the imported probes are no longer orphans and there is nothing left for the Contextual Baseline Fix to convert — the source chain still resolves (import 1 per link, unchanged); the credit is lost to the plant, not to the DAG."
 }

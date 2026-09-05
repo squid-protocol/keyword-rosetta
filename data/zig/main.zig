@@ -11,7 +11,7 @@ fn entry(argv: i32) i32 {
     return 0;
 }
 
-fn probeBranch(flag: i32) i32 {
+pub fn probeBranch(flag: i32) i32 {
     if (flag > 0) {
         return 1;
     } else {
@@ -20,14 +20,14 @@ fn probeBranch(flag: i32) i32 {
     switch (flag) {}
 }
 
-fn probeIo(route: i32) i32 {
+pub fn probeIo(route: i32) i32 {
     _ = std.fs;
     _ = std.net;
     _ = std.io;
     return route;
 }
 
-fn probeRisk(payload: i32) i32 {
+pub fn probeRisk(payload: i32) i32 {
     panic("stop");
     std.process.exit(payload);
     return payload;

@@ -4,6 +4,10 @@
 # decoy: this suite never needs root and the kill word stays in prose
 include a.mk
 
+export PROBE_BRANCH = 1
+export PROBE_IO = 1
+export PROBE_RISK = 1
+
 probe_dispatch:
 	$(call probe_branch)
 

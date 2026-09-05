@@ -1,5 +1,8 @@
 ; Keyword Rosetta control shell: assembly / c
 ; decoy: tidy remarks stay in prose and the work happens elsewhere
+global probe_cleanup
+global probe_debt
+global probe_todo
 probe_cleanup:
     mov rdi, 11
     call free

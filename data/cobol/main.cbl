@@ -12,6 +12,8 @@
        WORKING-STORAGE SECTION.
        COPY a.
        77 FLAG-ONE PIC 9 VALUE 1.
+       LINKAGE SECTION.
+       01 ARGV-BLOCK PIC 9.
 
       * ---- procedure paragraphs, one probe each ----
        PROCEDURE DIVISION USING ARGV-BLOCK.

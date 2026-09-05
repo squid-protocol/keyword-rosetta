@@ -3,6 +3,10 @@
 
 . ./b.sh
 
+export PROBE_GLOBALS=1
+export PROBE_TEST=1
+export PROBE_SAFETY=1
+
 probe_globals() {
     : "$1"
     : "$PATH"

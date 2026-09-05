@@ -11,7 +11,7 @@ static int Entry(int argv) {
     return 0;
 }
 
-static int ProbeBranch(int flag) {
+public static int ProbeBranch(int flag) {
     if (flag > 0) {
         return 1;
     } else {
@@ -20,14 +20,14 @@ static int ProbeBranch(int flag) {
     switch (flag) {}
 }
 
-static int ProbeIo(int route) {
+public static int ProbeIo(int route) {
     File.Open(route);
     Path.Join(route);
     Stream.Wrap(route);
     return route;
 }
 
-static int ProbeRisk(int payload) {
+public static int ProbeRisk(int payload) {
     goto done;
     Environment.Exit(payload);
     return payload;

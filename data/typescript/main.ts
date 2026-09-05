@@ -12,7 +12,7 @@ function entry(argv: number): number {
   return result + stream + runner;
 }
 
-function probeBranch(flag: number): number {
+export function probeBranch(flag: number): number {
   if (flag > 0) {
     return 1;
   } else {
@@ -21,14 +21,14 @@ function probeBranch(flag: number): number {
   switch (flag) {}
 }
 
-function probeIo(route: number): number {
+export function probeIo(route: number): number {
   const web = fetch;
   const grabber = axios;
   const disk = fs;
   return route;
 }
 
-function probeRisk(payload: number): number {
+export function probeRisk(payload: number): number {
   const runner = eval;
   debugger;
   return payload;

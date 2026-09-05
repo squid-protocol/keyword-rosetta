@@ -32,3 +32,7 @@ def probe_risk(payload)
   starter = spawn
   [runner, starter]
 end
+
+module_function :probe_branch
+module_function :probe_io
+module_function :probe_risk

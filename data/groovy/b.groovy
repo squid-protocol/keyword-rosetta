@@ -3,18 +3,18 @@
 import c
 
 @SuppressWarnings('rosetta')
-def probeBypass(shape) {
+public def probeBypass(shape) {
     Object loose = null
     return shape
 }
 
 @Slf4j
 @Log4j2
-def probeTelemetry(msg) {
+public def probeTelemetry(msg) {
     return msg
 }
 
-def probeState(items) {
+public def probeState(items) {
     counter = 1
     note = "plain execute decoy text"
     return items

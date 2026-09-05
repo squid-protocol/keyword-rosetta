@@ -3,19 +3,19 @@
 
 import { probeTelemetry } from './b';
 
-function probeGlobals(env: number): number {
+export function probeGlobals(env: number): number {
   const region = process.env;
   const home = process.env;
   return env;
 }
 
-function probeTest(kit: number): number {
+export function probeTest(kit: number): number {
   describe(kit);
   expect(kit);
   return kit;
 }
 
-function probeSafety(value: unknown): number {
+export function probeSafety(value: unknown): number {
   const kind: unknown = value;
   const impossible: never = value;
   return 0;

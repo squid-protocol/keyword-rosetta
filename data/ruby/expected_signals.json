@@ -10,7 +10,8 @@
    "high_risk_execution": 2,
    "func_start": 4,
    "args": 4,
-   "api": 0,
+   "api": 3,
+   "api_orphan_credit": 0,
    "doc": 1,
    "ownership": 1,
    "import": 1,
@@ -30,6 +31,7 @@
    "func_start": 3,
    "args": 3,
    "api": 3,
+   "api_orphan_credit": 0,
    "globals": 2,
    "test": 2,
    "safety": 2,
@@ -49,6 +51,7 @@
    "func_start": 3,
    "args": 3,
    "api": 3,
+   "api_orphan_credit": 0,
    "safety_bypasses": 2,
    "telemetry": 2,
    "state_mutation": 2,
@@ -68,6 +71,7 @@
    "func_start": 3,
    "args": 3,
    "api": 3,
+   "api_orphan_credit": 0,
    "cleanup": 2,
    "fragile_debt": 1,
    "planned_debt": 1,
@@ -104,5 +108,5 @@
    "outcome": "inert (underscore + lowercase)"
   }
  ],
- "notes": "branch 1 in a.rb = rescue (ruby branch includes rescue \u2014 dual with safety, finditer-confirmed). api = 0 planted; a/b convert 4 vs c 3 (same source-line-carrying shape as shell; ledger orphan-conversion-opaque-counts). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state \u2014 b.rb high_risk_execution 0->1, branch 1->0, safety_bypasses 3->2, state_mutation 6->2."
+ "notes": "branch 1 in a.rb = rescue (ruby branch includes rescue — dual with safety, finditer-confirmed). api = 0 planted; a/b convert 4 vs c 3 (same source-line-carrying shape as shell; ledger orphan-conversion-opaque-counts). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.rb high_risk_execution 0->1, branch 1->0, safety_bypasses 3->2, state_mutation 6->2. api (gitgalaxy#2729): one 'module_function :probe_x' line per probe function, appended after the defs in each file (entry not listed): api 3/3/3/3 (main/a/b/c). No rule overlap: 'module_function' is not a class_start opener (the rule needs 'module' + whitespace) and \\bmodule\\b does not match it. Carried: api_orphan_credit 3->0 in a/b/c -- naming the probes in the export statement makes the engine treat them as referenced (orphaned_logic 0), so the Contextual Baseline Fix has nothing to convert; a bare 'module_function' (count 1) would keep the credit. Rule too narrow for the shell's real idiom: top-level defs are private on Object and Ruby opens them with 'public :name' / 'public def', which the api rule (module_function | Sinatra routes) cannot see."
 }

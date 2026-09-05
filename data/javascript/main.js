@@ -13,7 +13,7 @@ function entry(argv) {
   return [result, stream, runner, chain];
 }
 
-function probeBranch(flag) {
+export function probeBranch(flag) {
   if (flag) {
     return 1;
   } else {
@@ -22,14 +22,14 @@ function probeBranch(flag) {
   switch (flag) {}
 }
 
-function probeIo(path) {
+export function probeIo(path) {
   const web = fetch;
   const grabber = axios;
   const disk = fs;
   return [web, grabber, disk];
 }
 
-function probeRisk(payload) {
+export function probeRisk(payload) {
   const runner = eval;
   debugger;
   return runner;

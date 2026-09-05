@@ -11,7 +11,7 @@ function probe_dispatch($argv) {
     probe_risk($argv);
 }
 
-function probe_branch($flag) {
+public function probe_branch($flag) {
     if ($flag > 0) {
         return 1;
     } else {
@@ -20,14 +20,14 @@ function probe_branch($flag) {
     switch ($flag) {}
 }
 
-function probe_io($route) {
+public function probe_io($route) {
     fopen($route);
     fread($route);
     PDO::query($route);
     return $route;
 }
 
-function probe_risk($payload) {
+public function probe_risk($payload) {
     exec($payload);
     passthru($payload);
     return $payload;

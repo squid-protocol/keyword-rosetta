@@ -7,13 +7,13 @@ import "a"
 
 // Dispatch each probe once.
 func entry(argv int) int {
-    probeBranch(argv)
-    probeIo(argv)
-    probeRisk(argv)
+    ProbeBranch(argv)
+    ProbeIo(argv)
+    ProbeRisk(argv)
     return 0
 }
 
-func probeBranch(flag int) int {
+func ProbeBranch(flag int) int {
     if flag > 0 {
         return 1
     } else {
@@ -22,14 +22,14 @@ func probeBranch(flag int) int {
     switch flag {}
 }
 
-func probeIo(route int) int {
+func ProbeIo(route int) int {
     os.Open(route)
     io.Copy(route)
     bufio.NewReader(route)
     return route
 }
 
-func probeRisk(payload int) int {
+func ProbeRisk(payload int) int {
     os.Exit(payload)
     log.Fatal(payload)
     return payload

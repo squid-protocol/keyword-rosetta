@@ -17,3 +17,7 @@ def probe_todo(plan)
   # TODO: fill in the probe body later
   plan
 end
+
+module_function :probe_cleanup
+module_function :probe_debt
+module_function :probe_todo

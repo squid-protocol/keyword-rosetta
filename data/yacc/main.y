@@ -3,6 +3,7 @@
 /* @param flag the probe input */
 /* decoy: this suite never aborts outside prose */
 #include "a.y"
+%define api.pure full
 %%
 dispatch : probe_branch ;
 

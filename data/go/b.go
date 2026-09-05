@@ -4,19 +4,19 @@ package main
 
 import "c"
 
-func probeBypass(shape int) int {
+func ProbeBypass(shape int) int {
     _ = shape
     _ = shape
     return shape
 }
 
-func probeTelemetry(msg int) int {
+func ProbeTelemetry(msg int) int {
     slog.Info(msg)
     zap.Error(msg)
     return msg
 }
 
-func probeState(items int) int {
+func ProbeState(items int) int {
     items = 1
     items = 2
     note := "plain os.Exit decoy text"

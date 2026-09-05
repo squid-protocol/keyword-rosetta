@@ -1,5 +1,7 @@
 # keyword rosetta control shell: yaml / a
 # decoy: config reads stay in prose only
+on:
+  workflow_dispatch:
 jobs:
   chain:
     uses: ./b.yml

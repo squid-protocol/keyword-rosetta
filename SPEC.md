@@ -152,10 +152,18 @@ Verified empirically; every generator must account for them:
 
 1. **Files must be git-committed before verification.** GalaxyScope's census walks
    git-tracked files — an untracked folder scans as "0 files mapped".
-2. **`api` inflates on imported files** (the Contextual Baseline Fix,
-   `galaxyscope.py` ~2145): a file imported by others has its `orphaned_logic`
-   (uncalled functions) converted into `api`. With the spec's main→a→b→c chain and
-   uncalled probes, expect `api = defs × 2` in a/b/c and `api = defs` in main.
+2. **`api` is the rule count; the orphan conversion is pinned separately**
+   (gitgalaxy#2729). The Contextual Baseline Fix (`galaxyscope.py` ~2228) adds a
+   file's `orphaned_logic` (uncalled functions) to its `api` when another file
+   imports it. The gate reads the pre-adjustment `raw_arch_api` as `api` — what the
+   language's api rule actually matched — and records the conversion under
+   **`api_orphan_credit`** (= `arch_api − raw_arch_api`). With the spec's main→a→b→c
+   chain and uncalled probes, expect `api_orphan_credit = defs` in a/b/c and 0 in
+   main; list it in every manifest, it is the gate's proof the chain resolved. Plant
+   `api` as an explicit public surface in the language's own vocabulary (`pub`,
+   `public`, `export`, a capitalised Go name, `EXPOSE`, ...) on every probe function
+   the rule can see; where the language has no such construct the shell can carry,
+   record 0 and cite the ledger shape (docs/GATING.md "What `api` asserts").
 3. **String literals count for ALL code-stream signals** — corrected 2026-09-01
    (gitgalaxy#2535): the engine never strips or masks strings from the code stream,
    for any signal, in any language. The earlier "selective shielding" reading (this

@@ -10,3 +10,5 @@
 @keyframes probe-telemetry {}
 
 @keyframes probe-state {}
+
+@property --probe-api-b {}

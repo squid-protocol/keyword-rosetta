@@ -3,14 +3,14 @@
   "entries": [
     {
       "id": "api-contextual-baseline-fix",
-      "signal": "api",
+      "signal": "api_orphan_credit",
       "languages_seen": [
         "apex",
         "python"
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording. Micro-repro: 2-def file imported by a sibling records api=4, un-imported records api=2. With the spec's main->a->b->c chain and uncalled probes, api = defs x 2 in a/b/c, defs in main. Deliberate scoring semantics; raw counts unrecoverable from the DB (filed squid-protocol/gitgalaxy#2536 asking for raw recording). apex added 2026-09-02 (gitgalaxy#2669 A.3): it had no import chain at all until Type.forName('a'/'b'/'c') was planted, so a/b/c had popularity 0 and api 0; with the chain live their 3 uncalled probes convert to api 3 each, exactly this shape.",
+      "verdict": "galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording. Micro-repro: 2-def file imported by a sibling records api=4, un-imported records api=2. With the spec's main->a->b->c chain and uncalled probes, api = defs x 2 in a/b/c, defs in main. Deliberate scoring semantics; raw counts unrecoverable from the DB (filed squid-protocol/gitgalaxy#2536 asking for raw recording). apex added 2026-09-02 (gitgalaxy#2669 A.3): it had no import chain at all until Type.forName('a'/'b'/'c') was planted, so a/b/c had popularity 0 and api 0; with the chain live their 3 uncalled probes convert to api 3 each, exactly this shape. GATE KEY CHANGE (gitgalaxy#2729, 2026-09-04): the conversion no longer reaches the manifest's `api` -- verify_language.py reads raw_arch_api there -- and is pinned instead as `api_orphan_credit` = arch_api - raw_arch_api, which this entry now covers. Semantics unchanged: credit = the file's uncalled probe count in a/b/c (3), 0 in main (popularity 0). Still the gate's only assertion that the main->a->b->c import chain resolved.",
       "upstream_issue": "squid-protocol/gitgalaxy#2536",
       "investigated_by": "claude-sonnet-5 + user session",
       "validated_at": "2026-08-31",
@@ -1042,6 +1042,7 @@
         "groovy",
         "haskell",
         "html",
+        "javascript",
         "jcl",
         "kotlin",
         "lua",
@@ -1054,12 +1055,13 @@
         "scala",
         "scheme",
         "solidity",
+        "typescript",
         "yacc",
         "yaml"
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288). The corpus pins the numerator -- branch is 3-4 in every language by design -- and never plants, gates or reports the denominator, so the whole cross-language spread is structural_boundaries, measured 0-45. It cannot be equalised by planting, because it is not a structural count: it is a per-language KEYWORD VOCABULARY tally, and the vocabularies differ in kind. ada matches six structural words (procedure|function|package|begin|end|return); python matches sixteen; solidity matches those plus every type name (uint\\d*, int\\d*, bytes, address, mapping); assembly matches every instruction mnemonic (mov, lea, push, pop, add, sub, ldr, str). Measured on the a.* files, where planted intent is identical: solidity 10 hits of which SIX are the type name 'uint', python 9 (def x3, return x3, from, import, assert), ada 9 (procedure x3, begin x3, end x3). Every typed declaration in solidity scores a hit its python equivalent cannot. VERDICT: the metric is not broken and no engine change is wanted -- gitgalaxy compares control_flow_ratio between files WITHIN one repository (security_auditor.py reads it that way), where the vocabulary is held constant and the ratio means what it claims. Only the cross-language comparison this corpus performs is meaningless, so the cells are explained, not fixed. Recorded in gitgalaxy#2689 (Batch D.1) bucket B, which originally proposed planting the denominator -- that recommendation was withdrawn once the rule was read.",
+      "verdict": "control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288). The corpus pins the numerator -- branch is 3-4 in every language by design -- and never plants, gates or reports the denominator, so the whole cross-language spread is structural_boundaries, measured 0-45. It cannot be equalised by planting, because it is not a structural count: it is a per-language KEYWORD VOCABULARY tally, and the vocabularies differ in kind. ada matches six structural words (procedure|function|package|begin|end|return); python matches sixteen; solidity matches those plus every type name (uint\\d*, int\\d*, bytes, address, mapping); assembly matches every instruction mnemonic (mov, lea, push, pop, add, sub, ldr, str). Measured on the a.* files, where planted intent is identical: solidity 10 hits of which SIX are the type name 'uint', python 9 (def x3, return x3, from, import, assert), ada 9 (procedure x3, begin x3, end x3). Every typed declaration in solidity scores a hit its python equivalent cannot. VERDICT: the metric is not broken and no engine change is wanted -- gitgalaxy compares control_flow_ratio between files WITHIN one repository (security_auditor.py reads it that way), where the vocabulary is held constant and the ratio means what it claims. Only the cross-language comparison this corpus performs is meaningless, so the cells are explained, not fixed. Recorded in gitgalaxy#2689 (Batch D.1) bucket B, which originally proposed planting the denominator -- that recommendation was withdrawn once the rule was read. 2026-09-04 (gitgalaxy#2729 corpus wave): javascript and typescript joined, and they are the cleanest demonstration the entry has. Their api plant is `export function`, and `export` is in their structural_boundaries vocabulary -- so the denominator grew by exactly 3 per file while the numerator stayed pinned at the planted branch count, and control_flow_ratio fell out of band with not one line of control flow changed. A metric that moves when a visibility keyword is added is measuring vocabulary, which is what this entry says.",
       "upstream_issue": "squid-protocol/gitgalaxy#2689",
       "investigated_by": "claude-opus-5",
       "validated_at": "2026-09-03",
@@ -1165,7 +1167,7 @@
     },
     {
       "id": "api-column-is-rule-hits-only",
-      "signal": "raw_arch_api",
+      "signal": "api|raw_arch_api",
       "languages_seen": [
         "c",
         "css",
@@ -1180,11 +1182,11 @@
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-contextual-baseline-fix entry for the conversion itself). Measured: the rule fires in only 10 of the 44 languages that define one, so the corpus median is 0 and these ten read as the outliers -- c 7.25, python / embedded_python / fortran / lua / scala / livecode 3.25, css / makefile / html 0.25. They are not deviant; they are the only languages measuring anything. The other 36 read 0 because the probe programs contain no construct their api rule recognises: shell's rule is `^export NAME` and no probe exports, go's is `^func [A-Z]...` and every probe function is lowercase. Per file, shell/a.sh: manifest 3, rule 0, orphans converted 3, gate reads 3; go/a.go the same; python/a.py manifest 6 = rule 3 + orphans 3; c/a.c manifest 12 = rule 9 + orphans 3. verify_language.py builds its column map from RecordKeeper.SHORT_KEY_MAP, which maps api -> arch_api (the conflated column), so the manifests were recorded post-conversion and the gate cannot see an api rule that never fires. Filed as gitgalaxy#2729, which carries the two-part fix shape (gate reads raw_arch_api the way bias_report.py's RISK_INPUT_COLUMNS already does; then ~36 languages need either an exported construct planted in their own vocabulary or a wider rule -- a corpus wave of its own, deliberately not folded into F.4). Current behaviour baked in meanwhile.",
+      "verdict": "raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-contextual-baseline-fix entry for the conversion itself). Measured: the rule fires in only 10 of the 44 languages that define one, so the corpus median is 0 and these ten read as the outliers -- c 7.25, python / embedded_python / fortran / lua / scala / livecode 3.25, css / makefile / html 0.25. They are not deviant; they are the only languages measuring anything. The other 36 read 0 because the probe programs contain no construct their api rule recognises: shell's rule is `^export NAME` and no probe exports, go's is `^func [A-Z]...` and every probe function is lowercase. Per file, shell/a.sh: manifest 3, rule 0, orphans converted 3, gate reads 3; go/a.go the same; python/a.py manifest 6 = rule 3 + orphans 3; c/a.c manifest 12 = rule 9 + orphans 3. verify_language.py builds its column map from RecordKeeper.SHORT_KEY_MAP, which maps api -> arch_api (the conflated column), so the manifests were recorded post-conversion and the gate cannot see an api rule that never fires. Filed as gitgalaxy#2729, which carries the two-part fix shape (gate reads raw_arch_api the way bias_report.py's RISK_INPUT_COLUMNS already does; then ~36 languages need either an exported construct planted in their own vocabulary or a wider rule -- a corpus wave of its own, deliberately not folded into F.4). Current behaviour baked in meanwhile. RESOLVED 2026-09-04 (keyword-rosetta, gitgalaxy#2729 both halves): verify_language.py now reads raw_arch_api as `api` (RAW_COLUMNS) and pins arch_api - raw_arch_api as `api_orphan_credit` (DERIVED_KEYS), so a manifest's `api` is what the rule found and nothing else. Every manifest was re-blessed mechanically first (api := raw, credit := adjusted - raw; 36 languages honestly read 0), then the corpus wave planted an explicit public surface in each language's own vocabulary on every probe function its api rule can see. The remaining 0/1 languages are ledgered by shape (api-export-list-morphology, api-non-function-surfaces, api-no-plantable-idiom).",
       "upstream_issue": "squid-protocol/gitgalaxy#2729",
       "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
       "validated_at": "2026-09-04",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "risk-api-exposure-zero-api-shortcircuit",
@@ -1227,13 +1229,15 @@
         "css",
         "embedded_python",
         "go",
+        "haskell",
         "perl",
         "python",
+        "rust",
         "zig"
       ],
       "disposition": "intended-morphology",
       "status": "validated",
-      "verdict": "The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons. Measured per file: go 6.75 (the rule counts unexported lowercase identifiers, which every probe function is), zig 4.50, perl 3.75 (`my` scoping), agc_assembly 11.50 with nothing planted at all, css / python / embedded_python 0.25. The corpus median is 0 because the other 38 languages' idiom does not trip the rule. This is a vocabulary column in the sense F.3 gave control_flow_ratio: it counts how a language spells privacy, not how much privacy the planted program has, and no plant can equalise it without changing what the probes mean. Reported, not a defect; if a future batch wants it gated it needs a planted private-member construct per language first, which is a SPEC change.",
+      "verdict": "The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons. Measured per file: go 6.75 (the rule counts unexported lowercase identifiers, which every probe function is), zig 4.50, perl 3.75 (`my` scoping), agc_assembly 11.50 with nothing planted at all, css / python / embedded_python 0.25. The corpus median is 0 because the other 38 languages' idiom does not trip the rule. This is a vocabulary column in the sense F.3 gave control_flow_ratio: it counts how a language spells privacy, not how much privacy the planted program has, and no plant can equalise it without changing what the probes mean. Reported, not a defect; if a future batch wants it gated it needs a planted private-member construct per language first, which is a SPEC change. 2026-09-04 (gitgalaxy#2729 corpus wave): two more languages joined the shape, and for the sharpest possible reason -- the token that makes their api plant visible IS their encapsulation marker. rust's `pub` matches both rules (def_encapsulation 0 -> 3 per file), and haskell's `module A (probeGlobals, probeTest, probeSafety) where` header matches both (0 -> 1 per file). Neither is a second finding: one construct, two rules, recorded in both manifests.",
       "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
       "validated_at": "2026-09-04",
       "still_reproduces": true
@@ -1367,6 +1371,126 @@
       "status": "validated",
       "verdict": "betweenness_score javascript and python 0.05 against a median of 0.0833335, with identical dependency_links (3) and popularity (0.75) -- so the DAG's edges are right and its SIZE is not. These are the only two language folders carrying an ecosystem manifest beside the four probe files: `package.json` and `pyproject.toml`. Betweenness is normalised by node count (network_risk_sensor.py's nx.betweenness_centrality), so a fifth scanned artifact lowers every centrality in the folder -- pagerank 0.2029 vs 0.2240 and closeness 0.1917 vs 0.2396 move with it. The manifests are deliberate (they are what exercises dependency extraction and the SBOM for those two ecosystems); the alternative is to exclude non-probe artifacts from the graph, which would change what the corpus measures about real repositories.",
       "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-export-list-morphology",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "haskell"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "Haskell declares its whole public surface once, in the module header (`module A (probeGlobals, probeTest, probeSafety) where`), not per definition -- there is no per-function visibility keyword in the language. The api rule matches that header, so the corpus records api 1 per file against a per-function median of 3, and the count is a property of the idiom, not of how much surface the file exposes: the same header exports three probes. Planted 2026-09-04 under gitgalaxy#2729 (before it, every language's api read the converted orphan count and this difference was invisible). The header line also matches haskell's encapsulation rule (+1 per file), pinned in the manifest. Languages whose export idiom happens to be repeatable per function (scheme `(export x)`, tcl `namespace export x`, powershell `Export-ModuleMember -Function x`) plant 3 and are not in this shape.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2729",
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-non-function-surfaces",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "agc_assembly",
+        "cobol",
+        "css",
+        "dockerfile",
+        "html",
+        "yacc",
+        "yaml"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property --probe-api-<file>` (custom-property registration; `:root` was rejected -- it also matches css's globals rule, a planted count), html `<div id=...>` (main reads 2: its `name=\"author\"` ownership meta is also an api match), dockerfile `EXPOSE <port>` (also listeners + ipc_rpc_bridges, both ungated), yaml an `on:` trigger block, yacc `%define api.pure full`, agc_assembly one central-register `EQUALS` erasable assignment (also memory_alloc; c.agc reads 0 because spatial_correlation's leak/UAF dampener fires within 800 chars of its cleanup plants), cobol `LINKAGE SECTION.` in main. So api 1 per file against a per-function median of 3 is the idiom, not less surface. cobol's copybooks are the exception that proves it: `ENTRY 'PROBE-X'` IS per paragraph, so a/b/c plant 3 and only main reads 1. Planted 2026-09-04 under gitgalaxy#2729; before it every one of these read its converted orphan count instead of its rule.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2729",
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-no-plantable-idiom",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "abap",
+        "ada",
+        "dart",
+        "matlab",
+        "objective-c",
+        "perl",
+        "sqlite"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was rejected. (1) The rule cannot see the language's own way of making a function public: abap's FORM subroutines are public by default and the rule wants PUBLIC SECTION / REMOTE FUNCTION / EXPOSED / DEFINE VIEW, all of which need a CLASS (class_start must stay 0), RFC metadata or a CDS definition; matlab function files have no visibility syntax and the rule counts only classdef `methods` blocks; dart's public top-level functions are invisible to a rule that counts class/mixin/enum/extension/typedef declarations; objective-c's public method declaration in an @interface is invisible to a rule that counts FOUNDATION_EXPORT/OBJC_EXPORT/extern/@property; ada's rule matches a package SPEC (`package X is`) and the corpus ships .adb bodies, where a spec would be a separate compilation unit. dart and objective-c CAN be made to fire with a manufactured declaration (a typedef per probe, a property per probe) and both were measured doing so cleanly, but planting a declaration nobody would write to make the number move is exactly the measurement the corpus exists to avoid, so both stay 0 and the gap is the finding. (2) The only construct the rule accepts moves a PLANTED count: perl's `@EXPORT_OK = qw(...)` adds state_mutation +1 per file (measured: a 0->1, b 3->4, c 1->2), `push @EXPORT_OK` is state_mutation by definition, `use Exporter|parent|base` is an import hit and `our` a globals hit; sqlite's `CREATE [TEMP] VIEW` is a func_start hit in every spelling the rule accepts (and its SELECT body an io hit), `CREATE VIRTUAL TABLE` a class_start hit. A corpus that moves a planted count to light up a signal is measuring itself. Both halves are the same finding as the one gitgalaxy#2729 was filed for -- the api rules disagree about what a public surface is -- and the rule-too-narrow half is filed upstream as gitgalaxy#2730, which asks for a stated contract for the api rule rather than seven separate regex fixes. Resolves per language as #2730 lands, paired with the plant that the widened rule can see (AGENTS.md rule 8).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2730 (filed from #2729's wave)",
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-export-names-suppress-orphan-credit",
+      "signal": "api_orphan_credit|raw_state_slop_orphans",
+      "languages_seen": [
+        "assembly",
+        "powershell",
+        "ruby",
+        "tcl"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export probe_x` -- and that second occurrence of the name makes the function stop reading as an orphan: detector.py ~L1383 defines an orphan as `token_counts[func_name] <= 1` over the whole code stream, with no call graph (gitgalaxy#2727). orphaned_logic therefore reads 0, the Contextual Baseline Fix has nothing to convert, and api_orphan_credit drops 3 -> 0 in a/b/c while `api` goes 0 -> 3. The import chain still resolves (import counts unchanged), so the credit's loss is not evidence of a DAG regression -- but the credit is the gate's only assertion that the chain resolved (GATING.md 'What `api` asserts'), so these four lose that assertion and rely on the other 40 for it. Name-free alternatives exist for some (`Export-ModuleMember -Function *`, a bare `module_function`, tcl `package provide`) and were rejected: they export the entry function too, or drop the count to 1, which is worse measurement to protect a side assertion. makefile `.PHONY: probe_x` and m4 `m4_provide([probe_x])` were rejected for this exact reason during the wave -- both zeroed the credit, and `export VAR` / `AC_SUBST` plant the same api count without naming a function, so those two languages keep their credit. Resolves when gitgalaxy#2727 makes the orphan census count occurrences outside the function's own span: a mention in an export statement is outside the span, so it will still clear the flag -- the honest fix is a real call graph, which #2727 records as the open design question. SIGNAL SCOPE: the same fact is visible in the bias report as `raw_state_slop_orphans` (3.25 -> 0 per file in these four against a corpus median of 2.50), which is the column the report measures; `api_orphan_credit` is the manifest key for it. Both are named so the gate and the report join on the same finding.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2727 (also #2729)",
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-no-rule-defined",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "jcl",
+        "markdown"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "jcl and markdown are the only corpus languages whose registry entry defines NO api rule, so the rule count is structurally 0 while the post-gitgalaxy#2729 median is 3. Neither has a public-surface concept to plant: a JCL job exposes nothing to a caller (its `api` was only ever the orphan conversion -- see batch5-tier2-morphology-shapes), and a markdown document declares no callable surface at all (markdown-lit-plane-morphology). This cell was invisible before #2729 because the report scored the ADJUSTED column, whose corpus median was 0. Note for a future batch: `_registry.NA_EXEMPT` exempts `api` from the n/a inference on the grounds that orphan conversion synthesizes it without a rule -- true of `arch_api`, false of `raw_arch_api`, which cannot fire without one. Marking it n/a instead of ledgering it would need an n/a mechanism in the report's measures group, which does not exist today, and would remove the audited rows (`markdown/api`, `jcl/api`) that na_check.py's derived-cell review depends on.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "api-double-count-inflates-scored-api",
+      "signal": "risk_api_exposure|risk_documentation",
+      "languages_seen": [
+        "apex",
+        "cpp",
+        "csharp",
+        "fortran",
+        "groovy",
+        "java",
+        "javascript",
+        "kotlin",
+        "livecode",
+        "lua",
+        "m4",
+        "makefile",
+        "php",
+        "ruby",
+        "scala",
+        "scheme",
+        "shell",
+        "solidity",
+        "swift",
+        "tcl",
+        "typescript"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "`_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivation edge can attribute these cells -- the measured input sits on the median while the output does not. The gap between the two columns is an engine double count, filed as gitgalaxy#2731 and measured on data/go/a.go: three functions, all three declared public (`func ProbeGlobals` ...) and all three uncalled in an imported file, record raw_arch_api 3, raw_state_slop_orphans 3 and arch_api 6. The same three identifiers are counted once as declarations and once as converted orphans, because the Contextual Baseline Fix never asks whether the api rule already counted them. Both directions of this entry's cells follow: the 18 risk_api_exposure languages declare visibility AND convert orphans, so their scored api is doubled and their exposure sits off the median; livecode, ruby and tcl declare visibility but have no orphans left to convert (livecode's syntax repeats the handler name, ruby's and tcl's export statements name the function -- api-export-names-suppress-orphan-credit), so their scored api is HALF the planted group's and risk_documentation sits low. Invisible before the #2729 wave: no corpus language had both halves at once, and the report's api median was 0. Resolves when #2731 credits only the orphans the rule did not already count.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2731",
+      "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
       "validated_at": "2026-09-04",
       "still_reproduces": true
     }

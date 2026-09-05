@@ -1,19 +1,19 @@
 // Keyword Rosetta control shell: rust / c
 // decoy: tidy remarks stay in prose and the work happens elsewhere
 
-fn probe_cleanup(conn: i32) -> i32 {
+pub fn probe_cleanup(conn: i32) -> i32 {
     drop(conn);
     close(conn);
     conn
 }
 
-fn probe_debt(level: i32) -> i32 {
+pub fn probe_debt(level: i32) -> i32 {
     // HACK: shortcut kept deliberately for the rosetta corpus
     let hack_level = level;
     hack_level
 }
 
-fn probe_todo(plan: i32) -> i32 {
+pub fn probe_todo(plan: i32) -> i32 {
     // TODO: fill in the probe body later
     plan
 }

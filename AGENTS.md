@@ -80,7 +80,9 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
 
 ## Tools & skills
 
-- `tools/verify_language.py <lang> [--report]` — the per-language gate.
+- `tools/verify_language.py <lang> [--report]` — the per-language gate. `api` reads the
+  engine's raw rule count (`raw_arch_api`), and `api_orphan_credit` pins the orphan→api
+  conversion on its own (gitgalaxy#2729; docs/GATING.md "What `api` asserts").
 - `tools/language_deviations.py <lang>` — vs-median band table from the cached
   `docs/bias_data.json` (run `tools/bias_report.py` to refresh the cache; it rescans all 46
   languages and regenerates the report/chart/findings docs).

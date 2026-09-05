@@ -19,7 +19,8 @@
       "planned_debt": 0,
       "func_start": 4,
       "args": 4,
-      "api": 0,
+      "api": 3,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1
@@ -41,7 +42,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3
+      "api": 3,
+      "api_orphan_credit": 0
     },
     "b.ps1": {
       "class_start": 0,
@@ -60,7 +62,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 3
+      "api": 3,
+      "api_orphan_credit": 0
     },
     "c.ps1": {
       "class_start": 0,
@@ -80,6 +83,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
+      "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0
     }
@@ -104,5 +108,5 @@
       "outcome": "state stays 1 (x1): probe_debt has no branch keyword, so no flux context. Post-#2545 probe_todo's return is no longer a branch either, so c branch is 0 and the file is x1 throughout — this shell no longer discriminates per-function scoping (the go/matlab/dockerfile proofs in state-flux-branch-weighting still do)."
     }
   ],
-  "notes": "powershell no longer counts return as branch (gitgalaxy#2545; ledger kotlin-return-in-branch). api: the param(/if(/switch(-miscounted-as-api bug RESOLVED via gitgalaxy#2656 (keyword exclusions added to api's bare-identifier alternative, matching func_start/args). main.ps1 api 6->0 (all 6 old matches were param()x4 + switch( + if(, none of which are real API surface; main.ps1 has no Export-ModuleMember and its 4 functions are all called from probe_dispatch, so no orphan conversion either). a/b/c.ps1 api 6->3 (raw regex now contributes 0 instead of 3 [the file's own param() lines]; the +3 orphan-conversion credit is unaffected, ledger orphan-conversion-opaque-counts -- each file's 3 functions are uncalled and the file is imported). Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2656. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"kill\" literal inside probe_state \u2014 b.ps1 high_risk_execution 0->1, branch 2->0, safety 1->0, io 1->0, state_mutation 6->2."
+  "notes": "powershell no longer counts return as branch (gitgalaxy#2545; ledger kotlin-return-in-branch). api: the param(/if(/switch(-miscounted-as-api bug RESOLVED via gitgalaxy#2656 (keyword exclusions added to api's bare-identifier alternative, matching func_start/args). main.ps1 api 6->0 (all 6 old matches were param()x4 + switch( + if(, none of which are real API surface; main.ps1 has no Export-ModuleMember and its 4 functions are all called from probe_dispatch, so no orphan conversion either). a/b/c.ps1 api 6->3 (raw regex now contributes 0 instead of 3 [the file's own param() lines]; the +3 orphan-conversion credit is unaffected, ledger orphan-conversion-opaque-counts -- each file's 3 functions are uncalled and the file is imported). Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2656. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"kill\" literal inside probe_state — b.ps1 high_risk_execution 0->1, branch 2->0, safety 1->0, io 1->0, state_mutation 6->2. api (gitgalaxy#2729): one 'Export-ModuleMember -Function probe_x' line per probe function at the bottom of each file (probe_dispatch not exported), the per-function form chosen over a single comma list so the count is 3: api 3/3/3/3 (main/a/b/c). No rule overlap: the hyphenated cmdlet never reaches the api/func_start bare-identifier '(' alternatives, and structural_boundaries' 'function' branch is blocked by its (?<![-]) lookbehind on '-Function'. Carried: api_orphan_credit 3->0 in a/b/c -- naming the probes in the export statement makes the engine treat them as referenced (orphaned_logic 0), so the Contextual Baseline Fix has nothing to convert; 'Export-ModuleMember -Function *' (count 1) would keep the credit but would also export the entry."
 }

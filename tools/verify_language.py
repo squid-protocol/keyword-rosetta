@@ -11,6 +11,16 @@ Usage:
 Environment:
     GALAXYSCOPE_BIN  path to the galaxyscope binary (default: "galaxyscope" on PATH)
     GITGALAXY_PATH   gitgalaxy checkout, for the SHORT_KEY_MAP schema (see _registry.py)
+
+What a manifest key asserts (gitgalaxy#2729):
+    Every signal key is the recorder column SHORT_KEY_MAP names for it, EXCEPT the
+    ones in RAW_COLUMNS, which read the engine's pre-adjustment snapshot instead.
+    galaxyscope's Contextual Baseline Fix rewrites `api` in place for any imported
+    file (its uncalled functions become API surface), so the adjusted arch_api
+    column let 36 of 44 languages pass `api` without their api rule matching
+    anything. `api` now asserts what the rule found; the conversion is pinned
+    separately as `api_orphan_credit` (DERIVED_KEYS) because it is also the gate's
+    only proof that the main->a->b->c import chain resolved.
 """
 
 import json
@@ -28,17 +38,33 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 GALAXYSCOPE_BIN = os.environ.get("GALAXYSCOPE_BIN", "galaxyscope")
 
 
+# Signals whose manifest key reads the recorder's RAW (pre-adjustment) column rather
+# than the one SHORT_KEY_MAP names. gitgalaxy#2536 added the snapshots; #2729 is why
+# the gate reads them: `api` must assert the api RULE, not rule + converted orphans.
+# Same map bias_report.py's RISK_INPUT_COLUMNS uses for the derivation edges.
+RAW_COLUMNS = {"api": "raw_arch_api"}
+
+# Synthetic manifest keys computed from two recorder columns: key -> (minuend,
+# subtrahend). `api_orphan_credit` = arch_api - raw_arch_api = the orphans the
+# Contextual Baseline Fix converted into API surface for an imported file. Expect
+# it to equal the file's uncalled function count in a/b/c and 0 in main (popularity
+# 0): a nonzero value is the proof the import chain resolved (ledger
+# api-contextual-baseline-fix).
+DERIVED_KEYS = {"api_orphan_credit": ("arch_api", "raw_arch_api")}
+
+
 def _signal_columns():
-    """{db_column: signal_key} for every SIGNAL_SCHEMA entry."""
+    """{db_column: signal_key} for every SIGNAL_SCHEMA entry (RAW_COLUMNS applied)."""
     if GITGALAXY_PATH not in sys.path:
         sys.path.insert(0, GITGALAXY_PATH)
     from gitgalaxy.recorders.record_keeper import RecordKeeper
     from gitgalaxy.standards.analysis_lens import RECORDING_SCHEMAS
 
-    short_map = RecordKeeper.__init__  # only need the mapping; build it via a throwaway instance
-    keeper = RecordKeeper()
+    keeper = RecordKeeper()  # only need the mapping; build it via a throwaway instance
     schema = RECORDING_SCHEMAS.get("SIGNAL_SCHEMA", [])
-    return {keeper.SHORT_KEY_MAP.get(key, key): key for key in schema}
+    return {
+        RAW_COLUMNS.get(key, keeper.SHORT_KEY_MAP.get(key, key)): key for key in schema
+    }
 
 
 def scan(language_dir, out_dir):
@@ -66,12 +92,17 @@ def observed_signals(db_path, colmap):
     conn.row_factory = sqlite3.Row
     have = {r[1] for r in conn.execute("PRAGMA table_info(file_data)")}
     cols = [c for c in colmap if c in have]
+    derived = {k: v for k, v in DERIVED_KEYS.items() if all(c in have for c in v)}
+    extra = sorted({c for pair in derived.values() for c in pair} - set(cols))
     rows = conn.execute(
-        f"SELECT file_name, file_path, {', '.join(cols)} FROM file_data"
+        f"SELECT file_name, file_path, {', '.join(cols + extra)} FROM file_data"
     ).fetchall()
     out = {}
     for row in rows:
-        out[row["file_name"]] = {colmap[c]: (row[c] or 0) for c in cols}
+        signals = {colmap[c]: (row[c] or 0) for c in cols}
+        for key, (minuend, subtrahend) in derived.items():
+            signals[key] = (row[minuend] or 0) - (row[subtrahend] or 0)
+        out[row["file_name"]] = signals
     return out
 
 

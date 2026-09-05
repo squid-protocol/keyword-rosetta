@@ -2,6 +2,7 @@
 # decoy: nothing risky lives here and the elif word stays in prose
 FROM c
 ARG SHAPE
+EXPOSE 8082
 
 RUN chmod 777 /srv
 USER root

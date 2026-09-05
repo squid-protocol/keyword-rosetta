@@ -1,6 +1,8 @@
 -- Keyword Rosetta control shell: haskell / b
 -- decoy: nothing risky lives here and the case word stays in prose
 
+module B (probeBypass, probeTelemetry, probeState) where
+
 import C
 
 probeBypass :: Int -> Int

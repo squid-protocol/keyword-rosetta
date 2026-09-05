@@ -19,7 +19,8 @@
       "class_start": 0,
       "func_start": 4,
       "args": 0,
-      "api": 0,
+      "api": 1,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1
@@ -40,7 +41,8 @@
       "class_start": 0,
       "func_start": 3,
       "args": 0,
-      "api": 3,
+      "api": 1,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 0,
       "import": 1
@@ -61,7 +63,8 @@
       "class_start": 0,
       "func_start": 3,
       "args": 2,
-      "api": 3,
+      "api": 1,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 0,
       "import": 1
@@ -82,12 +85,13 @@
       "class_start": 0,
       "func_start": 3,
       "args": 0,
-      "api": 3,
+      "api": 1,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 0,
       "import": 0
     }
   },
   "decoys": [],
-  "notes": "functions are grammar rules (name :), args are $$/$n value references (2 in b = $$ + $1), C action-block keywords carry branch/io/risk/etc. yacc has NO _dependency_capture (#include counts import but no DAG edge \u2014 joins m4/scheme in no-dependency-capture-languages; orphans stay unconverted, api 0 everywhere). state 2 = the $$ = $1 assignment + counter++. Locked 2026-08-31. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology \u2014 $$/$n is yacc's nearest parameter surface but `{ $$ = $1; }` also scores state_mutation, so planting actions in the 12 productions would move a planted scored column to fill an unplanted one (ledger args-no-parameter-surface-morphology). GRAPH REBLESS (gitgalaxy#2685, Batch C.2 of gitgalaxy#2669, 2026-09-02): yacc now HAS a _dependency_capture (the prologue #include, the same form its `import` signal counts), so #include \"b.y\" finally produces a DAG edge. popularity 0 -> 1 on a/b/c, which fires galaxyscope's Contextual Baseline Fix (popularity > 0 converts orphaned_logic into api and wipes the debt): api 0 -> 3 on a/b/c, main unchanged at 0. That is the whole manifest delta, and it puts yacc on the same profile as its healthy siblings -- shell already expects api 3/3/3/0 over this identical four-file layout. Attributed to the capture rule alone: with it reverted and only gitgalaxy#2668's resolver fix in place, this gate PASSES unchanged. Ledger: no-dependency-capture-languages (now still_reproduces false)."
+  "notes": "functions are grammar rules (name :), args are $$/$n value references (2 in b = $$ + $1), C action-block keywords carry branch/io/risk/etc. yacc has NO _dependency_capture (#include counts import but no DAG edge — joins m4/scheme in no-dependency-capture-languages; orphans stay unconverted, api 0 everywhere). state 2 = the $$ = $1 assignment + counter++. Locked 2026-08-31. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology — $$/$n is yacc's nearest parameter surface but `{ $$ = $1; }` also scores state_mutation, so planting actions in the 12 productions would move a planted scored column to fill an unplanted one (ledger args-no-parameter-surface-morphology). GRAPH REBLESS (gitgalaxy#2685, Batch C.2 of gitgalaxy#2669, 2026-09-02): yacc now HAS a _dependency_capture (the prologue #include, the same form its `import` signal counts), so #include \"b.y\" finally produces a DAG edge. popularity 0 -> 1 on a/b/c, which fires galaxyscope's Contextual Baseline Fix (popularity > 0 converts orphaned_logic into api and wipes the debt): api 0 -> 3 on a/b/c, main unchanged at 0. That is the whole manifest delta, and it puts yacc on the same profile as its healthy siblings -- shell already expects api 3/3/3/0 over this identical four-file layout. Attributed to the capture rule alone: with it reverted and only gitgalaxy#2668's resolver fix in place, this gate PASSES unchanged. Ledger: no-dependency-capture-languages (now still_reproduces false). api (gitgalaxy#2729): one `%define api.pure full` declaration per file in the declarations section above `%%` (main 1, a 1, b 1, c 1) -- non-function surface; `%define`/`%code`/`%provides`/`%requires` are grammar-level, not per-rule, so one per file is the natural count; no overlap (reflection_metaprogramming counts only %{ %} %%, func_start needs an identifier before a colon); api_orphan_credit and every planted count unchanged."
 }

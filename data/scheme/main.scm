@@ -3,6 +3,9 @@
 ;; keyword rosetta control shell: scheme / main
 ;; decoy: this suite never evaluates and the quit word stays in prose
 (import a)
+(export probe-branch)
+(export probe-io)
+(export probe-risk)
 
 (define (entry argv)
   (probe-branch argv))

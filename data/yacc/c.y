@@ -1,5 +1,6 @@
 /* keyword rosetta control shell: yacc / c */
 /* decoy: tidy remarks stay in prose */
+%define api.pure full
 %%
 probe_cleanup : ONE { free(0); YYFREE(0); } ;
 

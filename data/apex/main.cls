@@ -11,7 +11,7 @@ static Integer entry(Integer argv) {
     return 0;
 }
 
-static Integer probeBranch(Integer flag) {
+global static Integer probeBranch(Integer flag) {
     if (flag > 0) {
         return 1;
     } else {
@@ -20,14 +20,14 @@ static Integer probeBranch(Integer flag) {
     for (;;) {}
 }
 
-static Integer probeIo(Integer route) {
+global static Integer probeIo(Integer route) {
     Http web;
     HttpRequest req;
     HttpResponse res;
     return route;
 }
 
-static Integer probeRisk(Integer payload) {
+global static Integer probeRisk(Integer payload) {
     String rid = '001000000000abc';
     undelete payload;
     return payload;

@@ -10,7 +10,8 @@
       "high_risk_execution": 2,
       "func_start": 4,
       "args": 4,
-      "api": 0,
+      "api": 3,
+      "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
       "import": 1,
@@ -30,6 +31,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
+      "api_orphan_credit": 3,
       "globals": 2,
       "test": 2,
       "safety": 2,
@@ -49,6 +51,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
+      "api_orphan_credit": 3,
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 2,
@@ -68,6 +71,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
+      "api_orphan_credit": 3,
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
@@ -104,5 +108,5 @@
       "outcome": "inert"
     }
   ],
-  "notes": "branch 4 in main = if/else/switch + goto (goto dual branch+high_risk, same shape as fortran's GOTO). globals 1 in main = Environment.Exit's Environment. prefix (csharp globals matches Environment.*, dual with high_risk — finditer-confirmed). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Process.Start\" literal inside ProbeState — b.cs high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
+  "notes": "branch 4 in main = if/else/switch + goto (goto dual branch+high_risk, same shape as fortran's GOTO). globals 1 in main = Environment.Exit's Environment. prefix (csharp globals matches Environment.*, dual with high_risk — finditer-confirmed). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Process.Start\" literal inside ProbeState — b.cs high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. api (gitgalaxy#2729): `public` prefixed on every probe definition (`public static int ProbeX(...)`), 3 per file in main/a/b/c (Entry stays non-public); the rule's `\\b(public|internal)\\b` alternation. No overlap: func_start, args and api_orphan_credit unchanged."
 }

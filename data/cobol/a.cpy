@@ -8,11 +8,14 @@
 
       * ---- shared-state and verification probes ----
        PROBE-GLOBALS.
+           ENTRY 'PROBE-GLOBALS'.
            DISPLAY REGION-ITEM.
            DISPLAY 'PLAIN ALTER DECOY TEXT'.
        PROBE-TEST.
+           ENTRY 'PROBE-TEST'.
            ASSERT RESULT-ONE.
            ZUNIT RESULT-TWO.
        PROBE-SAFETY.
+           ENTRY 'PROBE-SAFETY'.
            VALIDATE RECORD-A.
            CHECK RECORD-B.

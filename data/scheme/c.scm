@@ -1,5 +1,8 @@
 ;; keyword rosetta control shell: scheme / c
 ;; decoy: tidy remarks stay in prose and the work happens elsewhere
+(export probe-cleanup)
+(export probe-debt)
+(export probe-todo)
 
 (define (probe-cleanup conn)
   (close-input-port conn)
