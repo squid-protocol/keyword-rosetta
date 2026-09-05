@@ -12,7 +12,7 @@
       "doc": 1,
       "ownership": 1,
       "import": 1,
-      "api": 0,
+      "api": 4,
       "api_orphan_credit": 0,
       "class_start": 0,
       "state_mutation": 0,
@@ -32,7 +32,7 @@
       "globals": 2,
       "test": 2,
       "safety": 2,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 0,
       "class_start": 0,
       "branch": 0,
@@ -53,7 +53,7 @@
       "telemetry": 2,
       "state_mutation": 2,
       "branch": 0,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 0,
       "class_start": 0,
       "safety": 0,
@@ -72,7 +72,7 @@
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
-      "api": 0,
+      "api": 3,
       "api_orphan_credit": 0,
       "class_start": 0,
       "branch": 0,
@@ -118,5 +118,5 @@
       "outcome": "inert (underscore + lowercase vs case-sensitive \\bHACK\\b); declared without := so no state hit"
     }
   ],
-  "notes": "branch 4 in main = if + elsif + else + the closing 'end if' (ada's closing keyword re-matches \\bif\\b — ledger ada-end-if-branch-inflation; every well-formed ada if statement counts at least 2 branch). state_mutation is := and gets the x3 flux weighting under branch context (b.adb: 2 x 3 = 6, branch context from the string decoy's 'if'). No orphan->api conversion anywhere: ada's api rule is the package declaration (0 planted) and ada procedures are not orphan-tracked (orphaned_logic 0 on all files) so there is nothing to convert — unlike python/js/cobol/fortran/abap/assembly. Assert() counts test only (bare call), pragma-free safety planted via 'exception' + 'range'. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"OS_Exit\" literal inside Probe_State — b.adb high_risk_execution 0->1, branch 1->0, state_mutation 6->2."
+  "notes": "branch 4 in main = if + elsif + else + the closing 'end if' (ada's closing keyword re-matches \\bif\\b — ledger ada-end-if-branch-inflation; every well-formed ada if statement counts at least 2 branch). state_mutation is := and gets the x3 flux weighting under branch context (b.adb: 2 x 3 = 6, branch context from the string decoy's 'if'). No orphan->api conversion anywhere: ada's api rule is the package declaration (0 planted) and ada procedures are not orphan-tracked (orphaned_logic 0 on all files) so there is nothing to convert — unlike python/js/cobol/fortran/abap/assembly. Assert() counts test only (bare call), pragma-free safety planted via 'exception' + 'range'. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"OS_Exit\" literal inside Probe_State — b.adb high_risk_execution 0->1, branch 1->0, state_mutation 6->2. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api 0 -> 3 per file (4 in main). gitgalaxy#2730 gave the api rule a stated contract -- *a declaration that makes a named function or type visible outside this file* -- and under it the rule now counts a column-0 library-level subprogram (a compilation unit of its own; nested ones are indented and private); ledger api-no-plantable-idiom. ada keeps credit 0 either way -- `end Probe_Globals;` repeats the name, so its probes were never orphans under gitgalaxy#2727's name-recurrence census."
 }

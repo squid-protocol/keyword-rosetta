@@ -10,7 +10,7 @@
       "high_risk_execution": 2,
       "func_start": 4,
       "args": 4,
-      "api": 0,
+      "api": 4,
       "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
@@ -31,8 +31,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
-      "api_orphan_credit": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
       "globals": 2,
       "test": 3,
       "safety": 2,
@@ -52,8 +52,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
-      "api_orphan_credit": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 3,
@@ -73,8 +73,8 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 0,
-      "api_orphan_credit": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
@@ -112,5 +112,5 @@
       "outcome": "inert for debt, but the assignment counts state +1 (perl counts $var =)"
     }
   ],
-  "notes": "encapsulation = my declarations (perl lexical-scope morphology; one per sub param + extras, recorded per file). test 3 in a.pl = Test::More + ok( + subtest (ok( is in perl's test rule, finditer-confirmed — assert-overlap family). Locked from hand-verified run 2026-08-31. A.3 (gitgalaxy#2669): main.pl's POD block was UNTERMINATED — '=pod' with no '=cut'. detector.py ~L3042 (the #2239 POD strip) blanks from a POD opener to the next '=cut' or, failing that, to end of file, so the whole of main.pl was invisible to the structural slicer: avg_func_loc 0.0, avg_func_complexity 0.0, func_internal_density 0.0, structural_mass 104.52 against the siblings' 8-11, and functions_found 9 corpus-wide against a 13 median. Closing the block restores 6.75 / 0.75 / 0.111 / 11.9. The only signal it moves is doc 1 -> 2, because '=cut' sits in the same alternation as the POD openers with no pairing — the gitgalaxy#2658 delimiter shape, filed as gitgalaxy#2670 and baked in per GATING. Ledger: perl-pod-delimiter-double-count. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.pl high_risk_execution 0->1, branch 2->0, safety 1->0, io 1->0, state_mutation 9->3. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1."
+  "notes": "encapsulation = my declarations (perl lexical-scope morphology; one per sub param + extras, recorded per file). test 3 in a.pl = Test::More + ok( + subtest (ok( is in perl's test rule, finditer-confirmed — assert-overlap family). Locked from hand-verified run 2026-08-31. A.3 (gitgalaxy#2669): main.pl's POD block was UNTERMINATED — '=pod' with no '=cut'. detector.py ~L3042 (the #2239 POD strip) blanks from a POD opener to the next '=cut' or, failing that, to end of file, so the whole of main.pl was invisible to the structural slicer: avg_func_loc 0.0, avg_func_complexity 0.0, func_internal_density 0.0, structural_mass 104.52 against the siblings' 8-11, and functions_found 9 corpus-wide against a 13 median. Closing the block restores 6.75 / 0.75 / 0.111 / 11.9. The only signal it moves is doc 1 -> 2, because '=cut' sits in the same alternation as the POD openers with no pairing — the gitgalaxy#2658 delimiter shape, filed as gitgalaxy#2670 and baked in per GATING. Ledger: perl-pod-delimiter-double-count. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.pl high_risk_execution 0->1, branch 2->0, safety 1->0, io 1->0, state_mutation 9->3. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api 0 -> 3 per file (4 in main). gitgalaxy#2730 gave the api rule a stated contract -- *a declaration that makes a named function or type visible outside this file* -- and under it the rule now counts a `sub` (package-public, and the only perl form that does not also move a planted state_mutation or import); ledger api-no-plantable-idiom. api_orphan_credit 3 -> 0 follows: a declaration the rule counts is no longer new orphan surface (gitgalaxy#2731/#2734; ledger api-declared-orphans-are-not-new-surface)."
 }

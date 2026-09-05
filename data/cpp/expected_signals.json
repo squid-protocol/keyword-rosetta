@@ -31,7 +31,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "globals": 2,
       "test": 2,
       "safety": 2,
@@ -51,7 +51,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 3,
@@ -71,7 +71,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
@@ -108,5 +108,5 @@
       "outcome": "inert"
     }
   ],
-  "notes": "branch 1 in a.cpp = catch (cpp branch includes catch — dual with safety's try/catch, finditer-confirmed). api 0 raw everywhere (cpp api = export only); a/b/c api 3 is pure orphan conversion. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.cpp high_risk_execution 0->1, branch 1->0, safety 1->0, state_mutation 9->3. api (gitgalaxy#2729): C++20 module-style `export` prefixed on every probe definition (`export int probe_x(...)`), 3 per file in main/a/b/c (entry stays unexported); the rule's `^[ \\t]*export\\b` alternation. Overlap: `export` is also a structural_boundaries keyword (+3 per file, unplanted/ungated); func_start, args and api_orphan_credit unchanged."
+  "notes": "branch 1 in a.cpp = catch (cpp branch includes catch — dual with safety's try/catch, finditer-confirmed). api 0 raw everywhere (cpp api = export only); a/b/c api 3 is pure orphan conversion. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.cpp high_risk_execution 0->1, branch 1->0, safety 1->0, state_mutation 9->3. api (gitgalaxy#2729): C++20 module-style `export` prefixed on every probe definition (`export int probe_x(...)`), 3 per file in main/a/b/c (entry stays unexported); the rule's `^[ \\t]*export\\b` alternation. Overlap: `export` is also a structural_boundaries keyword (+3 per file, unplanted/ungated); func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface."
 }

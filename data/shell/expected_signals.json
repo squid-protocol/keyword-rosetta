@@ -30,7 +30,7 @@
    "func_start": 3,
    "args": 3,
    "api": 3,
-   "api_orphan_credit": 3,
+   "api_orphan_credit": 0,
    "globals": 3,
    "test": 2,
    "safety": 2,
@@ -50,7 +50,7 @@
    "func_start": 3,
    "args": 3,
    "api": 3,
-   "api_orphan_credit": 3,
+   "api_orphan_credit": 0,
    "safety_bypasses": 2,
    "telemetry": 2,
    "state_mutation": 2,
@@ -70,7 +70,7 @@
    "func_start": 3,
    "args": 3,
    "api": 3,
-   "api_orphan_credit": 3,
+   "api_orphan_credit": 0,
    "cleanup": 2,
    "fragile_debt": 1,
    "planned_debt": 1,
@@ -118,5 +118,5 @@
    "outcome": "inert (underscore + lowercase)"
   }
  ],
- "notes": "branch 5 in main = if + then + fi + the test brackets [ and ] (shell's branch rule counts them — finditer: if,[,],then,fi; every bracketed test costs +2 branch; ledger shell-test-brackets-in-branch). globals 3 in a.sh = PATH + HOME + the TERM signal name in 'trap : TERM' colliding with the TERM env var (ledger shell-trap-signal-env-collision). args planted as one ': \"$1\"' per function (shell args = positional-parameter mentions, epic #1518 precedent). api = 0 planted (no export); a/b api 4 vs c api 3 — conversion exceeds the 3 visible function orphans by 1 in the files carrying a source line (ledger orphan-conversion-opaque-counts, not root-caused). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"sudo\" literal inside probe_state — b.sh high_risk_execution 0->1, branch 1->0, io 1->0, safety_bypasses 3->2, state_mutation 6->2. api (gitgalaxy#2729): one top-level `export PROBE_<name>=1` variable export per probe function (main 3, a 3, b 3, c 3) -- the rule `^[ \\t]*export\\\\s+NAME` accepts variable exports only, so the genuine function-export idiom `export -f name` (bash-only; main.sh is #!/bin/sh) is invisible to it (rule too narrow); overlap: structural_boundaries +3 per file (ungated); api_orphan_credit and every planted count unchanged."
+ "notes": "branch 5 in main = if + then + fi + the test brackets [ and ] (shell's branch rule counts them — finditer: if,[,],then,fi; every bracketed test costs +2 branch; ledger shell-test-brackets-in-branch). globals 3 in a.sh = PATH + HOME + the TERM signal name in 'trap : TERM' colliding with the TERM env var (ledger shell-trap-signal-env-collision). args planted as one ': \"$1\"' per function (shell args = positional-parameter mentions, epic #1518 precedent). api = 0 planted (no export); a/b api 4 vs c api 3 — conversion exceeds the 3 visible function orphans by 1 in the files carrying a source line (ledger orphan-conversion-opaque-counts, not root-caused). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"sudo\" literal inside probe_state — b.sh high_risk_execution 0->1, branch 1->0, io 1->0, safety_bypasses 3->2, state_mutation 6->2. api (gitgalaxy#2729): one top-level `export PROBE_<name>=1` variable export per probe function (main 3, a 3, b 3, c 3) -- the rule `^[ \\t]*export\\\\s+NAME` accepts variable exports only, so the genuine function-export idiom `export -f name` (bash-only; main.sh is #!/bin/sh) is invisible to it (rule too narrow); overlap: structural_boundaries +3 per file (ungated); api_orphan_credit and every planted count unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): the api plant moved from `export PROBE_GLOBALS=1` to `export -f probe_globals`. gitgalaxy#2730 made the `-f` form matchable -- the old rule demanded a bare identifier straight after `export`, so shell could only ever measure exported VARIABLES, and the plant's variable name merely resembled the probe. api is unchanged at 3 per file; api_orphan_credit drops 3 -> 0 because `export -f probe_globals` names the function, which ends its orphan status under gitgalaxy#2727's name-recurrence census -- ledger api-export-names-suppress-orphan-credit."
 }
