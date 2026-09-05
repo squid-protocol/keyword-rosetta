@@ -10,3 +10,4 @@ jobs:
       - run: ':'
 # HACK: shortcut kept deliberately for the rosetta corpus
 # TODO: fill in the probe body later
+# [SPEC-2732] traceability tag for the rosetta corpus
