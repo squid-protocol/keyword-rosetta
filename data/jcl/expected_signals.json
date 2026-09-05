@@ -19,7 +19,7 @@
       "class_start": 1,
       "func_start": 4,
       "args": 4,
-      "api": 0,
+      "api": 1,
       "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 1,
@@ -55,7 +55,7 @@
       "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
-      "globals": 0,
+      "globals": 2,
       "test": 0,
       "safety": 0,
       "safety_bypasses": 2,
@@ -77,7 +77,7 @@
     },
     "c.jcl": {
       "branch": 0,
-      "io": 0,
+      "io": 2,
       "high_risk_execution": 0,
       "globals": 0,
       "test": 0,
@@ -85,7 +85,7 @@
       "safety_bypasses": 0,
       "telemetry": 0,
       "state_mutation": 0,
-      "cleanup": 0,
+      "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
       "class_start": 0,
@@ -101,5 +101,5 @@
     }
   },
   "decoys": [],
-  "notes": "JCL morphology: functions are EXEC steps, the JOB card is class_start (program-unit exception, cobol family), args = PARM= (one per EXEC step, 13 total since gitgalaxy#2610-era re-authoring), state = SET statements, io = DSN/DISP=/SYSOUT operands. EXEC PGM= is high_risk per occurrence, so probes use the EXEC <proc> form and only probe_risk/STEP2 carry PGM= (x2). gitgalaxy#2610 (PR #2611) gave jcl a live comment surface (//* lines now stripped by prism) plus safety=COND= RC-tests, safety_bypasses=COND=EVEN/ONLY, telemetry=MSGLEVEL=/MSGCLASS=, and the shared comment-anchored debt rules -- all planted here. COND= is once-per-EXEC, so safety's 2 occurrences sit on the PROBETEST/PROBESAFE steps and the bypass forms on PROBEBYP/PROBESTATE; MSGLEVEL/MSGCLASS ride PROBETEL as EXEC-proc symbolic overrides (JOB-card operands otherwise). jcl defines NO api rule yet a/b/c record api 3 -- pure orphan conversion (INCLUDE MEMBER=a chain RESOLVES with lowercase member names; uppercase members would hit gitgalaxy#2540). cleanup deliberately unplanted: DISP=(...,DELETE) is the honest idiom but DISP= feeds io, ledgered as morphology (see deviation ledger). doc/test/globals remain 0 by absence (no JCL doc idiom / test concept / scoped-vs-global distinction). Locked 2026-08-31, re-baselined 2026-08-31 after gitgalaxy#2610. gitgalaxy#2732 (PR #2736) added the two remaining comment-stream rules the #2610 pass left behind -- dead_code (a statement commented out by turning // into //*, JCL's universal idiom) and spec_exposure (the generic [SPEC-n]/[spec]/[audit] tag, //*-anchored). Both are planted once, on c.jcl, alongside the other two comment-stream signals (fragile_debt/planned_debt): //*PROBEDEAD EXEC ... is the commented-out statement, //* [SPEC-2732] ... the tag. Paired plant, not optional -- docs/GATING.md's n/a semantics end a cell's exemption the moment its rule stops being None, so unplanted these would have landed as manufactured measured-0s. Ledger entry comment-stream-rules-missing-jcl-yaml retires with this."
+  "notes": "JCL morphology: functions are EXEC steps, the JOB card is class_start (program-unit exception, cobol family), args = PARM= (one per EXEC step, 13 total since gitgalaxy#2610-era re-authoring), state = SET statements, io = DSN/DISP=/SYSOUT operands. EXEC PGM= WAS high_risk per occurrence, so probes use the EXEC <proc> form and only probe_risk/STEP2 carry PGM= (x2); #2751 narrowed the rule to the command executors -- see the #2748-#2751 paragraph below. gitgalaxy#2610 (PR #2611) gave jcl a live comment surface (//* lines now stripped by prism) plus safety=COND= RC-tests, safety_bypasses=COND=EVEN/ONLY, telemetry=MSGLEVEL=/MSGCLASS=, and the shared comment-anchored debt rules -- all planted here. COND= is once-per-EXEC, so safety's 2 occurrences sit on the PROBETEST/PROBESAFE steps and the bypass forms on PROBEBYP/PROBESTATE; MSGLEVEL/MSGCLASS ride PROBETEL as EXEC-proc symbolic overrides (JOB-card operands otherwise). jcl defined NO api rule until #2748, yet a/b/c record api_orphan_credit 3 -- pure orphan conversion (INCLUDE MEMBER=a chain RESOLVES with lowercase member names; uppercase members would hit gitgalaxy#2540). cleanup was deliberately unplanted (DISP=(...,DELETE) is the honest idiom but DISP= feeds io, ledgered as morphology) until #2749 -- see below. doc/test remain 0 by absence (no JCL doc idiom, no JCL test concept); globals was 0 by absence until #2750 found the scoped-vs-global distinction in JOBLIB/SET/EXPORT SYMLIST. Locked 2026-08-31, re-baselined 2026-08-31 after gitgalaxy#2610. gitgalaxy#2732 (PR #2736) added the two remaining comment-stream rules the #2610 pass left behind -- dead_code (a statement commented out by turning // into //*, JCL's universal idiom) and spec_exposure (the generic [SPEC-n]/[spec]/[audit] tag, //*-anchored). Both are planted once, on c.jcl, alongside the other two comment-stream signals (fragile_debt/planned_debt): //*PROBEDEAD EXEC ... is the commented-out statement, //* [SPEC-2732] ... the tag. Paired plant, not optional -- docs/GATING.md's n/a semantics end a cell's exemption the moment its rule stops being None, so unplanted these would have landed as manufactured measured-0s. Ledger entry comment-stream-rules-missing-jcl-yaml retires with this. gitgalaxy#2748-#2751 (2026-09-05, one engine PR): main.jcl declares //ROSPROC PROC ... // PEND around STEP2 (api 1, file-level -- ledger api-non-function-surfaces; func_start stays 4); PROBERISK and STEP2 are re-planted as PGM=IKJEFT01 / PGM=BPXBATCH, the command executors #2751's narrowed high_risk_execution counts (2, planted; IEFBR14 no longer counts, so the 'probes use EXEC <proc>' note above is history -- the proc form stays because it is what the corpus measures); c.jcl's probe_cleanup gains two teardown DDs, DSN=&&TMP1,DISP=(OLD,DELETE) and DSN=&&TMP2,DISP=(,DELETE) (cleanup 2 = planted; io +2 ledgered probe-idiom-collides-with-measured-signal; DD3 is also the DISP=OLD plant #2742 owed, sync_locks 1); b.jcl's two SET lines now read globals 2 with no new plant (batch4-dual-keyword-overlaps, the dockerfile ENV dual). doc/test remain 0 by absence, re-checked."
 }
