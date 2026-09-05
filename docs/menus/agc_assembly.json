@@ -1,11 +1,7 @@
 {
   "api": {
     "core": true,
-    "keywords": [
-      "SUBROUTINE",
-      "BEXT",
-      "EXTEND"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "args": {
@@ -27,8 +23,6 @@
   "branch": {
     "core": true,
     "keywords": [
-      "TC",
-      "TCF",
       "BZF",
       "BZMF",
       "BZE",
@@ -36,13 +30,8 @@
       "BPL",
       "BMI",
       "CCS",
-      "RESUME",
-      "RETURN",
-      "TCR",
       "OVSK",
-      "BVBZ",
-      "CALL",
-      "GOTO"
+      "BVBZ"
     ],
     "pattern_defined": true
   },
@@ -387,7 +376,6 @@
       "MULT",
       "DV",
       "MASK",
-      "CCS",
       "SETLOC",
       "BANK",
       "COUNT",
@@ -395,7 +383,14 @@
       "OCTAL",
       "DEC",
       "BLOCK",
-      "ERASE"
+      "ERASE",
+      "TCF",
+      "TCR",
+      "TC",
+      "CALL",
+      "GOTO",
+      "RESUME",
+      "RETURN"
     ],
     "pattern_defined": true
   },

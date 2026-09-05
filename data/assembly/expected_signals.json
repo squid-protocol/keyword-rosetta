@@ -4,7 +4,7 @@
   "generator": "claude-sonnet-5 (hand-verified reference)",
   "files": {
     "main.asm": {
-      "branch": 10,
+      "branch": 3,
       "io": 3,
       "high_risk_execution": 2,
       "func_start": 4,
@@ -34,7 +34,7 @@
       "globals": 2,
       "test": 2,
       "safety": 2,
-      "branch": 4,
+      "branch": 0,
       "class_start": 0,
       "state_mutation": 0,
       "high_risk_execution": 0,
@@ -53,8 +53,8 @@
       "api_orphan_credit": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 6,
-      "branch": 5,
+      "state_mutation": 2,
+      "branch": 0,
       "io": 0,
       "class_start": 0,
       "safety": 0,
@@ -74,7 +74,7 @@
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
-      "branch": 5,
+      "branch": 0,
       "class_start": 0,
       "state_mutation": 0,
       "io": 0,
@@ -106,7 +106,7 @@
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign, wave 3): sys_exit COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword. Retiring the shared sentence dropped branch 6->5 (its 'jmp') and io 1->0 (its 'syscall'). state_mutation stays 6: probe_state's own 'ret' is a branch keyword too, so the x3 flux weighting on inc/dec survives the loss of the phantom jmp — unlike the other 35 languages, where the retired 'if' was the only branch in that scope. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign, wave 3): sys_exit COUNTS from inside the literal (+1), undampened -- probe_state carries no safety keyword. Retiring the shared sentence dropped branch 6->5 (its 'jmp') and io 1->0 (its 'syscall'). state_mutation was 6 until gitgalaxy#2764: probe_state's own 'ret' used to be a branch keyword, so the x3 flux weighting survived the loss of the phantom jmp. With call/ret/jmp out of `branch`, b.asm has no branch context at all and state_mutation reads its raw 2 (inc + dec) -- the same de-amplification #2634 produced for apex. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.asm",
@@ -118,5 +118,5 @@
       "outcome": "inert (underscore + lowercase)"
     }
   ],
-  "notes": "branch counts call/ret as control transfers (correct asm morphology, ledger asm-call-ret-in-branch): main 10 = 3 call + 4 ret + jmp/je/jne; c 5 = 3 ret + 2 'call free' (each cleanup plant also counts branch via its call). a.asm branch 4 = 3 ret + the ARM mnemonic 'b' matching the literal filename inside %include \"b.asm\" (ledger asm-single-letter-mnemonic-in-path — single-letter mnemonics collide with prose/paths wherever literals count). args = calling-convention register mentions (one 'mov rdi, N' per probe = 13 corpus-wide; rax/rbx deliberately used elsewhere as they are NOT in the args register list). api = 0 planted + orphan conversion (a/b/c: 3 each). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 — gitgalaxy#2669 A.3): danger-only 'plain sys_exit decoy text' inside probe_state — b.asm branch 6->5, io 1->0, high_risk_execution 0->1. state_mutation stays 6 because probe_state's 'ret' is itself a branch keyword, so the x3 flux weighting survives the retired 'jmp'. api (gitgalaxy#2729): one NASM `global probe_x` directive per probe label (the dialect the shell already uses: %include, section .data, db), placed directly after the %include line (after the header in c.asm), count 3 per file main/a/b/c (dispatch not exported); matches only assembly's api rule (its globals rule is section/.data/.bss, not the `global` directive). api_orphan_credit 3->0 in a/b/c: the directive is a second \\w+ occurrence of each label's name in its file, and the orphan check is name-recurrence (token_counts[name] <= 1), so nothing is left for the Contextual Baseline Fix to convert — the %include chain still resolves (import 1 per link, unchanged); the credit is lost to the plant, not to the DAG."
+  "notes": "branch = the three CONDITIONAL jumps planted in probe_branch (jz/je/jne), 3 corpus-wide, all in main.asm; a/b/c read 0. Until gitgalaxy#2764 the branch rule also matched jmp|call|ret|b|bl|bx|blr, so every probe body's `ret` and every glue `call` counted a decision (main 10, a 4, b 5, c 5 = 25 hits of which 23 were transfers) -- ledger asm-call-ret-in-branch, now retired. #2764 relocated those tokens to structural_boundaries, which the SPEC does not plant and this manifest does not assert; total branch+structural mass per file is unchanged. probe_branch's third plant was `jmp` and was re-authored to `jz` in the same pass: `jmp` is an unconditional transfer, so leaving it would have left probe_branch planting two conditionals against SPEC's three. a.asm's 4th hit was the ARM mnemonic 'b' matching the literal filename inside %include \"b.asm\" (ledger asm-single-letter-mnemonic-in-path) -- that collision now lands on structural_boundaries instead, so it no longer claims a decision. args = calling-convention register mentions (one 'mov rdi, N' per probe = 13 corpus-wide; rax/rbx deliberately used elsewhere as they are NOT in the args register list). api = 0 planted + orphan conversion (a/b/c: 3 each). Locked from hand-verified run 2026-08-31; branch + b.asm state_mutation re-blessed 2026-09-05 against gitgalaxy#2764. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 -- gitgalaxy#2669 A.3): danger-only 'plain sys_exit decoy text' inside probe_state -- b.asm io 1->0, high_risk_execution 0->1. api (gitgalaxy#2729): one NASM `global probe_x` directive per probe label (the dialect the shell already uses: %include, section .data, db), placed directly after the %include line (after the header in c.asm), count 3 per file main/a/b/c (dispatch not exported); matches only assembly's api rule (its globals rule is section/.data/.bss, not the `global` directive). api_orphan_credit 3->0 in a/b/c: the directive is a second \\w+ occurrence of each label's name in its file, and the orphan check is name-recurrence (token_counts[name] <= 1), so nothing is left for the Contextual Baseline Fix to convert -- the %include chain still resolves (import 1 per link, unchanged); the credit is lost to the plant, not to the DAG."
 }

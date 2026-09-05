@@ -4,9 +4,7 @@
     "keywords": [
       "global",
       "EXPORT",
-      "PUBLIC",
-      "EXTERN",
-      "IMPORT"
+      "PUBLIC"
     ],
     "pattern_defined": true
   },
@@ -42,7 +40,6 @@
   "branch": {
     "core": true,
     "keywords": [
-      "jmp",
       "je",
       "jne",
       "jz",
@@ -55,11 +52,6 @@
       "jle",
       "jae",
       "jbe",
-      "call",
-      "ret",
-      "bl",
-      "bx",
-      "blr",
       "cbz",
       "cbnz",
       "tbz",
@@ -385,7 +377,13 @@
       "idiv",
       "nop",
       "ldp",
-      "stp"
+      "stp",
+      "jmp",
+      "call",
+      "ret",
+      "blr",
+      "bl",
+      "bx"
     ],
     "pattern_defined": true
   },
