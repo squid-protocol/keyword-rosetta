@@ -52,7 +52,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [tcl](#tcl) | 8 | 2 | 0 | 8 | #2535 #2546 #2727 #2731 |
 | [typescript](#typescript) | 0 | 2 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 |
 | [yacc](#yacc) | 4 | 0 | 2 | 8 | #2644 #2689 #2729 |
-| [yaml](#yaml) | 5 | 1 | 0 | 12 | #2646 #2647 #2689 #2727 #2729 #2732 |
+| [yaml](#yaml) | 4 | 1 | 0 | 12 | #2646 #2647 #2689 #2727 #2729 #2732 |
 | [zig](#zig) | 0 | 1 | 0 | 6 | #2535 #2545 #2651 #2730 #2731 |
 
 ## abap
@@ -1384,7 +1384,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `args`: 0 vs median 13 (-100%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
 - 🔴 `raw_state_slop_orphans`: 0 vs median 2.5 (-100%)
