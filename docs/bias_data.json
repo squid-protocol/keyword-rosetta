@@ -2133,7 +2133,7 @@
    "html": 0.0,
    "java": 0.0,
    "javascript": 0.0,
-   "jcl": 0.0,
+   "jcl": 5.786875,
    "kotlin": 0.0,
    "livecode": 0.0,
    "lua": 0.0,
@@ -2181,7 +2181,7 @@
    "html": 21.521725,
    "java": 38.255174999999994,
    "javascript": 38.255174999999994,
-   "jcl": 29.8964,
+   "jcl": 29.345525,
    "kotlin": 38.255174999999994,
    "livecode": 41.665099999999995,
    "lua": 41.665099999999995,
@@ -2205,7 +2205,7 @@
    "tcl": 38.255174999999994,
    "typescript": 38.255174999999994,
    "yacc": 50.11035,
-   "yaml": 16.833925,
+   "yaml": 16.67365,
    "zig": 38.255174999999994
   },
   "risk_safety_score": {
@@ -2325,7 +2325,7 @@
    "html": 0.0,
    "java": 100.0,
    "javascript": 100.0,
-   "jcl": 100.0,
+   "jcl": 91.666675,
    "kotlin": 100.0,
    "livecode": 100.0,
    "lua": 100.0,
@@ -2349,7 +2349,7 @@
    "tcl": 100.0,
    "typescript": 100.0,
    "yacc": 100.0,
-   "yaml": 100.0,
+   "yaml": 93.75,
    "zig": 100.0
   },
   "risk_state_flux": {
@@ -2517,7 +2517,7 @@
    "html": 11.5,
    "java": 25.25,
    "javascript": 26,
-   "jcl": 9.75,
+   "jcl": 10.25,
    "kotlin": 25.25,
    "livecode": 22,
    "lua": 23.5,
@@ -2541,7 +2541,7 @@
    "tcl": 25.5,
    "typescript": 25.5,
    "yacc": 12.25,
-   "yaml": 16.75,
+   "yaml": 17,
    "zig": 25
   },
   "coding_loc": {
@@ -2613,7 +2613,7 @@
    "html": 88.75,
    "java": 126.5,
    "javascript": 137.25,
-   "jcl": 108.5,
+   "jcl": 116.25,
    "kotlin": 132.25,
    "livecode": 125,
    "lua": 111,
@@ -2637,7 +2637,7 @@
    "tcl": 131.75,
    "typescript": 140.25,
    "yacc": 88.5,
-   "yaml": 97.75,
+   "yaml": 102,
    "zig": 146
   },
   "keyword_hits": {
@@ -2661,7 +2661,7 @@
    "html": 79,
    "java": 144,
    "javascript": 200,
-   "jcl": 78,
+   "jcl": 80,
    "kotlin": 184,
    "livecode": 131,
    "lua": 143,
@@ -2685,7 +2685,7 @@
    "tcl": 142,
    "typescript": 190,
    "yacc": 59,
-   "yaml": 103,
+   "yaml": 104,
    "zig": 187
   },
   "avg_func_loc": {
@@ -2757,7 +2757,7 @@
    "html": 10,
    "java": 12,
    "javascript": 12,
-   "jcl": 11,
+   "jcl": 13,
    "kotlin": 12,
    "livecode": 12,
    "lua": 12,
@@ -2781,7 +2781,7 @@
    "tcl": 12,
    "typescript": 12,
    "yacc": 12,
-   "yaml": 10,
+   "yaml": 11,
    "zig": 12
   },
   "control_flow_ratio": {
@@ -2949,7 +2949,7 @@
    "html": 0,
    "java": 0,
    "javascript": 0,
-   "jcl": 0,
+   "jcl": 1,
    "kotlin": 0,
    "livecode": 0,
    "lua": 0,
@@ -3189,7 +3189,7 @@
    "html": 0,
    "java": 0,
    "javascript": 0,
-   "jcl": 0,
+   "jcl": 1,
    "kotlin": 0,
    "livecode": 0,
    "lua": 0,
@@ -3213,7 +3213,7 @@
    "tcl": 0,
    "typescript": 0,
    "yacc": 0,
-   "yaml": 0,
+   "yaml": 1,
    "zig": 0
   },
   "sync_locks": {
