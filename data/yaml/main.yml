@@ -4,6 +4,16 @@ name: rosetta-main
 author: keyword-rosetta generator
 on:
   push:
+  workflow_dispatch:
+    inputs:
+      probe_branch:
+        required: false
+      probe_io:
+        required: false
+      probe_risk:
+        required: false
+      entry:
+        required: false
 jobs:
   dispatch:
     uses: ./a.yml
