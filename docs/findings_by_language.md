@@ -9,7 +9,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | language | red-zone metrics | amber | n/a cells | ledgered shapes | upstream issues |
 |---|---|---|---|---|---|
 | [abap](#abap) | 0 | 2 | 0 | 5 | #2535 #2650 #2659 #2727 #2730 #2731 |
-| [ada](#ada) | 1 | 6 | 0 | 7 | #2535 #2546 #2727 |
+| [ada](#ada) | 1 | 6 | 0 | 5 | #2535 #2546 #2727 |
 | [agc_assembly](#agc_assembly) | 4 | 4 | 1 | 7 | #2535 #2650 #2659 #2729 |
 | [apex](#apex) | 3 | 3 | 0 | 10 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 |
 | [assembly](#assembly) | 10 | 0 | 0 | 6 | #2535 #2546 #2727 |
@@ -19,12 +19,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [csharp](#csharp) | 0 | 4 | 0 | 6 | #2535 #2546 #2730 #2731 |
 | [css](#css) | 9 | 3 | 5 | 16 | #2655 #2689 #2727 #2729 |
 | [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
-| [dockerfile](#dockerfile) | 7 | 8 | 0 | 14 | #2535 #2546 #2547 #2689 #2727 #2728 #2729 |
+| [dockerfile](#dockerfile) | 7 | 8 | 0 | 12 | #2535 #2546 #2547 #2689 #2727 #2728 #2729 |
 | [embedded_python](#embedded_python) | 4 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 |
 | [fortran](#fortran) | 2 | 5 | 0 | 10 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 |
 | [go](#go) | 2 | 1 | 0 | 9 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 |
 | [groovy](#groovy) | 0 | 1 | 0 | 6 | #2535 #2689 #2730 #2731 |
-| [haskell](#haskell) | 7 | 3 | 0 | 12 | #2535 #2689 #2727 #2729 |
+| [haskell](#haskell) | 7 | 3 | 0 | 10 | #2535 #2689 #2727 #2729 |
 | [html](#html) | 12 | 5 | 2 | 15 | #2549 #2645 #2650 #2655 #2659 #2689 #2727 #2729 |
 | [java](#java) | 0 | 0 | 0 | 7 | #2535 #2546 #2655 #2689 #2730 #2731 |
 | [javascript](#javascript) | 0 | 5 | 0 | 12 | #2535 #2539 #2655 #2689 #2730 #2731 |
@@ -52,7 +52,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [tcl](#tcl) | 8 | 2 | 0 | 8 | #2535 #2546 #2727 #2731 |
 | [typescript](#typescript) | 0 | 2 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 |
 | [yacc](#yacc) | 4 | 0 | 2 | 8 | #2644 #2689 #2729 |
-| [yaml](#yaml) | 5 | 2 | 0 | 14 | #2646 #2647 #2689 #2727 #2729 #2732 |
+| [yaml](#yaml) | 5 | 2 | 0 | 12 | #2646 #2647 #2689 #2727 #2729 #2732 |
 | [zig](#zig) | 0 | 1 | 0 | 6 | #2535 #2545 #2651 #2730 #2731 |
 
 ## abap
@@ -93,8 +93,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
-| `risk-documentation-zero-evidence-guard` | engine-semantic | — | — | _calc_documentation (signal_processor.py L1535-L1553) builds measured_risk = opaque_execution + api x 2.0 and returns 0.0 when it is zero: 'a file with no public surface… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.adb | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.adb | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `ada-end-if-branch-inflation` | keyword-overlap | — | (notes) | ada's closing 'end if' re-matches \bif\b: every well-formed if statement counts branch at least twice (if + end if) |
@@ -413,8 +411,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
-| `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
-| `risk-documentation-zero-evidence-guard` | engine-semantic | — | — | _calc_documentation (signal_processor.py L1535-L1553) builds measured_risk = opaque_execution + api x 2.0 and returns 0.0 when it is zero: 'a file with no public surface… |
 | `slicer-segments-statements-not-functions` | engine-semantic | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry) |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.dockerfile | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dockerfile | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
@@ -564,8 +560,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
 | `haskell-caf-bindings-count-as-functions` | engine-semantic | — | (notes) | Top-level value bindings (CAFs like 'region = unsafePerformIO ...') count func_start/args like any function binding — morphologically correct for haskell, where top-leve… |
-| `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
-| `risk-documentation-zero-evidence-guard` | engine-semantic | — | — | _calc_documentation (signal_processor.py L1535-L1553) builds measured_risk = opaque_execution + api x 2.0 and returns 0.0 when it is zero: 'a file with no public surface… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.hs | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
@@ -1411,8 +1405,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
-| `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
-| `risk-documentation-zero-evidence-guard` | engine-semantic | — | — | _calc_documentation (signal_processor.py L1535-L1553) builds measured_risk = opaque_execution + api x 2.0 and returns 0.0 when it is zero: 'a file with no public surface… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `no-lock-construct-sync-locks` | intended-morphology | — | — | No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms reado… |
 | `no-visibility-construct-encapsulation` | intended-morphology | — | — | No visibility/privacy construct: jcl -- PROCs and symbolic parameters are parameterization, not privacy; nothing in JCL syntax hides one statement from another |

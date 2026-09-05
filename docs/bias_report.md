@@ -19,8 +19,8 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 185 | a validated deviation-ledger entry names this language and this metric |
-| derived | 115 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| ledgered | 180 | a validated deviation-ledger entry names this language and this metric |
+| derived | 120 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **0** | **survived all three -- the real work remaining** |
 
 ## The language-level risk constant is design; the report bands within it
