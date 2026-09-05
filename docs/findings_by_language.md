@@ -600,7 +600,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 - 🟡 `risk_api_exposure`: 4.04143 vs median 7.0517 (-43%)
-- 🟡 `risk_documentation`: 21.5217 vs median 16.8339 (+28%)
+- 🟡 `risk_documentation`: 21.5217 vs median 16.6736 (+29%)
 
 **Not expressible as measured (n/a):** `globals`, `state_mutation`
 
@@ -692,7 +692,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 - 🟡 `raw_state_slop_orphans`: 3.25 vs median 2.5 (+30%)
-- 🟡 `risk_documentation`: 29.8964 vs median 41.6651 (-28%)
+- 🟡 `risk_documentation`: 29.3455 vs median 41.6651 (-30%)
 
 **Not expressible as measured (n/a):** `cleanup`, `doc`, `globals`, `test`
 
@@ -712,7 +712,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `no-visibility-construct-encapsulation` | intended-morphology | — | — | No visibility/privacy construct: jcl -- PROCs and symbolic parameters are parameterization, not privacy; nothing in JCL syntax hides one statement from another |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
-| `comment-stream-rules-missing-jcl-yaml` | upstream-question | [#2732](https://github.com/squid-protocol/gitgalaxy/issues/2732) | — | Missing rules, not morphology |
+| `comment-stream-rules-missing-jcl-yaml` | upstream-question | [#2732](https://github.com/squid-protocol/gitgalaxy/issues/2732) | (notes) | RESOLVED by gitgalaxy#2732 (PR #2736); corpus plants land in this repo's companion PR |
 | `jcl-sync-locks-disp-enq-question` | upstream-question | [#2733](https://github.com/squid-protocol/gitgalaxy/issues/2733) | — | Real serialization morphology with a rule-design conflict: DISP=OLD/MOD request an exclusive system ENQ on a dataset (DISP=SHR shared) -- z/OS's native lock idiom, and t… |
 
 
@@ -1418,7 +1418,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `no-visibility-construct-encapsulation` | intended-morphology | — | — | No visibility/privacy construct: jcl -- PROCs and symbolic parameters are parameterization, not privacy; nothing in JCL syntax hides one statement from another |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
-| `comment-stream-rules-missing-jcl-yaml` | upstream-question | [#2732](https://github.com/squid-protocol/gitgalaxy/issues/2732) | — | Missing rules, not morphology |
+| `comment-stream-rules-missing-jcl-yaml` | upstream-question | [#2732](https://github.com/squid-protocol/gitgalaxy/issues/2732) | (notes) | RESOLVED by gitgalaxy#2732 (PR #2736); corpus plants land in this repo's companion PR |
 | `yaml-cleanup-embedded-teardown-gap` | upstream-question | [#2647](https://github.com/squid-protocol/gitgalaxy/issues/2647) | — | yaml's cleanup is None |
 | `yaml-ownership-author-key-gap` | upstream-question | [#2646](https://github.com/squid-protocol/gitgalaxy/issues/2646) | — | yaml's ownership is None, but the two ecosystems this language definition explicitly targets each carry a standard single-key ownership field: action.yml's top-level aut… |
 
