@@ -20,6 +20,11 @@ on:
       - "tools/**"
       - "SPEC.md"
       - ".github/workflows/verify.yml"
+      # A ledger/baseline-only PR must still run na_check (it exists to stop a
+      # ledger edit reintroducing an unreviewed absence) -- same gap shape as
+      # the ENGINE_REF line above (keyword-rosetta#14's lesson).
+      - "deviation_ledger.json"
+      - "docs/na_baseline.json"
   workflow_dispatch:
     inputs:
       engine_ref:
