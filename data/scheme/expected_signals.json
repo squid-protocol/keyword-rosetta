@@ -43,7 +43,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3
+      "api_orphan_credit": 0
     },
     "b.scm": {
       "class_start": 0,
@@ -63,7 +63,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3
+      "api_orphan_credit": 0
     },
     "c.scm": {
       "class_start": 0,
@@ -83,7 +83,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0
     }
@@ -108,5 +108,5 @@
       "outcome": "INERT (fixed): gitgalaxy#2537 (PR #2622) hyphenated-identifier guards — \\bTODO\\b no longer matches inside the probe-todo symbol; c.scm planned_debt re-baselined 2→1 (the ;; TODO: comment only). Kebab-case symbols no longer feed debt scoring."
     }
   ],
-  "notes": "scheme now HAS _dependency_capture (gitgalaxy#2652, RESOLVED): (import a) produces a real DAG edge, matching every sibling brace-family language. Orphan->api conversion fires: a/b/c.scm each have 3 uncalled probe functions in an imported file -> api 0->3 each (main stays 4, imported by nobody). Top-level (define name value) counts globals, (define (name ...)) counts func -- cleanly separated. Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2652. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probe-state — b.scm no count moved. api (gitgalaxy#2729): one `(export probe-x)` form per probe function, placed directly after the (import ...) line (after the header in c.scm), count 3 per file main/a/b/c (entry not exported); matches only scheme's api rule — no overlap, the import capture from gitgalaxy#2652 is untouched and api_orphan_credit stays 3/3/3 in a/b/c, 0 in main."
+  "notes": "scheme now HAS _dependency_capture (gitgalaxy#2652, RESOLVED): (import a) produces a real DAG edge, matching every sibling brace-family language. Orphan->api conversion fires: a/b/c.scm each have 3 uncalled probe functions in an imported file -> api 0->3 each (main stays 4, imported by nobody). Top-level (define name value) counts globals, (define (name ...)) counts func -- cleanly separated. Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2652. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probe-state — b.scm no count moved. api (gitgalaxy#2729): one `(export probe-x)` form per probe function, placed directly after the (import ...) line (after the header in c.scm), count 3 per file main/a/b/c (entry not exported); matches only scheme's api rule — no overlap, the import capture from gitgalaxy#2652 is untouched and api_orphan_credit stays 3/3/3 in a/b/c, 0 in main. 2026-09-05 (keyword-rosetta#59): api_orphan_credit 3 -> 0 in a/b/c. gitgalaxy#2754 fixed an orphan census that tokenised with `\\b\\w+\\b` and so could never produce a token containing a hyphen -- every `probe-globals`-style name counted zero occurrences and read as an orphan however many times it was named. The probes are now correctly seen in their own `(export probe-x)` lines, so nothing converts. Ledger api-declared-orphans-are-not-new-surface."
 }
