@@ -3434,33 +3434,33 @@
    "jcl": "ledgered"
   },
   "risk_api_exposure": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "risk_cognitive_load": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "risk_concurrency": {
-   "markdown": "unreviewed",
-   "css": "unreviewed",
-   "jcl": "unreviewed",
-   "m4": "unreviewed",
-   "yacc": "unreviewed"
+   "markdown": "ledgered",
+   "css": "ledgered",
+   "jcl": "ledgered",
+   "m4": "ledgered",
+   "yacc": "ledgered"
   },
   "risk_dead_code": {
-   "markdown": "unreviewed",
-   "jcl": "unreviewed"
+   "markdown": "ledgered",
+   "jcl": "ledgered"
   },
   "risk_documentation": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "risk_safety_score": {
    "markdown": "ledgered"
   },
   "risk_spec_match": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "risk_state_flux": {
-   "markdown": "unreviewed"
+   "markdown": "ledgered"
   },
   "risk_verification": {
    "markdown": "ledgered"

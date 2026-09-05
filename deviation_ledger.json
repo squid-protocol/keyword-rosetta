@@ -1493,6 +1493,128 @@
       "investigated_by": "claude-fable-5-1 (gitgalaxy#2729 corpus wave)",
       "validated_at": "2026-09-04",
       "still_reproduces": true
+    },
+    {
+      "id": "markdown-prose-nonplanted-inputs",
+      "signal": "concurrency|dead_code|encapsulation|immutability_locks|reflection_metaprogramming|spec_exposure|sync_locks",
+      "languages_seen": [
+        "markdown"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "Markdown is prose: no execution model (concurrency, sync_locks), no visibility construct (encapsulation), no const/freeze concept (immutability_locks), no metaprogramming facility (reflection_metaprogramming). Fenced code blocks are literate content owned by the #691 lit_* comment-stream rules, not commented-out code, so dead_code has nothing distinct to measure. spec_exposure's generic bracket-tag pattern ([SPEC-n]/[spec .../[audit ...]) collides with markdown link syntax -- any link whose text begins spec/audit would FP -- so that absence is deliberate, not an oversight. Completes the prose-morphology family alongside the existing markdown structure/signal entries.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "no-async-construct-concurrency",
+      "signal": "concurrency",
+      "languages_seen": [
+        "css",
+        "jcl",
+        "m4",
+        "solidity",
+        "yacc"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "No async-execution construct exists in these languages, per-language: css -- declarative styling; animations/transitions are declarative timelines the renderer schedules, nothing code-visible is asynchronous execution. jcl -- steps within a job execute strictly sequentially by definition; parallelism lives in JES scheduling/config outside the language's own syntax. m4 -- strictly sequential single-threaded text expansion. solidity -- the EVM executes transactions atomically and single-threaded; no threads/async/futures (the reentrancy surface is already owned by sync_locks nonReentrant and reflection_metaprogramming delegatecall/call). yacc -- a grammar has no execution model of its own; considered %pure-parser / %define api.pure (declares the generated parser's reentrancy, i.e. the absence of shared state, rather than serializing access to it) and rejected.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "no-lock-construct-sync-locks",
+      "signal": "sync_locks",
+      "languages_seen": [
+        "css",
+        "html",
+        "m4",
+        "yacc",
+        "yaml"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms readonly/disabled/inert are already owned by its immutability_locks rule). m4 -- sequential expansion, no shared state. yacc -- grammar layer, same reasoning as its concurrency absence. yaml -- the one mutex-shaped construct in yaml.py's target ecosystem, GitHub Actions concurrency: groups (with cancel-in-progress), is already owned by the concurrency rule (^concurrency:); a sync_locks rule would re-count the same token -- the cobol-api overlap-cost rejection precedent.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "no-visibility-construct-encapsulation",
+      "signal": "encapsulation",
+      "languages_seen": [
+        "jcl",
+        "yaml"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "No visibility/privacy construct: jcl -- PROCs and symbolic parameters are parameterization, not privacy; nothing in JCL syntax hides one statement from another. yaml -- plain data; GH Actions secrets.* is access to a secret store and is already owned by the globals rule (${{ secrets. }}), not an encapsulation idiom.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "jcl-no-const-no-metaprogramming",
+      "signal": "immutability_locks|reflection_metaprogramming",
+      "languages_seen": [
+        "jcl"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "immutability_locks: JCL has no const concept. Considered LABEL=(,,,IN) read-only open and PROTECT=YES -- dataset-protection attributes, rare in real decks, not language-level immutability; rejected. reflection_metaprogramming: symbolic substitution (SET &X= / &X. use-sites) is parameterization -- SET is already owned by state_mutation, and the analogous shell $VAR expansion is likewise not counted as reflection in shell.py. Strongest candidate INCLUDE MEMBER=&NAME (dynamic include) rejected: parameterized inclusion, owned by import.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "m4-macros-mutable-by-design",
+      "signal": "immutability_locks",
+      "languages_seen": [
+        "m4"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "The engine's own registry records the rationale in-code: m4.py annotates the None rule with 'M4 macros are mutable by design'. define/undefine freely rebind any macro at any time -- mutability is the language's core mechanism; no freeze/const construct exists to measure.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "comment-stream-rules-missing-jcl-yaml",
+      "signal": "dead_code|spec_exposure",
+      "languages_seen": [
+        "jcl",
+        "yaml"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "Missing rules, not morphology. dead_code (jcl) and spec_exposure (jcl, yaml) are comment-stream rules (detector.comment_analysis) absent where the stream exists: for jcl this is the #2610 leftover shape -- the comment stream was structurally empty until _strip_jcl_comments, and #2610 added debt/ownership rules but never revisited these two; for yaml the absence is arbitrary (# comments always reached comment_analysis, and flow-sequence brackets cannot FP because spec_exposure never sees the code stream; yaml is one of only three rosetta languages without the otherwise-generic tag rule). Evidence: 14 pool .jcl/.prc files carry //*-commented-out statements including whole JOB cards. Filed with fix shapes and the GATING paired-plant note (the corpus currently plants neither idiom). Scope note: yaml/dead_code is NOT covered by this entry -- yaml defines that rule; classify_na only reads (lang, signal) pairs that are actually absent. Retires (still_reproduces -> false) when the rules land.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2732",
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
+    },
+    {
+      "id": "jcl-sync-locks-disp-enq-question",
+      "signal": "sync_locks",
+      "languages_seen": [
+        "jcl"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "Real serialization morphology with a rule-design conflict: DISP=OLD/MOD request an exclusive system ENQ on a dataset (DISP=SHR shared) -- z/OS's native lock idiom, and the engine already maps sync_locks onto a language's own idiom (solidity nonReentrant). But DISP= is already a keyword in jcl's io rule, and #2610 explicitly rejected a cleanup rule on DISP=(...,DELETE/CATLG) for exactly that double-count; counterweight: the engine tolerates semantic overlaps where meanings differ (COND=((4,LT),EVEN) counts safety AND safety_bypasses; haskell finally counts cleanup+safety). Filed as a design question with a narrowed OLD/MOD-only shape. Either outcome -- rule added with a paired DISP=OLD plant, or declined per the cleanup precedent -- ends the unreviewed state; this entry flips to record the decision.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2733",
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-04",
+      "still_reproduces": true
     }
   ]
 }
