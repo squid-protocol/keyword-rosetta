@@ -5,3 +5,5 @@
 //PROBEDEBT EXEC ROSPROC,PARM='F'
 //* TODO wire the final probe
 //PROBETODO EXEC ROSPROC,PARM='P'
+//* [SPEC-2732] traceability tag for the rosetta corpus
+//*PROBEDEAD EXEC ROSPROC,PARM='D'
