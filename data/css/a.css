@@ -11,6 +11,8 @@
 [data-testid="probe"] {}
 [data-testid="bench"] {}
 
-@keyframes probe-safety {}
+@keyframes probe-safety {
+  from { contain: strict; }
+}
 
 @property --probe-api-a {}
