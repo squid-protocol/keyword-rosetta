@@ -6,6 +6,12 @@
 /** dispatches every rosetta probe in order */
 @keyframes probe-dispatch {}
 
+@keyframes probe-io {
+  from { background-image: url("probe-a.png"); }
+  50% { background-image: url("probe-b.png"); }
+  to { background-image: url("probe-c.png"); }
+}
+
 @media (min-width: 1px) {}
 
 @supports (display: block) {}
