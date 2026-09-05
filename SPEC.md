@@ -75,9 +75,14 @@ Structural signals are planted by the shell itself rather than by a dedicated pr
   taking exactly **one** argument where the language expresses arguments.
 - `import`: the main→a→b→c chain (3 occurrences corpus-wide).
 - `doc`: one doc-comment on the entry function, in the language's doc idiom.
-- `api` / `encapsulation` / `ownership` / `dead_code`: plant **only if** this language's
-  menu lists a plantable keyword or the language has a one-line idiomatic construct;
-  otherwise record expected 0. These four vary too much to force uniformly.
+- `api` / `encapsulation` / `ownership` / `dead_code` / `spec_exposure`: plant **only if**
+  this language's menu lists a plantable keyword or the language has a one-line idiomatic
+  construct; otherwise record expected 0. These vary too much to force uniformly.
+  `spec_exposure` joined the list with gitgalaxy#2732, which gave jcl and yaml the rule —
+  it is planted as the language's own comment form wrapping a `[SPEC-n]` tag, and so far
+  only in those two. Note that the engine's `spec_exposure` rules are not uniform across
+  languages either: some anchor to the comment marker, some are bare bracket patterns, so
+  check the language's actual rule before assuming a plant will match.
 
 If a signal in the table has no plantable menu keyword for this language (Tier-2
 languages, or a structural-only rule), record expected 0 in the manifest and move on —
