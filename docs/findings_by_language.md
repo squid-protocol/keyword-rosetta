@@ -17,7 +17,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [cobol](#cobol) | 3 | 3 | 0 | 16 | #2535 #2537 #2538 #2655 #2661 #2689 #2727 #2729 |
 | [cpp](#cpp) | 2 | 6 | 0 | 6 | #2535 #2546 #2655 #2730 #2731 |
 | [csharp](#csharp) | 0 | 4 | 0 | 6 | #2535 #2546 #2730 #2731 |
-| [css](#css) | 8 | 2 | 5 | 16 | #2655 #2689 #2727 #2729 |
+| [css](#css) | 7 | 3 | 4 | 16 | #2655 #2689 #2727 #2729 #2752 |
 | [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
 | [dockerfile](#dockerfile) | 8 | 7 | 0 | 13 | #2535 #2546 #2547 #2689 #2727 #2728 #2729 #2730 #2731 |
 | [embedded_python](#embedded_python) | 4 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 |
@@ -323,18 +323,18 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `args`: 3 vs median 13 (-77%)
-- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `func_complexity_gini`: 0.0625 vs median 0.1875 (-67%)
+- 🔴 `args`: 6 vs median 13 (-54%)
+- 🔴 `avg_func_args`: 0.05 vs median 1 (-95%)
 - 🔴 `max_func_complexity`: 0.25 vs median 0.75 (-67%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
 - 🔴 `raw_state_slop_orphans`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 3.08507 vs median 7.0517 (-56%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
+- 🟡 `func_complexity_gini`: 0.1 vs median 0.1875 (-47%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 
-**Not expressible as measured (n/a):** `cleanup`, `io`, `risk_concurrency`, `state_mutation`, `telemetry`
+**Not expressible as measured (n/a):** `cleanup`, `risk_concurrency`, `state_mutation`, `telemetry`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -351,7 +351,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `no-async-construct-concurrency` | intended-morphology | — | — | No async-execution construct exists in these languages, per-language: css -- declarative styling; animations/transitions are declarative timelines the renderer schedules… |
 | `no-lock-construct-sync-locks` | intended-morphology | — | — | No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms reado… |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | (notes) | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
-| `css-import-url-io-triple-overlap` | keyword-overlap | — | — | io stays None correctly, but css.py's inline comment gives the wrong reason ('url()/@import don't block a computational thread'); that doesn't hold against html's own io… |
+| `css-import-url-io-triple-overlap` | keyword-overlap | [#2752](https://github.com/squid-protocol/gitgalaxy/issues/2752) | (notes) | io stays None correctly, but css.py's inline comment gives the wrong reason ('url()/@import don't block a computational thread'); that doesn't hold against html's own io… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
