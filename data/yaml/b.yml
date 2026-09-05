@@ -2,6 +2,13 @@
 # decoy: nothing risky lives here in prose
 on:
   workflow_dispatch:
+    inputs:
+      probe_bypass:
+        required: false
+      probe_telemetry:
+        required: false
+      probe_state:
+        required: false
 jobs:
   chain:
     uses: ./c.yml

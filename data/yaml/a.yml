@@ -2,6 +2,13 @@
 # decoy: config reads stay in prose only
 on:
   workflow_dispatch:
+    inputs:
+      probe_globals:
+        required: false
+      probe_test:
+        required: false
+      probe_safety:
+        required: false
 permissions:
   contents: read
 jobs:

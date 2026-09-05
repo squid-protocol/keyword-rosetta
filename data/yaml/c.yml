@@ -2,6 +2,13 @@
 # decoy: tidy remarks stay in prose
 on:
   workflow_dispatch:
+    inputs:
+      probe_cleanup:
+        required: false
+      probe_debt:
+        required: false
+      probe_todo:
+        required: false
 jobs:
   tail:
     steps:
