@@ -7,6 +7,8 @@ EXPOSE 8081
 ENV REGION=1
 ENV HOME_ZONE=2
 
+USER probe
+
 RUN pytest
 RUN make test
 
