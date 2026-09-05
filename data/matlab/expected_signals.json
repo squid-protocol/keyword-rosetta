@@ -19,7 +19,7 @@
    "planned_debt": 0,
    "func_start": 4,
    "args": 4,
-   "api": 0,
+   "api": 4,
    "api_orphan_credit": 0,
    "doc": 1,
    "ownership": 1,
@@ -42,8 +42,8 @@
    "import": 1,
    "func_start": 3,
    "args": 3,
-   "api": 0,
-   "api_orphan_credit": 3
+   "api": 3,
+   "api_orphan_credit": 0
   },
   "b.m": {
    "class_start": 0,
@@ -62,8 +62,8 @@
    "import": 1,
    "func_start": 3,
    "args": 3,
-   "api": 0,
-   "api_orphan_credit": 3
+   "api": 3,
+   "api_orphan_credit": 0
   },
   "c.m": {
    "class_start": 0,
@@ -82,8 +82,8 @@
    "import": 0,
    "func_start": 3,
    "args": 3,
-   "api": 0,
-   "api_orphan_credit": 3,
+   "api": 3,
+   "api_orphan_credit": 0,
    "doc": 0,
    "ownership": 0
   }
@@ -99,5 +99,5 @@
    "outcome": "danger-only decoy (#17 redesign): \"exit\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, safety_bypasses 3->2, state_mutation 14->6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting. 2026-09-03 (gitgalaxy#2654): state_mutation here is now 3, not 6 -- probe_state's `out = items;` is a return, not a mutation, so the survivors are `clear`, `clearvars` and this decoy's own `note =`."
   }
  ],
- "notes": "matlab's `out = <value>` return convention is NO LONGER counted as state_mutation (gitgalaxy#2654, engine PR gitgalaxy#2703): MATLAB has no `return <value>` statement, so the assignment IS the return, and charging it made matlab the only language paying for the statement c/go/java write for free. The engine's `matlab_return_channel` scope filter drops a bare write to a declared output variable only when the function never READS that name back; a read, a self-reference (`out = out + i`) or a structured write (`out(i) = x`) still counts. That removes 15 of the corpus's 19 raw hits and the cell moves 25 -> 4, from the widest deviation in the bias table to the corpus median's neighbourhood. What survives: b = 3 (clear + clearvars + the `note =` decoy assignment, all in probe_state, which carries no branch context so x1), c = 1 (`hack_level =` in probe_debt); main and a are 0 because every one of their assignments was a return. CONSEQUENCE FOR THE FLUX LEDGER: main.m was `state-flux-branch-weighting`'s cleanest per-function proof of the x3 proximity amplification (12 = probe_branch's 3 raw x3 + three functions' 1 raw x1). That evidence only ever existed BECAUSE of the defect -- probe_branch's three `out = k` are three `return k` -- so it is retired rather than re-planted; planting a matlab-only mutation to keep it would break the 12-probe program's cross-language equivalence, which is the point of the harness. go's b.go and dockerfile remain that entry's per-function proofs. clear/clearvars stay dual state+cleanup (b cleanup 2 from the state plants; c cleanup 2 = delete+onCleanup). .m classification resolved to matlab via function/% markers (shares the extension with objective-c). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exit\" literal inside probe_state -- b.m high_risk_execution 0->1, branch 2->0, safety 1->0, io 1->0, safety_bypasses 3->2, state_mutation 14->6, and 6->3 with the return-channel fix."
+ "notes": "matlab's `out = <value>` return convention is NO LONGER counted as state_mutation (gitgalaxy#2654, engine PR gitgalaxy#2703): MATLAB has no `return <value>` statement, so the assignment IS the return, and charging it made matlab the only language paying for the statement c/go/java write for free. The engine's `matlab_return_channel` scope filter drops a bare write to a declared output variable only when the function never READS that name back; a read, a self-reference (`out = out + i`) or a structured write (`out(i) = x`) still counts. That removes 15 of the corpus's 19 raw hits and the cell moves 25 -> 4, from the widest deviation in the bias table to the corpus median's neighbourhood. What survives: b = 3 (clear + clearvars + the `note =` decoy assignment, all in probe_state, which carries no branch context so x1), c = 1 (`hack_level =` in probe_debt); main and a are 0 because every one of their assignments was a return. CONSEQUENCE FOR THE FLUX LEDGER: main.m was `state-flux-branch-weighting`'s cleanest per-function proof of the x3 proximity amplification (12 = probe_branch's 3 raw x3 + three functions' 1 raw x1). That evidence only ever existed BECAUSE of the defect -- probe_branch's three `out = k` are three `return k` -- so it is retired rather than re-planted; planting a matlab-only mutation to keep it would break the 12-probe program's cross-language equivalence, which is the point of the harness. go's b.go and dockerfile remain that entry's per-function proofs. clear/clearvars stay dual state+cleanup (b cleanup 2 from the state plants; c cleanup 2 = delete+onCleanup). .m classification resolved to matlab via function/% markers (shares the extension with objective-c). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exit\" literal inside probe_state -- b.m high_risk_execution 0->1, branch 2->0, safety 1->0, io 1->0, safety_bypasses 3->2, state_mutation 14->6, and 6->3 with the return-channel fix. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api 0 -> 3 per file (4 in main). gitgalaxy#2730 gave the api rule a stated contract -- *a declaration that makes a named function or type visible outside this file* -- and under it the rule now counts a column-0 `function` -- MATLAB's file-level fallback, since a function file has no visibility syntax at all; ledger api-no-plantable-idiom. api_orphan_credit 3 -> 0 follows: a declaration the rule counts is no longer new orphan surface (gitgalaxy#2731/#2734; ledger api-declared-orphans-are-not-new-surface)."
 }

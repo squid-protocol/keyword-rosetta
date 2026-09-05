@@ -43,7 +43,7 @@
       "func_start": 3,
       "args": 4,
       "api": 3,
-      "api_orphan_credit": 3
+      "api_orphan_credit": 0
     },
     "b.groovy": {
       "class_start": 0,
@@ -63,7 +63,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3
+      "api_orphan_credit": 0
     },
     "c.groovy": {
       "class_start": 0,
@@ -83,7 +83,7 @@
       "func_start": 3,
       "args": 5,
       "api": 3,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0
     }
@@ -99,5 +99,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"execute\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "args counts statement-position calls (ts-callparen family: main 7 = 4 sigs + 3 dispatch calls; c 5 = 3 sigs + close/dispose calls). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"execute\" literal inside probeState — b.groovy high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. api (gitgalaxy#2729): explicit `public` modifier on every probe definition (`public def probeX(...)`), 3 per file in main/a/b/c (entry keeps the implicit default); the rule's `\\b(public)\\b` alternation. No overlap: func_start, args and api_orphan_credit unchanged."
+  "notes": "args counts statement-position calls (ts-callparen family: main 7 = 4 sigs + 3 dispatch calls; c 5 = 3 sigs + close/dispose calls). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"execute\" literal inside probeState — b.groovy high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. api (gitgalaxy#2729): explicit `public` modifier on every probe definition (`public def probeX(...)`), 3 per file in main/a/b/c (entry keeps the implicit default); the rule's `\\b(public)\\b` alternation. No overlap: func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface."
 }

@@ -8,68 +8,67 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | language | red-zone metrics | amber | n/a cells | ledgered shapes | upstream issues |
 |---|---|---|---|---|---|
-| [abap](#abap) | 1 | 2 | 0 | 5 | #2535 #2650 #2659 #2727 #2730 |
-| [ada](#ada) | 4 | 6 | 0 | 8 | #2535 #2546 #2727 #2730 |
+| [abap](#abap) | 0 | 2 | 0 | 5 | #2535 #2650 #2659 #2727 #2730 #2731 |
+| [ada](#ada) | 1 | 6 | 0 | 7 | #2535 #2546 #2727 |
 | [agc_assembly](#agc_assembly) | 4 | 4 | 1 | 7 | #2535 #2650 #2659 #2729 |
-| [apex](#apex) | 3 | 3 | 0 | 9 | #2535 #2536 #2545 #2546 #2671 #2731 |
+| [apex](#apex) | 3 | 3 | 0 | 10 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 |
 | [assembly](#assembly) | 10 | 0 | 0 | 6 | #2535 #2546 #2727 |
-| [c](#c) | 5 | 3 | 0 | 8 | #2535 #2546 #2626 #2655 #2689 #2729 |
+| [c](#c) | 2 | 3 | 0 | 9 | #2535 #2546 #2626 #2655 #2689 #2729 #2730 #2731 |
 | [cobol](#cobol) | 3 | 4 | 0 | 16 | #2535 #2537 #2538 #2655 #2661 #2689 #2727 #2729 |
-| [cpp](#cpp) | 2 | 6 | 0 | 5 | #2535 #2546 #2655 #2731 |
-| [csharp](#csharp) | 0 | 4 | 0 | 5 | #2535 #2546 #2731 |
+| [cpp](#cpp) | 2 | 6 | 0 | 6 | #2535 #2546 #2655 #2730 #2731 |
+| [csharp](#csharp) | 0 | 4 | 0 | 6 | #2535 #2546 #2730 #2731 |
 | [css](#css) | 9 | 3 | 5 | 16 | #2655 #2689 #2727 #2729 |
-| [dart](#dart) | 1 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 |
+| [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
 | [dockerfile](#dockerfile) | 7 | 8 | 0 | 14 | #2535 #2546 #2547 #2689 #2727 #2728 #2729 |
-| [embedded_python](#embedded_python) | 4 | 1 | 0 | 10 | #2535 #2548 #2655 #2658 #2689 #2729 |
-| [fortran](#fortran) | 2 | 5 | 0 | 9 | #2535 #2540 #2546 #2650 #2659 #2729 #2731 |
-| [go](#go) | 2 | 1 | 0 | 8 | #2535 #2542 #2546 #2655 #2689 |
-| [groovy](#groovy) | 0 | 1 | 0 | 5 | #2535 #2689 #2731 |
+| [embedded_python](#embedded_python) | 4 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 |
+| [fortran](#fortran) | 2 | 5 | 0 | 10 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 |
+| [go](#go) | 2 | 1 | 0 | 9 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 |
+| [groovy](#groovy) | 0 | 1 | 0 | 6 | #2535 #2689 #2730 #2731 |
 | [haskell](#haskell) | 7 | 3 | 0 | 12 | #2535 #2689 #2727 #2729 |
 | [html](#html) | 12 | 5 | 2 | 15 | #2549 #2645 #2650 #2655 #2659 #2689 #2727 #2729 |
-| [java](#java) | 0 | 0 | 0 | 6 | #2535 #2546 #2655 #2689 #2731 |
-| [javascript](#javascript) | 0 | 5 | 0 | 11 | #2535 #2539 #2655 #2689 #2731 |
-| [jcl](#jcl) | 1 | 5 | 5 | 16 | #2610 #2655 #2689 #2727 #2732 #2733 |
-| [kotlin](#kotlin) | 0 | 1 | 0 | 9 | #2535 #2545 #2546 #2689 #2731 |
+| [java](#java) | 0 | 0 | 0 | 7 | #2535 #2546 #2655 #2689 #2730 #2731 |
+| [javascript](#javascript) | 0 | 5 | 0 | 12 | #2535 #2539 #2655 #2689 #2730 #2731 |
+| [jcl](#jcl) | 1 | 5 | 4 | 16 | #2610 #2655 #2689 #2727 #2732 #2733 |
+| [kotlin](#kotlin) | 0 | 1 | 0 | 10 | #2535 #2545 #2546 #2689 #2730 #2731 |
 | [livecode](#livecode) | 9 | 3 | 0 | 9 | #2535 #2546 #2547 #2650 #2659 #2727 #2729 #2731 |
-| [lua](#lua) | 0 | 1 | 0 | 10 | #2535 #2546 #2547 #2657 #2689 #2729 #2731 |
+| [lua](#lua) | 0 | 1 | 0 | 11 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 |
 | [m4](#m4) | 3 | 4 | 2 | 11 | #2535 #2689 #2727 #2731 |
-| [makefile](#makefile) | 6 | 8 | 1 | 11 | #2535 #2546 #2648 #2655 #2727 #2729 #2731 |
+| [makefile](#makefile) | 6 | 8 | 1 | 12 | #2535 #2546 #2648 #2655 #2727 #2729 #2730 #2731 |
 | [markdown](#markdown) | 10 | 2 | 27 | 9 | #2638 #2655 #2689 #2727 |
-| [matlab](#matlab) | 4 | 1 | 0 | 5 | #2535 #2547 #2730 |
-| [objective-c](#objective-c) | 3 | 2 | 0 | 7 | #2535 #2545 #2546 #2727 #2730 |
-| [perl](#perl) | 4 | 3 | 0 | 9 | #2535 #2546 #2626 #2670 #2689 #2730 |
-| [php](#php) | 0 | 0 | 0 | 7 | #2535 #2541 #2546 #2689 #2731 |
+| [matlab](#matlab) | 3 | 1 | 0 | 5 | #2535 #2547 #2730 #2731 |
+| [objective-c](#objective-c) | 3 | 3 | 0 | 7 | #2535 #2545 #2546 #2727 #2730 |
+| [perl](#perl) | 3 | 2 | 0 | 9 | #2535 #2546 #2626 #2670 #2689 #2730 #2731 |
+| [php](#php) | 0 | 0 | 0 | 8 | #2535 #2541 #2546 #2689 #2730 #2731 |
 | [powershell](#powershell) | 9 | 3 | 0 | 8 | #2535 #2545 #2546 #2547 #2656 #2727 |
-| [python](#python) | 0 | 2 | 0 | 11 | #2535 #2536 #2655 #2658 #2689 #2729 |
+| [python](#python) | 0 | 2 | 0 | 12 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 |
 | [ruby](#ruby) | 3 | 5 | 0 | 6 | #2535 #2546 #2547 #2727 #2731 |
-| [rust](#rust) | 1 | 0 | 0 | 6 | #2535 #2655 #2689 |
-| [scala](#scala) | 0 | 1 | 0 | 6 | #2535 #2689 #2729 #2731 |
+| [rust](#rust) | 1 | 0 | 0 | 7 | #2535 #2655 #2689 #2730 #2731 |
+| [scala](#scala) | 0 | 1 | 0 | 7 | #2535 #2689 #2729 #2730 #2731 |
 | [scheme](#scheme) | 2 | 3 | 0 | 7 | #2535 #2537 #2689 #2727 #2731 |
-| [shell](#shell) | 6 | 2 | 1 | 7 | #2535 #2547 #2731 |
-| [solidity](#solidity) | 2 | 1 | 1 | 8 | #2535 #2545 #2689 #2731 |
+| [shell](#shell) | 6 | 1 | 1 | 8 | #2535 #2547 #2727 #2731 |
+| [solidity](#solidity) | 2 | 1 | 1 | 9 | #2535 #2545 #2689 #2730 #2731 |
 | [sqlite](#sqlite) | 12 | 2 | 0 | 10 | #2535 #2547 #2655 #2727 #2728 #2730 |
-| [swift](#swift) | 1 | 5 | 0 | 5 | #2535 #2543 #2546 #2731 |
+| [swift](#swift) | 1 | 5 | 0 | 6 | #2535 #2543 #2546 #2730 #2731 |
 | [tcl](#tcl) | 8 | 2 | 0 | 8 | #2535 #2546 #2727 #2731 |
-| [typescript](#typescript) | 0 | 2 | 0 | 8 | #2535 #2546 #2655 #2689 #2731 |
+| [typescript](#typescript) | 0 | 2 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 |
 | [yacc](#yacc) | 4 | 0 | 2 | 8 | #2644 #2689 #2729 |
 | [yaml](#yaml) | 5 | 2 | 0 | 14 | #2646 #2647 #2689 #2727 #2729 #2732 |
-| [zig](#zig) | 0 | 1 | 0 | 5 | #2535 #2545 #2651 |
+| [zig](#zig) | 0 | 1 | 0 | 6 | #2535 #2545 #2651 #2730 #2731 |
 
 ## abap
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🟡 `raw_state_slop_orphans`: 3.25 vs median 2.5 (+30%)
 - 🟡 `risk_tech_debt`: 46.9581 vs median 34.5199 (+36%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.abap | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
-| `api-no-plantable-idiom` | upstream-question | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | — | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -83,10 +82,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `raw_state_slop_orphans`: 0 vs median 2.5 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 7.0517 (-100%)
-- 🔴 `risk_documentation`: 0 vs median 38.2552 (-100%)
 - 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
 - 🟡 `branch`: 4 vs median 3 (+33%)
 - 🟡 `cog_raw`: 0.0275 vs median 0.0205 (+34%)
@@ -103,7 +99,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.adb | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `ada-end-if-branch-inflation` | keyword-overlap | — | (notes) | ada's closing 'end if' re-matches \bif\b: every well-formed if statement counts branch at least twice (if + end if) |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
-| `api-no-plantable-idiom` | upstream-question | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | — | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -159,6 +154,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `apex-import-ignorecase-type-guard` | engine-defect | [#2671](https://github.com/squid-protocol/gitgalaxy/issues/2671) | (notes) | apex's import rule is compiled with re.IGNORECASE, which neutralises the [A-Z] guard in its second alternative (\b[a-zA-Z_]\w*\.[A-Z]\w*\b), so the alternative degrades … |
 | `api-contextual-baseline-fix` | engine-semantic | [#2536](https://github.com/squid-protocol/gitgalaxy/issues/2536) | (notes) | galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording |
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.cls | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cls | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
@@ -209,9 +205,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `raw_arch_api`: 7.25 vs median 3 (+142%)
-- 🔴 `risk_api_exposure`: 10.6914 vs median 7.0517 (+52%)
-- 🔴 `risk_documentation`: 85.5219 vs median 38.2552 (+124%)
 - 🔴 `risk_state_flux`: 17.7835 vs median 7.75065 (+129%)
 - 🔴 `state_mutation`: 5 vs median 2 (+150%)
 - 🟡 `io`: 4 vs median 3 (+33%)
@@ -220,6 +213,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
@@ -242,7 +236,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `risk_documentation`: 61.8861 vs median 38.2552 (+62%)
+- 🔴 `risk_documentation`: 61.8861 vs median 40.1963 (+54%)
 - 🟡 `encapsulation_ratio`: 0.5 vs median 0.75 (-33%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
 - 🟡 `raw_state_slop_orphans`: 3.25 vs median 2.5 (+30%)
@@ -290,6 +284,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.cpp | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
@@ -314,6 +309,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.cs | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cs | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
@@ -375,15 +371,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🟡 `risk_state_flux`: 5.78688 vs median 7.75065 (-25%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dart | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `api-no-plantable-idiom` | upstream-question | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | — | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
 | `indented-declaration-globals` | upstream-question | [#2651](https://github.com/squid-protocol/gitgalaxy/issues/2651) | — | dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local final… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -447,6 +442,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
@@ -479,6 +475,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | (notes) | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
@@ -507,6 +504,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
@@ -531,6 +529,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.groovy | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
@@ -635,6 +634,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
@@ -661,6 +661,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `comment-lines-manifest-doc-classification` | engine-semantic | — | — | Guidestar manifest files carry no executable code, so the engine classifies their non-blank lines as doc_loc (package.json: total 8/coding 0/doc 7; pyproject.toml: doc 4) |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
@@ -693,7 +694,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `raw_state_slop_orphans`: 3.25 vs median 2.5 (+30%)
 - 🟡 `risk_documentation`: 29.8964 vs median 41.6651 (-28%)
 
-**Not expressible as measured (n/a):** `cleanup`, `doc`, `globals`, `risk_concurrency`, `test`
+**Not expressible as measured (n/a):** `cleanup`, `doc`, `globals`, `test`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -723,6 +724,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
@@ -784,6 +786,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
@@ -859,6 +862,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | (notes) | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
@@ -914,17 +918,16 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `cleanup`: 4 vs median 2 (+100%)
-- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `risk_state_flux`: 16.6996 vs median 7.75065 (+115%)
 - 🔴 `state_mutation`: 4 vs median 2 (+100%)
 - 🟡 `risk_safety_score`: 57.721 vs median 42.5827 (+36%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.m | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
-| `api-no-plantable-idiom` | upstream-question | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | — | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -941,6 +944,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `risk_state_flux`: 12.5 vs median 7.75065 (+61%)
 - 🟡 `raw_state_slop_orphans`: 3.25 vs median 2.5 (+30%)
+- 🟡 `risk_documentation`: 29.8964 vs median 40.1963 (-26%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -963,16 +967,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 2.3925 vs median 7.0517 (-66%)
+- 🔴 `risk_api_exposure`: 3.41585 vs median 7.0517 (-52%)
 - 🔴 `risk_state_flux`: 16.6996 vs median 7.75065 (+115%)
 - 🔴 `state_mutation`: 4 vs median 2 (+100%)
-- 🟡 `risk_documentation`: 29.8964 vs median 41.6651 (-28%)
 - 🟡 `risk_safety_score`: 59.7428 vs median 43.6014 (+37%)
 - 🟡 `test`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.pl | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
@@ -981,7 +984,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `assert-overlaps-safety-and-test` | keyword-overlap | [#2626](https://github.com/squid-protocol/gitgalaxy/issues/2626) | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
 | `perl-pod-delimiter-double-count` | upstream-bug | [#2670](https://github.com/squid-protocol/gitgalaxy/issues/2670) | (notes) | perl's doc rule lists =cut in the same alternation as the POD openers and nothing pairs them, so a correctly closed POD block counts doc=2 (opener + =cut) |
-| `api-no-plantable-idiom` | upstream-question | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | — | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -996,6 +998,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
@@ -1056,6 +1059,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `api-contextual-baseline-fix` | engine-semantic | [#2536](https://github.com/squid-protocol/gitgalaxy/issues/2536) | — | galaxyscope.py ~2145 ('THE CONTEXTUAL BASELINE FIX'): a file imported by others (popularity > 0) has orphaned_logic converted into api before recording |
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `comment-lines-manifest-doc-classification` | engine-semantic | — | — | Guidestar manifest files carry no executable code, so the engine classifies their non-blank lines as doc_loc (package.json: total 8/coding 0/doc 7; pyproject.toml: doc 4) |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
@@ -1114,6 +1118,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
@@ -1137,6 +1142,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
@@ -1154,7 +1160,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `risk_documentation`: 67.3253 vs median 38.2552 (+76%)
+- 🔴 `risk_documentation`: 67.3253 vs median 40.1963 (+67%)
 - 🔴 `risk_state_flux`: 12.5 vs median 7.75065 (+61%)
 - 🟡 `raw_state_slop_orphans`: 3.25 vs median 2.5 (+30%)
 - 🟡 `risk_api_exposure`: 9.18665 vs median 7.0517 (+30%)
@@ -1186,9 +1192,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `cog_raw`: 0.0345 vs median 0.0205 (+68%)
 - 🔴 `func_internal_density`: 0.0260417 vs median 0.015625 (+67%)
 - 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
-- 🔴 `risk_documentation`: 69.3 vs median 41.6651 (+66%)
+- 🔴 `raw_state_slop_orphans`: 0.25 vs median 2.5 (-90%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
-- 🟡 `risk_api_exposure`: 9.18665 vs median 7.0517 (+30%)
 
 **Not expressible as measured (n/a):** `class_start`
 
@@ -1200,6 +1205,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `shell-class-start-no-oop-morphology` | intended-morphology | — | — | Comment at shell.py:119-121: 'Shell is strictly procedural.' The one candidate construct, associative arrays (`declare -A`), is a data-structure instance, not a type/ent… |
 | `shell-trap-signal-env-collision` | keyword-overlap | — | (notes) | 'trap : TERM' counts globals: the TERM signal name collides with the TERM env-var keyword in shell's globals rule (a.sh globals 3 for 2 planted) |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | (notes) | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -1222,6 +1228,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `solidity-io-observable-output-via-events` | engine-semantic | — | — | solidity.py's io rule is None with an explicit comment ('EVM blockchains are closed systems') |
@@ -1252,7 +1259,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `raw_state_slop_orphans`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 7.0517 (-100%)
-- 🔴 `risk_documentation`: 0 vs median 38.2552 (-100%)
+- 🔴 `risk_documentation`: 0 vs median 40.1963 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `risk_cognitive_load`: 1.62573 vs median 1.29535 (+26%)
 - 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
@@ -1291,6 +1298,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.swift | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.swift | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
@@ -1345,6 +1353,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
@@ -1422,6 +1431,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.zig | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |

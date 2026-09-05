@@ -12,7 +12,7 @@
       "doc": 1,
       "ownership": 1,
       "import": 1,
-      "api": 0,
+      "api": 4,
       "api_orphan_credit": 0,
       "class_start": 0,
       "state_mutation": 0,
@@ -29,8 +29,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
-      "api_orphan_credit": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
       "globals": 2,
       "test": 2,
       "safety": 2,
@@ -49,8 +49,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
-      "api_orphan_credit": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 2,
@@ -69,8 +69,8 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 0,
-      "api_orphan_credit": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
@@ -118,5 +118,5 @@
       "outcome": "inert (underscore + lowercase vs case-sensitive \\bHACK\\b)"
     }
   ],
-  "notes": "args planted via CHANGING (abap's args rule keys on IMPORTING/EXPORTING/CHANGING/... -- FORM ... USING would record args 0). doc 1 in main = the \"! @parameter ABAP-Doc line only: the AUTHOR:-also-counts-as-doc collision RESOLVED via gitgalaxy#2650 (AUTHOR removed from doc's bare alternative; ownership still captures it exclusively). state_mutation exact (2, no flux multiplier -- no branch context in b.abap since the string's IF is shielded for branch). api = 0 planted + orphan conversion in imported a/b/c (3 each). INCLUDE chain resolves. Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2650. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 — gitgalaxy#2669 A.3): danger-only 'PLAIN TRUNCATE DECOY TEXT' inside probe_state — b.abap safety 1->0, high_risk_execution 0->1. The old sentence's TRUNCATE had been dampened by its own TRY, so abap's 'third shielding profile' reading was the Silencer Region, not shielding."
+  "notes": "args planted via CHANGING (abap's args rule keys on IMPORTING/EXPORTING/CHANGING/... -- FORM ... USING would record args 0). doc 1 in main = the \"! @parameter ABAP-Doc line only: the AUTHOR:-also-counts-as-doc collision RESOLVED via gitgalaxy#2650 (AUTHOR removed from doc's bare alternative; ownership still captures it exclusively). state_mutation exact (2, no flux multiplier -- no branch context in b.abap since the string's IF is shielded for branch). api = 0 planted + orphan conversion in imported a/b/c (3 each). INCLUDE chain resolves. Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2650. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 — gitgalaxy#2669 A.3): danger-only 'PLAIN TRUNCATE DECOY TEXT' inside probe_state — b.abap safety 1->0, high_risk_execution 0->1. The old sentence's TRUNCATE had been dampened by its own TRY, so abap's 'third shielding profile' reading was the Silencer Region, not shielding. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api 0 -> 3 per file (4 in main). gitgalaxy#2730 gave the api rule a stated contract -- *a declaration that makes a named function or type visible outside this file* -- and under it the rule now counts a `FORM` subroutine (public by default; the rule is line-anchored so `CALL FUNCTION` cannot match); ledger api-no-plantable-idiom. api_orphan_credit 3 -> 0 follows: a declaration the rule counts is no longer new orphan surface (gitgalaxy#2731/#2734; ledger api-declared-orphans-are-not-new-surface)."
 }

@@ -19,7 +19,7 @@
       "planned_debt": 0,
       "func_start": 4,
       "args": 4,
-      "api": 0,
+      "api": 4,
       "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
@@ -42,8 +42,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
-      "api_orphan_credit": 3
+      "api": 3,
+      "api_orphan_credit": 0
     },
     "b.dart": {
       "class_start": 0,
@@ -62,8 +62,8 @@
       "import": 1,
       "func_start": 3,
       "args": 3,
-      "api": 0,
-      "api_orphan_credit": 3
+      "api": 3,
+      "api_orphan_credit": 0
     },
     "c.dart": {
       "class_start": 0,
@@ -82,8 +82,8 @@
       "import": 0,
       "func_start": 3,
       "args": 3,
-      "api": 0,
-      "api_orphan_credit": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0
     }
@@ -99,5 +99,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"exit\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "dart globals: the any-indentation-anchor bug RESOLVED via gitgalaxy#2651 (anchored to true column 0) -- b.dart's and c.dart's function-local finals no longer count as globals (b/c globals 1 -> 0 each). Spaced assignments (x = 1) do NOT count dart state (the rule requires a non-space char before =). Locked 2026-08-31; globals re-baselined 2026-09-02 against gitgalaxy#2651. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exit\" literal inside probeState — b.dart high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2."
+  "notes": "dart globals: the any-indentation-anchor bug RESOLVED via gitgalaxy#2651 (anchored to true column 0) -- b.dart's and c.dart's function-local finals no longer count as globals (b/c globals 1 -> 0 each). Spaced assignments (x = 1) do NOT count dart state (the rule requires a non-space char before =). Locked 2026-08-31; globals re-baselined 2026-09-02 against gitgalaxy#2651. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exit\" literal inside probeState — b.dart high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api 0 -> 3 per file (4 in main). gitgalaxy#2730 gave the api rule a stated contract -- *a declaration that makes a named function or type visible outside this file* -- and under it the rule now counts a top-level function without a leading underscore; ledger api-no-plantable-idiom. api_orphan_credit 3 -> 0 follows: a declaration the rule counts is no longer new orphan surface (gitgalaxy#2731/#2734; ledger api-declared-orphans-are-not-new-surface)."
 }

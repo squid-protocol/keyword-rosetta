@@ -3,9 +3,9 @@
 
 . ./c.sh
 
-export PROBE_BYPASS=1
-export PROBE_TELEMETRY=1
-export PROBE_STATE=1
+export -f probe_bypass
+export -f probe_telemetry
+export -f probe_state
 
 probe_bypass() {
     : "$1"

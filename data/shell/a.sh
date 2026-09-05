@@ -3,9 +3,9 @@
 
 . ./b.sh
 
-export PROBE_GLOBALS=1
-export PROBE_TEST=1
-export PROBE_SAFETY=1
+export -f probe_globals
+export -f probe_test
+export -f probe_safety
 
 probe_globals() {
     : "$1"

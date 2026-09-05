@@ -31,7 +31,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "globals": 2,
       "test": 2,
       "safety": 2,
@@ -53,7 +53,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
       "state_mutation": 2,
@@ -74,7 +74,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "cleanup": 2,
       "fragile_debt": 1,
       "planned_debt": 1,
@@ -133,5 +133,5 @@
       "outcome": "inert as in python — underscore is a word character so \\bHACK\\b cannot match; note this inertness is tokenization luck, not surface anchoring (see cobol + gitgalaxy#2537)"
     }
   ],
-  "notes": "io 4 in main.js = 3 planted (fetch/axios/fs) + the probeIo parameter literally named 'path', which is a js io keyword (ledger identifier-name-token-collision). func_start/args/api 3 in b.js = its 3 real functions: the 'with (shape) {}' func-named-'with' FP RESOLVED via gitgalaxy#2539 ('with' added to the statement-keyword exclusion; ledger js-with-statement-func-start-fp). api = defs orphan-converted in imported a/b/c as in python (ledger api-contextual-baseline-fix); main.js api 0 because nothing is exported and it is imported by nobody. doc is 1 here vs python's 2 for the same planted intent (one /** vs a pair of \"\"\" delimiters) -- genuine doc-idiom count bias, visible in the bias report. Locked from hand-verified run 2026-08-31; b.js re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal moved out of module scope into probeGlobals — a.js high_risk_execution 0->1, branch 2->0, safety 3->2. api (gitgalaxy#2729): 'export function' on the three probe functions per file (entry stays unexported): api 3/3/3/3 (main/a/b/c) -- supersedes the 'main.js api 0 because nothing is exported' clause above. No gated overlap: the import rule needs a following 'from' before the next ';', which no export line has; 'export' also feeds the unplanted structural_boundaries (+3 per file, not asserted)."
+  "notes": "io 4 in main.js = 3 planted (fetch/axios/fs) + the probeIo parameter literally named 'path', which is a js io keyword (ledger identifier-name-token-collision). func_start/args/api 3 in b.js = its 3 real functions: the 'with (shape) {}' func-named-'with' FP RESOLVED via gitgalaxy#2539 ('with' added to the statement-keyword exclusion; ledger js-with-statement-func-start-fp). api = defs orphan-converted in imported a/b/c as in python (ledger api-contextual-baseline-fix); main.js api 0 because nothing is exported and it is imported by nobody. doc is 1 here vs python's 2 for the same planted intent (one /** vs a pair of \"\"\" delimiters) -- genuine doc-idiom count bias, visible in the bias report. Locked from hand-verified run 2026-08-31; b.js re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal moved out of module scope into probeGlobals — a.js high_risk_execution 0->1, branch 2->0, safety 3->2. api (gitgalaxy#2729): 'export function' on the three probe functions per file (entry stays unexported): api 3/3/3/3 (main/a/b/c) -- supersedes the 'main.js api 0 because nothing is exported' clause above. No gated overlap: the import rule needs a following 'from' before the next ';', which no export line has; 'export' also feeds the unplanted structural_boundaries (+3 per file, not asserted). 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface."
 }
