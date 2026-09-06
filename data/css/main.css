@@ -1,5 +1,5 @@
 /* keyword rosetta control shell: css / main */
-/* decoy: this suite never uses expression words outside prose */
+/* decoy: this suite never uses expression words and no @media block lives outside prose */
 /* Author: keyword-rosetta corpus */
 @import url("a.css");
 

@@ -1,7 +1,7 @@
 // keyword rosetta control shell: java / main
 // @author keyword-rosetta generator
 /** @param argv probe input */
-// decoy: this suite never stops a thread and the exit words stay in prose
+// decoy: this suite never calls System.exit and no switch block runs outside prose
 import a;
 
 static int entry(int argv) {

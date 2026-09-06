@@ -90,6 +90,17 @@
   },
   "decoys": [
     {
+      "file": "main.ts",
+      "line_hint": "// decoy: this suite never calls eval and no while loop appears outside prose",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "high_risk_execution",
+        "safety"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, safety 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.ts",
       "line_hint": "const note = \"plain eval decoy text\"; (probeState)",
       "surface": "string",

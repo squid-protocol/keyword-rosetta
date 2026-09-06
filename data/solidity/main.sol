@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 // keyword rosetta control shell: solidity / main
 /// @param flag the probe input
-// decoy: this suite never destroys itself outside prose
+// decoy: this suite never calls selfdestruct and no while loop lives outside prose
 import "a.sol";
 
 function entry(uint argv) returns (uint) {

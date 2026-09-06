@@ -1,7 +1,7 @@
 dnl keyword rosetta control shell: m4 / main
 dnl Author: keyword-rosetta generator
 dnl @param 1 the probe input
-dnl decoy: this suite never runs syscmd words outside prose
+dnl decoy: this suite never runs esyscmd and no ifelse branch lives outside prose
 include(a.m4)
 
 m4_define(probe_dispatch, [$1])

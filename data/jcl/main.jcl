@@ -1,6 +1,6 @@
 //* keyword rosetta control shell: jcl / main
 //* Author: keyword-rosetta generator
-//* decoy: this suite never names a program outside prose
+//* decoy: this suite never runs PGM=IKJEFT01 and no SYSOUT operand lives outside prose
 //ROSETTA JOB
 //ROSPROC PROC
 //STEP2 EXEC PGM=BPXBATCH,PARM='X'

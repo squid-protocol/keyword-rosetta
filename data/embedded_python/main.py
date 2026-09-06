@@ -1,5 +1,5 @@
 # keyword rosetta control shell: embedded_python / main
-# decoy: this suite never resets the board and the deepsleep word stays in prose
+# decoy: this suite never calls machine.reset and no while loop runs outside prose
 
 __author__ = "keyword-rosetta generator"
 

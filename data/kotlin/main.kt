@@ -1,7 +1,7 @@
 // keyword rosetta control shell: kotlin / main
 // Created by: keyword-rosetta generator
 /** @param argv probe input */
-// decoy: this suite never exits the process and the loop words stay in prose
+// decoy: this suite never calls exitProcess and no when block runs outside prose
 import a
 
 fun entry(argv: Int): Int {

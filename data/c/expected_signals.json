@@ -90,6 +90,16 @@
   },
   "decoys": [
     {
+      "file": "main.c",
+      "line_hint": "// decoy: this suite never calls into a shell and the fork word stays in prose",
+      "surface": "comment",
+      "signals": [
+        "api",
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires api 1, high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.c",
       "line_hint": "const char *note = \"plain system decoy text\"; (probe_state)",
       "surface": "string",

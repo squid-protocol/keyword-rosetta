@@ -95,12 +95,13 @@
  "decoys": [
   {
    "file": "main.rs",
-   "line_hint": "never aborts and the exit words stay in prose",
+   "line_hint": "// decoy: this suite never calls abort and no loop keyword lives outside prose",
    "surface": "comment",
    "signals": [
+    "branch",
     "high_risk_execution"
    ],
-   "outcome": "stripped: contributed 0"
+   "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping."
   },
   {
    "file": "b.rs",

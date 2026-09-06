@@ -1,7 +1,7 @@
 # keyword rosetta control shell: makefile / main
 # author: keyword-rosetta generator
 ## dispatch each probe once
-# decoy: this suite never needs root and the kill word stays in prose
+# decoy: this suite never runs sudo apt and no wget call lives outside prose
 include a.mk
 
 export PROBE_BRANCH = 1

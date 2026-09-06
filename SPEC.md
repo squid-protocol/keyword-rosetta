@@ -92,9 +92,24 @@ never invent an occurrence the rule can't match.
 
 Decoys cross the two detection surfaces in both directions:
 
-1. **Comment decoy** — every file carries one comment containing 2+ code-stream
-   keywords in prose, e.g. `# this probe never calls eval and has no while loop`.
-   Must contribute nothing: tests `prism.py` comment stripping.
+1. **Comment decoy** — the assertion is **per language, not per file**: `main.<ext>`
+   carries one comment whose prose fires **2+ of the language's own code-stream rules**,
+   e.g. `# this probe never calls eval and has no while loop`. Must contribute nothing:
+   tests `prism.py` comment stripping. Design rules (keyword-rosetta#73):
+   - The test is the **prose with the comment marker stripped**. A rule that fires only
+     *with* the marker is comment-anchored (`dead_code`, `spec_exposure`, the debt family,
+     `doc`, `ownership`) and does not count — those rules are *supposed* to read comments,
+     so counting them would make a decoy pass while asserting nothing about stripping.
+   - Use words the language's **own** rules match, checked against the live compiled rules.
+     Generic prose asserts nothing: `# decoy: tidy remarks stay in prose` fires nothing in
+     any language, and 67 of the corpus's 180 decoy lines were that shape until #73.
+   - Prefer keywords whose rules are already manifest keys (the planted family), so the
+     `signals` list needs no new key. Spill into a non-planted rule is fine and goes in
+     `outcome`; it is stripped along with everything else.
+   - The other three files' `decoy:` lines are **shell furniture**, not decoys — they keep
+     the four files parallel and are not recorded. Only the `main.<ext>` one is.
+   - Skip only if the language has no code-stream rules at all (markdown: every signal
+     rule is `None`, so there is nothing a comment could shield).
 2. **String decoy** — one **danger-only** string literal per language, e.g.
    `msg = "plain eval decoy text"`. Strings are NOT stripped: keywords inside a literal
    count like code for every structural signal (gitgalaxy#2535 — there is no

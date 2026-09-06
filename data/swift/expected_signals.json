@@ -90,6 +90,15 @@
   },
   "decoys": [
     {
+      "file": "main.swift",
+      "line_hint": "// decoy: this suite never traps and the abort word stays in prose",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.swift",
       "line_hint": "let note = \"plain assertionFailure decoy text\" (probeState)",
       "surface": "string",

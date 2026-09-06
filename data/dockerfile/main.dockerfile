@@ -1,6 +1,6 @@
 # keyword rosetta control shell: dockerfile / main
 # Description: dispatch each probe once
-# decoy: this suite never evaluates and the exec word stays in prose
+# decoy: this suite never calls exec and no while loop runs outside prose
 FROM a
 MAINTAINER keyword-rosetta generator
 ARG FLAG

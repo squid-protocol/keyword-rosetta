@@ -1,6 +1,6 @@
 // Keyword Rosetta control shell: rust / main
 // Author: keyword-rosetta generator
-// decoy: this suite never aborts and the exit words stay in prose
+// decoy: this suite never calls abort and no loop keyword lives outside prose
 
 use a;
 

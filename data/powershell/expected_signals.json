@@ -90,6 +90,15 @@
   },
   "decoys": [
     {
+      "file": "main.ps1",
+      "line_hint": "# decoy: this suite never invokes iex words outside prose",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, reflection_metaprogramming 1 when the marker is removed; reflection_metaprogramming is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.ps1",
       "line_hint": "$note = \"plain kill decoy text\" (probe_state)",
       "surface": "string",

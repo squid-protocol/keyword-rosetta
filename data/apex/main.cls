@@ -1,7 +1,7 @@
 // keyword rosetta control shell: apex / main
 // Author: keyword-rosetta generator
 // @description dispatch each probe once
-// decoy: this suite never queries and the undelete word stays in prose
+// decoy: this suite never calls undelete and no while loop lives outside prose
 Type.forName('a');
 
 static Integer entry(Integer argv) {

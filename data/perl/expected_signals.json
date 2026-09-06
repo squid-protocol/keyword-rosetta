@@ -94,6 +94,15 @@
   },
   "decoys": [
     {
+      "file": "main.pl",
+      "line_hint": "# decoy: this suite never spawns a process and the qx word stays in prose",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.pl",
       "line_hint": "my $note = \"plain system decoy text\"; (probe_state)",
       "surface": "string",

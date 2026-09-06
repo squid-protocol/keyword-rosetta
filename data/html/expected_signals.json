@@ -95,6 +95,16 @@
   "decoys": [
     {
       "file": "main.html",
+      "line_hint": "<!-- decoy: this suite never sets srcdoc=\"anything\" and the disabled word stays in prose -->",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution",
+        "safety"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, immutability_locks 1, safety 1 when the marker is removed; immutability_locks is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
+      "file": "main.html",
       "line_hint": "13 <script></script> tags corpus-wide",
       "surface": "code",
       "signals": [

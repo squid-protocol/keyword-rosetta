@@ -91,13 +91,13 @@
   "decoys": [
     {
       "file": "main.sql",
-      "line_hint": "never detaches a database and no shell word",
+      "line_hint": "-- decoy: this suite never runs DROP DATABASE and no SELECT statement lives outside prose",
       "surface": "comment",
       "signals": [
-        "cleanup",
-        "high_risk_execution"
+        "high_risk_execution",
+        "io"
       ],
-      "outcome": "stripped: contributed 0"
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, io 1, structural_boundaries 1 when the marker is removed; structural_boundaries is not a manifest key, so not listed in signals. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping."
     },
     {
       "file": "b.sql",
