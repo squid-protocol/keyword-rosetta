@@ -1,6 +1,6 @@
 // keyword rosetta control shell: go / main
 // Author: keyword-rosetta generator
-// decoy: this suite never exits and the branch words stay in prose
+// decoy: this suite never calls os.Exit and no select statement runs outside prose
 package main
 
 import "a"

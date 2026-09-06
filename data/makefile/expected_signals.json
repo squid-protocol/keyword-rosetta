@@ -90,6 +90,16 @@
   },
   "decoys": [
     {
+      "file": "main.mk",
+      "line_hint": "# decoy: this suite never runs sudo apt and no wget call lives outside prose",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution",
+        "io"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, io 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.mk",
       "line_hint": "NOTE != echo \"plain sudo decoy text\" (the module-level NOTE assignment)",
       "surface": "string",

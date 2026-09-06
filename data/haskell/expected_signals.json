@@ -95,12 +95,13 @@
   "decoys": [
     {
       "file": "main.hs",
-      "line_hint": "never dies and the exit words stay in prose",
+      "line_hint": "-- decoy: this suite never calls exitFailure and no case-of branch lives outside prose",
       "surface": "comment",
       "signals": [
+        "branch",
         "high_risk_execution"
       ],
-      "outcome": "stripped: contributed 0"
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 2, high_risk_execution 1 when the marker is removed. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping."
     },
     {
       "file": "b.hs",

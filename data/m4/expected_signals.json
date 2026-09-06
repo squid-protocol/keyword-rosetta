@@ -90,6 +90,16 @@
   },
   "decoys": [
     {
+      "file": "main.m4",
+      "line_hint": "dnl decoy: this suite never runs esyscmd and no ifelse branch lives outside prose",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.m4",
       "line_hint": "m4_define(probe_state, [pushdef(counter) m4_append(note, [plain esyscmd decoy text]) $1]) (the probe_state macro body)",
       "surface": "string",

@@ -94,6 +94,16 @@
   },
   "decoys": [
     {
+      "file": "main.sol",
+      "line_hint": "// decoy: this suite never calls selfdestruct and no while loop lives outside prose",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.sol",
       "line_hint": "string memory note = \"plain selfdestruct decoy text\"; (probeState)",
       "surface": "string",

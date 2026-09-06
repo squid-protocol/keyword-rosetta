@@ -1,7 +1,7 @@
 * Keyword Rosetta control shell: abap / main
 * AUTHOR: keyword-rosetta generator
 "! @parameter cv_argv | probe input
-* decoy: this suite never uses TRUNCATE and no WHILE loop lives in prose
+* decoy: this suite never uses TRUNCATE and the SY-SUBRC field stays in prose
 REPORT rosetta_main.
 INCLUDE a.
 

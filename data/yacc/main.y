@@ -1,7 +1,7 @@
 /* keyword rosetta control shell: yacc / main */
 /* @author keyword-rosetta generator */
 /* @param flag the probe input */
-/* decoy: this suite never aborts outside prose */
+/* decoy: this suite never calls abort and no while loop lives outside a rule action */
 #include "a.y"
 %define api.pure full
 %%

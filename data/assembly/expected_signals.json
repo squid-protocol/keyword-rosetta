@@ -91,13 +91,13 @@
   "decoys": [
     {
       "file": "main.asm",
-      "line_hint": "never halts and the branch words stay in prose",
+      "line_hint": "; decoy: this suite never runs hlt and no loop branch stays outside prose",
       "surface": "comment",
       "signals": [
-        "high_risk_execution",
-        "branch"
+        "branch",
+        "high_risk_execution"
       ],
-      "outcome": "stripped: contributed 0"
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires bitwise_ops 1, branch 1, high_risk_execution 1, panics_and_aborts 1, thread_sleeps 1 when the marker is removed; bitwise_ops, panics_and_aborts, thread_sleeps are not manifest keys, so not listed in signals. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose named 'halts' and 'branch', neither of which assembly's rules match -- it scored 2 only by accident, on the English words 'in' (io's `in` mnemonic) and 'and' (bitwise_ops). hlt and loop are the real mnemonics."
     },
     {
       "file": "b.asm",

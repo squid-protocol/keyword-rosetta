@@ -91,13 +91,13 @@
   "decoys": [
     {
       "file": "main.abap",
-      "line_hint": "never uses TRUNCATE and no WHILE loop",
+      "line_hint": "* decoy: this suite never uses TRUNCATE and the SY-SUBRC field stays in prose",
       "surface": "comment",
       "signals": [
-        "high_risk_execution",
-        "branch"
+        "globals",
+        "high_risk_execution"
       ],
-      "outcome": "stripped: contributed 0"
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires globals 1, high_risk_execution 1 when the marker is removed. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping."
     },
     {
       "file": "b.abap",

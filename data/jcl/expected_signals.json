@@ -102,6 +102,16 @@
   },
   "decoys": [
     {
+      "file": "main.jcl",
+      "line_hint": "//* decoy: this suite never runs PGM=IKJEFT01 and no SYSOUT operand lives outside prose",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution",
+        "io"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, io 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.jcl",
       "line_hint": "PARM='PLAIN PGM=IKJEFT01 DECOY' (PROBESTATE)",
       "surface": "string",

@@ -1,7 +1,7 @@
 // keyword rosetta control shell: scala / main
 // Created by: keyword-rosetta generator
 /** @param argv probe input */
-// decoy: this suite never exits and the stop word stays in prose
+// decoy: this suite never calls sys.exit and no match block runs outside prose
 import a
 
 def entry(argv: Int): Int = {

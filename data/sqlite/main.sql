@@ -1,7 +1,7 @@
 -- Keyword Rosetta control shell: sqlite / main
 -- Author: keyword-rosetta generator
 -- Description: dispatch each probe once
--- decoy: this suite never detaches a database and no shell word runs in prose
+-- decoy: this suite never runs DROP DATABASE and no SELECT statement lives outside prose
 .read a.sql
 
 CREATE INDEX probe_dispatch ON corpus (argv);

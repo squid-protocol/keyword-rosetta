@@ -129,6 +129,13 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
   `tools/bias_report.py --gate` exits nonzero while any cell is unexplained: that is the
   epic close criterion, and it is off by default so a routine regen still writes its
   artifacts and exits 0. `language_deviations.py` fails per-language on the same basis.
+- `tools/decoy_check.py [--gate]` — SPEC §Decoys 1: does each language's designated
+  comment decoy (`main.<ext>`) actually assert anything? It scores the prose with the
+  **comment marker stripped**, because a rule that fires only with the marker is
+  comment-anchored (`dead_code`, `spec_exposure`, the debt family, `doc`, `ownership`) and
+  is *supposed* to read comments — counting those let 67 of the corpus's 180 `decoy:` lines
+  pass while asserting nothing about stripping (keyword-rosetta#73). `markdown` is the one
+  entry in `EXEMPT`: every rule it defines is `lit_*`, so no comment could shield anything.
 - `tools/issue_status.py <lang> [--post]` — the per-language tracking issue's status comment,
   generated from `bias_data.json` + the ledger with the same verdicts the gate uses, so an
   issue can never disagree with `bias_report.py --gate` about what is left. `--all --post`

@@ -90,6 +90,15 @@
   },
   "decoys": [
     {
+      "file": "main.lua",
+      "line_hint": "-- decoy: this suite never exits and the loop words stay in prose",
+      "surface": "comment",
+      "signals": [
+        "branch"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 2 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
       "file": "b.lua",
       "line_hint": "note = \"plain os.remove decoy text\" (probe_state)",
       "surface": "string",
