@@ -176,7 +176,7 @@ Verified empirically; every generator must account for them:
    git-tracked files — an untracked folder scans as "0 files mapped".
 2. **`api` is the rule count; the orphan conversion is pinned separately**
    (gitgalaxy#2729). The Contextual Baseline Fix (`galaxyscope.py` ~2228) adds a
-   file's `orphaned_logic` (uncalled functions) to its `api` when another file
+   file's `unreferenced_by_name` (uncalled functions) to its `api` when another file
    imports it. The gate reads the pre-adjustment `raw_arch_api` as `api` — what the
    language's api rule actually matched — and records the conversion under
    **`api_orphan_credit`** (= `arch_api − raw_arch_api`). With the spec's main→a→b→c

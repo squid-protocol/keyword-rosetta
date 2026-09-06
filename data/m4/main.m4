@@ -4,7 +4,7 @@ dnl @param 1 the probe input
 dnl decoy: this suite never runs esyscmd and no ifelse branch lives outside prose
 include(a.m4)
 
-m4_define(probe_dispatch, [$1])
+m4_define(probe_dispatch, [probe_branch($1)probe_io($1)probe_risk($1)])
 m4_define(probe_branch, [ifelse($1, 1, yes, ifdef(flag, m4_if($1, 2)))])
 AC_SUBST([PROBE_BRANCH])
 m4_define(probe_io, [sysval mkstemp maketemp $1])

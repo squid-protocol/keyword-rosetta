@@ -101,12 +101,12 @@ MEASURE_COLS = [
     # gap `control_flow_ratio` has with its unplanted denominator.
     #
     # The RAW (pre-adjustment) columns are deliberate: galaxyscope's Contextual
-    # Baseline Fix rewrites api and orphaned_logic in place for any file with
+    # Baseline Fix rewrites api and unreferenced_by_name in place for any file with
     # popularity > 0, so the adjusted values carry the DAG's bias into a column
     # meant to measure extraction. #2536 added these snapshots for exactly this
     # consumer.
     "raw_arch_api",
-    "raw_state_slop_orphans",
+    "raw_state_unreferenced",
     "def_encapsulation",
     "state_slop_duplicates",
 ]
@@ -488,7 +488,7 @@ DERIVED_INPUTS = {
 RISK_INPUT_COLUMNS = {
     "api": "raw_arch_api",
     "encapsulation": "def_encapsulation",
-    "orphaned_logic": "raw_state_slop_orphans",
+    "unreferenced_by_name": "raw_state_unreferenced",
     "duplicate_logic": "state_slop_duplicates",
 }
 
@@ -720,7 +720,7 @@ def derivation_inputs(metric, risk_inputs=None, include_context=False):
     DERIVED_INPUTS for the structural composites; the engine's own risk assembly
     (`risk_inputs`, read off `_registry.risk_dependencies` at regen time) for the
     risk_* family; () for a metric with no known edges. `engine` inputs
-    (orphaned_logic, duplicate_logic, the sec_* family) are synthesized downstream
+    (unreferenced_by_name, duplicate_logic, the sec_* family) are synthesized downstream
     of the registry, so a None rule cannot pin them -- but they are still real
     inputs, and two of them are measured columns, so they belong in the edges.
     Context metrics (length) are dropped unless `include_context`: the verdict
@@ -909,7 +909,7 @@ def unmeasurable_risk_cells(deps, definitions, observed):
 
       1. its formula consumes at least one registry-governed signal;
       2. every one of those signals has a None rule for that language;
-      3. it consumes no engine-derived input (orphaned_logic, duplicate_logic,
+      3. it consumes no engine-derived input (unreferenced_by_name, duplicate_logic,
          the sec_* family) that can be nonzero regardless of the registry;
       4. the observed value really is 0 -- the scan confirming that 1-3 pinned it.
 
@@ -999,7 +999,7 @@ PRETTY_METRIC = {
     "func_internal_density": "Function internal density", "dependency_density": "Dependency density",
     "encapsulation_ratio": "Encapsulation ratio", "popularity": "Popularity",
     "cog_raw": "Cognitive density (raw)", "raw_arch_api": "API surface (raw)",
-    "raw_state_slop_orphans": "Orphaned functions", "def_encapsulation": "Encapsulation (raw)",
+    "raw_state_unreferenced": "Unreferenced by name", "def_encapsulation": "Encapsulation (raw)",
     "state_slop_duplicates": "Duplicate logic", "functions_found": "Functions found",
     "classes_found": "Classes found", "dependency_links": "Dependency links",
     "control_flow_ratio": "Control-flow ratio", "structural_mass": "Structural mass",

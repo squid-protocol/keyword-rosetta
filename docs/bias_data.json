@@ -97,7 +97,7 @@
    "zig": 13
   },
   "args": {
-   "abap": 13,
+   "abap": 16,
    "ada": 13,
    "agc_assembly": 13,
    "apex": 13,
@@ -121,7 +121,7 @@
    "kotlin": 13,
    "livecode": 13,
    "lua": 13,
-   "m4": 18,
+   "m4": 20,
    "makefile": 1,
    "markdown": null,
    "matlab": 13,
@@ -1824,8 +1824,8 @@
    "yaml": 1,
    "zig": 3
   },
-  "raw_state_slop_orphans": {
-   "abap": 3.25,
+  "raw_state_unreferenced": {
+   "abap": 2.5,
    "ada": 2.5,
    "agc_assembly": 2.75,
    "apex": 2.5,
@@ -1845,15 +1845,15 @@
    "html": 0,
    "java": 2.5,
    "javascript": 2.5,
-   "jcl": 3.25,
+   "jcl": 0,
    "kotlin": 2.5,
    "livecode": 2.5,
    "lua": 2.5,
-   "m4": 3.25,
-   "makefile": 3.25,
+   "m4": 2.5,
+   "makefile": 2.75,
    "markdown": 0,
    "matlab": 2.5,
-   "objective-c": 3.25,
+   "objective-c": 2.5,
    "perl": 2.5,
    "php": 2.5,
    "powershell": 2.5,
@@ -1989,7 +1989,7 @@
    "html": 4.041425,
    "java": 7.0517,
    "javascript": 7.0517,
-   "jcl": 6.170225,
+   "jcl": 0.88145,
    "kotlin": 7.0517,
    "livecode": 7.33545,
    "lua": 7.33545,
@@ -2181,7 +2181,7 @@
    "html": 21.521725,
    "java": 38.255174999999994,
    "javascript": 38.255174999999994,
-   "jcl": 33.4023,
+   "jcl": 4.056775,
    "kotlin": 38.255174999999994,
    "livecode": 41.665099999999995,
    "lua": 41.665099999999995,
@@ -2401,7 +2401,7 @@
    "zig": 7.75065
   },
   "risk_tech_debt": {
-   "abap": 46.9581,
+   "abap": 34.519925,
    "ada": 34.519925,
    "agc_assembly": 48.5344,
    "apex": 34.519925,
@@ -2421,15 +2421,15 @@
    "html": 20.43935,
    "java": 29.877875000000003,
    "javascript": 42.090825,
-   "jcl": 48.791575,
+   "jcl": 23.81435,
    "kotlin": 34.519925,
    "livecode": 42.090825,
    "lua": 42.090825,
-   "m4": 48.791575,
-   "makefile": 48.647025,
+   "m4": 42.090825,
+   "makefile": 42.090825,
    "markdown": 0.0,
    "matlab": 38.665025,
-   "objective-c": 48.066024999999996,
+   "objective-c": 38.665025,
    "perl": 42.090825,
    "php": 38.665025,
    "powershell": 38.665025,
@@ -2449,7 +2449,7 @@
    "zig": 34.519925
   },
   "risk_verification": {
-   "abap": 2.377425,
+   "abap": 2.3777749999999997,
    "ada": 2.385275,
    "agc_assembly": 2.393225,
    "apex": 2.392525,
@@ -2477,7 +2477,7 @@
    "makefile": 2.378,
    "markdown": null,
    "matlab": 2.4013999999999998,
-   "objective-c": 2.3872999999999998,
+   "objective-c": 2.38765,
    "perl": 2.39575,
    "php": 2.3873,
    "powershell": 2.39655,
@@ -2497,7 +2497,7 @@
    "zig": 2.385275
   },
   "total_loc": {
-   "abap": 21.75,
+   "abap": 22.5,
    "ada": 25.5,
    "agc_assembly": 17.75,
    "apex": 24.75,
@@ -2525,7 +2525,7 @@
    "makefile": 23,
    "markdown": 14.5,
    "matlab": 24.75,
-   "objective-c": 24.25,
+   "objective-c": 25,
    "perl": 26,
    "php": 25.25,
    "powershell": 29.25,
@@ -2545,7 +2545,7 @@
    "zig": 25.5
   },
   "coding_loc": {
-   "abap": 14.75,
+   "abap": 15.5,
    "ada": 18.5,
    "agc_assembly": 12.75,
    "apex": 17.75,
@@ -2573,7 +2573,7 @@
    "makefile": 14.25,
    "markdown": 0,
    "matlab": 17.5,
-   "objective-c": 17,
+   "objective-c": 17.75,
    "perl": 18.75,
    "php": 18,
    "powershell": 21.25,
@@ -2593,7 +2593,7 @@
    "zig": 18
   },
   "avg_func_loc": {
-   "abap": 4.3125,
+   "abap": 4.5,
    "ada": 5.520833333333333,
    "agc_assembly": 3.3541666666666665,
    "apex": 5.3125,
@@ -2621,7 +2621,7 @@
    "makefile": 3.3125,
    "markdown": 0.0,
    "matlab": 5.208333333333333,
-   "objective-c": 5.125,
+   "objective-c": 5.3125,
    "perl": 5.4375,
    "php": 5.083333333333333,
    "powershell": 5.375,
@@ -2689,7 +2689,7 @@
    "zig": 12
   },
   "token_mass": {
-   "abap": 129.75,
+   "abap": 138.25,
    "ada": 154.5,
    "agc_assembly": 135.25,
    "apex": 128.25,
@@ -2713,11 +2713,11 @@
    "kotlin": 133.25,
    "livecode": 122.75,
    "lua": 111,
-   "m4": 137.25,
-   "makefile": 111.5,
+   "m4": 140.75,
+   "makefile": 113.5,
    "markdown": null,
    "matlab": 113.5,
-   "objective-c": 131.5,
+   "objective-c": 137.5,
    "perl": 130.75,
    "php": 130.5,
    "powershell": 145.75,
@@ -2737,7 +2737,7 @@
    "zig": 149
   },
   "keyword_hits": {
-   "abap": 129,
+   "abap": 132,
    "ada": 145,
    "agc_assembly": 181,
    "apex": 136,
@@ -2757,12 +2757,12 @@
    "html": 78,
    "java": 140,
    "javascript": 202,
-   "jcl": 102,
+   "jcl": 98,
    "kotlin": 187,
    "livecode": 129,
    "lua": 144,
-   "m4": 77,
-   "makefile": 122,
+   "m4": 76,
+   "makefile": 120,
    "markdown": 30,
    "matlab": 151,
    "objective-c": 147,
@@ -2785,7 +2785,7 @@
    "zig": 191
   },
   "structural_mass": {
-   "abap": 10.395,
+   "abap": 10.435,
    "ada": 11.120000000000001,
    "agc_assembly": 10.455,
    "apex": 10.43,
@@ -2805,7 +2805,7 @@
    "html": 15.285,
    "java": 10.46,
    "javascript": 10.49,
-   "jcl": 9.34,
+   "jcl": 7.09,
    "kotlin": 10.46,
    "livecode": 12.09,
    "lua": 11.6,
@@ -2813,7 +2813,7 @@
    "makefile": 11.459999999999999,
    "markdown": 1.0,
    "matlab": 11.675,
-   "objective-c": 9.665,
+   "objective-c": 9.705,
    "perl": 10.75,
    "php": 10.435,
    "powershell": 11.25,
@@ -3494,7 +3494,7 @@
    ],
    "engine": [
     "duplicate_logic",
-    "orphaned_logic"
+    "unreferenced_by_name"
    ],
    "reads_constant": true
   },
@@ -3724,15 +3724,13 @@
    "where": null
   },
   {
-   "metric": "risk_verification",
+   "metric": "raw_state_unreferenced",
    "n": 13,
-   "rho": 0.418,
+   "rho": 0.414,
    "verdict": "weak",
-   "held": [
-    "high_risk_execution"
-   ],
+   "held": [],
    "stratum": "irc2",
-   "where": "_calc_verification: untested impact / _mass_loc(loc) (signal_processor.py ~L1664) -- same floor, same constant denominator"
+   "where": null
   }
  ],
  "cell_categories": {
@@ -3885,25 +3883,22 @@
   "raw_arch_api/sqlite": "extraction",
   "raw_arch_api/yacc": "scoring",
   "raw_arch_api/yaml": "scoring",
-  "raw_state_slop_orphans/abap": "extraction",
-  "raw_state_slop_orphans/css": "extraction",
-  "raw_state_slop_orphans/dockerfile": "extraction",
-  "raw_state_slop_orphans/haskell": "extraction",
-  "raw_state_slop_orphans/html": "extraction",
-  "raw_state_slop_orphans/jcl": "extraction",
-  "raw_state_slop_orphans/m4": "extraction",
-  "raw_state_slop_orphans/makefile": "extraction",
-  "raw_state_slop_orphans/markdown": "extraction",
-  "raw_state_slop_orphans/objective-c": "extraction",
-  "raw_state_slop_orphans/scheme": "extraction",
-  "raw_state_slop_orphans/sqlite": "extraction",
-  "raw_state_slop_orphans/yaml": "extraction",
+  "raw_state_unreferenced/css": "extraction",
+  "raw_state_unreferenced/dockerfile": "extraction",
+  "raw_state_unreferenced/haskell": "extraction",
+  "raw_state_unreferenced/html": "extraction",
+  "raw_state_unreferenced/jcl": "scoring",
+  "raw_state_unreferenced/markdown": "extraction",
+  "raw_state_unreferenced/scheme": "extraction",
+  "raw_state_unreferenced/sqlite": "extraction",
+  "raw_state_unreferenced/yaml": "extraction",
   "risk_api_exposure/agc_assembly": "echo",
   "risk_api_exposure/css": "echo",
   "risk_api_exposure/dockerfile": "echo",
   "risk_api_exposure/go": "echo",
   "risk_api_exposure/haskell": "echo",
   "risk_api_exposure/html": "echo",
+  "risk_api_exposure/jcl": "echo",
   "risk_api_exposure/m4": "unexplained",
   "risk_api_exposure/makefile": "unexplained",
   "risk_api_exposure/perl": "echo",
@@ -3929,6 +3924,7 @@
   "risk_documentation/dockerfile": "echo",
   "risk_documentation/haskell": "echo",
   "risk_documentation/html": "scoring",
+  "risk_documentation/jcl": "scoring",
   "risk_documentation/m4": "unexplained",
   "risk_documentation/makefile": "scoring",
   "risk_documentation/sqlite": "scoring",
@@ -3949,8 +3945,8 @@
   "risk_state_flux/sqlite": "scoring",
   "risk_state_flux/swift": "echo",
   "risk_state_flux/typescript": "scoring",
-  "risk_tech_debt/abap": "echo",
   "risk_tech_debt/dockerfile": "echo",
+  "risk_tech_debt/jcl": "scoring",
   "risk_tech_debt/markdown": "echo",
   "risk_tech_debt/sqlite": "echo",
   "safety/embedded_python": "extraction",
@@ -4095,8 +4091,8 @@
    2,
    46
   ],
-  "raw_state_slop_orphans": [
-   13,
+  "raw_state_unreferenced": [
+   8,
    46
   ],
   "risk_api_exposure": [
