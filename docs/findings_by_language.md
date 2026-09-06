@@ -10,14 +10,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|---|
 | [abap](#abap) | 0 | 2 | 0 | 5 | #2535 #2650 #2659 #2727 #2730 #2731 |
 | [ada](#ada) | 0 | 5 | 0 | 5 | #2535 #2546 #2727 |
-| [agc_assembly](#agc_assembly) | 2 | 1 | 1 | 8 | #2535 #2650 #2659 #2729 #2764 |
+| [agc_assembly](#agc_assembly) | 2 | 1 | 1 | 8 | #2650 #2659 #2729 #2764 |
 | [apex](#apex) | 3 | 2 | 0 | 10 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2782 #2783 |
 | [assembly](#assembly) | 0 | 0 | 0 | 5 | #2535 #2727 #2764 |
 | [c](#c) | 2 | 4 | 0 | 9 | #2535 #2546 #2626 #2655 #2689 #2729 #2730 #2731 |
 | [cobol](#cobol) | 3 | 3 | 0 | 16 | #2535 #2537 #2538 #2655 #2661 #2689 #2727 #2729 #2770 |
 | [cpp](#cpp) | 2 | 6 | 0 | 6 | #2535 #2546 #2655 #2730 #2731 |
 | [csharp](#csharp) | 0 | 4 | 0 | 6 | #2535 #2546 #2730 #2731 |
-| [css](#css) | 7 | 3 | 4 | 16 | #2655 #2689 #2727 #2729 #2752 #2770 |
+| [css](#css) | 7 | 2 | 4 | 16 | #2655 #2689 #2727 #2729 #2752 #2770 |
 | [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
 | [dockerfile](#dockerfile) | 8 | 7 | 0 | 13 | #2535 #2546 #2547 #2689 #2727 #2728 #2729 #2730 #2731 #2770 |
 | [embedded_python](#embedded_python) | 4 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
@@ -25,10 +25,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [go](#go) | 2 | 1 | 0 | 9 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 |
 | [groovy](#groovy) | 0 | 0 | 0 | 6 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 |
 | [haskell](#haskell) | 7 | 2 | 0 | 10 | #2535 #2689 #2727 #2729 #2770 |
-| [html](#html) | 12 | 5 | 2 | 15 | #2549 #2645 #2650 #2655 #2659 #2689 #2727 #2729 #2770 |
+| [html](#html) | 12 | 4 | 2 | 15 | #2549 #2645 #2650 #2655 #2659 #2689 #2727 #2729 #2770 |
 | [java](#java) | 0 | 0 | 0 | 7 | #2535 #2546 #2655 #2689 #2730 #2731 |
 | [javascript](#javascript) | 0 | 5 | 0 | 12 | #2535 #2539 #2655 #2689 #2730 #2731 #2770 |
-| [jcl](#jcl) | 2 | 4 | 2 | 18 | #2610 #2655 #2689 #2727 #2729 #2732 #2733 #2770 |
+| [jcl](#jcl) | 2 | 3 | 2 | 18 | #2610 #2655 #2689 #2727 #2729 #2732 #2733 #2770 |
 | [kotlin](#kotlin) | 0 | 1 | 0 | 10 | #2535 #2545 #2546 #2689 #2730 #2731 #2770 |
 | [livecode](#livecode) | 8 | 1 | 0 | 9 | #2535 #2546 #2547 #2650 #2659 #2727 #2729 #2731 |
 | [lua](#lua) | 0 | 1 | 0 | 11 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 |
@@ -52,7 +52,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [tcl](#tcl) | 4 | 5 | 0 | 8 | #2535 #2546 #2727 #2731 |
 | [typescript](#typescript) | 0 | 2 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 #2770 #2773 |
 | [yacc](#yacc) | 5 | 0 | 2 | 8 | #2644 #2689 #2729 #2770 |
-| [yaml](#yaml) | 4 | 1 | 0 | 12 | #2646 #2647 #2689 #2727 #2729 #2732 #2770 |
+| [yaml](#yaml) | 4 | 0 | 0 | 12 | #2646 #2647 #2689 #2727 #2729 #2732 #2770 |
 | [zig](#zig) | 0 | 1 | 0 | 6 | #2535 #2545 #2651 #2730 #2731 |
 
 ## abap
@@ -119,14 +119,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
 | `asm-call-ret-in-branch` | engine-semantic | [#2764](https://github.com/squid-protocol/gitgalaxy/issues/2764) | — | assembly's branch rule includes call and ret (all control transfers) — correct for asm morphology but it means every probe body's ret and every glue call counts branch (… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `agc-assembly-class-start-no-struct-pseudoop` | intended-morphology | — | — | AGC's real 1960s YUL/GAP instruction set (agc_assembly.py:99-101, comment: 'AGC lacks native objects') has no struct/record-defining pseudo-op -- its data/memory constru… |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `string-decoy-unplantable-no-literal-surface` | language-morphology | — | main.agc | agc_assembly reads high_risk_execution 2 against a median 3 because it is the one language in the corpus that cannot carry SPEC §Decoys' string decoy |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
+- **main.agc** · `# DECOY: THIS SUITE NEVER REACHES CURTAINS AND THE HALT WORD STAYS IN PROSE` (comment): contributes 0 -- CURTAINS and HALT both match agc's danger rule raw, and prism strips the # comment surface, so main.agc reads the 2 planted (CURTAINS/WHIMPER in PROBERISK) and no more. Recorded 2026-09-06 (keyword-rosetta#71): it was the only decoy in the corpus carrying two danger keywords and it was unlisted. NO STRING DECOY IS PLANTED FOR agc_assembly and none can be: the AGC assembler has no character-literal type at all (data is OCT/DEC/ERASE/EQUALS, all numeric), so there is no data position a danger token can sit in that is not an instruction position. SPEC §Decoys' own 'skip only if the language has no string literals' clause applies -- ledger string-decoy-unplantable-no-literal-surface.
 - **c.agc** · `RESUME under PROBECLEAN` (code): RESUME was dual cleanup+branch until gitgalaxy#2764 (c.agc branch 1); it is an interrupt RETURN, not a decision, and now reads cleanup only (plus structural_boundaries, which the SPEC does not plant). c.agc branch 0.
 
 </details>
@@ -315,7 +316,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `func_complexity_gini`: 0.1 vs median 0.1875 (-47%)
-- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 
 **Not expressible as measured (n/a):** `cleanup`, `risk_concurrency`, `state_mutation`, `telemetry`
 
@@ -341,6 +341,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.css** · `@media / @supports / @container` (code): the three planted branch at-rules are TRIPLE-counted: each is func_start (the #2507/#2513 'closest function-shaped construct' precedent), @media/@supports/@container are branch, and @supports is also safety — one @supports line = 3 signals
+- **b.css** · `content: "plain expression decoy text" (@keyframes probe-state)` (string): the declaration goes INSIDE the existing @keyframes probe-state block, so structural_boundaries and func_start are unmoved; a new selector would have cost class_start +1. `expression` is css's own danger vocabulary (the IE expression() sink c.css plants for real).
 
 </details>
 
@@ -569,7 +570,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
-- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 - 🟡 `risk_api_exposure`: 4.04143 vs median 7.0517 (-43%)
 - 🟡 `risk_documentation`: 21.5217 vs median 16.6736 (+29%)
 
@@ -596,6 +596,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.html** · `13 <script></script> tags corpus-wide` (code): func_start 0 EVERYWHERE despite raw-regex matches: the polyglot splitter consumes the <script>/<style> tags before html's rules run (micro-repro: a script with real JS records the JS body's signals but func 0). Ledger html-script-func-start-unreachable; gitgalaxy#2549
+- **b.html** · `plain srcdoc="withheld" decoy text (#probe-api-b text node)` (string): html's literal surface is markup TEXT, not an attribute value: the text goes inside the existing <div id="probe-api-b">, so structural_boundaries and api are unmoved. io does not fire -- its rule needs src= and srcdoc= has no = after src.
 
 </details>
 
@@ -662,7 +663,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 0.25 vs median 3 (-92%)
 - 🟡 `dependency_density`: 0.02 vs median 0.015 (+33%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
-- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 - 🟡 `raw_state_slop_orphans`: 3.25 vs median 2.5 (+30%)
 
 **Not expressible as measured (n/a):** `doc`, `test`
@@ -688,6 +688,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `comment-stream-rules-missing-jcl-yaml` | upstream-question | [#2732](https://github.com/squid-protocol/gitgalaxy/issues/2732) | (notes) | RESOLVED by gitgalaxy#2732 (PR #2736); corpus plants land in this repo's companion PR |
 
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **b.jcl** · `PARM='PLAIN PGM=IKJEFT01 DECOY' (PROBESTATE)` (string): widens an EXISTING EXEC step's PARM literal instead of adding a step: PARM= is once-per-EXEC and func_start counts the EXEC, so func_start and args both stay at 13. A new //DECOYX EXEC step would have cost +1 on each (keyword-rosetta#71).
+
+</details>
 
 ## kotlin
 
@@ -1352,6 +1357,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `no-lock-construct-sync-locks` | intended-morphology | — | — | No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms reado… |
 | `yacc-union-class-start-gap` | upstream-question | [#2644](https://github.com/squid-protocol/gitgalaxy/issues/2644) | — | yacc's class_start is None, but bison's %union { .. |
 
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **b.y** · `(void)"plain abort decoy text" (probe_state action block)` (string): RECORD-ONLY (keyword-rosetta#71): the literal has been in b.y since the #17 redesign and is the whole of b.y's high_risk_execution 1, but the decoys array was left empty, so yacc read as a language with no decoy at all. No count changes with this entry. The `(void)` cast keeps it a statement inside the C action block without adding a state_mutation; `abort` is yacc's own danger vocabulary (abort|exit|YYNOMEM) and is not a branch keyword.
+
+</details>
 
 ## yaml
 
@@ -1361,7 +1371,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
 - 🔴 `raw_state_slop_orphans`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 3.5258 vs median 7.0517 (-50%)
-- 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1378,6 +1387,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `yaml-cleanup-embedded-teardown-gap` | upstream-question | [#2647](https://github.com/squid-protocol/gitgalaxy/issues/2647) | — | yaml's cleanup is None |
 | `yaml-ownership-author-key-gap` | upstream-question | [#2646](https://github.com/squid-protocol/gitgalaxy/issues/2646) | — | yaml's ownership is None, but the two ecosystems this language definition explicitly targets each carry a standard single-key ownership field: action.yml's top-level aut… |
 
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **b.yml** · `NOTE: "plain eval decoy text" (probe_state env block)` (string): replaces the value of the existing NOTE key in probe_state's env block, so state_mutation (which the env: block header carries) and args are unmoved. Same shape as dockerfile's RUN export NOTE=.
+
+</details>
 
 ## zig
 
