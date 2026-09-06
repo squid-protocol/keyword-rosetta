@@ -12,7 +12,7 @@ Planted intent is identical in every language (SPEC.md probe table), so any colu
 
 ## Out-of-band cells: explained vs. unexplained
 
-An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does). The four program-length columns are context, not consistency claims, and are not counted here at all (51 of their cells are out of band; see the next section).
+An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does). The four program-length columns are context, not consistency claims, and are not counted here at all (52 of their cells are out of band; see the next section).
 
 | verdict | cells | meaning |
 |---|---|---|
@@ -31,7 +31,7 @@ A verdict says a cell is accounted for; it does not say what the cell *is*, and 
 |---|---|---|
 | **unexplained** | 0 | survived every mechanism -- the gate fails on these |
 | **extraction** | 59 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
-| **correlation** | 20 | a proximity pair in spatial_correlation.py edited the recorded count (the x3 cascading flux, the silencer dampener); Phase 2 moves these out |
+| **correlation** | 20 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
 | scoring | 51 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 35 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
 | echo | 99 | derived -- an upstream deviation counted again downstream |
@@ -64,7 +64,7 @@ Ledger entries that currently explain **no** out-of-band cell (validated, still 
 
 The risk formulas read registry signals the SPEC does not plant: `concurrency`, `dead_code`, `debug_prints`, `immutability_locks`, `llm_api`, `reflection_metaprogramming`, `spec_exposure`, `sync_locks`. A shell that idiomatically writes `val`/`let`/`final` carries `immutability_locks` a `var` shell does not, and `risk_state_flux` then differs with `state_mutation` on plant. These columns are reported (below, and in the chart) but never gated; an out-of-band cell here gets no verdict, but a derived risk cell may inherit from it and say so. 38 such cells are out of band now:
 
-- `concurrency` — agc_assembly 1, java 6, swift 1
+- `concurrency` — agc_assembly 1, java 1, swift 1
 - `dead_code` — jcl 1, makefile 7
 - `debug_prints` — abap 5, cobol 7, dockerfile 2, scheme 2, yaml 2
 - `immutability_locks` — abap 1, c 1, cpp 1, dart 2, fortran 1, html 1, javascript 17, kotlin 6, php 1, ruby 1, scala 3, swift 11, typescript 14, zig 3
@@ -124,7 +124,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 30 | 13 | 13 | 13 | 13 | 13 | 13 |
 | classes_found | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| keyword_hits | 129 | 145 | 180 | 137 | 160 | 142 | 143 | 149 | 155 | 75 | 159 | 85 | 181 | 162 | 160 | 152 | 117 | 81 | 144 | 200 | 102 | 184 | 132 | 143 | 79 | 122 | 30 | 155 | 148 | 180 | 142 | 147 | 188 | 155 | 201 | 159 | 98 | 137 | 164 | 67 | 184 | 140 | 188 | 59 | 151 | 187 |
+| keyword_hits | 131 | 145 | 181 | 137 | 160 | 143 | 145 | 149 | 155 | 75 | 159 | 85 | 181 | 163 | 160 | 152 | 117 | 78 | 139 | 200 | 102 | 184 | 132 | 144 | 79 | 122 | 30 | 155 | 148 | 181 | 142 | 147 | 188 | 155 | 201 | 159 | 98 | 137 | 164 | 66 | 185 | 140 | 188 | 61 | 151 | 187 |
 | comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 13 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 12 | 11 | 12 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
