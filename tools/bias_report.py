@@ -594,8 +594,9 @@ CATEGORY_MEANING = {
     "unexplained": "survived every mechanism -- the gate fails on these",
     "extraction": "a rule matches the wrong construct, or two rules claim one token "
                   "(upstream-bug, upstream-question, engine-defect, keyword-overlap)",
-    "correlation": "a proximity pair in spatial_correlation.py edited the recorded count "
-                   "(the x3 cascading flux, the silencer dampener); Phase 2 moves these out",
+    "correlation": "a proximity pair in spatial_correlation.py used to edit the recorded count "
+                   "(the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) "
+                   "they are tallies applied only in the score layer's weighted view",
     "scoring": "a deliberate engine choice in a formula or a path modifier (engine-semantic)",
     "inherency": "the best the language can do: intended-morphology, or a per-function "
                  "descriptor where the language has no functions",
@@ -609,7 +610,11 @@ _DISPOSITION_CATEGORY = {
 }
 # engine-semantic entries that record a recorded-count edit by a proximity pair rather
 # than a formula choice. The disposition vocabulary has no value for this, so they are
-# named; gitgalaxy#2546/#2631 documents the mechanism, roadmap Phase 2 retires it.
+# named; gitgalaxy#2546/#2631 documents the mechanism, gitgalaxy#2815 (roadmap Phase 2)
+# moved it out of the recorded counts -- `state-flux-branch-weighting` is retired
+# (still_reproduces false); `string-literal-selective-shielding` still explains which
+# rules count a keyword inside a literal, a stream fact rather than a correlation one,
+# and whether it stays in this set is the Phase 0 owner's call.
 CORRELATION_ENTRIES = frozenset({
     "string-literal-selective-shielding",
     "state-flux-branch-weighting",
