@@ -16,7 +16,8 @@ def probeTelemetry(msg: Int): Int = {
 
 def probeState(items: Int): Int = {
   var first = items
-  var second = items
+  first = 1
+  first = 2
   val note = "plain Runtime.getRuntime.exec decoy text"
-  first + second
+  first
 }

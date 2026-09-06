@@ -17,6 +17,5 @@ proc probe_telemetry {msg} {
 
 proc probe_state {items} {
     set counter 1
-    lappend items 2
     set note "plain exec decoy text"
 }

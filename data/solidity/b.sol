@@ -16,7 +16,7 @@ function probeTelemetry(uint msg_in) public returns (uint) {
 }
 
 function probeState(uint items) public returns (uint) {
-    payable(items);
+    items = 1;
     stack.push(items);
     string memory note = "plain selfdestruct decoy text";
     return items;

@@ -16,7 +16,8 @@ export function probeTelemetry(msg: number): number {
 
 export function probeState(items: number): number {
   let first = items;
-  var second = items;
+  first = 1;
+  first = 2;
   const note = "plain eval decoy text";
-  return first + second;
+  return first;
 }

@@ -17,7 +17,8 @@ pub fn probe_telemetry(msg: i32) -> i32 {
 
 pub fn probe_state(items: i32) -> i32 {
     let mut first = items;
-    let mut second = items;
+    first = 1;
+    first += 1;
     let message = "plain abort decoy text";
-    first + second
+    first
 }

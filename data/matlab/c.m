@@ -9,8 +9,7 @@ end
 
 function out = probe_debt(level)
 % HACK: shortcut kept deliberately for the rosetta corpus
-hack_level = level;
-out = hack_level;
+out = level;
 end
 
 function out = probe_todo(plan)

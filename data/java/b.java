@@ -16,8 +16,8 @@ public static int probeTelemetry(int msg) {
 }
 
 public static int probeState(int items) {
-    volatile int held;
-    AtomicInteger counter;
+    items = 1;
+    items++;
     String note = "plain Unsafe decoy text";
     return items;
 }

@@ -15,8 +15,7 @@ out = msg;
 end
 
 function out = probe_state(items)
-clear scratch
-clearvars leftover
+counter = 1;
 note = 'plain exit decoy text';
 out = items;
 end
