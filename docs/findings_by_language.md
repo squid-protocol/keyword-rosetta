@@ -10,9 +10,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|---|
 | [abap](#abap) | 0 | 2 | 0 | 5 | #2535 #2650 #2659 #2727 #2730 #2731 |
 | [ada](#ada) | 0 | 5 | 0 | 5 | #2535 #2546 #2727 |
-| [agc_assembly](#agc_assembly) | 4 | 4 | 1 | 7 | #2535 #2650 #2659 #2729 |
+| [agc_assembly](#agc_assembly) | 2 | 1 | 1 | 8 | #2535 #2650 #2659 #2729 #2764 |
 | [apex](#apex) | 3 | 3 | 0 | 10 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 |
-| [assembly](#assembly) | 10 | 0 | 0 | 6 | #2535 #2546 #2727 |
+| [assembly](#assembly) | 0 | 0 | 0 | 5 | #2535 #2727 #2764 |
 | [c](#c) | 2 | 4 | 0 | 9 | #2535 #2546 #2626 #2655 #2689 #2729 #2730 #2731 |
 | [cobol](#cobol) | 3 | 3 | 0 | 16 | #2535 #2537 #2538 #2655 #2661 #2689 #2727 #2729 |
 | [cpp](#cpp) | 2 | 6 | 0 | 6 | #2535 #2546 #2655 #2730 #2731 |
@@ -39,19 +39,19 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [objective-c](#objective-c) | 3 | 2 | 0 | 7 | #2535 #2545 #2546 #2727 #2730 |
 | [perl](#perl) | 3 | 2 | 0 | 9 | #2535 #2546 #2626 #2670 #2689 #2730 #2731 |
 | [php](#php) | 0 | 0 | 0 | 8 | #2535 #2541 #2546 #2689 #2730 #2731 |
-| [powershell](#powershell) | 9 | 3 | 0 | 8 | #2535 #2545 #2546 #2547 #2656 #2727 |
+| [powershell](#powershell) | 8 | 3 | 0 | 8 | #2535 #2545 #2546 #2547 #2656 #2727 |
 | [python](#python) | 0 | 2 | 0 | 12 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 |
-| [ruby](#ruby) | 3 | 5 | 0 | 6 | #2535 #2546 #2547 #2727 #2731 |
+| [ruby](#ruby) | 2 | 5 | 0 | 6 | #2535 #2546 #2547 #2727 #2731 |
 | [rust](#rust) | 1 | 0 | 0 | 7 | #2535 #2655 #2689 #2730 #2731 |
 | [scala](#scala) | 0 | 1 | 0 | 7 | #2535 #2689 #2729 #2730 #2731 |
 | [scheme](#scheme) | 2 | 1 | 0 | 8 | #2535 #2537 #2689 #2727 #2730 #2731 |
-| [shell](#shell) | 6 | 1 | 1 | 8 | #2535 #2547 #2727 #2731 |
+| [shell](#shell) | 5 | 1 | 1 | 8 | #2535 #2547 #2727 #2731 |
 | [solidity](#solidity) | 2 | 1 | 1 | 9 | #2535 #2545 #2689 #2730 #2731 |
 | [sqlite](#sqlite) | 12 | 2 | 0 | 10 | #2535 #2547 #2655 #2727 #2728 #2730 |
 | [swift](#swift) | 1 | 5 | 0 | 6 | #2535 #2543 #2546 #2730 #2731 |
-| [tcl](#tcl) | 8 | 2 | 0 | 8 | #2535 #2546 #2727 #2731 |
+| [tcl](#tcl) | 7 | 2 | 0 | 8 | #2535 #2546 #2727 #2731 |
 | [typescript](#typescript) | 0 | 2 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 |
-| [yacc](#yacc) | 4 | 0 | 2 | 8 | #2644 #2689 #2729 |
+| [yacc](#yacc) | 5 | 0 | 2 | 8 | #2644 #2689 #2729 |
 | [yaml](#yaml) | 4 | 1 | 0 | 12 | #2646 #2647 #2689 #2727 #2729 #2732 |
 | [zig](#zig) | 0 | 1 | 0 | 6 | #2535 #2545 #2651 #2730 #2731 |
 
@@ -108,13 +108,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `cog_raw`: 0.035 vs median 0.0205 (+71%)
-- 🔴 `func_complexity_gini`: 0.3125 vs median 0.1875 (+67%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
-- 🔴 `risk_api_exposure`: 1.67485 vs median 7.0517 (-76%)
-- 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
-- 🟡 `branch`: 4 vs median 3 (+33%)
-- 🟡 `func_internal_density`: 0.0225694 vs median 0.015625 (+44%)
+- 🔴 `risk_api_exposure`: 1.67197 vs median 7.0517 (-76%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 
 **Not expressible as measured (n/a):** `class_start`
@@ -122,6 +117,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
+| `asm-call-ret-in-branch` | engine-semantic | [#2764](https://github.com/squid-protocol/gitgalaxy/issues/2764) | — | assembly's branch rule includes call and ret (all control transfers) — correct for asm morphology but it means every probe body's ret and every glue call counts branch (… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `agc-assembly-class-start-no-struct-pseudoop` | intended-morphology | — | — | AGC's real 1960s YUL/GAP instruction set (agc_assembly.py:99-101, comment: 'AGC lacks native objects') has no struct/record-defining pseudo-op -- its data/memory constru… |
@@ -131,7 +127,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **c.agc** · `RESUME under PROBECLEAN` (code): RESUME is dual cleanup+branch (control transfer; finditer-confirmed) — c.agc branch 1
+- **c.agc** · `RESUME under PROBECLEAN` (code): RESUME was dual cleanup+branch until gitgalaxy#2764 (c.agc branch 1); it is an interrupt RETURN, not a decision, and now reads cleanup only (plus structural_boundaries, which the SPEC does not plant). c.agc branch 0.
 
 </details>
 
@@ -167,24 +163,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## assembly
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🔴 `avg_func_complexity`: 1.70833 vs median 0.1875 (+811%)
-- 🔴 `branch`: 24 vs median 3 (+700%)
-- 🔴 `cog_raw`: 0.18 vs median 0.0205 (+778%)
-- 🔴 `dependency_density`: 0.0631579 vs median 0.53125 (-88%)
-- 🔴 `func_internal_density`: 0.142361 vs median 0.015625 (+811%)
-- 🔴 `max_func_complexity`: 2.75 vs median 0.75 (+267%)
-- 🔴 `raw_state_slop_orphans`: 0.25 vs median 2.5 (-90%)
-- 🔴 `risk_cognitive_load`: 9.38917 vs median 2.79458 (+236%)
-- 🔴 `risk_state_flux`: 22.9207 vs median 7.75065 (+196%)
-- 🔴 `state_mutation`: 6 vs median 2 (+200%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
-| `asm-call-ret-in-branch` | engine-semantic | — | (notes) | assembly's branch rule includes call and ret (all control transfers) — correct for asm morphology but it means every probe body's ret and every glue call counts branch (… |
+| `asm-call-ret-in-branch` | engine-semantic | [#2764](https://github.com/squid-protocol/gitgalaxy/issues/2764) | (notes) | assembly's branch rule includes call and ret (all control transfers) — correct for asm morphology but it means every probe body's ret and every glue call counts branch (… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.asm | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.asm | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 | `asm-single-letter-mnemonic-in-path` | upstream-question | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | (notes) | ARM's single-letter 'b' branch mnemonic matches the word b anywhere literals count — including the filename inside %include "b.asm" (a.asm branch +1, finditer-confirmed) |
@@ -192,7 +176,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.asm** · `never halts and the branch words stay in prose` (comment): stripped: contributed 0
-- **b.asm** · `msg db "plain sys_exit decoy text" (inside probe_state)` (string): danger-only decoy (#17 redesign, wave 3): sys_exit COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword. Retiring the shared sentence dropped branch 6->5 (its 'jmp') and io 1->0 (its 'syscall'). state_mutation stays 6: probe_state's own 'ret' is a branch keyword too, so the x3 flux weighting on inc/dec survives the loss of the phantom jmp — unlike the other 35 languages, where the retired 'if' was the only branch in that scope. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.asm** · `msg db "plain sys_exit decoy text" (inside probe_state)` (string): danger-only decoy (#17 redesign, wave 3): sys_exit COUNTS from inside the literal (+1), undampened -- probe_state carries no safety keyword. Retiring the shared sentence dropped branch 6->5 (its 'jmp') and io 1->0 (its 'syscall'). state_mutation was 6 until gitgalaxy#2764: probe_state's own 'ret' used to be a branch keyword, so the x3 flux weighting survived the loss of the phantom jmp. With call/ret/jmp out of `branch`, b.asm has no branch context at all and state_mutation reads its raw 2 (inc + dec) -- the same de-amplification #2634 produced for apex. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.asm** · `mov rax, hack_level` (code): inert (underscore + lowercase)
 
 </details>
@@ -393,7 +377,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_documentation`: 16.6864 vs median 41.6651 (-60%)
 - 🔴 `risk_state_flux`: 15.5013 vs median 7.75065 (+100%)
 - 🔴 `state_mutation`: 4 vs median 2 (+100%)
-- 🟡 `dependency_density`: 0.772727 vs median 0.53125 (+45%)
+- 🟡 `dependency_density`: 0.772727 vs median 0.533482 (+45%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
 - 🟡 `func_start`: 17 vs median 13 (+31%)
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
@@ -427,7 +411,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `dependency_density`: 1.35 vs median 0.53125 (+154%)
+- 🔴 `dependency_density`: 1.35 vs median 0.533482 (+153%)
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `import`: 7 vs median 3 (+133%)
 - 🔴 `safety`: 4 vs median 2 (+100%)
@@ -745,7 +729,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
 - 🔴 `risk_cognitive_load`: 2.7145 vs median 1.29535 (+110%)
 - 🔴 `risk_state_flux`: 12.5 vs median 7.75065 (+61%)
-- 🟡 `dependency_density`: 0.287088 vs median 0.53125 (-46%)
+- 🟡 `dependency_density`: 0.287088 vs median 0.533482 (-46%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -841,7 +825,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
 - 🟡 `branch`: 4 vs median 3 (+33%)
 - 🟡 `cleanup`: 3 vs median 2 (+50%)
-- 🟡 `dependency_density`: 0.281015 vs median 0.53125 (-47%)
+- 🟡 `dependency_density`: 0.281015 vs median 0.533482 (-47%)
 - 🟡 `func_internal_density`: 0.0225694 vs median 0.015625 (+44%)
 - 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
 - 🟡 `raw_state_slop_orphans`: 3.25 vs median 2.5 (+30%)
@@ -884,7 +868,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `raw_state_slop_orphans`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_tech_debt`: 0 vs median 20.4394 (-100%)
-- 🟡 `dependency_density`: 0.75 vs median 0.53125 (+41%)
+- 🟡 `dependency_density`: 0.75 vs median 0.533482 (+41%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 
 **Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `risk_api_exposure`, `risk_cognitive_load`, `risk_concurrency`, `risk_dead_code`, `risk_documentation`, `risk_safety_score`, `risk_spec_match`, `risk_state_flux`, `risk_verification`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
@@ -1012,10 +996,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
 - 🔴 `func_internal_density`: 0.0295139 vs median 0.015625 (+89%)
 - 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
-- 🔴 `raw_state_slop_orphans`: 0.25 vs median 2.5 (-90%)
 - 🔴 `risk_cognitive_load`: 3.52337 vs median 1.29535 (+172%)
 - 🔴 `risk_state_flux`: 11.9502 vs median 7.75065 (+54%)
-- 🟡 `dependency_density`: 0.310714 vs median 0.53125 (-42%)
+- 🟡 `dependency_density`: 0.310714 vs median 0.533482 (-42%)
 - 🟡 `risk_safety_score`: 57.4521 vs median 42.5827 (+35%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
@@ -1074,11 +1057,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
-- 🔴 `raw_state_slop_orphans`: 0.25 vs median 2.5 (-90%)
 - 🔴 `risk_cognitive_load`: 2.5747 vs median 1.29535 (+99%)
 - 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
 - 🟡 `branch`: 4 vs median 3 (+33%)
-- 🟡 `dependency_density`: 0.358333 vs median 0.53125 (-33%)
+- 🟡 `dependency_density`: 0.358333 vs median 0.533482 (-33%)
 - 🟡 `func_internal_density`: 0.0225694 vs median 0.015625 (+44%)
 - 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
 
@@ -1179,7 +1161,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `cog_raw`: 0.0345 vs median 0.0205 (+68%)
 - 🔴 `func_internal_density`: 0.0260417 vs median 0.015625 (+67%)
 - 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
-- 🔴 `raw_state_slop_orphans`: 0.25 vs median 2.5 (-90%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
 
 **Not expressible as measured (n/a):** `class_start`
@@ -1308,7 +1289,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
 - 🔴 `io`: 7 vs median 3 (+133%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
-- 🔴 `raw_state_slop_orphans`: 0.25 vs median 2.5 (-90%)
 - 🔴 `risk_cognitive_load`: 2.46983 vs median 1.29535 (+91%)
 - 🔴 `risk_state_flux`: 12.5 vs median 7.75065 (+61%)
 - 🟡 `branch`: 4 vs median 3 (+33%)
@@ -1365,6 +1345,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_args`: 0.0833333 vs median 1 (-92%)
 - 🔴 `cog_raw`: 0.055 vs median 0.0205 (+168%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
+- 🔴 `risk_cognitive_load`: 2.14335 vs median 1.29535 (+65%)
 
 **Not expressible as measured (n/a):** `risk_concurrency`, `test`
 
