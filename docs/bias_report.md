@@ -19,8 +19,8 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 130 | a validated deviation-ledger entry names this language and this metric |
-| derived | 80 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| ledgered | 131 | a validated deviation-ledger entry names this language and this metric |
+| derived | 79 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **3** | **survived all three -- the real work remaining** |
 
 Unexplained cells, by metric:
@@ -39,9 +39,9 @@ A verdict says a cell is accounted for; it does not say what the cell *is*, and 
 | **unexplained** | 3 | survived every mechanism -- the gate fails on these |
 | **extraction** | 46 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
-| scoring | 57 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
+| scoring | 58 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 37 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
-| echo | 80 | derived -- an upstream deviation counted again downstream |
+| echo | 79 | derived -- an upstream deviation counted again downstream |
 
 Metrics carrying the most open defect, by share of their comparable cells:
 

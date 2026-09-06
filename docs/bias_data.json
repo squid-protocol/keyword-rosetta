@@ -3898,7 +3898,7 @@
   "risk_api_exposure/go": "echo",
   "risk_api_exposure/haskell": "echo",
   "risk_api_exposure/html": "echo",
-  "risk_api_exposure/jcl": "echo",
+  "risk_api_exposure/jcl": "scoring",
   "risk_api_exposure/m4": "unexplained",
   "risk_api_exposure/makefile": "unexplained",
   "risk_api_exposure/perl": "echo",
