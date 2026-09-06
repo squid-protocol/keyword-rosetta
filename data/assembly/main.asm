@@ -16,7 +16,7 @@ dispatch:
 
 probe_branch:
     mov rdi, 2
-    jmp done_branch
+    jz done_branch
     je done_branch
     jne done_branch
     ret
