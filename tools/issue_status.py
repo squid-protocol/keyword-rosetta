@@ -1,5 +1,11 @@
 """Generate (and optionally post) the per-language status comment for a rosetta tracking issue.
 
+STATUS 2026-09-06: the per-language issues (#2561-#2607) and #2560 were closed as
+superseded by the contract roadmap (gitgalaxy docs/contract_roadmap.md, decision D2):
+red cells are tracked by cause family, not by language. This generator is kept for
+ad hoc standing ("where does <lang> stand right now?"); --post finds nothing to post
+to unless a `rosetta[<lang>]:` issue exists again, and prints so.
+
 gitgalaxy epic #2560 opened one issue per language (#2561-#2607); gitgalaxy#2669's
 Batch E.2 is the rule that every batch regen leaves each of them a status comment
 written from data rather than from memory. gitgalaxy#2581's jcl close-out is the

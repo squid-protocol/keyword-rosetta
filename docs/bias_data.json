@@ -3722,5 +3722,480 @@
    "stratum": "irc2",
    "where": "_calc_verification: untested impact / _mass_loc(loc) (signal_processor.py ~L1664) -- same floor, same constant denominator"
   }
- ]
+ ],
+ "cell_categories": {
+  "args/cobol": "inherency",
+  "args/css": "extraction",
+  "args/dockerfile": "inherency",
+  "args/html": "extraction",
+  "args/m4": "inherency",
+  "args/makefile": "inherency",
+  "args/sqlite": "inherency",
+  "args/yacc": "inherency",
+  "avg_func_args/cobol": "inherency",
+  "avg_func_args/css": "inherency",
+  "avg_func_args/dockerfile": "inherency",
+  "avg_func_args/html": "inherency",
+  "avg_func_args/makefile": "inherency",
+  "avg_func_args/markdown": "inherency",
+  "avg_func_args/sqlite": "inherency",
+  "avg_func_args/yacc": "inherency",
+  "avg_func_args/yaml": "inherency",
+  "avg_func_complexity/ada": "echo",
+  "avg_func_complexity/cpp": "echo",
+  "avg_func_complexity/csharp": "echo",
+  "avg_func_complexity/fortran": "echo",
+  "avg_func_complexity/html": "inherency",
+  "avg_func_complexity/livecode": "echo",
+  "avg_func_complexity/makefile": "echo",
+  "avg_func_complexity/markdown": "inherency",
+  "avg_func_complexity/powershell": "echo",
+  "avg_func_complexity/ruby": "echo",
+  "avg_func_complexity/shell": "echo",
+  "avg_func_complexity/swift": "echo",
+  "avg_func_complexity/tcl": "echo",
+  "betweenness_score/javascript": "inherency",
+  "betweenness_score/python": "inherency",
+  "branch/ada": "extraction",
+  "branch/cpp": "correlation",
+  "branch/csharp": "correlation",
+  "branch/fortran": "extraction",
+  "branch/livecode": "extraction",
+  "branch/makefile": "extraction",
+  "branch/powershell": "extraction",
+  "branch/ruby": "correlation",
+  "branch/shell": "correlation",
+  "branch/sqlite": "correlation",
+  "branch/swift": "correlation",
+  "branch/tcl": "extraction",
+  "class_start/cobol": "scoring",
+  "class_start/css": "scoring",
+  "class_start/dockerfile": "extraction",
+  "class_start/jcl": "extraction",
+  "class_start/kotlin": "extraction",
+  "class_start/yaml": "scoring",
+  "classes_found/cobol": "scoring",
+  "classes_found/css": "scoring",
+  "classes_found/dockerfile": "scoring",
+  "classes_found/jcl": "scoring",
+  "classes_found/kotlin": "scoring",
+  "cleanup/makefile": "extraction",
+  "cleanup/matlab": "extraction",
+  "cog_raw/ada": "echo",
+  "cog_raw/apex": "echo",
+  "cog_raw/css": "echo",
+  "cog_raw/html": "echo",
+  "cog_raw/livecode": "echo",
+  "cog_raw/makefile": "echo",
+  "cog_raw/markdown": "echo",
+  "cog_raw/powershell": "echo",
+  "cog_raw/shell": "echo",
+  "cog_raw/sqlite": "echo",
+  "cog_raw/swift": "echo",
+  "cog_raw/yacc": "echo",
+  "def_encapsulation/agc_assembly": "inherency",
+  "def_encapsulation/css": "inherency",
+  "def_encapsulation/embedded_python": "inherency",
+  "def_encapsulation/go": "inherency",
+  "def_encapsulation/haskell": "inherency",
+  "def_encapsulation/perl": "inherency",
+  "def_encapsulation/python": "inherency",
+  "def_encapsulation/rust": "inherency",
+  "def_encapsulation/zig": "inherency",
+  "dependency_density/dockerfile": "echo",
+  "dependency_density/embedded_python": "echo",
+  "dependency_density/jcl": "echo",
+  "dependency_links/dockerfile": "echo",
+  "dependency_links/embedded_python": "echo",
+  "dependency_links/jcl": "scoring",
+  "encapsulation_ratio/cobol": "scoring",
+  "encapsulation_ratio/html": "scoring",
+  "encapsulation_ratio/javascript": "scoring",
+  "encapsulation_ratio/markdown": "scoring",
+  "func_complexity_gini/cpp": "echo",
+  "func_complexity_gini/css": "scoring",
+  "func_complexity_gini/html": "inherency",
+  "func_complexity_gini/livecode": "echo",
+  "func_complexity_gini/makefile": "echo",
+  "func_complexity_gini/markdown": "inherency",
+  "func_complexity_gini/powershell": "echo",
+  "func_complexity_gini/ruby": "echo",
+  "func_complexity_gini/tcl": "scoring",
+  "func_internal_density/ada": "echo",
+  "func_internal_density/cpp": "echo",
+  "func_internal_density/csharp": "echo",
+  "func_internal_density/fortran": "echo",
+  "func_internal_density/html": "inherency",
+  "func_internal_density/livecode": "echo",
+  "func_internal_density/makefile": "echo",
+  "func_internal_density/markdown": "inherency",
+  "func_internal_density/powershell": "echo",
+  "func_internal_density/ruby": "echo",
+  "func_internal_density/shell": "echo",
+  "func_internal_density/swift": "echo",
+  "func_internal_density/tcl": "scoring",
+  "func_start/dockerfile": "extraction",
+  "func_start/html": "extraction",
+  "functions_found/dockerfile": "scoring",
+  "functions_found/html": "scoring",
+  "functions_found/markdown": "inherency",
+  "functions_found/sqlite": "scoring",
+  "globals/cobol": "extraction",
+  "globals/csharp": "extraction",
+  "globals/shell": "extraction",
+  "high_risk_execution/agc_assembly": "extraction",
+  "import/dockerfile": "extraction",
+  "import/embedded_python": "extraction",
+  "io/c": "correlation",
+  "io/javascript": "extraction",
+  "io/jcl": "extraction",
+  "io/lua": "correlation",
+  "io/sqlite": "extraction",
+  "io/tcl": "extraction",
+  "max_func_complexity/ada": "echo",
+  "max_func_complexity/cpp": "echo",
+  "max_func_complexity/css": "scoring",
+  "max_func_complexity/html": "inherency",
+  "max_func_complexity/livecode": "echo",
+  "max_func_complexity/makefile": "echo",
+  "max_func_complexity/markdown": "inherency",
+  "max_func_complexity/powershell": "echo",
+  "max_func_complexity/ruby": "echo",
+  "max_func_complexity/shell": "echo",
+  "max_func_complexity/sqlite": "echo",
+  "max_func_complexity/swift": "echo",
+  "max_func_complexity/tcl": "scoring",
+  "ownership/solidity": "extraction",
+  "raw_arch_api/agc_assembly": "scoring",
+  "raw_arch_api/css": "extraction",
+  "raw_arch_api/dockerfile": "scoring",
+  "raw_arch_api/haskell": "scoring",
+  "raw_arch_api/html": "extraction",
+  "raw_arch_api/jcl": "scoring",
+  "raw_arch_api/markdown": "scoring",
+  "raw_arch_api/objective-c": "extraction",
+  "raw_arch_api/sqlite": "extraction",
+  "raw_arch_api/yacc": "scoring",
+  "raw_arch_api/yaml": "scoring",
+  "raw_state_slop_orphans/abap": "extraction",
+  "raw_state_slop_orphans/css": "extraction",
+  "raw_state_slop_orphans/dockerfile": "extraction",
+  "raw_state_slop_orphans/haskell": "extraction",
+  "raw_state_slop_orphans/html": "extraction",
+  "raw_state_slop_orphans/jcl": "extraction",
+  "raw_state_slop_orphans/m4": "extraction",
+  "raw_state_slop_orphans/makefile": "extraction",
+  "raw_state_slop_orphans/markdown": "extraction",
+  "raw_state_slop_orphans/objective-c": "extraction",
+  "raw_state_slop_orphans/scheme": "extraction",
+  "raw_state_slop_orphans/sqlite": "extraction",
+  "raw_state_slop_orphans/yaml": "extraction",
+  "risk_api_exposure/agc_assembly": "echo",
+  "risk_api_exposure/css": "echo",
+  "risk_api_exposure/dockerfile": "echo",
+  "risk_api_exposure/go": "echo",
+  "risk_api_exposure/haskell": "echo",
+  "risk_api_exposure/html": "echo",
+  "risk_api_exposure/m4": "extraction",
+  "risk_api_exposure/makefile": "extraction",
+  "risk_api_exposure/perl": "echo",
+  "risk_api_exposure/rust": "echo",
+  "risk_api_exposure/sqlite": "scoring",
+  "risk_api_exposure/yaml": "echo",
+  "risk_api_exposure/zig": "echo",
+  "risk_cognitive_load/apex": "echo",
+  "risk_cognitive_load/cpp": "scoring",
+  "risk_cognitive_load/livecode": "echo",
+  "risk_cognitive_load/makefile": "scoring",
+  "risk_cognitive_load/powershell": "echo",
+  "risk_cognitive_load/ruby": "echo",
+  "risk_cognitive_load/sqlite": "scoring",
+  "risk_cognitive_load/tcl": "echo",
+  "risk_cognitive_load/yacc": "echo",
+  "risk_concurrency/agc_assembly": "echo",
+  "risk_concurrency/java": "scoring",
+  "risk_concurrency/swift": "echo",
+  "risk_dead_code/jcl": "scoring",
+  "risk_dead_code/makefile": "scoring",
+  "risk_documentation/c": "scoring",
+  "risk_documentation/cobol": "scoring",
+  "risk_documentation/dockerfile": "echo",
+  "risk_documentation/haskell": "echo",
+  "risk_documentation/html": "scoring",
+  "risk_documentation/m4": "extraction",
+  "risk_documentation/makefile": "extraction",
+  "risk_documentation/sqlite": "scoring",
+  "risk_safety_score/apex": "echo",
+  "risk_safety_score/c": "scoring",
+  "risk_safety_score/cobol": "scoring",
+  "risk_safety_score/dockerfile": "echo",
+  "risk_safety_score/fortran": "echo",
+  "risk_safety_score/haskell": "echo",
+  "risk_safety_score/javascript": "scoring",
+  "risk_safety_score/m4": "echo",
+  "risk_safety_score/matlab": "echo",
+  "risk_safety_score/perl": "echo",
+  "risk_safety_score/powershell": "echo",
+  "risk_safety_score/python": "scoring",
+  "risk_spec_match/html": "echo",
+  "risk_state_flux/apex": "echo",
+  "risk_state_flux/c": "scoring",
+  "risk_state_flux/cpp": "scoring",
+  "risk_state_flux/css": "scoring",
+  "risk_state_flux/dart": "echo",
+  "risk_state_flux/dockerfile": "echo",
+  "risk_state_flux/fortran": "echo",
+  "risk_state_flux/go": "scoring",
+  "risk_state_flux/haskell": "echo",
+  "risk_state_flux/html": "scoring",
+  "risk_state_flux/javascript": "scoring",
+  "risk_state_flux/kotlin": "echo",
+  "risk_state_flux/livecode": "echo",
+  "risk_state_flux/m4": "echo",
+  "risk_state_flux/matlab": "echo",
+  "risk_state_flux/objective-c": "echo",
+  "risk_state_flux/perl": "echo",
+  "risk_state_flux/powershell": "echo",
+  "risk_state_flux/scala": "echo",
+  "risk_state_flux/scheme": "echo",
+  "risk_state_flux/solidity": "echo",
+  "risk_state_flux/sqlite": "scoring",
+  "risk_state_flux/swift": "echo",
+  "risk_state_flux/tcl": "echo",
+  "risk_state_flux/typescript": "scoring",
+  "risk_tech_debt/abap": "echo",
+  "risk_tech_debt/dockerfile": "echo",
+  "risk_tech_debt/markdown": "echo",
+  "risk_tech_debt/sqlite": "echo",
+  "safety/embedded_python": "extraction",
+  "safety/haskell": "extraction",
+  "safety/typescript": "correlation",
+  "safety_bypasses/fortran": "correlation",
+  "safety_bypasses/haskell": "correlation",
+  "state_mutation/apex": "extraction",
+  "state_mutation/c": "correlation",
+  "state_mutation/cpp": "correlation",
+  "state_mutation/dockerfile": "extraction",
+  "state_mutation/fortran": "correlation",
+  "state_mutation/go": "correlation",
+  "state_mutation/haskell": "correlation",
+  "state_mutation/livecode": "extraction",
+  "state_mutation/m4": "extraction",
+  "state_mutation/matlab": "extraction",
+  "state_mutation/objective-c": "correlation",
+  "state_mutation/perl": "correlation",
+  "state_mutation/powershell": "extraction",
+  "state_mutation/scheme": "correlation",
+  "state_mutation/solidity": "correlation",
+  "state_mutation/tcl": "extraction",
+  "test/c": "extraction",
+  "test/embedded_python": "extraction",
+  "test/perl": "extraction"
+ },
+ "open_defect_share": {
+  "args": [
+   2,
+   45
+  ],
+  "avg_func_args": [
+   0,
+   46
+  ],
+  "avg_func_complexity": [
+   0,
+   46
+  ],
+  "betweenness_score": [
+   0,
+   46
+  ],
+  "branch": [
+   12,
+   45
+  ],
+  "class_start": [
+   3,
+   41
+  ],
+  "classes_found": [
+   0,
+   46
+  ],
+  "cleanup": [
+   2,
+   44
+  ],
+  "closeness_score": [
+   0,
+   46
+  ],
+  "cog_raw": [
+   0,
+   46
+  ],
+  "def_encapsulation": [
+   0,
+   46
+  ],
+  "dependency_density": [
+   0,
+   46
+  ],
+  "dependency_links": [
+   0,
+   46
+  ],
+  "doc": [
+   0,
+   44
+  ],
+  "encapsulation_ratio": [
+   0,
+   46
+  ],
+  "fragile_debt": [
+   0,
+   45
+  ],
+  "func_complexity_gini": [
+   0,
+   46
+  ],
+  "func_internal_density": [
+   0,
+   46
+  ],
+  "func_start": [
+   2,
+   45
+  ],
+  "functions_found": [
+   0,
+   46
+  ],
+  "globals": [
+   3,
+   44
+  ],
+  "high_risk_execution": [
+   1,
+   45
+  ],
+  "import": [
+   2,
+   45
+  ],
+  "io": [
+   6,
+   44
+  ],
+  "max_func_complexity": [
+   0,
+   46
+  ],
+  "normalized_blast_radius": [
+   0,
+   46
+  ],
+  "ownership": [
+   1,
+   45
+  ],
+  "pagerank": [
+   0,
+   46
+  ],
+  "pagerank_score": [
+   0,
+   46
+  ],
+  "planned_debt": [
+   0,
+   45
+  ],
+  "popularity": [
+   0,
+   46
+  ],
+  "producer_ratio": [
+   0,
+   46
+  ],
+  "raw_arch_api": [
+   4,
+   46
+  ],
+  "raw_state_slop_orphans": [
+   13,
+   46
+  ],
+  "risk_api_exposure": [
+   2,
+   45
+  ],
+  "risk_cognitive_load": [
+   0,
+   45
+  ],
+  "risk_concurrency": [
+   0,
+   42
+  ],
+  "risk_dead_code": [
+   0,
+   45
+  ],
+  "risk_documentation": [
+   2,
+   45
+  ],
+  "risk_safety_score": [
+   0,
+   45
+  ],
+  "risk_secrets_risk": [
+   0,
+   46
+  ],
+  "risk_spec_match": [
+   0,
+   45
+  ],
+  "risk_state_flux": [
+   0,
+   45
+  ],
+  "risk_tech_debt": [
+   0,
+   46
+  ],
+  "risk_verification": [
+   0,
+   45
+  ],
+  "safety": [
+   3,
+   45
+  ],
+  "safety_bypasses": [
+   2,
+   45
+  ],
+  "state_mutation": [
+   16,
+   43
+  ],
+  "state_slop_duplicates": [
+   0,
+   46
+  ],
+  "telemetry": [
+   0,
+   44
+  ],
+  "test": [
+   3,
+   43
+  ]
+ }
 }

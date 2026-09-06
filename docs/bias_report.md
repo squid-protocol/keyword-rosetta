@@ -21,6 +21,31 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | derived | 102 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **0** | **survived all three -- the real work remaining** |
 
+## What the red cells are
+
+A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
+
+**Open-defect share: 79 of 2303 comparable cells (3.4%)** across 51 gated metrics; 79 of the 267 out-of-band cells are open defects.
+
+| cause | cells | what it is |
+|---|---|---|
+| **unexplained** | 0 | survived every mechanism -- the gate fails on these |
+| **extraction** | 59 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
+| **correlation** | 20 | a proximity pair in spatial_correlation.py edited the recorded count (the x3 cascading flux, the silencer dampener); Phase 2 moves these out |
+| scoring | 51 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
+| inherency | 35 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
+| echo | 102 | derived -- an upstream deviation counted again downstream |
+
+Metrics carrying the most open defect, by share of their comparable cells:
+
+- `state_mutation` — 16 of 43 (37%)
+- `raw_state_slop_orphans` — 13 of 46 (28%)
+- `branch` — 12 of 45 (27%)
+- `io` — 6 of 44 (14%)
+- `raw_arch_api` — 4 of 46 (9%)
+
+Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `visibility-morphology-encapsulation`, `embedded-python-per-file-classification`, `comment-lines-manifest-doc-classification`, `yacc-union-class-start-gap`, `html-srcdoc-invisible-execution-gap`, `yaml-ownership-author-key-gap`, `yaml-cleanup-embedded-teardown-gap`, `composite-nonlinearity-amplifies-in-band-inputs`, `duplicate-check-counts-slicer-buckets`, `api-export-names-suppress-orphan-credit`, `api-declared-orphans-are-not-new-surface`. Narrow or retire them.
+
 ## The language-level risk constant is design; the report bands within it
 
 `analysis_lens.LANGUAGE_STRICTNESS` gives every language four yes/no columns (static types, enforced errors, memory safety, no implicit globals) and `strictness_constants()` turns the count of `False` columns into the constants the formulas below read: `Irc` = gaps, `Ot` = 1 + 0.1 x gaps (gitgalaxy#2718, which replaced the three hand-listed scoring tiers this section used to read out of `signal_processor._get_tier`). Wiki 08-03 documents the term as deliberate. Against a global median it reads as bias: languages carrying the same gap count report identical risk values with inputs identical to the median language. So each metric that reads a language-level constant is banded against **the median of its own stratum** (gitgalaxy#2669 F.3), and the per-stratum medians are the documented offset, printed here rather than hidden. Which metrics read one is taken off the engine source at regen time, never hand-listed. Strata (`ircN` = N strictness gaps): **irc0** = haskell, java, rust, swift; **irc1** = abap, ada, apex, csharp, dart, go, kotlin, scala, solidity, typescript, zig; **irc2** = c, cobol, cpp, embedded_python, matlab, objective-c, php, powershell, python, ruby, scheme, sqlite, tcl; **irc3** = dockerfile, fortran, groovy, javascript, jcl, livecode, lua, m4, makefile, perl, shell; **irc4** = agc_assembly, assembly, yacc; **unprofiled** = css, html, markdown, yaml.

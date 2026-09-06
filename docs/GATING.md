@@ -73,6 +73,33 @@ and re-baseline steps above, cross-repo PR ordering, and close-out — is packag
 The first full sweep (jcl: issue #2581 → gitgalaxy#2610 + this repo's PR #4) is the worked
 example, and gitgalaxy's `docs/language_status/jcl.md` §10 is its capstone write-up.
 
+## Cause categories: what a red cell *is*
+
+A verdict (ledgered / derived / undefined / unexplained) says whether a red cell is accounted
+for. It does not say what the cell is, and the consistency badge paints every out-of-band cell
+the same red — a validated "this language cannot express that" and an open engine defect look
+identical on the chart. That conflation is why the epic kept reading as an extraction problem
+(gitgalaxy `docs/contract_roadmap.md` §1). `bias_report.py` therefore folds every gated red
+cell into one **cause**, from the dispositions of the entries that explain it, most severe
+first where an entry list mixes them:
+
+| cause | from | right response |
+|---|---|---|
+| `unexplained` | no verdict | investigate; the gate fails on these |
+| `extraction` | `upstream-bug`, `upstream-question`, `engine-defect`, `keyword-overlap` | a rule contract, audited per family (gitgalaxy `rule-contract-audit` skill) |
+| `correlation` | the named entries in `CORRELATION_ENTRIES` (a proximity pair edited the recorded count) | roadmap Phase 2 moves the weight out of the count |
+| `scoring` | `engine-semantic` | a formula contract (roadmap Phase 4), or leave as documented design |
+| `inherency` | `intended-morphology`, `language-morphology`, or an `undefined` quotient | nothing — declare it (contract-level `n/a`, roadmap Phase 3) |
+| `echo` | `derived` | nothing — never count it in a headline |
+
+The report's "What the red cells are" section prints the split, the **open-defect share**
+(`unexplained` + `extraction` + `correlation` cells over every comparable cell of the gated
+metrics — the number the badge cannot express), and the ledger entries whose signal × language
+cross-product explains no out-of-band cell at all (keyword-rosetta#75's decay check). Both ride
+in `docs/bias_data.json` as `cell_categories` and `open_defect_share`. Nothing here changes a
+verdict or `--gate`; the categories are a lens on the same cells, and a disposition still means
+what the lifecycle above says it means.
+
 ## n/a (incomparable) semantics
 
 A signal whose rule is `None`/absent in the language's `LANGUAGE_DEFINITIONS` entry can never

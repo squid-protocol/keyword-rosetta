@@ -1,6 +1,6 @@
 ---
 name: rosetta-language-sweep
-description: Work one language's rosetta cross-language-consistency tracking issue (gitgalaxy epic #2560's children #2561-#2607) end to end -- classify every out-of-band metric by cause, fix what is fixable (engine and/or corpus), ledger what is intended, re-baseline, regenerate the bias artifacts, and close out with the issue update and the gitgalaxy language-status capstone section. Use when the user says "work on <rosetta issue number>", "sweep <language>'s rosetta deviations", or a #2560 child issue is the task. Not for adding a NEW language to the corpus (that's SPEC.md's authoring workflow) or for tri-comparison accuracy work (gitgalaxy's tri-comparison-ledger-sweep).
+description: Classify one language's out-of-band rosetta cells by cause -- the per-language classification instrument a cause-family audit (gitgalaxy `rule-contract-audit` skill) calls when it needs to know whether a specific language's red cell is a real engine bug, a missing rule with genuine morphology, a corpus authoring gap, intended morphology, or a downstream echo. Use when a family audit or the user says \"classify <language>'s deviations\", \"why is <language> red on <metric>\", or \"sweep <language>\". The per-language tracking issues (#2561-#2607) were closed 2026-09-06 (docs/contract_roadmap.md D2): this skill no longer owns an issue, a capstone, or a close-out -- it returns classified cells with evidence to whoever called it. Not for adding a NEW language to the corpus (SPEC.md) or for tri-comparison accuracy work (gitgalaxy's tree-sitter-accuracy-sweep).
 ---
 
 A rosetta tracking issue lists a language's metrics that sit outside ±25%/±50% of the
@@ -14,6 +14,16 @@ asking "is this zero because the language lacks the concept, or because the engi
 it?" rather than pattern-matching "Tier-2 morphology" onto every zero. The second sweep
 (cobol, #2567 → gitgalaxy#2537/PR#2622 + this repo's PR#10) validated the taxonomy and added
 the cheap classification instruments now inlined in the bucket descriptions below.
+
+> **Scope since 2026-09-06.** The five-cause taxonomy below is the load-bearing part and is
+> unchanged. What changed is who calls it and what it produces: a cause-family audit (the
+> gitgalaxy `rule-contract-audit` skill, or a Phase 3/4 item in `docs/contract_roadmap.md`)
+> invokes this skill for one language when it needs the per-language reading, and the output is
+> the classified cell list with evidence -- not an issue update, not a capstone. Phase 0's
+> "tracking issue" is now `python tools/language_deviations.py <lang>` plus the cause column
+> in `docs/bias_data.json`'s `cell_categories`; Phases 4-5's close-out steps apply only to the
+> family PR that called you. Capstones (`docs/language_status/<lang>.md` §10) are written when a
+> language reads clean by `language_deviations.py`, whoever gets it there.
 
 ## Prerequisites
 
