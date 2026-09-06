@@ -16,7 +16,8 @@ public func probeTelemetry(_ msg: Int) -> Int {
 
 public func probeState(_ items: Int) -> Int {
     var first = items
-    var second = items
+    first = 1
+    first = 2
     let note = "plain assertionFailure decoy text"
-    return first + second
+    return first
 }

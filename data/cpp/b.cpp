@@ -15,8 +15,8 @@ export int probe_telemetry(int msg) {
 }
 
 export int probe_state(int items) {
-    mutable int held;
-    std::move(items);
+    items = 1;
+    items++;
     const char *note = "plain system decoy text";
     return items;
 }

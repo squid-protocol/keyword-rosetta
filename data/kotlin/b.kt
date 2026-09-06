@@ -16,7 +16,8 @@ public fun probeTelemetry(msg: Int): Int {
 
 public fun probeState(items: Int): Int {
     var first = items
-    var second = items
+    first = 1
+    first = 2
     val note = "plain System.exit decoy text"
-    return first + second
+    return first
 }

@@ -7,7 +7,7 @@ ENDFORM.
 
 FORM probe_debt CHANGING cv_level.
 * HACK: shortcut kept deliberately for the rosetta corpus
-  hack_level = cv_level.
+  DATA hack_level TYPE i.
 ENDFORM.
 
 FORM probe_todo CHANGING cv_plan.

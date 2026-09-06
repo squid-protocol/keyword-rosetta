@@ -17,6 +17,7 @@ export function probeTelemetry(msg) {
 
 export function probeState(items) {
   let first = items;
-  var second = items;
-  return [first, second];
+  first = 1;
+  first = 2;
+  return first;
 }

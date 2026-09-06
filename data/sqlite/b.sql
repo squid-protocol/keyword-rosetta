@@ -12,4 +12,5 @@ ANALYZE;
 
 CREATE INDEX probe_state ON corpus (items);
 UPDATE corpus SET flag = 1;
+ALTER TABLE corpus RENAME TO corpus_state;
 SELECT 'plain DROP DATABASE decoy text';

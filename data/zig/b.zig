@@ -16,6 +16,8 @@ pub fn probeTelemetry(msg: i32) i32 {
 
 pub fn probeState(items: i32) i32 {
     var first = items;
+    first = 1;
+    first += 1;
     var note = "plain std.process.exit decoy text";
     return first;
 }

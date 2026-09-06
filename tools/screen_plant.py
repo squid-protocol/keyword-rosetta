@@ -1,6 +1,9 @@
 """Screen a candidate plant: which of a language's rules does this text fire?"""
+import pathlib
 import sys
-sys.path.insert(0, '/home/joe/nyx_projects/gitgalaxy')
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from _registry import GITGALAXY_PATH  # honours $GITGALAXY_PATH, so a branch worktree can be screened (gitgalaxy#2765)
+sys.path.insert(0, str(GITGALAXY_PATH))
 from gitgalaxy.standards.language_standards import LANGUAGE_DEFINITIONS as LD
 
 def screen(lang, text, want):

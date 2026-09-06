@@ -10,7 +10,7 @@ function probe_cleanup {
 function probe_debt {
     param($level)
     # HACK: shortcut kept deliberately for the rosetta corpus
-    $hack_level = $level
+    return $level
 }
 
 function probe_todo {

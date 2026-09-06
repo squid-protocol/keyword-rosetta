@@ -547,18 +547,16 @@
         "embedded_python",
         "jcl",
         "livecode",
-        "m4",
         "makefile",
-        "matlab",
         "powershell",
         "tcl"
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals). SCOPE CORRECTION (gitgalaxy#2669 A.4): the signal is now the union of the duals itemised above, and languages_seen is narrowed to the languages that actually carry one, because the reports join signal x language as a cross-product and a collective entry over languages with nothing itemised would mark their red cells explained. Removed: dart, groovy, objective-c, scala, scheme, zig \u2014 batch 4 swept them, but none records a dual-rule keyword in its manifest notes (groovy's args behaviour is ts-callparen-args; objective-c's selector over-count is the same entry). embedded_python is kept and its duals named: `except` is dual safety_bypasses+safety and its test plants overlap safety (assert-overlaps-safety-and-test family), which is why `test` is in the union. SAFETY HALF PLANTED 2026-09-05 (keyword-rosetta#59 section 1): dockerfile no longer needs `safety` excused here. Its 1 came entirely from `HEALTHCHECK` counting dual func_start+safety, which is the overlap this entry documents -- so the language was one real safety construct short of the median, not two. `USER probe` is that construct, screened clean (only `structural_boundaries` alongside, which the manifest does not gate), and placed before the `RUN` instructions it applies to so it does not land inside a preceding slice's body. dockerfile reads 2 = median, green. The HEALTHCHECK dual itself is unchanged and still belongs to this entry. 2026-09-05: jcl joins with SET (globals + state_mutation, gitgalaxy#2750 -- dockerfile's ENV shape exactly): b.jcl's two SET lines read globals 2 AND state_mutation 2.",
+      "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals). SCOPE CORRECTION (gitgalaxy#2669 A.4): the signal is now the union of the duals itemised above, and languages_seen is narrowed to the languages that actually carry one, because the reports join signal x language as a cross-product and a collective entry over languages with nothing itemised would mark their red cells explained. Removed: dart, groovy, objective-c, scala, scheme, zig \u2014 batch 4 swept them, but none records a dual-rule keyword in its manifest notes (groovy's args behaviour is ts-callparen-args; objective-c's selector over-count is the same entry). embedded_python is kept and its duals named: `except` is dual safety_bypasses+safety and its test plants overlap safety (assert-overlaps-safety-and-test family), which is why `test` is in the union. SAFETY HALF PLANTED 2026-09-05 (keyword-rosetta#59 section 1): dockerfile no longer needs `safety` excused here. Its 1 came entirely from `HEALTHCHECK` counting dual func_start+safety, which is the overlap this entry documents -- so the language was one real safety construct short of the median, not two. `USER probe` is that construct, screened clean (only `structural_boundaries` alongside, which the manifest does not gate), and placed before the `RUN` instructions it applies to so it does not land inside a preceding slice's body. dockerfile reads 2 = median, green. The HEALTHCHECK dual itself is unchanged and still belongs to this entry. 2026-09-05: jcl joins with SET (globals + state_mutation, gitgalaxy#2750 -- dockerfile's ENV shape exactly): b.jcl's two SET lines read globals 2 AND state_mutation 2. RETIRED 2026-09-06 by gitgalaxy#2765 (state_mutation contract, count contract corollary 4): dockerfile ENV is globals only (a.dockerfile state_mutation 2->0), matlab clear/clearvars and m4 popdef are cleanup only (matlab b.m cleanup 2->0 and state 3->2 after a re-plant; c.m4 state 2->0). matlab and m4 leave languages_seen -- those were their only itemised duals. The jcl SET dual (globals + state_mutation) is the one state_mutation overlap that stays, recorded in the contract doc as the deliberate exception; dockerfile stays for HEALTHCHECK and FROM.",
       "upstream_issue": null,
-      "investigated_by": "claude-sonnet-5; safety plant 2026-09-05 by claude-opus-5 (keyword-rosetta#59); jcl clauses 2026-09-05 by claude-opus-5 (keyword-rosetta#60)",
-      "validated_at": "2026-09-05",
+      "investigated_by": "claude-sonnet-5; safety plant 2026-09-05 by claude-opus-5 (keyword-rosetta#59); jcl clauses 2026-09-05 by claude-opus-5 (keyword-rosetta#60); #2765 retirements 2026-09-06 by claude-fable-5.1",
+      "validated_at": "2026-09-06",
       "still_reproduces": true
     },
     {
@@ -1671,6 +1669,45 @@
       "investigated_by": "claude-opus-5 (keyword-rosetta#71)",
       "validated_at": "2026-09-06",
       "still_reproduces": true
+    },
+    {
+      "id": "state-mutation-contract-2765",
+      "signal": "cleanup|state_mutation",
+      "languages_seen": [
+        "abap",
+        "apex",
+        "c",
+        "cpp",
+        "dockerfile",
+        "fortran",
+        "go",
+        "haskell",
+        "java",
+        "javascript",
+        "kotlin",
+        "livecode",
+        "m4",
+        "matlab",
+        "objective-c",
+        "perl",
+        "powershell",
+        "rust",
+        "scala",
+        "scheme",
+        "solidity",
+        "sqlite",
+        "swift",
+        "tcl",
+        "typescript",
+        "zig"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exists -- a declaration is not a write (even `var`/`let mut`/`int x = 5`), a type or modifier naming mutable state is not a write, a read/bind/cast is not a write, and one statement is one hit with no token another rule owns. Before it, 46 languages carried three incompatible definitions (named verbs / mutable declarations / every `=`), which is why state_mutation (60%) and risk_state_flux (42%) were the corpus's two worst metrics. RESOLVED upstream by the #2765 engine PR (30 rule rewrites) and re-blessed here in the same change. Cells that moved because the RULE was wrong: haskell a.hs 2->0 (IORef type signatures), dockerfile a 2->0 (ENV is globals), c a 2->0 and b 3->2 (declarations), go b 5->2 (`:=` and `_ =`), objective-c b 3->2, perl b 3->2 and c 1->0 (`my` declarations, bare shift), m4 c 2->0 (popdef is cleanup), apex c 1->0 (.clear( is cleanup), matlab c 1->0 and b cleanup 2->0 (clear is cleanup). Cells that moved because the PLANT was authored to the old rule: cpp, java, javascript, kotlin, rust, scala, swift, typescript, zig, solidity (mutable declarations / casts, re-planted as real writes), sqlite (UPDATE...SET counted twice, ALTER TABLE added as the second statement), livecode/scheme/tcl (the decoy line was a third write, one plant removed), abap (the `=` statement joined the rule, APPEND dropped). probe_debt bodies in abap/fortran/matlab/powershell assigned into languages with no declaration syntax and carried a state_mutation into a file planted at 0; rewritten to declare or return instead. Verifying scan: all 46 languages pass against gitgalaxy fix/2765-state-mutation-contract; state_mutation reads 2 in every b file and 0 elsewhere (jcl b keeps its ledgered SET dual). Still narrower than the contract, by design for now: python/embedded_python/ruby never count a plain local re-assignment -- filed as gitgalaxy#2817, not a red cell (their plants are container writes).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2765",
+      "investigated_by": "claude-fable-5.1 (gitgalaxy#2765 contract audit)",
+      "validated_at": "2026-09-06",
+      "still_reproduces": false
     }
   ]
 }

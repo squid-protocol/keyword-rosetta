@@ -7,7 +7,7 @@
 
       SUBROUTINE PROBE_DEBT(LEV)
 ! HACK: shortcut kept deliberately for the rosetta corpus
-      HACK_LEVEL = LEV
+      CONTINUE
       END SUBROUTINE
 
       SUBROUTINE PROBE_TODO(PLAN)
