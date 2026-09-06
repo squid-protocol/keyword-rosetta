@@ -19,8 +19,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [csharp](#csharp) | 0 | 4 | 0 | 6 | #2535 #2546 #2730 #2731 |
 | [css](#css) | 7 | 2 | 4 | 16 | #2655 #2689 #2727 #2729 #2752 #2770 |
 | [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
-| [dockerfile](#dockerfile) | 8 | 7 | 0 | 13 | #2535 #2546 #2547 #2689 #2727 #2728 #2729 #2730 #2731 #2770 |
-| [embedded_python](#embedded_python) | 4 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
+| [dockerfile](#dockerfile) | 8 | 6 | 0 | 13 | #2535 #2546 #2547 #2689 #2727 #2728 #2729 #2730 #2731 #2770 |
+| [embedded_python](#embedded_python) | 3 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
 | [fortran](#fortran) | 2 | 5 | 0 | 10 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 |
 | [go](#go) | 2 | 1 | 0 | 9 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 |
 | [groovy](#groovy) | 0 | 0 | 0 | 6 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 |
@@ -28,7 +28,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [html](#html) | 12 | 4 | 2 | 15 | #2549 #2645 #2650 #2655 #2659 #2689 #2727 #2729 #2770 |
 | [java](#java) | 0 | 0 | 0 | 7 | #2535 #2546 #2655 #2689 #2730 #2731 |
 | [javascript](#javascript) | 0 | 5 | 0 | 12 | #2535 #2539 #2655 #2689 #2730 #2731 #2770 |
-| [jcl](#jcl) | 2 | 3 | 2 | 18 | #2610 #2655 #2689 #2727 #2729 #2732 #2733 #2770 |
+| [jcl](#jcl) | 2 | 2 | 2 | 18 | #2610 #2655 #2689 #2727 #2729 #2732 #2733 #2770 |
 | [kotlin](#kotlin) | 0 | 1 | 0 | 10 | #2535 #2545 #2546 #2689 #2730 #2731 #2770 |
 | [livecode](#livecode) | 8 | 1 | 0 | 9 | #2535 #2546 #2547 #2650 #2659 #2727 #2729 #2731 |
 | [lua](#lua) | 0 | 1 | 0 | 11 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 |
@@ -383,7 +383,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_documentation`: 16.6864 vs median 41.6651 (-60%)
 - 🔴 `risk_state_flux`: 15.5013 vs median 7.75065 (+100%)
 - 🔴 `state_mutation`: 4 vs median 2 (+100%)
-- 🟡 `dependency_density`: 0.02 vs median 0.015 (+33%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
 - 🟡 `func_start`: 17 vs median 13 (+31%)
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
@@ -418,7 +417,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `dependency_density`: 0.035 vs median 0.015 (+133%)
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `import`: 7 vs median 3 (+133%)
 - 🔴 `safety`: 4 vs median 2 (+100%)
@@ -673,7 +671,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `io`: 5 vs median 3 (+67%)
 - 🔴 `raw_arch_api`: 0.25 vs median 3 (-92%)
-- 🟡 `dependency_density`: 0.02 vs median 0.015 (+33%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
 - 🟡 `raw_state_slop_orphans`: 3.25 vs median 2.5 (+30%)
 

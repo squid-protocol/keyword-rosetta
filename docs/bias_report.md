@@ -18,14 +18,14 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
 | ledgered | 155 | a validated deviation-ledger entry names this language and this metric |
-| derived | 102 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| derived | 99 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **0** | **survived all three -- the real work remaining** |
 
 ## What the red cells are
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 79 of 2303 comparable cells (3.4%)** across 51 gated metrics; 79 of the 267 out-of-band cells are open defects.
+**Open-defect share: 79 of 2303 comparable cells (3.4%)** across 51 gated metrics; 79 of the 264 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
@@ -34,7 +34,7 @@ A verdict says a cell is accounted for; it does not say what the cell *is*, and 
 | **correlation** | 20 | a proximity pair in spatial_correlation.py edited the recorded count (the x3 cascading flux, the silencer dampener); Phase 2 moves these out |
 | scoring | 51 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 35 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
-| echo | 102 | derived -- an upstream deviation counted again downstream |
+| echo | 99 | derived -- an upstream deviation counted again downstream |
 
 Metrics carrying the most open defect, by share of their comparable cells:
 
@@ -170,7 +170,7 @@ Derived descriptions of the same program — topology, size, shape, complexity. 
 | avg_func_args | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 0.05 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1.167 | 1 | 1 | 1 | 1 | 0.125 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0.0625 | 1 | 1 | 1 | 0.08333 | 0 | 1 |
 | func_complexity_gini | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.3542 | 0.1562 | 0.1 | 0.1875 | 0.2 | 0.1875 | 0.1562 | 0.1875 | 0.1875 | 0.1875 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.3542 | 0.1875 | 0.1875 | 0.3542 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.3542 | 0.1875 | 0.3542 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.2188 | 0.1875 | 0.3542 | 0.1875 | 0.1875 | 0.1875 | 0.1875 |
 | func_internal_density | 0.01562 | 0.02083 | 0.01562 | 0.01562 | 0.01562 | 0.01562 | 0.01562 | 0.02257 | 0.02083 | 0.0125 | 0.01562 | 0.0125 | 0.01562 | 0.02083 | 0.01562 | 0.01562 | 0.01562 | 0 | 0.01562 | 0.01562 | 0.01562 | 0.01562 | 0.02778 | 0.01562 | 0.01562 | 0.02257 | 0 | 0.01562 | 0.01562 | 0.01562 | 0.01562 | 0.02951 | 0.01562 | 0.02257 | 0.01562 | 0.01562 | 0.01562 | 0.02604 | 0.01562 | 0.01302 | 0.02083 | 0.02257 | 0.01562 | 0.01562 | 0.01562 | 0.01562 |
-| dependency_density | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.02 | 0.035 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.02 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 |
+| dependency_density | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 | 0.015 |
 | encapsulation_ratio | 0.8333 | 0.75 | 0.75 | 0.75 | 0.75 | 0.875 | 0.5 | 0.75 | 0.6667 | 0.75 | 0.75 | 0.875 | 0.9167 | 0.75 | 0.75 | 0.8333 | 0.9285 | 1 | 0.8333 | 0.9445 | 0.9 | 0.75 | 0.75 | 0.75 | 0.75 | 0.9 | 1 | 0.9375 | 0.75 | 0.75 | 0.75 | 0.75 | 0.9285 | 0.9167 | 0.9167 | 0.9 | 0.75 | 0.75 | 0.75 | 0.75 | 0.9 | 0.75 | 0.9167 | 0.75 | 0.75 | 0.9285 |
 | popularity | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 |
 | cog_raw | 0.0205 | 0.0275 | 0.0205 | 0.055 | 0.0205 | 0.0205 | 0.0205 | 0.0255 | 0.02 | 0.015 | 0.0205 | 0.021 | 0.0205 | 0.02 | 0.0205 | 0.0205 | 0.0205 | 0.015 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0325 | 0.0205 | 0.0205 | 0.08 | 0 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.065 | 0.0205 | 0.0255 | 0.0205 | 0.0205 | 0.0205 | 0.0345 | 0.0205 | 0.036 | 0.0275 | 0.0255 | 0.0205 | 0.055 | 0.0205 | 0.0205 |
