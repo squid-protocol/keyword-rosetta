@@ -36,7 +36,9 @@ occurrence — a shape appearing in 30 languages is one systematic cause, not 30
      bake the *current* behavior in (the corpus measures what the engine does, not what it
      should do).
 4. **When an upstream fix lands**: the affected manifests change in the same PR that flips
-   the entry's `still_reproduces` to `false` — never delete the entry, never flip
+   the entry's `still_reproduces` to `false` — and from then on the entry explains nothing:
+   the reports skip retired entries, so a cell that still deviates after the fix needs a live
+   cause of its own (2026-09-06: three cells had coasted on a retired entry for four days) — never delete the entry, never flip
    `still_reproduces` by hand without a fresh verifying scan. This is the "self-improvement"
    loop: corpus finds → issue filed → engine fixed → corpus re-baselined, with the ledger
    as the audit trail connecting all three.

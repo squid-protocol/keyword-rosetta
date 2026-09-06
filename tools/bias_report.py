@@ -546,7 +546,16 @@ def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inpu
                        argument for deriving these from the engine.
       "unexplained" -- survived all three; the only kind the gate fails on
     """
-    validated = [e for e in ledger_entries if e.get("status") == "validated"]
+    # A retired entry (still_reproduces: false -- the upstream fix landed, verified by
+    # a fresh scan) explains nothing any more: a cell it used to name either sits in
+    # band now or has a live cause of its own to record. Until 2026-09-06 the gate
+    # honoured retired entries, which let three cells (m4/makefile risk_api_exposure,
+    # m4 risk_documentation) coast on api-double-count-inflates-scored-api for four
+    # days after #2734 fixed it.
+    validated = [
+        e for e in ledger_entries
+        if e.get("status") == "validated" and e.get("still_reproduces") is not False
+    ]
     ungated = set(ungated) if ungated is not None else set(CONTEXT_METRICS)
     refs = reference_medians(metrics, languages, strata, constant_sensitive)
     oob = out_of_band_cells(metrics, languages, refs)
@@ -615,10 +624,12 @@ _DISPOSITION_CATEGORY = {
 # (still_reproduces false); `string-literal-selective-shielding` still explains which
 # rules count a keyword inside a literal, a stream fact rather than a correlation one,
 # and whether it stays in this set is the Phase 0 owner's call.
-CORRELATION_ENTRIES = frozenset({
-    "string-literal-selective-shielding",
-    "state-flux-branch-weighting",
-})
+# Empty since gitgalaxy#2815 (Phase 2): the recorded count is the raw count, so no
+# validated entry describes a proximity edit any more. state-flux-branch-weighting is
+# retired; string-literal-selective-shielding never was one (strings count uniformly,
+# #2535) and its 2026-09-06 narrowing says so. Kept as the hook for any future entry
+# of that shape.
+CORRELATION_ENTRIES = frozenset()
 # Which categories count as an open defect for the headline: everything the engine
 # still owes an answer on. Scoring choices are ledgered design; inherency and echo
 # are not findings at all.
