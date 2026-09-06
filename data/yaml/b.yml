@@ -21,4 +21,4 @@ jobs:
           COUNTER: 2
     env:
       COUNTER: 1
-      NOTE: go
+      NOTE: "plain eval decoy text"
