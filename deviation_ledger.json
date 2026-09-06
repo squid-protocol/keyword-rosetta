@@ -146,11 +146,12 @@
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "cobol globals pattern includes WORKING-STORAGE\\s+SECTION as an alternative \u2014 every fixed-format program with a working-storage section records globals >= 1. keyword_menu.py missed it (multi-word alternation; the miner only validates single-token candidates) \u2014 menu-tool improvement noted. main.cbl globals 1 baked in.",
-      "upstream_issue": null,
+      "verdict": "cobol globals pattern includes WORKING-STORAGE\\s+SECTION as an alternative \u2014 every fixed-format program with a working-storage section records globals >= 1. keyword_menu.py missed it (multi-word alternation; the miner only validates single-token candidates) \u2014 menu-tool improvement noted. main.cbl globals 1 baked in. RESOLVED via gitgalaxy #2805 (gitgalaxy#2830): the globals rule dropped WORKING-STORAGE\\s+SECTION (a region header, not shared state); GLOBAL/EXTERNAL/COMMON remain. Verifying scan on engine main ffa0a0f: main.cbl globals 1->0, a.cpy still 2 (the planted items), cobol aggregate 3->2 = median. main.cbl globals re-blessed to 0 in this PR.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2805",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
-      "still_reproduces": true
+      "resolved_by": "squid-protocol/gitgalaxy#2830",
+      "still_reproduces": false
     },
     {
       "id": "identifier-name-token-collision",
