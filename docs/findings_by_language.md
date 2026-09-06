@@ -11,7 +11,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [abap](#abap) | 0 | 2 | 0 | 5 | #2535 #2650 #2659 #2727 #2730 #2731 |
 | [ada](#ada) | 0 | 5 | 0 | 5 | #2535 #2546 #2727 |
 | [agc_assembly](#agc_assembly) | 2 | 1 | 1 | 8 | #2535 #2650 #2659 #2729 #2764 |
-| [apex](#apex) | 3 | 3 | 0 | 10 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2782 #2783 |
+| [apex](#apex) | 3 | 2 | 0 | 10 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2782 #2783 |
 | [assembly](#assembly) | 0 | 0 | 0 | 5 | #2535 #2727 #2764 |
 | [c](#c) | 2 | 4 | 0 | 9 | #2535 #2546 #2626 #2655 #2689 #2729 #2730 #2731 |
 | [cobol](#cobol) | 3 | 3 | 0 | 16 | #2535 #2537 #2538 #2655 #2661 #2689 #2727 #2729 #2770 |
@@ -23,7 +23,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [embedded_python](#embedded_python) | 4 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
 | [fortran](#fortran) | 2 | 5 | 0 | 10 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 |
 | [go](#go) | 2 | 1 | 0 | 9 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 |
-| [groovy](#groovy) | 0 | 1 | 0 | 6 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 |
+| [groovy](#groovy) | 0 | 0 | 0 | 6 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 |
 | [haskell](#haskell) | 7 | 2 | 0 | 10 | #2535 #2689 #2727 #2729 #2770 |
 | [html](#html) | 12 | 5 | 2 | 15 | #2549 #2645 #2650 #2655 #2659 #2689 #2727 #2729 #2770 |
 | [java](#java) | 0 | 0 | 0 | 7 | #2535 #2546 #2655 #2689 #2730 #2731 |
@@ -49,7 +49,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [solidity](#solidity) | 2 | 1 | 1 | 9 | #2535 #2545 #2689 #2730 #2731 #2770 |
 | [sqlite](#sqlite) | 12 | 2 | 0 | 10 | #2535 #2547 #2655 #2727 #2728 #2730 |
 | [swift](#swift) | 1 | 5 | 0 | 6 | #2535 #2543 #2546 #2730 #2731 |
-| [tcl](#tcl) | 7 | 2 | 0 | 8 | #2535 #2546 #2727 #2731 |
+| [tcl](#tcl) | 4 | 5 | 0 | 8 | #2535 #2546 #2727 #2731 |
 | [typescript](#typescript) | 0 | 2 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 #2770 #2773 |
 | [yacc](#yacc) | 5 | 0 | 2 | 8 | #2644 #2689 #2729 #2770 |
 | [yaml](#yaml) | 4 | 1 | 0 | 12 | #2646 #2647 #2689 #2727 #2729 #2732 #2770 |
@@ -138,7 +138,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `cog_raw`: 0.055 vs median 0.0205 (+168%)
 - 🔴 `risk_cognitive_load`: 2.14335 vs median 1.29535 (+65%)
 - 🔴 `risk_state_flux`: 11.9502 vs median 7.75065 (+54%)
-- 🟡 `args`: 18 vs median 13 (+38%)
 - 🟡 `risk_safety_score`: 55.2298 vs median 41.1315 (+34%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
@@ -500,9 +499,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## groovy
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🟡 `args`: 19 vs median 13 (+46%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1279,14 +1276,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
-- 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
-- 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
+- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
 - 🔴 `io`: 7 vs median 3 (+133%)
-- 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
-- 🔴 `risk_cognitive_load`: 2.46983 vs median 1.29535 (+91%)
+- 🔴 `risk_cognitive_load`: 2.5747 vs median 1.29535 (+99%)
 - 🔴 `risk_state_flux`: 12.5 vs median 7.75065 (+61%)
+- 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
 - 🟡 `branch`: 4 vs median 3 (+33%)
+- 🟡 `func_internal_density`: 0.0225694 vs median 0.015625 (+44%)
+- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
 - 🟡 `state_mutation`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
