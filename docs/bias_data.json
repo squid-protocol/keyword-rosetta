@@ -535,7 +535,7 @@
    "apex": 2,
    "assembly": 2,
    "c": 2,
-   "cobol": 3,
+   "cobol": 2,
    "cpp": 2,
    "csharp": 3,
    "css": 2,
@@ -1687,7 +1687,7 @@
    "apex": 0.75,
    "assembly": 0.75,
    "c": 0.875,
-   "cobol": 0.5,
+   "cobol": 0.75,
    "cpp": 0.75,
    "csharp": 0.66675,
    "css": 0.75,
@@ -2743,7 +2743,7 @@
    "apex": 136,
    "assembly": 160,
    "c": 140,
-   "cobol": 145,
+   "cobol": 144,
    "cpp": 150,
    "csharp": 155,
    "css": 75,
@@ -3805,7 +3805,6 @@
   "dependency_links/dockerfile": "echo",
   "dependency_links/embedded_python": "echo",
   "dependency_links/jcl": "scoring",
-  "encapsulation_ratio/cobol": "scoring",
   "encapsulation_ratio/html": "scoring",
   "encapsulation_ratio/javascript": "scoring",
   "encapsulation_ratio/markdown": "scoring",
@@ -3837,7 +3836,6 @@
   "functions_found/html": "scoring",
   "functions_found/markdown": "inherency",
   "functions_found/sqlite": "scoring",
-  "globals/cobol": "extraction",
   "globals/csharp": "extraction",
   "globals/shell": "extraction",
   "high_risk_execution/agc_assembly": "extraction",
@@ -4032,7 +4030,7 @@
    46
   ],
   "globals": [
-   3,
+   2,
    44
   ],
   "high_risk_execution": [

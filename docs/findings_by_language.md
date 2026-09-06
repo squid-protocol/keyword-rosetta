@@ -14,7 +14,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [apex](#apex) | 2 | 0 | 0 | 11 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 |
 | [assembly](#assembly) | 0 | 0 | 0 | 5 | #2535 #2727 #2764 |
 | [c](#c) | 0 | 3 | 0 | 10 | #2535 #2546 #2626 #2655 #2689 #2729 #2730 #2731 #2765 |
-| [cobol](#cobol) | 3 | 3 | 0 | 16 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2827 |
+| [cobol](#cobol) | 3 | 1 | 0 | 16 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2805 #2827 |
 | [cpp](#cpp) | 2 | 5 | 0 | 8 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
 | [csharp](#csharp) | 0 | 4 | 0 | 7 | #2535 #2546 #2730 #2731 #2822 |
 | [css](#css) | 7 | 2 | 4 | 16 | #2549 #2655 #2689 #2729 #2752 #2770 |
@@ -213,8 +213,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `risk_documentation`: 61.8861 vs median 40.1963 (+54%)
-- 🟡 `encapsulation_ratio`: 0.5 vs median 0.75 (-33%)
-- 🟡 `globals`: 3 vs median 2 (+50%)
 - 🟡 `risk_safety_score`: 53.496 vs median 42.3138 (+26%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -230,7 +228,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.cpy | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `cobol-args-clause-match-morphology` | intended-morphology | — | (notes) | cobol args 1 vs planted 13 is intended morphology, not an authoring gap (bucket-3 test run before ledgering, jcl PARM= precedent checked) |
-| `cobol-working-storage-globals` | keyword-overlap | — | (notes) | cobol globals pattern includes WORKING-STORAGE\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1 |
+| `cobol-working-storage-globals` | keyword-overlap | [#2805](https://github.com/squid-protocol/gitgalaxy/issues/2805) | (notes) | cobol globals pattern includes WORKING-STORAGE\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1 |
 | `api-declared-orphans-blind-to-non-word-names` | upstream-bug | [#2827](https://github.com/squid-protocol/gitgalaxy/issues/2827) | — | api_orphan_credit reads 3 in a/b/c for both languages where it should read 0 |
 | `cobol-2661-author-doc-collision` | upstream-bug | [#2661](https://github.com/squid-protocol/gitgalaxy/issues/2661) | (notes) | cobol's doc rule lists AUTHOR in the same bare-tag alternative that its ownership rule owns exclusively -- the shape gitgalaxy#2659 fixed for agc_assembly/fortran/liveco… |
 | `cobol-hyphen-identifier-debt-leak` | upstream-bug | [#2537](https://github.com/squid-protocol/gitgalaxy/issues/2537) | c.cpy | Debt rules are whole-text, not comment-anchored, and '-' is a regex word boundary: HACK-LEVEL (data item, 2 code occurrences) counts fragile_debt, PROBE-TODO (paragraph … |
