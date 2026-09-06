@@ -3769,16 +3769,16 @@
   "betweenness_score/javascript": "inherency",
   "betweenness_score/python": "inherency",
   "branch/ada": "extraction",
-  "branch/cpp": "correlation",
-  "branch/csharp": "correlation",
+  "branch/cpp": "extraction",
+  "branch/csharp": "extraction",
   "branch/fortran": "extraction",
   "branch/livecode": "extraction",
   "branch/makefile": "extraction",
   "branch/powershell": "extraction",
-  "branch/ruby": "correlation",
-  "branch/shell": "correlation",
-  "branch/sqlite": "correlation",
-  "branch/swift": "correlation",
+  "branch/ruby": "extraction",
+  "branch/shell": "scoring",
+  "branch/sqlite": "extraction",
+  "branch/swift": "extraction",
   "branch/tcl": "extraction",
   "class_start/cobol": "scoring",
   "class_start/css": "scoring",
@@ -3854,10 +3854,10 @@
   "high_risk_execution/agc_assembly": "extraction",
   "import/dockerfile": "extraction",
   "import/embedded_python": "extraction",
-  "io/c": "correlation",
+  "io/c": "inherency",
   "io/javascript": "extraction",
   "io/jcl": "extraction",
-  "io/lua": "correlation",
+  "io/lua": "inherency",
   "io/sqlite": "extraction",
   "io/tcl": "extraction",
   "max_func_complexity/ada": "echo",
@@ -3875,10 +3875,10 @@
   "max_func_complexity/tcl": "scoring",
   "ownership/solidity": "extraction",
   "raw_arch_api/agc_assembly": "scoring",
-  "raw_arch_api/css": "extraction",
+  "raw_arch_api/css": "scoring",
   "raw_arch_api/dockerfile": "scoring",
   "raw_arch_api/haskell": "scoring",
-  "raw_arch_api/html": "extraction",
+  "raw_arch_api/html": "scoring",
   "raw_arch_api/jcl": "scoring",
   "raw_arch_api/markdown": "scoring",
   "raw_arch_api/objective-c": "extraction",
@@ -3904,8 +3904,8 @@
   "risk_api_exposure/go": "echo",
   "risk_api_exposure/haskell": "echo",
   "risk_api_exposure/html": "echo",
-  "risk_api_exposure/m4": "extraction",
-  "risk_api_exposure/makefile": "extraction",
+  "risk_api_exposure/m4": "unexplained",
+  "risk_api_exposure/makefile": "unexplained",
   "risk_api_exposure/perl": "echo",
   "risk_api_exposure/rust": "echo",
   "risk_api_exposure/sqlite": "scoring",
@@ -3929,8 +3929,8 @@
   "risk_documentation/dockerfile": "echo",
   "risk_documentation/haskell": "echo",
   "risk_documentation/html": "scoring",
-  "risk_documentation/m4": "extraction",
-  "risk_documentation/makefile": "extraction",
+  "risk_documentation/m4": "unexplained",
+  "risk_documentation/makefile": "scoring",
   "risk_documentation/sqlite": "scoring",
   "risk_safety_score/cobol": "scoring",
   "risk_safety_score/fortran": "echo",
@@ -3955,9 +3955,9 @@
   "risk_tech_debt/sqlite": "echo",
   "safety/embedded_python": "extraction",
   "safety/haskell": "extraction",
-  "safety/typescript": "correlation",
-  "safety_bypasses/fortran": "correlation",
-  "safety_bypasses/haskell": "correlation",
+  "safety/typescript": "extraction",
+  "safety_bypasses/fortran": "scoring",
+  "safety_bypasses/haskell": "scoring",
   "test/c": "extraction",
   "test/embedded_python": "extraction",
   "test/perl": "extraction"
@@ -3980,7 +3980,7 @@
    46
   ],
   "branch": [
-   12,
+   11,
    45
   ],
   "class_start": [
@@ -4056,7 +4056,7 @@
    45
   ],
   "io": [
-   6,
+   4,
    44
   ],
   "max_func_complexity": [
@@ -4092,7 +4092,7 @@
    46
   ],
   "raw_arch_api": [
-   4,
+   2,
    46
   ],
   "raw_state_slop_orphans": [
@@ -4116,7 +4116,7 @@
    45
   ],
   "risk_documentation": [
-   2,
+   1,
    45
   ],
   "risk_safety_score": [
@@ -4148,7 +4148,7 @@
    45
   ],
   "safety_bypasses": [
-   2,
+   0,
    45
   ],
   "state_mutation": [

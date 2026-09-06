@@ -15,8 +15,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [assembly](#assembly) | 0 | 0 | 0 | 5 | #2535 #2727 #2764 |
 | [c](#c) | 0 | 4 | 0 | 10 | #2535 #2546 #2626 #2655 #2689 #2729 #2730 #2731 #2765 |
 | [cobol](#cobol) | 3 | 3 | 0 | 16 | #2535 #2537 #2538 #2655 #2661 #2689 #2727 #2729 #2770 |
-| [cpp](#cpp) | 2 | 5 | 0 | 7 | #2535 #2546 #2655 #2730 #2731 #2765 |
-| [csharp](#csharp) | 0 | 4 | 0 | 6 | #2535 #2546 #2730 #2731 |
+| [cpp](#cpp) | 2 | 5 | 0 | 8 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
+| [csharp](#csharp) | 0 | 4 | 0 | 7 | #2535 #2546 #2730 #2731 #2822 |
 | [css](#css) | 7 | 2 | 4 | 16 | #2655 #2689 #2727 #2729 #2752 #2770 |
 | [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
 | [dockerfile](#dockerfile) | 6 | 5 | 0 | 14 | #2535 #2546 #2547 #2689 #2727 #2728 #2729 #2730 #2731 #2765 #2770 |
@@ -32,8 +32,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [kotlin](#kotlin) | 0 | 1 | 0 | 11 | #2535 #2545 #2546 #2689 #2730 #2731 #2765 #2770 |
 | [livecode](#livecode) | 7 | 0 | 0 | 10 | #2535 #2546 #2547 #2650 #2659 #2727 #2729 #2731 #2765 |
 | [lua](#lua) | 0 | 1 | 0 | 11 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 |
-| [m4](#m4) | 1 | 3 | 2 | 11 | #2535 #2689 #2727 #2731 #2765 #2770 |
-| [makefile](#makefile) | 6 | 7 | 1 | 12 | #2535 #2546 #2648 #2655 #2727 #2729 #2730 #2731 |
+| [m4](#m4) | 1 | 3 | 2 | 12 | #2535 #2689 #2727 #2731 #2765 #2770 #2806 |
+| [makefile](#makefile) | 6 | 7 | 1 | 13 | #2535 #2546 #2648 #2655 #2727 #2729 #2730 #2731 #2806 |
 | [markdown](#markdown) | 10 | 1 | 27 | 9 | #2638 #2655 #2689 #2727 #2770 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 1 | 1 | 0 | 8 | #2535 #2545 #2546 #2727 #2730 #2765 #2773 |
@@ -41,16 +41,16 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [php](#php) | 0 | 0 | 0 | 8 | #2535 #2541 #2546 #2689 #2730 #2731 #2770 |
 | [powershell](#powershell) | 7 | 0 | 0 | 9 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 |
 | [python](#python) | 0 | 2 | 0 | 12 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
-| [ruby](#ruby) | 2 | 4 | 0 | 6 | #2535 #2546 #2547 #2727 #2731 |
+| [ruby](#ruby) | 2 | 4 | 0 | 7 | #2535 #2546 #2547 #2727 #2731 #2822 |
 | [rust](#rust) | 1 | 0 | 0 | 8 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 |
 | [scala](#scala) | 0 | 1 | 0 | 8 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 |
 | [scheme](#scheme) | 1 | 0 | 0 | 9 | #2535 #2537 #2689 #2727 #2730 #2731 #2765 #2770 |
 | [shell](#shell) | 5 | 1 | 1 | 8 | #2535 #2547 #2727 #2731 |
 | [solidity](#solidity) | 1 | 0 | 1 | 10 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 |
-| [sqlite](#sqlite) | 12 | 2 | 0 | 11 | #2535 #2547 #2655 #2727 #2728 #2730 #2765 |
-| [swift](#swift) | 1 | 5 | 0 | 7 | #2535 #2543 #2546 #2730 #2731 #2765 |
+| [sqlite](#sqlite) | 12 | 2 | 0 | 12 | #2535 #2547 #2655 #2727 #2728 #2730 #2765 #2822 |
+| [swift](#swift) | 1 | 5 | 0 | 8 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 |
 | [tcl](#tcl) | 3 | 4 | 0 | 9 | #2535 #2546 #2727 #2731 #2765 |
-| [typescript](#typescript) | 0 | 2 | 0 | 10 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 |
+| [typescript](#typescript) | 0 | 2 | 0 | 11 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 |
 | [yacc](#yacc) | 5 | 0 | 2 | 8 | #2644 #2689 #2729 #2770 |
 | [yaml](#yaml) | 4 | 0 | 0 | 12 | #2646 #2647 #2689 #2727 #2729 #2732 #2770 |
 | [zig](#zig) | 0 | 1 | 0 | 7 | #2535 #2545 #2651 #2730 #2731 #2765 |
@@ -270,6 +270,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cpp | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
+| `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -296,6 +297,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cs | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `csharp-environment-exit-is-global-and-danger` | keyword-overlap | — | — | csharp globals 3 vs a median of 2 |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -812,6 +814,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
+| `m4-makefile-api-scores-above-stratum` | upstream-question | [#2806](https://github.com/squid-protocol/gitgalaxy/issues/2806) | — | OPEN INVESTIGATION (born 2026-09-06, Phase 0 cause triage) |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -854,6 +857,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `makefile-2648-slicer-fallthrough` | upstream-bug | [#2648](https://github.com/squid-protocol/gitgalaxy/issues/2648) | — | makefile had zero brace-delimited bodies but was missing from detector.py's Mode_A_Labels tuple, silently falling through to Mode_B_Braces and dropping ~100% of real fun… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
+| `m4-makefile-api-scores-above-stratum` | upstream-question | [#2806](https://github.com/squid-protocol/gitgalaxy/issues/2806) | — | OPEN INVESTIGATION (born 2026-09-06, Phase 0 cause triage) |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -1070,6 +1074,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.rb | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
+| `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -1247,6 +1252,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-no-plantable-idiom` | upstream-question | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
+| `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -1276,6 +1282,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.swift | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
+| `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 | `swift-import-capture-min-two-chars` | upstream-question | [#2543](https://github.com/squid-protocol/gitgalaxy/issues/2543) | (notes) | swift's _dependency_capture requires module names of 2+ characters ([a-zA-Z_][\w.]+), so 'import a' captures nothing: the corpus's swift chain never resolves, popularity… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -1336,6 +1343,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `ts-callparen-args` | engine-semantic | [#2773](https://github.com/squid-protocol/gitgalaxy/issues/2773) | (notes) | typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params — a.ts args 5 for 3 declarations (finditer-co… |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
+| `typescript-type-keywords-count-as-safety` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | a.ts reads safety 3 against a plant of 2: `unknown` twice (a parameter type and a local's type) plus `never` |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
