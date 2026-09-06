@@ -13,7 +13,7 @@
       "doc": 1,
       "ownership": 1,
       "import": 1,
-      "globals": 1,
+      "globals": 0,
       "api": 1,
       "api_orphan_credit": 0,
       "cleanup": 0,
