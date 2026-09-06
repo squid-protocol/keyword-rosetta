@@ -578,6 +578,126 @@ def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inpu
     return verdicts
 
 
+# ==============================================================================
+# CAUSE CATEGORIES (gitgalaxy docs/contract_roadmap.md, Phase 0)
+# ==============================================================================
+# A verdict says whether a red cell is ACCOUNTED FOR; it does not say what the cell
+# IS. The consistency badge paints every out-of-band cell the same red whether the
+# ledger validated it as "this language cannot express that" or as an open engine
+# defect -- which is why the epic kept reading as an extraction problem. The roll-up
+# below folds each ledgered cell's dispositions into one of five causes, most severe
+# first when an entry list mixes them, and reports an OPEN-DEFECT SHARE next to the
+# consistency score: the share of comparable cells whose only explanation is an
+# engine finding somebody still owes. It changes no verdict and nothing about --gate.
+CELL_CATEGORIES = ("unexplained", "extraction", "correlation", "scoring", "inherency", "echo")
+CATEGORY_MEANING = {
+    "unexplained": "survived every mechanism -- the gate fails on these",
+    "extraction": "a rule matches the wrong construct, or two rules claim one token "
+                  "(upstream-bug, upstream-question, engine-defect, keyword-overlap)",
+    "correlation": "a proximity pair in spatial_correlation.py edited the recorded count "
+                   "(the x3 cascading flux, the silencer dampener); Phase 2 moves these out",
+    "scoring": "a deliberate engine choice in a formula or a path modifier (engine-semantic)",
+    "inherency": "the best the language can do: intended-morphology, or a per-function "
+                 "descriptor where the language has no functions",
+    "echo": "derived -- an upstream deviation counted again downstream",
+}
+_DISPOSITION_CATEGORY = {
+    "upstream-bug": "extraction", "upstream-question": "extraction",
+    "engine-defect": "extraction", "keyword-overlap": "extraction",
+    "engine-semantic": "scoring",
+    "intended-morphology": "inherency", "language-morphology": "inherency",
+}
+# engine-semantic entries that record a recorded-count edit by a proximity pair rather
+# than a formula choice. The disposition vocabulary has no value for this, so they are
+# named; gitgalaxy#2546/#2631 documents the mechanism, roadmap Phase 2 retires it.
+CORRELATION_ENTRIES = frozenset({
+    "string-literal-selective-shielding",
+    "state-flux-branch-weighting",
+})
+# Which categories count as an open defect for the headline: everything the engine
+# still owes an answer on. Scoring choices are ledgered design; inherency and echo
+# are not findings at all.
+OPEN_DEFECT_CATEGORIES = frozenset({"unexplained", "extraction", "correlation"})
+
+
+def categorize_out_of_band(verdicts, ledger_entries):
+    """{(metric, lang): category} for every gated out-of-band cell.
+
+    `verdicts` is explain_out_of_band()'s output. A ledgered cell naming several
+    entries takes the most severe category among them (CELL_CATEGORIES order),
+    so a cell that is half morphology and half open bug reads as the bug.
+    """
+    by_id = {e["id"]: e for e in ledger_entries}
+    out = {}
+    for cell, (status, detail) in verdicts.items():
+        if status == "derived":
+            out[cell] = "echo"
+        elif status == "undefined":
+            out[cell] = "inherency"
+        elif status == "unexplained":
+            out[cell] = "unexplained"
+        else:
+            cats = []
+            for eid in detail.split(", "):
+                entry = by_id.get(eid)
+                if entry is None:
+                    continue
+                if eid in CORRELATION_ENTRIES:
+                    cats.append("correlation")
+                else:
+                    cats.append(_DISPOSITION_CATEGORY.get(entry.get("disposition"), "scoring"))
+            out[cell] = min(cats, key=CELL_CATEGORIES.index) if cats else "unexplained"
+    return out
+
+
+def open_defect_share(metrics, languages, categories, ungated=()):
+    """{metric: (open_defect_cells, comparable_cells)} for every gated metric.
+
+    Comparable = the languages with a numeric value (n/a excluded, as in the
+    consistency score). A cell not in `categories` is in band. This is the
+    number the consistency badge cannot express: how much of a metric's red
+    is a finding somebody still owes, as opposed to accepted design, language
+    morphology or an echo of another cell.
+    """
+    out = {}
+    for metric, values in metrics.items():
+        if metric in ungated:
+            continue
+        comparable = [lang for lang in languages if isinstance(values.get(lang), (int, float))]
+        if not comparable:
+            continue
+        open_cells = sum(
+            1 for lang in comparable
+            if categories.get((metric, lang)) in OPEN_DEFECT_CATEGORIES
+        )
+        out[metric] = (open_cells, len(comparable))
+    return out
+
+
+def decayed_entries(ledger_entries, oob_cells, na_cells=frozenset()):
+    """Validated, still-reproducing entries whose signal x languages_seen names
+    no out-of-band cell and no n/a cell (keyword-rosetta#75's check, made standing).
+
+    An entry earns its keep two ways: it explains a red cell, or it is the
+    reviewed reason an n/a cell is n/a (GATING.md "Unreviewed absences stay
+    loud"). One that does neither -- every cell it claims sits in band -- is
+    excusing nothing: the upstream fix landed and `still_reproduces` was never
+    flipped, or the cross-product over-claims. Returns [(entry_id, claimed)].
+    """
+    out = []
+    for e in ledger_entries:
+        if e.get("status") != "validated" or e.get("still_reproduces") is False:
+            continue
+        signals = [s for s in (e.get("signal") or "").split("|") if s]
+        langs = e.get("languages_seen") or []
+        if not signals or not langs or langs == ["all"]:
+            continue
+        claimed = [(s, l) for s in signals for l in langs]
+        if not any(c in oob_cells or c in na_cells for c in claimed):
+            out.append((e["id"], len(claimed)))
+    return out
+
+
 def derivation_inputs(metric, risk_inputs=None, include_context=False):
     """The measured inputs a derived metric is built from, as cache column names.
 
@@ -1244,9 +1364,6 @@ def main():
     leaks = length_leaks(cache["metrics"], languages, deps, strata=strata,
                          constant_sensitive=constant_sensitive, ungated=ungated)
     cache["length_leaks"] = leaks
-    (REPO_ROOT / "docs" / "bias_data.json").write_text(
-        json.dumps(cache, indent=1) + "\n"
-    )
 
     # E.1 (gitgalaxy#2669): which out-of-band cells are already accounted for.
     verdicts = explain_out_of_band(
@@ -1257,6 +1374,17 @@ def main():
     )
     unexplained = sorted(k for k, (st, _) in verdicts.items() if st == "unexplained")
     by_status = collections.Counter(st for st, _ in verdicts.values())
+    # Phase 0 (gitgalaxy docs/contract_roadmap.md): what each red cell IS, and the
+    # open-defect share the consistency badge cannot express. Cached so
+    # issue_status.py and ad hoc readers roll up the same way.
+    categories = categorize_out_of_band(verdicts, ledger["entries"])
+    by_category = collections.Counter(categories.values())
+    defect_share = open_defect_share(cache["metrics"], languages, categories, ungated=ungated)
+    cache["cell_categories"] = {f"{m}/{l}": c for (m, l), c in sorted(categories.items())}
+    cache["open_defect_share"] = {m: list(v) for m, v in sorted(defect_share.items())}
+    (REPO_ROOT / "docs" / "bias_data.json").write_text(
+        json.dumps(cache, indent=1) + "\n"
+    )
 
     refs = reference_medians(cache["metrics"], languages, strata, constant_sensitive)
     shares, skipped, inert, agreement = write_variance_chart(
@@ -1378,6 +1506,46 @@ def main():
         lines += ["Unexplained cells, by metric:", ""]
         lines += [f"- `{m}` — {', '.join(sorted(langs))}" for m, langs in sorted(shown.items())]
         lines += [""]
+
+    n_open = sum(by_category.get(c, 0) for c in OPEN_DEFECT_CATEGORIES)
+    n_gated_cells = sum(n for _, n in defect_share.values())
+    n_open_cells = sum(o for o, _ in defect_share.values())
+    worst_open = sorted(
+        ((o / n, m, o, n) for m, (o, n) in defect_share.items() if o),
+        reverse=True,
+    )[:5]
+    na_cells = {(sig, lang) for sig, per_lang in na_by_metric.items() for lang in per_lang}
+    na_cells |= {(sig, lang) for sig, per_lang in dep_na_state.items() for lang in per_lang}
+    decayed = decayed_entries(ledger["entries"], oob_all, na_cells)
+    lines += ["## What the red cells are", "",
+              "A verdict says a cell is accounted for; it does not say what the cell *is*, and the "
+              "consistency badges above paint a validated \"this language cannot express that\" the "
+              "same red as an open engine defect. Folding each ledgered cell's dispositions into one "
+              "cause (most severe first where an entry list mixes them) gives the split that the "
+              "badge cannot: how much of the red is a finding somebody still owes. The **open-defect "
+              "share** counts `unexplained`, `extraction` and `correlation` cells over every comparable "
+              "cell of the gated metrics; scoring choices are ledgered design, inherency and echo are "
+              "not findings at all. Cause categories, the roadmap they come from and what each one's "
+              "right response is: gitgalaxy `docs/contract_roadmap.md`.", "",
+              f"**Open-defect share: {n_open_cells} of {n_gated_cells} comparable cells "
+              f"({n_open_cells / n_gated_cells:.1%})** across {len(defect_share)} gated metrics; "
+              f"{n_open} of the {len(categories)} out-of-band cells are open defects.", "",
+              "| cause | cells | what it is |",
+              "|---|---|---|"]
+    for cat in CELL_CATEGORIES:
+        n = by_category.get(cat, 0)
+        label = f"**{cat}**" if cat in OPEN_DEFECT_CATEGORIES else cat
+        lines.append(f"| {label} | {n} | {CATEGORY_MEANING[cat]} |")
+    lines += [""]
+    if worst_open:
+        lines += ["Metrics carrying the most open defect, by share of their comparable cells:", ""]
+        lines += [f"- `{m}` — {o} of {n} ({share:.0%})" for share, m, o, n in worst_open]
+        lines += [""]
+    if decayed:
+        lines += ["Ledger entries that currently explain **no** out-of-band cell (validated, still "
+                  "reproducing, but their signal x language cross-product lands entirely in band — "
+                  "keyword-rosetta#75's decay check): "
+                  + ", ".join(f"`{eid}`" for eid, _ in decayed) + ". Narrow or retire them.", ""]
 
     present = sorted({strata.get(l) for l in languages if strata.get(l)})
     lines += ["## The language-level risk constant is design; the report bands within it", "",
@@ -1559,6 +1727,11 @@ def main():
         f"({by_status.get('undefined', 0)} undefined, {by_status.get('ledgered', 0)} ledgered, "
         f"{by_status.get('derived', 0)} derived; {n_context_oob} context + {n_unplanted_oob} "
         "unplanted-input cells not counted)"
+    )
+    print(
+        f"cause split: " + ", ".join(f"{c} {by_category.get(c, 0)}" for c in CELL_CATEGORIES)
+        + f" -- open-defect share {n_open_cells}/{n_gated_cells}"
+        + (f"; decayed ledger entries: {len(decayed)}" if decayed else "")
     )
     n_leak = sum(1 for r in leaks if r["verdict"] == "leak")
     print(
