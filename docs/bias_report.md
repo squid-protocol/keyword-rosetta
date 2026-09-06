@@ -12,37 +12,37 @@ Planted intent is identical in every language (SPEC.md probe table), so any colu
 
 ## Out-of-band cells: explained vs. unexplained
 
-An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does). The four program-length columns are context, not consistency claims, and are not counted here at all (51 of their cells are out of band; see the next section).
+An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does). The four program-length columns are context, not consistency claims, and are not counted here at all (52 of their cells are out of band; see the next section).
 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 155 | a validated deviation-ledger entry names this language and this metric |
-| derived | 99 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| ledgered | 135 | a validated deviation-ledger entry names this language and this metric |
+| derived | 80 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **0** | **survived all three -- the real work remaining** |
 
 ## What the red cells are
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 79 of 2303 comparable cells (3.4%)** across 51 gated metrics; 79 of the 264 out-of-band cells are open defects.
+**Open-defect share: 62 of 2303 comparable cells (2.7%)** across 51 gated metrics; 62 of the 225 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
 | **unexplained** | 0 | survived every mechanism -- the gate fails on these |
-| **extraction** | 59 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
-| **correlation** | 20 | a proximity pair in spatial_correlation.py edited the recorded count (the x3 cascading flux, the silencer dampener); Phase 2 moves these out |
-| scoring | 51 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
+| **extraction** | 51 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
+| **correlation** | 11 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
+| scoring | 48 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 35 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
-| echo | 99 | derived -- an upstream deviation counted again downstream |
+| echo | 80 | derived -- an upstream deviation counted again downstream |
 
 Metrics carrying the most open defect, by share of their comparable cells:
 
-- `state_mutation` — 16 of 43 (37%)
 - `raw_state_slop_orphans` — 13 of 46 (28%)
 - `branch` — 12 of 45 (27%)
 - `io` — 6 of 44 (14%)
 - `raw_arch_api` — 4 of 46 (9%)
+- `class_start` — 3 of 41 (7%)
 
 Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `visibility-morphology-encapsulation`, `embedded-python-per-file-classification`, `comment-lines-manifest-doc-classification`, `yacc-union-class-start-gap`, `html-srcdoc-invisible-execution-gap`, `yaml-ownership-author-key-gap`, `yaml-cleanup-embedded-teardown-gap`, `composite-nonlinearity-amplifies-in-band-inputs`, `duplicate-check-counts-slicer-buckets`, `api-export-names-suppress-orphan-credit`, `api-declared-orphans-are-not-new-surface`. Narrow or retire them.
 
@@ -56,15 +56,15 @@ Ledger entries that currently explain **no** out-of-band cell (validated, still 
 |---|---|---|---|---|---|---|---|
 | `risk_cognitive_load` | 1.295 (4) | 1.295 (11) | 1.295 (13) | 1.295 (11) | 1.295 (3) | 1.190 (3) | 1.295 |
 | `risk_documentation` | 38.255 (4) | 39.139 (11) | 38.255 (13) | 41.665 (11) | 43.944 (3) | 16.674 (3) | 38.255 |
-| `risk_safety_score` | 39.811 (4) | 41.131 (11) | 42.583 (13) | 43.601 (11) | 44.290 (3) | 39.153 (3) | 42.583 |
+| `risk_safety_score` | 39.811 (4) | 41.131 (11) | 42.314 (13) | 43.364 (11) | 44.290 (3) | 39.153 (3) | 42.314 |
 | `risk_tech_debt` | 29.878 (4) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 20.439 (4) | 38.665 |
 | `risk_verification` | 2.372 (4) | 2.380 (11) | 2.389 (13) | 2.396 (11) | 2.393 (3) | 2.353 (3) | 2.385 |
 
 ## Unplanted risk inputs
 
-The risk formulas read registry signals the SPEC does not plant: `concurrency`, `dead_code`, `debug_prints`, `immutability_locks`, `llm_api`, `reflection_metaprogramming`, `spec_exposure`, `sync_locks`. A shell that idiomatically writes `val`/`let`/`final` carries `immutability_locks` a `var` shell does not, and `risk_state_flux` then differs with `state_mutation` on plant. These columns are reported (below, and in the chart) but never gated; an out-of-band cell here gets no verdict, but a derived risk cell may inherit from it and say so. 38 such cells are out of band now:
+The risk formulas read registry signals the SPEC does not plant: `concurrency`, `dead_code`, `debug_prints`, `immutability_locks`, `llm_api`, `reflection_metaprogramming`, `spec_exposure`, `sync_locks`. A shell that idiomatically writes `val`/`let`/`final` carries `immutability_locks` a `var` shell does not, and `risk_state_flux` then differs with `state_mutation` on plant. These columns are reported (below, and in the chart) but never gated; an out-of-band cell here gets no verdict, but a derived risk cell may inherit from it and say so. 37 such cells are out of band now:
 
-- `concurrency` — agc_assembly 1, java 6, swift 1
+- `concurrency` — agc_assembly 1, swift 1
 - `dead_code` — jcl 1, makefile 7
 - `debug_prints` — abap 5, cobol 7, dockerfile 2, scheme 2, yaml 2
 - `immutability_locks` — abap 1, c 1, cpp 1, dart 2, fortran 1, html 1, javascript 17, kotlin 6, php 1, ruby 1, scala 3, swift 11, typescript 14, zig 3
@@ -82,15 +82,16 @@ The risk formulas read registry signals the SPEC does not plant: `concurrency`, 
 
 | metric | languages | stratum | rho | verdict | inputs held in band | where length enters |
 |---|---|---|---|---|---|---|
-| `risk_documentation` | 10 | irc2 | -0.49 | weak | `raw_arch_api`, `doc`, `ownership`, `reflection_metaprogramming` | _calc_documentation: (opaque_execution + api x 2 + dynamism) / (_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the denominator is the #2655 floor, constant for every file in this corpus, so the numerator's growth with program length is unopposed |
+| `risk_state_flux` | 9 | irc2 | +0.55 | weak | `immutability_locks`, `state_mutation` | **not located yet** — the more interesting finding |
+| `risk_documentation` | 10 | irc2 | -0.47 | weak | `raw_arch_api`, `doc`, `ownership`, `reflection_metaprogramming` | _calc_documentation: (opaque_execution + api x 2 + dynamism) / (_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the denominator is the #2655 floor, constant for every file in this corpus, so the numerator's growth with program length is unopposed |
 | `functions_found` | 13 | irc2 | -0.46 | weak | *(none known)* | **not located yet** — the more interesting finding |
-| `risk_verification` | 13 | irc2 | +0.46 | weak | `high_risk_execution` | _calc_verification: untested impact / _mass_loc(loc) (signal_processor.py ~L1664) -- same floor, same constant denominator |
+| `risk_verification` | 13 | irc2 | +0.42 | weak | `high_risk_execution` | _calc_verification: untested impact / _mass_loc(loc) (signal_processor.py ~L1664) -- same floor, same constant denominator |
 
 ## Cross-language variance chart
 
 ![variance chart](bias_variance_chart.svg)
 
-Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 49 metrics: 88%**; 38 metrics hold ≥80% of languages in the green band. Weakest metrics: risk_state_flux 44%, state_mutation 63%, risk_api_exposure 71%, avg_func_complexity 72%, max_func_complexity 72%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): class_start, classes_found, def_encapsulation, risk_concurrency, risk_dead_code, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, spec_exposure, sync_locks. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): state_slop_duplicates, risk_secrets_risk, llm_api, risk_churn.
+Each metric's badge is its **consistency score**: the share of languages inside the green band (±25% of the cross-language median). **Average across 49 metrics: 90%**; 40 metrics hold ≥80% of languages in the green band. Weakest metrics: risk_api_exposure 71%, avg_func_complexity 72%, max_func_complexity 72%, func_internal_density 72%, raw_state_slop_orphans 72%. ‖ marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): class_start, classes_found, def_encapsulation, risk_concurrency, risk_dead_code, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, spec_exposure, sync_locks. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): state_slop_duplicates, risk_secrets_risk, llm_api, risk_churn.
 
 ## Planted keyword signals (corpus totals vs. planted intent)
 
@@ -104,8 +105,8 @@ Each metric's badge is its **consistency score**: the share of languages inside 
 | safety ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 4 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 |
 | safety_bypasses ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 4 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 | telemetry | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
-| state_mutation ⚠ | 2 | 2 | 2 | 2 | 3 | 2 | 5 | 2 | 3 | 2 | n/a | 2 | 4 | 2 | 3 | 5 | 2 | 4 | n/a | 2 | 2 | 2 | 2 | 3 | 2 | 4 | 2 | n/a | 4 | 3 | 4 | 2 | 3 | 2 | 2 | 2 | 2 | 3 | 2 | 3 | 2 | 2 | 3 | 2 | 2 | 2 | 2 |
-| cleanup ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | n/a | 4 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| state_mutation | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| cleanup ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 | fragile_debt | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | n/a | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | planned_debt | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | n/a | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | import ⚠ | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | n/a | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
@@ -121,10 +122,10 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 
 | metric | abap | ada | agc_assembly | apex | assembly | c | cobol | cpp | csharp | css | dart | dockerfile | embedded_python | fortran | go | groovy | haskell | html | java | javascript | jcl | kotlin | livecode | lua | m4 | makefile | markdown | matlab | objective-c | perl | php | powershell | python | ruby | rust | scala | scheme | shell | solidity | sqlite | swift | tcl | typescript | yacc | yaml | zig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 30 | 13 | 13 | 13 | 13 | 13 | 13 |
+| functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 31 | 13 | 13 | 13 | 13 | 13 | 13 |
 | classes_found | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| keyword_hits | 129 | 145 | 180 | 137 | 160 | 142 | 143 | 149 | 155 | 75 | 159 | 85 | 181 | 162 | 160 | 152 | 117 | 81 | 144 | 200 | 102 | 184 | 132 | 143 | 79 | 122 | 30 | 155 | 148 | 180 | 142 | 147 | 188 | 155 | 201 | 159 | 98 | 137 | 164 | 67 | 184 | 140 | 188 | 59 | 151 | 187 |
+| keyword_hits | 129 | 145 | 181 | 136 | 160 | 140 | 145 | 150 | 155 | 75 | 159 | 83 | 181 | 160 | 157 | 152 | 115 | 78 | 140 | 202 | 102 | 187 | 129 | 144 | 77 | 122 | 30 | 151 | 147 | 179 | 142 | 147 | 188 | 155 | 200 | 162 | 96 | 137 | 165 | 66 | 187 | 138 | 190 | 61 | 151 | 191 |
 | comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 13 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 12 | 11 | 12 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
@@ -135,16 +136,16 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | risk_api_exposure | 7.335 | 7.335 | 1.672 | 7.052 | 7.052 | 7.851 | 8.305 | 7.052 | 7.052 | 3.085 | 7.335 | 3.526 | 6.926 | 7.335 | 3.767 | 7.052 | 1.763 | 4.041 | 7.052 | 7.052 | 6.170 | 7.052 | 7.335 | 7.335 | 9.187 | 9.356 | n/a | 7.335 | 5.289 | 3.416 | 7.052 | 7.052 | 6.926 | 7.052 | 3.526 | 7.335 | 7.052 | 7.052 | 7.052 | 0.000 | 7.052 | 7.052 | 7.052 | 7.021 | 3.526 | 4.760 |
 | risk_churn | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | risk_cognitive_load | 1.295 | 1.435 | 1.295 | 2.143 | 1.295 | 1.295 | 1.295 | 2.575 | 1.283 | 1.190 | 1.295 | 1.303 | 1.295 | 1.283 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.619 | 1.295 | 2.715 | 1.295 | 1.295 | 3.872 | n/a | 1.295 | 1.295 | 1.295 | 1.295 | 3.523 | 1.295 | 2.575 | 1.295 | 1.295 | 1.295 | 1.589 | 1.295 | 1.626 | 1.435 | 2.575 | 1.295 | 2.143 | 1.295 | 1.295 |
-| risk_concurrency | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 24.697 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | n/a | 0.000 | 0.000 |
+| risk_concurrency | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | n/a | 0.000 | 0.000 |
 | risk_dead_code | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 5.787 | 0.000 | 0.000 | 0.000 | 0.000 | 50.636 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | risk_documentation | 41.665 | 41.665 | 43.944 | 43.428 | 38.255 | 48.561 | 61.886 | 38.255 | 38.255 | 16.544 | 41.665 | 16.686 | 41.959 | 45.499 | 38.255 | 38.255 | 16.544 | 21.522 | 38.255 | 38.255 | 33.402 | 38.255 | 41.665 | 41.665 | 67.325 | 71.081 | n/a | 41.665 | 29.896 | 41.959 | 38.255 | 40.196 | 41.959 | 38.255 | 38.255 | 41.665 | 38.255 | 41.795 | 39.139 | 0.000 | 38.255 | 38.255 | 38.255 | 50.110 | 16.674 | 38.255 |
-| risk_safety_score | 41.131 | 41.131 | 42.064 | 55.230 | 44.290 | 55.083 | 53.496 | 42.583 | 41.131 | 39.153 | 41.131 | 56.933 | 41.726 | 73.604 | 41.988 | 43.364 | 54.085 | 39.084 | 39.811 | 57.496 | 43.413 | 41.131 | 43.601 | 43.364 | 59.989 | 43.364 | n/a | 57.721 | 42.583 | 59.743 | 42.314 | 57.452 | 55.190 | 42.314 | 39.811 | 41.131 | 42.583 | 43.364 | 41.434 | 42.314 | 39.811 | 42.583 | 41.131 | 44.290 | 39.811 | 41.131 |
+| risk_safety_score | 41.131 | 41.131 | 42.064 | 41.131 | 44.290 | 42.314 | 53.496 | 42.314 | 41.131 | 39.153 | 41.131 | 43.364 | 41.726 | 57.462 | 41.131 | 43.364 | 53.024 | 39.084 | 39.811 | 57.496 | 43.413 | 41.131 | 43.364 | 43.364 | 43.364 | 43.364 | n/a | 42.314 | 42.314 | 43.364 | 42.314 | 42.314 | 55.190 | 42.314 | 39.811 | 41.131 | 42.314 | 43.364 | 41.131 | 42.314 | 39.811 | 42.314 | 41.131 | 44.290 | 39.811 | 41.131 |
 | risk_secrets_risk | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | risk_spec_match | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 0.000 | 100.000 | 100.000 | 91.667 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | n/a | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 93.750 | 100.000 |
 | risk_stability | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 0.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 |
-| risk_state_flux | 7.751 | 7.751 | 7.751 | 11.950 | 7.751 | 17.783 | 7.751 | 10.033 | 7.751 | 0.000 | 5.787 | 15.501 | 7.751 | 11.950 | 20.800 | 7.751 | 15.501 | 0.000 | 7.751 | 5.787 | 7.751 | 4.200 | 12.500 | 7.751 | 15.501 | 7.751 | n/a | 16.700 | 12.500 | 16.700 | 7.751 | 11.950 | 7.751 | 7.751 | 7.751 | 4.200 | 12.500 | 7.751 | 12.500 | 0.000 | 2.980 | 12.500 | 4.200 | 7.751 | 7.751 | 7.751 |
+| risk_state_flux | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 5.787 | 7.751 | 5.787 | 7.751 | 0.000 | 5.787 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 5.787 | 7.751 | 4.200 | 7.751 | 7.751 | 7.751 | 7.751 | n/a | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 4.200 | 7.751 | 7.751 | 7.751 | 0.000 | 2.980 | 7.751 | 4.200 | 7.751 | 7.751 | 7.751 |
 | risk_tech_debt | 46.958 | 34.520 | 48.534 | 34.520 | 44.707 | 38.665 | 46.207 | 38.665 | 34.520 | 20.439 | 34.520 | 23.814 | 38.665 | 42.091 | 34.520 | 42.091 | 29.878 | 20.439 | 29.878 | 42.091 | 48.792 | 34.520 | 42.091 | 42.091 | 48.792 | 48.647 | 0.000 | 38.665 | 48.066 | 42.091 | 38.665 | 38.665 | 38.665 | 38.665 | 29.878 | 34.520 | 38.665 | 42.091 | 34.520 | 23.104 | 29.878 | 38.665 | 34.520 | 49.165 | 20.439 | 34.520 |
-| risk_verification | 2.378 | 2.385 | 2.393 | 2.393 | 2.403 | 2.389 | 2.363 | 2.392 | 2.385 | 2.354 | 2.380 | 2.379 | 2.383 | 2.398 | 2.380 | 2.396 | 2.365 | 2.306 | 2.372 | 2.396 | 2.394 | 2.380 | 2.417 | 2.409 | 2.387 | 2.378 | n/a | 2.402 | 2.387 | 2.396 | 2.387 | 2.397 | 2.386 | 2.413 | 2.372 | 2.380 | 2.383 | 2.431 | 2.380 | 2.432 | 2.377 | 2.389 | 2.380 | 2.376 | 2.353 | 2.385 |
+| risk_verification | 2.377 | 2.385 | 2.393 | 2.393 | 2.403 | 2.389 | 2.363 | 2.392 | 2.385 | 2.354 | 2.380 | 2.379 | 2.383 | 2.398 | 2.380 | 2.396 | 2.365 | 2.306 | 2.372 | 2.396 | 2.394 | 2.380 | 2.417 | 2.409 | 2.387 | 2.378 | n/a | 2.401 | 2.387 | 2.396 | 2.387 | 2.397 | 2.386 | 2.413 | 2.373 | 2.380 | 2.383 | 2.431 | 2.380 | 2.436 | 2.377 | 2.389 | 2.380 | 2.376 | 2.353 | 2.385 |
 
 n/a = every registry-governed input to this formula is absent for the language and the scan confirms the score is pinned at 0 (incomparable, excluded from bands and medians); † = at least one of those input absences is not yet backed by a validated ledger entry.
 
@@ -159,12 +160,12 @@ Derived descriptions of the same program — topology, size, shape, complexity. 
 | betweenness_score | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.05 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.05 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 |
 | closeness_score | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.1917 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.1917 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 |
 | producer_ratio | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 |
-| total_loc | 22 | 25.5 | 17.75 | 24.75 | 27.25 | 25.25 | 24.5 | 25.5 | 25 | 18.75 | 24.75 | 16.25 | 27 | 21.75 | 26.5 | 24.75 | 19 | 11.5 | 25.25 | 26 | 11.25 | 25.25 | 22 | 23.5 | 12 | 23 | 14.5 | 25.25 | 24.25 | 26 | 25.25 | 29.25 | 26 | 29 | 25.75 | 25 | 21.25 | 29.5 | 25 | 16 | 25 | 25.5 | 25.5 | 12.25 | 25.25 | 25 |
-| coding_loc | 15 | 18.5 | 12.75 | 17.75 | 20.25 | 17.75 | 16.25 | 18.25 | 17.75 | 9.75 | 17.5 | 9 | 15.75 | 15 | 18.5 | 17.5 | 9.5 | 8 | 18 | 18 | 7 | 17.75 | 14.75 | 16.25 | 7 | 14.25 | 0 | 18 | 17 | 18.75 | 18 | 21.25 | 15 | 20.75 | 17.75 | 17.75 | 13.75 | 20.5 | 17 | 8.75 | 17.75 | 18.25 | 17.5 | 6 | 21.5 | 17.5 |
-| structural_mass | 10.43 | 11.12 | 10.46 | 10.68 | 10.48 | 11.93 | 2.7 | 11.09 | 10.8 | 0.295 | 10.68 | 7.63 | 10.46 | 11.03 | 11.2 | 10.53 | 8.215 | 15.29 | 11.96 | 10.48 | 9.34 | 10.43 | 12.37 | 11.6 | 12.31 | 11.46 | 1 | 12.21 | 9.915 | 11.25 | 10.44 | 11.5 | 10.47 | 12.37 | 10.46 | 10.71 | 10.25 | 12.81 | 10.66 | 10.32 | 11.05 | 10.87 | 10.43 | 8.27 | 6.28 | 10.43 |
-| token_mass | 131.2 | 154.5 | 135.2 | 128.2 | 136 | 122 | 172.5 | 127.8 | 131.8 | 100.8 | 117.5 | 82.25 | 118 | 147.5 | 124.2 | 117.8 | 121.8 | 94.25 | 126.5 | 137.2 | 134 | 132.2 | 125 | 111 | 137.2 | 111.5 | — | 115.5 | 131.5 | 130.8 | 130.5 | 146.5 | 121.2 | 137 | 148.8 | 124.8 | 121.2 | 126.8 | 133.8 | 97.5 | 140.5 | 131.8 | 140.2 | 90.25 | 140.8 | 146 |
+| total_loc | 21.75 | 25.5 | 17.75 | 24.75 | 27.25 | 25.25 | 24.5 | 25.5 | 25 | 18.75 | 24.75 | 16.25 | 27 | 21.75 | 26.5 | 24.75 | 19 | 11.5 | 25.25 | 26.25 | 11.25 | 25.5 | 21.75 | 23.5 | 12 | 23 | 14.5 | 24.75 | 24.25 | 26 | 25.25 | 29.25 | 26 | 29 | 26 | 25.25 | 21 | 29.5 | 25 | 16.25 | 25.25 | 25.25 | 25.75 | 12.25 | 25.25 | 25.5 |
+| coding_loc | 14.75 | 18.5 | 12.75 | 17.75 | 20.25 | 17.75 | 16.25 | 18.25 | 17.75 | 9.75 | 17.5 | 9 | 15.75 | 15 | 18.5 | 17.5 | 9.5 | 8 | 18 | 18.25 | 7 | 18 | 14.5 | 16.25 | 7 | 14.25 | 0 | 17.5 | 17 | 18.75 | 18 | 21.25 | 15 | 20.75 | 18 | 18 | 13.5 | 20.5 | 17 | 9 | 18 | 18 | 17.75 | 6 | 21.5 | 18 |
+| structural_mass | 10.39 | 11.12 | 10.46 | 10.43 | 10.48 | 11.18 | 2.7 | 10.84 | 10.8 | 0.295 | 10.68 | 7.13 | 10.46 | 10.78 | 10.45 | 10.53 | 7.715 | 15.29 | 10.46 | 10.49 | 9.34 | 10.46 | 12.09 | 11.6 | 11.81 | 11.46 | 1 | 11.68 | 9.665 | 10.75 | 10.44 | 11.25 | 10.47 | 12.37 | 10.48 | 10.73 | 9.995 | 12.81 | 10.41 | 10.61 | 11.09 | 10.59 | 10.46 | 8.27 | 6.28 | 10.46 |
+| token_mass | 129.8 | 154.5 | 135.2 | 128.2 | 136 | 122 | 172.5 | 127.2 | 131.8 | 100.8 | 117.5 | 82.25 | 118 | 146.8 | 124.2 | 117.8 | 121.8 | 94.25 | 126.5 | 138 | 134 | 133.2 | 122.8 | 111 | 137.2 | 111.5 | — | 113.5 | 131.5 | 130.8 | 130.5 | 145.8 | 121.2 | 137 | 149.5 | 125.8 | 118.5 | 126.8 | 134.2 | 99.75 | 141.5 | 130 | 141.2 | 90.25 | 140.8 | 149 |
 | control_flow_ratio | 0.09375 | 0.05875 | 0.06825 | 0.09375 | 0.0535 | 0.09375 | 0.0625 | 0.0995 | 0.1 | 0.1072 | 0.08325 | 0.25 | 0.05775 | 0.111 | 0.075 | 0.05775 | 0.15 | 0.1875 | 0.08325 | 0.0625 | 0.09375 | 0.05775 | 0.4168 | 0.05775 | 0.25 | 0.5 | 0 | 0.09375 | 0.09375 | 0.05 | 0.0625 | 0.1833 | 0.0625 | 0.1437 | 0.05775 | 0.1875 | 0.25 | 0.139 | 0.044 | 0.1562 | 0.06675 | 0.0935 | 0.0625 | 0.25 | 0.1875 | 0.09375 |
-| avg_func_loc | 4.396 | 5.521 | 3.354 | 5.312 | 5.188 | 5.146 | 3.938 | 5.479 | 5.312 | 2.033 | 5.229 | 1.2 | 4.354 | 4.438 | 5.229 | 5.688 | 2.25 | 0 | 5.396 | 5.375 | 1.771 | 5.146 | 4.396 | 4.854 | 1 | 3.312 | 0 | 5.375 | 5.125 | 5.438 | 5.083 | 5.375 | 4.417 | 5.312 | 5.312 | 5.312 | 3.062 | 5.188 | 5.125 | 1.256 | 5.312 | 4.521 | 5.229 | 1 | 1.708 | 5.062 |
+| avg_func_loc | 4.312 | 5.521 | 3.354 | 5.312 | 5.188 | 5.146 | 3.938 | 5.479 | 5.312 | 2.033 | 5.229 | 1.2 | 4.354 | 4.438 | 5.229 | 5.688 | 2.25 | 0 | 5.396 | 5.458 | 1.771 | 5.229 | 4.312 | 4.854 | 1 | 3.312 | 0 | 5.208 | 5.125 | 5.438 | 5.083 | 5.375 | 4.417 | 5.312 | 5.396 | 5.396 | 2.979 | 5.188 | 5.125 | 1.251 | 5.396 | 4.438 | 5.312 | 1 | 1.708 | 5.229 |
 | avg_func_complexity | 0.1875 | 0.25 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.2708 | 0.25 | 0.15 | 0.1875 | 0.15 | 0.1875 | 0.25 | 0.1875 | 0.1875 | 0.1875 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.3333 | 0.1875 | 0.1875 | 0.2708 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.3542 | 0.1875 | 0.2708 | 0.1875 | 0.1875 | 0.1875 | 0.3125 | 0.1875 | 0.1562 | 0.25 | 0.2708 | 0.1875 | 0.1875 | 0.1875 | 0.1875 |
 | max_func_complexity | 0.75 | 1 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 1 | 0.75 | 0.25 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0.75 | 0 | 0.75 | 0.75 | 0.75 | 0.75 | 1.25 | 0.75 | 0.75 | 1 | 0 | 0.75 | 0.75 | 0.75 | 0.75 | 1.25 | 0.75 | 1 | 0.75 | 0.75 | 0.75 | 1.25 | 0.75 | 1.25 | 1 | 1 | 0.75 | 0.75 | 0.75 | 0.75 |
 | avg_func_args | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 0.05 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1.167 | 1 | 1 | 1 | 1 | 0.125 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0.0625 | 1 | 1 | 1 | 0.08333 | 0 | 1 |
