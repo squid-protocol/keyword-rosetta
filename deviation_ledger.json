@@ -471,17 +471,30 @@
       "id": "ts-callparen-args",
       "signal": "args",
       "languages_seen": [
-        "apex",
-        "groovy",
         "objective-c",
         "typescript"
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params \u2014 a.ts args 5 for 3 declarations (finditer-confirmed). Plants that are bare calls contaminate args in ts. Batch 4: apex and groovy count statement-position calls the same way (main args 7 = 4 sigs + 3 dispatch calls); objective-c over-counts via selector-colon segments (related morphology, recorded per-manifest).",
-      "upstream_issue": null,
+      "verdict": "typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params \u2014 a.ts args 5 for 3 declarations (finditer-confirmed). Plants that are bare calls contaminate args in ts. Batch 4: apex and groovy count statement-position calls the same way (main args 7 = 4 sigs + 3 dispatch calls); objective-c over-counts via selector-colon segments (related morphology, recorded per-manifest). FIXED 2026-09-06 for the two languages this entry is named for, by squid-protocol/gitgalaxy#2773 (PR #2786, engine 0b2e9b20), which gave `args` a stated contract (docs/args_rule_contract.md: \"args matches the parameters a callable declares\") and anchored both rules to it. typescript: the class-member arm was `^[ \\t]*IDENT(...)` with no declaration anchor at all, and now requires the parameter list to be followed by a body `{` or a `:` return type; a.ts args 5 -> 3. objective-c: the selector arm matched every keyword-message SEND (a send is lexically identical to the untyped `label:name` parameter shape) and the plain-C arm accepted any `name(...)` followed by `{`/`;`, so free/abort/XCTAssert all scored; both are now anchored, main 6 -> 4 and a/b/c 5 -> 3. Both languages land on the planted 13 exactly, which is the mechanical check that the anchors are correct and not merely narrower. The apex and groovy arm of the original verdict is NOT fixed and moves to args-call-site-counting-apex-groovy, which carries their own upstream issues.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2773",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
+      "still_reproduces": false
+    },
+    {
+      "id": "args-call-site-counting-apex-groovy",
+      "signal": "args",
+      "languages_seen": [
+        "apex",
+        "groovy"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "Split out of ts-callparen-args on 2026-09-06 when squid-protocol/gitgalaxy#2773 fixed that entry's typescript and objective-c arms but not these two. apex and groovy still count statement-position CALLS as declared parameters: apex main args 7 = 4 signatures + probeBranch/probeIo/probeRisk dispatch calls, a.cls 5 = 3 + isAccessible/StripInaccessible (both `safety` plants); groovy main 7 the same way, c.groovy 5 = 3 + close/dispose (both `cleanup` plants), a.groovy 4 = 3 + assertEquals (a `test` plant). Corpus-wide apex reads 18 and groovy 19 against a planted 13. Cause in both is the same shape #2773 fixed elsewhere: a `^[ \\t]*IDENT(...)` member arm whose return-type prefix can match zero times (apex: the return type carries a trailing `?`; groovy: the run is `{0,3}`, and `def` means a method genuinely can have no return type), so the alternative degenerates to the shape of a bare call statement. java and csharp -- the same rule family -- make the return type mandatory; javascript anchors on a `(?=[ \\t\\n]*\\{)` body lookahead. Baked in per the ledger's upstream-bug rule: the corpus measures what the engine does, not what it should. Re-bless both manifests to 13 when the engine fix lands.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2783 (apex), squid-protocol/gitgalaxy#2782 (groovy)",
+      "investigated_by": "claude-opus-5",
+      "validated_at": "2026-09-06",
       "still_reproduces": true
     },
     {
