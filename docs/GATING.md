@@ -98,7 +98,10 @@ The report's "What the red cells are" section prints the split, the **open-defec
 (`unexplained` + `extraction` + `correlation` cells over every comparable cell of the gated
 metrics — the number the badge cannot express), and the ledger entries whose signal × language
 cross-product explains no out-of-band cell at all (keyword-rosetta#75's decay check). Both ride
-in `docs/bias_data.json` as `cell_categories` and `open_defect_share`. Nothing here changes a
+in `docs/bias_data.json` as `cell_categories` and `open_defect_share`. That check is
+whole-entry and so cannot see an entry decaying a token at a time; `tools/ledger_orphan_check.py`
+(below) is its per-token refinement, and the two never disagree — an entry the decay check lists
+is one whose every token the orphan audit calls dead. Nothing here changes a
 verdict or `--gate`; the categories are a lens on the same cells, and a disposition still means
 what the lifecycle above says it means.
 
@@ -349,3 +352,23 @@ a committed file: `gh workflow run verify.yml -f engine_ref=pull/<N>/head` (or l
 `tools/na_check.py` is the n/a governance gate (see "n/a semantics" above): baseline-gated on
 `docs/na_baseline.json`, it fails only on NEW unreviewed rule absences. Shrink the baseline with
 `--regenerate` after reviewing cells; never regenerate to absorb a new one unreviewed.
+
+`tools/ledger_orphan_check.py` is the ledger-decay audit (keyword-rosetta#75), built the same way.
+A collective entry's `signal` union is read as the token × `languages_seen` cross-product, so a
+token whose last out-of-band cell went green keeps excusing dead cells — which the ledger `_doc`
+rule already forbids ("a token must hold for EVERY language listed"). It flags every **orphan**:
+a token in a validated, still-reproducing entry that has a comparable cell and is in band on all
+of them. Retired entries are skipped (they excuse nothing since keyword-rosetta#81), as are n/a
+tokens (`na_check`'s domain) and ungated or pseudo-signal tokens that are never banded; `api` is
+resolved to `raw_arch_api` through the engine's own column map before banding. It is scan-free —
+it reuses `bias_report.out_of_band_cells`, so it cannot disagree with `--gate` about which cells
+are out of band.
+
+It is **baseline-gated and deliberately not a hard gate**: whether an orphan is a defect (scope
+the entry down) or a documented shape kept on purpose is a judgement call. `docs/orphan_token_baseline.json`
+holds the reviewed set, `--ci` fails only on tokens that decayed after it, and the human report
+highlights **partial-decay** entries — some tokens dead while others still hold — as the
+scope-down candidates. `bias-history.yml` re-baselines it in lockstep with the cache against
+engine main, so engine drift re-baselines itself and a PR's `--ci` only ever sees orphans the PR
+introduced. A token kept on purpose belongs in the baseline **and** in its entry's verdict, so
+the next reader does not re-litigate it.
