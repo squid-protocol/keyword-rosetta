@@ -1841,7 +1841,7 @@
    "fortran": 2.5,
    "go": 2.5,
    "groovy": 2.5,
-   "haskell": 0.25,
+   "haskell": 2.5,
    "html": 0,
    "java": 2.5,
    "javascript": 2.5,
@@ -1861,7 +1861,7 @@
    "ruby": 2.5,
    "rust": 2.5,
    "scala": 2.5,
-   "scheme": 0.25,
+   "scheme": 2.5,
    "shell": 2.5,
    "solidity": 2.5,
    "sqlite": 0,
@@ -2005,7 +2005,7 @@
    "ruby": 7.0517,
    "rust": 3.5258,
    "scala": 7.33545,
-   "scheme": 7.0517,
+   "scheme": 9.18665,
    "shell": 7.0517,
    "solidity": 7.0517,
    "sqlite": 0.0,
@@ -2197,7 +2197,7 @@
    "ruby": 38.255174999999994,
    "rust": 38.255174999999994,
    "scala": 41.665099999999995,
-   "scheme": 38.255174999999994,
+   "scheme": 67.32532499999999,
    "shell": 41.794799999999995,
    "solidity": 39.138625,
    "sqlite": 0.0,
@@ -2417,7 +2417,7 @@
    "fortran": 42.090825,
    "go": 34.519925,
    "groovy": 42.090825,
-   "haskell": 29.877875000000003,
+   "haskell": 82.972825,
    "html": 20.43935,
    "java": 29.877875000000003,
    "javascript": 42.090825,
@@ -2485,7 +2485,7 @@
    "ruby": 2.412525,
    "rust": 2.3726249999999998,
    "scala": 2.380275,
-   "scheme": 2.38305,
+   "scheme": 2.383425,
    "shell": 2.4311,
    "solidity": 2.37965,
    "sqlite": 2.435775,
@@ -2533,7 +2533,7 @@
    "ruby": 29,
    "rust": 26,
    "scala": 25.25,
-   "scheme": 21,
+   "scheme": 21.5,
    "shell": 29.5,
    "solidity": 25,
    "sqlite": 16.25,
@@ -2581,7 +2581,7 @@
    "ruby": 20.75,
    "rust": 18,
    "scala": 18,
-   "scheme": 13.5,
+   "scheme": 14,
    "shell": 20.5,
    "solidity": 17,
    "sqlite": 9,
@@ -2629,7 +2629,7 @@
    "ruby": 5.3125,
    "rust": 5.395833333333334,
    "scala": 5.395833333333334,
-   "scheme": 2.9791666666666665,
+   "scheme": 3.1041666666666665,
    "shell": 5.1875,
    "solidity": 5.125,
    "sqlite": 1.250892857142857,
@@ -2705,7 +2705,7 @@
    "fortran": 146.75,
    "go": 124.25,
    "groovy": 117.75,
-   "haskell": 121.75,
+   "haskell": 123.25,
    "html": 94.25,
    "java": 126.5,
    "javascript": 138,
@@ -2725,7 +2725,7 @@
    "ruby": 137,
    "rust": 149.5,
    "scala": 125.75,
-   "scheme": 118.5,
+   "scheme": 121.5,
    "shell": 126.75,
    "solidity": 134.25,
    "sqlite": 99.75,
@@ -2753,7 +2753,7 @@
    "fortran": 160,
    "go": 157,
    "groovy": 152,
-   "haskell": 115,
+   "haskell": 124,
    "html": 78,
    "java": 140,
    "javascript": 202,
@@ -2773,7 +2773,7 @@
    "ruby": 155,
    "rust": 200,
    "scala": 162,
-   "scheme": 96,
+   "scheme": 98,
    "shell": 137,
    "solidity": 165,
    "sqlite": 66,
@@ -2821,7 +2821,7 @@
    "ruby": 12.365,
    "rust": 10.485,
    "scala": 10.735,
-   "scheme": 9.995000000000001,
+   "scheme": 12.280000000000001,
    "shell": 12.81,
    "solidity": 10.415,
    "sqlite": 10.605,
@@ -3689,6 +3689,20 @@
  ],
  "length_leaks": [
   {
+   "metric": "risk_documentation",
+   "n": 10,
+   "rho": -0.831,
+   "verdict": "leak",
+   "held": [
+    "raw_arch_api",
+    "doc",
+    "ownership",
+    "reflection_metaprogramming"
+   ],
+   "stratum": "irc2",
+   "where": "_calc_documentation: (opaque_execution + api x 2 + dynamism) / (_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the denominator is the #2655 floor, constant for every file in this corpus, so the numerator's growth with program length is unopposed"
+  },
+  {
    "metric": "risk_state_flux",
    "n": 9,
    "rho": 0.548,
@@ -3701,32 +3715,9 @@
    "where": null
   },
   {
-   "metric": "risk_documentation",
-   "n": 10,
-   "rho": -0.469,
-   "verdict": "weak",
-   "held": [
-    "raw_arch_api",
-    "doc",
-    "ownership",
-    "reflection_metaprogramming"
-   ],
-   "stratum": "irc2",
-   "where": "_calc_documentation: (opaque_execution + api x 2 + dynamism) / (_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the denominator is the #2655 floor, constant for every file in this corpus, so the numerator's growth with program length is unopposed"
-  },
-  {
    "metric": "functions_found",
    "n": 13,
    "rho": -0.464,
-   "verdict": "weak",
-   "held": [],
-   "stratum": "irc2",
-   "where": null
-  },
-  {
-   "metric": "raw_state_unreferenced",
-   "n": 13,
-   "rho": 0.414,
    "verdict": "weak",
    "held": [],
    "stratum": "irc2",
@@ -3885,11 +3876,9 @@
   "raw_arch_api/yaml": "scoring",
   "raw_state_unreferenced/css": "extraction",
   "raw_state_unreferenced/dockerfile": "extraction",
-  "raw_state_unreferenced/haskell": "extraction",
   "raw_state_unreferenced/html": "extraction",
   "raw_state_unreferenced/jcl": "scoring",
   "raw_state_unreferenced/markdown": "extraction",
-  "raw_state_unreferenced/scheme": "extraction",
   "raw_state_unreferenced/sqlite": "extraction",
   "raw_state_unreferenced/yaml": "extraction",
   "risk_api_exposure/agc_assembly": "echo",
@@ -3903,6 +3892,7 @@
   "risk_api_exposure/makefile": "unexplained",
   "risk_api_exposure/perl": "echo",
   "risk_api_exposure/rust": "echo",
+  "risk_api_exposure/scheme": "unexplained",
   "risk_api_exposure/sqlite": "scoring",
   "risk_api_exposure/yaml": "echo",
   "risk_api_exposure/zig": "echo",
@@ -3919,7 +3909,6 @@
   "risk_concurrency/swift": "echo",
   "risk_dead_code/jcl": "scoring",
   "risk_dead_code/makefile": "scoring",
-  "risk_documentation/c": "scoring",
   "risk_documentation/cobol": "scoring",
   "risk_documentation/dockerfile": "echo",
   "risk_documentation/haskell": "echo",
@@ -3927,6 +3916,8 @@
   "risk_documentation/jcl": "scoring",
   "risk_documentation/m4": "unexplained",
   "risk_documentation/makefile": "scoring",
+  "risk_documentation/objective-c": "echo",
+  "risk_documentation/scheme": "unexplained",
   "risk_documentation/sqlite": "scoring",
   "risk_safety_score/cobol": "scoring",
   "risk_safety_score/fortran": "echo",
@@ -3946,6 +3937,7 @@
   "risk_state_flux/swift": "echo",
   "risk_state_flux/typescript": "scoring",
   "risk_tech_debt/dockerfile": "echo",
+  "risk_tech_debt/haskell": "unexplained",
   "risk_tech_debt/jcl": "scoring",
   "risk_tech_debt/markdown": "echo",
   "risk_tech_debt/sqlite": "echo",
@@ -4092,11 +4084,11 @@
    46
   ],
   "raw_state_unreferenced": [
-   8,
+   6,
    46
   ],
   "risk_api_exposure": [
-   2,
+   3,
    45
   ],
   "risk_cognitive_load": [
@@ -4112,7 +4104,7 @@
    45
   ],
   "risk_documentation": [
-   1,
+   2,
    45
   ],
   "risk_safety_score": [
@@ -4132,7 +4124,7 @@
    45
   ],
   "risk_tech_debt": [
-   0,
+   1,
    46
   ],
   "risk_verification": [
