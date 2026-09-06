@@ -7,6 +7,9 @@ INCLUDE a.
 
 FORM dispatch CHANGING cv_argv.
   WRITE 'DISPATCH EACH PROBE ONCE'.
+  PERFORM probe_branch CHANGING cv_argv.
+  PERFORM probe_io CHANGING cv_argv.
+  PERFORM probe_risk CHANGING cv_argv.
 ENDFORM.
 
 FORM probe_branch CHANGING cv_flag.

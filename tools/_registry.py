@@ -176,7 +176,7 @@ def risk_dependencies(governed_signals):
 
     `governed` are inputs the LANGUAGE_DEFINITIONS registry controls (so a None
     rule pins them to zero for that language); `engine` are inputs synthesized
-    downstream of the registry (orphaned_logic, duplicate_logic, the sec_*
+    downstream of the registry (unreferenced_by_name, duplicate_logic, the sec_*
     family) which can be nonzero no matter what the registry says, and which
     therefore block the metric from ever being called unmeasurable.
 

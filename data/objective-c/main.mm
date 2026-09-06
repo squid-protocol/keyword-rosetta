@@ -5,6 +5,9 @@
 #import "a.mm"
 
 - (int)entry:(int)argv {
+    [self probeBranch:argv];
+    [self probeIo:argv];
+    [self probeRisk:argv];
     return argv;
 }
 

@@ -151,7 +151,7 @@ A derived metric is n/a for a language only when **all four** hold:
 
 1. its formula consumes at least one registry-governed signal;
 2. every one of those signals has a `None` rule for that language;
-3. it consumes no engine-derived input — `orphaned_logic`, `duplicate_logic`, the `sec_*`
+3. it consumes no engine-derived input — `unreferenced_by_name`, `duplicate_logic`, the `sec_*`
    family — that can be nonzero no matter what the registry says;
 4. the scan confirms the observed value really is **0**.
 
@@ -191,7 +191,7 @@ and the reviewer has no row to chase.
 ## What `api` asserts (gitgalaxy#2729)
 
 galaxyscope's Contextual Baseline Fix rewrites `api` in place for any file another file
-imports: its uncalled functions (`orphaned_logic`) are added to `api` and its orphan count is
+imports: its uncalled functions (`unreferenced_by_name`) are added to `api` and its census is
 zeroed. The recorder keeps the pre-adjustment count in `raw_arch_api` (gitgalaxy#2536). Until
 2026-09-04 the gate read the adjusted `arch_api` column, so every a/b/c manifest recorded its
 three converted probes as `api` and **36 of the 44 languages with an api rule passed `api`

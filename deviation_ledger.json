@@ -1150,31 +1150,23 @@
     },
     {
       "id": "orphan-detection-is-name-recurrence",
-      "signal": "raw_state_slop_orphans",
+      "signal": "raw_state_unreferenced",
       "languages_seen": [
-        "abap",
-        "ada",
-        "cobol",
         "css",
         "dockerfile",
         "haskell",
         "html",
-        "jcl",
-        "livecode",
-        "m4",
-        "makefile",
         "markdown",
-        "objective-c",
         "scheme",
         "sqlite",
         "yaml"
       ],
       "disposition": "upstream-bug",
       "status": "validated",
-      "verdict": "detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier appears once in the file. token_counts is over the entire code stream INCLUDING the definition's own tokens, so the count is a property of the language's syntax, not of whether anything calls the function. There is no call graph behind this metric. Measured over the corpus (galaxyscope --db-only --debug, 46 languages, engine 4c283edf); baseline is 2.50 orphans/file (13 probe functions, 3 called from main). Five shapes, all of them here: (1) NAME REPEATED BY SYNTAX -> 0.00: ada closes with `end Probe_Globals;`, haskell writes `probeGlobals :: Int -> Int` above the equation, livecode ends the handler by name, so the token count is 2 before anything calls it. (2) SLICE NAME SYNTHETIC OR SHORT -> 0.00: yaml's 13 slices are all named `run` (3 chars, fails the len > 3 test); sqlite's are `Declarative_Block`/`CREATE_Statement`, excluded by _is_synthetic_satellite_name. (3) NO FUNCTIONS -> 0.00: html and markdown extract none, so the count has no value (D.2's undefined family, one metric further on). (4) NAME NEVER RECURS -> 3.25, i.e. every function orphaned: cobol paragraphs, m4 macros, scheme defines, make targets, abap forms, jcl steps and objective-c methods are written once and invoked by other means. (5) css 1.00: its three @keyframes slices share the name `keyframes`, which suppresses them, leaving only main.css's media/supports/container. Identical planted intent in every language, so the whole spread is measurement. Filed upstream as gitgalaxy#2727 with the fix shape (count occurrences outside the function's own [start_idx, end_idx] span, which leaves recursion correctly reading as unused); current behaviour baked into the manifests per docs/GATING.md until it lands.",
-      "upstream_issue": "squid-protocol/gitgalaxy#2727",
-      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
-      "validated_at": "2026-09-04",
+      "verdict": "detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier appears once in the file. token_counts is over the entire code stream INCLUDING the definition's own tokens, so the count is a property of the language's syntax, not of whether anything calls the function. There is no call graph behind this metric. Measured over the corpus (galaxyscope --db-only --debug, 46 languages, engine 4c283edf); baseline is 2.50 orphans/file (13 probe functions, 3 called from main). Five shapes, all of them here: (1) NAME REPEATED BY SYNTAX -> 0.00: ada closes with `end Probe_Globals;`, haskell writes `probeGlobals :: Int -> Int` above the equation, livecode ends the handler by name, so the token count is 2 before anything calls it. (2) SLICE NAME SYNTHETIC OR SHORT -> 0.00: yaml's 13 slices are all named `run` (3 chars, fails the len > 3 test); sqlite's are `Declarative_Block`/`CREATE_Statement`, excluded by _is_synthetic_satellite_name. (3) NO FUNCTIONS -> 0.00: html and markdown extract none, so the count has no value (D.2's undefined family, one metric further on). (4) NAME NEVER RECURS -> 3.25, i.e. every function orphaned: cobol paragraphs, m4 macros, scheme defines, make targets, abap forms, jcl steps and objective-c methods are written once and invoked by other means. (5) css 1.00: its three @keyframes slices share the name `keyframes`, which suppresses them, leaving only main.css's media/supports/container. Identical planted intent in every language, so the whole spread is measurement. Filed upstream as gitgalaxy#2727 with the fix shape (count occurrences outside the function's own [start_idx, end_idx] span, which leaves recursion correctly reading as unused); current behaviour baked into the manifests per docs/GATING.md until it lands. NARROWED 2026-09-06 (gitgalaxy#2806, the successor #2727 was closed without): the entry had carried 16 languages and three distinct shapes. Shape (4) NAME NEVER RECURS is gone from it entirely -- abap, cobol, m4, makefile, objective-c and jcl all leave. Four of those were never an engine defect at all: their corpus main declared a dispatch/entry unit that invoked nothing, while every median language's main calls its three probes, so 3.25 measured the plant and not the rule (abap PERFORM, m4 bare expansion, a make prerequisite and an Objective-C selector send are all ordinary invoke-by-name forms, and the crucible shows the census seeing them -- real ABAP reads a 6% unreferenced rate). This wave plants them; the cells sit on the median. jcl leaves for the opposite reason and has its own entry (jcl-steps-have-no-invocation-by-name). cobol stays unplanted for now, recorded on gitgalaxy#2822: its plant is the canonical `PERFORM PROBE-IO.`, which moves the gated branch cell 3 -> 5 because cobol's branch rule counts a bare out-of-line PERFORM. What REMAINS in this entry is two shapes: (1) the name repeated by DECLARATION syntax -- haskell's module export list and type signature, scheme's `(export name)` with no `_visibility_export` declared -- which reads 0.25, filed as gitgalaxy#2823 and still an open engine defect; and (3) NO CALLABLE UNITS -- css, dockerfile, html, markdown, sqlite, yaml read 0.00 because nothing is extracted or every extracted unit is a synthetic bucket, which is gitgalaxy#2549's undefined family, not this metric's defect. The signal token is renamed with the column (gitgalaxy#2806 shape (c): orphaned_logic -> unreferenced_by_name, state_slop_orphans -> state_unreferenced).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2823 (was #2727, closed; narrowed by #2806)",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2806 census contract)",
+      "validated_at": "2026-09-06",
       "still_reproduces": true
     },
     {
@@ -1754,6 +1746,34 @@
       "upstream_issue": "squid-protocol/gitgalaxy#2806 (candidate family; not confirmed)",
       "investigated_by": "claude (Phase 0 cause triage)",
       "validated_at": null,
+      "still_reproduces": true
+    },
+    {
+      "id": "jcl-steps-have-no-invocation-by-name",
+      "signal": "api_orphan_credit|raw_state_unreferenced|risk_api_exposure|risk_documentation|risk_tech_debt",
+      "languages_seen": [
+        "jcl"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "jcl records raw_state_unreferenced 0.00 against a 2.50 median, and 0 here means UNANSWERABLE, not clean. The census asks whether anything outside a callable unit's own definition names it. JCL's callable units are its EXEC steps (`func_start`: `//NAME EXEC`), and a job's steps run in the order they are written, on every submission -- no JCL syntax references a step to make it run. The unit that CAN be named is the PROC (`//DISPATCH EXEC ROSPROC`), which the api rule counts and the slicer does not extract as a function. gitgalaxy#2806 gave the census a stated contract (docs/unreferenced_by_name_contract.md) and jcl.py now declares `_invocation_model: \"positional\"`, so detector.py does not compute it for jcl at all. Before the declaration jcl read 3.25/file here -- every step unreferenced -- and 334 of 376 steps (89%) on the language-crucible; the 42 crucible steps that cleared did so by ACCIDENT, not invocation (a step named CREATE beside inline SQL in a SYSIN DD * block, COBOL beside the word inside a DSN, CRTABS repeated seven times in one job), so both tails were noise. Consequence to expect downstream: risk_tech_debt falls (the census was weighted 2.0 per unit in slop_stress; jcl scored 48.8 against a 38.7 median almost entirely on it) and the orphan->api conversion has nothing to convert in a/b/c. No plant change and no gated per-file cell moved -- the census is a bias-report metric, not a manifest signal. Verified by a per-file splice census over data/jcl at gitgalaxy fix/2806-orphan-invocation-model. Cells re-blessed with it: raw_state_unreferenced 3.25 -> 0.00, api_orphan_credit 3 -> 0 in a/b/c (nothing left to convert), risk_tech_debt 48.79 -> 23.81, risk_api_exposure 6.17 -> 0.88 and risk_documentation 33.40 -> 4.06 (both read the converted api). The ungated keyword_hits and structural_mass fall for the same reason -- the census and its conversion were both in the adjusted columns those sum. No other language's cell moved.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2806",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2806 census contract)",
+      "validated_at": "2026-09-06",
+      "still_reproduces": true
+    },
+    {
+      "id": "abap-args-counts-call-site-keywords",
+      "signal": "struct_args",
+      "languages_seen": [
+        "abap"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "main.abap records args 7 for 4 declared parameters. abap's args rule matches `(IMPORTING|EXPORTING|CHANGING|RETURNING|RECEIVING|EXCEPTIONS)\\s+<name>` anywhere in the code stream, and ABAP writes those same six keywords at the CALL site as well as in the declaration -- so the three `PERFORM probe_branch|probe_io|probe_risk CHANGING cv_argv.` statements this wave planted (gitgalaxy#2806, to close main.abap's dispatch plant gap) each read as a declared parameter. That is corollary 1 of the STATED args contract -- a call is not a declaration (docs/args_rule_contract.md, gitgalaxy#2773/#2786) -- and abap audited clean there only because neither corpus then contained an ABAP call site using them. Also present in real code: 5 of the 167 args hits on language-crucible data/abap are call statements (`CALL FUNCTION 'ENQUEUE_EZABAPGIT' EXPORTING mode_zabapgit = ...`, `RAISE EXCEPTION TYPE zcx_... EXPORTING obj_type`), a 3% rate only because that corpus is abapGit and almost entirely OO declarations. Filed as gitgalaxy#2824 with the fix shape (statement-scoped exclusion of CALL FUNCTION/CALL METHOD/PERFORM/RAISE EXCEPTION); cell baked per docs/GATING.md until it lands.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2824",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2806 census contract)",
+      "validated_at": "2026-09-06",
       "still_reproduces": true
     }
   ]

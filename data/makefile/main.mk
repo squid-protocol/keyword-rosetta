@@ -8,7 +8,7 @@ export PROBE_BRANCH = 1
 export PROBE_IO = 1
 export PROBE_RISK = 1
 
-probe_dispatch:
+probe_dispatch: probe_branch probe_io probe_risk
 	$(call probe_branch)
 
 probe_branch:
