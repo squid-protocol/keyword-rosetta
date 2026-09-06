@@ -120,8 +120,10 @@ Decoys cross the two detection surfaces in both directions:
    - The literal contains **one** danger keyword plus neutral filler words only. Check
      every filler word against the language's whole menu; the `--report` run settles it.
    - Never pick a danger keyword that doubles as a **branch** keyword (fortran's `GOTO`):
-     the phantom branch context triples nearby mutations via the flux weighting
-     (`state-flux-branch-weighting`) and muddies the read. Fortran uses `ASSIGN`.
+     the phantom branch context triples nearby mutations in the score layer's weighted
+     view (`state-flux-branch-weighting`; since gitgalaxy#2815 the recorded
+     `state_mutation` is the raw count, but `risk_state_flux` still moves) and muddies
+     the read. Fortran uses `ASSIGN`.
    - Use the language's **own** danger vocabulary (rust: `abort`, not `eval` — a keyword
      its rule can't match tests nothing; that morphology mismatch masqueraded as
      "shielding" for months).
@@ -191,9 +193,11 @@ Verified empirically; every generator must account for them:
    safety`, 500-char radius) firing on the old decoy sentence's accidental `try`,
    plus rust's danger-vocabulary mismatch — see `string-literal-selective-shielding`.
    Corollaries every author must respect: a branch keyword in a literal creates real
-   flux context (×3 on nearby mutations), and a safety keyword in a literal really
-   dampens a nearby danger hit. Bake every literal keyword into the file's expected
-   counts and describe it in the decoy's `outcome` field.
+   flux context (×3 on nearby mutations) and a safety keyword in a literal really
+   dampens a nearby danger hit — since gitgalaxy#2815 both land only in the score
+   layer's weighted view (`risk_state_flux`, safety), never in the recorded count a
+   manifest pins. Bake every literal keyword into the file's expected counts and
+   describe it in the decoy's `outcome` field.
 4. **Known keyword overlaps** (record, don't avoid): `assert` hits both `safety`
    and `test`; `os.`/`sys.` prefixes needed for `globals` also hit python-family
    `io`. Every language will have its own — the report run reveals them.
