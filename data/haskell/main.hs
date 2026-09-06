@@ -8,7 +8,7 @@ module Main (probeBranch, probeIo, probeRisk) where
 import A
 
 entry :: Int -> Int
-entry argv = probeBranch argv
+entry argv = probeRisk (probeIo (probeBranch argv))
 
 probeBranch :: Int -> Int
 probeBranch flag = if flag > 0 then 1 else 2

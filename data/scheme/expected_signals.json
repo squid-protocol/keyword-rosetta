@@ -43,7 +43,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 0
+      "api_orphan_credit": 3
     },
     "b.scm": {
       "class_start": 0,
@@ -63,7 +63,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 0
+      "api_orphan_credit": 3
     },
     "c.scm": {
       "class_start": 0,
@@ -83,7 +83,7 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 0,
+      "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 0
     }
@@ -118,5 +118,5 @@
       "outcome": "INERT (fixed): gitgalaxy#2537 (PR #2622) hyphenated-identifier guards — \\bTODO\\b no longer matches inside the probe-todo symbol; c.scm planned_debt re-baselined 2→1 (the ;; TODO: comment only). Kebab-case symbols no longer feed debt scoring."
     }
   ],
-  "notes": "scheme now HAS _dependency_capture (gitgalaxy#2652, RESOLVED): (import a) produces a real DAG edge, matching every sibling brace-family language. Orphan->api conversion fires: a/b/c.scm each have 3 uncalled probe functions in an imported file -> api 0->3 each (main stays 4, imported by nobody). Top-level (define name value) counts globals, (define (name ...)) counts func -- cleanly separated. Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2652. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probe-state — b.scm no count moved. api (gitgalaxy#2729): one `(export probe-x)` form per probe function, placed directly after the (import ...) line (after the header in c.scm), count 3 per file main/a/b/c (entry not exported); matches only scheme's api rule — no overlap, the import capture from gitgalaxy#2652 is untouched and api_orphan_credit stays 3/3/3 in a/b/c, 0 in main. 2026-09-05 (keyword-rosetta#59): api_orphan_credit 3 -> 0 in a/b/c. gitgalaxy#2754 fixed an orphan census that tokenised with `\\b\\w+\\b` and so could never produce a token containing a hyphen -- every `probe-globals`-style name counted zero occurrences and read as an orphan however many times it was named. The probes are now correctly seen in their own `(export probe-x)` lines, so nothing converts. Ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.scm state_mutation 3->2: `(vector-set! items 0 2)` removed -- the decoy's own `(set! note \"...\")` is a real write and was the third; the rule agrees with the contract, the plant carried three writes."
+  "notes": "scheme now HAS _dependency_capture (gitgalaxy#2652, RESOLVED): (import a) produces a real DAG edge, matching every sibling brace-family language. Orphan->api conversion fires: a/b/c.scm each have 3 uncalled probe functions in an imported file -> api 0->3 each (main stays 4, imported by nobody). Top-level (define name value) counts globals, (define (name ...)) counts func -- cleanly separated. Locked 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2652. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probe-state — b.scm no count moved. api (gitgalaxy#2729): one `(export probe-x)` form per probe function, placed directly after the (import ...) line (after the header in c.scm), count 3 per file main/a/b/c (entry not exported); matches only scheme's api rule — no overlap, the import capture from gitgalaxy#2652 is untouched and api_orphan_credit stays 3/3/3 in a/b/c, 0 in main. 2026-09-05 (keyword-rosetta#59): api_orphan_credit 3 -> 0 in a/b/c. gitgalaxy#2754 fixed an orphan census that tokenised with `\\b\\w+\\b` and so could never produce a token containing a hyphen -- every `probe-globals`-style name counted zero occurrences and read as an orphan however many times it was named. The probes are now correctly seen in their own `(export probe-x)` lines, so nothing converts. Ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.scm state_mutation 3->2: `(vector-set! items 0 2)` removed -- the decoy's own `(set! note \"...\")` is a real write and was the third; the rule agrees with the contract, the plant carried three writes. 2026-09-06 (gitgalaxy#2823): scheme never declared an export form for the unreferenced_by_name census, so `(export probe-x)` -- a visibility DECLARATION -- cleared each probe's flag and raw_state_unreferenced read 0.25/file against a 2.50 median, 12 of 13 probes reading as referenced with nothing calling any of them. The engine gives scheme a `_visibility_export_list` rule (both the R7RS `(export a b c)` clause and Guile's `#:export (a b c)`), which takes the census to 3.00; `main.scm`'s `(entry argv)` then called only probe-branch of its three probes -- the same plant gap gitgalaxy#2806 found in abap/m4/makefile/objective-c, hidden here behind the export false-negative -- so it now calls probe-io and probe-risk too and the census lands on 2.50, the median. The plant's only other effect is +2 indent_spaces (untracked texture). COST, re-blessed here rather than worked around: api_orphan_credit 0 -> 3 in a/b/c. With orphans back, galaxyscope.py's Contextual Baseline Fix converts them, and detector.py's api_declared_orphans -- which should suppress that, since `(export probe-globals)` IS the api rule's own match -- cannot see them: it tokenises the api line with `\\b\\w+\\b`, which cannot produce a token holding a hyphen. haskell is the control that shows the mechanism working (its export list names all-\\w probes, api_declared_orphans reads 3, credit stays 0). Filed as gitgalaxy#2827; ledger api-declared-orphans-blind-to-non-word-names. NOTE this also corrects keyword-rosetta#59's recorded reason for the 3 -> 0 drop -- the probes were never \"seen in their own (export probe-x) line\"; the credit went to 0 because gitgalaxy#2754 left the export clearing the ORPHAN flag, which is the defect #2823 just fixed."
 }

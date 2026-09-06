@@ -8,7 +8,9 @@
 (export probe-risk)
 
 (define (entry argv)
-  (probe-branch argv))
+  (probe-branch argv)
+  (probe-io argv)
+  (probe-risk argv))
 
 (define (probe-branch flag)
   (if (> flag 0)
