@@ -94,6 +94,15 @@
   },
   "decoys": [
     {
+      "file": "main.agc",
+      "line_hint": "# DECOY: THIS SUITE NEVER REACHES CURTAINS AND THE HALT WORD STAYS IN PROSE",
+      "surface": "comment",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- CURTAINS and HALT both match agc's danger rule raw, and prism strips the # comment surface, so main.agc reads the 2 planted (CURTAINS/WHIMPER in PROBERISK) and no more. Recorded 2026-09-06 (keyword-rosetta#71): it was the only decoy in the corpus carrying two danger keywords and it was unlisted. NO STRING DECOY IS PLANTED FOR agc_assembly and none can be: the AGC assembler has no character-literal type at all (data is OCT/DEC/ERASE/EQUALS, all numeric), so there is no data position a danger token can sit in that is not an instruction position. SPEC \u00a7Decoys' own 'skip only if the language has no string literals' clause applies -- ledger string-decoy-unplantable-no-literal-surface."
+    },
+    {
       "file": "c.agc",
       "line_hint": "RESUME under PROBECLEAN",
       "surface": "code",

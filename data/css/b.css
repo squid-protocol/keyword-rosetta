@@ -9,6 +9,8 @@
 
 @keyframes probe-telemetry {}
 
-@keyframes probe-state {}
+@keyframes probe-state {
+  from { content: "plain expression decoy text"; }
+}
 
 @property --probe-api-b {}
