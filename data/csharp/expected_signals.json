@@ -15,7 +15,7 @@
       "doc": 1,
       "ownership": 1,
       "import": 1,
-      "globals": 1,
+      "globals": 0,
       "state_mutation": 0,
       "test": 0,
       "safety": 0,
@@ -118,5 +118,5 @@
       "outcome": "inert"
     }
   ],
-  "notes": "branch 4 in main = if/else/switch + goto (goto dual branch+high_risk, same shape as fortran's GOTO). globals 1 in main = Environment.Exit's Environment. prefix (csharp globals matches Environment.*, dual with high_risk — finditer-confirmed). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Process.Start\" literal inside ProbeState — b.cs high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. api (gitgalaxy#2729): `public` prefixed on every probe definition (`public static int ProbeX(...)`), 3 per file in main/a/b/c (Entry stays non-public); the rule's `\\b(public|internal)\\b` alternation. No overlap: func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-06 (gitgalaxy#2822): branch no longer counts goto (corollary 3; high_risk_execution owns it) nor try/catch/finally (corollary 1) -- main branch 4->3."
+  "notes": "branch 4 in main = if/else/switch + goto (goto dual branch+high_risk, same shape as fortran's GOTO). globals 1 in main = Environment.Exit's Environment. prefix (csharp globals matches Environment.*, dual with high_risk — finditer-confirmed). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Process.Start\" literal inside ProbeState — b.cs high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. api (gitgalaxy#2729): `public` prefixed on every probe definition (`public static int ProbeX(...)`), 3 per file in main/a/b/c (Entry stays non-public); the rule's `\\b(public|internal)\\b` alternation. No overlap: func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-06 (gitgalaxy#2822): branch no longer counts goto (corollary 3; high_risk_execution owns it) nor try/catch/finally (corollary 1) -- main branch 4->3. 2026-09-07 (gitgalaxy#2858 globals contract, corollary 5): `Environment.Exit` / `Environment.FailFast` end the process -- high_risk_execution's hit, not an access to the environment; the globals rule's `Environment.` prefix now excludes them. main globals 1->0 (ledger csharp-environment-exit-is-global-and-danger resolved); a.cs unchanged at 2."
 }

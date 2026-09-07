@@ -7,8 +7,8 @@ global probe_safety
 
 probe_globals:
     mov rdi, 5
-section .data
-section .bss
+region dd 1
+home resd 1
     ret
 
 probe_test:

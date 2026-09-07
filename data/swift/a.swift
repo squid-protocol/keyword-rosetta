@@ -3,8 +3,8 @@
 import b
 
 public func probeGlobals(_ env: Int) -> Int {
-    let region = shared
-    let store = standard
+    let region = ProcessInfo.processInfo
+    let store = UIApplication.shared
     return env
 }
 
