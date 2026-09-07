@@ -9,8 +9,10 @@ pipeline order:
   3. shape descriptors (per-function and graph measures derived from the signals),
   4. risk scores (mean per file -- what the product reports),
 
-plus four context groups that are reported but never gated: program length,
-vocabulary (token tallies), unplanted risk inputs, commit age.
+plus two context groups that are reported but never gated: program size &
+vocabulary (length and token tallies), and commit age. The non-planted risk inputs
+used to be a third; since 2026-09-07 they are scored, because their honest value is
+0 in every language and that is a comparable claim.
 
 Because the planted intent is identical everywhere, divergence IS measured language
 bias. Output: docs/bias_report.md + docs/bias_variance_chart.svg (strip plot, one
@@ -268,9 +270,19 @@ TEMPORAL_METRICS = ("risk_stability", "risk_churn")
 
 
 def ungated_metrics(unplanted_inputs=()):
-    """Everything reported but never gated: length, vocabulary, unplanted inputs, temporal."""
-    return (set(CONTEXT_METRICS) | set(VOCABULARY_METRICS) | set(unplanted_inputs)
-            | set(TEMPORAL_METRICS))
+    """Everything reported but never gated: length, vocabulary, temporal.
+
+    The unplanted risk inputs used to be here too, and are NOT any more. They were
+    grouped with length and vocabulary on the "languages vary too much for a band to
+    mean anything" argument, but that argument does not apply to them: the corpus
+    plants nothing these rules match, so the expected reading is 0 in EVERY language
+    and any nonzero cell is a rule firing on something nobody wrote. That is exactly
+    the comparable claim the chart exists to make, and it is scored the way every
+    other zero-median metric already is -- exact agreement, not a relative band
+    (see `basis == "agreement"`). The parameter is kept so callers that pass it stay
+    valid; it no longer widens the set.
+    """
+    return set(CONTEXT_METRICS) | set(VOCABULARY_METRICS) | set(TEMPORAL_METRICS)
 
 
 def reference_medians(metrics, languages, strata=None, constant_sensitive=()):
@@ -1215,13 +1227,12 @@ CHART_VOCAB = ["token_mass", "keyword_hits", "structural_mass", "control_flow_ra
 CHART_HIDDEN = {"pagerank": "identical to pagerank_score"}
 CHART_BLURBS = {
     "structural extraction": "the slicer: every function, its parameters, every class and dependency edge the engine found",
-    "keywords": "one rule per signal; every count here was planted on purpose, in every language",
-    "dependency graph": "graph measures over the same three planted imports (pagerank_score = pagerank; shown once)",
-    "shape descriptors": "per-function and census measures derived from the signals",
-    "risk scores": "what the product reports, per file (banded within the strictness stratum where a constant is read)",
-    "program length": "how long the same program came out",
-    "vocabulary": "how the language spells it: token and keyword tallies, and the ratios that divide by them",
-    "unplanted inputs": "signals the risk formulas read that the corpus does not plant",
+    "keyword extraction": "one rule per signal; every count here was planted on purpose, in every language",
+    "non-planted keyword extraction": "rules the risk formulas read that the corpus never plants — nothing here was written, so every language should read 0",
+    "dependency graph creation": "graph measures over the same three planted imports (pagerank_score = pagerank; shown once)",
+    "internal function metrics": "per-function and census measures derived from the signals",
+    "calculated risk exposure — per file": "what the product reports, per file (banded within the strictness stratum where a constant is read)",
+    "program size & vocabulary": "how long the same program came out, and how the language spells it: token and keyword tallies, and the ratios that divide by them",
     "commit age": "temporal, not content",
 }
 
@@ -1493,6 +1504,19 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
                 s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="4.2" fill="{col}" fill-opacity=".6"/>')
                 if lang and (name, lang) in unexplained:
                     s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="7" fill="none" stroke="{red}" stroke-width="1.6"/>')
+            # How many languages actually sit in the band, printed in the band's own
+            # bottom-right corner. The bar to the left already gives the SHARE; a
+            # reader comparing two rows with the same percentage still has to know
+            # whether that is 40 of 46 or 4 of 5 (n varies per row -- n/a cells and
+            # population-less languages drop out), and the dots are too dense to
+            # count by eye. Drawn AFTER the dots and carrying a white halo
+            # (paint-order: stroke, then fill): the band is only `sh` tall and the dots
+            # are centred in it, so anything near +25% sits under this label.
+            n_green = sum(1 for d in devs if abs(d) <= GREEN_DEV)
+            s.append(f'<text x="{x_of(GREEN_DEV) - 2.5:.1f}" y="{cy + sh / 2 - 1.5:.1f}" font-size="7.5" '
+                     f'fill="{green}" text-anchor="end" font-family="ui-monospace, Menlo, monospace" '
+                     f'paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">'
+                     f'{n_green}/{n}</text>')
             lo, hi = x_of(-1.1), x_of(1.1)
             for x, lang in _place_labels(_fit_labels(red_labels, strip_w), lo, hi):
                 s.append(f'<text x="{x:.1f}" y="{cy - sh / 2 - 3}" font-size="8" fill="{red_lab}" text-anchor="middle">{lang}</text>')
@@ -1705,13 +1729,19 @@ def main():
     placed = set(CHART_STRUCTURE) | set(CHART_GRAPH) | set(CHART_LENGTH) | set(CHART_VOCAB)
     groups = [
         ("structural extraction", group(CHART_STRUCTURE + ["pagerank"]), True),
-        ("keywords", group([c for c in PLANTED if c not in placed]), True),
-        ("dependency graph", group(CHART_GRAPH), True),
-        ("shape descriptors", group([c for c in measure_names if c not in placed]), True),
-        ("risk scores", group([c for c in risk_names if c not in TEMPORAL_METRICS and c not in measure_names]), True),
-        ("program length", group(CHART_LENGTH), False),
-        ("vocabulary", group(CHART_VOCAB), False),
-        ("unplanted inputs", group(unplanted_inputs), False),
+        ("keyword extraction", group([c for c in PLANTED if c not in placed]), True),
+        # Directly after the planted keywords, because it asks the same question with
+        # the answer inverted: the corpus plants nothing these rules match, so the
+        # honest reading is 0 in every language and any nonzero cell is a rule firing
+        # on something nobody wrote. That is a comparable claim -- scored on exact
+        # agreement against the zero median, the same basis class_start already uses --
+        # not the "languages vary too much to band" context the group used to sit in.
+        ("non-planted keyword extraction", group(unplanted_inputs), True),
+        ("dependency graph creation", group(CHART_GRAPH), True),
+        ("internal function metrics", group([c for c in measure_names if c not in placed]), True),
+        ("calculated risk exposure — per file",
+         group([c for c in risk_names if c not in TEMPORAL_METRICS and c not in measure_names]), True),
+        ("program size & vocabulary", group(CHART_LENGTH + CHART_VOCAB), False),
         ("commit age", group([c for c in risk_names if c in TEMPORAL_METRICS]), False),
     ]
     # scan cache: lets findings_report.py (and ad hoc queries) reuse this run.
@@ -1997,14 +2027,23 @@ def main():
         allv = [v for v in vals.values() if isinstance(v, (int, float))]
         tail = f" | {statistics.median(allv):.3f} |" if allv else " | — |"
         lines.append(f"| `{m}` | " + " | ".join(cells) + tail)
-    lines += ["", "## Unplanted risk inputs", "",
+    lines += ["", "## Non-planted keyword extraction", "",
               "The risk formulas read registry signals the SPEC does not plant: "
               + ", ".join(f"`{s}`" for s in unplanted_inputs)
-              + ". A shell that idiomatically writes `val`/`let`/`final` carries `immutability_locks` "
-              "a `var` shell does not, and `risk_state_flux` then differs with `state_mutation` on "
-              "plant. These columns are reported (below, and in the chart) but never gated; an "
-              "out-of-band cell here gets no verdict, but a derived risk cell may inherit from it "
-              f"and say so. {n_unplanted_oob} such cells are out of band now:", ""]
+              + ". Nothing in the corpus was written for these rules to match, so the honest reading "
+              "is **0 in every language** and any nonzero cell is a rule matching a token the program "
+              "carries for some other reason. That is a comparable claim, so since 2026-09-07 the "
+              "group is **scored** (on exact agreement against the zero median, the basis every "
+              "zero-median metric uses) rather than charted as context next to program length. Each "
+              "nonzero cell needs a verdict like any other: the sweep that turned the scoring on "
+              "audited all 37 by running each language's own rule over its code and comment streams, "
+              "and they resolve to the language's mandatory form (a JavaScript declaration cannot "
+              "avoid `const`), a token planted for another signal and counted again here (`eval` is "
+              "the high_risk_execution plant), or a signal the SPEC does plant in a language or two "
+              "without giving it a manifest column (`[SPEC-2732]`) -- all ledgered as "
+              "`non-planted-rules-match-idiom-and-planted-tokens`, with the one real defect it found "
+              "split out as `makefile-dead-code-reads-prose-labels` (gitgalaxy#2851). "
+              f"{n_unplanted_oob} cells are out of band now:", ""]
     unplanted_hits = collections.defaultdict(list)
     for metric, lang in sorted(oob_all):
         if metric in unplanted_inputs:
@@ -2068,9 +2107,11 @@ def main():
               + (f"**Inert** (every language records exactly 0, so the column asks no "
                  f"cross-language question — scored as no result rather than as unanimous "
                  f"agreement): {', '.join(inert)}. " if inert else "")
-              + "Not-gated groups (program length, vocabulary, unplanted inputs, commit age) are drawn "
+              + "Not-gated groups (program size & vocabulary, commit age) are drawn "
               "for context and never scored: languages vary too much in how they express these for a "
-              "cross-language band to mean anything. "
+              "cross-language band to mean anything. Non-planted keyword extraction is NOT one of "
+              "them -- nothing was written for those rules to match, so 0 everywhere is a comparable "
+              "expectation and the group is scored against it. "
               + ", ".join(f"`{k}` is not drawn ({v})" for k, v in CHART_HIDDEN.items()) + ".",
               ""]
 
@@ -2161,8 +2202,8 @@ def main():
     print(
         f"out-of-band cells: {len(unexplained)} unexplained "
         f"({by_status.get('undefined', 0)} undefined, {by_status.get('ledgered', 0)} ledgered, "
-        f"{by_status.get('derived', 0)} derived; {n_context_oob} context + {n_unplanted_oob} "
-        "unplanted-input cells not counted)"
+        f"{by_status.get('derived', 0)} derived; {n_context_oob} context cells not counted, "
+        f"{n_unplanted_oob} non-planted cells now scored)"
     )
     print(
         f"cause split: " + ", ".join(f"{c} {by_category.get(c, 0)}" for c in CELL_CATEGORIES)
