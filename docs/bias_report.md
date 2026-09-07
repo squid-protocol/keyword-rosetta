@@ -35,24 +35,24 @@ Unexplained cells, by metric:
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 32 of 2645 comparable cells (1.2%)** across 59 gated metrics; 32 of the 192 out-of-band cells are open defects.
+**Open-defect share: 27 of 2645 comparable cells (1.0%)** across 59 gated metrics; 27 of the 192 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
 | **unexplained** | 6 | survived every mechanism -- the gate fails on these |
-| **extraction** | 26 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
+| **extraction** | 21 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
-| scoring | 49 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
-| inherency | 74 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
+| scoring | 51 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
+| inherency | 77 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
 | echo | 37 | derived -- an upstream deviation counted again downstream |
 
 Metrics carrying the most open defect, by share of their comparable cells:
 
 - `raw_state_unreferenced` — 6 of 46 (13%)
-- `class_start` — 3 of 41 (7%)
 - `risk_api_exposure` — 3 of 45 (7%)
 - `globals` — 2 of 44 (5%)
 - `safety` — 2 of 45 (4%)
+- `risk_documentation` — 2 of 45 (4%)
 
 Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `visibility-morphology-encapsulation`, `comment-lines-manifest-doc-classification`, `abap-args-counts-call-site-keywords`, `api-declared-orphans-blind-to-non-word-names`. Narrow or retire them.
 
