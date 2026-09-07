@@ -386,6 +386,8 @@
   "safety": {
     "core": true,
     "keywords": [
+      "use strict",
+      "use warnings",
       "croak",
       "confess",
       "try",
@@ -399,7 +401,10 @@
   },
   "safety_bypasses": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "no strict",
+      "no warnings"
+    ],
     "pattern_defined": true
   },
   "scientific": {

@@ -145,6 +145,7 @@
     "keywords": [
       "wget",
       "curl",
+      "apt-get",
       "apk",
       "yum"
     ],

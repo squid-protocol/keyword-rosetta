@@ -288,6 +288,8 @@
   "reflection_metaprogramming": {
     "core": false,
     "keywords": [
+      "inline for",
+      "inline while",
       "@Type",
       "@typeInfo",
       "@compileLog",

@@ -440,6 +440,7 @@
       "require",
       "module",
       "return",
+      "export type",
       "type"
     ],
     "pattern_defined": true

@@ -22,16 +22,34 @@ from _registry import CORE_SIGNALS, active_rules, load_definitions
 MENU_DIR = pathlib.Path(__file__).resolve().parent.parent / "docs" / "menus"
 
 # Word-ish runs inside a pattern source, allowing the joiners that appear inside
-# real keywords (os\.system, @todo, #include, type: ignore is out of scope).
-_CANDIDATE = re.compile(r"[@#]?[A-Za-z_][A-Za-z0-9_]*(?:(?:\\\.|::|->|\s)[A-Za-z_][A-Za-z0-9_]*)*")
+# real keywords (os\.system, @todo, #include, WORKING-STORAGE; type: ignore is out
+# of scope). The hyphen earns its place in the joiner set: without it every
+# hyphenated literal in the registry -- PowerShell's whole Verb-Noun cmdlet
+# vocabulary, COBOL's END-* forms, CSS properties, HTML attributes -- was split into
+# fragments that the rule does not match standalone, so _plantable() dropped all of
+# them and 252 literals across 21 languages had never appeared in a menu
+# (keyword-rosetta#68).
+_CANDIDATE = re.compile(r"[@#]?[A-Za-z_][A-Za-z0-9_]*(?:(?:\\\.|::|->|-|\s)[A-Za-z_][A-Za-z0-9_]*)*")
 
 # Pattern-source runs that are regex syntax, not keywords.
 _META = {"b", "B", "s", "S", "w", "W", "d", "D", "n", "t", "A", "Z", "P", "x"}
 
+# A character class is regex syntax, never a keyword, and with `-` now a joiner its
+# ranges would scrape as candidates ("A-Za-z0" out of [A-Za-z0-9_]). Blanked rather
+# than deleted so the surrounding tokens stay separated.
+_CHARCLASS = re.compile(r"\[(?:\\.|[^\]\\])*\]")
+
+# `\s`, `\s+`, `\s*` in a pattern SOURCE is a space between two words of one
+# keyword, but the scraper sees the three characters `\`, `s`, `+` and _META drops
+# the `s` -- so "WORKING-STORAGE SECTION" only survives if the whitespace class is
+# turned back into whitespace first (keyword-rosetta#68).
+_SOURCE_SPACE = re.compile(r"\\s[+*]?")
+
 
 def _candidates(pattern_source):
+    normalised = _CHARCLASS.sub(" ", _SOURCE_SPACE.sub(" ", pattern_source))
     seen = []
-    for m in _CANDIDATE.finditer(pattern_source):
+    for m in _CANDIDATE.finditer(normalised):
         tok = m.group(0).replace("\\.", ".")
         # Strip a leading escape residue like the 'b' of \b glued by the scraper.
         if tok in _META or len(tok) < 2:

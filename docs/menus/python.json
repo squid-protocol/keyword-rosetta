@@ -261,6 +261,7 @@
     "core": false,
     "keywords": [
       "yield",
+      "yield from",
       "Generator",
       "AsyncGenerator",
       "Iterator",

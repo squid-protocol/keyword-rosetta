@@ -318,6 +318,7 @@
     "core": true,
     "keywords": [
       "null",
+      "return null",
       "@SuppressWarnings",
       "@SneakyThrows"
     ],
@@ -371,7 +372,8 @@
       "return",
       "yield",
       "sealed",
-      "permits"
+      "permits",
+      "non-sealed"
     ],
     "pattern_defined": true
   },

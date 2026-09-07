@@ -22,6 +22,7 @@
     "keywords": [
       "if",
       "else",
+      "switch on",
       "when",
       "for",
       "while",
@@ -200,6 +201,7 @@
   "immutability_locks": {
     "core": false,
     "keywords": [
+      "static final",
       "final",
       "const"
     ],
@@ -298,6 +300,8 @@
   "safety": {
     "core": true,
     "keywords": [
+      "with sharing",
+      "inherited sharing",
       "isAccessible",
       "isCreateable",
       "isUpdateable",
@@ -313,6 +317,7 @@
   "safety_bypasses": {
     "core": true,
     "keywords": [
+      "without sharing",
       "Database.query",
       "@SuppressWarnings"
     ],

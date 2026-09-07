@@ -397,6 +397,7 @@
     "core": true,
     "keywords": [
       "null",
+      "return null",
       "@SuppressWarnings",
       "@SneakyThrows"
     ],
@@ -468,6 +469,7 @@
       "implements",
       "var",
       "sealed",
+      "non-sealed",
       "permits",
       "new",
       "throws",

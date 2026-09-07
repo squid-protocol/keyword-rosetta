@@ -48,6 +48,9 @@
     "core": false,
     "keywords": [
       "EXEC",
+      "TC NOVAC",
+      "TC WAITLIST",
+      "TC FINDVAC",
       "ENDOFJOB",
       "PHASCHNG",
       "AWAKE",
@@ -76,12 +79,7 @@
   },
   "encapsulation": {
     "core": true,
-    "keywords": [
-      "Za",
-      "z0",
-      "zA",
-      "Z0"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "events": {
@@ -155,6 +153,9 @@
   "globals": {
     "core": true,
     "keywords": [
+      "ERASABLE MEMORY",
+      "FIXED MEMORY",
+      "WORKING-STORAGE",
       "COMMON"
     ],
     "pattern_defined": true
@@ -163,6 +164,7 @@
     "core": true,
     "keywords": [
       "CURTAINS",
+      "SOFTWARE RESTART",
       "SYSTEM_FAILURE",
       "WHIMPER",
       "HALT"
@@ -194,7 +196,10 @@
   },
   "listeners": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "EVENT WAIT",
+      "TC WAITLIST"
+    ],
     "pattern_defined": true
   },
   "macros": {
@@ -226,6 +231,7 @@
     "keywords": [
       "POODOO",
       "BAILOUT",
+      "TC ALARM",
       "ABORT"
     ],
     "pattern_defined": true
@@ -278,6 +284,7 @@
     "core": false,
     "keywords": [
       "INDEX",
+      "TC INTPRET",
       "RVQ"
     ],
     "pattern_defined": true
@@ -287,6 +294,9 @@
     "keywords": [
       "INHINT",
       "RELINT",
+      "TC DOWNRUPT",
+      "CS ERESTORE",
+      "MUST RESTORE",
       "EDRUPT"
     ],
     "pattern_defined": true
@@ -294,7 +304,10 @@
   "safety_bypasses": {
     "core": true,
     "keywords": [
-      "TASKOVER"
+      "TC JOBSLEEP",
+      "TC JOBWAKE",
+      "TASKOVER",
+      "TCF ADRERR"
     ],
     "pattern_defined": true
   },
@@ -411,24 +424,28 @@
       "DOWNLINK",
       "TELEM",
       "TM",
-      "DUMPTEL"
+      "DUMPTEL",
+      "TM WORD"
     ],
     "pattern_defined": true
   },
   "test": {
     "core": true,
     "keywords": [
+      "TC ALARM2",
       "SELFCHECK",
       "ROPECHK",
       "ERASCHK",
       "CNTRCHK",
-      "CHECK"
+      "CHECK",
+      "TC BANKJUMP"
     ],
     "pattern_defined": true
   },
   "thread_sleeps": {
     "core": false,
     "keywords": [
+      "TC JOBSLEEP",
       "VARDELAY"
     ],
     "pattern_defined": true

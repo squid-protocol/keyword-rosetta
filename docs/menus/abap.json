@@ -2,7 +2,11 @@
   "api": {
     "core": true,
     "keywords": [
+      "REMOTE FUNCTION",
+      "DEFINE VIEW",
+      "DEFINE SERVICE",
       "EXPOSED",
+      "PUBLIC SECTION",
       "@OData.publish"
     ],
     "pattern_defined": true
@@ -14,7 +18,12 @@
   },
   "bitwise_ops": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "BIT-AND",
+      "BIT-OR",
+      "BIT-XOR",
+      "BIT-NOT"
+    ],
     "pattern_defined": true
   },
   "branch": {
@@ -27,6 +36,7 @@
       "WHEN",
       "WHILE",
       "DO",
+      "LOOP AT",
       "TRY",
       "CATCH",
       "CLEANUP",
@@ -48,7 +58,8 @@
     "core": true,
     "keywords": [
       "FREE",
-      "CLEAR"
+      "CLEAR",
+      "CLOSE DATASET"
     ],
     "pattern_defined": true
   },
@@ -60,6 +71,8 @@
   "concurrency": {
     "core": false,
     "keywords": [
+      "STARTING NEW TASK",
+      "WAIT UP TO",
       "ENQUEUE_",
       "DEQUEUE_"
     ],
@@ -85,6 +98,8 @@
   "dependency_injection": {
     "core": false,
     "keywords": [
+      "GET BADI",
+      "CALL BADI",
       "CL_BADI_BASE",
       "CL_ABAP_TESTDOUBLE"
     ],
@@ -97,12 +112,18 @@
   },
   "encapsulation": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "PRIVATE SECTION",
+      "PROTECTED SECTION"
+    ],
     "pattern_defined": true
   },
   "events": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "RAISE EVENT",
+      "SET HANDLER"
+    ],
     "pattern_defined": true
   },
   "explicit_casts": {
@@ -159,21 +180,31 @@
   },
   "generics": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "TYPE ANY",
+      "TYPE INDEX TABLE",
+      "TYPE STANDARD TABLE",
+      "TYPE REF TO DATA"
+    ],
     "pattern_defined": true
   },
   "globals": {
     "core": true,
     "keywords": [
       "TABLES",
-      "STATICS"
+      "STATICS",
+      "CLASS-DATA"
     ],
     "pattern_defined": true
   },
   "high_risk_execution": {
     "core": true,
     "keywords": [
-      "TRUNCATE"
+      "SYSTEM-CALL",
+      "EXEC SQL",
+      "DELETE FROM",
+      "TRUNCATE",
+      "GENERATE SUBROUTINE POOL"
     ],
     "pattern_defined": true
   },
@@ -181,14 +212,16 @@
     "core": false,
     "keywords": [
       "CONSTANTS",
-      "FINAL"
+      "FINAL",
+      "READ-ONLY"
     ],
     "pattern_defined": true
   },
   "import": {
     "core": true,
     "keywords": [
-      "INCLUDE"
+      "INCLUDE",
+      "TYPE-POOLS"
     ],
     "pattern_defined": true
   },
@@ -198,7 +231,10 @@
       "SELECT",
       "UPDATE",
       "MODIFY",
+      "OPEN DATASET",
       "TRANSFER",
+      "READ DATASET",
+      "CLOSE DATASET",
       "CL_HTTP_CLIENT",
       "CL_WEB_HTTP_CLIENT"
     ],
@@ -217,6 +253,8 @@
   "memory_alloc": {
     "core": false,
     "keywords": [
+      "CREATE OBJECT",
+      "CREATE DATA",
       "FREE",
       "CLEAR"
     ],
@@ -229,7 +267,10 @@
   },
   "panics_and_aborts": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "RAISE EXCEPTION",
+      "LEAVE PROGRAM"
+    ],
     "pattern_defined": true
   },
   "planned_debt": {
@@ -266,14 +307,18 @@
   },
   "pointers": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "GET REFERENCE OF",
+      "REF TO"
+    ],
     "pattern_defined": true
   },
   "reflection_metaprogramming": {
     "core": false,
     "keywords": [
       "CL_ABAP_TYPEDESCR",
-      "CL_ABAP_CLASSDESCR"
+      "CL_ABAP_CLASSDESCR",
+      "GENERATE SUBROUTINE POOL"
     ],
     "pattern_defined": true
   },
@@ -284,14 +329,22 @@
       "CATCH",
       "CLEANUP",
       "ASSERT",
-      "FINAL"
+      "AUTHORITY-CHECK",
+      "IS BOUND",
+      "IS ASSIGNED",
+      "IS NOT INITIAL",
+      "FINAL",
+      "READ-ONLY"
     ],
     "pattern_defined": true
   },
   "safety_bypasses": {
     "core": true,
     "keywords": [
-      "UNASSIGNED"
+      "UNASSIGNED",
+      "TYPE ANY",
+      "TYPE REF TO DATA",
+      "IGNORE ERRORS"
     ],
     "pattern_defined": true
   },
@@ -340,7 +393,10 @@
     "core": true,
     "keywords": [
       "MOVE",
-      "APPEND"
+      "MOVE-CORRESPONDING",
+      "APPEND",
+      "MODIFY TABLE",
+      "DELETE TABLE"
     ],
     "pattern_defined": true
   },
@@ -349,6 +405,7 @@
     "keywords": [
       "DATA",
       "TYPES",
+      "FIELD-SYMBOLS",
       "CLASS",
       "INTERFACE",
       "METHOD",
@@ -383,6 +440,9 @@
   "test": {
     "core": true,
     "keywords": [
+      "FOR TESTING",
+      "RISK LEVEL",
+      "DURATION SHORT",
       "CL_ABAP_UNIT_ASSERT",
       "ZCL_ABAP_UNIT"
     ],
@@ -403,6 +463,8 @@
   "ui_framework": {
     "core": false,
     "keywords": [
+      "CALL SCREEN",
+      "SELECTION-SCREEN",
       "PARAMETERS",
       "WDDOMODIFYVIEW",
       "CL_GUI_HTML_VIEWER",

@@ -32,6 +32,8 @@
       "break",
       "goto",
       "try",
+      "yield return",
+      "yield break",
       "and",
       "or",
       "not"
@@ -256,7 +258,9 @@
     "keywords": [
       "Marshal.AllocHGlobal",
       "GC.AllocateArray",
-      "MemoryPool"
+      "MemoryPool",
+      "ref struct",
+      "scoped ref"
     ],
     "pattern_defined": true
   },
@@ -340,7 +344,8 @@
     "keywords": [
       "Regex.Match",
       "Regex.Replace",
-      "Regex.IsMatch"
+      "Regex.IsMatch",
+      "new Regex"
     ],
     "pattern_defined": true
   },
@@ -364,6 +369,7 @@
   "safety_bypasses": {
     "core": true,
     "keywords": [
+      "#pragma warning disable",
       "dynamic"
     ],
     "pattern_defined": true

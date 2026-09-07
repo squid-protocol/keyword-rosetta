@@ -189,7 +189,8 @@
   "globals": {
     "core": true,
     "keywords": [
-      "object"
+      "object",
+      "companion object"
     ],
     "pattern_defined": true
   },

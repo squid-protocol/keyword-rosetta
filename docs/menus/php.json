@@ -543,7 +543,8 @@
   "ui_framework": {
     "core": false,
     "keywords": [
-      "renderView"
+      "renderView",
+      "extends Controller"
     ],
     "pattern_defined": true
   }

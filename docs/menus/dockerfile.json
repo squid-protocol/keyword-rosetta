@@ -336,7 +336,8 @@
       "x11",
       "wayland",
       "gtk2",
-      "qt5"
+      "qt5",
+      "libgl1-mesa"
     ],
     "pattern_defined": true
   }

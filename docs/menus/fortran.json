@@ -38,11 +38,15 @@
       "ELSE",
       "DO",
       "WHILE",
+      "SELECT CASE",
       "CASE",
       "DEFAULT",
       "WHERE",
       "ELSEWHERE",
+      "GO TO",
       "GOTO",
+      "SELECT TYPE",
+      "SELECT RANK",
       "EXIT",
       "CYCLE"
     ],
@@ -65,7 +69,8 @@
   "comprehensions": {
     "core": false,
     "keywords": [
-      "FORALL"
+      "FORALL",
+      "DO CONCURRENT"
     ],
     "pattern_defined": true
   },
@@ -73,9 +78,14 @@
     "core": false,
     "keywords": [
       "COARRAY",
+      "SYNC ALL",
+      "SYNC IMAGES",
+      "SYNC MEMORY",
       "CRITICAL",
       "LOCK",
-      "UNLOCK"
+      "UNLOCK",
+      "FAIL IMAGE",
+      "FORM TEAM"
     ],
     "pattern_defined": true
   },
@@ -109,6 +119,8 @@
   "events": {
     "core": false,
     "keywords": [
+      "EVENT POST",
+      "EVENT WAIT",
       "EVENT_QUERY"
     ],
     "pattern_defined": true
@@ -167,7 +179,10 @@
   },
   "generics": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "INTERFACE ASSIGNMENT",
+      "INTERFACE OPERATOR"
+    ],
     "pattern_defined": true
   },
   "globals": {
@@ -182,6 +197,7 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
+      "GO TO",
       "GOTO",
       "ASSIGN"
     ],
@@ -298,6 +314,8 @@
     "keywords": [
       "EQUIVALENCE",
       "ENTRY",
+      "SELECT TYPE",
+      "CLASS DEFAULT",
       "NAMELIST",
       "VOLATILE"
     ],
@@ -321,6 +339,7 @@
       "SAVE",
       "PARAMETER",
       "VALUE",
+      "ERROR STOP",
       "ASYNCHRONOUS",
       "ASSOCIATED",
       "ALLOCATED",
@@ -394,8 +413,9 @@
       "PROGRAM",
       "MODULE",
       "SUBMODULE",
-      "BLOCK",
+      "BLOCK DATA",
       "CONTAINS",
+      "BLOCK",
       "ASSOCIATE",
       "RETURN",
       "IMPLICIT",
@@ -405,6 +425,7 @@
       "COMPLEX",
       "LOGICAL",
       "CHARACTER",
+      "DOUBLE PRECISION",
       "CLASS"
     ],
     "pattern_defined": true

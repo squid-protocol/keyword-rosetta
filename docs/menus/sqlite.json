@@ -40,10 +40,12 @@
   "cleanup": {
     "core": true,
     "keywords": [
+      "DROP TABLE",
       "VACUUM",
       "DETACH",
       "CLOSE",
-      "CLEAR"
+      "CLEAR",
+      "DELETE FROM"
     ],
     "pattern_defined": true
   },
@@ -59,7 +61,13 @@
   },
   "concurrency": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "BEGIN EXCLUSIVE",
+      "BEGIN IMMEDIATE",
+      "PRAGMA busy_timeout",
+      "PRAGMA synchronous",
+      "PRAGMA wal_checkpoint"
+    ],
     "pattern_defined": true
   },
   "dead_code": {
@@ -79,14 +87,18 @@
   "decorators": {
     "core": false,
     "keywords": [
-      "MATERIALIZED"
+      "INDEXED BY",
+      "NOT INDEXED",
+      "MATERIALIZED",
+      "NOT MATERIALIZED"
     ],
     "pattern_defined": true
   },
   "dependency_injection": {
     "core": false,
     "keywords": [
-      "sqlite3_load_extension"
+      "sqlite3_load_extension",
+      "SELECT load_extension"
     ],
     "pattern_defined": true
   },
@@ -106,7 +118,16 @@
   },
   "events": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "CREATE TRIGGER",
+      "AFTER UPDATE",
+      "AFTER INSERT",
+      "AFTER DELETE",
+      "BEFORE UPDATE",
+      "BEFORE INSERT",
+      "BEFORE DELETE",
+      "INSTEAD OF"
+    ],
     "pattern_defined": true
   },
   "explicit_casts": {
@@ -172,19 +193,24 @@
       "sqlite_master",
       "sqlite_schema",
       "sqlite_sequence",
-      "sqlite_temp_schema"
+      "sqlite_temp_schema",
+      "PRAGMA global_"
     ],
     "pattern_defined": true
   },
   "high_risk_execution": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "PRAGMA legacy_alter_table",
+      "DROP DATABASE"
+    ],
     "pattern_defined": true
   },
   "immutability_locks": {
     "core": false,
     "keywords": [
       "STRICT",
+      "WITHOUT ROWID",
       "CONSTANT",
       "READONLY"
     ],
@@ -193,6 +219,7 @@
   "import": {
     "core": true,
     "keywords": [
+      "ATTACH DATABASE",
       "load_extension"
     ],
     "pattern_defined": true
@@ -205,6 +232,8 @@
       "UPDATE",
       "DELETE",
       "REPLACE",
+      "ATTACH DATABASE",
+      "DETACH DATABASE",
       "readfile",
       "writefile"
     ],
@@ -213,18 +242,23 @@
   "ipc_rpc_bridges": {
     "core": false,
     "keywords": [
+      "ATTACH DATABASE",
+      "DETACH DATABASE",
       "PRAGMA"
     ],
     "pattern_defined": true
   },
   "listeners": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "INSTEAD OF"
+    ],
     "pattern_defined": true
   },
   "macros": {
     "core": false,
     "keywords": [
+      "PRAGMA compile_options",
       "sqlite_compileoption_used"
     ],
     "pattern_defined": true
@@ -312,13 +346,22 @@
       "CONSTRAINT",
       "CHECK",
       "UNIQUE",
-      "STRICT"
+      "PRIMARY KEY",
+      "FOREIGN KEY",
+      "STRICT",
+      "IF NOT EXISTS",
+      "ON DELETE CASCADE"
     ],
     "pattern_defined": true
   },
   "safety_bypasses": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "DROP TABLE",
+      "DROP VIEW",
+      "DROP INDEX",
+      "IF EXISTS"
+    ],
     "pattern_defined": true
   },
   "scientific": {
@@ -378,6 +421,8 @@
       "SELECT",
       "FROM",
       "JOIN",
+      "GROUP BY",
+      "ORDER BY",
       "LIMIT",
       "OFFSET",
       "UNION",
@@ -388,15 +433,22 @@
       "INTO",
       "WINDOW",
       "STRICT",
+      "WITHOUT ROWID",
+      "PARTITION BY",
       "PRECEDING",
       "FOLLOWING",
-      "UNBOUNDED"
+      "UNBOUNDED",
+      "CURRENT ROW"
     ],
     "pattern_defined": true
   },
   "sync_locks": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "BEGIN EXCLUSIVE",
+      "BEGIN IMMEDIATE",
+      "PRAGMA synchronous"
+    ],
     "pattern_defined": true
   },
   "telemetry": {

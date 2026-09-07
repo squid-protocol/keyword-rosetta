@@ -326,7 +326,8 @@
   "safety_bypasses": {
     "core": true,
     "keywords": [
-      "cli"
+      "cli",
+      "msr daifclr"
     ],
     "pattern_defined": true
   },

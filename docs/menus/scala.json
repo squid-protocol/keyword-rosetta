@@ -287,6 +287,8 @@
   "macros": {
     "core": false,
     "keywords": [
+      "inline def",
+      "transparent inline",
       "macro",
       "scala.quoted",
       "Expr",
@@ -441,6 +443,7 @@
     "core": false,
     "keywords": [
       "WorldWideWeb",
+      "HyperText Proposal",
       "NeXTSTEP"
     ],
     "pattern_defined": true
@@ -506,6 +509,7 @@
   "test": {
     "core": true,
     "keywords": [
+      "it should",
       "assertEquals",
       "assertThrows",
       "AnyFunSuite",

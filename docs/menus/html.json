@@ -151,7 +151,8 @@
     "keywords": [
       "readonly",
       "disabled",
-      "inert"
+      "inert",
+      "aria-disabled"
     ],
     "pattern_defined": true
   },
@@ -270,7 +271,12 @@
   },
   "test_skip": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "data-skip",
+      "data-ignore",
+      "mock-data",
+      "test-skip"
+    ],
     "pattern_defined": true
   },
   "thread_sleeps": {

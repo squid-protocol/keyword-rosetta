@@ -133,9 +133,19 @@ jobs:
       - name: Re-baseline orphan tokens
         run: python tools/ledger_orphan_check.py --regenerate
 
+      # The menus are mined from the live rule registry and are the screening
+      # surface SPEC.md requires every plant decision to be chosen from, but nothing
+      # regenerated them -- so they drifted 27 languages (+82/-113 keywords) behind
+      # engine main before keyword-rosetta#68 noticed. Derived artifact, same as the
+      # cache above: regenerate it here rather than trusting an author to remember.
+      - name: Regenerate keyword menus
+        env:
+          GITGALAXY_PATH: ${{ github.workspace }}/gitgalaxy
+        run: python tools/keyword_menu.py
+
       - name: Commit regenerated artifacts to main
         run: |
-          git add docs/bias_report.md docs/bias_variance_chart.svg docs/bias_data.json docs/findings_by_language.md docs/orphan_token_baseline.json
+          git add docs/bias_report.md docs/bias_variance_chart.svg docs/bias_data.json docs/findings_by_language.md docs/orphan_token_baseline.json docs/menus
           if git diff --cached --quiet; then
             echo "no artifact changed -- nothing to commit"
             exit 0

@@ -205,6 +205,8 @@
   "globals": {
     "core": true,
     "keywords": [
+      "static let",
+      "static var",
       "shared",
       "standard",
       "default",
@@ -361,13 +363,18 @@
     "core": false,
     "keywords": [
       "NSRegularExpression",
-      "Regex"
+      "Regex",
+      "try Regex"
     ],
     "pattern_defined": true
   },
   "safety": {
     "core": true,
     "keywords": [
+      "guard let",
+      "if let",
+      "guard var",
+      "if var",
       "catch",
       "is",
       "Sendable",

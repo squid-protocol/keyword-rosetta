@@ -109,6 +109,7 @@
     "keywords": [
       "Dry::Container",
       "Dry::AutoInject",
+      "include Import",
       "inject"
     ],
     "pattern_defined": true
