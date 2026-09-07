@@ -1892,6 +1892,59 @@
       "still_reproduces": true
     },
     {
+      "id": "non-planted-rules-match-idiom-and-planted-tokens",
+      "signal": "concurrency|dead_code|debug_prints|immutability_locks|reflection_metaprogramming|spec_exposure|sync_locks",
+      "languages_seen": [
+        "abap",
+        "agc_assembly",
+        "apex",
+        "c",
+        "cobol",
+        "cpp",
+        "dart",
+        "dockerfile",
+        "fortran",
+        "html",
+        "javascript",
+        "jcl",
+        "kotlin",
+        "makefile",
+        "php",
+        "powershell",
+        "ruby",
+        "scala",
+        "scheme",
+        "shell",
+        "solidity",
+        "swift",
+        "typescript",
+        "yaml",
+        "yacc",
+        "zig"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants. The expected reading is 0 in every language -- nothing was written for these rules to match -- so every nonzero cell was audited by running each language's own rule over the corpus's code AND comment streams and reading what it matched. All 37 nonzero cells resolve to one of three things, and none of them is a rule firing on nothing. (1) THE LANGUAGE'S MANDATORY FORM, which the probe program cannot avoid writing: immutability_locks is `const` (javascript 17, typescript 14, c/cpp/zig), `let` (swift 11), `val` (kotlin 6, scala 3), `final`/`FINAL` (dart, abap), `INTEGER, PARAMETER` (fortran), `readonly` (php, and html's `<input required readonly>`), `.freeze` (ruby) -- a JavaScript variable cannot be declared without one of these; debug_prints is the language's only output primitive (`DISPLAY` cobol 7, `WRITE` abap 5, `echo` in dockerfile RUN and yaml run:, `(display`/`(write` scheme), which is also how those languages had to write the planted io probe; reflection_metaprogramming is `%%` (yacc 4 -- the mandatory section separator), `$(call` (makefile), `EQUIVALENCE` (fortran); concurrency is `ENDOFJOB` (agc_assembly); sync_locks is `INHINT`/`RELINT` (agc_assembly) and `errdefer unlock` (zig). (2) A TOKEN PLANTED FOR ANOTHER SIGNAL, counted again here: reflection_metaprogramming reads `eval` (shell 2, html's two `onclick=\"eval(n)\"` buttons), `iex` (powershell), `Type.forName` (apex 3) and `assembly` (solidity) -- every one of those is the high_risk_execution or safety_bypasses plant; sync_locks reads solidity's `nonReentrant` (safety) and jcl's `DISP=(OLD` (planted by keyword-rosetta#72); concurrency reads swift's `let boxed: Sendable`, which is the immutability line above. (3) ACTUALLY PLANTED, despite the group's name: spec_exposure jcl 1 / yaml 1 are the `[SPEC-2732]` tags SPEC.md plants in exactly those two languages, and dead_code jcl 1 is `//*PROBEDEAD EXEC R`, the probe_dead plant. `unplanted_inputs` is derived as 'governed by a risk formula and not in the manifest's PLANTED 18', so a signal the SPEC plants in a couple of languages without a manifest column lands in this group even though it was written on purpose. NOT COVERED, deliberately: makefile dead_code 7, which is the one cell of the 37 that is a real engine defect (every hit is a `# Word:` prose comment read as a commented-out target) -- gitgalaxy#2851, ledgered separately as makefile-dead-code-reads-prose-labels. Scored rather than reported from 2026-09-07: the group used to sit with program length and vocabulary on the 'languages vary too much to band' argument, which does not apply to a column whose honest value is 0 everywhere.",
+      "upstream_issue": null,
+      "investigated_by": "claude-opus-5 (non-planted group scoring sweep, 2026-09-07)",
+      "validated_at": "2026-09-07",
+      "still_reproduces": true
+    },
+    {
+      "id": "makefile-dead-code-reads-prose-labels",
+      "signal": "dead_code",
+      "languages_seen": [
+        "makefile"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "makefile reads dead_code 7 where every other language in the corpus carrying the same comments reads 0. All 7 are prose: `# decoy:` x4 (the shell furniture one per file), `# HACK:` (the fragile_debt plant), `# TODO:` (planned_debt) and `# author:` (ownership). None is a commented-out makefile construct. Cause: makefile's dead_code rule is the only comment-anchored one in the registry that is SHAPE-anchored rather than keyword-anchored -- its first alternative is `<identifier>[ \\t]*::?`, which every `Label: text` prose comment satisfies, while shell, python and yaml all require a real keyword (`if|for|while|def|class|run:|uses:|...`). Two of the seven double-count the debt plants, so dead_code moves with fragile_debt/planned_debt for reasons unrelated to dead code, and dead_code feeds risk_dead_code. Filed as gitgalaxy#2851; the current behaviour is baked in per GATING step 3 until it lands.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2851",
+      "investigated_by": "claude-opus-5 (non-planted group scoring sweep, 2026-09-07)",
+      "validated_at": "2026-09-07",
+      "still_reproduces": true
+    },
+    {
       "id": "test-contract-2852",
       "signal": "safety|test",
       "languages_seen": [
