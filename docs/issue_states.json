@@ -236,6 +236,10 @@
    "state": "CLOSED",
    "title": "io has no stated contract: javascript counts an identifier named path, sqlite counts every DML keyword, and tcl's source/close are claimed by two rules each"
   },
+  "squid-protocol/gitgalaxy#2851": {
+   "state": "OPEN",
+   "title": "makefile dead_code reads any `# Word:` prose comment as a commented-out target"
+  },
   "squid-protocol/keyword-rosetta#71": {
    "state": "CLOSED",
    "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"

@@ -21,7 +21,7 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 15 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 100 | a validated deviation-ledger entry names this language and this metric |
+| ledgered | 137 | a validated deviation-ledger entry names this language and this metric |
 | derived | 37 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **6** | **survived all three -- the real work remaining** |
 
@@ -35,15 +35,15 @@ Unexplained cells, by metric:
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 34 of 2296 comparable cells (1.5%)** across 51 gated metrics; 34 of the 158 out-of-band cells are open defects.
+**Open-defect share: 35 of 2645 comparable cells (1.3%)** across 59 gated metrics; 35 of the 195 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
 | **unexplained** | 6 | survived every mechanism -- the gate fails on these |
-| **extraction** | 28 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
+| **extraction** | 29 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
 | scoring | 49 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
-| inherency | 38 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
+| inherency | 74 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
 | echo | 37 | derived -- an upstream deviation counted again downstream |
 
 Metrics carrying the most open defect, by share of their comparable cells:
@@ -70,9 +70,9 @@ Ledger entries that currently explain **no** out-of-band cell (validated, still 
 | `risk_tech_debt` | 29.878 (4) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 20.439 (4) | 38.665 |
 | `risk_verification` | 2.372 (4) | 2.380 (11) | 2.388 (13) | 2.396 (11) | 2.393 (3) | 2.353 (3) | 2.385 |
 
-## Unplanted risk inputs
+## Non-planted keyword extraction
 
-The risk formulas read registry signals the SPEC does not plant: `concurrency`, `dead_code`, `debug_prints`, `immutability_locks`, `llm_api`, `reflection_metaprogramming`, `spec_exposure`, `sync_locks`. A shell that idiomatically writes `val`/`let`/`final` carries `immutability_locks` a `var` shell does not, and `risk_state_flux` then differs with `state_mutation` on plant. These columns are reported (below, and in the chart) but never gated; an out-of-band cell here gets no verdict, but a derived risk cell may inherit from it and say so. 37 such cells are out of band now:
+The risk formulas read registry signals the SPEC does not plant: `concurrency`, `dead_code`, `debug_prints`, `immutability_locks`, `llm_api`, `reflection_metaprogramming`, `spec_exposure`, `sync_locks`. Nothing in the corpus was written for these rules to match, so the honest reading is **0 in every language** and any nonzero cell is a rule matching a token the program carries for some other reason. That is a comparable claim, so since 2026-09-07 the group is **scored** (on exact agreement against the zero median, the basis every zero-median metric uses) rather than charted as context next to program length. Each nonzero cell needs a verdict like any other: the sweep that turned the scoring on audited all 37 by running each language's own rule over its code and comment streams, and they resolve to the language's mandatory form (a JavaScript declaration cannot avoid `const`), a token planted for another signal and counted again here (`eval` is the high_risk_execution plant), or a signal the SPEC does plant in a language or two without giving it a manifest column (`[SPEC-2732]`) -- all ledgered as `non-planted-rules-match-idiom-and-planted-tokens`, with the one real defect it found split out as `makefile-dead-code-reads-prose-labels` (gitgalaxy#2851). 37 cells are out of band now:
 
 - `concurrency` — agc_assembly 1, swift 1
 - `dead_code` — jcl 1, makefile 7
@@ -94,8 +94,10 @@ The risk formulas read registry signals the SPEC does not plant: `concurrency`, 
 |---|---|---|---|---|---|---|
 | `risk_documentation` | 10 | irc2 | -0.83 | **leak** | `raw_arch_api`, `doc`, `ownership`, `reflection_metaprogramming` | _calc_documentation: (opaque_execution + api x 2 + dynamism) / (_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the denominator is the #2655 floor, constant for every file in this corpus, so the numerator's growth with program length is unopposed |
 | `risk_state_flux` | 9 | irc2 | +0.55 | weak | `immutability_locks`, `state_mutation` | **not located yet** — the more interesting finding |
+| `immutability_locks` | 13 | irc2 | +0.54 | weak | *(none known)* | **not located yet** — the more interesting finding |
 | `risk_cognitive_load` | 12 | irc2 | +0.48 | weak | `branch`, `concurrency`, `doc`, `reflection_metaprogramming`, `state_mutation` | the same _calc_cog_load densities, post-sigmoid |
 | `raw_state_unreferenced` | 13 | irc2 | +0.47 | weak | *(none known)* | **not located yet** — the more interesting finding |
+| `reflection_metaprogramming` | 13 | irc2 | +0.46 | weak | *(none known)* | **not located yet** — the more interesting finding |
 | `avg_func_complexity` | 13 | irc2 | +0.46 | weak | `branch`, `func_start` | **not located yet** — the more interesting finding |
 | `max_func_complexity` | 13 | irc2 | +0.46 | weak | `branch`, `func_start` | **not located yet** — the more interesting finding |
 | `func_complexity_gini` | 13 | irc2 | +0.46 | weak | `branch`, `func_start` | **not located yet** — the more interesting finding |
@@ -104,7 +106,7 @@ The risk formulas read registry signals the SPEC does not plant: `concurrency`, 
 
 ![variance chart](bias_variance_chart.svg)
 
-Colour encodes **cause**, not magnitude: a dot inside ±25% of the cross-language median is green; outside it, **red** when the cell is an open engine defect (`unexplained`, `extraction`, `correlation` in the cause table above) and **grey** when it is a documented variation (a scoring choice, language inherency, or an echo of another row). Each gated row's bar splits its languages the same way — in band · documented · open defect — with the in-band share printed inside and the open-defect count after it; rows run best → worst (least open defect first). The header's first number is the open-defect share, the number to drive to 0. Average share in band across 48 gated metrics: **93%**; 44 metrics hold ≥80% of languages in band. Weakest by in-band share: risk_api_exposure 67%, risk_state_flux 76%, raw_arch_api 76%, risk_documentation 78%, avg_func_args 80%. *exact* marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): class_start, classes_found, def_encapsulation, risk_concurrency, risk_dead_code, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, spec_exposure, sync_locks. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): state_slop_duplicates, risk_secrets_risk, llm_api, risk_churn. Not-gated groups (program length, vocabulary, unplanted inputs, commit age) are drawn for context and never scored: languages vary too much in how they express these for a cross-language band to mean anything. `pagerank` is not drawn (identical to pagerank_score).
+Colour encodes **cause**, not magnitude: a dot inside ±25% of the cross-language median is green; outside it, **red** when the cell is an open engine defect (`unexplained`, `extraction`, `correlation` in the cause table above) and **grey** when it is a documented variation (a scoring choice, language inherency, or an echo of another row). Each gated row's bar splits its languages the same way — in band · documented · open defect — with the in-band share printed inside and the open-defect count after it; rows run best → worst (least open defect first). The header's first number is the open-defect share, the number to drive to 0. Average share in band across 55 gated metrics: **92%**; 50 metrics hold ≥80% of languages in band. Weakest by in-band share: risk_api_exposure 67%, immutability_locks 67%, risk_state_flux 76%, raw_arch_api 76%, risk_documentation 78%. *exact* marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): class_start, classes_found, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, spec_exposure, sync_locks, def_encapsulation, risk_concurrency, risk_dead_code. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): llm_api, state_slop_duplicates, risk_secrets_risk, risk_churn. Not-gated groups (program size & vocabulary, commit age) are drawn for context and never scored: languages vary too much in how they express these for a cross-language band to mean anything. Non-planted keyword extraction is NOT one of them -- nothing was written for those rules to match, so 0 everywhere is a comparable expectation and the group is scored against it. `pagerank` is not drawn (identical to pagerank_score).
 
 ## Planted keyword signals (corpus totals vs. planted intent)
 
