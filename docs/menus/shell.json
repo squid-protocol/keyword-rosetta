@@ -147,22 +147,7 @@
   },
   "globals": {
     "core": true,
-    "keywords": [
-      "PATH",
-      "HOME",
-      "USER",
-      "SHELL",
-      "EDITOR",
-      "PWD",
-      "OLDPWD",
-      "TERM",
-      "LANG",
-      "OSTYPE",
-      "MACHTYPE",
-      "UID",
-      "EUID",
-      "GROUPS"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "high_risk_execution": {

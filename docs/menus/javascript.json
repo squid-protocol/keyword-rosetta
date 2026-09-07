@@ -213,9 +213,7 @@
   },
   "globals": {
     "core": true,
-    "keywords": [
-      "process.env"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "hardware_bridge": {

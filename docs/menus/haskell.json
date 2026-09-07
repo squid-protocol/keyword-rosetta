@@ -202,7 +202,14 @@
   },
   "globals": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "getEnv",
+      "lookupEnv",
+      "getEnvironment",
+      "setEnv",
+      "getArgs",
+      "getProgName"
+    ],
     "pattern_defined": true
   },
   "high_risk_execution": {

@@ -172,8 +172,7 @@
     "keywords": [
       "OnceCell",
       "OnceLock",
-      "LazyLock",
-      "std::env::var"
+      "LazyLock"
     ],
     "pattern_defined": true
   },

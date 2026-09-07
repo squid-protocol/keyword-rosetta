@@ -174,10 +174,7 @@
   },
   "globals": {
     "core": true,
-    "keywords": [
-      "os.Getenv",
-      "os.Environ"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "high_risk_execution": {

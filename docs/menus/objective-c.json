@@ -195,6 +195,7 @@
     "core": true,
     "keywords": [
       "extern",
+      "static",
       "NSUserDefaults",
       "NXDefaults",
       "NXApp"

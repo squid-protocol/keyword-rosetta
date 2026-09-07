@@ -215,8 +215,7 @@
     "keywords": [
       "extern",
       "static",
-      "thread_local",
-      "inline constexpr"
+      "thread_local"
     ],
     "pattern_defined": true
   },

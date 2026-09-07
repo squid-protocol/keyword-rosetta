@@ -169,6 +169,7 @@
     "keywords": [
       "sys.path",
       "sys.modules",
+      "sys.argv",
       "os.environ"
     ],
     "pattern_defined": true

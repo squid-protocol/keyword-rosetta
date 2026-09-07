@@ -248,6 +248,10 @@
    "state": "CLOSED",
    "title": "func_start & class_start have no stated contract: 5 open cells are all collective-entry cross-product mis-marks, not rule defects"
   },
+  "squid-protocol/gitgalaxy#2858": {
+   "state": "CLOSED",
+   "title": "`globals` has no stated contract: 2 open cells are one-owner/ambiguity misfires, and the crucible shows the rule counting local declarations, function prototypes and hyphenated identifiers"
+  },
   "squid-protocol/keyword-rosetta#71": {
    "state": "CLOSED",
    "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"

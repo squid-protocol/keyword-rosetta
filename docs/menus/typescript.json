@@ -225,9 +225,7 @@
   },
   "globals": {
     "core": true,
-    "keywords": [
-      "process.env"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "high_risk_execution": {

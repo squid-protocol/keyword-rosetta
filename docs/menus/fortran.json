@@ -186,8 +186,7 @@
     "core": true,
     "keywords": [
       "COMMON",
-      "SAVE",
-      "EXTERNAL"
+      "SAVE"
     ],
     "pattern_defined": true
   },

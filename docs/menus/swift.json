@@ -199,14 +199,11 @@
   "globals": {
     "core": true,
     "keywords": [
-      "static let",
-      "static var",
-      "shared",
-      "standard",
-      "default",
       "NotificationCenter.default",
       "UserDefaults.standard",
       "FileManager.default",
+      "ProcessInfo.processInfo",
+      "CommandLine.arguments",
       "@Environment"
     ],
     "pattern_defined": true

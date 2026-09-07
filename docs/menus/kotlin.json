@@ -185,10 +185,7 @@
   },
   "globals": {
     "core": true,
-    "keywords": [
-      "object",
-      "companion object"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "high_risk_execution": {

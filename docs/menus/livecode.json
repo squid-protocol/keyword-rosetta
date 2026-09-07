@@ -157,12 +157,7 @@
   },
   "globals": {
     "core": true,
-    "keywords": [
-      "the global",
-      "the environment",
-      "the platform",
-      "it"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "high_risk_execution": {
