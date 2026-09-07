@@ -141,6 +141,19 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
   issue can never disagree with `bias_report.py --gate` about what is left. `--all --post`
   after each batch regen (gitgalaxy#2669 E.2); it resolves each issue by title search rather
   than storing a mapping that would go stale.
+- `tools/ledger_orphan_check.py [--ci|--regenerate]` (keyword-rosetta#75) — the ledger-decay
+  audit. A collective entry's `signal` union is read as the token×`languages_seen`
+  cross-product; a token whose last out-of-band cell went green is an **orphan** excusing a
+  dead cell nobody looks at, which the `_doc` rule forbids ("a token must hold for EVERY
+  language listed"). Flags every token of a validated, **still-reproducing** entry that has a
+  comparable cell but is in band on all of them, resolving `api`→`raw_arch_api` (the engine's own
+  column map) and skipping retired entries (they excuse nothing since #81) plus n/a and ungated
+  tokens. Scan-free — reuses `bias_report.out_of_band_cells`, so it can never
+  disagree with the gate about which cells are out of band. Baseline-gated like `na_check.py`
+  (`docs/orphan_token_baseline.json`, `--ci` fails only on NEW orphans); the report highlights
+  **partial-decay** entries (some tokens dead while others still hold) as the scope-down
+  candidates. `bias-history.yml` re-baselines it in lockstep with the cache, so engine drift
+  re-baselines on its own and a PR's `--ci` only sees orphans the PR introduced.
 - Skills live in `.claude/skills/` (`.agents/skills` is a symlink to the same directory):
   **`rosetta-language-sweep`** — the end-to-end workflow for working one language's
   cross-language-consistency tracking issue (gitgalaxy epic #2560's children), including the

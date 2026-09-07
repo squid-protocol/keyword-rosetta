@@ -1910,6 +1910,25 @@ def main():
         + (", ".join(f"{r['metric']} {r['rho']:+.2f}" for r in leaks if r["verdict"] == "leak")
            or "none")
     )
+    # keyword-rosetta#75: surface orphan ledger tokens on every regen (the cache
+    # this reads was just written above). Report-only here; the baseline gate lives
+    # in tools/ledger_orphan_check.py --ci. A rising count means collective entries
+    # are decaying -- a token stopped excusing any out-of-band cell and nobody
+    # noticed. This is the per-TOKEN refinement of the `decayed ledger entries`
+    # count printed just above, which is whole-entry and so blind to an entry that
+    # decays one token at a time (batch5's shape); the two read the same bands and
+    # cannot disagree. Partial-decay entries are the scope-down candidates
+    # (docs/GATING.md, ledger _doc rule).
+    import ledger_orphan_check
+
+    orphans, _details, by_entry = ledger_orphan_check.analyse()
+    n_partial = sum(1 for b in by_entry.values() if b["orphan"] and b["live"])
+    print(
+        f"orphan ledger tokens: {len(orphans)} across "
+        f"{sum(1 for b in by_entry.values() if b['orphan'])} entries "
+        f"({n_partial} partially decayed -- scope-down candidates; "
+        "tools/ledger_orphan_check.py)"
+    )
     if gate and unexplained:
         print("--gate: unexplained out-of-band cells remain; epic close criterion not met")
         return 1

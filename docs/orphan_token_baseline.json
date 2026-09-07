@@ -1,0 +1,22 @@
+{
+ "orphan_tokens": [
+  "assert-overlaps-safety-and-test/safety",
+  "batch4-dual-keyword-overlaps/globals",
+  "batch4-dual-keyword-overlaps/safety_bypasses",
+  "batch4-dual-keyword-overlaps/state_mutation",
+  "batch5-tier2-morphology-shapes/branch",
+  "batch5-tier2-morphology-shapes/doc",
+  "batch5-tier2-morphology-shapes/high_risk_execution",
+  "fortran-common-globals-safety-dual-classification/globals",
+  "fortran-goto-dual-branch-highrisk/high_risk_execution",
+  "haskell-caf-bindings-count-as-functions/args",
+  "haskell-caf-bindings-count-as-functions/func_start",
+  "haskell-finally-dual-cleanup-safety/cleanup",
+  "kotlin-object-dual-globals-classstart/globals",
+  "markdown-prose-nonplanted-inputs/encapsulation",
+  "no-visibility-construct-encapsulation/encapsulation",
+  "path-and-extension-modifiers/risk_concurrency",
+  "sqlite-dot-read-dual-import-io/import",
+  "string-literal-selective-shielding/high_risk_execution"
+ ]
+}

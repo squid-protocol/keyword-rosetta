@@ -25,6 +25,11 @@ on:
       # the ENGINE_REF line above (keyword-rosetta#14's lesson).
       - "deviation_ledger.json"
       - "docs/na_baseline.json"
+      # Same reason for the orphan-token audit: a ledger edit that plants away the
+      # last cell a token explained -- or a change to the baseline/cache it reads --
+      # must re-run ledger_orphan_check (keyword-rosetta#75).
+      - "docs/orphan_token_baseline.json"
+      - "docs/bias_data.json"
   workflow_dispatch:
     inputs:
       engine_ref:
@@ -111,6 +116,16 @@ jobs:
         env:
           GITGALAXY_PATH: ${{ github.workspace }}/gitgalaxy
         run: python tools/na_check.py --ci
+
+      # Baseline-gated: fails only on ORPHAN ledger tokens beyond
+      # docs/orphan_token_baseline.json -- a token in a validated entry's signal
+      # union that no longer excuses any out-of-band cell (keyword-rosetta#75). A
+      # PR that plants away the last cell a token explained, or adds a dead token,
+      # is caught here. Reads the committed bias_data.json cache, so it is seconds
+      # and scan-free; bias-history.yml keeps main's baseline in lockstep with that
+      # cache, so this only ever sees orphans the PR itself introduced.
+      - name: orphan-token audit
+        run: python tools/ledger_orphan_check.py --ci
 
       # The committed bias report must have been generated against a FULL-PRECISION
       # engine. In Zero-Dependency Mode the recorder nulls every network metric, so

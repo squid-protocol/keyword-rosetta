@@ -123,9 +123,19 @@ jobs:
           GITGALAXY_PATH: ${{ github.workspace }}/gitgalaxy
         run: python tools/bias_report.py
 
+      # Orphan-token baseline is a DERIVED artifact of the cache above, not human
+      # intent (like bias_data.json, unlike the ledger), so it re-baselines here in
+      # lockstep with the cache. This is what makes engine drift responsive without
+      # false CI failures: when an engine change retires the last cell a token
+      # explained, main's baseline absorbs it on the next run, the report/summary
+      # surfaces it, and a PR's verify.yml only fails on orphans the PR introduced
+      # relative to this main baseline (keyword-rosetta#75).
+      - name: Re-baseline orphan tokens
+        run: python tools/ledger_orphan_check.py --regenerate
+
       - name: Commit regenerated artifacts to main
         run: |
-          git add docs/bias_report.md docs/bias_variance_chart.svg docs/bias_data.json docs/findings_by_language.md
+          git add docs/bias_report.md docs/bias_variance_chart.svg docs/bias_data.json docs/findings_by_language.md docs/orphan_token_baseline.json
           if git diff --cached --quiet; then
             echo "no artifact changed -- nothing to commit"
             exit 0
