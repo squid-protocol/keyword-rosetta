@@ -16,7 +16,6 @@
   "markdown-prose-nonplanted-inputs/encapsulation",
   "no-visibility-construct-encapsulation/encapsulation",
   "path-and-extension-modifiers/risk_concurrency",
-  "sqlite-dot-read-dual-import-io/import",
   "string-literal-selective-shielding/high_risk_execution"
  ]
 }
