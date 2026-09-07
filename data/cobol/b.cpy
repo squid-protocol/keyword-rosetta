@@ -5,14 +5,14 @@
 
       * ---- bypass, diagnostics, and data probes ----
        PROBE-BYPASS.
-           ENTRY 'PROBE-BYPASS'.
+           ENTRY 'PROBE-BYPASS' USING ARGV-BLOCK.
            CORRESPONDING GROUP-A.
            OMITTED PARAM-B.
        PROBE-TELEMETRY.
-           ENTRY 'PROBE-TELEMETRY'.
+           ENTRY 'PROBE-TELEMETRY' USING ARGV-BLOCK.
            CEE3DMP.
            CEEMOUT.
        PROBE-STATE.
-           ENTRY 'PROBE-STATE'.
+           ENTRY 'PROBE-STATE' USING ARGV-BLOCK.
            MOVE 1 TO COUNTER-A.
            COMPUTE COUNTER-B = 2.

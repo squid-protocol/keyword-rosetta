@@ -14,7 +14,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 |
 | [assembly](#assembly) | 0 | 0 | 0 | 6 | #2535 #2727 #2764 #2858 |
 | [c](#c) | 0 | 1 | 0 | 12 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 |
-| [cobol](#cobol) | 3 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 |
+| [cobol](#cobol) | 2 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 10 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
 | [csharp](#csharp) | 0 | 0 | 0 | 9 | #2535 #2546 #2730 #2731 #2822 #2858 |
 | [css](#css) | 7 | 2 | 4 | 15 | #2549 #2655 #2689 #2729 #2752 #2770 |
@@ -209,7 +209,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `risk_documentation`: 61.8861 vs median 40.1963 (+54%)
 - 🟡 `risk_safety_score`: 53.496 vs median 42.3138 (+26%)
@@ -217,7 +216,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
-| `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
+| `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | (notes) | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `cobol-tech-debt-floor-after-dispatch-plant` | engine-semantic | — | — | risk_tech_debt/cobol 46.21 -> 23.10 when the owed dispatch plant (gitgalaxy#2806 note, landed with gitgalaxy#2822's corpus PR) made PROBE-IO/PROBE-RISK referenced: raw_s… |
 | `container-construct-reads-as-class` | engine-semantic | [#2798](https://github.com/squid-protocol/gitgalaxy/issues/2798) | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
@@ -227,7 +226,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.cpy | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `cobol-args-clause-match-morphology` | intended-morphology | — | (notes) | cobol args 1 vs planted 13 is intended morphology, not an authoring gap (bucket-3 test run before ledgering, jcl PARM= precedent checked) |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `cobol-working-storage-globals` | keyword-overlap | [#2805](https://github.com/squid-protocol/gitgalaxy/issues/2805) | (notes) | cobol globals pattern includes WORKING-STORAGE\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1 |
@@ -237,6 +235,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `cobol-hyphen-identifier-debt-leak` | upstream-bug | [#2537](https://github.com/squid-protocol/gitgalaxy/issues/2537) | c.cpy | Debt rules are whole-text, not comment-anchored, and '-' is a regex word boundary: HACK-LEVEL (data item, 2 code occurrences) counts fragile_debt, PROBE-TODO (paragraph … |
 | `test-contract-2852` | upstream-bug | [#2852](https://github.com/squid-protocol/gitgalaxy/issues/2852) | — | The test rule had no stated contract and its three open-defect cells were two diseases: c and embedded_python counted safety's planted runtime assert (C1 -- c's rule end… |
 | `cobol-area-b-bare-token-paragraph` | upstream-question | [#2538](https://github.com/squid-protocol/gitgalaxy/issues/2538) | (notes) | A bare token + period in Area B (CEE3DMP |
+| `cobol-entry-args-outside-mode-a-window` | upstream-question | [#2863](https://github.com/squid-protocol/gitgalaxy/issues/2863) | (notes) | cobol avg_func_args reads 0.0 against a median 1.0 (-100%) even though all nine probe paragraphs in a/b/c declare a parameter (`ENTRY 'PROBE-X' USING ARGV-BLOCK`, plante… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
