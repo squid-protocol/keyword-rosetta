@@ -593,6 +593,83 @@ STRUCTURE_GOVERNORS = {
 STRUCTURE_LABEL_ONLY = {"functions_found"}
 
 
+# ==============================================================================
+# gitgalaxy#2866: THE CENSUS NEEDS AN n/a MECHANISM TOO
+# ==============================================================================
+# `raw_state_unreferenced` is neither a registry rule nor a structure count: it
+# is a census computed in the engine's splice over the extracted function list,
+# so neither the rule-absence inference nor STRUCTURE_GOVERNORS ever reached
+# it. A census over a population that cannot exist and a census whose
+# population answered "none" both print 0, and the cell cannot say which --
+# jcl sat at 0.00 held in band only by its ledger entry, and the #2549
+# undefined family (css, dockerfile, html, markdown, sqlite, yaml) sat at 0.00
+# scored red against the 2.50 median. The registry now says which zero is
+# which (docs/unreferenced_by_name_contract.md, "The undefined family
+# resolved"): the census is UNANSWERABLE for a language when its registry
+# declares `invocation_model != by_name` (the units execute in written order --
+# jcl #2806; dockerfile/html/sqlite/yaml #2866) or defines no `func_start`
+# rule at all (markdown -- no population, the #2795 inference one family
+# over). Both predicates read off the engine registry, never hand-listed.
+# css deliberately fails both and stays scored: `animation-name` reaches a
+# `@keyframes` unit by name, so its census is measured (2.50 on the median).
+CENSUS_METRICS = ("raw_state_unreferenced",)
+
+
+def unmeasurable_census_cells(definitions, observed):
+    """n/a cells among the census columns, plus the mismatches found.
+
+    Same shape as `unmeasurable_structure_cells`: a nonzero observation in a
+    cell the registry calls unanswerable is a *mismatch*, printed loudly and
+    left comparable -- the engine suppresses the census for a positional
+    language at the source, so a nonzero here means the declaration is not
+    reaching the detector (the gitgalaxy#2806 lens trap's exact symptom).
+
+    Returns ({language: sorted [metric]}, [(language, metric, observed)]).
+    """
+    na, mismatches = {}, []
+    for metric in CENSUS_METRICS:
+        for lang, values in sorted(observed.items()):
+            defn = definitions.get(lang)
+            if defn is None or values.get(metric) is None:
+                continue
+            unanswerable = defn.get("invocation_model", "by_name") != "by_name" or (
+                (defn.get("rules") or {}).get("func_start") is None
+            )
+            if not unanswerable:
+                continue
+            value = values[metric]
+            if value:
+                mismatches.append((lang, metric, value))
+            else:
+                na.setdefault(lang, []).append(metric)
+    return {k: sorted(v) for k, v in na.items()}, mismatches
+
+
+def classify_census_na(census_na, governor_na_state, ledger_entries=()):
+    """{metric: {lang: "ledgered"|"unreviewed"}} for census n/a cells.
+
+    Mirrors `classify_structure_na`'s two doctrines:
+
+      * no `func_start` rule -- the absence is the mechanism, so the cell
+        INHERITS the rule's own review status (markdown's lit-plane entry);
+      * `invocation_model` declared -- there is no rule absence for na_check
+        to have an opinion about, so the declaration is reviewed the ordinary
+        way: a validated entry naming the language and the census column
+        (`jcl-steps-have-no-invocation-by-name`, the #2866 contract entry).
+    """
+    validated = [e for e in ledger_entries if e.get("status") == "validated"]
+    out = {}
+    for lang, metrics in census_na.items():
+        for metric in metrics:
+            covered = governor_na_state.get("func_start", {}).get(lang) == "ledgered" or any(
+                lang in e.get("languages_seen", [])
+                and metric in (e.get("signal") or "").split("|")
+                for e in validated
+            )
+            out.setdefault(metric, {})[lang] = "ledgered" if covered else "unreviewed"
+    return out
+
+
 # The risk formulas name their inputs with registry signal names; the recorder
 # stores several of them under different column names, and for two the RAW
 # pre-adjustment snapshot is the honest one to compare (see MEASURE_COLS).
@@ -1677,6 +1754,28 @@ def main():
         for lang, metric, value in struct_mismatches:
             print(f"  {lang}/{metric} = {value} (governed by: {STRUCTURE_GOVERNORS[metric]})")
 
+    # ...and once more for the census (gitgalaxy#2866): `raw_state_unreferenced`
+    # is a splice-computed measure, the last gated column with no n/a mechanism.
+    # `governor_na_state` already carries `func_start`'s review status (it is a
+    # structure governor), so markdown's rule-absence inheritance costs nothing
+    # extra; the positional declarations are reviewed via their ledger entries.
+    census_na, census_mismatches = unmeasurable_census_cells(definitions, all_measures)
+    census_na_by_metric = classify_census_na(
+        census_na, governor_na_state, ledger["entries"]
+    )
+    na_by_metric.update(census_na_by_metric)
+    for lang, metrics in census_na.items():
+        for metric in metrics:
+            all_measures[lang][metric] = None
+    if census_mismatches:
+        print(
+            f"MISMATCH: {len(census_mismatches)} census cell(s) the registry calls "
+            "unanswerable still measured nonzero (left comparable -- if the language "
+            "declares invocation_model, the declaration is not reaching the detector):"
+        )
+        for lang, metric, value in census_mismatches:
+            print(f"  {lang}/{metric} = {value}")
+
     # Planted signals only. A derived risk cell is never its own audit row: its †
     # comes from an unreviewed *input*, already listed in dep_unreviewed above.
     # Listing it here too would give one backlog two incompatible counts -- derived
@@ -2184,9 +2283,19 @@ def main():
     for col in measure_names:
         vals = []
         for lang in languages:
+            if col in census_na.get(lang, ()):
+                vals.append("n/a" if census_na_by_metric[col][lang] == "ledgered" else "n/a†")
+                continue
             v = all_measures[lang].get(col)
             vals.append("—" if v is None else f"{v:.4g}")
         lines.append(f"| {col} | " + " | ".join(vals) + " |")
+    if any(census_na.values()):
+        lines += ["", "n/a = the registry says this census is unanswerable for the language "
+                  "-- `invocation_model` is not `by_name` (the extracted units execute in "
+                  "written order, gitgalaxy#2806/#2866) or no `func_start` rule exists to "
+                  "produce a population (gitgalaxy#2795's inference) -- and the scan "
+                  "confirms 0 (incomparable, excluded from bands and medians); † = the "
+                  "declaration is not yet backed by a validated ledger entry."]
 
     lines += ["", "A risk-score spread on identical intent is the bottom-line bias number: "
               "same program, different measured risk, purely from language expression "
