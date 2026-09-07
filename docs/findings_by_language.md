@@ -47,7 +47,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [scheme](#scheme) | 1 | 1 | 0 | 9 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
 | [shell](#shell) | 0 | 1 | 2 | 9 | #2535 #2547 #2727 #2731 #2822 |
 | [solidity](#solidity) | 1 | 0 | 1 | 10 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 |
-| [sqlite](#sqlite) | 9 | 3 | 0 | 14 | #2535 #2547 #2549 #2655 #2728 #2730 #2765 #2822 |
+| [sqlite](#sqlite) | 13 | 2 | 0 | 14 | #2535 #2547 #2549 #2655 #2728 #2730 #2765 #2822 |
 | [swift](#swift) | 1 | 0 | 0 | 9 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 |
 | [tcl](#tcl) | 1 | 0 | 0 | 10 | #2535 #2546 #2727 #2731 #2765 #2822 |
 | [typescript](#typescript) | 0 | 1 | 0 | 12 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 |
@@ -1183,16 +1183,19 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `args`: 1 vs median 13 (-92%)
-- 🔴 `avg_func_args`: 0.0625 vs median 1 (-94%)
-- 🔴 `functions_found`: 31 vs median 13 (+138%)
+- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
+- 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
+- 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
+- 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
+- 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `io`: 9 vs median 3 (+200%)
+- 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 7.0517 (-100%)
 - 🔴 `risk_documentation`: 0 vs median 40.1963 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
-- 🟡 `avg_func_complexity`: 0.09375 vs median 0.1875 (-50%)
-- 🟡 `func_internal_density`: 0.0078125 vs median 0.015625 (-50%)
+- 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
 
 | defect | type | issue | evidence in this folder | summary |
