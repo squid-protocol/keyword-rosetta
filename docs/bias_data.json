@@ -582,14 +582,14 @@
    "agc_assembly": 2,
    "apex": 2,
    "assembly": 2,
-   "c": 3,
+   "c": 2,
    "cobol": 2,
    "cpp": 2,
    "csharp": 2,
    "css": 2,
    "dart": 2,
    "dockerfile": 2,
-   "embedded_python": 3,
+   "embedded_python": 2,
    "fortran": 2,
    "go": 2,
    "groovy": 2,
@@ -606,7 +606,7 @@
    "markdown": null,
    "matlab": 2,
    "objective-c": 2,
-   "perl": 3,
+   "perl": 2,
    "php": 2,
    "powershell": 2,
    "python": 2,
@@ -2461,7 +2461,7 @@
    "css": 2.3543250000000002,
    "dart": 2.37965,
    "dockerfile": 2.37925,
-   "embedded_python": 2.383,
+   "embedded_python": 2.38505,
    "fortran": 2.3927,
    "go": 2.37965,
    "groovy": 2.396475,
@@ -2478,7 +2478,7 @@
    "markdown": null,
    "matlab": 2.4013999999999998,
    "objective-c": 2.38765,
-   "perl": 2.39575,
+   "perl": 2.3971,
    "php": 2.3873,
    "powershell": 2.387975,
    "python": 2.38585,
@@ -2699,7 +2699,7 @@
    "cpp": 127.25,
    "csharp": 131.75,
    "css": 100.75,
-   "dart": 117.5,
+   "dart": 118,
    "dockerfile": 83,
    "embedded_python": 118,
    "fortran": 146.75,
@@ -2742,14 +2742,14 @@
    "agc_assembly": 181,
    "apex": 136,
    "assembly": 160,
-   "c": 139,
+   "c": 138,
    "cobol": 146,
    "cpp": 149,
    "csharp": 154,
    "css": 75,
    "dart": 159,
    "dockerfile": 84,
-   "embedded_python": 181,
+   "embedded_python": 180,
    "fortran": 159,
    "go": 157,
    "groovy": 152,
@@ -2766,7 +2766,7 @@
    "markdown": 30,
    "matlab": 151,
    "objective-c": 147,
-   "perl": 179,
+   "perl": 178,
    "php": 142,
    "powershell": 145,
    "python": 188,
@@ -3601,6 +3601,7 @@
   }
  },
  "engine_mode": "full-precision",
+ "engine_commit": "5cbed24f0b662e97ff23498c01a5815bffac5d8f",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -3941,10 +3942,7 @@
   "safety/embedded_python": "extraction",
   "safety/haskell": "extraction",
   "safety_bypasses/fortran": "scoring",
-  "safety_bypasses/haskell": "scoring",
-  "test/c": "extraction",
-  "test/embedded_python": "extraction",
-  "test/perl": "extraction"
+  "safety_bypasses/haskell": "scoring"
  },
  "open_defect_share": {
   "args": [
@@ -4148,7 +4146,7 @@
    44
   ],
   "test": [
-   3,
+   0,
    43
   ]
  }
