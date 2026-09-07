@@ -220,7 +220,6 @@
       "io.open",
       "io.read",
       "io.lines",
-      "io.close",
       "io.input",
       "io.output",
       "io.popen",

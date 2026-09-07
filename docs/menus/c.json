@@ -216,25 +216,7 @@
   },
   "io": {
     "core": true,
-    "keywords": [
-      "fopen",
-      "fclose",
-      "fread",
-      "fwrite",
-      "fscanf",
-      "sscanf",
-      "socket",
-      "recv",
-      "send",
-      "open",
-      "read",
-      "write",
-      "close",
-      "stat",
-      "fseek",
-      "remove",
-      "rename"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ipc_rpc_bridges": {

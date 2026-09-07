@@ -219,11 +219,6 @@
       "Paths",
       "FileReader",
       "FileWriter",
-      "file",
-      "copy",
-      "sync",
-      "uri",
-      "url",
       "Socket",
       "Connection",
       "ResultSet"

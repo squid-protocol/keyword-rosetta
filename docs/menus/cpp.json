@@ -265,7 +265,6 @@
       "std::ofstream",
       "std::filesystem",
       "fopen",
-      "fclose",
       "fread",
       "fwrite",
       "socket",

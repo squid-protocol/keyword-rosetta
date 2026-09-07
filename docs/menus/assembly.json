@@ -219,8 +219,6 @@
   "io": {
     "core": true,
     "keywords": [
-      "in",
-      "out",
       "syscall",
       "svc",
       "sys_read",

@@ -169,16 +169,7 @@
   },
   "io": {
     "core": true,
-    "keywords": [
-      "open",
-      "close",
-      "read",
-      "gets",
-      "socket",
-      "fconfigure",
-      "file",
-      "source"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "listeners": {

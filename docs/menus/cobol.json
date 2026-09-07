@@ -193,7 +193,6 @@
       "WRITE",
       "REWRITE",
       "OPEN",
-      "CLOSE",
       "START",
       "DELETE",
       "EXEC SQL"

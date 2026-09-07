@@ -216,7 +216,6 @@
       "load",
       "save",
       "fopen",
-      "fclose",
       "fread",
       "fwrite",
       "fscanf",

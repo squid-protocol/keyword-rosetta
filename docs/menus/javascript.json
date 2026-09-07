@@ -258,12 +258,7 @@
     "keywords": [
       "fetch",
       "axios",
-      "http",
-      "https",
       "fs",
-      "path",
-      "database",
-      "sql",
       "localStorage",
       "sessionStorage",
       "indexedDB",

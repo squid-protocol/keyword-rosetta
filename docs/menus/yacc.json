@@ -158,7 +158,6 @@
     "core": true,
     "keywords": [
       "fopen",
-      "fclose",
       "fread",
       "fwrite",
       "yyin",

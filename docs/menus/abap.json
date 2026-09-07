@@ -230,7 +230,6 @@
       "OPEN DATASET",
       "TRANSFER",
       "READ DATASET",
-      "CLOSE DATASET",
       "CL_HTTP_CLIENT",
       "CL_WEB_HTTP_CLIENT"
     ],

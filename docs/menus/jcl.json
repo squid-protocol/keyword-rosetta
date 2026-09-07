@@ -93,12 +93,7 @@
   },
   "io": {
     "core": true,
-    "keywords": [
-      "DSN",
-      "DSNAME",
-      "SYSOUT",
-      "SYSPRINT"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ownership": {

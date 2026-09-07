@@ -218,7 +218,6 @@
     "core": true,
     "keywords": [
       "OPEN",
-      "CLOSE",
       "READ",
       "INQUIRE",
       "REWIND",

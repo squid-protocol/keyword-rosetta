@@ -224,17 +224,7 @@
   },
   "io": {
     "core": true,
-    "keywords": [
-      "SELECT",
-      "INSERT",
-      "UPDATE",
-      "DELETE",
-      "REPLACE",
-      "ATTACH DATABASE",
-      "DETACH DATABASE",
-      "readfile",
-      "writefile"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ipc_rpc_bridges": {

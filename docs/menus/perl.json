@@ -255,12 +255,10 @@
     "core": true,
     "keywords": [
       "open",
-      "close",
       "sysopen",
       "sysread",
       "syswrite",
       "opendir",
-      "closedir",
       "DBI->connect",
       "Mojo::UserAgent",
       "HTTP::Tiny",
