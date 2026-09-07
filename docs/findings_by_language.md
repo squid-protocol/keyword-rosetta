@@ -19,7 +19,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [csharp](#csharp) | 0 | 1 | 0 | 8 | #2535 #2546 #2730 #2731 #2822 |
 | [css](#css) | 7 | 2 | 4 | 15 | #2549 #2655 #2689 #2729 #2752 #2770 |
 | [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
-| [dockerfile](#dockerfile) | 6 | 5 | 0 | 15 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2798 #2822 |
+| [dockerfile](#dockerfile) | 6 | 5 | 0 | 15 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2792 #2798 #2822 |
 | [embedded_python](#embedded_python) | 3 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
 | [fortran](#fortran) | 0 | 2 | 0 | 12 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 |
 | [go](#go) | 0 | 1 | 0 | 10 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 |
@@ -47,7 +47,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [scheme](#scheme) | 1 | 1 | 0 | 9 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
 | [shell](#shell) | 0 | 1 | 2 | 9 | #2535 #2547 #2727 #2731 #2822 |
 | [solidity](#solidity) | 1 | 0 | 1 | 10 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 |
-| [sqlite](#sqlite) | 13 | 2 | 0 | 14 | #2535 #2547 #2549 #2655 #2728 #2730 #2765 #2822 |
+| [sqlite](#sqlite) | 12 | 2 | 1 | 14 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 |
 | [swift](#swift) | 1 | 0 | 0 | 9 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 |
 | [tcl](#tcl) | 1 | 0 | 0 | 10 | #2535 #2546 #2727 #2731 #2765 #2822 |
 | [typescript](#typescript) | 0 | 1 | 0 | 12 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 |
@@ -377,7 +377,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `container-construct-reads-as-class` | engine-semantic | [#2798](https://github.com/squid-protocol/gitgalaxy/issues/2798) | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
-| `slicer-segments-statements-not-functions` | engine-semantic | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry) |
+| `slicer-segments-statements-not-functions` | engine-semantic | [#2792](https://github.com/squid-protocol/gitgalaxy/issues/2792) | — | functions_found dockerfile 17 and sqlite 31 against a median of 13 (the SPEC's 12 probes + entry) |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.dockerfile | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dockerfile | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
@@ -1187,7 +1187,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
 - 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
-- 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `io`: 9 vs median 3 (+200%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
@@ -1198,12 +1197,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
 
+**Not expressible as measured (n/a):** `functions_found`
+
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
-| `slicer-segments-statements-not-functions` | engine-semantic | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry) |
+| `slicer-segments-statements-not-functions` | engine-semantic | [#2792](https://github.com/squid-protocol/gitgalaxy/issues/2792) | — | functions_found dockerfile 17 and sqlite 31 against a median of 13 (the SPEC's 12 probes + entry) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sql | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `sqlite-dot-read-dual-import-io` | keyword-overlap | — | (notes) | ^.read counts BOTH import and io (finditer-confirmed) — every corpus chain link adds +1 io in sqlite |

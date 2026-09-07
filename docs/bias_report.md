@@ -12,7 +12,7 @@ Planted intent is identical in every language (SPEC.md probe table), so any colu
 
 **Derived metrics:** a further 12 cells are n/a in the `risk_*` columns. Those are formulas over the same signals, so a language whose every governed input is absent has a structurally pinned score, not a low one — it used to be scored as a −100% outlier against languages that actually measured something. The inputs are read live off the engine's risk assembly, and a derived cell qualifies only when its formula reads no engine-synthesized input **and** the scan confirms the observed value is 0 (rule absence alone is not enough: these formulas also read structure the registry does not govern — LOC, doc lines, the call graph, popularity). Its review status is inherited, not invented: it counts as ledgered only when every governed input is itself ledgered for that language.
 
-**Structure counts:** and 6 cells are n/a in the STRUCTURE COUNTS group (gitgalaxy#2795). These columns read the engine's own `function_count`/`class_count`/`import_count` rather than a registry rule, so the rule-absence inference above never reached them and a language could be n/a on `func_start` and a −100% outlier on `functions_found` in the same report — the group's consistency scores were measured over a larger population than the rules they summarise. Each count now names the rule it is a tally of and inherits that rule's review status. `dependency_links` is governed by `_dependency_capture`, **not** by `import`: since gitgalaxy#2638 the two diverge, and markdown records 3 real edges with no `import` rule — a comparable cell that stays scored.
+**Structure counts:** and 7 cells are n/a in the STRUCTURE COUNTS group (gitgalaxy#2795). These columns read the engine's own `function_count`/`class_count`/`import_count` rather than a registry rule, so the rule-absence inference above never reached them and a language could be n/a on `func_start` and a −100% outlier on `functions_found` in the same report — the group's consistency scores were measured over a larger population than the rules they summarise. Each count now names the rule it is a tally of and inherits that rule's review status. `dependency_links` is governed by `_dependency_capture`, **not** by `import`: since gitgalaxy#2638 the two diverge, and markdown records 3 real edges with no `import` rule — a comparable cell that stays scored. A governing rule can also be present and govern nothing (gitgalaxy#2792): sqlite is sliced by Mode E, which never consults `func_start` for a name — it labels every bucket after the igniter keyword — so the language has no function population at all. That cell is reviewed by an entry naming the count itself, not inherited from a rule whose presence says nothing about what its matches mean.
 
 ## Out-of-band cells: explained vs. unexplained
 
@@ -21,7 +21,7 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 15 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 107 | a validated deviation-ledger entry names this language and this metric |
+| ledgered | 106 | a validated deviation-ledger entry names this language and this metric |
 | derived | 38 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **6** | **survived all three -- the real work remaining** |
 
@@ -35,14 +35,14 @@ Unexplained cells, by metric:
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 38 of 2297 comparable cells (1.7%)** across 51 gated metrics; 38 of the 166 out-of-band cells are open defects.
+**Open-defect share: 38 of 2296 comparable cells (1.7%)** across 51 gated metrics; 38 of the 165 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
 | **unexplained** | 6 | survived every mechanism -- the gate fails on these |
 | **extraction** | 32 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
-| scoring | 50 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
+| scoring | 49 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 40 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
 | echo | 38 | derived -- an upstream deviation counted again downstream |
 
@@ -96,7 +96,6 @@ The risk formulas read registry signals the SPEC does not plant: `concurrency`, 
 | `risk_state_flux` | 9 | irc2 | +0.55 | weak | `immutability_locks`, `state_mutation` | **not located yet** — the more interesting finding |
 | `risk_cognitive_load` | 12 | irc2 | +0.48 | weak | `branch`, `concurrency`, `doc`, `reflection_metaprogramming`, `state_mutation` | the same _calc_cog_load densities, post-sigmoid |
 | `raw_state_unreferenced` | 13 | irc2 | +0.47 | weak | *(none known)* | **not located yet** — the more interesting finding |
-| `functions_found` | 13 | irc2 | +0.46 | weak | *(none known)* | **not located yet** — the more interesting finding |
 | `avg_func_complexity` | 13 | irc2 | +0.46 | weak | `branch`, `func_start` | **not located yet** — the more interesting finding |
 | `max_func_complexity` | 13 | irc2 | +0.46 | weak | `branch`, `func_start` | **not located yet** — the more interesting finding |
 | `func_complexity_gini` | 13 | irc2 | +0.46 | weak | `branch`, `func_start` | **not located yet** — the more interesting finding |
@@ -136,14 +135,14 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 
 | metric | abap | ada | agc_assembly | apex | assembly | c | cobol | cpp | csharp | css | dart | dockerfile | embedded_python | fortran | go | groovy | haskell | html | java | javascript | jcl | kotlin | livecode | lua | m4 | makefile | markdown | matlab | objective-c | perl | php | powershell | python | ruby | rust | scala | scheme | shell | solidity | sqlite | swift | tcl | typescript | yacc | yaml | zig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | n/a | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 |
+| functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | n/a | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | n/a | 13 | 13 | 13 | 13 | 13 | 13 |
 | classes_found | 0 | 0 | n/a | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | n/a | n/a | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
 | keyword_hits | 132 | 144 | 181 | 136 | 160 | 140 | 146 | 149 | 154 | 75 | 159 | 84 | 181 | 159 | 157 | 152 | 128 | 78 | 140 | 202 | 100 | 187 | 131 | 149 | 76 | 120 | 30 | 151 | 147 | 179 | 142 | 145 | 188 | 154 | 200 | 162 | 98 | 146 | 165 | 66 | 186 | 137 | 195 | 61 | 151 | 191 |
 | comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 13 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 12 | 11 | 12 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
-n/a = the registry rule this count is a tally OF is absent for the language (`functions_found` ← `func_start`, `classes_found` ← `class_start`, `dependency_links` ← `_dependency_capture`) and the scan confirms the count is 0 — incomparable, excluded from bands and medians; † = that rule's absence is not yet backed by a validated ledger entry.
+n/a = the registry rule this count is a tally OF is absent for the language (`functions_found` ← `func_start`, `classes_found` ← `class_start`, `dependency_links` ← `_dependency_capture`) — or, for `functions_found`, present but able to name only slicer buckets (gitgalaxy#2792) — and the scan confirms the count is 0: incomparable, excluded from bands and medians; † = not yet backed by a validated ledger entry.
 
 ## Risk scores (mean per file)
 
