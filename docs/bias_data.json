@@ -3822,9 +3822,9 @@
   "betweenness_score/python": "inherency",
   "class_start/cobol": "scoring",
   "class_start/css": "scoring",
-  "class_start/dockerfile": "extraction",
-  "class_start/jcl": "extraction",
-  "class_start/kotlin": "extraction",
+  "class_start/dockerfile": "scoring",
+  "class_start/jcl": "scoring",
+  "class_start/kotlin": "inherency",
   "class_start/yaml": "scoring",
   "classes_found/cobol": "scoring",
   "classes_found/dockerfile": "scoring",
@@ -3871,8 +3871,8 @@
   "func_internal_density/html": "inherency",
   "func_internal_density/markdown": "inherency",
   "func_internal_density/sqlite": "inherency",
-  "func_start/dockerfile": "extraction",
-  "func_start/html": "extraction",
+  "func_start/dockerfile": "inherency",
+  "func_start/html": "inherency",
   "functions_found/dockerfile": "scoring",
   "functions_found/html": "scoring",
   "globals/csharp": "extraction",
@@ -4013,7 +4013,7 @@
    45
   ],
   "class_start": [
-   3,
+   0,
    41
   ],
   "classes_found": [
@@ -4077,7 +4077,7 @@
    46
   ],
   "func_start": [
-   2,
+   0,
    45
   ],
   "functions_found": [
