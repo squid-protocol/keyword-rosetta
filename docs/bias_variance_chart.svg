@@ -6,7 +6,7 @@
 <text x="16" y="84" fill="#5c6670">or a scoring weight sitting inside a count — the work left. <tspan font-weight="600" fill="#6b7680">Grey</tspan> is a documented variation: the language cannot express the construct,</text>
 <text x="16" y="100" fill="#5c6670">a deliberate scoring choice, or an echo of another row. Each row's bar: in band (±25% of the median) · documented · open defect. Rows run best → worst.</text>
 <text x="16" y="134" font-size="22" font-weight="700" fill="#c0392b">1.7%</text>
-<text x="16" y="150" font-size="10.5" fill="#5c6670">open-defect share · 38 of 2297 cells</text>
+<text x="16" y="150" font-size="10.5" fill="#5c6670">open-defect share · 38 of 2296 cells</text>
 <text x="258" y="134" font-size="22" font-weight="700" fill="#1b2430">92%</text>
 <text x="258" y="150" font-size="10.5" fill="#5c6670">average share in band, 48 gated metrics</text>
 <text x="499" y="134" font-size="22" font-weight="700" fill="#1b2430">6</text>
@@ -39,11 +39,12 @@
 <line x1="638.4" y1="252" x2="638.4" y2="468" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <line x1="765.6" y1="252" x2="765.6" y2="468" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <line x1="829.3" y1="252" x2="829.3" y2="468" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<text x="16" y="276.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">dependency_links</text>
+<text x="16" y="276.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">functions_found</text>
+<text x="272" y="276.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 2</text>
 <rect x="288" y="265.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="265.0" width="110.3" height="14" fill="#2f855a" rx="2"/>
-<rect x="398.3" y="265.0" width="7.7" height="14" fill="#a3acb3"/>
-<text x="293.0" y="276.0" font-size="10.5" font-weight="700" fill="#ffffff">93%</text>
+<rect x="288" y="265.0" width="112.6" height="14" fill="#2f855a" rx="2"/>
+<rect x="400.6" y="265.0" width="5.4" height="14" fill="#a3acb3"/>
+<text x="293.0" y="276.0" font-size="10.5" font-weight="700" fill="#ffffff">95%</text>
 <rect x="422.0" y="266.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="266.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="266.0" x2="574.7" y2="278.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
@@ -58,18 +59,15 @@
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="721.6" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="786.8" cy="272.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="982.0" cy="272.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="780.3" cy="272.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="786.8" cy="272.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="447.5" cy="272.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -77,6 +75,7 @@
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="721.6" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -95,14 +94,12 @@
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="272.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="786.8" y="287.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="824.7" y="287.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="945.2" y="287.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
-<text x="16" y="312.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">functions_found</text>
-<text x="272" y="312.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1</text>
+<text x="447.5" y="287.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="780.3" y="287.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="16" y="312.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">dependency_links</text>
 <rect x="288" y="301.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="301.0" width="110.1" height="14" fill="#2f855a" rx="2"/>
-<rect x="398.1" y="301.0" width="7.9" height="14" fill="#a3acb3"/>
+<rect x="288" y="301.0" width="110.3" height="14" fill="#2f855a" rx="2"/>
+<rect x="398.3" y="301.0" width="7.7" height="14" fill="#a3acb3"/>
 <text x="293.0" y="312.0" font-size="10.5" font-weight="700" fill="#ffffff">93%</text>
 <rect x="422.0" y="302.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="302.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -118,15 +115,10 @@
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="721.6" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="780.3" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="447.5" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="786.8" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="982.0" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -134,7 +126,7 @@
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="721.6" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="786.8" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -147,16 +139,22 @@
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="447.5" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="447.5" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="478.0" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="780.3" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="786.8" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="824.7" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="945.2" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
 <text x="16" y="348.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">classes_found</text>
 <text x="272" y="348.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact · n/a 5</text>
 <rect x="288" y="337.0" width="118" height="14" fill="#eceff2" rx="2"/>

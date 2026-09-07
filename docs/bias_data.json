@@ -232,7 +232,7 @@
    "scheme": 13,
    "shell": 13,
    "solidity": 13,
-   "sqlite": 0,
+   "sqlite": null,
    "swift": 13,
    "tcl": 13,
    "typescript": 13,
@@ -3467,7 +3467,8 @@
    "shell": "ledgered"
   },
   "functions_found": {
-   "markdown": "ledgered"
+   "markdown": "ledgered",
+   "sqlite": "ledgered"
   }
  },
  "risk_inputs": {
@@ -3749,15 +3750,6 @@
    "where": null
   },
   {
-   "metric": "functions_found",
-   "n": 13,
-   "rho": 0.464,
-   "verdict": "weak",
-   "held": [],
-   "stratum": "irc2",
-   "where": null
-  },
-  {
    "metric": "avg_func_complexity",
    "n": 13,
    "rho": 0.464,
@@ -3863,7 +3855,6 @@
   "func_start/html": "extraction",
   "functions_found/dockerfile": "scoring",
   "functions_found/html": "scoring",
-  "functions_found/sqlite": "scoring",
   "globals/csharp": "extraction",
   "globals/shell": "extraction",
   "high_risk_execution/agc_assembly": "extraction",
@@ -4041,7 +4032,7 @@
   ],
   "functions_found": [
    0,
-   45
+   44
   ],
   "globals": [
    2,

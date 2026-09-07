@@ -98,6 +98,39 @@ def unmeasurable_signals(definitions, signals, include_exempt=False):
     return out
 
 
+def population_less_languages(definitions):
+    """{language} whose every recorded function name is a slicer label.
+
+    gitgalaxy#2792: a language can have a `func_start` rule and still never
+    record an author-written identifier. sqlite is sliced by `mode_e`, which
+    never consults `func_start` for a name at all -- it cleaves on the `;` and
+    labels each bucket after the igniter keyword -- so once the engine stopped
+    counting those buckets, sqlite's honest `functions_found` is 0. There is no
+    population to compare, and scoring the 0 would be a bigger red deviation
+    than the 31 it replaced.
+
+    Read off the engine's own predicate rather than hand-listed here, the same
+    doctrine `risk_dependencies` follows: a slicing-mode change then surfaces as
+    an import/derivation failure instead of leaving a stale set quietly excusing
+    comparable cells. Includes the plain rule-absence case (markdown), so it is a
+    superset of the `func_start is None` languages -- and deliberately EXCLUDES
+    the closed-literal `func_start` languages (dockerfile, css, html, yaml),
+    whose buckets the engine still counts because they are grammar-recognised
+    constructs it correctly locates (gitgalaxy#2792 declined that half with
+    measurement: css scores 25/25 function precision against tree-sitter on
+    exactly those names). Their cells stay scored and stay ledgered.
+    """
+    if GITGALAXY_PATH not in sys.path:
+        sys.path.insert(0, GITGALAXY_PATH)
+    from gitgalaxy.core.detector import synthesizes_all_function_names
+
+    return {
+        lang
+        for lang, d in definitions.items()
+        if synthesizes_all_function_names(lang, d.get("rules") or {})
+    }
+
+
 def tier_report(definitions):
     """(tier1_langs, tier2_missing) — tier2_missing maps language -> missing core keys."""
     tier1, tier2 = [], {}

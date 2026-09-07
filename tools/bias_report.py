@@ -42,6 +42,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import verify_language as vl
 from _registry import (
     load_definitions,
+    population_less_languages,
     registry_signals,
     risk_dependencies,
     scoring_strata,
@@ -506,6 +507,18 @@ STRUCTURE_GOVERNORS = {
     "classes_found": "class_start",
     "dependency_links": "_dependency_capture",
 }
+
+# gitgalaxy#2792: a governing rule can be PRESENT and still govern nothing. Five
+# languages define a `func_start` whose every match names a slicer bucket rather
+# than an identifier anyone wrote -- dockerfile after the `RUN`/`CMD` keyword,
+# css after the at-rule, sqlite (mode_e) after the igniter -- so once the engine
+# stopped counting those buckets as functions their honest `functions_found` is
+# 0, and scoring it would be a BIGGER red deviation than the over-count it
+# replaced. The predicate is `_registry.population_less_languages`, read off the
+# engine, never hand-listed here. Only `functions_found` has this second way of
+# being ungoverned; `class_start` and `_dependency_capture` capture real names in
+# every language that defines them.
+STRUCTURE_LABEL_ONLY = {"functions_found"}
 
 
 # The risk formulas name their inputs with registry signal names; the recorder
@@ -1016,7 +1029,7 @@ def classify_risk_na(risk_na, deps, signal_na_state):
     return out
 
 
-def unmeasurable_structure_cells(definitions, observed):
+def unmeasurable_structure_cells(definitions, observed, population_less=()):
     """n/a cells among the STRUCTURE COUNT columns, plus the mismatches found.
 
     Same four-condition test gitgalaxy#2669 F.3 defined for the derived risk_*
@@ -1024,8 +1037,10 @@ def unmeasurable_structure_cells(definitions, observed):
     count is n/a for a language only when ALL FOUR hold:
 
       1. the column has a governing registry rule at all (STRUCTURE_GOVERNORS);
-      2. that rule is None for this language -- the engine can never populate the
-         column from source, so a 0 means "not expressible as measured";
+      2. that rule governs nothing for this language -- either it is None, or
+         (gitgalaxy#2792, `functions_found` only) it is present but can never
+         capture an author-written name, so the engine can never populate the
+         column from source and a 0 means "not expressible as measured";
       3. the count reads no engine-synthesized input that can be nonzero
          regardless of the registry. True by construction for this family: each
          column is `len()` of exactly what its governing rule produced;
@@ -1040,12 +1055,16 @@ def unmeasurable_structure_cells(definitions, observed):
     Returns ({language: sorted [metric]}, [(language, metric, observed)]).
     """
     rules = {lang: d.get("rules") or {} for lang, d in definitions.items()}
+    population_less = set(population_less or ())
     na, mismatches = {}, []
     for metric, governor in sorted(STRUCTURE_GOVERNORS.items()):
         for lang, values in sorted(observed.items()):
             if lang not in rules or metric not in values:
                 continue
-            if rules[lang].get(governor) is not None:
+            ungoverned = rules[lang].get(governor) is None or (
+                metric in STRUCTURE_LABEL_ONLY and lang in population_less
+            )
+            if not ungoverned:
                 continue
             value = values[metric]
             if value:
@@ -1055,19 +1074,32 @@ def unmeasurable_structure_cells(definitions, observed):
     return {k: sorted(v) for k, v in na.items()}, mismatches
 
 
-def classify_structure_na(structure_na, signal_na_state):
+def classify_structure_na(structure_na, signal_na_state, ledger_entries=()):
     """{metric: {lang: "ledgered"|"unreviewed"}} for structure-count n/a cells.
 
-    Inherited, not invented -- `classify_risk_na`'s doctrine for a derived cell.
-    The count is n/a as a mechanical consequence of its governing rule's absence,
-    so it carries that rule's review status and opens no parallel backlog row
-    (na_check.py audits the governing signal, never the count).
+    Two ways to be reviewed, matching the two ways a governing rule can govern
+    nothing:
+
+      * the rule is ABSENT -- inherited, not invented (`classify_risk_na`'s
+        doctrine): the count carries the rule's own review status and opens no
+        parallel backlog row, so na_check.py keeps auditing language/signal.
+      * the rule is PRESENT but names only slicer buckets (gitgalaxy#2792). There
+        is no rule absence for na_check to have an opinion about, so this one is
+        reviewed the ordinary way -- a validated entry naming the language and
+        the COUNT (`slicer-segments-statements-not-functions`). Inheriting here
+        would be wrong twice over: it would read a review of `func_start`'s
+        presence as a review of what its matches mean.
     """
+    validated = [e for e in ledger_entries if e.get("status") == "validated"]
     out = {}
     for lang, metrics in structure_na.items():
         for metric in metrics:
             governor = STRUCTURE_GOVERNORS[metric]
-            covered = signal_na_state.get(governor, {}).get(lang) == "ledgered"
+            covered = signal_na_state.get(governor, {}).get(lang) == "ledgered" or any(
+                lang in e.get("languages_seen", [])
+                and metric in (e.get("signal") or "").split("|")
+                for e in validated
+            )
             out.setdefault(metric, {})[lang] = "ledgered" if covered else "unreviewed"
     return out
 
@@ -1524,7 +1556,9 @@ def main():
     # report. The governors' own review state comes off the registry the same way
     # the planted signals' does, so a structure count can never be excused by a
     # ledger entry its governing rule does not have.
-    struct_na, struct_mismatches = unmeasurable_structure_cells(definitions, all_struct)
+    struct_na, struct_mismatches = unmeasurable_structure_cells(
+        definitions, all_struct, population_less_languages(definitions)
+    )
     governor_na_state = classify_na(
         ledger["entries"],
         {
@@ -1535,7 +1569,9 @@ def main():
             if lang in languages
         },
     )
-    struct_na_by_metric = classify_structure_na(struct_na, governor_na_state)
+    struct_na_by_metric = classify_structure_na(
+        struct_na, governor_na_state, ledger["entries"]
+    )
     na_by_metric.update(struct_na_by_metric)
     for lang, metrics in struct_na.items():
         for metric in metrics:
@@ -1748,7 +1784,12 @@ def main():
             "is a tally of and inherits that rule's review status. `dependency_links` is "
             "governed by `_dependency_capture`, **not** by `import`: since gitgalaxy#2638 "
             "the two diverge, and markdown records 3 real edges with no `import` rule — a "
-            "comparable cell that stays scored.",
+            "comparable cell that stays scored. A governing rule can also be present and "
+            "govern nothing (gitgalaxy#2792): sqlite is sliced by Mode E, which never "
+            "consults `func_start` for a name — it labels every bucket after the igniter "
+            "keyword — so the language has no function population at all. That cell is "
+            "reviewed by an entry naming the count itself, not inherited from a rule "
+            "whose presence says nothing about what its matches mean.",
             "",
         ]
     if risk_mismatches:
@@ -1992,9 +2033,11 @@ def main():
     if n_na_struct:
         lines += ["", "n/a = the registry rule this count is a tally OF is absent for the "
                   "language (`functions_found` ← `func_start`, `classes_found` ← "
-                  "`class_start`, `dependency_links` ← `_dependency_capture`) and the scan "
-                  "confirms the count is 0 — incomparable, excluded from bands and medians; "
-                  "† = that rule's absence is not yet backed by a validated ledger entry."]
+                  "`class_start`, `dependency_links` ← `_dependency_capture`) — or, for "
+                  "`functions_found`, present but able to name only slicer buckets "
+                  "(gitgalaxy#2792) — and the scan confirms the count is 0: incomparable, "
+                  "excluded from bands and medians; † = not yet backed by a validated "
+                  "ledger entry."]
 
     lines += ["", "## Risk scores (mean per file)", "",
               "| risk | " + " | ".join(languages) + " |",
