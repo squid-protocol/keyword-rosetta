@@ -9,7 +9,7 @@ int probeGlobals(int env) {
 }
 
 int probeTest(int kit) {
-  group(kit);
+  group('kit', kit);
   setUp(kit);
   return kit;
 }

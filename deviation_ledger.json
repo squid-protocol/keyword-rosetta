@@ -77,11 +77,11 @@
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "python's test rule includes \\bassert\\b and the safety rule includes assert: one planted assert counts both. Legitimate overlapping taxonomies; record +1 test wherever a safety assert is planted. Also c (bare assert( in both rules) and perl (ok( in the test rule alongside croak/confess safety plants). RESOLVED for python via gitgalaxy #2626 (assert removed from the test rule, still matched by safety): a.py test dropped 3->2. Still reproduces for c/perl (their own rule files are unchanged).",
-      "upstream_issue": "squid-protocol/gitgalaxy#2626",
-      "investigated_by": "claude-sonnet-5",
-      "validated_at": "2026-08-31",
-      "still_reproduces": true
+      "verdict": "python's test rule includes \\bassert\\b and the safety rule includes assert: one planted assert counts both. Legitimate overlapping taxonomies; record +1 test wherever a safety assert is planted. Also c (bare assert( in both rules) and perl (ok( in the test rule alongside croak/confess safety plants). RESOLVED for python via gitgalaxy #2626 (assert removed from the test rule, still matched by safety): a.py test dropped 3->2. Still reproduces for c/perl (their own rule files are unchanged). RESOLVED for c and perl 2026-09-07 by gitgalaxy#2852 (test contract): c's bare assert( left the test rule (contract C1 -- the runtime guard is safety's, the #2626 python resolution stated as a rule); a.c test 3->2. perl's mechanism was measured to be different from this entry's framing: croak/confess never matched the test rule -- the +1 was Test::More::ok($kit) firing twice (module name + ok( call form), settled by contract C2 (a module qualifier is not a separate hit from the call it qualifies, (?!::) guard); a.pl test 3->2. The entry closes; the python assert overlap remains the deliberate safety-side surface (assert still matched by safety in all three languages, mass conserved).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2852",
+      "investigated_by": "claude-sonnet-5; #2852 resolution 2026-09-07 by claude-opus-4.8",
+      "validated_at": "2026-09-07",
+      "still_reproduces": false
     },
     {
       "id": "os-sys-prefix-overlaps-io",
@@ -540,7 +540,7 @@
     },
     {
       "id": "batch4-dual-keyword-overlaps",
-      "signal": "api|class_start|cleanup|func_start|globals|high_risk_execution|import|safety|safety_bypasses|state_mutation|test",
+      "signal": "api|class_start|cleanup|func_start|globals|high_risk_execution|import|safety|safety_bypasses|state_mutation",
       "languages_seen": [
         "agc_assembly",
         "apex",
@@ -552,10 +552,10 @@
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals). SCOPE CORRECTION (gitgalaxy#2669 A.4): the signal is now the union of the duals itemised above, and languages_seen is narrowed to the languages that actually carry one, because the reports join signal x language as a cross-product and a collective entry over languages with nothing itemised would mark their red cells explained. Removed: dart, groovy, objective-c, scala, scheme, zig \u2014 batch 4 swept them, but none records a dual-rule keyword in its manifest notes (groovy's args behaviour is ts-callparen-args; objective-c's selector over-count is the same entry). embedded_python is kept and its duals named: `except` is dual safety_bypasses+safety and its test plants overlap safety (assert-overlaps-safety-and-test family), which is why `test` is in the union. SAFETY HALF PLANTED 2026-09-05 (keyword-rosetta#59 section 1): dockerfile no longer needs `safety` excused here. Its 1 came entirely from `HEALTHCHECK` counting dual func_start+safety, which is the overlap this entry documents -- so the language was one real safety construct short of the median, not two. `USER probe` is that construct, screened clean (only `structural_boundaries` alongside, which the manifest does not gate), and placed before the `RUN` instructions it applies to so it does not land inside a preceding slice's body. dockerfile reads 2 = median, green. The HEALTHCHECK dual itself is unchanged and still belongs to this entry. 2026-09-05: jcl joins with SET (globals + state_mutation, gitgalaxy#2750 -- dockerfile's ENV shape exactly): b.jcl's two SET lines read globals 2 AND state_mutation 2. RETIRED 2026-09-06 by gitgalaxy#2765 (state_mutation contract, count contract corollary 4): dockerfile ENV is globals only (a.dockerfile state_mutation 2->0), matlab clear/clearvars and m4 popdef are cleanup only (matlab b.m cleanup 2->0 and state 3->2 after a re-plant; c.m4 state 2->0). matlab and m4 leave languages_seen -- those were their only itemised duals. The jcl SET dual (globals + state_mutation) is the one state_mutation overlap that stays, recorded in the contract doc as the deliberate exception; dockerfile stays for HEALTHCHECK and FROM. BRANCH HALF RETIRED 2026-09-06 by gitgalaxy#2822: livecode throw (safety+branch) and its then/end-if inflation, tcl trap (safety+branch), and powershell trap/continue are gone -- branch no longer counts handler keywords or a construct's closing words. powershell leaves languages_seen (those were its only itemised duals); livecode and tcl remain for global (globals+bypasses) and source/close (import|cleanup + io). The branch token itself left `signal` with that retirement (gitgalaxy#2822 landed; every branch cell reads in band, so the token would only orphan -- tools/ledger_orphan_check.py). IO HALF RETIRED 2026-09-07 by gitgalaxy#2841 (io contract C2): tcl source (import+io) and close (cleanup+io) are single-owner -- tcl leaves languages_seen (those were its only itemised duals) and io leaves `signal`; every io cell reads the median, so the token would only orphan.",
+      "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals). SCOPE CORRECTION (gitgalaxy#2669 A.4): the signal is now the union of the duals itemised above, and languages_seen is narrowed to the languages that actually carry one, because the reports join signal x language as a cross-product and a collective entry over languages with nothing itemised would mark their red cells explained. Removed: dart, groovy, objective-c, scala, scheme, zig \u2014 batch 4 swept them, but none records a dual-rule keyword in its manifest notes (groovy's args behaviour is ts-callparen-args; objective-c's selector over-count is the same entry). embedded_python is kept and its duals named: `except` is dual safety_bypasses+safety and its test plants overlap safety (assert-overlaps-safety-and-test family), which is why `test` is in the union. SAFETY HALF PLANTED 2026-09-05 (keyword-rosetta#59 section 1): dockerfile no longer needs `safety` excused here. Its 1 came entirely from `HEALTHCHECK` counting dual func_start+safety, which is the overlap this entry documents -- so the language was one real safety construct short of the median, not two. `USER probe` is that construct, screened clean (only `structural_boundaries` alongside, which the manifest does not gate), and placed before the `RUN` instructions it applies to so it does not land inside a preceding slice's body. dockerfile reads 2 = median, green. The HEALTHCHECK dual itself is unchanged and still belongs to this entry. 2026-09-05: jcl joins with SET (globals + state_mutation, gitgalaxy#2750 -- dockerfile's ENV shape exactly): b.jcl's two SET lines read globals 2 AND state_mutation 2. RETIRED 2026-09-06 by gitgalaxy#2765 (state_mutation contract, count contract corollary 4): dockerfile ENV is globals only (a.dockerfile state_mutation 2->0), matlab clear/clearvars and m4 popdef are cleanup only (matlab b.m cleanup 2->0 and state 3->2 after a re-plant; c.m4 state 2->0). matlab and m4 leave languages_seen -- those were their only itemised duals. The jcl SET dual (globals + state_mutation) is the one state_mutation overlap that stays, recorded in the contract doc as the deliberate exception; dockerfile stays for HEALTHCHECK and FROM. BRANCH HALF RETIRED 2026-09-06 by gitgalaxy#2822: livecode throw (safety+branch) and its then/end-if inflation, tcl trap (safety+branch), and powershell trap/continue are gone -- branch no longer counts handler keywords or a construct's closing words. powershell leaves languages_seen (those were its only itemised duals); livecode and tcl remain for global (globals+bypasses) and source/close (import|cleanup + io). The branch token itself left `signal` with that retirement (gitgalaxy#2822 landed; every branch cell reads in band, so the token would only orphan -- tools/ledger_orphan_check.py). IO HALF RETIRED 2026-09-07 by gitgalaxy#2841 (io contract C2): tcl source (import+io) and close (cleanup+io) are single-owner -- tcl leaves languages_seen (those were its only itemised duals) and io leaves `signal`; every io cell reads the median, so the token would only orphan. TEST HALF RETIRED 2026-09-07 by gitgalaxy#2852 (test contract C1): embedded_python's test rule carried the bare assert token that gitgalaxy#2626 removed from python's -- the twin was missed -- so its planted safety assert counted test too (a.py test 3->2). embedded_python stays in languages_seen for its except (safety_bypasses+safety) dual; test leaves signal (every test cell reads the median, so the token would only orphan -- tools/ledger_orphan_check.py).",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5; safety plant 2026-09-05 by claude-opus-5 (keyword-rosetta#59); jcl clauses 2026-09-05 by claude-opus-5 (keyword-rosetta#60); #2765 retirements 2026-09-06 by claude-fable-5.1",
-      "validated_at": "2026-09-06",
+      "validated_at": "2026-09-07",
       "still_reproduces": true
     },
     {
@@ -1943,6 +1943,26 @@
       "investigated_by": "claude-opus-5 (non-planted group scoring sweep, 2026-09-07)",
       "validated_at": "2026-09-07",
       "still_reproduces": true
+    },
+    {
+      "id": "test-contract-2852",
+      "signal": "safety|test",
+      "languages_seen": [
+        "c",
+        "embedded_python",
+        "perl",
+        "cobol",
+        "dart",
+        "lua",
+        "php"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "The test rule had no stated contract and its three open-defect cells were two diseases: c and embedded_python counted safety's planted runtime assert (C1 -- c's rule ended |\\bassert\\s*\\(, embedded_python still carried the bare \\bassert\\b token #2626 removed from python's), and perl's Test::More::ok($kit) fired twice, module name plus ok( call form (C2). Fixed by gitgalaxy#2852: contract stated (docs/test_rule_contract.md), 7 language rules edited -- c/embedded_python/lua drop the runtime guard (safety keeps it, mass conserved; lua gains the luassert matcher chain assert.<chain>, crucible 3471->134), perl gains (?!::) on module names, dart/php anchor the everyday words the crucible measured misfiring (a predicate parameter named test, a loop variable named group, Twig's ->test( method, a $mock variable), cobol gains hyphen guards (UT-TEST-CASE-COUNT is an identifier, the #2622 shape, crucible 51->0). dart probe re-planted group(kit) -> group('kit', kit) (screened: only test moves). Every corpus language reads test 2; rosetta_audit 46/46 against fix/2852-test-contract. Bare-word menus the crucible cannot measure (ruby, javascript, java/groovy, assembly prose) deferred with gitgalaxy#2853.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2852",
+      "investigated_by": "claude-opus-4.8",
+      "validated_at": "2026-09-07",
+      "still_reproduces": false
     }
   ]
 }
