@@ -475,9 +475,7 @@
   "test": {
     "core": true,
     "keywords": [
-      "test",
       "testWidgets",
-      "group",
       "setUp",
       "tearDown",
       "pumpWidget",

@@ -499,13 +499,7 @@
       "assertSame",
       "assertEquals",
       "assertTrue",
-      "assertFalse",
-      "mock",
-      "spy",
-      "expects",
-      "toBe",
-      "test",
-      "it"
+      "assertFalse"
     ],
     "pattern_defined": true
   },

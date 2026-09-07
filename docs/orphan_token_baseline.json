@@ -1,6 +1,5 @@
 {
  "orphan_tokens": [
-  "assert-overlaps-safety-and-test/safety",
   "batch4-dual-keyword-overlaps/globals",
   "batch4-dual-keyword-overlaps/safety_bypasses",
   "batch4-dual-keyword-overlaps/state_mutation",

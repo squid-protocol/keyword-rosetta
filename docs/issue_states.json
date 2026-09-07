@@ -240,6 +240,10 @@
    "state": "OPEN",
    "title": "makefile dead_code reads any `# Word:` prose comment as a commented-out target"
   },
+  "squid-protocol/gitgalaxy#2852": {
+   "state": "CLOSED",
+   "title": "test has no stated contract: c and embedded_python count safety's planted assert, and perl's Test::More::ok( fires the rule twice"
+  },
   "squid-protocol/keyword-rosetta#71": {
    "state": "CLOSED",
    "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"

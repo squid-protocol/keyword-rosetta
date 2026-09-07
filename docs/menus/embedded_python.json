@@ -461,7 +461,6 @@
     "keywords": [
       "unittest",
       "pytest",
-      "assert",
       "setUp",
       "tearDown",
       "Mock"
