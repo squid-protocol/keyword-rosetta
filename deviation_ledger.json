@@ -566,11 +566,11 @@
       ],
       "disposition": "upstream-bug",
       "status": "validated",
-      "verdict": "html's func_start rule (<script>/<style> tags) never fires end-to-end: the polyglot splitter consumes the tags before html's rules run (micro-repro: <script>var x=1;</script> records the JS body's state signal on the html row but func 0; raw regex matches all 13 corpus tags, engine records 0). Rule passes direct-detector tests but is dead in production scans.",
+      "verdict": "html's func_start rule (<script>/<style> tags) never fires end-to-end: the polyglot splitter consumes the tags before html's rules run (micro-repro: <script>var x=1;</script> records the JS body's state signal on the html row but func 0; raw regex matches all 13 corpus tags, engine records 0). Rule passes direct-detector tests but is dead in production scans. RETIRED 2026-09-07 (gitgalaxy#2549 fixed, engine PR gitgalaxy#2847, merged fb0a8cca): the handshake registry's markup entries now declare an `open_delimiter`, so `<script ...>` / `<style ...>` -- host markup -- stays in the html segment and only the payload after the `>` is handed to the JavaScript/CSS lens. Verified by a fresh `verify_language.py html` scan against the fixed engine: func_start reads 2/3/1/3 (main/a/b/c), the nine tags the raw regex always matched, and NOTHING else on any html file moves -- no function, class, LOC or other signal. The micro-repro still records the JS body's own signals, so the payload handshake is intact. Manifests re-blessed in this PR; from here the cell's live cause is html-func-start-counts-script-elements.",
       "upstream_issue": "squid-protocol/gitgalaxy#2549",
-      "investigated_by": "claude-sonnet-5",
-      "validated_at": "2026-08-31",
-      "still_reproduces": true
+      "investigated_by": "claude-sonnet-5; retired 2026-09-07 by claude-opus-5 (gitgalaxy#2549)",
+      "validated_at": "2026-09-07",
+      "still_reproduces": false
     },
     {
       "id": "batch5-tier2-morphology-shapes",
@@ -1343,9 +1343,9 @@
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "functions_found html 0 against a median of 13. The html func_start rule DOES match: three `<script` openers in a.html, one in b.html, three in c.html, two in main.html (nine in total, verified through coding_analysis). They do not survive into the recorded equations because the elements are empty -- `<script></script>` with no body -- so `splice` extracts no function and records func_start 0, which the manifest bakes. The emptiness is deliberate corpus design (gitgalaxy#2669 A.2 planted html's probe bodies as empty elements carrying only the signal tokens). Filling twelve script bodies would move html toward the median but changes what the html probe is testing; that is a SPEC decision, not a cell fix.",
+      "verdict": "functions_found html 0 against a median of 13. The html func_start rule DOES match: three `<script` openers in a.html, one in b.html, three in c.html, two in main.html (nine in total, verified through coding_analysis). The tags themselves are recorded since gitgalaxy#2549 (func_start 2/3/1/3), but no FUNCTION row follows them: the elements are empty -- `<script></script>` with no body -- so `splice` has nothing to slice and functions_found stays 0, which the manifest bakes. The emptiness is deliberate corpus design (gitgalaxy#2669 A.2 planted html's probe bodies as empty elements carrying only the signal tokens). Filling twelve script bodies would move html toward the median but changes what the html probe is testing; that is a SPEC decision, not a cell fix. 2026-09-07: gitgalaxy#2549 landed and retired html-script-func-start-unreachable, which was mechanism (1) of the two this cell stacked. This entry is mechanism (2) and still reproduces: an empty element produces no function row whichever lens owns the tag. The SPEC decision it names -- fill the twelve bodies, and accept that the bodies then exercise JavaScript's rules on html's row -- is still open and still not a cell fix.",
       "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
-      "validated_at": "2026-09-04",
+      "validated_at": "2026-09-07",
       "still_reproduces": true
     },
     {
@@ -1876,6 +1876,20 @@
       "investigated_by": "claude-fable-5",
       "validated_at": "2026-09-07",
       "still_reproduces": false
+    },
+    {
+      "id": "html-func-start-counts-script-elements",
+      "signal": "func_start",
+      "languages_seen": [
+        "html"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "html reads func_start 9 corpus-wide (main 2, a 3, b 1, c 3) against the SPEC's planted 13 function definitions, and the gap is the language, not the plant: markup declares no functions. html's func_start anchors `<script`/`<style` element openings -- the only executable-behavior blocks markup has, and the reason a markup language gets the rule at all (docs/language_status/html.md sec 3) -- so one hit is one element, not one declaration. The shell plants twelve probes, but three of the twelve slots are not script elements: gitgalaxy#2645 replaced two of main.html's empty `<script>` placeholders with `srcdoc=` iframes to give high_risk_execution a surface, and keyword-rosetta#33 replaced probe_bypass's with the `on*=` + `eval(` form. Nine elements remain and nine is what the engine reads. Planting four more bare `<script></script>` tags purely to reach 13 would measure nothing new -- the same tag, four more times -- so the count stays as-is and the deviation is recorded here. Distinct from html-probe-bodies-are-empty-by-design, which is about functions_found (the FUNCTION rows those elements do not produce, because their bodies are empty), and from the retired html-script-func-start-unreachable, which was the engine bug that made this cell 0.",
+      "upstream_issue": null,
+      "investigated_by": "claude-opus-5 (gitgalaxy#2549 pairing)",
+      "validated_at": "2026-09-07",
+      "still_reproduces": true
     }
   ]
 }
