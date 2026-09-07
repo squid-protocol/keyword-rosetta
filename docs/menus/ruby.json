@@ -29,13 +29,9 @@
       "for",
       "while",
       "until",
-      "begin",
-      "rescue",
-      "ensure",
       "break",
       "next",
-      "redo",
-      "retry"
+      "redo"
     ],
     "pattern_defined": true
   },
@@ -468,7 +464,9 @@
       "attr_reader",
       "attr_writer",
       "attr_accessor",
-      "Data.define"
+      "Data.define",
+      "begin",
+      "retry"
     ],
     "pattern_defined": true
   },

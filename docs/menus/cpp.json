@@ -30,10 +30,8 @@
       "for",
       "while",
       "do",
-      "catch",
       "break",
       "continue",
-      "goto",
       "co_yield",
       "co_await"
     ],
@@ -500,7 +498,8 @@
       "module",
       "export",
       "import",
-      "typedef"
+      "typedef",
+      "goto"
     ],
     "pattern_defined": true
   },

@@ -25,19 +25,11 @@
     "core": true,
     "keywords": [
       "if",
-      "then",
       "else",
       "switch",
       "case",
       "default",
       "repeat",
-      "while",
-      "until",
-      "times",
-      "try",
-      "catch",
-      "finally",
-      "throw",
       "next repeat",
       "and",
       "or",
@@ -391,7 +383,11 @@
       "play",
       "sort",
       "find",
-      "replace"
+      "replace",
+      "then",
+      "while",
+      "until",
+      "times"
     ],
     "pattern_defined": true
   },

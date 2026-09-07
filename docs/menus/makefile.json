@@ -19,7 +19,6 @@
       "ifdef",
       "ifndef",
       "else",
-      "endif",
       "if",
       "elif",
       "for",
@@ -276,7 +275,8 @@
     "core": false,
     "keywords": [
       "vpath",
-      "undefine"
+      "undefine",
+      "endif"
     ],
     "pattern_defined": true
   },

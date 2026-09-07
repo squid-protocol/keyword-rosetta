@@ -25,8 +25,6 @@
       "switch",
       "while",
       "for",
-      "try",
-      "catch",
       "orelse",
       "break",
       "continue"

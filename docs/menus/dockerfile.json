@@ -15,13 +15,9 @@
       "if",
       "elif",
       "else",
-      "fi",
       "case",
-      "esac",
       "for",
       "while",
-      "do",
-      "done",
       "until"
     ],
     "pattern_defined": true
@@ -289,7 +285,11 @@
       "VOLUME",
       "STOPSIGNAL",
       "SHELL",
-      "LABEL"
+      "LABEL",
+      "fi",
+      "esac",
+      "done",
+      "do"
     ],
     "pattern_defined": true
   },

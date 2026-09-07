@@ -35,9 +35,7 @@
       "case",
       "otherwise",
       "for",
-      "while",
-      "try",
-      "catch"
+      "while"
     ],
     "pattern_defined": true
   },

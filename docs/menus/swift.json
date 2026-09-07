@@ -26,7 +26,6 @@
     "core": true,
     "keywords": [
       "if",
-      "else",
       "guard",
       "switch",
       "case",
@@ -34,13 +33,8 @@
       "for",
       "while",
       "repeat",
-      "do",
-      "catch",
       "break",
-      "continue",
-      "defer",
-      "try",
-      "throws"
+      "continue"
     ],
     "pattern_defined": true
   },
@@ -472,6 +466,10 @@
       "yield",
       "await",
       "inout",
+      "try",
+      "throws",
+      "defer",
+      "do",
       "some",
       "any",
       "consume",

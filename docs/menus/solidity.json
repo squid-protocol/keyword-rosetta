@@ -26,9 +26,7 @@
       "while",
       "do",
       "break",
-      "continue",
-      "try",
-      "catch"
+      "continue"
     ],
     "pattern_defined": true
   },
@@ -321,7 +319,9 @@
       "bytes",
       "bool",
       "string",
-      "return"
+      "return",
+      "try",
+      "catch"
     ],
     "pattern_defined": true
   },

@@ -37,13 +37,9 @@
       "WHILE",
       "DO",
       "LOOP AT",
-      "TRY",
-      "CATCH",
-      "CLEANUP",
       "CHECK",
       "EXIT",
       "CONTINUE",
-      "RETURN",
       "COND",
       "SWITCH"
     ],
@@ -415,7 +411,8 @@
       "REPORT",
       "PROGRAM",
       "IMPORT",
-      "EXPORT"
+      "EXPORT",
+      "RETURN"
     ],
     "pattern_defined": true
   },

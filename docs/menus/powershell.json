@@ -30,11 +30,6 @@
       "while",
       "do",
       "until",
-      "try",
-      "catch",
-      "finally",
-      "throw",
-      "trap",
       "break",
       "continue"
     ],
@@ -398,7 +393,8 @@
     "core": false,
     "keywords": [
       "return",
-      "exit"
+      "exit",
+      "throw"
     ],
     "pattern_defined": true
   },

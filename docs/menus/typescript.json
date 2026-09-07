@@ -28,11 +28,8 @@
       "for",
       "while",
       "do",
-      "catch",
-      "finally",
       "continue",
-      "break",
-      "try"
+      "break"
     ],
     "pattern_defined": true
   },
@@ -421,9 +418,6 @@
       "catch",
       "finally",
       "satisfies",
-      "unknown",
-      "never",
-      "void",
       "Object.freeze"
     ],
     "pattern_defined": true
@@ -496,7 +490,10 @@
       "module",
       "implements",
       "extends",
-      "declare"
+      "declare",
+      "unknown",
+      "never",
+      "void"
     ],
     "pattern_defined": true
   },

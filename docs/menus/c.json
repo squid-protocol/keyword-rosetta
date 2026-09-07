@@ -26,8 +26,7 @@
       "while",
       "do",
       "break",
-      "continue",
-      "goto"
+      "continue"
     ],
     "pattern_defined": true
   },

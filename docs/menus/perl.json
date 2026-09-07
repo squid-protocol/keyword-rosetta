@@ -30,11 +30,6 @@
       "next",
       "last",
       "redo",
-      "try",
-      "catch",
-      "finally",
-      "defer",
-      "goto",
       "continue",
       "default"
     ],
@@ -476,7 +471,8 @@
       "do",
       "true",
       "false",
-      "await"
+      "await",
+      "goto"
     ],
     "pattern_defined": true
   },

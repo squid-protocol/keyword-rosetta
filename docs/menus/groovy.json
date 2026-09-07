@@ -24,10 +24,7 @@
       "default",
       "for",
       "while",
-      "in",
-      "try",
-      "catch",
-      "finally"
+      "in"
     ],
     "pattern_defined": true
   },

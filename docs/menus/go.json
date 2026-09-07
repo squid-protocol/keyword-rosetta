@@ -23,9 +23,7 @@
       "case",
       "default",
       "for",
-      "range",
       "select",
-      "goto",
       "break",
       "continue",
       "fallthrough"
@@ -363,7 +361,9 @@
       "chan",
       "map",
       "interface",
-      "struct"
+      "struct",
+      "goto",
+      "range"
     ],
     "pattern_defined": true
   },

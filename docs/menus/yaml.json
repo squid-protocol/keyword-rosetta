@@ -15,13 +15,9 @@
       "if",
       "else",
       "elif",
-      "fi",
       "case",
-      "esac",
       "for",
-      "while",
-      "do",
-      "done"
+      "while"
     ],
     "pattern_defined": true
   },

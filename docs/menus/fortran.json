@@ -37,14 +37,11 @@
       "ELSEIF",
       "ELSE",
       "DO",
-      "WHILE",
       "SELECT CASE",
       "CASE",
       "DEFAULT",
       "WHERE",
       "ELSEWHERE",
-      "GO TO",
-      "GOTO",
       "SELECT TYPE",
       "SELECT RANK",
       "EXIT",
@@ -426,7 +423,8 @@
       "LOGICAL",
       "CHARACTER",
       "DOUBLE PRECISION",
-      "CLASS"
+      "CLASS",
+      "WHILE"
     ],
     "pattern_defined": true
   },

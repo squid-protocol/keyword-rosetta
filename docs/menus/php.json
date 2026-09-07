@@ -27,13 +27,9 @@
       "for",
       "while",
       "do",
-      "try",
-      "catch",
-      "finally",
       "break",
       "continue",
-      "match",
-      "goto"
+      "match"
     ],
     "pattern_defined": true
   },
@@ -473,7 +469,8 @@
       "implements",
       "extends",
       "clone",
-      "new"
+      "new",
+      "goto"
     ],
     "pattern_defined": true
   },

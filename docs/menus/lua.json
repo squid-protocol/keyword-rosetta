@@ -18,18 +18,13 @@
     "core": true,
     "keywords": [
       "if",
-      "then",
       "elseif",
       "else",
       "for",
-      "in",
       "while",
-      "do",
       "repeat",
-      "until",
       "break",
       "continue",
-      "goto",
       "and",
       "or",
       "not"
@@ -441,7 +436,12 @@
       "module",
       "return",
       "export type",
-      "type"
+      "type",
+      "then",
+      "in",
+      "do",
+      "until",
+      "goto"
     ],
     "pattern_defined": true
   },

@@ -28,7 +28,6 @@
       "ELSE",
       "EVALUATE",
       "WHEN",
-      "PERFORM",
       "UNTIL",
       "VARYING",
       "TIMES",
@@ -388,7 +387,8 @@
       "XML PARSE",
       "JSON GENERATE",
       "DISPLAY",
-      "STOP RUN"
+      "STOP RUN",
+      "PERFORM"
     ],
     "pattern_defined": true
   },

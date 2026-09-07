@@ -25,12 +25,9 @@
       "for",
       "while",
       "do",
-      "catch",
-      "finally",
       "continue",
       "break",
       "yield",
-      "try",
       "when"
     ],
     "pattern_defined": true

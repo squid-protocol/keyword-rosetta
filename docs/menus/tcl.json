@@ -23,11 +23,7 @@
       "switch",
       "while",
       "for",
-      "foreach",
-      "catch",
-      "try",
-      "trap",
-      "finally"
+      "foreach"
     ],
     "pattern_defined": true
   },

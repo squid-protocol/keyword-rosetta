@@ -18,13 +18,13 @@
     "core": true,
     "keywords": [
       "if",
+      "case",
+      "loop",
       "elsif",
       "else",
-      "case",
       "when",
       "for",
       "while",
-      "loop",
       "exit"
     ],
     "pattern_defined": true

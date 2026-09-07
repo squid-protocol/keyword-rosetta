@@ -27,10 +27,8 @@
     "core": true,
     "keywords": [
       "if",
-      "then",
       "else",
       "case",
-      "of",
       "MultiWayIf"
     ],
     "pattern_defined": true
@@ -513,7 +511,9 @@
       "mdo",
       "deriving",
       "family",
-      "pattern"
+      "pattern",
+      "then",
+      "of"
     ],
     "pattern_defined": true
   },

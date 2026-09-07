@@ -27,9 +27,6 @@
       "for",
       "while",
       "do",
-      "try",
-      "catch",
-      "finally",
       "break",
       "continue"
     ],

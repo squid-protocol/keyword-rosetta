@@ -20,17 +20,12 @@
     "core": true,
     "keywords": [
       "if",
-      "then",
       "else",
       "match",
       "case",
-      "try",
-      "catch",
-      "finally",
       "for",
       "while",
       "do",
-      "throw",
       "yield"
     ],
     "pattern_defined": true
@@ -483,7 +478,12 @@
       "derives",
       "new",
       "given",
-      "using"
+      "using",
+      "then",
+      "try",
+      "catch",
+      "finally",
+      "throw"
     ],
     "pattern_defined": true
   },

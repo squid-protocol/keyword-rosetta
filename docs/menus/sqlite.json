@@ -19,9 +19,7 @@
     "keywords": [
       "CASE",
       "WHEN",
-      "THEN",
       "ELSE",
-      "END",
       "IFNULL",
       "NULLIF",
       "COALESCE",
@@ -438,7 +436,9 @@
       "PRECEDING",
       "FOLLOWING",
       "UNBOUNDED",
-      "CURRENT ROW"
+      "CURRENT ROW",
+      "THEN",
+      "END"
     ],
     "pattern_defined": true
   },

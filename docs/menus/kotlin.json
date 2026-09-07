@@ -28,9 +28,6 @@
       "for",
       "while",
       "do",
-      "try",
-      "catch",
-      "finally",
       "break",
       "continue"
     ],
@@ -431,7 +428,10 @@
       "interface",
       "object",
       "fun",
-      "typealias"
+      "typealias",
+      "try",
+      "catch",
+      "finally"
     ],
     "pattern_defined": true
   },

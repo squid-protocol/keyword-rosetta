@@ -33,8 +33,7 @@
       "while",
       "do",
       "break",
-      "continue",
-      "goto"
+      "continue"
     ],
     "pattern_defined": true
   },
@@ -468,7 +467,8 @@
       "__block",
       "__weak",
       "__strong",
-      "return"
+      "return",
+      "goto"
     ],
     "pattern_defined": true
   },

@@ -13,16 +13,11 @@
     "core": true,
     "keywords": [
       "if",
-      "then",
       "else",
       "elif",
-      "fi",
       "case",
-      "esac",
       "for",
       "while",
-      "do",
-      "done",
       "until",
       "select",
       "break",
@@ -383,7 +378,12 @@
       "mv",
       "rm",
       "mkdir",
-      "touch"
+      "touch",
+      "then",
+      "fi",
+      "esac",
+      "done",
+      "do"
     ],
     "pattern_defined": true
   },
