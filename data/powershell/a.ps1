@@ -16,7 +16,7 @@ function probe_test {
 
 function probe_safety {
     param($value)
-    trap { continue }
+    trap { }
     ValidateSet
 }
 

@@ -19,7 +19,7 @@ jobs:
     uses: ./a.yml
     steps:
       - run: |
-          if true; then :; else :; fi
+          if true; then :; elif false; then :; else :; fi
       - run: |
           curl localhost
           wget localhost

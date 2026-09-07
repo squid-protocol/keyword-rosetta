@@ -11,6 +11,8 @@ function entry(argv)
 end
 
 function probe_branch(flag)
+  while false do
+  end
   if flag > 0 then
     return 1
   else

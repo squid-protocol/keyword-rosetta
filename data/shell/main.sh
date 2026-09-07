@@ -21,7 +21,12 @@ probe_branch() {
     : "$1"
     if [ 1 -gt 0 ]; then
         :
+    else
+        :
     fi
+    while false; do
+        :
+    done
 }
 
 probe_io() {

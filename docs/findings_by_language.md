@@ -9,50 +9,50 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | language | red-zone metrics | amber | n/a cells | ledgered shapes | upstream issues |
 |---|---|---|---|---|---|
 | [abap](#abap) | 0 | 0 | 0 | 6 | #2535 #2650 #2659 #2730 #2731 #2765 #2824 |
-| [ada](#ada) | 0 | 5 | 0 | 4 | #2535 #2546 |
+| [ada](#ada) | 0 | 0 | 0 | 5 | #2535 #2546 #2822 |
 | [agc_assembly](#agc_assembly) | 2 | 1 | 1 | 8 | #2650 #2659 #2729 #2764 |
 | [apex](#apex) | 2 | 0 | 0 | 11 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 |
 | [assembly](#assembly) | 0 | 0 | 0 | 5 | #2535 #2727 #2764 |
 | [c](#c) | 0 | 3 | 0 | 10 | #2535 #2546 #2626 #2655 #2689 #2729 #2730 #2731 #2765 |
-| [cobol](#cobol) | 3 | 1 | 0 | 16 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2805 #2827 |
-| [cpp](#cpp) | 2 | 5 | 0 | 8 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
-| [csharp](#csharp) | 0 | 4 | 0 | 7 | #2535 #2546 #2730 #2731 #2822 |
+| [cobol](#cobol) | 3 | 2 | 0 | 18 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2805 #2822 #2827 |
+| [cpp](#cpp) | 0 | 1 | 0 | 9 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
+| [csharp](#csharp) | 0 | 1 | 0 | 8 | #2535 #2546 #2730 #2731 #2822 |
 | [css](#css) | 7 | 2 | 4 | 16 | #2549 #2655 #2689 #2729 #2752 #2770 |
 | [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
-| [dockerfile](#dockerfile) | 6 | 5 | 0 | 14 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 |
+| [dockerfile](#dockerfile) | 6 | 5 | 0 | 15 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2822 |
 | [embedded_python](#embedded_python) | 3 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
-| [fortran](#fortran) | 0 | 5 | 0 | 11 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 |
+| [fortran](#fortran) | 0 | 2 | 0 | 12 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 |
 | [go](#go) | 0 | 1 | 0 | 10 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 |
 | [groovy](#groovy) | 0 | 0 | 0 | 6 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 |
-| [haskell](#haskell) | 5 | 2 | 0 | 10 | #2535 #2689 #2729 #2765 #2770 |
+| [haskell](#haskell) | 5 | 2 | 0 | 11 | #2535 #2689 #2729 #2765 #2770 #2822 |
 | [html](#html) | 12 | 4 | 2 | 15 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2770 |
 | [java](#java) | 0 | 0 | 0 | 8 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 |
 | [javascript](#javascript) | 0 | 5 | 0 | 13 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 |
-| [jcl](#jcl) | 5 | 2 | 2 | 18 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2806 |
+| [jcl](#jcl) | 5 | 2 | 2 | 19 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2806 #2822 |
 | [kotlin](#kotlin) | 0 | 1 | 0 | 11 | #2535 #2545 #2546 #2689 #2730 #2731 #2765 #2770 |
-| [livecode](#livecode) | 7 | 0 | 0 | 9 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 |
-| [lua](#lua) | 0 | 1 | 0 | 11 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 |
+| [livecode](#livecode) | 0 | 0 | 0 | 10 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 |
+| [lua](#lua) | 0 | 1 | 0 | 12 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 #2822 |
 | [m4](#m4) | 2 | 1 | 2 | 11 | #2535 #2689 #2731 #2765 #2770 #2806 |
-| [makefile](#makefile) | 6 | 6 | 1 | 12 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2806 |
+| [makefile](#makefile) | 6 | 2 | 1 | 14 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2806 #2822 |
 | [markdown](#markdown) | 10 | 1 | 27 | 9 | #2549 #2638 #2655 #2689 #2770 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 1 | 1 | 0 | 7 | #2535 #2545 #2546 #2730 #2765 #2773 |
 | [perl](#perl) | 1 | 1 | 0 | 10 | #2535 #2546 #2626 #2670 #2689 #2730 #2731 #2765 #2770 |
 | [php](#php) | 0 | 0 | 0 | 8 | #2535 #2541 #2546 #2689 #2730 #2731 #2770 |
-| [powershell](#powershell) | 7 | 0 | 0 | 9 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 |
+| [powershell](#powershell) | 2 | 0 | 0 | 9 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 #2822 |
 | [python](#python) | 0 | 2 | 0 | 12 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
-| [ruby](#ruby) | 2 | 4 | 0 | 7 | #2535 #2546 #2547 #2727 #2731 #2822 |
+| [ruby](#ruby) | 0 | 0 | 0 | 8 | #2535 #2546 #2547 #2727 #2731 #2822 |
 | [rust](#rust) | 1 | 0 | 0 | 8 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 |
 | [scala](#scala) | 0 | 1 | 0 | 8 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 |
 | [scheme](#scheme) | 1 | 1 | 0 | 9 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
-| [shell](#shell) | 5 | 1 | 1 | 8 | #2535 #2547 #2727 #2731 |
+| [shell](#shell) | 0 | 1 | 1 | 9 | #2535 #2547 #2727 #2731 #2822 |
 | [solidity](#solidity) | 1 | 0 | 1 | 10 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 |
-| [sqlite](#sqlite) | 12 | 2 | 0 | 12 | #2535 #2547 #2549 #2655 #2728 #2730 #2765 #2822 |
-| [swift](#swift) | 1 | 5 | 0 | 8 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 |
-| [tcl](#tcl) | 3 | 4 | 0 | 9 | #2535 #2546 #2727 #2731 #2765 |
-| [typescript](#typescript) | 0 | 2 | 0 | 11 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 |
+| [sqlite](#sqlite) | 9 | 3 | 0 | 14 | #2535 #2547 #2549 #2655 #2728 #2730 #2765 #2822 |
+| [swift](#swift) | 1 | 0 | 0 | 9 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 |
+| [tcl](#tcl) | 1 | 0 | 0 | 10 | #2535 #2546 #2727 #2731 #2765 #2822 |
+| [typescript](#typescript) | 0 | 1 | 0 | 12 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 |
 | [yacc](#yacc) | 5 | 0 | 2 | 8 | #2644 #2689 #2729 #2770 |
-| [yaml](#yaml) | 4 | 0 | 0 | 12 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 |
+| [yaml](#yaml) | 4 | 0 | 0 | 13 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 |
 | [zig](#zig) | 0 | 1 | 0 | 7 | #2535 #2545 #2651 #2730 #2731 #2765 |
 
 ## abap
@@ -78,20 +78,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## ada
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
-- 🟡 `branch`: 4 vs median 3 (+33%)
-- 🟡 `cog_raw`: 0.0275 vs median 0.0205 (+34%)
-- 🟡 `func_internal_density`: 0.0208333 vs median 0.015625 (+33%)
-- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.adb | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.adb | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `ada-end-if-branch-inflation` | keyword-overlap | — | (notes) | ada's closing 'end if' re-matches \bif\b: every well-formed if statement counts branch at least twice (if + end if) |
+| `ada-end-if-branch-inflation` | keyword-overlap | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | (notes) | ada's closing 'end if' re-matches \bif\b: every well-formed if statement counts branch at least twice (if + end if) |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -214,11 +209,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `risk_documentation`: 61.8861 vs median 40.1963 (+54%)
 - 🟡 `risk_safety_score`: 53.496 vs median 42.3138 (+26%)
+- 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `cobol-tech-debt-floor-after-dispatch-plant` | engine-semantic | — | — | risk_tech_debt/cobol 46.21 -> 23.10 when the owed dispatch plant (gitgalaxy#2806 note, landed with gitgalaxy#2822's corpus PR) made PROBE-IO/PROBE-RISK referenced: raw_s… |
 | `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
@@ -230,6 +227,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `cobol-args-clause-match-morphology` | intended-morphology | — | (notes) | cobol args 1 vs planted 13 is intended morphology, not an authoring gap (bucket-3 test run before ledgering, jcl PARM= precedent checked) |
 | `cobol-working-storage-globals` | keyword-overlap | [#2805](https://github.com/squid-protocol/gitgalaxy/issues/2805) | (notes) | cobol globals pattern includes WORKING-STORAGE\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1 |
 | `api-declared-orphans-blind-to-non-word-names` | upstream-bug | [#2827](https://github.com/squid-protocol/gitgalaxy/issues/2827) | — | api_orphan_credit reads 3 in a/b/c for both languages where it should read 0 |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `cobol-2661-author-doc-collision` | upstream-bug | [#2661](https://github.com/squid-protocol/gitgalaxy/issues/2661) | (notes) | cobol's doc rule lists AUTHOR in the same bare-tag alternative that its ownership rule owns exclusively -- the shape gitgalaxy#2659 fixed for agc_assembly/fortran/liveco… |
 | `cobol-hyphen-identifier-debt-leak` | upstream-bug | [#2537](https://github.com/squid-protocol/gitgalaxy/issues/2537) | c.cpy | Debt rules are whole-text, not comment-anchored, and '-' is a regex word boundary: HACK-LEVEL (data item, 2 code occurrences) counts fragile_debt, PROBE-TODO (paragraph … |
 | `cobol-area-b-bare-token-paragraph` | upstream-question | [#2538](https://github.com/squid-protocol/gitgalaxy/issues/2538) | (notes) | A bare token + period in Area B (CEE3DMP |
@@ -246,12 +244,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
-- 🔴 `risk_cognitive_load`: 2.5747 vs median 1.29535 (+99%)
-- 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
-- 🟡 `branch`: 4 vs median 3 (+33%)
-- 🟡 `func_internal_density`: 0.0225694 vs median 0.015625 (+44%)
-- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
 - 🟡 `risk_state_flux`: 5.78688 vs median 7.75065 (-25%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -262,6 +254,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.cpp | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cpp | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 
@@ -277,9 +270,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
-- 🟡 `branch`: 4 vs median 3 (+33%)
-- 🟡 `func_internal_density`: 0.0208333 vs median 0.015625 (+33%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -290,6 +280,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cs | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `csharp-environment-exit-is-global-and-danger` | keyword-overlap | — | — | csharp globals 3 vs a median of 2 |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -392,6 +383,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dockerfile | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | (notes) | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `duplicate-check-counts-slicer-buckets` | upstream-bug | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | dockerfile is the only nonzero duplicate cell in 46 languages (1.00 mean) and it is a phantom |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
@@ -439,9 +431,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
-- 🟡 `branch`: 4 vs median 3 (+33%)
-- 🟡 `func_internal_density`: 0.0208333 vs median 0.015625 (+33%)
 - 🟡 `risk_safety_score`: 57.4623 vs median 43.364 (+33%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
@@ -452,8 +441,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | (notes) | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `fortran-common-globals-safety-dual-classification` | intended-morphology | — | — | fortran reads safety_bypasses 3 against a planted 2 because probe_globals plants a COMMON block, which legitimately fires BOTH rules |
-| `fortran-goto-dual-branch-highrisk` | keyword-overlap | — | (notes) | GOTO is in both fortran's branch rule and its high_risk_execution rule — one planted GOTO counts both |
+| `fortran-goto-dual-branch-highrisk` | keyword-overlap | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | (notes) | GOTO is in both fortran's branch rule and its high_risk_execution rule — one planted GOTO counts both |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 | `fortran-use-case-insensitive-dag` | upstream-bug | [#2540](https://github.com/squid-protocol/gitgalaxy/issues/2540) | — | 'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
@@ -537,6 +527,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
 | `haskell-finally-dual-cleanup-safety` | keyword-overlap | — | (notes) | finally is in both haskell's cleanup and safety rules (finditer-confirmed on c.hs) — one planted finally counts both. |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -687,6 +678,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `probe-idiom-collides-with-measured-signal` | intended-morphology | — | (notes) | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | (notes) | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `comment-stream-rules-missing-jcl-yaml` | upstream-question | [#2732](https://github.com/squid-protocol/gitgalaxy/issues/2732) | (notes) | RESOLVED by gitgalaxy#2732 (PR #2736); corpus plants land in this repo's companion PR |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -726,15 +718,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## livecode
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🔴 `avg_func_complexity`: 0.333333 vs median 0.1875 (+78%)
-- 🔴 `branch`: 5 vs median 3 (+67%)
-- 🔴 `cog_raw`: 0.0325 vs median 0.0205 (+59%)
-- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
-- 🔴 `func_internal_density`: 0.0277778 vs median 0.015625 (+78%)
-- 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
-- 🔴 `risk_cognitive_load`: 2.7145 vs median 1.29535 (+110%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -743,6 +727,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.lc | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
@@ -772,6 +757,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.lua | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `lua-2657-indented-return-not-module-export` | upstream-bug | [#2657](https://github.com/squid-protocol/gitgalaxy/issues/2657) | — | lua's api rule's module-export 'return <ident>' alternative allowed any indentation, so ordinary function-body returns miscounted as module exports -- RESOLVED via gitga… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
@@ -821,15 +807,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0.125 vs median 1 (-88%)
-- 🔴 `cog_raw`: 0.08 vs median 0.0205 (+290%)
+- 🔴 `cog_raw`: 0.07325 vs median 0.0205 (+257%)
 - 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
-- 🔴 `risk_cognitive_load`: 3.8718 vs median 1.29535 (+199%)
+- 🔴 `risk_cognitive_load`: 3.67023 vs median 1.29535 (+183%)
 - 🔴 `risk_documentation`: 71.0815 vs median 41.6651 (+71%)
-- 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
-- 🟡 `branch`: 4 vs median 3 (+33%)
 - 🟡 `cleanup`: 3 vs median 2 (+50%)
-- 🟡 `func_internal_density`: 0.0225694 vs median 0.015625 (+44%)
-- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
 - 🟡 `risk_api_exposure`: 9.35645 vs median 7.0517 (+33%)
 
 **Not expressible as measured (n/a):** `class_start`
@@ -845,9 +827,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `makefile-class-start-no-entity-declaration` | intended-morphology | — | — | GNU Make's model is variables plus file/phony targets; it has no entity or type-declaration concept |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `makefile-2648-slicer-fallthrough` | upstream-bug | [#2648](https://github.com/squid-protocol/gitgalaxy/issues/2648) | — | makefile had zero brace-delimited bodies but was missing from detector.py's Mode_A_Labels tuple, silently falling through to Mode_B_Braces and dropping ~100% of real fun… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 | `m4-makefile-api-scores-above-stratum` | upstream-question | [#2806](https://github.com/squid-protocol/gitgalaxy/issues/2806) | — | OPEN INVESTIGATION (born 2026-09-06, Phase 0 cause triage) |
+| `makefile-gini-blind-to-toplevel-conditionals` | upstream-question | — | — | func_complexity_gini/makefile (0.354 vs 0.1875 median) surfaced as its own cell the moment gitgalaxy#2822 landed makefile's branch total on the median -- before that it … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -985,20 +969,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_complexity`: 0.354167 vs median 0.1875 (+89%)
-- 🔴 `branch`: 5 vs median 3 (+67%)
-- 🔴 `cog_raw`: 0.065 vs median 0.0205 (+217%)
-- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
-- 🔴 `func_internal_density`: 0.0295139 vs median 0.015625 (+89%)
-- 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
-- 🔴 `risk_cognitive_load`: 3.52337 vs median 1.29535 (+172%)
+- 🔴 `cog_raw`: 0.055 vs median 0.0205 (+168%)
+- 🔴 `risk_cognitive_load`: 2.14335 vs median 1.29535 (+65%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.ps1, c.ps1 | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.ps1 | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `powershell-2656-param-if-switch-not-api` | upstream-bug | [#2656](https://github.com/squid-protocol/gitgalaxy/issues/2656) | — | powershell's api rule's bare-identifier alternative lacked the keyword exclusions func_start/args already carry, so param(/if(/switch( lines miscounted as API surface --… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
@@ -1047,14 +1026,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## ruby
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
-- 🔴 `risk_cognitive_load`: 2.5747 vs median 1.29535 (+99%)
-- 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
-- 🟡 `branch`: 4 vs median 3 (+33%)
-- 🟡 `func_internal_density`: 0.0225694 vs median 0.015625 (+44%)
-- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1062,6 +1034,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.rb | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.rb | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
@@ -1154,11 +1127,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_complexity`: 0.3125 vs median 0.1875 (+67%)
-- 🔴 `branch`: 5 vs median 3 (+67%)
-- 🔴 `cog_raw`: 0.0345 vs median 0.0205 (+68%)
-- 🔴 `func_internal_density`: 0.0260417 vs median 0.015625 (+67%)
-- 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
 - 🟡 `globals`: 3 vs median 2 (+50%)
 
 **Not expressible as measured (n/a):** `class_start`
@@ -1166,11 +1134,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `shell-test-brackets-in-branch` | engine-semantic | — | (notes) | shell's branch rule counts the test brackets [ and ] as branch tokens (finditer on main.sh: if,[,],then,fi = 5 for one conditional) — every bracketed test costs +2 branc… |
+| `shell-test-brackets-in-branch` | engine-semantic | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | (notes) | shell's branch rule counts the test brackets [ and ] as branch tokens (finditer on main.sh: if,[,],then,fi = 5 for one conditional) — every bracketed test costs +2 branc… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sh | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `shell-class-start-no-oop-morphology` | intended-morphology | — | — | Comment at shell.py:119-121: 'Shell is strictly procedural.' The one candidate construct, associative arrays (`declare -A`), is a data-structure instance, not a type/ent… |
 | `shell-trap-signal-env-collision` | keyword-overlap | — | (notes) | 'trap : TERM' counts globals: the TERM signal name collides with the TERM env-var keyword in shell's globals rule (a.sh globals 3 for 2 planted) |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | (notes) | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
@@ -1217,17 +1186,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0.0625 vs median 1 (-94%)
-- 🔴 `branch`: 5 vs median 3 (+67%)
-- 🔴 `cog_raw`: 0.036 vs median 0.0205 (+76%)
 - 🔴 `functions_found`: 31 vs median 13 (+138%)
 - 🔴 `io`: 9 vs median 3 (+200%)
-- 🔴 `max_func_complexity`: 1.25 vs median 0.75 (+67%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 7.0517 (-100%)
 - 🔴 `risk_documentation`: 0 vs median 40.1963 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
-- 🟡 `risk_cognitive_load`: 1.62573 vs median 1.29535 (+26%)
+- 🟡 `avg_func_complexity`: 0.09375 vs median 0.1875 (-50%)
+- 🟡 `func_internal_density`: 0.0078125 vs median 0.015625 (-50%)
 - 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -1239,11 +1206,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sql | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `sqlite-dot-read-dual-import-io` | keyword-overlap | — | (notes) | ^.read counts BOTH import and io (finditer-confirmed) — every corpus chain link adds +1 io in sqlite |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-no-plantable-idiom` | upstream-question | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
+| `sqlite-function-census-masked-by-branch-inflation` | upstream-question | — | — | avg_func_complexity/sqlite went out of band the moment gitgalaxy#2822 corrected its branch count (5->3): the old CASE/WHEN/THEN/ELSE/END inflation was masking the real d… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -1258,11 +1227,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `risk_state_flux`: 2.98007 vs median 7.75065 (-62%)
-- 🟡 `avg_func_complexity`: 0.25 vs median 0.1875 (+33%)
-- 🟡 `branch`: 4 vs median 3 (+33%)
-- 🟡 `cog_raw`: 0.0275 vs median 0.0205 (+34%)
-- 🟡 `func_internal_density`: 0.0208333 vs median 0.015625 (+33%)
-- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1271,6 +1235,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.swift | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.swift | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 | `swift-import-capture-min-two-chars` | upstream-question | [#2543](https://github.com/squid-protocol/gitgalaxy/issues/2543) | (notes) | swift's _dependency_capture requires module names of 2+ characters ([a-zA-Z_][\w.]+), so 'import a' captures nothing: the corpus's swift chain never resolves, popularity… |
@@ -1287,13 +1252,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
 - 🔴 `io`: 7 vs median 3 (+133%)
-- 🔴 `risk_cognitive_load`: 2.5747 vs median 1.29535 (+99%)
-- 🟡 `avg_func_complexity`: 0.270833 vs median 0.1875 (+44%)
-- 🟡 `branch`: 4 vs median 3 (+33%)
-- 🟡 `func_internal_density`: 0.0225694 vs median 0.015625 (+44%)
-- 🟡 `max_func_complexity`: 1 vs median 0.75 (+33%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1304,6 +1263,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 
@@ -1319,7 +1279,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🟡 `risk_state_flux`: 4.19955 vs median 7.75065 (-46%)
-- 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1332,6 +1291,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.ts | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `ts-callparen-args` | engine-semantic | [#2773](https://github.com/squid-protocol/gitgalaxy/issues/2773) | (notes) | typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params — a.ts args 5 for 3 declarations (finditer-co… |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `typescript-type-keywords-count-as-safety` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | a.ts reads safety 3 against a plant of 2: `unknown` twice (a parameter type and a local's type) plus `never` |
 
@@ -1392,6 +1352,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `no-lock-construct-sync-locks` | intended-morphology | — | — | No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms reado… |
 | `no-visibility-construct-encapsulation` | intended-morphology | — | — | No visibility/privacy construct: jcl -- PROCs and symbolic parameters are parameterization, not privacy; nothing in JCL syntax hides one statement from another |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | (notes) | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
+| `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `comment-stream-rules-missing-jcl-yaml` | upstream-question | [#2732](https://github.com/squid-protocol/gitgalaxy/issues/2732) | (notes) | RESOLVED by gitgalaxy#2732 (PR #2736); corpus plants land in this repo's companion PR |
 | `yaml-cleanup-embedded-teardown-gap` | upstream-question | [#2647](https://github.com/squid-protocol/gitgalaxy/issues/2647) | — | yaml's cleanup is None |

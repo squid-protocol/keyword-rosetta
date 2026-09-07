@@ -16,6 +16,8 @@ on probe_branch pFlag
   else
     get 2
   end if
+  repeat 1 times
+  end repeat
 end probe_branch
 
 on probe_io pRoute
