@@ -8,14 +8,14 @@
 
       * ---- shared-state and verification probes ----
        PROBE-GLOBALS.
-           ENTRY 'PROBE-GLOBALS'.
+           ENTRY 'PROBE-GLOBALS' USING ARGV-BLOCK.
            DISPLAY REGION-ITEM.
            DISPLAY 'PLAIN ALTER DECOY TEXT'.
        PROBE-TEST.
-           ENTRY 'PROBE-TEST'.
+           ENTRY 'PROBE-TEST' USING ARGV-BLOCK.
            ASSERT RESULT-ONE.
            ZUNIT RESULT-TWO.
        PROBE-SAFETY.
-           ENTRY 'PROBE-SAFETY'.
+           ENTRY 'PROBE-SAFETY' USING ARGV-BLOCK.
            VALIDATE RECORD-A.
            CHECK RECORD-B.

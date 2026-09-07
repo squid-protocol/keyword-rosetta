@@ -103,7 +103,7 @@
    "apex": 13,
    "assembly": 13,
    "c": 13,
-   "cobol": 1,
+   "cobol": 10,
    "cpp": 13,
    "csharp": 13,
    "css": 6,
@@ -3079,7 +3079,7 @@
    "apex": 128.25,
    "assembly": 136.25,
    "c": 122,
-   "cobol": 176.5,
+   "cobol": 190,
    "cpp": 127.25,
    "csharp": 131.75,
    "css": 100.75,
@@ -3127,7 +3127,7 @@
    "apex": 136,
    "assembly": 160,
    "c": 138,
-   "cobol": 146,
+   "cobol": 155,
    "cpp": 149,
    "csharp": 153,
    "css": 75,
@@ -3798,7 +3798,6 @@
   }
  ],
  "cell_categories": {
-  "args/cobol": "inherency",
   "args/css": "extraction",
   "args/dockerfile": "inherency",
   "args/html": "extraction",
@@ -3806,7 +3805,7 @@
   "args/makefile": "inherency",
   "args/sqlite": "inherency",
   "args/yacc": "inherency",
-  "avg_func_args/cobol": "inherency",
+  "avg_func_args/cobol": "extraction",
   "avg_func_args/css": "inherency",
   "avg_func_args/dockerfile": "inherency",
   "avg_func_args/html": "inherency",
@@ -3995,7 +3994,7 @@
    45
   ],
   "avg_func_args": [
-   0,
+   1,
    46
   ],
   "avg_func_complexity": [
