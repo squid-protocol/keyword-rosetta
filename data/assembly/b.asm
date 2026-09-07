@@ -21,5 +21,5 @@ probe_state:
     mov rdi, 10
     inc rax
     dec rbx
-    msg db "plain sys_exit decoy text"
+    db "plain sys_exit decoy text"
     ret

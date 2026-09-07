@@ -12,16 +12,16 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [ada](#ada) | 0 | 0 | 0 | 5 | #2535 #2546 #2822 |
 | [agc_assembly](#agc_assembly) | 2 | 1 | 2 | 9 | #2650 #2659 #2729 #2764 |
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 |
-| [assembly](#assembly) | 0 | 0 | 0 | 5 | #2535 #2727 #2764 |
+| [assembly](#assembly) | 0 | 0 | 0 | 6 | #2535 #2727 #2764 #2858 |
 | [c](#c) | 0 | 1 | 0 | 12 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 |
 | [cobol](#cobol) | 3 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 |
 | [cpp](#cpp) | 0 | 1 | 0 | 10 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
-| [csharp](#csharp) | 0 | 1 | 0 | 8 | #2535 #2546 #2730 #2731 #2822 |
+| [csharp](#csharp) | 0 | 0 | 0 | 9 | #2535 #2546 #2730 #2731 #2822 #2858 |
 | [css](#css) | 7 | 2 | 4 | 15 | #2549 #2655 #2689 #2729 #2752 #2770 |
 | [dart](#dart) | 0 | 1 | 0 | 7 | #2535 #2651 #2689 #2730 #2731 #2852 |
 | [dockerfile](#dockerfile) | 6 | 5 | 0 | 18 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2792 #2798 #2822 #2856 |
 | [embedded_python](#embedded_python) | 3 | 0 | 0 | 12 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2852 |
-| [fortran](#fortran) | 0 | 2 | 0 | 13 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 |
+| [fortran](#fortran) | 0 | 2 | 0 | 14 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 |
 | [go](#go) | 0 | 1 | 0 | 10 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 |
 | [groovy](#groovy) | 0 | 0 | 0 | 6 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 |
 | [haskell](#haskell) | 5 | 2 | 0 | 11 | #2535 #2689 #2729 #2765 #2770 #2822 |
@@ -45,10 +45,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [rust](#rust) | 1 | 0 | 0 | 8 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 |
 | [scala](#scala) | 0 | 1 | 0 | 9 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 |
 | [scheme](#scheme) | 1 | 1 | 0 | 10 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
-| [shell](#shell) | 0 | 1 | 2 | 10 | #2535 #2547 #2727 #2731 #2822 |
+| [shell](#shell) | 0 | 0 | 2 | 11 | #2535 #2547 #2727 #2731 #2822 #2858 |
 | [solidity](#solidity) | 1 | 0 | 1 | 11 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 |
 | [sqlite](#sqlite) | 11 | 2 | 1 | 15 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 |
-| [swift](#swift) | 1 | 0 | 0 | 10 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 |
+| [swift](#swift) | 1 | 0 | 0 | 11 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 #2858 |
 | [tcl](#tcl) | 0 | 0 | 0 | 9 | #2535 #2546 #2727 #2731 #2765 #2822 #2841 |
 | [typescript](#typescript) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 |
 | [yacc](#yacc) | 5 | 0 | 2 | 9 | #2644 #2689 #2729 #2770 |
@@ -164,6 +164,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `asm-call-ret-in-branch` | engine-semantic | [#2764](https://github.com/squid-protocol/gitgalaxy/issues/2764) | (notes) | assembly's branch rule includes call and ret (all control transfers) — correct for asm morphology but it means every probe body's ret and every glue call counts branch (… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.asm | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `globals-contract-2858` | upstream-bug | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | — | The globals rule had no stated contract; its two open-defect cells were two one-owner/ambiguity misfires (csharp's `Environment.` prefix counting the planted `Environmen… |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 | `asm-single-letter-mnemonic-in-path` | upstream-question | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | (notes) | ARM's single-letter 'b' branch mnemonic matches the word b anywhere literals count — including the filename inside %include "b.asm" (a.asm branch +1, finditer-confirmed) |
 
@@ -274,9 +275,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## csharp
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🟡 `globals`: 3 vs median 2 (+50%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -284,9 +283,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.cs | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cs | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `csharp-environment-exit-is-global-and-danger` | keyword-overlap | — | — | csharp globals 3 vs a median of 2 |
+| `csharp-environment-exit-is-global-and-danger` | keyword-overlap | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | (notes) | csharp globals 3 vs a median of 2 |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
+| `globals-contract-2858` | upstream-bug | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | — | The globals rule had no stated contract; its two open-defect cells were two one-owner/ambiguity misfires (csharp's `Environment.` prefix counting the planted `Environmen… |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -457,6 +457,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 | `fortran-use-case-insensitive-dag` | upstream-bug | [#2540](https://github.com/squid-protocol/gitgalaxy/issues/2540) | — | 'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves |
+| `globals-contract-2858` | upstream-bug | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | — | The globals rule had no stated contract; its two open-defect cells were two one-owner/ambiguity misfires (csharp's `Environment.` prefix counting the planted `Environmen… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
@@ -1145,9 +1146,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## shell
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🟡 `globals`: 3 vs median 2 (+50%)
+**In band on every metric.**
 
 **Not expressible as measured (n/a):** `class_start`, `classes_found`
 
@@ -1158,9 +1157,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sh | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `shell-class-start-no-oop-morphology` | intended-morphology | — | — | Comment at shell.py:119-121: 'Shell is strictly procedural.' The one candidate construct, associative arrays (`declare -A`), is a data-structure instance, not a type/ent… |
-| `shell-trap-signal-env-collision` | keyword-overlap | — | (notes) | 'trap : TERM' counts globals: the TERM signal name collides with the TERM env-var keyword in shell's globals rule (a.sh globals 3 for 2 planted) |
+| `shell-trap-signal-env-collision` | keyword-overlap | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | (notes) | 'trap : TERM' counts globals: the TERM signal name collides with the TERM env-var keyword in shell's globals rule (a.sh globals 3 for 2 planted) |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
+| `globals-contract-2858` | upstream-bug | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | — | The globals rule had no stated contract; its two open-defect cells were two one-owner/ambiguity misfires (csharp's `Environment.` prefix counting the planted `Environmen… |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | (notes) | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
@@ -1263,6 +1263,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
+| `globals-contract-2858` | upstream-bug | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | — | The globals rule had no stated contract; its two open-defect cells were two one-owner/ambiguity misfires (csharp's `Environment.` prefix counting the planted `Environmen… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 | `swift-import-capture-min-two-chars` | upstream-question | [#2543](https://github.com/squid-protocol/gitgalaxy/issues/2543) | (notes) | swift's _dependency_capture requires module names of 2+ characters ([a-zA-Z_][\w.]+), so 'import a' captures nothing: the corpus's swift chain never resolves, popularity… |
