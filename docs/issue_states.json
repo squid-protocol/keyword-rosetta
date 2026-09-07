@@ -1,0 +1,245 @@
+{
+ "issues": {
+  "squid-protocol/gitgalaxy#2535": {
+   "state": "CLOSED",
+   "title": "prism/detector: string-literal shielding is selective by signal family (if/try/open count inside a literal, eval does not)"
+  },
+  "squid-protocol/gitgalaxy#2536": {
+   "state": "CLOSED",
+   "title": "recorder: raw pre-adjustment hit_vector is unrecoverable once the Contextual Baseline Fix rewrites api/orphaned_logic"
+  },
+  "squid-protocol/gitgalaxy#2537": {
+   "state": "CLOSED",
+   "title": "fragile_debt/planned_debt match inside hyphenated code identifiers (HACK-LEVEL, PROBE-TODO) \u2014 debt rules are whole-text, not comment-anchored"
+  },
+  "squid-protocol/gitgalaxy#2538": {
+   "state": "CLOSED",
+   "title": "cobol func_start counts a bare token + period in Area B as a paragraph (CEE3DMP.)"
+  },
+  "squid-protocol/gitgalaxy#2539": {
+   "state": "CLOSED",
+   "title": "javascript func_start/args parse 'with (x) {}' as a function named 'with'"
+  },
+  "squid-protocol/gitgalaxy#2540": {
+   "state": "CLOSED",
+   "title": "fortran USE targets resolve case-sensitively in the dependency DAG (uppercase legacy style loses the whole import graph)"
+  },
+  "squid-protocol/gitgalaxy#2541": {
+   "state": "CLOSED",
+   "title": "php: every file's <?php open tag counts branch +1 (ternary ? alternation matches the tag)"
+  },
+  "squid-protocol/gitgalaxy#2542": {
+   "state": "CLOSED",
+   "title": "go: every quoted import counts safety_bypasses (dot-import alternation's dot is optional)"
+  },
+  "squid-protocol/gitgalaxy#2543": {
+   "state": "CLOSED",
+   "title": "swift: _dependency_capture requires 2+ char module names, silently dropping single-letter imports from the DAG"
+  },
+  "squid-protocol/gitgalaxy#2545": {
+   "state": "CLOSED",
+   "title": "kotlin: branch rule counts 'return' \u2014 inconsistent with java/swift/c siblings"
+  },
+  "squid-protocol/gitgalaxy#2546": {
+   "state": "CLOSED",
+   "title": "state-flux \u00d73 branch-context weighting: undocumented, and phantom-triggered by branch keywords inside string literals"
+  },
+  "squid-protocol/gitgalaxy#2547": {
+   "state": "CLOSED",
+   "title": "orphan census counts non-function shapes on non-call-graph languages, making orphan\u2192api conversion unauditable"
+  },
+  "squid-protocol/gitgalaxy#2548": {
+   "state": "MERGED",
+   "title": "fix(core): wire embedded_python into Python-family indentation-scoping"
+  },
+  "squid-protocol/gitgalaxy#2549": {
+   "state": "CLOSED",
+   "title": "html func_start is unreachable end-to-end: the polyglot splitter consumes <script>/<style> tags before html's rules run"
+  },
+  "squid-protocol/gitgalaxy#2610": {
+   "state": "CLOSED",
+   "title": "prism: JCL //* comments are never stripped \u2014 comment surface structurally dead for jcl (comment_lines ~0, debt/doc rules can never fire)"
+  },
+  "squid-protocol/gitgalaxy#2626": {
+   "state": "MERGED",
+   "title": "fix(python): stop io/test rules double-counting globals/safety keywords (#2593)"
+  },
+  "squid-protocol/gitgalaxy#2638": {
+   "state": "CLOSED",
+   "title": "markdown: capture relative links as dependency edges (rosetta #2587, dependency_links 0 vs median 3)"
+  },
+  "squid-protocol/gitgalaxy#2644": {
+   "state": "CLOSED",
+   "title": "yacc: %union type declarations have real record/struct morphology but class_start is wired None"
+  },
+  "squid-protocol/gitgalaxy#2645": {
+   "state": "CLOSED",
+   "title": "html: srcdoc attribute (embedded document + script) is invisible to every structural signal"
+  },
+  "squid-protocol/gitgalaxy#2646": {
+   "state": "CLOSED",
+   "title": "yaml: missing \"ownership\" rule \u2014 action.yml author: / OpenAPI info.contact: idiom uncaptured"
+  },
+  "squid-protocol/gitgalaxy#2647": {
+   "state": "CLOSED",
+   "title": "yaml: missing \"cleanup\" rule \u2014 shell-embedded teardown verbs (rm -rf <path>, docker rm/down, kill) inside run:/script: blocks uncaptured"
+  },
+  "squid-protocol/gitgalaxy#2648": {
+   "state": "CLOSED",
+   "title": "makefile + ada: never routed off Mode_B_Braces slicer \u2014 functions_found is 0 despite func_start matching (13-14 hits each)"
+  },
+  "squid-protocol/gitgalaxy#2650": {
+   "state": "CLOSED",
+   "title": "abap: doc regex's bare AUTHOR:/DESCRIPTION: alternative double-counts the ownership header line (doc 2x planted)"
+  },
+  "squid-protocol/gitgalaxy#2651": {
+   "state": "CLOSED",
+   "title": "zig + dart: globals rule anchors ^[ \\t]* so function-local var/const count as globals (+150% on the rosetta corpus)"
+  },
+  "squid-protocol/gitgalaxy#2652": {
+   "state": "CLOSED",
+   "title": "scheme: no _dependency_capture \u2014 whole DAG missing, and orphan->api conversion can never fire (tech-debt systematically inflated)"
+  },
+  "squid-protocol/gitgalaxy#2655": {
+   "state": "CLOSED",
+   "title": "UEF small-file normalization isn't achieving its intent \u2014 redesign scoring so identical intent scores identically regardless of file size (design pass for Fable)"
+  },
+  "squid-protocol/gitgalaxy#2656": {
+   "state": "CLOSED",
+   "title": "powershell: api rule's bare-identifier alternative lacks keyword exclusions \u2014 param(/if(/switch( count as API surface"
+  },
+  "squid-protocol/gitgalaxy#2657": {
+   "state": "CLOSED",
+   "title": "lua: api bare-return overmatch + orphan-conversion double-credit compound to +110% api exposure"
+  },
+  "squid-protocol/gitgalaxy#2658": {
+   "state": "CLOSED",
+   "title": "python/embedded_python: doc rule counts each docstring twice (open and close delimiters both match, no pairing)"
+  },
+  "squid-protocol/gitgalaxy#2659": {
+   "state": "CLOSED",
+   "title": "livecode (+~14 siblings): doc rule claims 'Author:' which ownership already owns \u2014 every header author line double-counts (ada has the correct pattern)"
+  },
+  "squid-protocol/gitgalaxy#2661": {
+   "state": "CLOSED",
+   "title": "cobol: doc rule's AUTHOR-vs-ownership collision needs a corpus-side doc line planted before the engine fix (#2659 follow-up)"
+  },
+  "squid-protocol/gitgalaxy#2670": {
+   "state": "CLOSED",
+   "title": "perl doc: a correctly-closed POD block counts twice (=pod + =cut) \u2014 the #2658 delimiter shape"
+  },
+  "squid-protocol/gitgalaxy#2671": {
+   "state": "CLOSED",
+   "title": "apex import rule: re.IGNORECASE neutralises the [A-Z] guard, so every qualified reference (foo.bar) counts as an import"
+  },
+  "squid-protocol/gitgalaxy#2685": {
+   "state": "MERGED",
+   "title": "fix(core-engine): graph layer \u2014 relative-import resolution (#2668) + m4/yacc dependency capture (#2669 C.2)"
+  },
+  "squid-protocol/gitgalaxy#2689": {
+   "state": "CLOSED",
+   "title": "Design (D.1): shape-descriptor comparability \u2014 the 160 cells decompose into five mechanisms, only 15 of which are a real design question"
+  },
+  "squid-protocol/gitgalaxy#2691": {
+   "state": "CLOSED",
+   "title": "functions_found counts the slicer's synthetic __global_context__ buckets, inflating every per-function descriptor for 5 languages"
+  },
+  "squid-protocol/gitgalaxy#2692": {
+   "state": "CLOSED",
+   "title": "ada: a single typed parameter counts as 3 args \u2014 the comma-free whitespace-split fallback splits 'Env : Integer' into three tokens"
+  },
+  "squid-protocol/gitgalaxy#2727": {
+   "state": "CLOSED",
+   "title": "detector: an orphan is a name seen once in the file, so any language that repeats the name in its own syntax reports zero orphans"
+  },
+  "squid-protocol/gitgalaxy#2728": {
+   "state": "CLOSED",
+   "title": "detector: slicer keyword buckets (dockerfile RUN, css keyframes) reach the duplicate/orphan checks as if they were functions"
+  },
+  "squid-protocol/gitgalaxy#2729": {
+   "state": "CLOSED",
+   "title": "arch_api conflates api-rule hits with converted orphans, and the rosetta gate reads the conflated column -- 36 of 44 languages pass api without the rule matching anything"
+  },
+  "squid-protocol/gitgalaxy#2730": {
+   "state": "CLOSED",
+   "title": "The api rule has no stated contract: 7 languages' own visibility idiom is invisible to it, and 5 others count any `public` token"
+  },
+  "squid-protocol/gitgalaxy#2731": {
+   "state": "CLOSED",
+   "title": "arch_api counts a declared-public, uncalled function twice: 3 functions record api 6"
+  },
+  "squid-protocol/gitgalaxy#2732": {
+   "state": "CLOSED",
+   "title": "jcl + yaml: dead_code and spec_exposure comment-stream rules missing where the comment stream exists (#2610 leftover)"
+  },
+  "squid-protocol/gitgalaxy#2733": {
+   "state": "CLOSED",
+   "title": "jcl: sync_locks \u2014 DISP=OLD/MOD is JCL's exclusive-ENQ serialization idiom, but DISP= already feeds io (design question)"
+  },
+  "squid-protocol/gitgalaxy#2752": {
+   "state": "CLOSED",
+   "title": "css: io is None, but every one of the 117 crucible url() fetches is a non-@import resource load that only args sees (design question)"
+  },
+  "squid-protocol/gitgalaxy#2764": {
+   "state": "CLOSED",
+   "title": "assembly/agc_assembly: branch counts unconditional transfers \u2014 23 of 25 hits are call/ret/jmp, not decisions (#2545's shape)"
+  },
+  "squid-protocol/gitgalaxy#2765": {
+   "state": "CLOSED",
+   "title": "state_mutation has no stated contract: three incompatible definitions across 46 languages, and it governs the corpus's two worst metrics"
+  },
+  "squid-protocol/gitgalaxy#2770": {
+   "state": "OPEN",
+   "title": "control_flow_ratio is the corpus's worst metric (33%): it divides a pinned numerator by structural_boundaries, an ungoverned 0-45 vocabulary tally"
+  },
+  "squid-protocol/gitgalaxy#2773": {
+   "state": "CLOSED",
+   "title": "args counts call-site arguments in objective-c (+62%) and typescript: a coupling signal that scales with how many calls a file makes"
+  },
+  "squid-protocol/gitgalaxy#2782": {
+   "state": "CLOSED",
+   "title": "args counts call-site arguments in groovy (+46%): the return-type run is {0,3}, so the method arm degenerates to `^IDENT(...)`"
+  },
+  "squid-protocol/gitgalaxy#2783": {
+   "state": "CLOSED",
+   "title": "args counts call-site arguments in apex (+38%): the return type is optional, so the method arm degenerates to `^IDENT(...)`"
+  },
+  "squid-protocol/gitgalaxy#2792": {
+   "state": "CLOSED",
+   "title": "functions_found: the function population counts slicer buckets that #2547/#2728 already agreed are not identifiers \u2014 sqlite +131%, dockerfile +31%"
+  },
+  "squid-protocol/gitgalaxy#2798": {
+   "state": "CLOSED",
+   "title": "classes_found[css] red on a 0 median: a CSS class is a selector, and #1295 already ruled it out of scope on the other two charts"
+  },
+  "squid-protocol/gitgalaxy#2805": {
+   "state": "CLOSED",
+   "title": "cobol globals counts WORKING-STORAGE SECTION: a region header stacked on top of the item-level GLOBAL/EXTERNAL clauses, unconditional on every COBOL program"
+  },
+  "squid-protocol/gitgalaxy#2806": {
+   "state": "CLOSED",
+   "title": "orphaned_logic reports 100% dead code for five languages whose invocation model never names the callee \u2014 the family #2727 closed without covering"
+  },
+  "squid-protocol/gitgalaxy#2822": {
+   "state": "CLOSED",
+   "title": "branch has no stated contract: handler keywords, the syntax words of one conditional, and goto count as decisions in some languages and not in others"
+  },
+  "squid-protocol/gitgalaxy#2824": {
+   "state": "OPEN",
+   "title": "abap args counts call-site parameter keywords (CALL FUNCTION ... EXPORTING, PERFORM ... CHANGING) as declared parameters"
+  },
+  "squid-protocol/gitgalaxy#2827": {
+   "state": "OPEN",
+   "title": "api_declared_orphans tokenizes api lines with `\\b\\w+\\b`, so a hyphenated or qualified name is never recognised as already-declared (#2731's double count returns for cobol and scheme)"
+  },
+  "squid-protocol/gitgalaxy#2841": {
+   "state": "CLOSED",
+   "title": "io has no stated contract: javascript counts an identifier named path, sqlite counts every DML keyword, and tcl's source/close are claimed by two rules each"
+  },
+  "squid-protocol/keyword-rosetta#71": {
+   "state": "CLOSED",
+   "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"
+  }
+ },
+ "unresolved": []
+}

@@ -127,6 +127,18 @@ jobs:
       - name: orphan-token audit
         run: python tools/ledger_orphan_check.py --ci
 
+      # Baseline-gated: fails only on ledger entries beyond
+      # docs/ledger_issue_baseline.json that claim the ENGINE owes a change
+      # (upstream-bug / upstream-question / engine-defect) while their upstream
+      # issue is already CLOSED. Closing an issue on GitHub moves nothing here on
+      # its own -- the entry stays live and the chart keeps painting the cell red
+      # as an open defect -- so nothing used to notice a fix landing. Reads the
+      # committed docs/issue_states.json cache: seconds, no scans, no API calls,
+      # no token needed in a PR job. bias-history.yml refreshes that cache and this
+      # baseline together on main, so a PR only ever sees staleness it introduced.
+      - name: ledger issue-state audit
+        run: python tools/ledger_issue_check.py --ci
+
       # The committed bias report must have been generated against a FULL-PRECISION
       # engine. In Zero-Dependency Mode the recorder nulls every network metric, so
       # pagerank and the four other topology measures vanish from the comparison with
@@ -135,6 +147,21 @@ jobs:
       # NULL in all 46 languages). bias_report.py refuses to write in that mode, and
       # this gate catches a cache generated before it did, or with the override.
       # Seconds, no scans: the mode is recorded in the cache the report ships with.
+      # Provenance, not freshness: a PR's committed cache legitimately lags main
+      # (bias-history.yml refreshes it), so this reports which engine produced the
+      # numbers rather than demanding a particular one. It exists because the cache
+      # used to record only HOW the engine was built (`engine_mode`) and never WHICH
+      # engine it was -- the commit lived solely in bias-history's commit message,
+      # so a stale-engine regen looked identical to a current one in the artifact.
+      - name: bias report engine provenance
+        run: |
+          python - <<'PY'
+          import json
+          data = json.load(open("docs/bias_data.json"))
+          commit = data.get("engine_commit")
+          print(f"docs/bias_data.json engine_commit: {commit or '<missing>'}")
+          PY
+
       - name: bias report engine mode
         run: |
           mode=$(python -c "import json;print(json.load(open('docs/bias_data.json')).get('engine_mode','<missing>'))")

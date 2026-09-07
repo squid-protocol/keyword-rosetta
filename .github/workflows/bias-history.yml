@@ -133,6 +133,25 @@ jobs:
       - name: Re-baseline orphan tokens
         run: python tools/ledger_orphan_check.py --regenerate
 
+      # The issue-state cache is the ONLY part of the ledger audits that needs the
+      # network, so it is resolved here -- once a day, with a token already in hand --
+      # and committed, leaving verify.yml's gate scan-free and API-free. Same
+      # derived-artifact argument as the two steps around it: nothing here is human
+      # intent, so nothing here is hand-maintained.
+      #
+      # Re-baselining in the same step is what makes the gate responsive without
+      # false failures: an issue closed today lands in main's baseline tonight, the
+      # summary below names it as work owed, and a PR's --ci only fails on entries
+      # the PR itself made stale. Without it, every merge after an issue close would
+      # fail on somebody else's debt.
+      - name: Refresh issue states and re-baseline the ledger issue audit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python tools/ledger_issue_check.py --refresh
+          python tools/ledger_issue_check.py --regenerate
+          python tools/ledger_issue_check.py || true
+
       # The menus are mined from the live rule registry and are the screening
       # surface SPEC.md requires every plant decision to be chosen from, but nothing
       # regenerated them -- so they drifted 27 languages (+82/-113 keywords) behind
@@ -145,7 +164,7 @@ jobs:
 
       - name: Commit regenerated artifacts to main
         run: |
-          git add docs/bias_report.md docs/bias_variance_chart.svg docs/bias_data.json docs/findings_by_language.md docs/orphan_token_baseline.json docs/menus
+          git add docs/bias_report.md docs/bias_variance_chart.svg docs/bias_data.json docs/findings_by_language.md docs/orphan_token_baseline.json docs/issue_states.json docs/ledger_issue_baseline.json docs/menus
           if git diff --cached --quiet; then
             echo "no artifact changed -- nothing to commit"
             exit 0

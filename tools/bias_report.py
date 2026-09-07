@@ -32,13 +32,16 @@ the scan DB's repo_data.is_zero_dependency_mode, recorded in docs/bias_data.json
 import collections
 import json
 import math
+import os
 import pathlib
 import sqlite3
 import statistics
+import subprocess
 import sys
 import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import _registry
 import verify_language as vl
 from _registry import (
     load_definitions,
@@ -52,6 +55,63 @@ from _registry import (
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = REPO_ROOT / "docs" / "bias_report.md"
 CHART = REPO_ROOT / "docs" / "bias_variance_chart.svg"
+
+
+def engine_provenance():
+    """(commit, scanner_package_path, mismatch_reason) for the engine being measured.
+
+    Two DIFFERENT things resolve the engine on every run and nothing used to check
+    they agree: `GITGALAXY_PATH` supplies the registry this process imports (rules,
+    risk_dependencies, strictness constants) while `GALAXYSCOPE_BIN` is a separate
+    binary whose editable install points at whatever checkout it was created from.
+    Point them at different trees and the report reads one engine's registry over
+    another engine's measurements -- with no error and no visible symptom.
+
+    That is not hypothetical either: on 2026-09-07 a regen run with GITGALAXY_PATH
+    on main and GALAXYSCOPE_BIN on the primary checkout (7 merges behind) reported
+    32 unexplained cells and a 2.5% open-defect share, against the true 6 and 1.5%.
+    Nothing in the output said which engine produced it, because the cache recorded
+    only `engine_mode`; the commit lived solely in bias-history.yml's commit message,
+    so a local run recorded nothing at all.
+
+    The scanner's own `gitgalaxy.__file__` is asked of the scanner's interpreter, not
+    of this one -- the whole point is that the two can differ.
+    """
+    registry_root = pathlib.Path(_registry.GITGALAXY_PATH).resolve()
+    commit = None
+    head = subprocess.run(
+        ["git", "-C", str(registry_root), "rev-parse", "HEAD"],
+        capture_output=True,
+        text=True,
+    )
+    if head.returncode == 0:
+        commit = head.stdout.strip()
+
+    scanner_root, mismatch = None, None
+    binary = pathlib.Path(vl.GALAXYSCOPE_BIN)
+    interpreter = binary.parent / "python"
+    if interpreter.exists():
+        probe = subprocess.run(
+            [str(interpreter), "-c", "import gitgalaxy, pathlib; print(gitgalaxy.__file__)"],
+            capture_output=True,
+            text=True,
+            env={**os.environ},
+        )
+        if probe.returncode == 0 and probe.stdout.strip():
+            scanner_root = str(pathlib.Path(probe.stdout.strip()).resolve().parent.parent)
+            if pathlib.Path(scanner_root) != registry_root:
+                mismatch = (
+                    f"GITGALAXY_PATH resolves the registry to {registry_root}, but "
+                    f"{vl.GALAXYSCOPE_BIN} scans with the engine at {scanner_root}. "
+                    "The report would read one engine's rules over another's measurements. "
+                    "Point PYTHONPATH at the same checkout as GITGALAXY_PATH so it shadows "
+                    "the binary's editable install:\n"
+                    f"  PYTHONPATH={registry_root} GITGALAXY_PATH={registry_root} \\\n"
+                    f"      GALAXYSCOPE_BIN={vl.GALAXYSCOPE_BIN} python tools/bias_report.py\n"
+                    "Deliberately measuring a different engine? Re-run with --allow-engine-mismatch."
+                )
+    return commit, scanner_root, mismatch
+
 
 # Acceptance thresholds on relative deviation from the cross-language median.
 GREEN_DEV = 0.25   # within ±25% of median: acceptable clustering
@@ -1509,6 +1569,15 @@ def main():
         if state == "unreviewed"
     )
 
+    # Checked BEFORE the first scan, not after all 46: the mismatch is a property
+    # of the environment, so it is knowable in one second and costs a 30-minute
+    # regen to discover afterwards (see engine_provenance's own docstring).
+    engine_commit, scanner_root, engine_mismatch = engine_provenance()
+    if engine_mismatch and "--allow-engine-mismatch" not in sys.argv:
+        print(f"ABORT: {engine_mismatch}")
+        return 1
+    print(f"engine: {engine_commit or '<not a git checkout>'} at {scanner_root or vl.GALAXYSCOPE_BIN}")
+
     colmap = vl._signal_columns()
     all_totals, all_risks, all_struct, all_measures, zero_dep = {}, {}, {}, {}, {}
     for lang in languages:
@@ -1661,6 +1730,12 @@ def main():
         # with one generated at full precision (rosetta: the pre-#30 report had
         # pagerank NULL in all 46 columns and nothing said why).
         "engine_mode": "zero-dependency" if degraded else "full-precision",
+        # WHICH engine produced these numbers (keyword-rosetta ledger-hygiene work).
+        # `engine_mode` says how the engine was built; this says which engine it was.
+        # Until it existed the commit lived only in bias-history.yml's commit message,
+        # so a locally regenerated cache recorded nothing and a stale-engine run was
+        # indistinguishable from a current one in the artifact itself.
+        "engine_commit": engine_commit,
         # F.1: which columns are length (context, never gated), so every consumer
         # of this cache draws the line in the same place.
         "context_metrics": list(CONTEXT_METRICS),

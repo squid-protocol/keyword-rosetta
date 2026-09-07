@@ -41,7 +41,10 @@ occurrence — a shape appearing in 30 languages is one systematic cause, not 30
    cause of its own (2026-09-06: three cells had coasted on a retired entry for four days) — never delete the entry, never flip
    `still_reproduces` by hand without a fresh verifying scan. This is the "self-improvement"
    loop: corpus finds → issue filed → engine fixed → corpus re-baselined, with the ledger
-   as the audit trail connecting all three.
+   as the audit trail connecting all three. **Closing the issue is not a step in that loop**
+   and moves nothing on its own — the entry stays live and its cell keeps whatever colour its
+   disposition implies — which is why `tools/ledger_issue_check.py` (below) watches the
+   `upstream_issue` field for exactly this drift.
 
 ## What gates on the ledger
 
@@ -372,3 +375,33 @@ scope-down candidates. `bias-history.yml` re-baselines it in lockstep with the c
 engine main, so engine drift re-baselines itself and a PR's `--ci` only ever sees orphans the PR
 introduced. A token kept on purpose belongs in the baseline **and** in its entry's verdict, so
 the next reader does not re-litigate it.
+
+`tools/ledger_issue_check.py` is the third audit on the same pattern, and it watches the one
+axis the other two cannot see: **the state of the issue the entry blames**. `na_check` guards
+rule-absence review and `ledger_orphan_check` guards whether a token still excuses a real cell,
+but nothing resolved `upstream_issue` to its actual state — so closing an issue on GitHub moved
+nothing, and an entry could go on reporting a defect somebody had already fixed. The 2026-09-07
+sweep that built it found 19 live entries citing a closed issue.
+
+It is **disposition-aware**, because a closed issue is not automatically a stale entry:
+
+- `upstream-bug`, `upstream-question`, `engine-defect` say the *engine* owes a change. A closed
+  issue means the debt was paid (retire the entry per step 4 above) or declined (re-disposition
+  it to the design it now documents). Either way the entry must change, so these **fail** the
+  gate. They are also the dispositions that paint a cell red, so a stale one inflates the
+  published open-defect share.
+- `engine-semantic`, `intended-morphology`, `language-morphology`, `keyword-overlap` document
+  behaviour the engine is keeping. Their issues were closed *because* the answer was "by
+  design", so outliving them is correct. Reported for context, never gated — 12 of the 19 were
+  this.
+
+Only fully-qualified `owner/repo#N` references are audited; a bare `#N` in prose is ambiguous
+(`(fixed by PR #2837)` names a PR) and would flag an entry on its own fix's merge. A reference
+resolving to `MERGED` is a pull request, recorded and skipped. An entry that is both
+closed-upstream **and** decayed is marked `[also decayed]` — dead on both axes, and the highest-
+value retirement there is.
+
+Issue states are the only part of these audits that needs the network, so they are resolved
+once a day by `bias-history.yml` into `docs/issue_states.json` and the gate reads only that
+cache: scan-free and API-free in a PR job, and re-baselined on the same run, so an issue closed
+today lands in main's baseline tonight rather than failing everyone else's PR tomorrow.

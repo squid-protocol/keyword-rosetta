@@ -32,6 +32,22 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
    and is green by construction. See `docs/GATING.md`'s "Cross-repo flow". To verify against an
    unmerged engine PR in CI, dispatch `verify.yml` with `engine_ref=pull/<N>/head` — a run
    parameter, nothing committed, nothing to reset.
+
+   **Two things resolve the engine and they must agree.** `GITGALAXY_PATH` supplies the
+   registry a tool imports; `GALAXYSCOPE_BIN` is a separate binary whose editable install points
+   at whatever checkout created it. Point them at different trees and a report reads one
+   engine's rules over another engine's measurements, silently — on 2026-09-07 that turned 6
+   unexplained cells into 32 and a 1.5% open-defect share into 2.5%, with nothing in the output
+   saying why. `bias_report.py` now checks this before the first scan and aborts (override:
+   `--allow-engine-mismatch`), and stamps `engine_commit` into `docs/bias_data.json` so the
+   artifact records WHICH engine produced it, not just how it was built. When measuring a
+   worktree, put it on `PYTHONPATH` so it shadows the binary's editable install:
+
+   ```sh
+   PYTHONPATH=<worktree> GITGALAXY_PATH=<worktree> \
+       GALAXYSCOPE_BIN=<gitgalaxy>/.crucible_venvs/full_precision/bin/galaxyscope \
+       python tools/bias_report.py
+   ```
 5. **Cross-repo PRs carry a "Cross-repo" note** (companion PR links, merge order, what re-runs
    after) — see the ecosystem doc's PR convention.
 6. **Always regenerate the bias report at full precision.** In Zero-Dependency Mode (any of
@@ -154,6 +170,20 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
   **partial-decay** entries (some tokens dead while others still hold) as the scope-down
   candidates. `bias-history.yml` re-baselines it in lockstep with the cache, so engine drift
   re-baselines on its own and a PR's `--ci` only sees orphans the PR introduced.
+- `tools/ledger_issue_check.py [--ci|--refresh|--regenerate]` — the ledger **issue-state**
+  audit, the third on that pattern and the one axis the other two cannot see: whether the issue
+  an entry blames is still open. Closing an issue on GitHub moves nothing by itself — the entry
+  stays live and its cell keeps its disposition's colour — so an entry can go on reporting a
+  defect somebody already fixed (the sweep that built this found 19). **Disposition-aware**: an
+  `upstream-bug`/`upstream-question`/`engine-defect` entry citing a CLOSED issue fails the gate
+  (the debt was paid → retire it, or declined → re-disposition it), while an
+  `engine-semantic`/`intended-morphology` entry is *correct* to outlive an issue closed "by
+  design" and is reported only. Audits fully-qualified `owner/repo#N` refs only — a bare `#N` in
+  prose is ambiguous (`fixed by PR #2837`) — and marks an entry that is also decayed
+  (`bias_report.decayed_entries`) as dead on both axes. `--refresh` is the only part that needs
+  the network; `bias-history.yml` runs it daily into `docs/issue_states.json` and re-baselines
+  in the same step, so the PR gate is scan-free, API-free, and only ever sees staleness the PR
+  itself introduced.
 - Skills live in `.claude/skills/` (`.agents/skills` is a symlink to the same directory):
   **`rosetta-language-sweep`** — the end-to-end workflow for working one language's
   cross-language-consistency tracking issue (gitgalaxy epic #2560's children), including the
