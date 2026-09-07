@@ -14,12 +14,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [apex](#apex) | 2 | 0 | 0 | 11 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 |
 | [assembly](#assembly) | 0 | 0 | 0 | 5 | #2535 #2727 #2764 |
 | [c](#c) | 0 | 3 | 0 | 10 | #2535 #2546 #2626 #2655 #2689 #2729 #2730 #2731 #2765 |
-| [cobol](#cobol) | 3 | 2 | 0 | 18 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2805 #2822 #2827 |
+| [cobol](#cobol) | 3 | 2 | 0 | 18 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 |
 | [cpp](#cpp) | 0 | 1 | 0 | 9 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
 | [csharp](#csharp) | 0 | 1 | 0 | 8 | #2535 #2546 #2730 #2731 #2822 |
-| [css](#css) | 7 | 2 | 4 | 16 | #2549 #2655 #2689 #2729 #2752 #2770 |
+| [css](#css) | 7 | 2 | 4 | 15 | #2549 #2655 #2689 #2729 #2752 #2770 |
 | [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
-| [dockerfile](#dockerfile) | 6 | 5 | 0 | 15 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2822 |
+| [dockerfile](#dockerfile) | 6 | 5 | 0 | 15 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2798 #2822 |
 | [embedded_python](#embedded_python) | 3 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
 | [fortran](#fortran) | 0 | 2 | 0 | 12 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 |
 | [go](#go) | 0 | 1 | 0 | 10 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 |
@@ -28,8 +28,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [html](#html) | 12 | 4 | 2 | 15 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2770 |
 | [java](#java) | 0 | 0 | 0 | 8 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 |
 | [javascript](#javascript) | 0 | 5 | 0 | 13 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 |
-| [jcl](#jcl) | 5 | 2 | 2 | 19 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2806 #2822 |
-| [kotlin](#kotlin) | 0 | 1 | 0 | 11 | #2535 #2545 #2546 #2689 #2730 #2731 #2765 #2770 |
+| [jcl](#jcl) | 5 | 2 | 2 | 19 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2798 #2806 #2822 |
+| [kotlin](#kotlin) | 0 | 1 | 0 | 11 | #2535 #2545 #2546 #2689 #2730 #2731 #2765 #2770 #2798 |
 | [livecode](#livecode) | 0 | 0 | 0 | 10 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 |
 | [lua](#lua) | 0 | 1 | 0 | 12 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 #2822 |
 | [m4](#m4) | 2 | 1 | 2 | 11 | #2535 #2689 #2731 #2765 #2770 #2806 |
@@ -216,7 +216,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `cobol-tech-debt-floor-after-dispatch-plant` | engine-semantic | — | — | risk_tech_debt/cobol 46.21 -> 23.10 when the owed dispatch plant (gitgalaxy#2806 note, landed with gitgalaxy#2822's corpus PR) made PROBE-IO/PROBE-RISK referenced: raw_s… |
-| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
+| `container-construct-reads-as-class` | engine-semantic | [#2798](https://github.com/squid-protocol/gitgalaxy/issues/2798) | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
@@ -311,7 +311,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
@@ -376,7 +375,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
+| `container-construct-reads-as-class` | engine-semantic | [#2798](https://github.com/squid-protocol/gitgalaxy/issues/2798) | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `slicer-segments-statements-not-functions` | engine-semantic | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry) |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.dockerfile | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
@@ -663,7 +662,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|
 | `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | (notes) | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
-| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
+| `container-construct-reads-as-class` | engine-semantic | [#2798](https://github.com/squid-protocol/gitgalaxy/issues/2798) | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
@@ -699,7 +698,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
-| `container-construct-reads-as-class` | engine-semantic | — | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
+| `container-construct-reads-as-class` | engine-semantic | [#2798](https://github.com/squid-protocol/gitgalaxy/issues/2798) | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.kt | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.kt | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |

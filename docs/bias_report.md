@@ -19,7 +19,7 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 10 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 111 | a validated deviation-ledger entry names this language and this metric |
+| ledgered | 110 | a validated deviation-ledger entry names this language and this metric |
 | derived | 38 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **6** | **survived all three -- the real work remaining** |
 
@@ -33,14 +33,14 @@ Unexplained cells, by metric:
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 39 of 2303 comparable cells (1.7%)** across 51 gated metrics; 39 of the 165 out-of-band cells are open defects.
+**Open-defect share: 39 of 2303 comparable cells (1.7%)** across 51 gated metrics; 39 of the 164 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
 | **unexplained** | 6 | survived every mechanism -- the gate fails on these |
 | **extraction** | 33 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
-| scoring | 51 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
+| scoring | 50 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 37 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
 | echo | 38 | derived -- an upstream deviation counted again downstream |
 
@@ -135,7 +135,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | metric | abap | ada | agc_assembly | apex | assembly | c | cobol | cpp | csharp | css | dart | dockerfile | embedded_python | fortran | go | groovy | haskell | html | java | javascript | jcl | kotlin | livecode | lua | m4 | makefile | markdown | matlab | objective-c | perl | php | powershell | python | ruby | rust | scala | scheme | shell | solidity | sqlite | swift | tcl | typescript | yacc | yaml | zig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 31 | 13 | 13 | 13 | 13 | 13 | 13 |
-| classes_found | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| classes_found | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
 | keyword_hits | 132 | 144 | 181 | 136 | 160 | 140 | 146 | 149 | 154 | 75 | 159 | 84 | 181 | 159 | 157 | 152 | 128 | 78 | 140 | 202 | 100 | 187 | 131 | 149 | 76 | 120 | 30 | 151 | 147 | 179 | 142 | 145 | 188 | 154 | 200 | 162 | 98 | 146 | 165 | 66 | 186 | 137 | 195 | 61 | 151 | 191 |
 | comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 13 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 12 | 11 | 12 |
