@@ -1287,16 +1287,16 @@
       "signal": "classes_found",
       "languages_seen": [
         "cobol",
-        "css",
         "dockerfile",
         "jcl",
         "kotlin"
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types. cobol/jcl/css as in that entry (1 each). dockerfile: `FROM b` opens a build stage, the language's only container, one per file = 4. kotlin a.kt: `object Region {}` / `object Home {}` = 2 -- these ARE the corpus's two planted `globals`, because Kotlin has no module-level mutable state and a singleton object is how the plant has to be written; the class count is a consequence of the globals plant, not a second deviation. Fixing it would mean planting kotlin's globals as something Kotlin does not have.",
-      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep)",
-      "validated_at": "2026-09-04",
+      "verdict": "The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types. cobol/jcl as in that entry (1 each). dockerfile: `FROM b` opens a build stage, the language's only container, one per file = 4. kotlin a.kt: `object Region {}` / `object Home {}` = 2 -- these ARE the corpus's two planted `globals`, because Kotlin has no module-level mutable state and a singleton object is how the plant has to be written; the class count is a consequence of the globals plant, not a second deviation. Fixing it would mean planting kotlin's globals as something Kotlin does not have. CSS NARROWED OUT 2026-09-07 (gitgalaxy#2798 -> engine PR #2837): css read 1 here for `.rosetta-risk`, and this entry filed it alongside cobol/jcl as a container construct. It was not one -- it was an engine defect. `classes_found` is `len(class_data)`, i.e. NAMED class extraction, which gitgalaxy epic #1295 ruled permanently out of scope for css and html (a selector has no methods and no inheritance, so every row it produced carried `method_count=0`/`inheritance_parents=[]`). That decision was documented but never enforced in the extractor, and gitgalaxy#1824 -- a css `class_start` REGEX change five days later -- silently added css to the named-extraction allowlist, taking its crucible found_classes 0 -> 90; nothing caught it because the two tools that reconcile class extraction already force css's class panels to N/A citing that same decision. #2837 enforces it in `detector.py`, css reads classes_found 0 = the corpus median, and the cell is in band with no exemption needed. The NUMERIC signal is deliberately outside this narrowing: css still reads class_start 1 and stays ledgered by container-construct-reads-as-class-start, because #1295 scoped its decision to named extraction in as many words.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2798 (fixed by PR #2837)",
+      "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep); css narrowed out 2026-09-07 by claude-opus-5 (gitgalaxy#2798)",
+      "validated_at": "2026-09-07",
       "still_reproduces": true
     },
     {
