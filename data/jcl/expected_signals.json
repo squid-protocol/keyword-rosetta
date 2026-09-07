@@ -103,12 +103,14 @@
   "decoys": [
     {
       "file": "main.jcl",
-      "line_hint": "//* decoy: this suite never runs PGM=IKJEFT01 and no SYSOUT operand lives outside prose",
+      "line_hint": "//* decoy: this suite never runs PGM=IKJEFT01 and no DISP=(OLD,DELETE) operand lives outside prose",
       "surface": "comment",
       "signals": [
-        "high_risk_execution"
+        "high_risk_execution",
+        "cleanup",
+        "sync_locks"
       ],
-      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1 when the marker is removed; since gitgalaxy#2841 the io rule is DD-statement-anchored, so the comment's SYSOUT word cannot fire io even unstripped."
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, cleanup 1, sync_locks 1 when the marker is removed. Re-authored 2026-09-07 (gitgalaxy#2841): the old prose used SYSOUT, but the contract's DD-statement-anchored io rule cannot fire on a comment line at all, which dropped the decoy under the SPEC 2-keyword floor; DISP=(OLD,DELETE) keeps two operand-anchored rules live."
     },
     {
       "file": "b.jcl",

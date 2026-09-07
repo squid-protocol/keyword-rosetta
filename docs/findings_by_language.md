@@ -10,7 +10,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|---|
 | [abap](#abap) | 0 | 0 | 0 | 6 | #2535 #2650 #2659 #2730 #2731 #2765 #2824 |
 | [ada](#ada) | 0 | 0 | 0 | 5 | #2535 #2546 #2822 |
-| [agc_assembly](#agc_assembly) | 2 | 1 | 1 | 8 | #2650 #2659 #2729 #2764 |
+| [agc_assembly](#agc_assembly) | 2 | 1 | 2 | 8 | #2650 #2659 #2729 #2764 |
 | [apex](#apex) | 2 | 0 | 0 | 11 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 |
 | [assembly](#assembly) | 0 | 0 | 0 | 5 | #2535 #2727 #2764 |
 | [c](#c) | 0 | 2 | 0 | 10 | #2535 #2546 #2626 #2655 #2689 #2729 #2730 #2731 #2765 #2841 |
@@ -19,7 +19,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [csharp](#csharp) | 0 | 1 | 0 | 8 | #2535 #2546 #2730 #2731 #2822 |
 | [css](#css) | 7 | 2 | 4 | 15 | #2549 #2655 #2689 #2729 #2752 #2770 |
 | [dart](#dart) | 0 | 1 | 0 | 5 | #2535 #2651 #2689 #2730 #2731 |
-| [dockerfile](#dockerfile) | 6 | 5 | 0 | 15 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2798 #2822 |
+| [dockerfile](#dockerfile) | 6 | 5 | 0 | 15 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2792 #2798 #2822 |
 | [embedded_python](#embedded_python) | 3 | 1 | 0 | 11 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
 | [fortran](#fortran) | 0 | 2 | 0 | 12 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 |
 | [go](#go) | 0 | 1 | 0 | 10 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 |
@@ -32,9 +32,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [kotlin](#kotlin) | 0 | 1 | 0 | 11 | #2535 #2545 #2546 #2689 #2730 #2731 #2765 #2770 #2798 |
 | [livecode](#livecode) | 0 | 0 | 0 | 10 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 |
 | [lua](#lua) | 0 | 0 | 0 | 12 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 #2822 #2841 |
-| [m4](#m4) | 2 | 1 | 2 | 11 | #2535 #2689 #2731 #2765 #2770 #2806 |
-| [makefile](#makefile) | 6 | 2 | 1 | 14 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2806 #2822 |
-| [markdown](#markdown) | 10 | 1 | 27 | 9 | #2549 #2638 #2655 #2689 #2770 |
+| [m4](#m4) | 2 | 1 | 3 | 11 | #2535 #2689 #2731 #2765 #2770 #2806 |
+| [makefile](#makefile) | 6 | 2 | 2 | 14 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2806 #2822 |
+| [markdown](#markdown) | 9 | 1 | 29 | 9 | #2549 #2638 #2655 #2689 #2770 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 1 | 1 | 0 | 7 | #2535 #2545 #2546 #2730 #2765 #2773 |
 | [perl](#perl) | 1 | 1 | 0 | 10 | #2535 #2546 #2626 #2670 #2689 #2730 #2731 #2765 #2770 |
@@ -45,9 +45,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [rust](#rust) | 1 | 0 | 0 | 8 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 |
 | [scala](#scala) | 0 | 1 | 0 | 8 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 |
 | [scheme](#scheme) | 1 | 1 | 0 | 9 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
-| [shell](#shell) | 0 | 1 | 1 | 9 | #2535 #2547 #2727 #2731 #2822 |
+| [shell](#shell) | 0 | 1 | 2 | 9 | #2535 #2547 #2727 #2731 #2822 |
 | [solidity](#solidity) | 1 | 0 | 1 | 10 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 |
-| [sqlite](#sqlite) | 10 | 1 | 0 | 15 | #2535 #2547 #2549 #2655 #2728 #2730 #2765 #2822 #2841 |
+| [sqlite](#sqlite) | 11 | 2 | 1 | 15 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 |
 | [swift](#swift) | 1 | 0 | 0 | 9 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 |
 | [tcl](#tcl) | 0 | 0 | 0 | 9 | #2535 #2546 #2727 #2731 #2765 #2822 #2841 |
 | [typescript](#typescript) | 0 | 1 | 0 | 12 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 |
@@ -104,7 +104,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_api_exposure`: 1.67197 vs median 7.0517 (-76%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
 
-**Not expressible as measured (n/a):** `class_start`
+**Not expressible as measured (n/a):** `class_start`, `classes_found`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -376,7 +376,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `container-construct-reads-as-class` | engine-semantic | [#2798](https://github.com/squid-protocol/gitgalaxy/issues/2798) | — | The extracted-class count of the same shape as container-construct-reads-as-class-start, one layer down: the median is 0 because the probe program declares no types |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
-| `slicer-segments-statements-not-functions` | engine-semantic | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry) |
+| `slicer-segments-statements-not-functions` | engine-semantic | [#2792](https://github.com/squid-protocol/gitgalaxy/issues/2792) | — | functions_found dockerfile 17 and sqlite 31 against a median of 13 (the SPEC's 12 probes + entry) |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.dockerfile | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dockerfile | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
@@ -680,7 +680,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.jcl** · `//* decoy: this suite never runs PGM=IKJEFT01 and no SYSOUT operand lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1 when the marker is removed; since gitgalaxy#2841 the io rule is DD-statement-anchored, so the comment's SYSOUT word cannot fire io even unstripped.
+- **main.jcl** · `//* decoy: this suite never runs PGM=IKJEFT01 and no DISP=(OLD,DELETE) operand lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, cleanup 1, sync_locks 1 when the marker is removed. Re-authored 2026-09-07 (gitgalaxy#2841): the old prose used SYSOUT, but the contract's DD-statement-anchored io rule cannot fire on a comment line at all, which dropped the decoy under the SPEC 2-keyword floor; DISP=(OLD,DELETE) keeps two operand-anchored rules live.
 - **b.jcl** · `PARM='PLAIN PGM=IKJEFT01 DECOY' (PROBESTATE)` (string): widens an EXISTING EXEC step's PARM literal instead of adding a step: PARM= is once-per-EXEC and func_start counts the EXEC, so func_start and args both stay at 13. A new //DECOYX EXEC step would have cost +1 on each (keyword-rosetta#71).
 
 </details>
@@ -773,7 +773,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_documentation`: 67.3253 vs median 41.6651 (+62%)
 - 🟡 `risk_api_exposure`: 9.18665 vs median 7.0517 (+30%)
 
-**Not expressible as measured (n/a):** `class_start`, `risk_concurrency`
+**Not expressible as measured (n/a):** `class_start`, `classes_found`, `risk_concurrency`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -809,7 +809,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `cleanup`: 3 vs median 2 (+50%)
 - 🟡 `risk_api_exposure`: 9.35645 vs median 7.0517 (+33%)
 
-**Not expressible as measured (n/a):** `class_start`
+**Not expressible as measured (n/a):** `class_start`, `classes_found`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -844,14 +844,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `cog_raw`: 0 vs median 0.0205 (-100%)
 - 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
-- 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_tech_debt`: 0 vs median 20.4394 (-100%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 
-**Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `risk_api_exposure`, `risk_cognitive_load`, `risk_concurrency`, `risk_dead_code`, `risk_documentation`, `risk_safety_score`, `risk_spec_match`, `risk_state_flux`, `risk_verification`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
+**Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `classes_found`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `functions_found`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `risk_api_exposure`, `risk_cognitive_load`, `risk_concurrency`, `risk_dead_code`, `risk_documentation`, `risk_safety_score`, `risk_spec_match`, `risk_state_flux`, `risk_verification`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1124,7 +1123,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🟡 `globals`: 3 vs median 2 (+50%)
 
-**Not expressible as measured (n/a):** `class_start`
+**Not expressible as measured (n/a):** `class_start`, `classes_found`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1180,23 +1179,27 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `args`: 1 vs median 13 (-92%)
-- 🔴 `avg_func_args`: 0.0555556 vs median 1 (-94%)
-- 🔴 `avg_func_complexity`: 0.0833333 vs median 0.1875 (-56%)
-- 🔴 `func_internal_density`: 0.00694444 vs median 0.015625 (-56%)
-- 🔴 `functions_found`: 32 vs median 13 (+146%)
+- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
+- 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
+- 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
+- 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
+- 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 7.0517 (-100%)
 - 🔴 `risk_documentation`: 0 vs median 40.1963 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
+- 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
+
+**Not expressible as measured (n/a):** `functions_found`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
-| `slicer-segments-statements-not-functions` | engine-semantic | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | functions_found dockerfile 17 and sqlite 30 against a median of 13 (the SPEC's 12 probes + entry) |
+| `slicer-segments-statements-not-functions` | engine-semantic | [#2792](https://github.com/squid-protocol/gitgalaxy/issues/2792) | — | functions_found dockerfile 17 and sqlite 31 against a median of 13 (the SPEC's 12 probes + entry) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sql | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `sqlite-dot-read-dual-import-io` | keyword-overlap | [#2841](https://github.com/squid-protocol/gitgalaxy/issues/2841) | (notes) | ^.read counts BOTH import and io (finditer-confirmed) — every corpus chain link adds +1 io in sqlite |
