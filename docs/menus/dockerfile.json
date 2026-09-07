@@ -158,9 +158,6 @@
       "ADD",
       "wget",
       "curl",
-      "apk",
-      "yum",
-      "dnf",
       "unzip"
     ],
     "pattern_defined": true

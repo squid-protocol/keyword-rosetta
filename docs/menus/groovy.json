@@ -1,9 +1,7 @@
 {
   "api": {
     "core": true,
-    "keywords": [
-      "public"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "args": {

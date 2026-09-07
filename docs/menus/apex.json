@@ -30,8 +30,7 @@
       "catch",
       "finally",
       "break",
-      "continue",
-      "return"
+      "continue"
     ],
     "pattern_defined": true
   },
@@ -98,7 +97,6 @@
       "@description",
       "@param",
       "@return",
-      "@author",
       "@date",
       "@example"
     ],
@@ -209,9 +207,7 @@
   },
   "import": {
     "core": true,
-    "keywords": [
-      "bType.forName"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "io": {
@@ -356,13 +352,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "insert",
-      "update",
-      "upsert",
-      "delete",
-      "merge"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

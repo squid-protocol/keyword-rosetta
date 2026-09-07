@@ -1,10 +1,7 @@
 {
   "api": {
     "core": true,
-    "keywords": [
-      "public",
-      "internal"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "args": {
@@ -35,8 +32,7 @@
       "catch",
       "finally",
       "break",
-      "continue",
-      "return"
+      "continue"
     ],
     "pattern_defined": true
   },
@@ -421,14 +417,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "var",
-      "MutableList",
-      "MutableMap",
-      "MutableSet",
-      "MutableState",
-      "MutableStateFlow"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

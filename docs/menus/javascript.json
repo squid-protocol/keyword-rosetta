@@ -454,19 +454,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "let",
-      "var",
-      "setState",
-      "mut",
-      "push",
-      "pop",
-      "shift",
-      "unshift",
-      "splice",
-      "sort",
-      "reverse"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

@@ -27,6 +27,11 @@
     ],
     "pattern_defined": true
   },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "cleanup": {
     "core": true,
     "keywords": [],

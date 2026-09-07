@@ -2,9 +2,6 @@
   "api": {
     "core": true,
     "keywords": [
-      "public",
-      "open",
-      "package",
       "@usableFromInline",
       "@objc",
       "@objcMembers",
@@ -440,14 +437,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "var",
-      "inout",
-      "mutating",
-      "didSet",
-      "willSet",
-      "_modify"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

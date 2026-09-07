@@ -427,12 +427,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "setState",
-      "notifyListeners",
-      "markNeedsBuild",
-      "StreamController.add"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

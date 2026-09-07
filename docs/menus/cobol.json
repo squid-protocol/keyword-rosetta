@@ -3,8 +3,6 @@
     "core": true,
     "keywords": [
       "ENTRY",
-      "CALL",
-      "INVOKE",
       "EXPORT"
     ],
     "pattern_defined": true
@@ -336,7 +334,6 @@
       "DIVIDE",
       "SET",
       "INITIALIZE",
-      "REPLACE",
       "STRING",
       "UNSTRING"
     ],

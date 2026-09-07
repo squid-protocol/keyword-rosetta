@@ -353,8 +353,11 @@
     "keywords": [
       "xchg",
       "cmpxchg",
+      "xadd",
       "inc",
-      "dec"
+      "dec",
+      "neg",
+      "not"
     ],
     "pattern_defined": true
   },

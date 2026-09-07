@@ -476,17 +476,22 @@
   "state_mutation": {
     "core": true,
     "keywords": [
-      "IORef",
-      "STRef",
-      "TVar",
-      "MVar",
-      "TMVar",
       "modifyIORef",
       "writeIORef",
+      "atomicModifyIORef",
+      "atomicWriteIORef",
+      "modifySTRef",
+      "writeSTRef",
+      "writeTVar",
+      "modifyTVar",
       "putMVar",
+      "modifyMVar_",
+      "swapMVar",
+      "writeArray",
+      "writeSTArray",
+      "unsafeWrite",
       "modify",
-      "put",
-      "StateT"
+      "put"
     ],
     "pattern_defined": true
   },

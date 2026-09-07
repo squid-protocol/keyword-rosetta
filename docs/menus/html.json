@@ -141,6 +141,11 @@
     "keywords": [],
     "pattern_defined": true
   },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "immutability_locks": {
     "core": false,
     "keywords": [

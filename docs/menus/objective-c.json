@@ -34,7 +34,6 @@
       "do",
       "break",
       "continue",
-      "return",
       "goto"
     ],
     "pattern_defined": true
@@ -463,7 +462,8 @@
       "union",
       "__block",
       "__weak",
-      "__strong"
+      "__strong",
+      "return"
     ],
     "pattern_defined": true
   },

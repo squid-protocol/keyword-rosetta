@@ -369,12 +369,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "UPDATE",
-      "SET",
-      "UPSERT",
-      "set"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

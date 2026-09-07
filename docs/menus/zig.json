@@ -29,8 +29,7 @@
       "catch",
       "orelse",
       "break",
-      "continue",
-      "return"
+      "continue"
     ],
     "pattern_defined": true
   },

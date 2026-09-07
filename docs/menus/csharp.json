@@ -1,10 +1,7 @@
 {
   "api": {
     "core": true,
-    "keywords": [
-      "public",
-      "internal"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "args": {
@@ -408,11 +405,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "volatile",
-      "ref",
-      "out"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

@@ -468,13 +468,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "mutable",
-      "std::move",
-      "std::exchange",
-      "std::swap",
-      "std::atomic"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

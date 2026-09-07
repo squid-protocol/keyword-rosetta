@@ -445,14 +445,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "push",
-      "pop",
-      "shift",
-      "unshift",
-      "delete",
-      "clear"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

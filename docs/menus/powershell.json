@@ -34,8 +34,7 @@
       "throw",
       "trap",
       "break",
-      "continue",
-      "return"
+      "continue"
     ],
     "pattern_defined": true
   },
