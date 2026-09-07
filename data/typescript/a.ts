@@ -16,7 +16,11 @@ export function probeTest(kit: number): number {
 }
 
 export function probeSafety(value: unknown): number {
-  const kind: unknown = value;
-  const impossible: never = value;
-  return 0;
+  try {
+    const kind = Number(value);
+    return kind;
+  } catch {
+    const fallback = 0;
+    return fallback;
+  }
 }

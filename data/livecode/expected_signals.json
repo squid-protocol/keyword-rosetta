@@ -5,7 +5,7 @@
   "files": {
     "main.lc": {
       "class_start": 0,
-      "branch": 4,
+      "branch": 3,
       "io": 3,
       "high_risk_execution": 2,
       "globals": 0,
@@ -27,7 +27,7 @@
     },
     "a.lc": {
       "class_start": 0,
-      "branch": 1,
+      "branch": 0,
       "io": 0,
       "high_risk_execution": 0,
       "globals": 2,
@@ -118,5 +118,5 @@
       "outcome": "global is dual globals+safety_bypasses in livecode (a bypasses 2, predicted from the menus before scanning)"
     }
   ],
-  "notes": "branch 4 in main = if + then + else + the closing 'end if' (livecode counts then, and end-if re-matches if -- ada-family closing-keyword inflation). a branch 1 = throw (dual safety+branch, finditer-confirmed). api counts public handlers + opaque conversion (main/a/b 4, c 3). doc 1 in main = the structured @-tagged form only: the bare Author:-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (Author removed from doc's bare-tag alternation; ownership still captures it exclusively; genuine @author-style structured tags remain in doc). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"answer\" literal inside probe_state — b.lc high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 9->3. gitgalaxy#2675: safety_bypasses claimed `global `, which globals owns exclusively; dropped, so safety_bypasses records the planted 2. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.lc state_mutation 3->2: `set the cFlag to 2` removed -- the decoy's own `put \"...\" into tNote` is a real write and was the third; the rule agrees with the contract, the plant carried three writes."
+  "notes": "branch 4 in main = if + then + else + the closing 'end if' (livecode counts then, and end-if re-matches if -- ada-family closing-keyword inflation). a branch 1 = throw (dual safety+branch, finditer-confirmed). api counts public handlers + opaque conversion (main/a/b 4, c 3). doc 1 in main = the structured @-tagged form only: the bare Author:-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (Author removed from doc's bare-tag alternation; ownership still captures it exclusively; genuine @author-style structured tags remain in doc). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"answer\" literal inside probe_state — b.lc high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 9->3. gitgalaxy#2675: safety_bypasses claimed `global `, which globals owns exclusively; dropped, so safety_bypasses records the planted 2. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.lc state_mutation 3->2: `set the cFlag to 2` removed -- the decoy's own `put \"...\" into tNote` is a real write and was the third; the rule agrees with the contract, the plant carried three writes. 2026-09-06 (gitgalaxy#2822): then/while/until/times left branch for structural_boundaries, end-if/end-repeat/end-switch re-matches are guarded, and throw is safety's only -- main branch 4->3 (a planted repeat supplies the third decision), a branch 1->0."
 }

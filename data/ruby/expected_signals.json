@@ -1,122 +1,122 @@
 {
- "language": "ruby",
- "tier": 1,
- "generator": "claude-sonnet-5 (hand-verified reference)",
- "files": {
-  "main.rb": {
-   "class_start": 0,
-   "branch": 3,
-   "io": 3,
-   "high_risk_execution": 2,
-   "func_start": 4,
-   "args": 4,
-   "api": 3,
-   "api_orphan_credit": 0,
-   "doc": 1,
-   "ownership": 1,
-   "import": 1,
-   "state_mutation": 0,
-   "globals": 0,
-   "test": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0
+  "language": "ruby",
+  "tier": 1,
+  "generator": "claude-sonnet-5 (hand-verified reference)",
+  "files": {
+    "main.rb": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "a.rb": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "branch": 0,
+      "state_mutation": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "b.rb": {
+      "class_start": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "branch": 0,
+      "safety": 0,
+      "high_risk_execution": 1,
+      "io": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0
+    },
+    "c.rb": {
+      "class_start": 0,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "branch": 0,
+      "state_mutation": 0,
+      "io": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0
+    }
   },
-  "a.rb": {
-   "class_start": 0,
-   "import": 1,
-   "func_start": 3,
-   "args": 3,
-   "api": 3,
-   "api_orphan_credit": 0,
-   "globals": 2,
-   "test": 2,
-   "safety": 2,
-   "branch": 1,
-   "state_mutation": 0,
-   "high_risk_execution": 0,
-   "io": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0
-  },
-  "b.rb": {
-   "class_start": 0,
-   "import": 1,
-   "func_start": 3,
-   "args": 3,
-   "api": 3,
-   "api_orphan_credit": 0,
-   "safety_bypasses": 2,
-   "telemetry": 2,
-   "state_mutation": 2,
-   "branch": 0,
-   "safety": 0,
-   "high_risk_execution": 1,
-   "io": 0,
-   "test": 0,
-   "globals": 0,
-   "cleanup": 0,
-   "fragile_debt": 0,
-   "planned_debt": 0
-  },
-  "c.rb": {
-   "class_start": 0,
-   "import": 0,
-   "func_start": 3,
-   "args": 3,
-   "api": 3,
-   "api_orphan_credit": 0,
-   "cleanup": 2,
-   "fragile_debt": 1,
-   "planned_debt": 1,
-   "branch": 0,
-   "state_mutation": 0,
-   "io": 0,
-   "safety": 0,
-   "safety_bypasses": 0,
-   "telemetry": 0,
-   "test": 0,
-   "globals": 0,
-   "doc": 0,
-   "ownership": 0,
-   "high_risk_execution": 0
-  }
- },
- "decoys": [
-  {
-   "file": "main.rb",
-   "line_hint": "# decoy: this suite never aborts and the spawn word stays in prose",
-   "surface": "comment",
-   "signals": [
-    "branch",
-    "high_risk_execution"
-   ],
-   "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
-  },
-  {
-   "file": "b.rb",
-   "line_hint": "note = \"plain system decoy text\" (probe_state)",
-   "surface": "string",
-   "signals": [
-    "high_risk_execution"
-   ],
-   "outcome": "danger-only decoy (#17 redesign): \"system\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety_bypasses 3->2, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
-  },
-  {
-   "file": "c.rb",
-   "line_hint": "hack_level = level",
-   "surface": "code",
-   "signals": [
-    "fragile_debt"
-   ],
-   "outcome": "inert (underscore + lowercase)"
-  }
- ],
- "notes": "branch 1 in a.rb = rescue (ruby branch includes rescue — dual with safety, finditer-confirmed). api = 0 planted; a/b convert 4 vs c 3 (same source-line-carrying shape as shell; ledger orphan-conversion-opaque-counts). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.rb high_risk_execution 0->1, branch 1->0, safety_bypasses 3->2, state_mutation 6->2. api (gitgalaxy#2729): one 'module_function :probe_x' line per probe function, appended after the defs in each file (entry not listed): api 3/3/3/3 (main/a/b/c). No rule overlap: 'module_function' is not a class_start opener (the rule needs 'module' + whitespace) and \\bmodule\\b does not match it. Carried: api_orphan_credit 3->0 in a/b/c -- naming the probes in the export statement makes the engine treat them as referenced (orphaned_logic 0), so the Contextual Baseline Fix has nothing to convert; a bare 'module_function' (count 1) would keep the credit. Rule too narrow for the shell's real idiom: top-level defs are private on Object and Ruby opens them with 'public :name' / 'public def', which the api rule (module_function | Sinatra routes) cannot see."
+  "decoys": [
+    {
+      "file": "main.rb",
+      "line_hint": "# decoy: this suite never aborts and the spawn word stays in prose",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
+      "file": "b.rb",
+      "line_hint": "note = \"plain system decoy text\" (probe_state)",
+      "surface": "string",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "danger-only decoy (#17 redesign): \"system\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety_bypasses 3->2, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.rb",
+      "line_hint": "hack_level = level",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (underscore + lowercase)"
+    }
+  ],
+  "notes": "branch 1 in a.rb = rescue (ruby branch includes rescue — dual with safety, finditer-confirmed). api = 0 planted; a/b convert 4 vs c 3 (same source-line-carrying shape as shell; ledger orphan-conversion-opaque-counts). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.rb high_risk_execution 0->1, branch 1->0, safety_bypasses 3->2, state_mutation 6->2. api (gitgalaxy#2729): one 'module_function :probe_x' line per probe function, appended after the defs in each file (entry not listed): api 3/3/3/3 (main/a/b/c). No rule overlap: 'module_function' is not a class_start opener (the rule needs 'module' + whitespace) and \\bmodule\\b does not match it. Carried: api_orphan_credit 3->0 in a/b/c -- naming the probes in the export statement makes the engine treat them as referenced (orphaned_logic 0), so the Contextual Baseline Fix has nothing to convert; a bare 'module_function' (count 1) would keep the credit. Rule too narrow for the shell's real idiom: top-level defs are private on Object and Ruby opens them with 'public :name' / 'public def', which the api rule (module_function | Sinatra routes) cannot see. 2026-09-06 (gitgalaxy#2822 corollary 1): branch no longer counts rescue/ensure (safety's); begin/retry moved to structural_boundaries -- a.rb branch 1->0."
 }

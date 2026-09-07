@@ -223,11 +223,11 @@
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "ada's closing 'end if' re-matches \\bif\\b: every well-formed if statement counts branch at least twice (if + end if). Same class would apply to fortran 'END IF' spelled with a space (corpus used ENDIF, which is inert). Inherent to token-based branch counting on block-closed languages; baked in (main.adb branch 4).",
-      "upstream_issue": null,
+      "verdict": "ada's closing 'end if' re-matches \\bif\\b: every well-formed if statement counts branch at least twice (if + end if). Same class would apply to fortran 'END IF' spelled with a space (corpus used ENDIF, which is inert). Inherent to token-based branch counting on block-closed languages; baked in (main.adb branch 4). RESOLVED 2026-09-06 by gitgalaxy#2822 (branch contract, corollary 2): the closing 'end if'/'end case'/'end loop' re-matches are guarded with lookbehinds; main.adb branch 4->3, re-blessed to plant.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2822",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "fortran-goto-dual-branch-highrisk",
@@ -237,11 +237,11 @@
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "GOTO is in both fortran's branch rule and its high_risk_execution rule \u2014 one planted GOTO counts both. finditer-confirmed.",
-      "upstream_issue": null,
+      "verdict": "GOTO is in both fortran's branch rule and its high_risk_execution rule \u2014 one planted GOTO counts both. finditer-confirmed. RESOLVED 2026-09-06 by gitgalaxy#2822 (corollary 3): GOTO left branch; high_risk_execution alone owns it. main.f90 branch 4->3.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2822",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "asm-call-ret-in-branch",
@@ -308,11 +308,11 @@
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "shell's branch rule counts the test brackets [ and ] as branch tokens (finditer on main.sh: if,[,],then,fi = 5 for one conditional) \u2014 every bracketed test costs +2 branch on top of if/then/fi. Defensible ([ is the test builtin) but a strong per-language inflation for cross-language branch comparisons.",
-      "upstream_issue": null,
+      "verdict": "shell's branch rule counts the test brackets [ and ] as branch tokens (finditer on main.sh: if,[,],then,fi = 5 for one conditional) \u2014 every bracketed test costs +2 branch on top of if/then/fi. Defensible ([ is the test builtin) but a strong per-language inflation for cross-language branch comparisons. RESOLVED 2026-09-06 by gitgalaxy#2822 (corollary 2): the test brackets and then/fi/esac/done left branch for structural_boundaries; probe_branch re-planted with an else arm and a while loop, main.sh branch 5->3.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2822",
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "shell-trap-signal-env-collision",
@@ -549,12 +549,11 @@
         "jcl",
         "livecode",
         "makefile",
-        "powershell",
         "tcl"
       ],
       "disposition": "keyword-overlap",
       "status": "validated",
-      "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals). SCOPE CORRECTION (gitgalaxy#2669 A.4): the signal is now the union of the duals itemised above, and languages_seen is narrowed to the languages that actually carry one, because the reports join signal x language as a cross-product and a collective entry over languages with nothing itemised would mark their red cells explained. Removed: dart, groovy, objective-c, scala, scheme, zig \u2014 batch 4 swept them, but none records a dual-rule keyword in its manifest notes (groovy's args behaviour is ts-callparen-args; objective-c's selector over-count is the same entry). embedded_python is kept and its duals named: `except` is dual safety_bypasses+safety and its test plants overlap safety (assert-overlaps-safety-and-test family), which is why `test` is in the union. SAFETY HALF PLANTED 2026-09-05 (keyword-rosetta#59 section 1): dockerfile no longer needs `safety` excused here. Its 1 came entirely from `HEALTHCHECK` counting dual func_start+safety, which is the overlap this entry documents -- so the language was one real safety construct short of the median, not two. `USER probe` is that construct, screened clean (only `structural_boundaries` alongside, which the manifest does not gate), and placed before the `RUN` instructions it applies to so it does not land inside a preceding slice's body. dockerfile reads 2 = median, green. The HEALTHCHECK dual itself is unchanged and still belongs to this entry. 2026-09-05: jcl joins with SET (globals + state_mutation, gitgalaxy#2750 -- dockerfile's ENV shape exactly): b.jcl's two SET lines read globals 2 AND state_mutation 2. RETIRED 2026-09-06 by gitgalaxy#2765 (state_mutation contract, count contract corollary 4): dockerfile ENV is globals only (a.dockerfile state_mutation 2->0), matlab clear/clearvars and m4 popdef are cleanup only (matlab b.m cleanup 2->0 and state 3->2 after a re-plant; c.m4 state 2->0). matlab and m4 leave languages_seen -- those were their only itemised duals. The jcl SET dual (globals + state_mutation) is the one state_mutation overlap that stays, recorded in the contract doc as the deliberate exception; dockerfile stays for HEALTHCHECK and FROM.",
+      "verdict": "Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globals+bypasses) and throw (safety+branch) and then/end-if inflation, tcl source (import+io) and close (cleanup+io) and trap (safety+branch), dockerfile ENV (globals+state) and HEALTHCHECK (func+safety) and FROM (import+class_start), makefile clean-target (func+cleanup+api), matlab clear/clearvars (state+cleanup), m4 popdef (state+cleanup), apex Database.query (high_risk+bypasses), powershell trap/continue (branch duals). SCOPE CORRECTION (gitgalaxy#2669 A.4): the signal is now the union of the duals itemised above, and languages_seen is narrowed to the languages that actually carry one, because the reports join signal x language as a cross-product and a collective entry over languages with nothing itemised would mark their red cells explained. Removed: dart, groovy, objective-c, scala, scheme, zig \u2014 batch 4 swept them, but none records a dual-rule keyword in its manifest notes (groovy's args behaviour is ts-callparen-args; objective-c's selector over-count is the same entry). embedded_python is kept and its duals named: `except` is dual safety_bypasses+safety and its test plants overlap safety (assert-overlaps-safety-and-test family), which is why `test` is in the union. SAFETY HALF PLANTED 2026-09-05 (keyword-rosetta#59 section 1): dockerfile no longer needs `safety` excused here. Its 1 came entirely from `HEALTHCHECK` counting dual func_start+safety, which is the overlap this entry documents -- so the language was one real safety construct short of the median, not two. `USER probe` is that construct, screened clean (only `structural_boundaries` alongside, which the manifest does not gate), and placed before the `RUN` instructions it applies to so it does not land inside a preceding slice's body. dockerfile reads 2 = median, green. The HEALTHCHECK dual itself is unchanged and still belongs to this entry. 2026-09-05: jcl joins with SET (globals + state_mutation, gitgalaxy#2750 -- dockerfile's ENV shape exactly): b.jcl's two SET lines read globals 2 AND state_mutation 2. RETIRED 2026-09-06 by gitgalaxy#2765 (state_mutation contract, count contract corollary 4): dockerfile ENV is globals only (a.dockerfile state_mutation 2->0), matlab clear/clearvars and m4 popdef are cleanup only (matlab b.m cleanup 2->0 and state 3->2 after a re-plant; c.m4 state 2->0). matlab and m4 leave languages_seen -- those were their only itemised duals. The jcl SET dual (globals + state_mutation) is the one state_mutation overlap that stays, recorded in the contract doc as the deliberate exception; dockerfile stays for HEALTHCHECK and FROM. BRANCH HALF RETIRED 2026-09-06 by gitgalaxy#2822: livecode throw (safety+branch) and its then/end-if inflation, tcl trap (safety+branch), and powershell trap/continue are gone -- branch no longer counts handler keywords or a construct's closing words. powershell leaves languages_seen (those were its only itemised duals); livecode and tcl remain for global (globals+bypasses) and source/close (import|cleanup + io).",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5; safety plant 2026-09-05 by claude-opus-5 (keyword-rosetta#59); jcl clauses 2026-09-05 by claude-opus-5 (keyword-rosetta#60); #2765 retirements 2026-09-06 by claude-fable-5.1",
       "validated_at": "2026-09-06",
@@ -1712,11 +1711,11 @@
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitgalaxy#2822 asks for. Three shapes: (A) a HANDLER keyword dual with safety -- cpp `catch` in a.cpp, ruby `rescue` in a.rb (finditer-confirmed in both manifests); (B) the SYNTAX WORDS of one conditional -- swift's `guard` plus its own `else` clause in main.swift (4 = if + else + guard + guard-else), sqlite's single CASE expression counting CASE/WHEN/THEN/ELSE/END (5); (C) `goto` dual with high_risk_execution -- csharp main.cs (4 = if/else/switch + goto). Sibling per-language entries record the same shapes where a language was swept earlier: ada-end-if-branch-inflation (B), shell-test-brackets-in-branch (B), fortran-goto-dual-branch-highrisk (C), and the livecode/powershell/tcl/makefile duals inside batch4-dual-keyword-overlaps (A/B). 27 of 46 branch rules name catch/rescue/except/goto; the 38 languages reading 3 simply plant their safety construct with a token their branch rule does not match. Found 2026-09-06 when string-literal-selective-shielding's cross-product was narrowed: these five cells had been excused by an entry that could not explain them. Current behaviour baked in per GATING.md; retire with the engine fix.",
+      "verdict": "The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitgalaxy#2822 asks for. Three shapes: (A) a HANDLER keyword dual with safety -- cpp `catch` in a.cpp, ruby `rescue` in a.rb (finditer-confirmed in both manifests); (B) the SYNTAX WORDS of one conditional -- swift's `guard` plus its own `else` clause in main.swift (4 = if + else + guard + guard-else), sqlite's single CASE expression counting CASE/WHEN/THEN/ELSE/END (5); (C) `goto` dual with high_risk_execution -- csharp main.cs (4 = if/else/switch + goto). Sibling per-language entries record the same shapes where a language was swept earlier: ada-end-if-branch-inflation (B), shell-test-brackets-in-branch (B), fortran-goto-dual-branch-highrisk (C), and the livecode/powershell/tcl/makefile duals inside batch4-dual-keyword-overlaps (A/B). 27 of 46 branch rules name catch/rescue/except/goto; the 38 languages reading 3 simply plant their safety construct with a token their branch rule does not match. Found 2026-09-06 when string-literal-selective-shielding's cross-product was narrowed: these five cells had been excused by an entry that could not explain them. Current behaviour baked in per GATING.md; retire with the engine fix. RETIRED 2026-09-06: fixed by gitgalaxy#2822's engine PR. (A) cpp catch and ruby rescue -- and every handler keyword corpus-wide -- left branch (safety's); (B) swift's guard-else no longer double-counts (else anchors on '}') and sqlite's CASE counts CASE + its WHEN/ELSE arms only (5->3); (C) csharp goto left branch (high_risk_execution owns it). All five cells re-blessed to plant.",
       "upstream_issue": "squid-protocol/gitgalaxy#2822",
       "investigated_by": "claude (Phase 0 cause triage)",
       "validated_at": "2026-09-06",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "typescript-type-keywords-count-as-safety",
@@ -1726,11 +1725,11 @@
       ],
       "disposition": "upstream-question",
       "status": "validated",
-      "verdict": "a.ts reads safety 3 against a plant of 2: `unknown` twice (a parameter type and a local's type) plus `never`. typescript's safety rule lists `unknown|never|void` alongside try/catch/finally -- TYPE keywords counted as runtime guards. A type annotation is not a defensive construct any more than `IORef Int` is a write (state_mutation corollary 2) -- the same count-contract question as gitgalaxy#2822's branch shapes, from the safety side, and audited with it. Found 2026-09-06 when string-literal-selective-shielding's cross-product was narrowed. Current behaviour baked in per GATING.md; retire with the engine fix.",
+      "verdict": "a.ts reads safety 3 against a plant of 2: `unknown` twice (a parameter type and a local's type) plus `never`. typescript's safety rule lists `unknown|never|void` alongside try/catch/finally -- TYPE keywords counted as runtime guards. A type annotation is not a defensive construct any more than `IORef Int` is a write (state_mutation corollary 2) -- the same count-contract question as gitgalaxy#2822's branch shapes, from the safety side, and audited with it. Found 2026-09-06 when string-literal-selective-shielding's cross-product was narrowed. Current behaviour baked in per GATING.md; retire with the engine fix. RETIRED 2026-09-06: fixed by gitgalaxy#2822 -- unknown/never/void left safety for structural_boundaries. The old plant's own 'safety constructs' WERE the type keywords (probeSafety planted unknown x2 + never and nothing else), so probeSafety was re-planted with try/catch; a.ts safety 3->2.",
       "upstream_issue": "squid-protocol/gitgalaxy#2822",
       "investigated_by": "claude (Phase 0 cause triage)",
       "validated_at": "2026-09-06",
-      "still_reproduces": true
+      "still_reproduces": false
     },
     {
       "id": "m4-makefile-api-scores-above-stratum",
@@ -1787,6 +1786,80 @@
       "verdict": "api_orphan_credit reads 3 in a/b/c for both languages where it should read 0. detector.py's `api_declared_orphans` (gitgalaxy#2731, landed as #2734) is what stops galaxyscope.py's Contextual Baseline Fix from crediting an orphan the language's own `api` rule already counted at its declaration -- the double count that made data/go/a.go record three functions as six units of public surface. It decides the overlap by tokenising each api-matched LINE with `\\b\\w+\\b` and testing the orphan's name for membership, and that tokenizer cannot produce a token containing `-`, `:`, `.`, `!` or `?`. Every function whose name holds one is therefore invisible to the test and gets credited twice. It is the same tokenizer family as gitgalaxy#2754, which fixed the census itself and left this consumer behind. cobol has carried it since #2734: `PROBE-GLOBALS` is never matched in the api line that declares its own paragraph, 3 per file in a/b/c. scheme JOINS 2026-09-06 with gitgalaxy#2823 -- until then its export line was wrongly clearing the orphan flag, so there were no orphans to double-count and the cell read 0 for an unrelated reason (see the correction on api-declared-orphans-are-not-new-surface). haskell is the control that proves the diagnosis: its probes are named in `module A (probeGlobals, probeTest, probeSafety) where`, all three tokens are plain \\w, api_declared_orphans reads 3 and the credit correctly stays 0. The real corpus makes it much larger than these two cells suggest -- over language-crucible, api_declared_orphans moves 4983 -> 5122 under a name-aware test, +139 across zig (`@\"...\"` quoted identifiers, bun/napi.zig alone 402 -> 478), lua (`bit.bor`, `M.start`) and powershell, whose count is 0 for the ENTIRE language because a `Verb-Noun` name always contains a hyphen. Fix shape filed upstream: test `_name_boundary_pattern(name)` against the api-line text instead of tokenising it, which is the same lookaround pair `_is_orphan` already uses, so both halves of the census agree what an occurrence of a name is. Both cells go to 0 when it lands. Manifests carry the current behaviour per docs/GATING.md until then.",
       "upstream_issue": "squid-protocol/gitgalaxy#2827",
       "investigated_by": "claude-opus-5 (gitgalaxy#2823)",
+      "validated_at": "2026-09-06",
+      "still_reproduces": true
+    },
+    {
+      "id": "branch-contract-2822",
+      "signal": "branch|safety",
+      "languages_seen": [
+        "ada",
+        "cobol",
+        "cpp",
+        "csharp",
+        "dockerfile",
+        "fortran",
+        "haskell",
+        "jcl",
+        "livecode",
+        "lua",
+        "makefile",
+        "powershell",
+        "ruby",
+        "shell",
+        "sqlite",
+        "swift",
+        "tcl",
+        "typescript",
+        "yaml"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- the choosing construct or one of its alternative arms. A handler is not a decision (catch/rescue/except/finally/ensure/trap/try are safety's), one conditional is one hit per arm-opener (then/fi/esac/done/of/END/ENDIF/end-if re-matches and the shell test brackets do not count), and an unconditional transfer is not a decision (goto left branch like return did in #2545; COBOL's bare PERFORM is its call form). The typescript safety mirror (unknown/never/void are type keywords, not guards) landed in the same PR. Before the contract branch was the corpus's largest open-defect metric (11 of 45 comparable cells). RESOLVED upstream by the #2822 engine PR (37 rule files touched; tokens another rule owns were de-duped, the rest relocated to structural_boundaries to conserve branch+linear mass per #2764) and re-blessed here in the same change: 14 manifest cells moved to plant, ten plant edits (shell, haskell, lua, dockerfile, yaml, jcl, livecode main decisions; powershell's trap body; typescript probeSafety; cobol's owed dispatch PERFORMs), every language verified 46/46 against the branch engine. Deferred residue is filed: gitgalaxy#2832 (break/continue family, two-keyword loop headers), gitgalaxy#2833 (ruby bare ?, java bare :, python with).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2822",
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-06",
+      "still_reproduces": false
+    },
+    {
+      "id": "sqlite-function-census-masked-by-branch-inflation",
+      "signal": "avg_func_complexity",
+      "languages_seen": [
+        "sqlite"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "avg_func_complexity/sqlite went out of band the moment gitgalaxy#2822 corrected its branch count (5->3): the old CASE/WHEN/THEN/ELSE/END inflation was masking the real deviation, which is the DENOMINATOR -- sqlite's function census reads 31 functions_found against a corpus median of 13 (every CREATE statement slices as a callable), so 3 branch hits spread over 31 slots reads 0.094 against a ~0.19 median. A function-census question (the gitgalaxy#2806/#2727 family), not a branch one; the branch cell itself is in band at plant. Measured 2026-09-06 from bias_data.json before/after the #2822 engine (0.15625 -> 0.09375, functions_found unchanged).",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-06",
+      "still_reproduces": true
+    },
+    {
+      "id": "cobol-tech-debt-floor-after-dispatch-plant",
+      "signal": "risk_tech_debt",
+      "languages_seen": [
+        "cobol"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "risk_tech_debt/cobol 46.21 -> 23.10 when the owed dispatch plant (gitgalaxy#2806 note, landed with gitgalaxy#2822's corpus PR) made PROBE-IO/PROBE-RISK referenced: raw_state_unreferenced 2.75 -> 2.25 (in band), and with no unreferenced-share left the formula drops to just above the 20.44 near-floor cluster, below the irc2 stratum median (~38.7). The count layer is now honest; the cliff between 'has an orphan share' and 'has none' is a formula-weighting question for the Phase 4 commensurability audit (docs/contract_roadmap.md), same class as composite-nonlinearity-amplifies-in-band-inputs. Measured 2026-09-06 from bias_data.json before/after.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
+      "validated_at": "2026-09-06",
+      "still_reproduces": true
+    },
+    {
+      "id": "makefile-gini-blind-to-toplevel-conditionals",
+      "signal": "func_complexity_gini",
+      "languages_seen": [
+        "makefile"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "func_complexity_gini/makefile (0.354 vs 0.1875 median) surfaced as its own cell the moment gitgalaxy#2822 landed makefile's branch total on the median -- before that it was categorized echo of the branch defect and never examined. The deviation is real and PREDATES #2822: the gini value is byte-identical before and after a +/-1 change in top-level branch tokens (endif removed, the corpus total moving 4->3), which shows make's top-level conditionals (ifeq/else between rules) sit outside every target slice, so the per-function distribution only ever sees the recipes' share and reads more unequal than languages whose probe decisions all live inside a function body. A slicing/probe-placement question (the gitgalaxy#2727 census family), not a branch-count one. Measured 2026-09-06 from bias_data.json before/after the #2822 engine.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5",
       "validated_at": "2026-09-06",
       "still_reproduces": true
     }

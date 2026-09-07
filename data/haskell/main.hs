@@ -11,7 +11,9 @@ entry :: Int -> Int
 entry argv = probeRisk (probeIo (probeBranch argv))
 
 probeBranch :: Int -> Int
-probeBranch flag = if flag > 0 then 1 else 2
+probeBranch flag = case flag of
+  0 -> 3
+  _ -> if flag > 0 then 1 else 2
 
 probeIo :: Int -> Int
 probeIo path = readFile writeFile openFile
