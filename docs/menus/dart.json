@@ -2,7 +2,8 @@
   "api": {
     "core": true,
     "keywords": [
-      "export"
+      "export",
+      "part of"
     ],
     "pattern_defined": true
   },
@@ -191,6 +192,8 @@
   "globals": {
     "core": true,
     "keywords": [
+      "static final",
+      "static const",
       "Platform.environment",
       "Zone.current"
     ],
@@ -408,7 +411,9 @@
   "spec_exposure": {
     "core": false,
     "keywords": [
-      "WorldWideWeb"
+      "Tim Berners-Lee",
+      "WorldWideWeb",
+      "HyperText Proposal"
     ],
     "pattern_defined": true
   },
@@ -427,12 +432,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "setState",
-      "notifyListeners",
-      "markNeedsBuild",
-      "StreamController.add"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

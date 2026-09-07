@@ -3,8 +3,7 @@
     "core": true,
     "keywords": [
       "ENTRY",
-      "CALL",
-      "INVOKE",
+      "LINKAGE SECTION",
       "EXPORT"
     ],
     "pattern_defined": true
@@ -32,7 +31,13 @@
       "PERFORM",
       "UNTIL",
       "VARYING",
-      "TIMES"
+      "TIMES",
+      "DEPENDING ON",
+      "ON EXCEPTION",
+      "AT END",
+      "INVALID KEY",
+      "ON SIZE ERROR",
+      "ON OVERFLOW"
     ],
     "pattern_defined": true
   },
@@ -45,7 +50,8 @@
     "core": true,
     "keywords": [
       "CLOSE",
-      "FREE"
+      "FREE",
+      "END-DECLARATIVES"
     ],
     "pattern_defined": true
   },
@@ -79,6 +85,7 @@
   "encapsulation": {
     "core": true,
     "keywords": [
+      "LOCAL-STORAGE SECTION",
       "PRIVATE"
     ],
     "pattern_defined": true
@@ -159,6 +166,7 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
+      "STOP RUN",
       "ALTER",
       "CANCEL"
     ],
@@ -188,7 +196,8 @@
       "OPEN",
       "CLOSE",
       "START",
-      "DELETE"
+      "DELETE",
+      "EXEC SQL"
     ],
     "pattern_defined": true
   },
@@ -200,7 +209,8 @@
   "listeners": {
     "core": false,
     "keywords": [
-      "MQGET"
+      "MQGET",
+      "EXEC CICS RECEIVE"
     ],
     "pattern_defined": true
   },
@@ -225,7 +235,10 @@
   "panics_and_aborts": {
     "core": false,
     "keywords": [
-      "GOBACK"
+      "STOP RUN",
+      "EXIT PROGRAM",
+      "GOBACK",
+      "EXEC CICS ABEND"
     ],
     "pattern_defined": true
   },
@@ -264,7 +277,9 @@
   "pointers": {
     "core": false,
     "keywords": [
-      "POINTER"
+      "POINTER",
+      "PROCEDURE-POINTER",
+      "FUNCTION-POINTER"
     ],
     "pattern_defined": true
   },
@@ -272,7 +287,11 @@
     "core": false,
     "keywords": [
       "REDEFINES",
-      "RENAMES"
+      "RENAMES",
+      "OCCURS DEPENDING ON",
+      "EVALUATE TRUE",
+      "EXEC CICS",
+      "EXEC SQL"
     ],
     "pattern_defined": true
   },
@@ -288,6 +307,13 @@
   "safety": {
     "core": true,
     "keywords": [
+      "END-IF",
+      "END-PERFORM",
+      "END-EVALUATE",
+      "END-READ",
+      "END-WRITE",
+      "END-COMPUTE",
+      "END-CALL",
       "DECLARATIVES",
       "VALIDATE",
       "CHECK"
@@ -297,8 +323,12 @@
   "safety_bypasses": {
     "core": true,
     "keywords": [
+      "NEXT SENTENCE",
+      "GO TO",
       "CORRESPONDING",
-      "OMITTED"
+      "ANY LENGTH",
+      "OMITTED",
+      "EXEC CICS IGNORE CONDITION"
     ],
     "pattern_defined": true
   },
@@ -311,7 +341,11 @@
     "core": false,
     "keywords": [
       "UNSTRING",
-      "STRING"
+      "STRING",
+      "JSON PARSE",
+      "JSON GENERATE",
+      "XML PARSE",
+      "XML GENERATE"
     ],
     "pattern_defined": true
   },
@@ -336,9 +370,9 @@
       "DIVIDE",
       "SET",
       "INITIALIZE",
-      "REPLACE",
       "STRING",
-      "UNSTRING"
+      "UNSTRING",
+      "EXEC CICS PUT CONTAINER"
     ],
     "pattern_defined": true
   },
@@ -351,7 +385,10 @@
       "CONTINUE",
       "GOBACK",
       "ACCEPT",
-      "DISPLAY"
+      "XML PARSE",
+      "JSON GENERATE",
+      "DISPLAY",
+      "STOP RUN"
     ],
     "pattern_defined": true
   },
@@ -363,6 +400,7 @@
   "telemetry": {
     "core": true,
     "keywords": [
+      "EXEC CICS WRITEQ TD",
       "CEE3DMP",
       "CEEMOUT",
       "CEEDUMP"
@@ -374,7 +412,9 @@
     "keywords": [
       "ZUNIT",
       "CBLUNIT",
-      "ASSERT"
+      "ASSERT",
+      "TEST-CASE",
+      "READY TRACE"
     ],
     "pattern_defined": true
   },
@@ -392,12 +432,17 @@
   },
   "time_date_logic": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "CURRENT-DATE",
+      "WHEN-COMPILED"
+    ],
     "pattern_defined": true
   },
   "ui_framework": {
     "core": false,
     "keywords": [
+      "SCREEN SECTION",
+      "EXEC CICS SEND MAP",
       "DFHMDF",
       "DFHMDI",
       "DFHMSD"

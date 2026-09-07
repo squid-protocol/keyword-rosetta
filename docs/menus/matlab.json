@@ -2,7 +2,8 @@
   "api": {
     "core": true,
     "keywords": [
-      "methods"
+      "methods",
+      "function"
     ],
     "pattern_defined": true
   },
@@ -421,10 +422,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "clear",
-      "clearvars"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

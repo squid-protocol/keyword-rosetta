@@ -16,7 +16,8 @@
     "keywords": [
       "@media",
       "@supports",
-      "@container"
+      "@container",
+      "@starting-style"
     ],
     "pattern_defined": true
   },
@@ -124,9 +125,17 @@
     ],
     "pattern_defined": true
   },
+  "io": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "listeners": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "animation-timeline",
+      "@scroll-timeline"
+    ],
     "pattern_defined": true
   },
   "ownership": {
@@ -139,7 +148,8 @@
     "keywords": [
       "unset",
       "initial",
-      "revert"
+      "revert",
+      "revert-layer"
     ],
     "pattern_defined": true
   },
@@ -208,6 +218,7 @@
       "@layer",
       "@scope",
       "@property",
+      "@font-face",
       "@keyframes",
       "@page",
       "@charset",
@@ -222,18 +233,27 @@
   },
   "test_skip": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "data-skip",
+      "data-ignore"
+    ],
     "pattern_defined": true
   },
   "thread_sleeps": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "transition-delay",
+      "animation-delay"
+    ],
     "pattern_defined": true
   },
   "ui_framework": {
     "core": false,
     "keywords": [
+      "justify-content",
+      "align-items",
       "gap",
+      "grid-template-columns",
       "absolute",
       "relative",
       "@apply"

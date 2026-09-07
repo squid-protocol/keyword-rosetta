@@ -158,9 +158,6 @@
       "ADD",
       "wget",
       "curl",
-      "apk",
-      "yum",
-      "dnf",
       "unzip"
     ],
     "pattern_defined": true
@@ -339,7 +336,8 @@
       "x11",
       "wayland",
       "gtk2",
-      "qt5"
+      "qt5",
+      "libgl1-mesa"
     ],
     "pattern_defined": true
   }

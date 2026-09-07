@@ -284,12 +284,13 @@
     "core": true,
     "keywords": [
       "pushdef",
-      "popdef",
       "m4_pushdef",
-      "m4_popdef",
       "m4_append",
       "m4_append_uniq",
-      "m4_combine"
+      "m4_combine",
+      "m4_set_add",
+      "m4_set_add_all",
+      "m4_list_append"
     ],
     "pattern_defined": true
   },

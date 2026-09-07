@@ -3,7 +3,6 @@
     "core": true,
     "keywords": [
       "export",
-      "public",
       "module.exports"
     ],
     "pattern_defined": true
@@ -432,13 +431,20 @@
   "safety_bypasses": {
     "core": true,
     "keywords": [
-      "any"
+      "any",
+      "as any",
+      "@ts-ignore",
+      "@ts-expect-error",
+      "@ts-nocheck",
+      "eslint-disable",
+      "as unknown as"
     ],
     "pattern_defined": true
   },
   "scientific": {
     "core": false,
     "keywords": [
+      "gl-matrix",
       "random"
     ],
     "pattern_defined": true
@@ -469,18 +475,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "let",
-      "var",
-      "setState",
-      "push",
-      "pop",
-      "shift",
-      "unshift",
-      "splice",
-      "sort",
-      "reverse"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {
@@ -555,6 +550,7 @@
     "core": false,
     "keywords": [
       "Date.now",
+      "new Date",
       "setTimeout",
       "setInterval",
       "clearTimeout",

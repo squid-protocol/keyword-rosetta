@@ -2,6 +2,9 @@
   "api": {
     "core": true,
     "keywords": [
+      "export module",
+      "export import",
+      "export class",
       "export"
     ],
     "pattern_defined": true
@@ -214,7 +217,8 @@
     "keywords": [
       "extern",
       "static",
-      "thread_local"
+      "thread_local",
+      "inline constexpr"
     ],
     "pattern_defined": true
   },
@@ -382,6 +386,8 @@
   "reflection_metaprogramming": {
     "core": false,
     "keywords": [
+      "if constexpr",
+      "if consteval",
       "std::enable_if",
       "std::is_same",
       "std::any_cast",
@@ -468,13 +474,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "mutable",
-      "std::move",
-      "std::exchange",
-      "std::swap",
-      "std::atomic"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

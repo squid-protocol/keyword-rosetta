@@ -389,9 +389,6 @@
       "rawget",
       "rawset",
       "rawlen",
-      "collectgarbage",
-      "_G",
-      "_ENV",
       "getfenv",
       "setfenv"
     ],
@@ -443,6 +440,7 @@
       "require",
       "module",
       "return",
+      "export type",
       "type"
     ],
     "pattern_defined": true

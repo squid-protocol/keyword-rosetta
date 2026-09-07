@@ -1,10 +1,7 @@
 {
   "api": {
     "core": true,
-    "keywords": [
-      "public",
-      "protected"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "args": {
@@ -400,6 +397,7 @@
     "core": true,
     "keywords": [
       "null",
+      "return null",
       "@SuppressWarnings",
       "@SneakyThrows"
     ],
@@ -453,9 +451,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "volatile"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {
@@ -473,6 +469,7 @@
       "implements",
       "var",
       "sealed",
+      "non-sealed",
       "permits",
       "new",
       "throws",

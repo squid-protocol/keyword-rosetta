@@ -386,6 +386,8 @@
   "safety": {
     "core": true,
     "keywords": [
+      "use strict",
+      "use warnings",
       "croak",
       "confess",
       "try",
@@ -399,7 +401,10 @@
   },
   "safety_bypasses": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "no strict",
+      "no warnings"
+    ],
     "pattern_defined": true
   },
   "scientific": {
@@ -447,14 +452,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "push",
-      "pop",
-      "shift",
-      "unshift",
-      "splice",
-      "delete"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

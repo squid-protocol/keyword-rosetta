@@ -109,6 +109,7 @@
     "keywords": [
       "Dry::Container",
       "Dry::AutoInject",
+      "include Import",
       "inject"
     ],
     "pattern_defined": true
@@ -445,14 +446,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "push",
-      "pop",
-      "shift",
-      "unshift",
-      "delete",
-      "clear"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

@@ -2,9 +2,6 @@
   "api": {
     "core": true,
     "keywords": [
-      "public",
-      "open",
-      "package",
       "@usableFromInline",
       "@objc",
       "@objcMembers",
@@ -208,6 +205,8 @@
   "globals": {
     "core": true,
     "keywords": [
+      "static let",
+      "static var",
       "shared",
       "standard",
       "default",
@@ -364,13 +363,18 @@
     "core": false,
     "keywords": [
       "NSRegularExpression",
-      "Regex"
+      "Regex",
+      "try Regex"
     ],
     "pattern_defined": true
   },
   "safety": {
     "core": true,
     "keywords": [
+      "guard let",
+      "if let",
+      "guard var",
+      "if var",
       "catch",
       "is",
       "Sendable",
@@ -440,14 +444,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "var",
-      "inout",
-      "mutating",
-      "didSet",
-      "willSet",
-      "_modify"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {

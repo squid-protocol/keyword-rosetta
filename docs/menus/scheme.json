@@ -12,6 +12,11 @@
   "bitwise_ops": {
     "core": false,
     "keywords": [
+      "bitwise-and",
+      "bitwise-ior",
+      "bitwise-xor",
+      "bitwise-not",
+      "arithmetic-shift",
       "ash"
     ],
     "pattern_defined": true
@@ -36,7 +41,11 @@
   },
   "cleanup": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "close-input-port",
+      "close-output-port",
+      "close-port"
+    ],
     "pattern_defined": true
   },
   "closures": {
@@ -50,15 +59,20 @@
     "core": false,
     "keywords": [
       "map",
+      "for-each",
       "filter",
       "fold",
-      "reduce"
+      "reduce",
+      "fold-right",
+      "fold-left"
     ],
     "pattern_defined": true
   },
   "concurrency": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "make-thread"
+    ],
     "pattern_defined": true
   },
   "dead_code": {
@@ -88,7 +102,8 @@
   "events": {
     "core": false,
     "keywords": [
-      "hook"
+      "hook",
+      "run-hooks"
     ],
     "pattern_defined": true
   },
@@ -163,6 +178,7 @@
     "keywords": [
       "eval",
       "exit",
+      "emergency-exit",
       "quit"
     ],
     "pattern_defined": true
@@ -170,7 +186,8 @@
   "immutability_locks": {
     "core": false,
     "keywords": [
-      "quote"
+      "quote",
+      "string->immutable-string"
     ],
     "pattern_defined": true
   },
@@ -182,10 +199,15 @@
   "io": {
     "core": true,
     "keywords": [
+      "open-input-file",
+      "open-output-file",
       "read",
+      "read-char",
       "write",
       "display",
       "newline",
+      "call-with-input-file",
+      "call-with-output-file",
       "load",
       "format"
     ],
@@ -198,12 +220,21 @@
   },
   "macros": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "define-syntax",
+      "define-macro",
+      "syntax-rules",
+      "syntax-case"
+    ],
     "pattern_defined": true
   },
   "memory_alloc": {
     "core": false,
     "keywords": [
+      "make-vector",
+      "make-string",
+      "make-bytevector",
+      "make-hash-table",
       "cons",
       "list"
     ],
@@ -219,7 +250,8 @@
     "keywords": [
       "error",
       "abort",
-      "exit"
+      "exit",
+      "emergency-exit"
     ],
     "pattern_defined": true
   },
@@ -257,13 +289,23 @@
   },
   "reflection_metaprogramming": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "define-macro",
+      "define-syntax",
+      "syntax-rules",
+      "syntax-case",
+      "let-syntax",
+      "letrec-syntax"
+    ],
     "pattern_defined": true
   },
   "safety": {
     "core": true,
     "keywords": [
       "guard",
+      "dynamic-wind",
+      "with-exception-handler",
+      "call-with-current-continuation",
       "assert",
       "check"
     ],
@@ -271,7 +313,9 @@
   },
   "safety_bypasses": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "interaction-environment"
+    ],
     "pattern_defined": true
   },
   "scientific": {
@@ -322,12 +366,18 @@
   },
   "sync_locks": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "make-mutex"
+    ],
     "pattern_defined": true
   },
   "telemetry": {
     "core": true,
     "keywords": [
+      "log-info",
+      "log-error",
+      "log-warn",
+      "log-debug",
       "syslog"
     ],
     "pattern_defined": true
@@ -339,7 +389,10 @@
   },
   "test_skip": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "test-skip",
+      "test-expect-fail"
+    ],
     "pattern_defined": true
   },
   "thread_sleeps": {

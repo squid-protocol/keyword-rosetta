@@ -419,7 +419,9 @@
     "core": true,
     "keywords": [
       "with",
-      "void"
+      "void",
+      "eslint-disable",
+      "@ts-nocheck"
     ],
     "pattern_defined": true
   },
@@ -454,19 +456,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "let",
-      "var",
-      "setState",
-      "mut",
-      "push",
-      "pop",
-      "shift",
-      "unshift",
-      "splice",
-      "sort",
-      "reverse"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {
@@ -545,6 +535,7 @@
     "core": false,
     "keywords": [
       "Date.now",
+      "new Date",
       "setTimeout",
       "setInterval",
       "clearTimeout",

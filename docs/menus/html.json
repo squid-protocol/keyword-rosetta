@@ -141,12 +141,18 @@
     "keywords": [],
     "pattern_defined": true
   },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "immutability_locks": {
     "core": false,
     "keywords": [
       "readonly",
       "disabled",
-      "inert"
+      "inert",
+      "aria-disabled"
     ],
     "pattern_defined": true
   },
@@ -265,7 +271,12 @@
   },
   "test_skip": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "data-skip",
+      "data-ignore",
+      "mock-data",
+      "test-skip"
+    ],
     "pattern_defined": true
   },
   "thread_sleeps": {

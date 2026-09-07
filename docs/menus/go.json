@@ -55,6 +55,7 @@
   "concurrency": {
     "core": false,
     "keywords": [
+      "go func",
       "errgroup.Group"
     ],
     "pattern_defined": true

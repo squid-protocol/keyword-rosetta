@@ -38,6 +38,7 @@
       "catch",
       "finally",
       "throw",
+      "next repeat",
       "and",
       "or",
       "not"
@@ -51,7 +52,12 @@
   },
   "cleanup": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "delete variable",
+      "close file",
+      "stop using",
+      "remove script"
+    ],
     "pattern_defined": true
   },
   "comprehensions": {
@@ -85,7 +91,9 @@
   },
   "dependency_injection": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "set the behavior of"
+    ],
     "pattern_defined": true
   },
   "doc": {
@@ -158,6 +166,9 @@
   "globals": {
     "core": true,
     "keywords": [
+      "the global",
+      "the environment",
+      "the platform",
       "it"
     ],
     "pattern_defined": true
@@ -168,7 +179,8 @@
       "answer",
       "ask",
       "do",
-      "quit"
+      "quit",
+      "exit to top"
     ],
     "pattern_defined": true
   },
@@ -188,12 +200,23 @@
   },
   "io": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "read from",
+      "write to",
+      "get url",
+      "put url",
+      "load url"
+    ],
     "pattern_defined": true
   },
   "ipc_rpc_bridges": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "open socket",
+      "read from socket",
+      "get url",
+      "open process"
+    ],
     "pattern_defined": true
   },
   "listeners": {
@@ -209,6 +232,7 @@
   "panics_and_aborts": {
     "core": false,
     "keywords": [
+      "exit to top",
       "quit",
       "throw",
       "abort"
@@ -255,8 +279,11 @@
   "reflection_metaprogramming": {
     "core": false,
     "keywords": [
+      "the params",
+      "the paramcount",
       "frontscripts",
-      "backscripts"
+      "backscripts",
+      "insert script"
     ],
     "pattern_defined": true
   },
@@ -276,13 +303,21 @@
       "catch",
       "finally",
       "throw",
-      "assert"
+      "lock screen",
+      "lock messages",
+      "lock errordialogs",
+      "assert",
+      "strict compilation",
+      "is a",
+      "is strictly"
     ],
     "pattern_defined": true
   },
   "safety_bypasses": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "disable messages"
+    ],
     "pattern_defined": true
   },
   "scientific": {
@@ -352,6 +387,7 @@
       "subtract",
       "multiply",
       "divide",
+      "visual effect",
       "play",
       "sort",
       "find",
@@ -361,7 +397,11 @@
   },
   "sync_locks": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "lock screen",
+      "lock messages",
+      "lock errordialogs"
+    ],
     "pattern_defined": true
   },
   "telemetry": {
@@ -382,6 +422,9 @@
   "test": {
     "core": true,
     "keywords": [
+      "command test",
+      "pass test",
+      "fail test",
       "Levure",
       "LcU",
       "runTests"
@@ -390,7 +433,9 @@
   },
   "test_skip": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "skip test"
+    ],
     "pattern_defined": true
   },
   "thread_sleeps": {
@@ -422,6 +467,7 @@
       "img",
       "scrollbar",
       "browser",
+      "data grid",
       "widget"
     ],
     "pattern_defined": true

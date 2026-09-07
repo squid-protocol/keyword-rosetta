@@ -287,6 +287,8 @@
   "macros": {
     "core": false,
     "keywords": [
+      "inline def",
+      "transparent inline",
       "macro",
       "scala.quoted",
       "Expr",
@@ -441,6 +443,7 @@
     "core": false,
     "keywords": [
       "WorldWideWeb",
+      "HyperText Proposal",
       "NeXTSTEP"
     ],
     "pattern_defined": true
@@ -458,12 +461,7 @@
   },
   "state_mutation": {
     "core": true,
-    "keywords": [
-      "var",
-      "scala.collection.mutable",
-      "AtomicReference",
-      "AtomicInteger"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "structural_boundaries": {
@@ -511,6 +509,7 @@
   "test": {
     "core": true,
     "keywords": [
+      "it should",
       "assertEquals",
       "assertThrows",
       "AnyFunSuite",

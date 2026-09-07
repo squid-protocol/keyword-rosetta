@@ -30,6 +30,11 @@
     "keywords": [],
     "pattern_defined": true
   },
+  "cleanup": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "concurrency": {
     "core": false,
     "keywords": [],
@@ -140,6 +145,7 @@
     "keywords": [
       "wget",
       "curl",
+      "apt-get",
       "apk",
       "yum"
     ],
@@ -147,6 +153,11 @@
   },
   "listeners": {
     "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
     "keywords": [],
     "pattern_defined": true
   },
@@ -199,6 +210,11 @@
   },
   "safety_bypasses": {
     "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
     "keywords": [],
     "pattern_defined": true
   },

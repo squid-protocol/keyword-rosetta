@@ -2,6 +2,8 @@
   "api": {
     "core": true,
     "keywords": [
+      "Export-ModuleMember",
+      "New-Alias",
       "CmdletBinding"
     ],
     "pattern_defined": true
@@ -34,8 +36,7 @@
       "throw",
       "trap",
       "break",
-      "continue",
-      "return"
+      "continue"
     ],
     "pattern_defined": true
   },
@@ -47,7 +48,11 @@
   "cleanup": {
     "core": true,
     "keywords": [
-      "dispose"
+      "dispose",
+      "Remove-Variable",
+      "Remove-Item",
+      "Remove-Module",
+      "Stop-Transcript"
     ],
     "pattern_defined": true
   },
@@ -64,6 +69,10 @@
   "concurrency": {
     "core": false,
     "keywords": [
+      "Start-Job",
+      "Wait-Job",
+      "Receive-Job",
+      "Start-ThreadJob",
       "RunspaceFactory",
       "PowerShell.Create"
     ],
@@ -77,6 +86,7 @@
   "debug_prints": {
     "core": false,
     "keywords": [
+      "Write-Host",
       "echo"
     ],
     "pattern_defined": true
@@ -90,7 +100,10 @@
     "core": false,
     "keywords": [
       "InversionOfControl",
-      "DependencyInjection"
+      "DependencyInjection",
+      "Register-Service",
+      "Get-Service",
+      "Resolve-Dependency"
     ],
     "pattern_defined": true
   },
@@ -109,7 +122,13 @@
   },
   "events": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "Register-ObjectEvent",
+      "Register-EngineEvent",
+      "Register-WmiEvent",
+      "Unregister-Event",
+      "Wait-Event"
+    ],
     "pattern_defined": true
   },
   "explicit_casts": {
@@ -181,7 +200,9 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
+      "Invoke-Expression",
       "iex",
+      "Stop-Process",
       "kill",
       "Exit"
     ],
@@ -196,13 +217,23 @@
   },
   "import": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "Import-Module",
+      "using module",
+      "using namespace",
+      "using assembly"
+    ],
     "pattern_defined": true
   },
   "io": {
     "core": true,
     "keywords": [
+      "Get-Content",
+      "Set-Content",
+      "Out-File",
+      "Invoke-WebRequest",
       "iwr",
+      "Invoke-RestMethod",
       "irm",
       "TcpClient",
       "HttpListener",
@@ -214,12 +245,20 @@
   },
   "ipc_rpc_bridges": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "Invoke-Command",
+      "Invoke-RestMethod",
+      "Invoke-WebRequest",
+      "Start-Process",
+      "Start-Job",
+      "Enter-PSSession"
+    ],
     "pattern_defined": true
   },
   "listeners": {
     "core": false,
     "keywords": [
+      "Register-ObjectEvent",
       "on_"
     ],
     "pattern_defined": true
@@ -282,8 +321,10 @@
   "reflection_metaprogramming": {
     "core": false,
     "keywords": [
+      "Add-Type",
       "System.Reflection",
       "System.Management.Automation.Language",
+      "Invoke-Expression",
       "iex"
     ],
     "pattern_defined": true
@@ -300,6 +341,7 @@
       "catch",
       "finally",
       "trap",
+      "Set-StrictMode",
       "ValidateNotNull",
       "ValidateSet",
       "ValidateRange",
@@ -309,7 +351,10 @@
   },
   "safety_bypasses": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "Out-Null",
+      "ExecutionPolicy Bypass"
+    ],
     "pattern_defined": true
   },
   "scientific": {
@@ -319,7 +364,13 @@
   },
   "serialization_parsing": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "ConvertFrom-Json",
+      "ConvertTo-Json",
+      "Import-Clixml",
+      "ConvertFrom-Csv",
+      "Import-Csv"
+    ],
     "pattern_defined": true
   },
   "spec_exposure": {
@@ -329,7 +380,13 @@
   },
   "ssr_boundaries": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "New-PodeServer",
+      "Add-PodeRoute",
+      "Write-PodeHtmlResponse",
+      "New-UDEndpoint",
+      "New-UDPage"
+    ],
     "pattern_defined": true
   },
   "state_mutation": {
@@ -359,13 +416,21 @@
   },
   "telemetry": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "Write-Verbose",
+      "Write-Debug",
+      "Write-Information",
+      "Write-Warning",
+      "Start-Transcript",
+      "Write-Log"
+    ],
     "pattern_defined": true
   },
   "test": {
     "core": true,
     "keywords": [
       "Mock",
+      "Assert-MockCalled",
       "BeforeAll",
       "AfterAll",
       "BeforeEach",
@@ -386,19 +451,25 @@
   "thread_sleeps": {
     "core": false,
     "keywords": [
-      "Sleep",
+      "Start-Sleep",
       "sleep"
     ],
     "pattern_defined": true
   },
   "time_date_logic": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "Get-Date",
+      "New-TimeSpan",
+      "Start-Sleep",
+      "Measure-Command"
+    ],
     "pattern_defined": true
   },
   "ui_framework": {
     "core": false,
     "keywords": [
+      "Out-GridView",
       "HtmlDocument",
       "WebBrowser",
       "SGML",

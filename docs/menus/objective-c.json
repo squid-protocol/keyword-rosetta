@@ -34,7 +34,6 @@
       "do",
       "break",
       "continue",
-      "return",
       "goto"
     ],
     "pattern_defined": true
@@ -129,6 +128,7 @@
       "NSNotificationCenter",
       "addObserver",
       "postNotification",
+      "NXApp run",
       "sendEvent"
     ],
     "pattern_defined": true
@@ -299,6 +299,7 @@
     "keywords": [
       "Created by",
       "Copyright",
+      "Tim Berners-Lee",
       "@author"
     ],
     "pattern_defined": true
@@ -393,7 +394,8 @@
     "keywords": [
       "__unsafe_unretained",
       "unsafe_unretained",
-      "id"
+      "id",
+      "#pragma clang diagnostic ignored"
     ],
     "pattern_defined": true
   },
@@ -433,7 +435,9 @@
   "spec_exposure": {
     "core": false,
     "keywords": [
-      "WorldWideWeb"
+      "WorldWideWeb",
+      "HyperText Proposal",
+      "NeXTSTEP Docs"
     ],
     "pattern_defined": true
   },
@@ -463,7 +467,8 @@
       "union",
       "__block",
       "__weak",
-      "__strong"
+      "__strong",
+      "return"
     ],
     "pattern_defined": true
   },

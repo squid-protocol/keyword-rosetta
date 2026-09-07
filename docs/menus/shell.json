@@ -229,7 +229,8 @@
     "core": false,
     "keywords": [
       "read",
-      "inotifywait"
+      "inotifywait",
+      "while read"
     ],
     "pattern_defined": true
   },
@@ -454,6 +455,7 @@
       "whiptail",
       "zenity",
       "kdialog",
+      "notify-send",
       "tput",
       "gum",
       "tmux"

@@ -29,8 +29,7 @@
       "catch",
       "orelse",
       "break",
-      "continue",
-      "return"
+      "continue"
     ],
     "pattern_defined": true
   },
@@ -289,6 +288,8 @@
   "reflection_metaprogramming": {
     "core": false,
     "keywords": [
+      "inline for",
+      "inline while",
       "@Type",
       "@typeInfo",
       "@compileLog",
