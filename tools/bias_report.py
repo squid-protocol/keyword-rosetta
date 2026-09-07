@@ -481,6 +481,33 @@ DERIVED_INPUTS = {
 }
 
 
+# ==============================================================================
+# gitgalaxy#2795: THE STRUCTURE COUNTS NEED AN n/a MECHANISM TOO
+# ==============================================================================
+# `functions_found`, `classes_found` and `dependency_links` do not read a registry
+# rule -- they read the engine's own `function_count`/`class_count`/`import_count`
+# columns -- so the rule-absence inference that makes a *signal* cell n/a never
+# reached them. A language could be simultaneously "has no function concept, do
+# not compare" on `func_start` (n/a, excluded from the median) and "records 0
+# functions, -100% outlier" on `functions_found` (scored) in the same report: the
+# STRUCTURE COUNTS rows were measured over a larger population than the rows they
+# summarise. Same defect gitgalaxy#2669 F.3 fixed one family over for `risk_*`.
+#
+# Each structure count therefore names the registry rule that GOVERNS it -- the
+# rule whose matches the engine counts. `dependency_links` is deliberately NOT
+# governed by `import`: since gitgalaxy#2638 the DAG is fed by
+# `_dependency_capture`, and markdown proves the two diverge -- no `import` rule,
+# yet 3 real edges from relative links, a comparable cell that must stay scored.
+# No language currently nulls `_dependency_capture`, so that edge produces no
+# cell today; it is here so the family is defined consistently rather than
+# per-metric, and so na_check gates the absence the day one does.
+STRUCTURE_GOVERNORS = {
+    "functions_found": "func_start",
+    "classes_found": "class_start",
+    "dependency_links": "_dependency_capture",
+}
+
+
 # The risk formulas name their inputs with registry signal names; the recorder
 # stores several of them under different column names, and for two the RAW
 # pre-adjustment snapshot is the honest one to compare (see MEASURE_COLS).
@@ -566,8 +593,12 @@ def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inpu
             # never gated. The cell stays in `oob` so a derived metric can still
             # inherit from it below.
             continue
+        # None since gitgalaxy#2795: the language has no function CONCEPT, which
+        # is the same "no population to divide by" this verdict exists for -- a
+        # stricter `== 0` would have silently dropped markdown's descriptors back
+        # into the scored set the moment its count became n/a.
         funcs = (structure.get("functions_found") or {}).get(lang)
-        if metric in PER_FUNCTION_METRICS and funcs == 0:
+        if metric in PER_FUNCTION_METRICS and funcs in (0, None):
             verdicts[(metric, lang)] = ("undefined", "language records no functions")
             continue
         named = [
@@ -958,7 +989,11 @@ def na_audit_signals(deps):
         if dep["governed"] and not dep["engine"]
         for sig in dep["governed"]
     }
-    return sorted(set(PLANTED) | extra)
+    # gitgalaxy#2795: and the rules that govern the structure counts, for the same
+    # reason -- `_dependency_capture` is not planted and not a risk input, but a
+    # language that nulled it would make `dependency_links` incomparable, and an
+    # absence nothing has reviewed must stay loud rather than quietly excuse a cell.
+    return sorted(set(PLANTED) | extra | set(STRUCTURE_GOVERNORS.values()))
 
 
 def classify_risk_na(risk_na, deps, signal_na_state):
@@ -977,6 +1012,62 @@ def classify_risk_na(risk_na, deps, signal_na_state):
                 signal_na_state.get(sig, {}).get(lang) == "ledgered"
                 for sig in deps[metric]["governed"]
             )
+            out.setdefault(metric, {})[lang] = "ledgered" if covered else "unreviewed"
+    return out
+
+
+def unmeasurable_structure_cells(definitions, observed):
+    """n/a cells among the STRUCTURE COUNT columns, plus the mismatches found.
+
+    Same four-condition test gitgalaxy#2669 F.3 defined for the derived risk_*
+    columns (`unmeasurable_risk_cells`), applied one family over. A structure
+    count is n/a for a language only when ALL FOUR hold:
+
+      1. the column has a governing registry rule at all (STRUCTURE_GOVERNORS);
+      2. that rule is None for this language -- the engine can never populate the
+         column from source, so a 0 means "not expressible as measured";
+      3. the count reads no engine-synthesized input that can be nonzero
+         regardless of the registry. True by construction for this family: each
+         column is `len()` of exactly what its governing rule produced;
+      4. the observed value really is 0 -- the scan confirming that 1-3 pinned it.
+
+    (4) is the same rug-guard as F.3's, and it is not theoretical here: the slicer
+    synthesizes buckets in modes that never consult `func_start` at all, and
+    orphan conversion synthesizes `api`. A cell that passes 1-3 and still measures
+    nonzero is returned as a *mismatch* and left comparable -- printed loudly,
+    never absorbed.
+
+    Returns ({language: sorted [metric]}, [(language, metric, observed)]).
+    """
+    rules = {lang: d.get("rules") or {} for lang, d in definitions.items()}
+    na, mismatches = {}, []
+    for metric, governor in sorted(STRUCTURE_GOVERNORS.items()):
+        for lang, values in sorted(observed.items()):
+            if lang not in rules or metric not in values:
+                continue
+            if rules[lang].get(governor) is not None:
+                continue
+            value = values[metric]
+            if value:
+                mismatches.append((lang, metric, value))
+            else:
+                na.setdefault(lang, []).append(metric)
+    return {k: sorted(v) for k, v in na.items()}, mismatches
+
+
+def classify_structure_na(structure_na, signal_na_state):
+    """{metric: {lang: "ledgered"|"unreviewed"}} for structure-count n/a cells.
+
+    Inherited, not invented -- `classify_risk_na`'s doctrine for a derived cell.
+    The count is n/a as a mechanical consequence of its governing rule's absence,
+    so it carries that rule's review status and opens no parallel backlog row
+    (na_check.py audits the governing signal, never the count).
+    """
+    out = {}
+    for lang, metrics in structure_na.items():
+        for metric in metrics:
+            governor = STRUCTURE_GOVERNORS[metric]
+            covered = signal_na_state.get(governor, {}).get(lang) == "ledgered"
             out.setdefault(metric, {})[lang] = "ledgered" if covered else "unreviewed"
     return out
 
@@ -1426,6 +1517,37 @@ def main():
         for lang, metric, value in risk_mismatches:
             print(f"  {lang}/{metric} = {value:.4f} (inputs: {deps[metric]['governed']})")
 
+    # ...and the same question one step to the SIDE, for the structure counts
+    # (gitgalaxy#2795). These read engine columns rather than registry rules, so
+    # they were the last gated family with no n/a mechanism at all: markdown was
+    # n/a on `func_start` and a -100% outlier on `functions_found` in the same
+    # report. The governors' own review state comes off the registry the same way
+    # the planted signals' does, so a structure count can never be excused by a
+    # ledger entry its governing rule does not have.
+    struct_na, struct_mismatches = unmeasurable_structure_cells(definitions, all_struct)
+    governor_na_state = classify_na(
+        ledger["entries"],
+        {
+            lang: sigs
+            for lang, sigs in unmeasurable_signals(
+                definitions, sorted(set(STRUCTURE_GOVERNORS.values())), include_exempt=True
+            ).items()
+            if lang in languages
+        },
+    )
+    struct_na_by_metric = classify_structure_na(struct_na, governor_na_state)
+    na_by_metric.update(struct_na_by_metric)
+    for lang, metrics in struct_na.items():
+        for metric in metrics:
+            all_struct[lang][metric] = None
+    if struct_mismatches:
+        print(
+            f"MISMATCH: {len(struct_mismatches)} structure count(s) whose governing "
+            "registry rule is absent still measured nonzero (left comparable):"
+        )
+        for lang, metric, value in struct_mismatches:
+            print(f"  {lang}/{metric} = {value} (governed by: {STRUCTURE_GOVERNORS[metric]})")
+
     # Planted signals only. A derived risk cell is never its own audit row: its †
     # comes from an unreviewed *input*, already listed in dep_unreviewed above.
     # Listing it here too would give one backlog two incompatible counts -- derived
@@ -1587,6 +1709,7 @@ def main():
 
     n_na_signal = sum(len(v) for k, v in na_by_metric.items() if k in PLANTED)
     n_na_risk = sum(len(v) for v in risk_na_by_metric.values())
+    n_na_struct = sum(len(v) for v in struct_na_by_metric.values())
     if n_na_signal:
         lines += [
             f"**n/a semantics:** {n_na_signal} language/signal cells are marked n/a — the "
@@ -1611,6 +1734,21 @@ def main():
             "registry does not govern — LOC, doc lines, the call graph, popularity). Its "
             "review status is inherited, not invented: it counts as ledgered only when "
             "every governed input is itself ledgered for that language.",
+            "",
+        ]
+    if n_na_struct:
+        lines += [
+            f"**Structure counts:** and {n_na_struct} cells are n/a in the STRUCTURE "
+            "COUNTS group (gitgalaxy#2795). These columns read the engine's own "
+            "`function_count`/`class_count`/`import_count` rather than a registry rule, "
+            "so the rule-absence inference above never reached them and a language could "
+            "be n/a on `func_start` and a −100% outlier on `functions_found` in the same "
+            "report — the group's consistency scores were measured over a larger "
+            "population than the rules they summarise. Each count now names the rule it "
+            "is a tally of and inherits that rule's review status. `dependency_links` is "
+            "governed by `_dependency_capture`, **not** by `import`: since gitgalaxy#2638 "
+            "the two diverge, and markdown records 3 real edges with no `import` rule — a "
+            "comparable cell that stays scored.",
             "",
         ]
     if risk_mismatches:
@@ -1845,9 +1983,18 @@ def main():
     for name in struct_names:
         vals = []
         for lang in languages:
+            if name in struct_na.get(lang, ()):
+                vals.append("n/a" if struct_na_by_metric[name][lang] == "ledgered" else "n/a†")
+                continue
             v = all_struct[lang].get(name)
             vals.append("—" if v is None else (f"{v:.4f}" if isinstance(v, float) else str(v)))
         lines.append(f"| {name} | " + " | ".join(vals) + " |")
+    if n_na_struct:
+        lines += ["", "n/a = the registry rule this count is a tally OF is absent for the "
+                  "language (`functions_found` ← `func_start`, `classes_found` ← "
+                  "`class_start`, `dependency_links` ← `_dependency_capture`) and the scan "
+                  "confirms the count is 0 — incomparable, excluded from bands and medians; "
+                  "† = that rule's absence is not yet backed by a validated ledger entry."]
 
     lines += ["", "## Risk scores (mean per file)", "",
               "| risk | " + " | ".join(languages) + " |",

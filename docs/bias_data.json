@@ -219,7 +219,7 @@
    "lua": 13,
    "m4": 13,
    "makefile": 14,
-   "markdown": 0,
+   "markdown": null,
    "matlab": 13,
    "objective-c": 13,
    "perl": 13,
@@ -243,7 +243,7 @@
   "classes_found": {
    "abap": 0,
    "ada": 0,
-   "agc_assembly": 0,
+   "agc_assembly": null,
    "apex": 0,
    "assembly": 0,
    "c": 0,
@@ -265,9 +265,9 @@
    "kotlin": 2,
    "livecode": 0,
    "lua": 0,
-   "m4": 0,
-   "makefile": 0,
-   "markdown": 0,
+   "m4": null,
+   "makefile": null,
+   "markdown": null,
    "matlab": 0,
    "objective-c": 0,
    "perl": 0,
@@ -278,7 +278,7 @@
    "rust": 0,
    "scala": 0,
    "scheme": 0,
-   "shell": 0,
+   "shell": null,
    "solidity": 0,
    "sqlite": 0,
    "swift": 0,
@@ -3458,6 +3458,16 @@
   },
   "risk_verification": {
    "markdown": "ledgered"
+  },
+  "classes_found": {
+   "agc_assembly": "ledgered",
+   "m4": "ledgered",
+   "makefile": "ledgered",
+   "markdown": "ledgered",
+   "shell": "ledgered"
+  },
+  "functions_found": {
+   "markdown": "ledgered"
   }
  },
  "risk_inputs": {
@@ -3854,7 +3864,6 @@
   "func_start/html": "extraction",
   "functions_found/dockerfile": "scoring",
   "functions_found/html": "scoring",
-  "functions_found/markdown": "inherency",
   "functions_found/sqlite": "scoring",
   "globals/csharp": "extraction",
   "globals/shell": "extraction",
@@ -3980,7 +3989,7 @@
   ],
   "classes_found": [
    0,
-   46
+   41
   ],
   "cleanup": [
    1,
@@ -4032,7 +4041,7 @@
   ],
   "functions_found": [
    0,
-   46
+   45
   ],
   "globals": [
    2,
