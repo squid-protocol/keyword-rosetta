@@ -244,6 +244,10 @@
    "state": "CLOSED",
    "title": "test has no stated contract: c and embedded_python count safety's planted assert, and perl's Test::More::ok( fires the rule twice"
   },
+  "squid-protocol/gitgalaxy#2856": {
+   "state": "CLOSED",
+   "title": "func_start & class_start have no stated contract: 5 open cells are all collective-entry cross-product mis-marks, not rule defects"
+  },
   "squid-protocol/keyword-rosetta#71": {
    "state": "CLOSED",
    "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"
