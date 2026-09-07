@@ -25,7 +25,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [go](#go) | 0 | 1 | 0 | 10 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 |
 | [groovy](#groovy) | 0 | 0 | 0 | 6 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 |
 | [haskell](#haskell) | 5 | 2 | 0 | 11 | #2535 #2689 #2729 #2765 #2770 #2822 |
-| [html](#html) | 12 | 4 | 2 | 15 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2770 |
+| [html](#html) | 10 | 5 | 2 | 16 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2770 |
 | [java](#java) | 0 | 0 | 0 | 8 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 |
 | [javascript](#javascript) | 0 | 4 | 0 | 14 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 #2841 |
 | [jcl](#jcl) | 4 | 2 | 2 | 19 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2798 #2806 #2822 #2841 |
@@ -545,15 +545,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
 - 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
-- 🔴 `func_start`: 0 vs median 13 (-100%)
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 1.25 vs median 3 (-58%)
 - 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
-- 🔴 `risk_spec_match`: 0 vs median 100 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
+- 🟡 `func_start`: 9 vs median 13 (-31%)
 - 🟡 `risk_api_exposure`: 4.04143 vs median 7.0517 (-43%)
 - 🟡 `risk_documentation`: 21.5217 vs median 16.6736 (+29%)
 
@@ -565,10 +564,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
-| `html-probe-bodies-are-empty-by-design` | engine-semantic | — | — | functions_found html 0 against a median of 13 |
+| `html-probe-bodies-are-empty-by-design` | engine-semantic | — | (notes) | functions_found html 0 against a median of 13 |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `html-2578-declarative-globals-state-mutation-morphology` | intended-morphology | — | — | html has no native idiom for scoped-vs-global variables or state mutation -- it is purely declarative markup; both concepts are inherently imperative/scripting concepts … |
+| `html-func-start-counts-script-elements` | intended-morphology | — | main.html | html reads func_start 9 corpus-wide (main 2, a 3, b 1, c 3) against the SPEC's planted 13 function definitions, and the gap is the language, not the plant: markup declar… |
 | `no-lock-construct-sync-locks` | intended-morphology | — | — | No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms reado… |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | — | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
@@ -580,7 +580,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.html** · `<!-- decoy: this suite never sets srcdoc="anything" and the disabled word stays in prose -->` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, immutability_locks 1, safety 1 when the marker is removed; immutability_locks is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
-- **main.html** · `13 <script></script> tags corpus-wide` (code): func_start 0 EVERYWHERE despite raw-regex matches: the polyglot splitter consumes the <script>/<style> tags before html's rules run (micro-repro: a script with real JS records the JS body's signals but func 0). Ledger html-script-func-start-unreachable; gitgalaxy#2549
+- **main.html** · `9 <script></script> tags corpus-wide (main 2, a 3, b 1, c 3)` (code): func_start now reads one per tag (2/3/1/3) -- gitgalaxy#2549 FIXED: the splitter used to hand the whole <script>/<style> element to the JS/CSS lens, tag included, so html's own rule never saw its only anchor and every file baked 0. The opening tag is host markup now and stays in the html segment; only the payload after the `>` goes to the embedded lens, so the micro-repro that recorded a JS body's signals still does. Ledger html-script-func-start-unreachable (retired) and html-func-start-counts-script-elements (the live cause of 9 against the SPEC's 13)
 - **b.html** · `plain srcdoc="withheld" decoy text (#probe-api-b text node)` (string): html's literal surface is markup TEXT, not an attribute value: the text goes inside the existing <div id="probe-api-b">, so structural_boundaries and api are unmoved. io does not fire -- its rule needs src= and srcdoc= has no = after src.
 
 </details>
