@@ -14,7 +14,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 |
 | [assembly](#assembly) | 0 | 0 | 0 | 6 | #2535 #2727 #2764 #2858 |
 | [c](#c) | 0 | 1 | 0 | 12 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 |
-| [cobol](#cobol) | 2 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
+| [cobol](#cobol) | 1 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 10 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
 | [csharp](#csharp) | 0 | 0 | 0 | 9 | #2535 #2546 #2730 #2731 #2822 #2858 |
 | [css](#css) | 7 | 2 | 4 | 15 | #2549 #2655 #2689 #2729 #2752 #2770 |
@@ -209,7 +209,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `risk_documentation`: 61.8861 vs median 40.1963 (+54%)
 - 🟡 `risk_safety_score`: 53.496 vs median 42.3138 (+26%)
 - 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)

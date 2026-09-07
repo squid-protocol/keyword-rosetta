@@ -253,7 +253,7 @@
    "title": "`globals` has no stated contract: 2 open cells are one-owner/ambiguity misfires, and the crucible shows the rule counting local declarations, function prototypes and hyphenated identifiers"
   },
   "squid-protocol/gitgalaxy#2863": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "cobol avg_func_args stays 0: a paragraph's ENTRY \u2026 USING is one line outside the Mode A args window, so hit_vector.args=1 while the function's own args=0"
   },
   "squid-protocol/keyword-rosetta#71": {

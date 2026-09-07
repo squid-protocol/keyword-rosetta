@@ -1927,7 +1927,7 @@
    "apex": 1.0,
    "assembly": 1.0,
    "c": 1.0,
-   "cobol": 0.0,
+   "cobol": 0.75,
    "cpp": 1.0,
    "csharp": 1.0,
    "css": 0.05,
@@ -2839,7 +2839,7 @@
    "apex": 2.392525,
    "assembly": 2.4026750000000003,
    "c": 2.388575,
-   "cobol": 2.363625,
+   "cobol": 2.373275,
    "cpp": 2.38765,
    "csharp": 2.379975,
    "css": 2.3543250000000002,
@@ -3175,7 +3175,7 @@
    "apex": 10.43,
    "assembly": 10.48,
    "c": 11.18,
-   "cobol": 2.735,
+   "cobol": 2.78,
    "cpp": 10.49,
    "csharp": 10.455,
    "css": 0.295,
@@ -3601,7 +3601,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "26559857847e59ea5689a2179c28d67f66f1e7a5",
+ "engine_commit": "88eba4e0d582bf1fdf552546a1d92bee6bbeab8b",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -3805,7 +3805,6 @@
   "args/makefile": "inherency",
   "args/sqlite": "inherency",
   "args/yacc": "inherency",
-  "avg_func_args/cobol": "extraction",
   "avg_func_args/css": "inherency",
   "avg_func_args/dockerfile": "inherency",
   "avg_func_args/html": "inherency",
@@ -3994,7 +3993,7 @@
    45
   ],
   "avg_func_args": [
-   1,
+   0,
    46
   ],
   "avg_func_complexity": [
