@@ -18,5 +18,5 @@ sub probe_state {
     my ($items) = @_;
     push(@stack, $items);
     pop(@stack);
-    my $note = "plain system decoy text";
+    my $note = "plain system() decoy text";
 }

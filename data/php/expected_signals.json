@@ -91,21 +91,21 @@
   "decoys": [
     {
       "file": "main.php",
-      "line_hint": "// decoy: this suite never spawns a process and the exec word stays in prose",
+      "line_hint": "// decoy: this suite never spawns a process and the exec() call stays in prose",
       "surface": "comment",
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped."
     },
     {
       "file": "b.php",
-      "line_hint": "$note = \"plain popen decoy text\"; (probe_state)",
+      "line_hint": "$note = \"plain popen() decoy text\"; (probe_state)",
       "surface": "string",
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"popen\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"popen()\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1."
     },
     {
       "file": "c.php",
@@ -117,5 +117,5 @@
       "outcome": "HACK/TODO comments count exactly 1 each"
     }
   ],
-  "notes": "branch no longer counts the <?php open tag: the per-file tag-? FP RESOLVED via gitgalaxy#2541 (tag-context excluded from the ternary-? alternation; ledger php-open-tag-counts-branch). main branch 3 = if/else/switch; a/c branch 0; b branch 2 = string if/try. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"popen\" literal inside probe_state — b.php high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. api (gitgalaxy#2729): `public` visibility spelling prefixed on every probe definition (`public function probe_x(...)`), 3 per file in main/a/b/c (probe_dispatch stays plain); the rule's `\\b(public)\\b` alternation. PHP free functions are public by default and the keyword is the class-method visibility spelling, planted here as the language's own vocabulary for a declared surface. No overlap: func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface."
+  "notes": "branch no longer counts the <?php open tag: the per-file tag-? FP RESOLVED via gitgalaxy#2541 (tag-context excluded from the ternary-? alternation; ledger php-open-tag-counts-branch). main branch 3 = if/else/switch; a/c branch 0; b branch 2 = string if/try. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"popen\" literal inside probe_state — b.php high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. api (gitgalaxy#2729): `public` visibility spelling prefixed on every probe definition (`public function probe_x(...)`), 3 per file in main/a/b/c (probe_dispatch stays plain); the rule's `\\b(public)\\b` alternation. PHP free functions are public by default and the keyword is the class-method visibility spelling, planted here as the language's own vocabulary for a declared surface. No overlap: func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: b.php's string decoy carries the call form (`\"plain popen() decoy text\"`): php's rule is anchored on call parens and a backtick at expression position (C2 -- the crucible's backticks were MySQL identifier quotes inside SQL strings). Cell unchanged at 1."
 }

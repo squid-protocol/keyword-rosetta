@@ -11,38 +11,38 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [abap](#abap) | 0 | 0 | 0 | 7 | #2535 #2650 #2659 #2730 #2731 #2765 #2824 |
 | [ada](#ada) | 0 | 0 | 0 | 5 | #2535 #2546 #2822 |
 | [agc_assembly](#agc_assembly) | 2 | 1 | 2 | 9 | #2650 #2659 #2729 #2764 |
-| [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 |
+| [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 #2878 |
 | [assembly](#assembly) | 0 | 0 | 0 | 7 | #2535 #2727 #2764 #2858 #2869 |
-| [c](#c) | 0 | 1 | 0 | 12 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 |
+| [c](#c) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 #2878 |
 | [cobol](#cobol) | 1 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
-| [cpp](#cpp) | 0 | 1 | 0 | 10 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
-| [csharp](#csharp) | 0 | 0 | 0 | 9 | #2535 #2546 #2730 #2731 #2822 #2858 |
-| [css](#css) | 6 | 3 | 4 | 16 | #2549 #2655 #2689 #2729 #2752 #2770 #2866 |
-| [dart](#dart) | 0 | 1 | 0 | 7 | #2535 #2651 #2689 #2730 #2731 #2852 |
+| [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
+| [csharp](#csharp) | 0 | 0 | 0 | 10 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 |
+| [css](#css) | 6 | 3 | 4 | 17 | #2549 #2655 #2689 #2729 #2752 #2770 #2866 #2878 |
+| [dart](#dart) | 0 | 1 | 0 | 8 | #2535 #2651 #2689 #2730 #2731 #2852 #2878 |
 | [dockerfile](#dockerfile) | 5 | 3 | 1 | 20 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2792 #2798 #2822 #2856 #2866 #2875 |
 | [embedded_python](#embedded_python) | 2 | 0 | 0 | 14 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2852 #2869 #2875 |
-| [fortran](#fortran) | 0 | 2 | 0 | 14 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 |
+| [fortran](#fortran) | 0 | 2 | 0 | 15 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 #2878 |
 | [go](#go) | 0 | 1 | 0 | 11 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
-| [groovy](#groovy) | 0 | 0 | 0 | 7 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 |
+| [groovy](#groovy) | 0 | 0 | 0 | 8 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 #2878 |
 | [haskell](#haskell) | 5 | 1 | 0 | 13 | #2535 #2689 #2729 #2765 #2770 #2822 #2869 #2871 |
 | [html](#html) | 9 | 4 | 3 | 18 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2770 #2866 |
-| [java](#java) | 0 | 0 | 0 | 8 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 |
-| [javascript](#javascript) | 0 | 4 | 0 | 15 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 #2841 |
+| [java](#java) | 0 | 0 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2878 |
+| [javascript](#javascript) | 0 | 4 | 0 | 16 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 #2841 #2878 |
 | [jcl](#jcl) | 3 | 2 | 3 | 20 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2798 #2806 #2822 #2841 |
 | [kotlin](#kotlin) | 0 | 1 | 0 | 12 | #2535 #2545 #2546 #2689 #2730 #2731 #2765 #2770 #2798 |
-| [livecode](#livecode) | 0 | 0 | 0 | 11 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 #2869 |
-| [lua](#lua) | 0 | 0 | 0 | 13 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 #2822 #2841 #2852 |
+| [livecode](#livecode) | 0 | 0 | 0 | 12 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 #2869 #2878 |
+| [lua](#lua) | 0 | 0 | 0 | 14 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 #2822 #2841 #2852 #2878 |
 | [m4](#m4) | 2 | 1 | 3 | 11 | #2535 #2689 #2731 #2765 #2770 #2872 |
 | [makefile](#makefile) | 6 | 2 | 2 | 16 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 |
 | [markdown](#markdown) | 8 | 1 | 30 | 10 | #2549 #2638 #2655 #2689 #2770 #2866 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 1 | 1 | 0 | 7 | #2535 #2545 #2546 #2730 #2765 #2773 |
-| [perl](#perl) | 1 | 0 | 0 | 11 | #2535 #2546 #2670 #2689 #2730 #2731 #2765 #2770 #2852 |
-| [php](#php) | 0 | 0 | 0 | 10 | #2535 #2541 #2546 #2689 #2730 #2731 #2770 #2852 |
+| [perl](#perl) | 1 | 0 | 0 | 12 | #2535 #2546 #2670 #2689 #2730 #2731 #2765 #2770 #2852 #2878 |
+| [php](#php) | 0 | 0 | 0 | 11 | #2535 #2541 #2546 #2689 #2730 #2731 #2770 #2852 #2878 |
 | [powershell](#powershell) | 2 | 0 | 0 | 10 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 #2822 |
-| [python](#python) | 0 | 2 | 0 | 12 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
-| [ruby](#ruby) | 0 | 0 | 0 | 9 | #2535 #2546 #2547 #2727 #2731 #2822 |
-| [rust](#rust) | 1 | 0 | 0 | 9 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 |
+| [python](#python) | 0 | 2 | 0 | 13 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2878 |
+| [ruby](#ruby) | 0 | 0 | 0 | 10 | #2535 #2546 #2547 #2727 #2731 #2822 #2878 |
+| [rust](#rust) | 1 | 0 | 0 | 10 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 #2878 |
 | [scala](#scala) | 0 | 1 | 0 | 10 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 #2869 |
 | [scheme](#scheme) | 1 | 1 | 0 | 10 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
 | [shell](#shell) | 0 | 0 | 2 | 11 | #2535 #2547 #2727 #2731 #2822 #2858 |
@@ -50,7 +50,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [sqlite](#sqlite) | 10 | 2 | 2 | 17 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 #2866 |
 | [swift](#swift) | 1 | 0 | 0 | 11 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 #2858 |
 | [tcl](#tcl) | 0 | 0 | 0 | 9 | #2535 #2546 #2727 #2731 #2765 #2822 #2841 |
-| [typescript](#typescript) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 |
+| [typescript](#typescript) | 0 | 1 | 0 | 14 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 #2878 |
 | [yacc](#yacc) | 5 | 0 | 2 | 9 | #2644 #2689 #2729 #2770 |
 | [yaml](#yaml) | 3 | 0 | 1 | 15 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 #2866 |
 | [zig](#zig) | 0 | 1 | 0 | 8 | #2535 #2545 #2651 #2730 #2731 #2765 |
@@ -115,7 +115,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `agc-assembly-class-start-no-struct-pseudoop` | intended-morphology | — | — | AGC's real 1960s YUL/GAP instruction set (agc_assembly.py:99-101, comment: 'AGC lacks native objects') has no struct/record-defining pseudo-op -- its data/memory constru… |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
+| `batch4-dual-keyword-overlaps` | keyword-overlap | — | (notes) | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `string-decoy-unplantable-no-literal-surface` | language-morphology | — | main.agc | agc_assembly reads high_risk_execution 2 against a median 3 because it is the one language in the corpus that cannot carry SPEC §Decoys' string decoy |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 
@@ -142,15 +142,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.cls | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.cls | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `args-call-site-counting-apex-groovy` | upstream-bug | [#2783](https://github.com/squid-protocol/gitgalaxy/issues/2783) [#2782](https://github.com/squid-protocol/gitgalaxy/issues/2782) | (notes) | Split out of ts-callparen-args on 2026-09-06 when squid-protocol/gitgalaxy#2773 fixed that entry's typescript and objective-c arms but not these two |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `kotlin-return-in-branch` | upstream-question | [#2545](https://github.com/squid-protocol/gitgalaxy/issues/2545) | (notes) | kotlin's branch rule counts return: every file's branch = returns + real branch keywords (main.kt 8 = 5 returns + if/else/when; files with only returns record branch 3) |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.cls** · `// decoy: this suite never calls undelete and no while loop lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
+- **main.cls** · `// decoy: this suite never calls emptyRecycleBin and no while loop lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.cls** · `String note = 'plain emptyRecycleBin decoy text'; (probeState)` (string): danger-only decoy (#17 redesign): "emptyRecycleBin" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>
@@ -193,6 +193,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.c | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `assert-overlaps-safety-and-test` | keyword-overlap | [#2852](https://github.com/squid-protocol/gitgalaxy/issues/2852) | (notes) | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `io-contract-2841` | upstream-bug | [#2841](https://github.com/squid-protocol/gitgalaxy/issues/2841) | — | The io rule had no stated contract and its four open-defect cells were four different diseases: javascript's bare-token alternation counted probeIo's `path` parameter (C… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `test-contract-2852` | upstream-bug | [#2852](https://github.com/squid-protocol/gitgalaxy/issues/2852) | — | The test rule had no stated contract and its three open-defect cells were two diseases: c and embedded_python counted safety's planted runtime assert (C1 -- c's rule end… |
@@ -201,7 +202,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.c** · `// decoy: this suite never calls into a shell and the fork word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires api 1, high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
-- **b.c** · `const char *note = "plain system decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.c** · `const char *note = "plain system() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.c** · `int hack_level;` (code): inert (underscore + lowercase)
 
 </details>
@@ -261,13 +262,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.cpp** · `// decoy: this suite never terminates early and the exit word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
-- **b.cpp** · `const char *note = "plain system decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.cpp** · `// decoy: this suite never terminates early and the exit() call stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
+- **b.cpp** · `const char *note = "plain system() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.cpp** · `int hack_level;` (code): inert
 
 </details>
@@ -286,11 +288,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `globals-contract-2858` | upstream-bug | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | — | The globals rule had no stated contract; its two open-defect cells were two one-owner/ambiguity misfires (csharp's `Environment.` prefix counting the planted `Environmen… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.cs** · `// decoy: this suite never exits the process and the goto word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 2, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
+- **main.cs** · `// decoy: this suite never exits the process and the Environment.Exit word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 2, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.cs** · `var note = "plain Process.Start decoy text"; (ProbeState)` (string): danger-only decoy (#17 redesign): "Process.Start" COUNTS from inside the literal (+1), undampened — ProbeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.cs** · `var hack_level = level;` (code): inert
 
@@ -328,14 +331,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `no-lock-construct-sync-locks` | intended-morphology | — | — | No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms reado… |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | (notes) | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `css-import-url-io-triple-overlap` | keyword-overlap | [#2752](https://github.com/squid-protocol/gitgalaxy/issues/2752) | (notes) | io stays None correctly, but css.py's inline comment gives the wrong reason ('url()/@import don't block a computational thread'); that doesn't hold against html's own io… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.css** · `/* decoy: this suite never uses expression words and no @media block lives outside prose */` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
+- **main.css** · `/* decoy: this suite never uses expression() values and no @media block lives outside prose */` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **main.css** · `@media / @supports / @container` (code): the three planted branch at-rules are TRIPLE-counted: each is func_start (the #2507/#2513 'closest function-shaped construct' precedent), @media/@supports/@container are branch, and @supports is also safety — one @supports line = 3 signals
-- **b.css** · `content: "plain expression decoy text" (@keyframes probe-state)` (string): the declaration goes INSIDE the existing @keyframes probe-state block, so structural_boundaries and func_start are unmoved; a new selector would have cost class_start +1. `expression` is css's own danger vocabulary (the IE expression() sink c.css plants for real).
+- **b.css** · `content: "plain expression() decoy text" (@keyframes probe-state)` (string): the declaration goes INSIDE the existing @keyframes probe-state block, so structural_boundaries and func_start are unmoved; a new selector would have cost class_start +1. `expression` is css's own danger vocabulary (the IE expression() sink c.css plants for real). 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 
 </details>
 
@@ -352,6 +356,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dart | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `test-contract-2852` | upstream-bug | [#2852](https://github.com/squid-protocol/gitgalaxy/issues/2852) | — | The test rule had no stated contract and its three open-defect cells were two diseases: c and embedded_python counted safety's planted runtime assert (C1 -- c's rule end… |
 | `indented-declaration-globals` | upstream-question | [#2651](https://github.com/squid-protocol/gitgalaxy/issues/2651) | — | dart's and zig's globals rules match final/const/var initializations at ANY indentation — function-local declarations count as globals (dart b/c +1 each from local final… |
 
@@ -460,12 +465,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 | `fortran-use-case-insensitive-dag` | upstream-bug | [#2540](https://github.com/squid-protocol/gitgalaxy/issues/2540) | — | 'USE A' does not resolve to a.f90 in the dependency DAG (popularity stays 0, orphan->api conversion never fires); 'USE a' resolves |
 | `globals-contract-2858` | upstream-bug | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | — | The globals rule had no stated contract; its two open-defect cells were two one-owner/ambiguity misfires (csharp's `Environment.` prefix counting the planted `Environmen… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.f90** · `never uses GOTO and no DO loop` (comment): stripped: contributed 0
+- **main.f90** · `never uses GOTO and no DO loop -> re-authored 2026-09-08: `this suite never calls STOP and no DO loop appears outside prose`` (comment): stripped: contributed 0 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.f90** · `NOTE = 'PLAIN ASSIGN DECOY TEXT'` (string): danger-only decoy (#17 redesign): ASSIGN COUNTS from inside the literal (+1) -- same unshielded read as before, now uncontaminated. ASSIGN chosen over GOTO deliberately: GOTO is ALSO a fortran branch keyword, so the old literal's phantom branch context tripled this file's 2 assignments via the flux weighting (state 6) and added branch +2/io +1 noise. Now state reads 2 raw at x1.
 - **c.f90** · `HACK_LEVEL = LEV` (code): inert (underscore tokenization, as python) — but the assignment itself counts state_mutation +1 (fortran counts every NAME = value)
 
@@ -511,12 +517,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.groovy | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `args-call-site-counting-apex-groovy` | upstream-bug | [#2783](https://github.com/squid-protocol/gitgalaxy/issues/2783) [#2782](https://github.com/squid-protocol/gitgalaxy/issues/2782) | (notes) | Split out of ts-callparen-args on 2026-09-06 when squid-protocol/gitgalaxy#2773 fixed that entry's typescript and objective-c arms but not these two |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.groovy** · `// decoy: this suite never exits and the execute word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
-- **b.groovy** · `note = "plain execute decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "execute" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.groovy** · `// decoy: this suite never exits and the System.exit() call stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
+- **b.groovy** · `note = "plain System.exit() decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "System.exit()" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 
 </details>
 
@@ -617,6 +624,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.java | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.java | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -650,6 +658,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `package-manifest-adds-a-graph-node` | intended-morphology | — | — | betweenness_score javascript and python 0.05 against a median of 0.0833335, with identical dependency_links (3) and popularity (0.75) -- so the DAG's edges are right and… |
 | `identifier-name-token-collision` | keyword-overlap | [#2841](https://github.com/squid-protocol/gitgalaxy/issues/2841) | (notes) | Token signals match ordinary identifiers that happen to spell a keyword: js probeIo's parameter named 'path' counts io +1 (path is a js io keyword) |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `io-contract-2841` | upstream-bug | [#2841](https://github.com/squid-protocol/gitgalaxy/issues/2841) | — | The io rule had no stated contract and its four open-defect cells were four different diseases: javascript's bare-token alternation counted probeIo's `path` parameter (C… |
 | `js-with-statement-func-start-fp` | upstream-bug | [#2539](https://github.com/squid-protocol/gitgalaxy/issues/2539) | (notes) | 'with (shape) {}' is parsed as a function named 'with' by the identifier(args){ alternation: the keyword exclusion list has if/for/while/switch/catch/return but not with |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
@@ -747,6 +756,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
@@ -754,8 +764,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.lc** · `-- decoy: this suite never quits and the answer word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
-- **b.lc** · `put "plain answer decoy text" into tNote (probe_state)` (string): danger-only decoy (#17 redesign): "answer" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.lc** · `-- decoy: this suite never quits and the quit word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
+- **b.lc** · `put "plain quit decoy text" into tNote (probe_state)` (string): danger-only decoy (#17 redesign): "quit" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **a.lc** · `global gRegion / global gHome` (code): global is dual globals+safety_bypasses in livecode (a bypasses 2, predicted from the menus before scanning)
 
 </details>
@@ -774,6 +784,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.lua | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `io-contract-2841` | upstream-bug | [#2841](https://github.com/squid-protocol/gitgalaxy/issues/2841) | — | The io rule had no stated contract and its four open-defect cells were four different diseases: javascript's bare-token alternation counted probeIo's `path` parameter (C… |
 | `lua-2657-indented-return-not-module-export` | upstream-bug | [#2657](https://github.com/squid-protocol/gitgalaxy/issues/2657) | — | lua's api rule's module-export 'return <ident>' alternative allowed any indentation, so ordinary function-body returns miscounted as module exports -- RESOLVED via gitga… |
 | `test-contract-2852` | upstream-bug | [#2852](https://github.com/squid-protocol/gitgalaxy/issues/2852) | — | The test rule had no stated contract and its three open-defect cells were two diseases: c and embedded_python counted safety's planted runtime assert (C1 -- c's rule end… |
@@ -783,7 +794,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.lua** · `-- decoy: this suite never exits and the loop words stay in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 2 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
-- **b.lua** · `note = "plain os.remove decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "os.remove" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.lua** · `note = "plain os.exit decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "os.exit" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.lua** · `(comment decoys only)` (comment): HACK/TODO comments count exactly 1 each
 
 </details>
@@ -949,6 +960,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `visibility-morphology-encapsulation` | engine-semantic | — | — | Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `assert-overlaps-safety-and-test` | keyword-overlap | [#2852](https://github.com/squid-protocol/gitgalaxy/issues/2852) | — | python's test rule includes \bassert\b and the safety rule includes assert: one planted assert counts both |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `perl-pod-delimiter-double-count` | upstream-bug | [#2670](https://github.com/squid-protocol/gitgalaxy/issues/2670) | (notes) | perl's doc rule lists =cut in the same alternation as the POD openers and nothing pairs them, so a correctly closed POD block counts doc=2 (opener + =cut) |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `test-contract-2852` | upstream-bug | [#2852](https://github.com/squid-protocol/gitgalaxy/issues/2852) | — | The test rule had no stated contract and its three open-defect cells were two diseases: c and embedded_python counted safety's planted runtime assert (C1 -- c's rule end… |
@@ -956,7 +968,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
 - **main.pl** · `# decoy: this suite never spawns a process and the qx word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
-- **b.pl** · `my $note = "plain system decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **b.pl** · `my $note = "plain system() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.pl** · `my $hack_level = $level` (code): inert for debt, but the assignment counts state +1 (perl counts $var =)
 
 </details>
@@ -975,13 +987,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.php | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `test-contract-2852` | upstream-bug | [#2852](https://github.com/squid-protocol/gitgalaxy/issues/2852) | — | The test rule had no stated contract and its three open-defect cells were two diseases: c and embedded_python counted safety's planted runtime assert (C1 -- c's rule end… |
 | `php-open-tag-counts-branch` | upstream-question | [#2541](https://github.com/squid-protocol/gitgalaxy/issues/2541) | (notes) | The <?php open tag's ? matches php's branch rule bare ternary-? alternation (finditer-confirmed): EVERY php file records branch >= 1 from its own open tag |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.php** · `// decoy: this suite never spawns a process and the exec word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
-- **b.php** · `$note = "plain popen decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "popen" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.php** · `// decoy: this suite never spawns a process and the exec() call stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
+- **b.php** · `$note = "plain popen() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "popen()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.php** · `(comment decoys only)` (comment): HACK/TODO comments count exactly 1 each
 
 </details>
@@ -1033,6 +1046,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.py | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `package-manifest-adds-a-graph-node` | intended-morphology | — | — | betweenness_score javascript and python 0.05 against a median of 0.0833335, with identical dependency_links (3) and popularity (0.75) -- so the DAG's edges are right and… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `python-2658-docstring-delimiter-double-count` | upstream-bug | [#2658](https://github.com/squid-protocol/gitgalaxy/issues/2658) | — | the doc rule matched opening and closing docstring delimiters independently with no pairing, so one docstring counted doc=2 -- RESOLVED via gitgalaxy#2658 (matches the f… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
@@ -1058,6 +1072,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
@@ -1085,6 +1100,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 
@@ -1325,6 +1341,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
+| `high-risk-execution-contract-2878` | upstream-bug | [#2878](https://github.com/squid-protocol/gitgalaxy/issues/2878) | — | The high_risk_execution rule had no stated contract; its one open-defect cell (agc_assembly 2 vs 3) was a ledger cross-product, not a rule defect (see string-decoy-unpla… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `typescript-type-keywords-count-as-safety` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | a.ts reads safety 3 against a plant of 2: `unknown` twice (a parameter type and a local's type) plus `never` |
 
@@ -1421,7 +1438,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
-- **main.zig** · `// decoy: this suite never calls panic and no switch block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
+- **main.zig** · `// decoy: this suite never calls @panic and no switch block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.zig** · `var note = "plain std.process.exit decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "std.process.exit" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 
 </details>

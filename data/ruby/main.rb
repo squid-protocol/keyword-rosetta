@@ -28,8 +28,8 @@ def probe_io(route)
 end
 
 def probe_risk(payload)
-  runner = abort
-  starter = spawn
+  abort(payload)
+  spawn(payload)
   [runner, starter]
 end
 

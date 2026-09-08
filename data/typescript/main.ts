@@ -29,7 +29,7 @@ export function probeIo(route: number): number {
 }
 
 export function probeRisk(payload: number): number {
-  const runner = eval;
+  const runner = eval(payload);
   debugger;
   return payload;
 }

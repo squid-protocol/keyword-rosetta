@@ -91,22 +91,22 @@
   "decoys": [
     {
       "file": "main.lc",
-      "line_hint": "-- decoy: this suite never quits and the answer word stays in prose",
+      "line_hint": "-- decoy: this suite never quits and the quit word stays in prose",
       "surface": "comment",
       "signals": [
         "branch",
         "high_risk_execution"
       ],
-      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped."
     },
     {
       "file": "b.lc",
-      "line_hint": "put \"plain answer decoy text\" into tNote (probe_state)",
+      "line_hint": "put \"plain quit decoy text\" into tNote (probe_state)",
       "surface": "string",
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"answer\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"quit\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1."
     },
     {
       "file": "a.lc",
@@ -118,5 +118,5 @@
       "outcome": "global is dual globals+safety_bypasses in livecode (a bypasses 2, predicted from the menus before scanning)"
     }
   ],
-  "notes": "branch 4 in main = if + then + else + the closing 'end if' (livecode counts then, and end-if re-matches if -- ada-family closing-keyword inflation). a branch 1 = throw (dual safety+branch, finditer-confirmed). api counts public handlers + opaque conversion (main/a/b 4, c 3). doc 1 in main = the structured @-tagged form only: the bare Author:-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (Author removed from doc's bare-tag alternation; ownership still captures it exclusively; genuine @author-style structured tags remain in doc). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"answer\" literal inside probe_state — b.lc high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 9->3. gitgalaxy#2675: safety_bypasses claimed `global `, which globals owns exclusively; dropped, so safety_bypasses records the planted 2. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.lc state_mutation 3->2: `set the cFlag to 2` removed -- the decoy's own `put \"...\" into tNote` is a real write and was the third; the rule agrees with the contract, the plant carried three writes. 2026-09-06 (gitgalaxy#2822): then/while/until/times left branch for structural_boundaries, end-if/end-repeat/end-switch re-matches are guarded, and throw is safety's only -- main branch 4->3 (a planted repeat supplies the third decision), a branch 1->0. 2026-09-08 #2869 safety contract: `throw` raises rather than handles (panics_and_aborts keeps it); probe_safety re-planted with a `catch tError` handler beside the assert (a bare `try` line shifts livecode's block structure under the lens and adds a phantom arch_api hit -> api_orphan_credit; measured by one-file scans); cell unchanged at 2."
+  "notes": "branch 4 in main = if + then + else + the closing 'end if' (livecode counts then, and end-if re-matches if -- ada-family closing-keyword inflation). a branch 1 = throw (dual safety+branch, finditer-confirmed). api counts public handlers + opaque conversion (main/a/b 4, c 3). doc 1 in main = the structured @-tagged form only: the bare Author:-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (Author removed from doc's bare-tag alternation; ownership still captures it exclusively; genuine @author-style structured tags remain in doc). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"answer\" literal inside probe_state — b.lc high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 9->3. gitgalaxy#2675: safety_bypasses claimed `global `, which globals owns exclusively; dropped, so safety_bypasses records the planted 2. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.lc state_mutation 3->2: `set the cFlag to 2` removed -- the decoy's own `put \"...\" into tNote` is a real write and was the third; the rule agrees with the contract, the plant carried three writes. 2026-09-06 (gitgalaxy#2822): then/while/until/times left branch for structural_boundaries, end-if/end-repeat/end-switch re-matches are guarded, and throw is safety's only -- main branch 4->3 (a planted repeat supplies the third decision), a branch 1->0. 2026-09-08 #2869 safety contract: `throw` raises rather than handles (panics_and_aborts keeps it); probe_safety re-planted with a `catch tError` handler beside the assert (a bare `try` line shifts livecode's block structure under the lens and adds a phantom arch_api hit -> api_orphan_credit; measured by one-file scans); cell unchanged at 2. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.lc's `answer pPayload` (a dialog, C5) re-planted as `get shell(pPayload)` (runs a command, C1b) and b.lc's decoy carries `quit`; `do pPayload` was rejected -- livecode's reflection_metaprogramming rule counts `do`, and a scored non-planted column would have moved. Cells unchanged (main 2, b 1); ipc_rpc_bridges and structural_boundaries (ungated) +1."
 }

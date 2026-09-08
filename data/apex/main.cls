@@ -1,7 +1,7 @@
 // keyword rosetta control shell: apex / main
 // Author: keyword-rosetta generator
 // @description dispatch each probe once
-// decoy: this suite never calls undelete and no while loop lives outside prose
+// decoy: this suite never calls emptyRecycleBin and no while loop lives outside prose
 Type.forName('a');
 
 static Integer entry(Integer argv) {
@@ -28,7 +28,7 @@ global static Integer probeIo(Integer route) {
 }
 
 global static Integer probeRisk(Integer payload) {
-    String rid = '001000000000abc';
-    undelete payload;
+    Database.emptyRecycleBin(payload);
+    System.abortJob(payload);
     return payload;
 }

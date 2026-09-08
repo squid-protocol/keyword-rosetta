@@ -33,6 +33,6 @@ def probe_io(path):
 
 
 def probe_risk(payload):
-    runner = eval
-    spawner = exec
+    eval(payload)
+    exec(payload)
     return runner, spawner

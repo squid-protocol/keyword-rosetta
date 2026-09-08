@@ -29,6 +29,6 @@ int probeIo(int route) {
 
 int probeRisk(int payload) {
   exit(payload);
-  exitCode;
+  Process.killPid(payload);
   return payload;
 }

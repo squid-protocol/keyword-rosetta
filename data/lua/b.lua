@@ -16,6 +16,6 @@ end
 
 function probe_state(items)
   counter = 1
-  note = "plain os.remove decoy text"
+  note = "plain os.exit decoy text"
   return items
 end

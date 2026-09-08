@@ -95,13 +95,13 @@
   "decoys": [
     {
       "file": "main.zig",
-      "line_hint": "// decoy: this suite never calls panic and no switch block runs outside prose",
+      "line_hint": "// decoy: this suite never calls @panic and no switch block runs outside prose",
       "surface": "comment",
       "signals": [
         "branch",
         "high_risk_execution"
       ],
-      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped."
     },
     {
       "file": "b.zig",

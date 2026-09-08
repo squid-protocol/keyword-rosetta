@@ -28,7 +28,7 @@ public static int probeIo(int route) {
 }
 
 public static int probeRisk(int payload) {
-    ProcessBuilder builder;
+    new ProcessBuilder(payload);
     System.exit(payload);
     return payload;
 }
