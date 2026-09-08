@@ -221,14 +221,7 @@
   },
   "immutability_locks": {
     "core": false,
-    "keywords": [
-      "val",
-      "final",
-      "sealed",
-      "readonly",
-      "Object.freeze",
-      "immutable"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "import": {

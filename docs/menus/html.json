@@ -148,12 +148,7 @@
   },
   "immutability_locks": {
     "core": false,
-    "keywords": [
-      "readonly",
-      "disabled",
-      "inert",
-      "aria-disabled"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "import": {

@@ -175,11 +175,6 @@
     ],
     "pattern_defined": true
   },
-  "immutability_locks": {
-    "core": false,
-    "keywords": [],
-    "pattern_defined": true
-  },
   "import": {
     "core": true,
     "keywords": [

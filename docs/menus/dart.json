@@ -207,9 +207,6 @@
   "immutability_locks": {
     "core": false,
     "keywords": [
-      "const",
-      "final",
-      "readonly",
       "@immutable"
     ],
     "pattern_defined": true

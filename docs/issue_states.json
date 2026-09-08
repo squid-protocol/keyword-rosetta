@@ -192,6 +192,10 @@
    "state": "OPEN",
    "title": "control_flow_ratio is the corpus's worst metric (33%): it divides a pinned numerator by structural_boundaries, an ungoverned 0-45 vocabulary tally"
   },
+  "squid-protocol/gitgalaxy#2772": {
+   "state": "CLOSED",
+   "title": "immutability_locks has no contract: rust's `let` is invisible while swift's `let` scores 11 \u2014 and it is subtracted from the corpus's worst gated metric"
+  },
   "squid-protocol/gitgalaxy#2773": {
    "state": "CLOSED",
    "title": "args counts call-site arguments in objective-c (+62%) and typescript: a coupling signal that scales with how many calls a file makes"

@@ -207,7 +207,6 @@
     "core": false,
     "keywords": [
       "CONSTANTS",
-      "FINAL",
       "READ-ONLY"
     ],
     "pattern_defined": true
