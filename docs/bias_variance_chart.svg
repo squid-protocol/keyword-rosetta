@@ -344,7 +344,7 @@
 <line x1="574.7" y1="446.0" x2="574.7" y2="458.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="446.0" x2="829.3" y2="458.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="444.0" x2="702.0" y2="460.0" stroke="#9aa4ad"/>
-<circle cx="760.7" cy="452.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="452.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="452.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="452.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="452.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -3752,7 +3752,7 @@
 <line x1="574.7" y1="2786.0" x2="574.7" y2="2798.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2786.0" x2="829.3" y2="2798.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2784.0" x2="702.0" y2="2800.0" stroke="#9aa4ad"/>
-<circle cx="672.2" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="667.1" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="692.6" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="755.6" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="675.6" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
