@@ -213,6 +213,7 @@
       "exec",
       "spawn",
       "fork",
+      "Process.kill",
       "IO.popen"
     ],
     "pattern_defined": true

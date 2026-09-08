@@ -193,10 +193,7 @@
   },
   "high_risk_execution": {
     "core": true,
-    "keywords": [
-      "System.exit",
-      "execute"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "immutability_locks": {

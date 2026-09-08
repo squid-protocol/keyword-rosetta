@@ -107,10 +107,7 @@
   },
   "high_risk_execution": {
     "core": true,
-    "keywords": [
-      "expression",
-      "behavior"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "immutability_locks": {

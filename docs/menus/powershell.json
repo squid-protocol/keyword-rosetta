@@ -198,6 +198,7 @@
       "Invoke-Expression",
       "iex",
       "Stop-Process",
+      "Start-Process",
       "kill",
       "Exit"
     ],

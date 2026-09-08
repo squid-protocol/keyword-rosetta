@@ -155,8 +155,7 @@
     "keywords": [
       "sudo",
       "mkfs",
-      "dd",
-      "kill"
+      "dd"
     ],
     "pattern_defined": true
   },

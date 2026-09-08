@@ -183,7 +183,9 @@
       "machine.disable_irq",
       "eval",
       "exec",
-      "sys.exit"
+      "sys.exit",
+      "os._exit",
+      "os.abort"
     ],
     "pattern_defined": true
   },

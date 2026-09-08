@@ -214,14 +214,7 @@
   },
   "high_risk_execution": {
     "core": true,
-    "keywords": [
-      "exec",
-      "shell_exec",
-      "system",
-      "passthru",
-      "proc_open",
-      "popen"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "immutability_locks": {

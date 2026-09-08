@@ -196,11 +196,11 @@
     "keywords": [
       "os.execute",
       "os.exit",
-      "os.remove",
-      "os.rename",
+      "io.popen",
       "load",
       "loadstring",
-      "loadfile"
+      "loadfile",
+      "dofile"
     ],
     "pattern_defined": true
   },

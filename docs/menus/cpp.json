@@ -221,16 +221,7 @@
   },
   "high_risk_execution": {
     "core": true,
-    "keywords": [
-      "system",
-      "memcpy",
-      "memset",
-      "abort",
-      "exit",
-      "std::terminate",
-      "longjmp",
-      "setjmp"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "immutability_locks": {

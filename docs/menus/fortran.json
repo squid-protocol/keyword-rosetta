@@ -193,9 +193,9 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
-      "GO TO",
-      "GOTO",
-      "ASSIGN"
+      "ASSIGN",
+      "ERROR STOP",
+      "STOP"
     ],
     "pattern_defined": true
   },

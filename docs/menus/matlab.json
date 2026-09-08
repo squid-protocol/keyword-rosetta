@@ -190,7 +190,6 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
-      "clc",
       "system",
       "dos",
       "unix",

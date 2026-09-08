@@ -139,7 +139,8 @@
     "core": true,
     "keywords": [
       "selfdestruct",
-      "suicide"
+      "suicide",
+      "delegatecall"
     ],
     "pattern_defined": true
   },

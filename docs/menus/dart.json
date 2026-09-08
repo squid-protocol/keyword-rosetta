@@ -200,7 +200,6 @@
     "core": true,
     "keywords": [
       "exit",
-      "exitCode",
       "Process.killPid"
     ],
     "pattern_defined": true

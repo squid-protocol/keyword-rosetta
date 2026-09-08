@@ -193,7 +193,6 @@
     "keywords": [
       "System.exit",
       "exitProcess",
-      "Runtime.getRuntime",
       "Thread.stop"
     ],
     "pattern_defined": true

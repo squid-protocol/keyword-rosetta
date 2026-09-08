@@ -179,8 +179,8 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
-      "process::exit",
-      "abort"
+      "abort",
+      "Command::new"
     ],
     "pattern_defined": true
   },

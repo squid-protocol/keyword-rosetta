@@ -181,9 +181,7 @@
     "core": true,
     "keywords": [
       "os.Exit",
-      "syscall.Kill",
-      "syscall.RawSyscall",
-      "log.Fatal"
+      "exec.Command"
     ],
     "pattern_defined": true
   },

@@ -214,7 +214,6 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
-      "ProcessBuilder",
       "System.exit",
       "Thread.stop",
       "Unsafe"
