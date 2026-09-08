@@ -17,24 +17,24 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [cobol](#cobol) | 1 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 10 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
 | [csharp](#csharp) | 0 | 0 | 0 | 9 | #2535 #2546 #2730 #2731 #2822 #2858 |
-| [css](#css) | 7 | 2 | 4 | 15 | #2549 #2655 #2689 #2729 #2752 #2770 |
+| [css](#css) | 6 | 3 | 4 | 16 | #2549 #2655 #2689 #2729 #2752 #2770 #2866 |
 | [dart](#dart) | 0 | 1 | 0 | 7 | #2535 #2651 #2689 #2730 #2731 #2852 |
-| [dockerfile](#dockerfile) | 6 | 5 | 0 | 18 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2792 #2798 #2822 #2856 |
+| [dockerfile](#dockerfile) | 5 | 5 | 1 | 20 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2792 #2798 #2822 #2856 #2866 |
 | [embedded_python](#embedded_python) | 3 | 0 | 0 | 12 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2852 |
 | [fortran](#fortran) | 0 | 2 | 0 | 14 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 |
 | [go](#go) | 0 | 1 | 0 | 10 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 |
 | [groovy](#groovy) | 0 | 0 | 0 | 6 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 |
 | [haskell](#haskell) | 5 | 2 | 0 | 11 | #2535 #2689 #2729 #2765 #2770 #2822 |
-| [html](#html) | 10 | 5 | 2 | 17 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2770 |
+| [html](#html) | 9 | 4 | 3 | 18 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2770 #2866 |
 | [java](#java) | 0 | 0 | 0 | 8 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 |
 | [javascript](#javascript) | 0 | 4 | 0 | 15 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 #2841 |
-| [jcl](#jcl) | 4 | 2 | 2 | 20 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2798 #2806 #2822 #2841 |
+| [jcl](#jcl) | 3 | 2 | 3 | 20 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2798 #2806 #2822 #2841 |
 | [kotlin](#kotlin) | 0 | 1 | 0 | 12 | #2535 #2545 #2546 #2689 #2730 #2731 #2765 #2770 #2798 |
 | [livecode](#livecode) | 0 | 0 | 0 | 10 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 |
 | [lua](#lua) | 0 | 0 | 0 | 13 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 #2822 #2841 #2852 |
 | [m4](#m4) | 2 | 1 | 3 | 11 | #2535 #2689 #2731 #2765 #2770 #2806 |
 | [makefile](#makefile) | 6 | 2 | 2 | 16 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2806 #2822 #2851 |
-| [markdown](#markdown) | 9 | 1 | 29 | 9 | #2549 #2638 #2655 #2689 #2770 |
+| [markdown](#markdown) | 8 | 1 | 30 | 10 | #2549 #2638 #2655 #2689 #2770 #2866 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 1 | 1 | 0 | 7 | #2535 #2545 #2546 #2730 #2765 #2773 |
 | [perl](#perl) | 1 | 0 | 0 | 11 | #2535 #2546 #2670 #2689 #2730 #2731 #2765 #2770 #2852 |
@@ -47,12 +47,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [scheme](#scheme) | 1 | 1 | 0 | 10 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
 | [shell](#shell) | 0 | 0 | 2 | 11 | #2535 #2547 #2727 #2731 #2822 #2858 |
 | [solidity](#solidity) | 1 | 0 | 1 | 11 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 |
-| [sqlite](#sqlite) | 11 | 2 | 1 | 15 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 |
+| [sqlite](#sqlite) | 10 | 2 | 2 | 17 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 #2866 |
 | [swift](#swift) | 1 | 0 | 0 | 11 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 #2858 |
 | [tcl](#tcl) | 0 | 0 | 0 | 9 | #2535 #2546 #2727 #2731 #2765 #2822 #2841 |
 | [typescript](#typescript) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 |
 | [yacc](#yacc) | 5 | 0 | 2 | 9 | #2644 #2689 #2729 #2770 |
-| [yaml](#yaml) | 4 | 0 | 0 | 14 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 |
+| [yaml](#yaml) | 3 | 0 | 1 | 15 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 #2866 |
 | [zig](#zig) | 0 | 1 | 0 | 8 | #2535 #2545 #2651 #2730 #2731 #2765 |
 
 ## abap
@@ -303,11 +303,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `avg_func_args`: 0.05 vs median 1 (-95%)
 - 🔴 `max_func_complexity`: 0.25 vs median 0.75 (-67%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
-- 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
-- 🔴 `risk_api_exposure`: 3.08507 vs median 7.0517 (-56%)
+- 🔴 `risk_documentation`: 43.944 vs median 21.5217 (+104%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `func_complexity_gini`: 0.1 vs median 0.1875 (-47%)
+- 🟡 `risk_tech_debt`: 29.8779 vs median 20.4394 (+46%)
 
 **Not expressible as measured (n/a):** `cleanup`, `risk_concurrency`, `state_mutation`, `telemetry`
 
@@ -319,6 +319,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
+| `tech-debt-floor-census-rebased-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | With the census layer honest (gitgalaxy#2866), these four tech-debt cells stopped inheriting their explanation from raw_state_unreferenced (the cells were out of band be… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `css-declarative-no-runtime-payload-morphology` | intended-morphology | — | — | CSS is purely declarative with no embedded imperative/scripting payload, unlike the other languages that wire these three signals only against such payload: html's clean… |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
@@ -326,7 +327,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `no-lock-construct-sync-locks` | intended-morphology | — | — | No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms reado… |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | (notes) | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `css-import-url-io-triple-overlap` | keyword-overlap | [#2752](https://github.com/squid-protocol/gitgalaxy/issues/2752) | (notes) | io stays None correctly, but css.py's inline comment gives the wrong reason ('url()/@import don't block a computational thread'); that doesn't hold against html's own io… |
-| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
+| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -367,7 +368,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `args`: 4 vs median 13 (-69%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
-- 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 3.5258 vs median 7.0517 (-50%)
 - 🔴 `risk_documentation`: 16.6864 vs median 41.6651 (-60%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
@@ -375,6 +375,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
 - 🟡 `import`: 4 vs median 3 (+33%)
 - 🟡 `risk_tech_debt`: 23.8144 vs median 42.0908 (-43%)
+
+**Not expressible as measured (n/a):** `raw_state_unreferenced`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -387,13 +389,15 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `slicer-segments-statements-not-functions` | engine-semantic | [#2792](https://github.com/squid-protocol/gitgalaxy/issues/2792) | — | functions_found dockerfile 17 and sqlite 31 against a median of 13 (the SPEC's 12 probes + entry) |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.dockerfile | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.dockerfile | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `tech-debt-floor-census-rebased-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | With the census layer honest (gitgalaxy#2866), these four tech-debt cells stopped inheriting their explanation from raw_state_unreferenced (the cells were out of band be… |
+| `unreferenced-census-contract-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | (notes) | These four languages declare invocation_model: positional (gitgalaxy#2866, joining jcl's #2806 declaration), so the unreferenced_by_name census is not computed and the c… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `func-start-dockerfile-instruction-blocks` | intended-morphology | [#2856](https://github.com/squid-protocol/gitgalaxy/issues/2856) | — | dockerfile reads func_start 17 against a corpus median of 13 because a Dockerfile is a sequence of build instructions, not a twelve-probe function file: RUN/CMD/ENTRYPOI… |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | (notes) | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `duplicate-check-counts-slicer-buckets` | upstream-bug | [#2728](https://github.com/squid-protocol/gitgalaxy/issues/2728) | — | dockerfile is the only nonzero duplicate cell in 46 languages (1.00 mean) and it is a phantom |
-| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
+| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
 
@@ -560,15 +564,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 1.25 vs median 3 (-58%)
-- 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 - 🟡 `func_start`: 9 vs median 13 (-31%)
 - 🟡 `risk_api_exposure`: 4.04143 vs median 7.0517 (-43%)
-- 🟡 `risk_documentation`: 21.5217 vs median 16.6736 (+29%)
 
-**Not expressible as measured (n/a):** `globals`, `state_mutation`
+**Not expressible as measured (n/a):** `globals`, `raw_state_unreferenced`, `state_mutation`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -578,6 +580,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
 | `html-probe-bodies-are-empty-by-design` | engine-semantic | — | (notes) | functions_found html 0 against a median of 13 |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
+| `unreferenced-census-contract-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | (notes) | These four languages declare invocation_model: positional (gitgalaxy#2866, joining jcl's #2806 declaration), so the unreferenced_by_name census is not computed and the c… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `html-2578-declarative-globals-state-mutation-morphology` | intended-morphology | — | — | html has no native idiom for scoped-vs-global variables or state mutation -- it is purely declarative markup; both concepts are inherently imperative/scripting concepts … |
 | `html-func-start-counts-script-elements` | intended-morphology | — | main.html | html reads func_start 9 corpus-wide (main 2, a 3, b 1, c 3) against the SPEC's planted 13 function definitions, and the gap is the language, not the plant: markup declar… |
@@ -587,7 +590,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
 | `html-script-func-start-unreachable` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | main.html | html's func_start rule (<script>/<style> tags) never fires end-to-end: the polyglot splitter consumes the tags before html's rules run (micro-repro: <script>var x=1;</sc… |
 | `html-srcdoc-invisible-execution-gap` | upstream-bug | [#2645](https://github.com/squid-protocol/gitgalaxy/issues/2645) | — | html's high_risk_execution is None and the srcdoc attribute is invisible engine-wide: a file of just <iframe srcdoc="<script>eval(1)</script>"> scores state_danger=0 (mi… |
-| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
+| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -662,13 +665,12 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `raw_arch_api`: 0.25 vs median 3 (-92%)
-- 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 0.88145 vs median 7.0517 (-88%)
 - 🔴 `risk_documentation`: 4.05678 vs median 41.6651 (-90%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
 - 🟡 `risk_tech_debt`: 23.8144 vs median 42.0908 (-43%)
 
-**Not expressible as measured (n/a):** `doc`, `test`
+**Not expressible as measured (n/a):** `doc`, `raw_state_unreferenced`, `test`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -865,11 +867,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
-- 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_tech_debt`: 0 vs median 20.4394 (-100%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 
-**Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `classes_found`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `functions_found`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `risk_api_exposure`, `risk_cognitive_load`, `risk_concurrency`, `risk_dead_code`, `risk_documentation`, `risk_safety_score`, `risk_spec_match`, `risk_state_flux`, `risk_verification`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
+**Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `classes_found`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `functions_found`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `raw_state_unreferenced`, `risk_api_exposure`, `risk_cognitive_load`, `risk_concurrency`, `risk_dead_code`, `risk_documentation`, `risk_safety_score`, `risk_spec_match`, `risk_state_flux`, `risk_verification`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -878,10 +879,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
+| `tech-debt-floor-census-rebased-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | With the census layer honest (gitgalaxy#2866), these four tech-debt cells stopped inheriting their explanation from raw_state_unreferenced (the cells were out of band be… |
 | `markdown-lit-plane-morphology` | intended-morphology | [#2638](https://github.com/squid-protocol/gitgalaxy/issues/2638) | (notes) | markdown is a markup format deliberately measured on the lit_* literary plane (engine markdown.py wires ONLY lit_code_blocks/lit_diagrams/lit_headers/lit_links; detector… |
 | `markdown-prose-is-doc-morphology` | intended-morphology | — | — | markdown's entire prose content is its documentation surface: prism classifies the non-blank .md lines as doc_loc (34 across the 4 shells vs median 12, +183%) |
 | `markdown-prose-nonplanted-inputs` | intended-morphology | — | — | Markdown is prose: no execution model (concurrency, sync_locks), no visibility construct (encapsulation), no const/freeze concept (immutability_locks), no metaprogrammin… |
-| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
+| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 
 
 ## matlab
@@ -1211,14 +1213,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
-- 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 7.0517 (-100%)
 - 🔴 `risk_documentation`: 0 vs median 40.1963 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
 
-**Not expressible as measured (n/a):** `functions_found`
+**Not expressible as measured (n/a):** `functions_found`, `raw_state_unreferenced`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1227,11 +1228,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `risk-api-exposure-zero-api-shortcircuit` | engine-semantic | — | — | _calc_api_exposure (signal_processor.py L1721) opens with `if api_hits == 0: return 0.0` |
 | `slicer-segments-statements-not-functions` | engine-semantic | [#2792](https://github.com/squid-protocol/gitgalaxy/issues/2792) | — | functions_found dockerfile 17 and sqlite 31 against a median of 13 (the SPEC's 12 probes + entry) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.sql | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `tech-debt-floor-census-rebased-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | With the census layer honest (gitgalaxy#2866), these four tech-debt cells stopped inheriting their explanation from raw_state_unreferenced (the cells were out of band be… |
+| `unreferenced-census-contract-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | (notes) | These four languages declare invocation_model: positional (gitgalaxy#2866, joining jcl's #2806 declaration), so the unreferenced_by_name census is not computed and the c… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `sqlite-dot-read-dual-import-io` | keyword-overlap | [#2841](https://github.com/squid-protocol/gitgalaxy/issues/2841) | (notes) | ^.read counts BOTH import and io (finditer-confirmed) — every corpus chain link adds +1 io in sqlite |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `io-contract-2841` | upstream-bug | [#2841](https://github.com/squid-protocol/gitgalaxy/issues/2841) | — | The io rule had no stated contract and its four open-defect cells were four different diseases: javascript's bare-token alternation counted probeIo's `path` parameter (C… |
-| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
+| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-no-plantable-idiom` | upstream-question | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
 | `branch-counts-non-decision-keywords` | upstream-question | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | The branch rule counts a keyword that is not a runtime decision, one per language, each documented in the manifest notes and each a corollary of the branch contract gitg… |
@@ -1364,8 +1367,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
-- 🔴 `raw_state_unreferenced`: 0 vs median 2.5 (-100%)
 - 🔴 `risk_api_exposure`: 3.5258 vs median 7.0517 (-50%)
+
+**Not expressible as measured (n/a):** `raw_state_unreferenced`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1373,13 +1377,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `container-construct-reads-as-class-start` | engine-semantic | — | — | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
+| `unreferenced-census-contract-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | (notes) | These four languages declare invocation_model: positional (gitgalaxy#2866, joining jcl's #2806 declaration), so the unreferenced_by_name census is not computed and the c… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `no-lock-construct-sync-locks` | intended-morphology | — | — | No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms reado… |
 | `no-visibility-construct-encapsulation` | intended-morphology | — | — | No visibility/privacy construct: jcl -- PROCs and symbolic parameters are parameterization, not privacy; nothing in JCL syntax hides one statement from another |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `batch5-tier2-morphology-shapes` | keyword-overlap | — | (notes) | Collective entry for Tier-2 finditer/report-confirmed shapes, detailed per-manifest: css at-rules triple-count (func+branch, @supports also safety; args tracks @import u… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
-| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
+| `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 | `comment-stream-rules-missing-jcl-yaml` | upstream-question | [#2732](https://github.com/squid-protocol/gitgalaxy/issues/2732) | (notes) | RESOLVED by gitgalaxy#2732 (PR #2736); corpus plants land in this repo's companion PR |
 | `yaml-cleanup-embedded-teardown-gap` | upstream-question | [#2647](https://github.com/squid-protocol/gitgalaxy/issues/2647) | — | yaml's cleanup is None |
 | `yaml-ownership-author-key-gap` | upstream-question | [#2646](https://github.com/squid-protocol/gitgalaxy/issues/2646) | — | yaml's ownership is None, but the two ecosystems this language definition explicitly targets each carry a standard single-key ownership field: action.yml's top-level aut… |

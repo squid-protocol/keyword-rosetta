@@ -12,7 +12,7 @@
   to { background-image: url("probe-c.png"); }
 }
 
-@media (min-width: 1px) {}
+@media (min-width: 1px) { main { animation: probe-io 1s; } }
 
 @supports (display: block) {}
 
