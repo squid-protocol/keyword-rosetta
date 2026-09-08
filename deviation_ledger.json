@@ -2156,6 +2156,20 @@
       "validated_at": "2026-09-08",
       "still_reproduces": false,
       "resolved_by": "squid-protocol/gitgalaxy#2882"
+    },
+    {
+      "id": "immutability-locks-contract-2772",
+      "signal": "",
+      "languages_seen": [
+        "all"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "The immutability_locks rule half of gitgalaxy#2772, recorded as a workflow/classification fact (the input is unplanted and ungated, so this entry excuses no cell; its effect shows in risk_state_flux, whose formula half stays open for Phase 4). The old rules rewarded a notation: rust's immutable-by-default `let` was invisible while swift's `let` -- the same guarantee -- scored 11, and the corpus's risk_state_flux low tail (swift -62%, kotlin/scala/typescript -46%, on identical planted mutations) was entirely this. The stated contract (docs/immutability_locks_rule_contract.md): one hit is an ADDED marker or lock call -- a modifier/qualifier on an otherwise-mutable declaration, a restricted constant form distinct from the general-purpose binding, a runtime lock call, or an immutable reference pin; the ordinary binding keyword (swift let, kotlin/scala val, js/ts/zig const, dart final) is a binding choice, not a lock. 16 rules edited; haskell (whose rule counted monadic `return`), swift and zig are now None with this contract-level absence: their immutability is ambient (default or the binding form itself), there is no site to count, and _calc_state_flux treats the missing signal as 0 -- exactly how rust always read. Corpus idiomatic residue after the edits: js 17->0, ts 14->0, swift 11->n/a, kotlin 6->0, scala 3->0, zig 3->n/a, dart 2->0, abap 1->0; the surviving 1s (c/cpp const decoy line, fortran PARAMETER, html readonly, php readonly, ruby freeze) are genuine added locks. The mitigation subtrahend is now ~uniform, so the state-flux low tail collapses toward the median with no formula change.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2772",
+      "investigated_by": "claude-fable-5 (gitgalaxy#2772 contract audit, rule half)",
+      "validated_at": "2026-09-08",
+      "still_reproduces": true
     }
   ]
 }
