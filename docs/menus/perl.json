@@ -43,11 +43,8 @@
   "cleanup": {
     "core": true,
     "keywords": [
-      "DESTROY",
-      "undef",
       "close",
-      "closedir",
-      "finish"
+      "closedir"
     ],
     "pattern_defined": true
   },

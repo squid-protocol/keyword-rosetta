@@ -41,11 +41,7 @@
   },
   "cleanup": {
     "core": true,
-    "keywords": [
-      "close-input-port",
-      "close-output-port",
-      "close-port"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "closures": {

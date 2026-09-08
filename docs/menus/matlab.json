@@ -49,10 +49,9 @@
     "keywords": [
       "clear",
       "clearvars",
-      "delete",
       "close",
       "fclose",
-      "onCleanup"
+      "delete"
     ],
     "pattern_defined": true
   },

@@ -38,11 +38,6 @@
   "cleanup": {
     "core": true,
     "keywords": [
-      "dispose",
-      "close",
-      "cleanup",
-      "cancel",
-      "free",
       "bracket",
       "finally",
       "onException"
