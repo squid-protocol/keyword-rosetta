@@ -10,7 +10,6 @@
   "function-body-length-morphology/func_internal_density",
   "haskell-caf-bindings-count-as-functions/args",
   "haskell-caf-bindings-count-as-functions/func_start",
-  "haskell-finally-dual-cleanup-safety/cleanup",
   "kotlin-object-dual-globals-classstart/globals",
   "markdown-prose-nonplanted-inputs/encapsulation",
   "no-visibility-construct-encapsulation/encapsulation",
