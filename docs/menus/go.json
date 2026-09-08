@@ -300,9 +300,7 @@
   },
   "safety": {
     "core": true,
-    "keywords": [
-      "context.Context"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "safety_bypasses": {

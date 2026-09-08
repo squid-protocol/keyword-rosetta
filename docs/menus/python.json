@@ -385,18 +385,12 @@
     "core": true,
     "keywords": [
       "try",
-      "except",
       "finally",
       "assert",
       "isinstance",
       "issubclass",
       "hasattr",
-      "getattr",
-      "dataclass",
-      "BaseModel",
-      "Field",
-      "TypeGuard",
-      "override"
+      "BaseModel"
     ],
     "pattern_defined": true
   },

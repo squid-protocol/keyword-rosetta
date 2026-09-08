@@ -384,7 +384,6 @@
       "catch",
       "finally",
       "assert",
-      "Optional",
       "Objects.requireNonNull",
       "instanceof"
     ],

@@ -391,21 +391,10 @@
   "safety": {
     "core": true,
     "keywords": [
-      "Maybe",
-      "Either",
-      "Just",
-      "Nothing",
-      "Right",
-      "Left",
       "try",
       "catch",
-      "bracket",
-      "finally",
-      "onException",
-      "SafeT",
       "mask",
-      "pure",
-      "return"
+      "fromMaybe"
     ],
     "pattern_defined": true
   },

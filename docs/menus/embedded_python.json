@@ -345,14 +345,12 @@
     "core": true,
     "keywords": [
       "try",
-      "except",
       "finally",
       "assert",
       "machine.WDT",
       "isinstance",
       "issubclass",
       "hasattr",
-      "getattr",
       "alloc_emergency_exception_buf"
     ],
     "pattern_defined": true

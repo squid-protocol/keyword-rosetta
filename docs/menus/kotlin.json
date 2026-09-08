@@ -349,13 +349,9 @@
       "requireNotNull",
       "check",
       "checkNotNull",
-      "error",
-      "sealed",
       "is",
-      "Result",
       "onSuccess",
       "onFailure",
-      "fold",
       "runCatching"
     ],
     "pattern_defined": true

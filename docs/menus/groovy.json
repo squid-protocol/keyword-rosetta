@@ -301,8 +301,7 @@
       "catch",
       "finally",
       "assert",
-      "instanceof",
-      "Optional"
+      "instanceof"
     ],
     "pattern_defined": true
   },

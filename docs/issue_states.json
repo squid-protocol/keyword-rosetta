@@ -260,6 +260,10 @@
    "state": "CLOSED",
    "title": "raw_state_unreferenced: the undefined family \u2014 six markup/config languages record 0 on a census with no population to count"
   },
+  "squid-protocol/gitgalaxy#2869": {
+   "state": "CLOSED",
+   "title": "`safety` has no stated contract: 2 open cells are token-double-counts and one-owner misfires, and haskell's rule counts `pure`, `return` and type constructors as runtime guards"
+  },
   "squid-protocol/gitgalaxy#2871": {
    "state": "OPEN",
    "title": "Contextual Baseline Fix reads a weaker dependency resolver than every column it is audited by (haskell)"

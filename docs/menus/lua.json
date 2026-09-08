@@ -366,14 +366,7 @@
     "keywords": [
       "pcall",
       "xpcall",
-      "assert",
-      "error",
-      "type",
-      "getmetatable",
-      "rawequal",
-      "ipairs",
-      "pairs",
-      "next"
+      "assert"
     ],
     "pattern_defined": true
   },

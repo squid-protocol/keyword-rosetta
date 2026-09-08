@@ -324,22 +324,16 @@
   "safety": {
     "core": true,
     "keywords": [
-      "Option",
-      "Result",
-      "Mutex",
-      "RwLock",
-      "Arc",
-      "Rc",
-      "Box",
-      "RefCell",
-      "match",
       "if let",
       "while let",
       "let else",
-      "Ok",
-      "Err",
-      "Some",
-      "None"
+      "unwrap_or",
+      "unwrap_or_else",
+      "unwrap_or_default",
+      "ok_or",
+      "ok_or_else",
+      "map_or",
+      "map_or_else"
     ],
     "pattern_defined": true
   },

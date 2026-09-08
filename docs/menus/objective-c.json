@@ -382,10 +382,7 @@
       "__strong",
       "__auto_type",
       "NSAssert",
-      "NSParameterAssert",
-      "NSError",
-      "nil",
-      "Nil"
+      "NSParameterAssert"
     ],
     "pattern_defined": true
   },

@@ -305,13 +305,6 @@
   "safety": {
     "core": true,
     "keywords": [
-      "END-IF",
-      "END-PERFORM",
-      "END-EVALUATE",
-      "END-READ",
-      "END-WRITE",
-      "END-COMPUTE",
-      "END-CALL",
       "DECLARATIVES",
       "VALIDATE",
       "CHECK"

@@ -385,16 +385,6 @@
   "safety": {
     "core": true,
     "keywords": [
-      "Option",
-      "Some",
-      "None",
-      "Try",
-      "Success",
-      "Failure",
-      "Either",
-      "Left",
-      "Right",
-      "sealed",
       "require",
       "assert",
       "assume"
