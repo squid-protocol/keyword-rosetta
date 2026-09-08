@@ -1,5 +1,5 @@
 // keyword rosetta control shell: objective-c / main
-// Created by keyword-rosetta generator
+// Created by: keyword-rosetta generator
 // @brief dispatch each probe once
 // decoy: this suite never aborts and the exit word stays in prose
 #import "a.mm"

@@ -1,5 +1,5 @@
 // keyword rosetta control shell: csharp / main
-// Created by keyword-rosetta generator
+// Created by: keyword-rosetta generator
 /// <summary>Dispatch each probe once.</summary>
 // decoy: this suite never exits the process and the Environment.Exit word stays in prose
 using a;

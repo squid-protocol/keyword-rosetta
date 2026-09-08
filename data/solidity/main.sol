@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+// Author: keyword-rosetta generator
 // keyword rosetta control shell: solidity / main
 /// @param flag the probe input
 // decoy: this suite never calls selfdestruct and no while loop lives outside prose
