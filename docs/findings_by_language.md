@@ -12,7 +12,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [ada](#ada) | 0 | 0 | 0 | 5 | #2535 #2546 #2822 |
 | [agc_assembly](#agc_assembly) | 2 | 1 | 2 | 9 | #2650 #2659 #2729 #2764 |
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 |
-| [assembly](#assembly) | 0 | 0 | 0 | 7 | #2535 #2727 #2764 #2858 #2869 |
+| [assembly](#assembly) | 0 | 0 | 0 | 6 | #2535 #2727 #2764 #2858 |
 | [c](#c) | 0 | 1 | 0 | 12 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 |
 | [cobol](#cobol) | 1 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 10 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 |
@@ -20,20 +20,20 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [css](#css) | 6 | 3 | 4 | 16 | #2549 #2655 #2689 #2729 #2752 #2770 #2866 |
 | [dart](#dart) | 0 | 1 | 0 | 7 | #2535 #2651 #2689 #2730 #2731 #2852 |
 | [dockerfile](#dockerfile) | 5 | 5 | 1 | 20 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2792 #2798 #2822 #2856 #2866 |
-| [embedded_python](#embedded_python) | 2 | 0 | 0 | 13 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2852 #2869 |
+| [embedded_python](#embedded_python) | 3 | 0 | 0 | 12 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2852 |
 | [fortran](#fortran) | 0 | 2 | 0 | 14 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 |
-| [go](#go) | 0 | 1 | 0 | 11 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
-| [groovy](#groovy) | 0 | 0 | 0 | 7 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 |
-| [haskell](#haskell) | 5 | 1 | 0 | 12 | #2535 #2689 #2729 #2765 #2770 #2822 #2869 |
+| [go](#go) | 0 | 1 | 0 | 10 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 |
+| [groovy](#groovy) | 0 | 0 | 0 | 6 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 |
+| [haskell](#haskell) | 5 | 2 | 0 | 12 | #2535 #2689 #2729 #2765 #2770 #2822 #2871 |
 | [html](#html) | 9 | 4 | 3 | 18 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2770 #2866 |
 | [java](#java) | 0 | 0 | 0 | 8 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 |
 | [javascript](#javascript) | 0 | 4 | 0 | 15 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 #2841 |
 | [jcl](#jcl) | 3 | 2 | 3 | 20 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2798 #2806 #2822 #2841 |
 | [kotlin](#kotlin) | 0 | 1 | 0 | 12 | #2535 #2545 #2546 #2689 #2730 #2731 #2765 #2770 #2798 |
-| [livecode](#livecode) | 0 | 0 | 0 | 11 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 #2869 |
+| [livecode](#livecode) | 0 | 0 | 0 | 10 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 |
 | [lua](#lua) | 0 | 0 | 0 | 13 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 #2822 #2841 #2852 |
-| [m4](#m4) | 2 | 1 | 3 | 11 | #2535 #2689 #2731 #2765 #2770 #2806 |
-| [makefile](#makefile) | 6 | 2 | 2 | 16 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2806 #2822 #2851 |
+| [m4](#m4) | 2 | 1 | 3 | 11 | #2535 #2689 #2731 #2765 #2770 #2872 |
+| [makefile](#makefile) | 6 | 2 | 2 | 16 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 |
 | [markdown](#markdown) | 8 | 1 | 30 | 10 | #2549 #2638 #2655 #2689 #2770 #2866 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 1 | 1 | 0 | 7 | #2535 #2545 #2546 #2730 #2765 #2773 |
@@ -42,8 +42,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [powershell](#powershell) | 2 | 0 | 0 | 10 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 #2822 |
 | [python](#python) | 0 | 2 | 0 | 12 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 |
 | [ruby](#ruby) | 0 | 0 | 0 | 9 | #2535 #2546 #2547 #2727 #2731 #2822 |
-| [rust](#rust) | 1 | 0 | 0 | 9 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 |
-| [scala](#scala) | 0 | 1 | 0 | 10 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 #2869 |
+| [rust](#rust) | 1 | 0 | 0 | 8 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 |
+| [scala](#scala) | 0 | 1 | 0 | 9 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 |
 | [scheme](#scheme) | 1 | 1 | 0 | 10 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
 | [shell](#shell) | 0 | 0 | 2 | 11 | #2535 #2547 #2727 #2731 #2822 #2858 |
 | [solidity](#solidity) | 1 | 0 | 1 | 11 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 |
@@ -165,7 +165,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.asm | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `globals-contract-2858` | upstream-bug | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | — | The globals rule had no stated contract; its two open-defect cells were two one-owner/ambiguity misfires (csharp's `Environment.` prefix counting the planted `Environmen… |
-| `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | — | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 | `asm-single-letter-mnemonic-in-path` | upstream-question | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | (notes) | ARM's single-letter 'b' branch mnemonic matches the word b anywhere literals count — including the filename inside %include "b.asm" (a.asm branch +1, finditer-confirmed) |
 
@@ -415,6 +414,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `import`: 7 vs median 3 (+133%)
+- 🔴 `safety`: 4 vs median 2 (+100%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -428,7 +428,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `python-2658-docstring-delimiter-double-count` | upstream-bug | [#2658](https://github.com/squid-protocol/gitgalaxy/issues/2658) | — | the doc rule matched opening and closing docstring delimiters independently with no pairing, so one docstring counted doc=2 -- RESOLVED via gitgalaxy#2658 (matches the f… |
-| `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 | `test-contract-2852` | upstream-bug | [#2852](https://github.com/squid-protocol/gitgalaxy/issues/2852) | — | The test rule had no stated contract and its three open-defect cells were two diseases: c and embedded_python counted safety's planted runtime assert (C1 -- c's rule end… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
@@ -488,7 +487,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.go | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `visibility-morphology-encapsulation` | engine-semantic | — | — | Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
-| `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `go-import-counts-bypass` | upstream-question | [#2542](https://github.com/squid-protocol/gitgalaxy/issues/2542) | (notes) | go's safety_bypasses rule's dot-import alternation (\bimport\s+(?:\.[ \t]+)?") matches EVERY quoted import, not just dot-imports: +1 bypasses per importing file corpus-w… |
 
@@ -512,7 +510,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.groovy | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `args-call-site-counting-apex-groovy` | upstream-bug | [#2783](https://github.com/squid-protocol/gitgalaxy/issues/2783) [#2782](https://github.com/squid-protocol/gitgalaxy/issues/2782) | (notes) | Split out of ts-callparen-args on 2026-09-06 when squid-protocol/gitgalaxy#2773 fixed that entry's typescript and objective-c arms but not these two |
-| `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -531,6 +528,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_tech_debt`: 82.9728 vs median 29.8779 (+178%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `risk_safety_score`: 53.0245 vs median 39.811 (+33%)
+- 🟡 `safety`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -542,9 +540,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.hs | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
-| `haskell-finally-dual-cleanup-safety` | keyword-overlap | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | (notes) | finally is in both haskell's cleanup and safety rules (finditer-confirmed on c.hs) — one planted finally counts both |
+| `haskell-finally-dual-cleanup-safety` | keyword-overlap | — | (notes) | finally is in both haskell's cleanup and safety rules (finditer-confirmed on c.hs) — one planted finally counts both. |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
-| `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
+| `haskell-module-name-invisible-to-popularity-tally` | upstream-bug | [#2871](https://github.com/squid-protocol/gitgalaxy/issues/2871) | — | haskell a/b/c score risk_tech_debt 97.07/97.07/100.00 for a language mean of 82.97 against an irc0 median of 29.88 (+178%), while java, rust and swift -- same stratum, s… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -747,7 +745,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
 | `doc-ownership-author-collision-batch2` | upstream-bug | [#2650](https://github.com/squid-protocol/gitgalaxy/issues/2650) [#2659](https://github.com/squid-protocol/gitgalaxy/issues/2659) | — | each language's doc rule included a bare AUTHOR/Author:/meta-name=author alternative that the ownership rule already owns exclusively, so every header author line double… |
-| `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | — | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
@@ -810,7 +807,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `no-lock-construct-sync-locks` | intended-morphology | — | — | No lock/serialization construct exists, per-language: css and html -- markup and styling have no shared mutable state to serialize (html's closest stability idioms reado… |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
-| `m4-makefile-api-scores-above-stratum` | upstream-question | [#2806](https://github.com/squid-protocol/gitgalaxy/issues/2806) | — | OPEN INVESTIGATION (born 2026-09-06, Phase 0 cause triage) |
+| `m4-makefile-api-scores-above-stratum` | upstream-question | [#2872](https://github.com/squid-protocol/gitgalaxy/issues/2872) | — | OPEN INVESTIGATION (born 2026-09-06, Phase 0 cause triage) |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -850,7 +847,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `makefile-2648-slicer-fallthrough` | upstream-bug | [#2648](https://github.com/squid-protocol/gitgalaxy/issues/2648) | — | makefile had zero brace-delimited bodies but was missing from detector.py's Mode_A_Labels tuple, silently falling through to Mode_B_Braces and dropping ~100% of real fun… |
 | `makefile-dead-code-reads-prose-labels` | upstream-bug | [#2851](https://github.com/squid-protocol/gitgalaxy/issues/2851) | — | makefile reads dead_code 7 where every other language in the corpus carrying the same comments reads 0 |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
-| `m4-makefile-api-scores-above-stratum` | upstream-question | [#2806](https://github.com/squid-protocol/gitgalaxy/issues/2806) | — | OPEN INVESTIGATION (born 2026-09-06, Phase 0 cause triage) |
+| `m4-makefile-api-scores-above-stratum` | upstream-question | [#2872](https://github.com/squid-protocol/gitgalaxy/issues/2872) | — | OPEN INVESTIGATION (born 2026-09-06, Phase 0 cause triage) |
 | `makefile-gini-blind-to-toplevel-conditionals` | upstream-question | — | — | func_complexity_gini/makefile (0.354 vs 0.1875 median) surfaced as its own cell the moment gitgalaxy#2822 landed makefile's branch total on the median -- before that it … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -1085,7 +1082,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | — | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
-| `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
@@ -1111,7 +1107,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.scala | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
-| `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 
