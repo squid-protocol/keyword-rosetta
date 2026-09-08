@@ -13,6 +13,6 @@ on probe_test pKit
 end probe_test
 
 on probe_safety pValue
-  throw pValue
+  catch tError
   assert pValue
 end probe_safety

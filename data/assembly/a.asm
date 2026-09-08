@@ -19,6 +19,6 @@ probe_test:
 
 probe_safety:
     mov rdi, 7
-    enter 0, 0
-    leave
+    endbr64
+    paciasp
     ret

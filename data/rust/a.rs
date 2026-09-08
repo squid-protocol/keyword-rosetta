@@ -16,7 +16,7 @@ pub fn probe_test(kit: i32) -> i32 {
 }
 
 pub fn probe_safety(value: i32) -> i32 {
-    let some: Option = value;
-    let outcome: Result = value;
+    let some = value.unwrap_or(0);
+    let outcome = value.ok_or(0);
     value
 }
