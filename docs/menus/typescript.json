@@ -337,10 +337,7 @@
   },
   "ownership": {
     "core": true,
-    "keywords": [
-      "@author",
-      "Created by"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "panics_and_aborts": {

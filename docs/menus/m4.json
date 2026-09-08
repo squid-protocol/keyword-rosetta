@@ -178,9 +178,7 @@
   },
   "ownership": {
     "core": true,
-    "keywords": [
-      "AC_COPYRIGHT"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "panics_and_aborts": {

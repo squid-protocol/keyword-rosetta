@@ -296,12 +296,7 @@
   },
   "ownership": {
     "core": true,
-    "keywords": [
-      "Created by",
-      "Copyright",
-      "Tim Berners-Lee",
-      "@author"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "panics_and_aborts": {

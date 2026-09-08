@@ -280,6 +280,10 @@
    "state": "CLOSED",
    "title": "high_risk_execution has no stated contract: agc reads the plant while 45 languages read plant+decoy, and the rules disagree on identifiers, references, goto and deletion"
   },
+  "squid-protocol/gitgalaxy#2882": {
+   "state": "CLOSED",
+   "title": "ownership has no stated contract: solidity counts the SPDX license line on every file, five languages count copyright notices and license prose, three count the phrase 'created by' in sentences, and five doc rules still double-count the author tag"
+  },
   "squid-protocol/keyword-rosetta#71": {
    "state": "CLOSED",
    "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"

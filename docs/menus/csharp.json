@@ -261,9 +261,7 @@
   },
   "ownership": {
     "core": true,
-    "keywords": [
-      "Created by"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "panics_and_aborts": {

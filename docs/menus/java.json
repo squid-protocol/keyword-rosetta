@@ -294,9 +294,7 @@
   },
   "ownership": {
     "core": true,
-    "keywords": [
-      "@author"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "panics_and_aborts": {

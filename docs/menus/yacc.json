@@ -185,10 +185,7 @@
   },
   "ownership": {
     "core": true,
-    "keywords": [
-      "@author",
-      "Copyright"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "panics_and_aborts": {
