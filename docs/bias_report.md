@@ -54,7 +54,7 @@ Metrics carrying the most open defect, by share of their comparable cells:
 - `import` — 2 of 45 (4%)
 - `args` — 2 of 45 (4%)
 
-Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `visibility-morphology-encapsulation`, `comment-lines-manifest-doc-classification`, `abap-args-counts-call-site-keywords`, `api-declared-orphans-blind-to-non-word-names`, `cobol-entry-args-outside-mode-a-window`. Narrow or retire them.
+Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `visibility-morphology-encapsulation`, `comment-lines-manifest-doc-classification`, `abap-args-counts-call-site-keywords`, `api-declared-orphans-blind-to-non-word-names`. Narrow or retire them.
 
 ## The language-level risk constant is design; the report bands within it
 
