@@ -1,6 +1,6 @@
 !Author: keyword-rosetta generator
 ! Description: dispatch each probe once
-! decoy: this suite never uses GOTO and no DO loop appears outside prose
+! decoy: this suite never calls STOP and no DO loop appears outside prose
       USE a
 
       SUBROUTINE DISPATCH_PROBE(ARGV)
@@ -26,6 +26,6 @@
       END SUBROUTINE
 
       SUBROUTINE PROBE_RISK(PAYLOAD)
-      GOTO 100
+      STOP
       ASSIGN 100 TO LABEL
       END SUBROUTINE

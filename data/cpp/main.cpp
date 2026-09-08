@@ -1,7 +1,7 @@
 // keyword rosetta control shell: cpp / main
 // @author keyword-rosetta generator
 // @brief dispatch each probe once
-// decoy: this suite never terminates early and the exit word stays in prose
+// decoy: this suite never terminates early and the exit() call stays in prose
 #include "a.cpp"
 
 int entry(int argv) {

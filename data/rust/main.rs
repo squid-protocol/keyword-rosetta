@@ -29,7 +29,7 @@ pub fn probe_io(path: i32) -> i32 {
 }
 
 pub fn probe_risk(payload: i32) -> i32 {
-    let quit = process::exit;
-    let stop = abort;
+    process::exit(payload);
+    abort();
     payload
 }

@@ -4,7 +4,7 @@
 @keyframes probe-cleanup {}
 
 @keyframes probe-risk {}
-.rosetta-risk { x: expression(1); y: behavior(z); }
+.rosetta-risk { x: expression(1); behavior: z; }
 
 @keyframes probe-debt {}
 /* HACK: shortcut kept deliberately for the rosetta corpus */

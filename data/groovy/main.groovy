@@ -1,7 +1,7 @@
 // keyword rosetta control shell: groovy / main
 // @author keyword-rosetta generator
 /** @param argv probe input */
-// decoy: this suite never exits and the execute word stays in prose
+// decoy: this suite never exits and the System.exit() call stays in prose
 import a
 
 def entry(argv) {
@@ -29,6 +29,6 @@ public def probeIo(route) {
 
 public def probeRisk(payload) {
     System.exit(payload)
-    payload.execute()
+    "true".execute()
     return payload
 }

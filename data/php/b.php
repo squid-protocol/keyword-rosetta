@@ -17,6 +17,6 @@ public function probe_telemetry($msg) {
 
 public function probe_state($items) {
     $counter = 1;
-    $note = "plain popen decoy text";
+    $note = "plain popen() decoy text";
     return $items;
 }

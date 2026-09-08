@@ -16,6 +16,6 @@ public def probeTelemetry(msg) {
 
 public def probeState(items) {
     counter = 1
-    note = "plain execute decoy text"
+    note = "plain System.exit() decoy text"
     return items
 }

@@ -1,7 +1,7 @@
 // keyword rosetta control shell: csharp / main
 // Created by keyword-rosetta generator
 /// <summary>Dispatch each probe once.</summary>
-// decoy: this suite never exits the process and the goto word stays in prose
+// decoy: this suite never exits the process and the Environment.Exit word stays in prose
 using a;
 
 static int Entry(int argv) {
@@ -28,7 +28,7 @@ public static int ProbeIo(int route) {
 }
 
 public static int ProbeRisk(int payload) {
-    goto done;
+    Environment.FailFast(payload);
     Environment.Exit(payload);
     return payload;
 }

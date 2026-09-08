@@ -2,7 +2,7 @@
 // keyword rosetta control shell: php / main
 // Created by: keyword-rosetta generator
 /** @param $argv probe input */
-// decoy: this suite never spawns a process and the exec word stays in prose
+// decoy: this suite never spawns a process and the exec() call stays in prose
 require 'a.php';
 
 function probe_dispatch($argv) {

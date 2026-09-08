@@ -14,5 +14,5 @@ end probe_telemetry
 
 on probe_state pItems
   put 1 into tCounter
-  put "plain answer decoy text" into tNote
+  put "plain quit decoy text" into tNote
 end probe_state

@@ -30,7 +30,7 @@ export function probeIo(path) {
 }
 
 export function probeRisk(payload) {
-  const runner = eval;
+  const runner = eval(payload);
   debugger;
   return runner;
 }
