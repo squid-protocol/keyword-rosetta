@@ -8,7 +8,7 @@ export -f probe_todo
 probe_cleanup() {
     : "$1"
     unset scratch
-    exit 0
+    rm -f scratch
 }
 
 probe_debt() {
