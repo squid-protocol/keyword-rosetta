@@ -14,12 +14,12 @@ Planted intent is identical in every language (SPEC.md probe table), so any colu
 
 ## Out-of-band cells: explained vs. unexplained
 
-An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does). The four program-length columns are context, not consistency claims, and are not counted here at all (50 of their cells are out of band; see the next section).
+An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does). The four program-length columns are context, not consistency claims, and are not counted here at all (52 of their cells are out of band; see the next section).
 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 15 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 130 | a validated deviation-ledger entry names this language and this metric |
+| ledgered | 129 | a validated deviation-ledger entry names this language and this metric |
 | derived | 32 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **0** | **survived all three -- the real work remaining** |
 
@@ -27,24 +27,24 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 16 of 2639 comparable cells (0.6%)** across 59 gated metrics; 16 of the 177 out-of-band cells are open defects.
+**Open-defect share: 14 of 2639 comparable cells (0.5%)** across 59 gated metrics; 14 of the 176 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
 | **unexplained** | 0 | survived every mechanism -- the gate fails on these |
-| **extraction** | 16 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
+| **extraction** | 14 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
 | scoring | 52 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
-| inherency | 77 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
+| inherency | 78 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
 | echo | 32 | derived -- an upstream deviation counted again downstream |
 
 Metrics carrying the most open defect, by share of their comparable cells:
 
 - `risk_documentation` — 4 of 45 (9%)
 - `risk_api_exposure` — 3 of 45 (7%)
-- `args` — 2 of 45 (4%)
 - `raw_arch_api` — 2 of 46 (4%)
 - `cleanup` — 1 of 44 (2%)
+- `dead_code` — 1 of 45 (2%)
 
 Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `visibility-morphology-encapsulation`, `comment-lines-manifest-doc-classification`, `abap-args-counts-call-site-keywords`. Narrow or retire them.
 
@@ -57,7 +57,7 @@ Ledger entries that currently explain **no** out-of-band cell (validated, still 
 | metric | irc0 median (n) | irc1 median (n) | irc2 median (n) | irc3 median (n) | irc4 median (n) | unprofiled median (n) | global median |
 |---|---|---|---|---|---|---|---|
 | `risk_cognitive_load` | 1.295 (4) | 1.295 (11) | 1.295 (13) | 1.295 (11) | 1.295 (3) | 1.190 (3) | 1.295 |
-| `risk_documentation` | 38.255 (4) | 39.139 (11) | 40.196 (13) | 41.665 (11) | 43.944 (3) | 21.522 (3) | 39.139 |
+| `risk_documentation` | 38.255 (4) | 39.195 (11) | 40.196 (13) | 41.665 (11) | 43.944 (3) | 21.522 (3) | 39.195 |
 | `risk_safety_score` | 39.811 (4) | 41.131 (11) | 42.314 (13) | 43.364 (11) | 44.290 (3) | 39.153 (3) | 42.314 |
 | `risk_tech_debt` | 29.878 (4) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 20.439 (4) | 38.665 |
 | `risk_verification` | 2.372 (4) | 2.380 (11) | 2.388 (13) | 2.396 (11) | 2.393 (3) | 2.353 (3) | 2.385 |
@@ -120,7 +120,7 @@ Colour encodes **cause**, not magnitude: a dot inside ±25% of the cross-languag
 | args ⚠ | 13 | 16 | 13 | 13 | 13 | 13 | 13 | 10 | 13 | 13 | 6 | 13 | 4 | 13 | 13 | 13 | 13 | 15 | 3 | 13 | 13 | 13 | 13 | 13 | 13 | 20 | 1 | n/a | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 1 | 13 | 13 | 13 | 2 | 13 | 13 |
 | class_start ⚠ | 0 | 0 | 0 | n/a | 0 | 0 | 0 | 1 | 0 | 0 | 1 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | n/a | n/a | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 7 | 0 |
 | doc | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | n/a | 1 | 1 | 1 | 1 | 1 | n/a | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
-| ownership ⚠ | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | n/a | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 4 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| ownership | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | n/a | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 
 n/a = no rule defined for this language (incomparable, excluded from bands and medians); † = absence not yet backed by a validated ledger entry.
 
@@ -131,8 +131,8 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | n/a | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | n/a | 13 | 13 | 13 | 13 | 13 | 13 |
 | classes_found | 0 | 0 | n/a | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | n/a | n/a | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| keyword_hits | 132 | 144 | 181 | 134 | 160 | 139 | 155 | 150 | 154 | 76 | 159 | 83 | 178 | 160 | 159 | 153 | 127 | 87 | 141 | 201 | 101 | 187 | 133 | 149 | 76 | 120 | 30 | 151 | 147 | 180 | 142 | 145 | 184 | 150 | 194 | 163 | 98 | 145 | 165 | 61 | 186 | 133 | 195 | 61 | 151 | 191 |
-| comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 13 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 12 | 11 | 12 |
+| keyword_hits | 132 | 144 | 181 | 134 | 160 | 139 | 155 | 150 | 154 | 76 | 159 | 83 | 178 | 160 | 159 | 153 | 127 | 87 | 141 | 201 | 101 | 187 | 133 | 149 | 76 | 120 | 30 | 151 | 147 | 180 | 142 | 145 | 184 | 150 | 194 | 163 | 98 | 145 | 162 | 61 | 186 | 133 | 195 | 61 | 151 | 191 |
+| comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 13 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 16 | 12 | 12 | 12 | 12 | 12 | 11 | 12 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
 n/a = the registry rule this count is a tally OF is absent for the language (`functions_found` ← `func_start`, `classes_found` ← `class_start`, `dependency_links` ← `_dependency_capture`) — or, for `functions_found`, present but able to name only slicer buckets (gitgalaxy#2792) — and the scan confirms the count is 0: incomparable, excluded from bands and medians; † = not yet backed by a validated ledger entry.
@@ -146,7 +146,7 @@ n/a = the registry rule this count is a tally OF is absent for the language (`fu
 | risk_cognitive_load | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.303 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.619 | 1.295 | 1.295 | 1.295 | 1.295 | 3.670 | n/a | 1.295 | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 |
 | risk_concurrency | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | n/a | 0.000 | 0.000 |
 | risk_dead_code | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 5.787 | 0.000 | 0.000 | 0.000 | 0.000 | 50.636 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
-| risk_documentation | 41.665 | 41.665 | 43.944 | 43.428 | 38.255 | 48.561 | 61.886 | 38.255 | 38.255 | 43.944 | 41.665 | 16.686 | 41.959 | 45.499 | 38.255 | 38.255 | 16.544 | 21.522 | 38.255 | 38.255 | 4.057 | 38.255 | 41.665 | 41.665 | 67.325 | 71.081 | n/a | 41.665 | 29.896 | 41.959 | 38.255 | 40.196 | 41.959 | 38.255 | 38.255 | 41.665 | 67.325 | 41.795 | 39.139 | 0.000 | 38.255 | 38.255 | 38.255 | 50.110 | 16.674 | 38.255 |
+| risk_documentation | 41.665 | 41.665 | 43.944 | 43.428 | 38.255 | 48.561 | 61.886 | 38.255 | 38.255 | 43.944 | 41.665 | 16.686 | 41.959 | 45.499 | 38.255 | 38.255 | 16.544 | 21.522 | 38.255 | 38.255 | 4.057 | 38.255 | 41.665 | 41.665 | 67.325 | 71.081 | n/a | 41.665 | 29.896 | 41.959 | 38.255 | 40.196 | 41.959 | 38.255 | 38.255 | 41.665 | 67.325 | 41.795 | 39.195 | 0.000 | 38.255 | 38.255 | 38.255 | 50.110 | 16.674 | 38.255 |
 | risk_safety_score | 41.131 | 41.131 | 42.064 | 41.131 | 44.290 | 42.314 | 53.496 | 42.314 | 41.131 | 39.153 | 41.131 | 43.364 | 42.314 | 57.462 | 41.131 | 43.364 | 53.024 | 39.084 | 39.811 | 57.496 | 43.413 | 41.131 | 43.364 | 43.364 | 43.364 | 43.364 | n/a | 42.314 | 42.314 | 43.364 | 42.314 | 42.314 | 55.190 | 42.314 | 39.811 | 41.131 | 42.314 | 43.364 | 41.131 | 42.314 | 39.811 | 42.314 | 41.131 | 44.290 | 39.811 | 41.131 |
 | risk_secrets_risk | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | risk_spec_match | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 91.667 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | n/a | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 93.750 | 100.000 |
@@ -168,10 +168,10 @@ Derived descriptions of the same program — topology, size, shape, complexity. 
 | betweenness_score | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.05 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.05 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 | 0.08333 |
 | closeness_score | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.1917 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.1917 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 | 0.2396 |
 | producer_ratio | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 | 0.5 |
-| total_loc | 22.5 | 25.5 | 17.75 | 24.75 | 27.25 | 25.25 | 25 | 25.5 | 25 | 18.75 | 24.75 | 16.25 | 27 | 21.75 | 27 | 24.75 | 19.5 | 11.5 | 25.25 | 26.25 | 12 | 25.5 | 22.25 | 24 | 12 | 23 | 14.5 | 24.75 | 25 | 26 | 25.25 | 29.25 | 26 | 29 | 26 | 25.25 | 21.5 | 30.75 | 25 | 16.75 | 25.25 | 25.25 | 26.75 | 12.25 | 25.25 | 25.5 |
+| total_loc | 22.5 | 25.5 | 17.75 | 24.75 | 27.25 | 25.25 | 25 | 25.5 | 25 | 18.75 | 24.75 | 16.25 | 27 | 21.75 | 27 | 24.75 | 19.5 | 11.5 | 25.25 | 26.25 | 12 | 25.5 | 22.25 | 24 | 12 | 23 | 14.5 | 24.75 | 25 | 26 | 25.25 | 29.25 | 26 | 29 | 26 | 25.25 | 21.5 | 30.75 | 25.25 | 16.75 | 25.25 | 25.25 | 26.75 | 12.25 | 25.25 | 25.5 |
 | coding_loc | 15.5 | 18.5 | 12.75 | 17.75 | 20.25 | 17.75 | 16.75 | 18.25 | 17.75 | 9.75 | 17.5 | 9 | 15.75 | 15 | 19 | 17.5 | 10 | 8 | 18 | 18.25 | 7.75 | 18 | 15 | 16.75 | 7 | 14.25 | 0 | 17.5 | 17.75 | 18.75 | 18 | 21.25 | 15 | 20.75 | 18 | 18 | 14 | 21.75 | 17 | 9.5 | 18 | 18 | 18.75 | 6 | 21.5 | 18 |
 | structural_mass | 10.44 | 10.77 | 10.46 | 10.43 | 10.48 | 11.18 | 2.78 | 10.49 | 10.46 | 0.4075 | 10.68 | 7.13 | 10.46 | 10.43 | 10.48 | 10.53 | 7.75 | 28.88 | 10.46 | 10.49 | 7.13 | 10.46 | 11.43 | 11.63 | 11.81 | 11.21 | 1 | 11.68 | 9.705 | 10.75 | 10.44 | 10.55 | 10.47 | 12.02 | 10.48 | 10.73 | 12.28 | 12.19 | 10.41 | 10.39 | 10.73 | 10.23 | 10.53 | 8.27 | 6.28 | 10.46 |
-| token_mass | 138.2 | 154.5 | 135.2 | 128.2 | 136 | 122.2 | 190 | 127.8 | 132.5 | 104 | 118.5 | 83 | 118 | 145.8 | 125.8 | 120 | 126.2 | 94.25 | 126.8 | 138.2 | 141.8 | 133.2 | 125.5 | 113 | 140.8 | 113.5 | — | 113.5 | 137.5 | 131 | 131 | 145.5 | 120.5 | 136.5 | 149.2 | 126 | 121.5 | 130.8 | 134.2 | 103.2 | 142.5 | 130 | 144 | 90.25 | 142.2 | 149.2 |
+| token_mass | 138.2 | 154.5 | 135.2 | 128.2 | 136 | 122.2 | 190 | 127.8 | 132.8 | 104 | 118.5 | 83 | 118 | 145.8 | 125.8 | 120 | 126.2 | 94.25 | 126.8 | 138.2 | 141.8 | 133.2 | 125.5 | 113 | 140.8 | 113.5 | — | 113.5 | 137.8 | 131 | 131 | 145.5 | 120.5 | 136.5 | 149.2 | 126 | 121.5 | 130.8 | 136.5 | 103.2 | 142.5 | 130 | 144 | 90.25 | 142.2 | 149.2 |
 | control_flow_ratio | 0.09375 | 0.047 | 0.06825 | 0.09375 | 0.0535 | 0.09375 | 0.0535 | 0.06825 | 0.08325 | 0.1072 | 0.08325 | 0.1875 | 0.05775 | 0.09375 | 0.075 | 0.05775 | 0.1072 | 0.1875 | 0.075 | 0.0625 | 0.06825 | 0.05775 | 0.09375 | 0.047 | 0.25 | 0.4168 | 0 | 0.09375 | 0.09375 | 0.05 | 0.0625 | 0.08325 | 0.0625 | 0.09375 | 0.06825 | 0.1875 | 0.25 | 0.05775 | 0.044 | 0.08325 | 0.0535 | 0.05775 | 0.0625 | 0.25 | 0.1875 | 0.09375 |
 | avg_func_loc | 4.5 | 5.521 | 3.354 | 5.312 | 5.188 | 5.146 | 4.062 | 5.479 | 5.312 | 2.033 | 5.229 | 1.2 | 4.354 | 4.438 | 5.396 | 5.688 | 2.375 | 0 | 5.396 | 5.458 | 1.958 | 5.229 | 4.438 | 4.979 | 1 | 3.312 | 0 | 5.208 | 5.312 | 5.438 | 5.083 | 5.375 | 4.417 | 5.312 | 5.396 | 5.396 | 3.104 | 5.5 | 5.125 | 0 | 5.396 | 4.438 | 5.646 | 1 | 1.708 | 5.229 |
 | avg_func_complexity | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.15 | 0.1875 | 0.15 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.2083 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 | 0.1875 |
