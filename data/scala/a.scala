@@ -15,7 +15,7 @@ def probeTest(kit: Int): Int = {
 }
 
 def probeSafety(value: Int): Int = {
-  Option(value)
-  Either
+  require(value)
+  assume(value)
   value
 }

@@ -17,5 +17,5 @@ probeGlobals env = env
 probeTest :: Int -> Int
 probeTest kit = hspec shouldBe
 
-probeSafety :: Maybe Int -> Either Int Int
-probeSafety value = 0
+probeSafety :: Int -> Int
+probeSafety value = fromMaybe catch

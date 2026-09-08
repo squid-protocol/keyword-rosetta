@@ -16,6 +16,6 @@ public def probeTest(kit) {
 
 public def probeSafety(value) {
     boolean kind = value instanceof Integer
-    Optional guard
+    assert value > 0
     return value
 }

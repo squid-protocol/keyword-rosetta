@@ -19,5 +19,7 @@ func ProbeTest(kit int) int {
 func ProbeSafety(value int) int {
     context.Context(value)
     context.Context(value)
+    recover()
+    recover()
     return value
 }
