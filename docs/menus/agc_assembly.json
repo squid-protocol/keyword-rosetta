@@ -39,8 +39,7 @@
     "core": true,
     "keywords": [
       "ENDOFJOB",
-      "RESUME",
-      "EXIT"
+      "RESUME"
     ],
     "pattern_defined": true
   },

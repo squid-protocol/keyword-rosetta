@@ -284,6 +284,10 @@
    "state": "CLOSED",
    "title": "ownership has no stated contract: solidity counts the SPDX license line on every file, five languages count copyright notices and license prose, three count the phrase 'created by' in sentences, and five doc rules still double-count the author tag"
   },
+  "squid-protocol/gitgalaxy#2888": {
+   "state": "CLOSED",
+   "title": "cleanup has no stated contract: shell counts every exit, perl counts return undef, cobol matches CLOSE inside paragraph names, and eight languages count the declaration of a cleanup routine as a use of one"
+  },
   "squid-protocol/keyword-rosetta#71": {
    "state": "CLOSED",
    "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"

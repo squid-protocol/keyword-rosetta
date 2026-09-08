@@ -40,15 +40,7 @@
   },
   "cleanup": {
     "core": true,
-    "keywords": [
-      "dispose",
-      "close",
-      "destroy",
-      "clearTimeout",
-      "clearInterval",
-      "removeEventListener",
-      "delete"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "closures": {

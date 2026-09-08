@@ -27,11 +27,7 @@
   },
   "cleanup": {
     "core": true,
-    "keywords": [
-      "unset",
-      "exit",
-      "logout"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "comprehensions": {
