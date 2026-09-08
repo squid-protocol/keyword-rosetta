@@ -224,8 +224,6 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
-      "system",
-      "exec",
       "exit",
       "qx",
       "CORE::dump"

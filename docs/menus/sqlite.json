@@ -198,10 +198,7 @@
   },
   "high_risk_execution": {
     "core": true,
-    "keywords": [
-      "PRAGMA legacy_alter_table",
-      "DROP DATABASE"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "immutability_locks": {

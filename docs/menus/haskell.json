@@ -218,11 +218,7 @@
       "die",
       "exitWith",
       "exitFailure",
-      "Debug.Trace",
-      "trace",
-      "traceShow",
-      "traceIO",
-      "traceM"
+      "exitSuccess"
     ],
     "pattern_defined": true
   },

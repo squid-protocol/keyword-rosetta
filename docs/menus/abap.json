@@ -198,7 +198,6 @@
     "keywords": [
       "SYSTEM-CALL",
       "EXEC SQL",
-      "DELETE FROM",
       "TRUNCATE",
       "GENERATE SUBROUTINE POOL"
     ],

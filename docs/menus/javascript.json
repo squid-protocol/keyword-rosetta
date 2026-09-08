@@ -226,12 +226,10 @@
     "keywords": [
       "eval",
       "document.write",
-      "innerHTML",
-      "outerHTML",
       "dangerouslySetInnerHTML",
-      "debugger",
-      "alert",
-      "process.exit"
+      "execSync",
+      "new Function",
+      "debugger"
     ],
     "pattern_defined": true
   },

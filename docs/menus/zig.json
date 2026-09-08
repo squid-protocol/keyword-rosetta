@@ -171,8 +171,6 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
-      "panic",
-      "std.process.exit",
       "@panic"
     ],
     "pattern_defined": true

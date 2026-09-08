@@ -187,10 +187,8 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
-      "Database.query",
-      "delete",
-      "undelete",
       "emptyRecycleBin",
+      "abortJob",
       "purgeOldAsyncJobs"
     ],
     "pattern_defined": true

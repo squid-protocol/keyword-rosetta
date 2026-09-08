@@ -183,15 +183,7 @@
   },
   "high_risk_execution": {
     "core": true,
-    "keywords": [
-      "system",
-      "popen",
-      "execl",
-      "execv",
-      "fork",
-      "longjmp",
-      "setjmp"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "immutability_locks": {

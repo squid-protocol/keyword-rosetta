@@ -163,8 +163,6 @@
   "high_risk_execution": {
     "core": true,
     "keywords": [
-      "answer",
-      "ask",
       "do",
       "quit",
       "exit to top"

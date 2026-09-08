@@ -210,8 +210,12 @@
       "eval",
       "exec",
       "os.system",
+      "os.exec p",
       "pickle.loads",
-      "yaml.unsafe_load"
+      "yaml.unsafe_load",
+      "sys.exit",
+      "os._exit",
+      "os.abort"
     ],
     "pattern_defined": true
   },

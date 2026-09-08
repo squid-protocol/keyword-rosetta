@@ -200,8 +200,7 @@
       "Thread.Abort",
       "Process.Start",
       "Environment.FailFast",
-      "Environment.Exit",
-      "goto"
+      "Environment.Exit"
     ],
     "pattern_defined": true
   },
