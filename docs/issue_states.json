@@ -260,6 +260,14 @@
    "state": "CLOSED",
    "title": "raw_state_unreferenced: the undefined family \u2014 six markup/config languages record 0 on a census with no population to count"
   },
+  "squid-protocol/gitgalaxy#2871": {
+   "state": "OPEN",
+   "title": "Contextual Baseline Fix reads a weaker dependency resolver than every column it is audited by (haskell)"
+  },
+  "squid-protocol/gitgalaxy#2872": {
+   "state": "OPEN",
+   "title": "m4 and makefile have no visibility-export rule, so their api plant cannot name the function it publishes"
+  },
   "squid-protocol/keyword-rosetta#71": {
    "state": "CLOSED",
    "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"
