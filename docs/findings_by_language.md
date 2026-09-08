@@ -33,7 +33,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [livecode](#livecode) | 0 | 0 | 0 | 12 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 #2869 #2878 |
 | [lua](#lua) | 0 | 0 | 0 | 14 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 #2822 #2841 #2852 #2878 |
 | [m4](#m4) | 2 | 1 | 3 | 11 | #2535 #2689 #2731 #2765 #2770 #2872 |
-| [makefile](#makefile) | 6 | 2 | 2 | 16 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 |
+| [makefile](#makefile) | 6 | 1 | 2 | 16 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 #2888 |
 | [markdown](#markdown) | 8 | 1 | 30 | 10 | #2549 #2638 #2655 #2689 #2770 #2866 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 1 | 1 | 0 | 8 | #2535 #2545 #2546 #2730 #2765 #2773 #2882 |
@@ -45,7 +45,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [rust](#rust) | 1 | 0 | 0 | 10 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 #2878 |
 | [scala](#scala) | 0 | 1 | 0 | 10 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 #2869 |
 | [scheme](#scheme) | 1 | 1 | 0 | 10 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
-| [shell](#shell) | 0 | 0 | 2 | 11 | #2535 #2547 #2727 #2731 #2822 #2858 |
+| [shell](#shell) | 0 | 0 | 2 | 12 | #2535 #2547 #2727 #2731 #2822 #2858 #2888 |
 | [solidity](#solidity) | 0 | 0 | 1 | 11 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 #2882 |
 | [sqlite](#sqlite) | 10 | 2 | 2 | 17 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 #2866 |
 | [swift](#swift) | 1 | 0 | 0 | 11 | #2535 #2543 #2546 #2730 #2731 #2765 #2822 #2858 |
@@ -840,7 +840,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
 - 🔴 `risk_cognitive_load`: 3.67023 vs median 1.29535 (+183%)
 - 🔴 `risk_documentation`: 71.0815 vs median 41.6651 (+71%)
-- 🟡 `cleanup`: 3 vs median 2 (+50%)
 - 🟡 `risk_api_exposure`: 9.35645 vs median 7.0517 (+33%)
 
 **Not expressible as measured (n/a):** `class_start`, `classes_found`
@@ -855,9 +854,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `makefile-class-start-no-entity-declaration` | intended-morphology | — | — | GNU Make's model is variables plus file/phony targets; it has no entity or type-declaration concept |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
-| `batch4-dual-keyword-overlaps` | keyword-overlap | — | — | Collective entry for batch 4's finditer-confirmed dual-rule keywords, each detailed in its language's manifest notes: agc RESUME (cleanup+branch), livecode global (globa… |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
+| `cleanup-contract-2888` | upstream-bug | [#2888](https://github.com/squid-protocol/gitgalaxy/issues/2888) | — | The cleanup rule had no stated contract; its one open cell was a double-count |
 | `makefile-2648-slicer-fallthrough` | upstream-bug | [#2648](https://github.com/squid-protocol/gitgalaxy/issues/2648) | — | makefile had zero brace-delimited bodies but was missing from detector.py's Mode_A_Labels tuple, silently falling through to Mode_B_Braces and dropping ~100% of real fun… |
 | `makefile-dead-code-reads-prose-labels` | upstream-bug | [#2851](https://github.com/squid-protocol/gitgalaxy/issues/2851) | — | makefile reads dead_code 7 where every other language in the corpus carrying the same comments reads 0 |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
@@ -1183,6 +1182,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `shell-trap-signal-env-collision` | keyword-overlap | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | (notes) | 'trap : TERM' counts globals: the TERM signal name collides with the TERM env-var keyword in shell's globals rule (a.sh globals 3 for 2 planted) |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |
+| `cleanup-contract-2888` | upstream-bug | [#2888](https://github.com/squid-protocol/gitgalaxy/issues/2888) | — | The cleanup rule had no stated contract; its one open cell was a double-count |
 | `globals-contract-2858` | upstream-bug | [#2858](https://github.com/squid-protocol/gitgalaxy/issues/2858) | — | The globals rule had no stated contract; its two open-defect cells were two one-owner/ambiguity misfires (csharp's `Environment.` prefix counting the planted `Environmen… |
 | `api-export-names-suppress-orphan-credit` | upstream-question | [#2727](https://github.com/squid-protocol/gitgalaxy/issues/2727) | (notes) | In these four the api plant NAMES the probe functions -- `global probe_x` (NASM), `Export-ModuleMember -Function probe_x`, `module_function :probe_x`, `namespace export … |
 | `orphan-conversion-opaque-counts` | upstream-question | [#2547](https://github.com/squid-protocol/gitgalaxy/issues/2547) | (notes) | On languages without a same-file call graph the orphan census includes non-function shapes, so the orphan->api conversion count diverges from visible function counts: sh… |
