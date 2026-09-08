@@ -842,7 +842,7 @@
    "livecode": 2,
    "lua": 2,
    "m4": 2,
-   "makefile": 3,
+   "makefile": 2,
    "markdown": null,
    "matlab": 2,
    "objective-c": 2,
@@ -3110,7 +3110,7 @@
    "rust": 149.25,
    "scala": 126,
    "scheme": 121.5,
-   "shell": 130.75,
+   "shell": 131,
    "solidity": 136.5,
    "sqlite": 103.25,
    "swift": 142.5,
@@ -3146,7 +3146,7 @@
    "livecode": 133,
    "lua": 149,
    "m4": 76,
-   "makefile": 120,
+   "makefile": 119,
    "markdown": 30,
    "matlab": 151,
    "objective-c": 147,
@@ -3158,7 +3158,7 @@
    "rust": 194,
    "scala": 163,
    "scheme": 98,
-   "shell": 145,
+   "shell": 144,
    "solidity": 162,
    "sqlite": 61,
    "swift": 186,
@@ -3609,7 +3609,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "5eac04ead6a0447729ac3585c915b03921901da0",
+ "engine_commit": "6f7402538d395814ded2b2fb2f3f8a8c08df199e",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -3827,7 +3827,6 @@
   "classes_found/dockerfile": "scoring",
   "classes_found/jcl": "scoring",
   "classes_found/kotlin": "scoring",
-  "cleanup/makefile": "extraction",
   "cog_raw/apex": "echo",
   "cog_raw/css": "echo",
   "cog_raw/html": "echo",
@@ -4004,7 +4003,7 @@
    41
   ],
   "cleanup": [
-   1,
+   0,
    44
   ],
   "closeness_score": [
