@@ -256,6 +256,10 @@
    "state": "CLOSED",
    "title": "cobol avg_func_args stays 0: a paragraph's ENTRY \u2026 USING is one line outside the Mode A args window, so hit_vector.args=1 while the function's own args=0"
   },
+  "squid-protocol/gitgalaxy#2866": {
+   "state": "CLOSED",
+   "title": "raw_state_unreferenced: the undefined family \u2014 six markup/config languages record 0 on a census with no population to count"
+  },
   "squid-protocol/keyword-rosetta#71": {
    "state": "CLOSED",
    "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"
