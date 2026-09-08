@@ -17,7 +17,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [cobol](#cobol) | 1 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
 | [csharp](#csharp) | 0 | 0 | 0 | 11 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 #2882 |
-| [css](#css) | 6 | 3 | 4 | 17 | #2549 #2655 #2689 #2729 #2752 #2770 #2866 #2878 |
+| [css](#css) | 5 | 3 | 5 | 17 | #2549 #2655 #2689 #2729 #2752 #2770 #2866 #2878 |
 | [dart](#dart) | 0 | 0 | 0 | 8 | #2535 #2651 #2689 #2730 #2731 #2852 #2878 |
 | [dockerfile](#dockerfile) | 5 | 3 | 1 | 20 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2770 #2792 #2798 #2822 #2856 #2866 #2875 |
 | [embedded_python](#embedded_python) | 2 | 0 | 0 | 14 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2852 #2869 #2875 |
@@ -304,8 +304,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `args`: 6 vs median 13 (-54%)
-- 🔴 `avg_func_args`: 0.05 vs median 1 (-95%)
+- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `max_func_complexity`: 0.25 vs median 0.75 (-67%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
 - 🔴 `risk_documentation`: 43.944 vs median 21.5217 (+104%)
@@ -314,7 +313,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `func_complexity_gini`: 0.1 vs median 0.1875 (-47%)
 - 🟡 `risk_tech_debt`: 29.8779 vs median 20.4394 (+46%)
 
-**Not expressible as measured (n/a):** `cleanup`, `risk_concurrency`, `state_mutation`, `telemetry`
+**Not expressible as measured (n/a):** `args`, `cleanup`, `risk_concurrency`, `state_mutation`, `telemetry`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|

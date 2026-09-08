@@ -6,11 +6,6 @@
     ],
     "pattern_defined": true
   },
-  "args": {
-    "core": true,
-    "keywords": [],
-    "pattern_defined": true
-  },
   "branch": {
     "core": true,
     "keywords": [
