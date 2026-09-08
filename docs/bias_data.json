@@ -1095,7 +1095,7 @@
    "scala": 1,
    "scheme": 1,
    "shell": 1,
-   "solidity": 4,
+   "solidity": 1,
    "sqlite": 1,
    "swift": 1,
    "tcl": 1,
@@ -2583,7 +2583,7 @@
    "scala": 41.665099999999995,
    "scheme": 67.32532499999999,
    "shell": 41.794799999999995,
-   "solidity": 39.138625,
+   "solidity": 39.1953,
    "sqlite": 0.0,
    "swift": 38.255174999999994,
    "tcl": 38.255174999999994,
@@ -2919,7 +2919,7 @@
    "scala": 25.25,
    "scheme": 21.5,
    "shell": 30.75,
-   "solidity": 25,
+   "solidity": 25.25,
    "sqlite": 16.75,
    "swift": 25.25,
    "tcl": 25.25,
@@ -3063,7 +3063,7 @@
    "scala": 12,
    "scheme": 12,
    "shell": 12,
-   "solidity": 15,
+   "solidity": 16,
    "sqlite": 12,
    "swift": 12,
    "tcl": 12,
@@ -3081,7 +3081,7 @@
    "c": 122.25,
    "cobol": 190,
    "cpp": 127.75,
-   "csharp": 132.5,
+   "csharp": 132.75,
    "css": 104,
    "dart": 118.5,
    "dockerfile": 83,
@@ -3101,7 +3101,7 @@
    "makefile": 113.5,
    "markdown": null,
    "matlab": 113.5,
-   "objective-c": 137.5,
+   "objective-c": 137.75,
    "perl": 131,
    "php": 131,
    "powershell": 145.5,
@@ -3111,7 +3111,7 @@
    "scala": 126,
    "scheme": 121.5,
    "shell": 130.75,
-   "solidity": 134.25,
+   "solidity": 136.5,
    "sqlite": 103.25,
    "swift": 142.5,
    "tcl": 130,
@@ -3159,7 +3159,7 @@
    "scala": 163,
    "scheme": 98,
    "shell": 145,
-   "solidity": 165,
+   "solidity": 162,
    "sqlite": 61,
    "swift": 186,
    "tcl": 133,
@@ -3609,7 +3609,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "f995ce97d2d986f02e7d5fb9b1243377f95be30a",
+ "engine_commit": "9f5d57c6a05233e2b11c0d1fbab4b043cd939b32",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -3799,7 +3799,7 @@
  "cell_categories": {
   "args/css": "extraction",
   "args/dockerfile": "inherency",
-  "args/html": "extraction",
+  "args/html": "inherency",
   "args/m4": "inherency",
   "args/makefile": "inherency",
   "args/sqlite": "inherency",
@@ -3891,7 +3891,6 @@
   "max_func_complexity/html": "inherency",
   "max_func_complexity/markdown": "inherency",
   "max_func_complexity/sqlite": "inherency",
-  "ownership/solidity": "extraction",
   "raw_arch_api/agc_assembly": "scoring",
   "raw_arch_api/css": "scoring",
   "raw_arch_api/dockerfile": "scoring",
@@ -3977,7 +3976,7 @@
  },
  "open_defect_share": {
   "args": [
-   2,
+   1,
    45
   ],
   "avg_func_args": [
@@ -4101,7 +4100,7 @@
    46
   ],
   "ownership": [
-   1,
+   0,
    45
   ],
   "pagerank": [
