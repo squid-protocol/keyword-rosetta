@@ -178,10 +178,7 @@
   },
   "import": {
     "core": true,
-    "keywords": [
-      "BANK",
-      "SETLOC"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "io": {

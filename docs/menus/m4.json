@@ -151,12 +151,7 @@
   },
   "import": {
     "core": true,
-    "keywords": [
-      "include",
-      "sinclude",
-      "m4_include",
-      "m4_sinclude"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "io": {

@@ -206,11 +206,7 @@
   },
   "import": {
     "core": true,
-    "keywords": [
-      "USE",
-      "INCLUDE",
-      "IMPORT"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "io": {

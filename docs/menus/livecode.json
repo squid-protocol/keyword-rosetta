@@ -178,11 +178,7 @@
   },
   "import": {
     "core": true,
-    "keywords": [
-      "require",
-      "include",
-      "module"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "io": {

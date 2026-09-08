@@ -215,10 +215,7 @@
   },
   "import": {
     "core": true,
-    "keywords": [
-      "INCLUDE",
-      "TYPE-POOLS"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "io": {
