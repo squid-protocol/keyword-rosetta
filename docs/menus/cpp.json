@@ -135,7 +135,6 @@
     "core": false,
     "keywords": [
       "emit",
-      "signal",
       "slot",
       "notify",
       "publish",
@@ -280,12 +279,10 @@
   "listeners": {
     "core": false,
     "keywords": [
-      "on",
       "addEventListener",
       "subscribe",
       "connect",
-      "handler",
-      "callback"
+      "handler"
     ],
     "pattern_defined": true
   },

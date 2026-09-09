@@ -26,9 +26,7 @@
       "default",
       "for",
       "while",
-      "do",
-      "break",
-      "continue"
+      "do"
     ],
     "pattern_defined": true
   },
@@ -244,15 +242,7 @@
   },
   "memory_alloc": {
     "core": false,
-    "keywords": [
-      "malloc",
-      "calloc",
-      "realloc",
-      "free",
-      "aligned_alloc",
-      "mmap",
-      "alloca"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ownership": {
@@ -412,6 +402,8 @@
       "enum",
       "typedef",
       "return",
+      "break",
+      "continue",
       "void",
       "restrict",
       "auto",

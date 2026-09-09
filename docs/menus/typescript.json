@@ -27,9 +27,7 @@
       "default",
       "for",
       "while",
-      "do",
-      "continue",
-      "break"
+      "do"
     ],
     "pattern_defined": true
   },
@@ -130,10 +128,6 @@
   "events": {
     "core": false,
     "keywords": [
-      "emit",
-      "on",
-      "once",
-      "off",
       "dispatchEvent",
       "EventEmitter",
       "EventTarget"
@@ -456,6 +450,8 @@
     "keywords": [
       "var",
       "return",
+      "break",
+      "continue",
       "class",
       "interface",
       "type",

@@ -23,10 +23,7 @@
       "case",
       "default",
       "for",
-      "select",
-      "break",
-      "continue",
-      "fallthrough"
+      "select"
     ],
     "pattern_defined": true
   },
@@ -348,6 +345,9 @@
       "package",
       "import",
       "return",
+      "break",
+      "continue",
+      "fallthrough",
       "type",
       "go",
       "defer",

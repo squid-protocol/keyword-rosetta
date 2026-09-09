@@ -25,9 +25,7 @@
       "switch",
       "while",
       "for",
-      "orelse",
-      "break",
-      "continue"
+      "orelse"
     ],
     "pattern_defined": true
   },
@@ -233,8 +231,6 @@
   "panics_and_aborts": {
     "core": false,
     "keywords": [
-      "unreachable",
-      "return",
       "@panic"
     ],
     "pattern_defined": true
@@ -369,6 +365,8 @@
     "keywords": [
       "var",
       "return",
+      "break",
+      "continue",
       "defer",
       "errdefer",
       "unreachable",

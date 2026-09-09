@@ -242,8 +242,7 @@
     "keywords": [
       "URLSession",
       "NSXPCConnection",
-      "NotificationCenter",
-      "DispatchQueue"
+      "NotificationCenter"
     ],
     "pattern_defined": true
   },
@@ -412,8 +411,6 @@
     "keywords": [
       "Vapor",
       "Hummingbird",
-      "Request",
-      "Response",
       "Route",
       "app.get",
       "app.post",

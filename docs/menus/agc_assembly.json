@@ -97,11 +97,6 @@
     ],
     "pattern_defined": true
   },
-  "explicit_casts": {
-    "core": false,
-    "keywords": [],
-    "pattern_defined": true
-  },
   "fragile_debt": {
     "core": true,
     "keywords": [

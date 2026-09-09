@@ -312,17 +312,6 @@
     ],
     "pattern_defined": true
   },
-  "regex_execution": {
-    "core": false,
-    "keywords": [
-      "SCAN",
-      "INDEX",
-      "VERIFY",
-      "ADJUSTL",
-      "ADJUSTR"
-    ],
-    "pattern_defined": true
-  },
   "safety": {
     "core": true,
     "keywords": [
@@ -348,36 +337,7 @@
   },
   "scientific": {
     "core": false,
-    "keywords": [
-      "MATMUL",
-      "DOT_PRODUCT",
-      "TRANSPOSE",
-      "SUM",
-      "PRODUCT",
-      "MAXVAL",
-      "MINVAL",
-      "MAXLOC",
-      "MINLOC",
-      "RESHAPE",
-      "SQRT",
-      "EXP",
-      "LOG",
-      "LOG10",
-      "SIN",
-      "COS",
-      "TAN",
-      "ASIN",
-      "ACOS",
-      "ATAN",
-      "ATAN2",
-      "SINH",
-      "COSH",
-      "TANH",
-      "CEILING",
-      "FLOOR",
-      "MOD",
-      "MODULO"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "serialization_parsing": {

@@ -22,7 +22,6 @@
       "else",
       "for",
       "while",
-      "with",
       "match",
       "case",
       "and",
@@ -233,14 +232,7 @@
   },
   "ipc_rpc_bridges": {
     "core": false,
-    "keywords": [
-      "machine.Pin",
-      "machine.I2C",
-      "machine.UART",
-      "network.WLAN",
-      "usocket.socket",
-      "busio.I2C"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "listeners": {
@@ -427,6 +419,7 @@
       "import",
       "from",
       "as",
+      "with",
       "pass",
       "continue",
       "break",

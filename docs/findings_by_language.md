@@ -33,7 +33,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [livecode](#livecode) | 0 | 0 | 0 | 12 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 #2869 #2878 |
 | [lua](#lua) | 0 | 0 | 0 | 14 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2770 #2822 #2841 #2852 #2878 |
 | [m4](#m4) | 1 | 0 | 3 | 11 | #2535 #2689 #2731 #2765 #2770 #2872 |
-| [makefile](#makefile) | 5 | 0 | 2 | 16 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 #2888 |
+| [makefile](#makefile) | 5 | 0 | 2 | 17 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 #2888 #2918 |
 | [markdown](#markdown) | 8 | 1 | 30 | 10 | #2549 #2638 #2655 #2689 #2770 #2866 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 1 | 0 | 0 | 8 | #2535 #2545 #2546 #2730 #2765 #2773 #2882 |
@@ -842,6 +842,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.mk | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `makefile-class-start-no-entity-declaration` | intended-morphology | — | — | GNU Make's model is variables plus file/phony targets; it has no entity or type-declaration concept |
+| `makefile-gini-toplevel-conditionals-inherency` | intended-morphology | [#2918](https://github.com/squid-protocol/gitgalaxy/issues/2918) | — | GNU Make's top-level conditionals (ifeq/ifdef/else) execute at parse time and sit outside every target slice by grammar, so a per-unit inequality metric over target reci… |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `api-double-count-inflates-scored-api` | upstream-bug | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) | — | `_calc_api_exposure` and `_calc_documentation` read the ADJUSTED api (`arch_api` = rule hits + converted orphans); the report measures the RAW rule count, so no derivati… |
 | `branch-contract-2822` | upstream-bug | [#2822](https://github.com/squid-protocol/gitgalaxy/issues/2822) | — | gitgalaxy#2822 gave branch a stated contract (docs/branch_rule_contract.md): one hit is a keyword or operator that opens a runtime choice between control-flow paths -- t… |

@@ -344,11 +344,6 @@
     ],
     "pattern_defined": true
   },
-  "pointers": {
-    "core": false,
-    "keywords": [],
-    "pattern_defined": true
-  },
   "reflection_metaprogramming": {
     "core": false,
     "keywords": [
@@ -432,8 +427,6 @@
       "Mojolicious::Controller",
       "Dancer2",
       "Catalyst::Controller",
-      "render",
-      "template",
       "to_app"
     ],
     "pattern_defined": true
@@ -502,10 +495,7 @@
   },
   "test_skip": {
     "core": false,
-    "keywords": [
-      "skip",
-      "todo_skip"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "thread_sleeps": {
