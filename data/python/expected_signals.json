@@ -9,7 +9,7 @@
       "high_risk_execution": 2,
       "doc": 1,
       "ownership": 1,
-      "encapsulation": 1,
+      "encapsulation": 0,
       "import": 1,
       "func_start": 4,
       "args": 4,
@@ -146,5 +146,5 @@
       "outcome": "reverse decoy works: identifier did not count, the # HACK comment did (fragile_debt = 1 exactly)"
     }
   ],
-  "notes": "api = public defs PLUS the Contextual Baseline Fix (galaxyscope.py ~2145): a/b/c are each imported and their 3 probes are never called, so api = 3 + 3 = 6; main.py is imported by nobody and stays at 4. doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (doc rule now matches the full \"\"\"...\"\"\" span as a single bounded hit instead of counting open+close delimiters separately). See ledger entries os-sys-prefix-overlaps-io (resolved) and assert-overlaps-safety-and-test (python removed, still reproduces for c/perl). String decoy redesigned per keyword-rosetta#17 (2026-09-01). doc re-baselined 2026-09-02 against gitgalaxy#2658. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.py's `runner = eval` / `spawner = exec` (bound aliases, C2) re-planted as the invocations `eval(payload)` / `exec(payload)`. Cell unchanged at 2. sys.exit/os._exit/os.abort join the rule (embedded_python twin parity)."
+  "notes": "api = public defs PLUS the Contextual Baseline Fix (galaxyscope.py ~2145): a/b/c are each imported and their 3 probes are never called, so api = 3 + 3 = 6; main.py is imported by nobody and stays at 4. doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (doc rule now matches the full \"\"\"...\"\"\" span as a single bounded hit instead of counting open+close delimiters separately). See ledger entries os-sys-prefix-overlaps-io (resolved) and assert-overlaps-safety-and-test (python removed, still reproduces for c/perl). String decoy redesigned per keyword-rosetta#17 (2026-09-01). doc re-baselined 2026-09-02 against gitgalaxy#2658. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.py's `runner = eval` / `spawner = exec` (bound aliases, C2) re-planted as the invocations `eval(payload)` / `exec(payload)`. Cell unchanged at 2. sys.exit/os._exit/os.abort join the rule (embedded_python twin parity). 2026-09-09 (gitgalaxy#2766): encapsulation counts declaration position only (def _x/class _x/_x =/self._x =); dunders are the public protocol and are excluded."
 }
