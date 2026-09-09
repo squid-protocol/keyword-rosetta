@@ -28,10 +28,7 @@
       "in",
       "for",
       "while",
-      "until",
-      "break",
-      "next",
-      "redo"
+      "until"
     ],
     "pattern_defined": true
   },

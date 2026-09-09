@@ -27,9 +27,7 @@
       "when",
       "for",
       "while",
-      "do",
-      "break",
-      "continue"
+      "do"
     ],
     "pattern_defined": true
   },
@@ -411,6 +409,8 @@
       "package",
       "import",
       "return",
+      "break",
+      "continue",
       "class",
       "interface",
       "object",

@@ -223,18 +223,6 @@
     ],
     "pattern_defined": true
   },
-  "memory_alloc": {
-    "core": false,
-    "keywords": [
-      "make-vector",
-      "make-string",
-      "make-bytevector",
-      "make-hash-table",
-      "cons",
-      "list"
-    ],
-    "pattern_defined": true
-  },
   "ownership": {
     "core": true,
     "keywords": [],
@@ -315,28 +303,7 @@
   },
   "scientific": {
     "core": false,
-    "keywords": [
-      "sin",
-      "cos",
-      "tan",
-      "asin",
-      "acos",
-      "atan",
-      "exp",
-      "log",
-      "sqrt",
-      "expt",
-      "abs",
-      "gcd",
-      "lcm",
-      "numerator",
-      "denominator",
-      "floor",
-      "ceiling",
-      "truncate",
-      "round",
-      "exact->inexact"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "spec_exposure": {

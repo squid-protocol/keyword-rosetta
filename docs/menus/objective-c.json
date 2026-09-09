@@ -31,9 +31,7 @@
       "default",
       "for",
       "while",
-      "do",
-      "break",
-      "continue"
+      "do"
     ],
     "pattern_defined": true
   },
@@ -461,6 +459,8 @@
       "__weak",
       "__strong",
       "return",
+      "break",
+      "continue",
       "goto"
     ],
     "pattern_defined": true

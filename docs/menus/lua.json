@@ -23,8 +23,6 @@
       "for",
       "while",
       "repeat",
-      "break",
-      "continue",
       "and",
       "or",
       "not"
@@ -231,10 +229,7 @@
     "core": false,
     "keywords": [
       "os.execute",
-      "io.popen",
-      "coroutine.create",
-      "coroutine.resume",
-      "coroutine.yield"
+      "io.popen"
     ],
     "pattern_defined": true
   },
@@ -267,7 +262,6 @@
     "core": false,
     "keywords": [
       "error",
-      "assert",
       "os.exit"
     ],
     "pattern_defined": true
@@ -427,6 +421,7 @@
       "require",
       "module",
       "return",
+      "break",
       "export type",
       "type",
       "then",

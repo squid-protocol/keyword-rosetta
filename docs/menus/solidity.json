@@ -24,9 +24,7 @@
       "else",
       "for",
       "while",
-      "do",
-      "break",
-      "continue"
+      "do"
     ],
     "pattern_defined": true
   },
@@ -319,6 +317,8 @@
       "bool",
       "string",
       "return",
+      "break",
+      "continue",
       "try",
       "catch"
     ],

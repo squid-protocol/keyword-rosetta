@@ -19,9 +19,7 @@
       "for",
       "while",
       "until",
-      "select",
-      "break",
-      "continue"
+      "select"
     ],
     "pattern_defined": true
   },
@@ -312,8 +310,6 @@
     "keywords": [
       "jq",
       "yq",
-      "awk",
-      "sed",
       "xmlstarlet"
     ],
     "pattern_defined": true
@@ -346,6 +342,8 @@
       "declare",
       "typeset",
       "return",
+      "break",
+      "continue",
       "exit",
       "source",
       "read",
