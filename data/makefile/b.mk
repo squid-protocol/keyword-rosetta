@@ -2,9 +2,9 @@
 # decoy: nothing risky lives here and the wget word stays in prose
 include c.mk
 
-export PROBE_BYPASS = 1
-export PROBE_TELEMETRY = 1
-export PROBE_STATE = 1
+.PHONY: probe_bypass
+.PHONY: probe_telemetry
+.PHONY: probe_state
 
 probe_bypass:
 	-rm scratch
