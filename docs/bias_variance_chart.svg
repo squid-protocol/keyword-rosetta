@@ -5,9 +5,9 @@
 <text x="16" y="68" fill="#5c6670">every dot is one language's deviation from the cross-language median. <tspan font-weight="600" fill="#c0392b">Red</tspan> is an open engine defect — a rule matching the wrong construct,</text>
 <text x="16" y="84" fill="#5c6670">or a scoring weight sitting inside a count — the work left. <tspan font-weight="600" fill="#6b7680">Grey</tspan> is a documented variation: the language cannot express the construct,</text>
 <text x="16" y="100" fill="#5c6670">a deliberate scoring choice, or an echo of another row. Each row's bar: in band (±25% of the median) · documented · open defect. Rows run best → worst.</text>
-<text x="16" y="134" font-size="22" font-weight="700" fill="#c0392b">0.5%</text>
-<text x="16" y="150" font-size="10.5" fill="#5c6670">open-defect share · 12 of 2635 cells</text>
-<text x="258" y="134" font-size="22" font-weight="700" fill="#1b2430">93%</text>
+<text x="16" y="134" font-size="22" font-weight="700" fill="#c0392b">0.4%</text>
+<text x="16" y="150" font-size="10.5" fill="#5c6670">open-defect share · 11 of 2635 cells</text>
+<text x="258" y="134" font-size="22" font-weight="700" fill="#1b2430">94%</text>
 <text x="258" y="150" font-size="10.5" fill="#5c6670">average share in band, 55 gated metrics</text>
 <text x="499" y="134" font-size="22" font-weight="700" fill="#1b2430">0</text>
 <text x="499" y="150" font-size="10.5" fill="#5c6670">cells with no verdict at all</text>
@@ -1249,7 +1249,7 @@
 <line x1="16" y1="1074" x2="982" y2="1074" stroke="#e3e6ea"/>
 <text x="16" y="1092" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">NON-PLANTED KEYWORD EXTRACTION</text>
 <text x="282" y="1092" font-size="11.5" fill="#5c6670">rules the risk formulas read that the corpus never plants — nothing here was written, so every language should read 0</text>
-<text x="982" y="1092" font-size="11.5" font-weight="700" fill="#1b2430" text-anchor="end">group: 90% in band · <tspan fill="#c0392b">1 open defect (0%)</tspan></text>
+<text x="982" y="1092" font-size="11.5" font-weight="700" fill="#1b2430" text-anchor="end">group: 91% in band · <tspan fill="#c0392b">0 open defects (0%)</tspan></text>
 <text x="447.5" y="1112" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
 <text x="574.7" y="1112" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
 <text x="638.4" y="1112" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
@@ -1261,12 +1261,12 @@
 <line x1="638.4" y1="1116" x2="638.4" y2="1368" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <line x1="765.6" y1="1116" x2="765.6" y2="1368" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <line x1="829.3" y1="1116" x2="829.3" y2="1368" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<text x="16" y="1140.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">spec_exposure</text>
+<text x="16" y="1140.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">dead_code</text>
 <text x="272" y="1140.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <rect x="288" y="1129.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="1129.0" width="112.8" height="14" fill="#2f855a" rx="2"/>
-<rect x="400.8" y="1129.0" width="5.2" height="14" fill="#a3acb3"/>
-<text x="293.0" y="1140.0" font-size="10.5" font-weight="700" fill="#ffffff">96%</text>
+<rect x="288" y="1129.0" width="115.4" height="14" fill="#2f855a" rx="2"/>
+<rect x="403.4" y="1129.0" width="2.6" height="14" fill="#a3acb3"/>
+<text x="293.0" y="1140.0" font-size="10.5" font-weight="700" fill="#ffffff">98%</text>
 <rect x="422.0" y="1130.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="1130.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="1130.0" x2="574.7" y2="1142.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
@@ -1315,17 +1315,16 @@
 <circle cx="702.0" cy="1136.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1136.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1136.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1136.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1136.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="1140.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">43/45</text>
-<text x="949.1" y="1151.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="972.2" y="1151.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="16" y="1176.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">concurrency</text>
+<circle cx="702.0" cy="1136.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="1140.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">44/45</text>
+<text x="956.5" y="1151.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="16" y="1176.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">spec_exposure</text>
 <text x="272" y="1176.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <rect x="288" y="1165.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="1165.0" width="112.1" height="14" fill="#2f855a" rx="2"/>
-<rect x="400.1" y="1165.0" width="5.9" height="14" fill="#a3acb3"/>
-<text x="293.0" y="1176.0" font-size="10.5" font-weight="700" fill="#ffffff">95%</text>
+<rect x="288" y="1165.0" width="112.8" height="14" fill="#2f855a" rx="2"/>
+<rect x="400.8" y="1165.0" width="5.2" height="14" fill="#a3acb3"/>
+<text x="293.0" y="1176.0" font-size="10.5" font-weight="700" fill="#ffffff">96%</text>
 <rect x="422.0" y="1166.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="1166.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="1166.0" x2="574.7" y2="1178.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
@@ -1333,6 +1332,24 @@
 <line x1="702.0" y1="1164.0" x2="702.0" y2="1180.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="956.5" cy="1172.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -1356,30 +1373,17 @@
 <circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="956.5" cy="1172.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1172.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="1176.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">38/40</text>
-<text x="922.1" y="1187.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
-<text x="969.8" y="1187.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
-<text x="16" y="1212.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">sync_locks</text>
+<text x="763.1" y="1176.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">43/45</text>
+<text x="949.1" y="1187.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="972.2" y="1187.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
+<text x="16" y="1212.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">concurrency</text>
 <text x="272" y="1212.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <rect x="288" y="1201.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="1201.0" width="106.2" height="14" fill="#2f855a" rx="2"/>
-<rect x="394.2" y="1201.0" width="11.8" height="14" fill="#a3acb3"/>
-<text x="293.0" y="1212.0" font-size="10.5" font-weight="700" fill="#ffffff">90%</text>
+<rect x="288" y="1201.0" width="112.1" height="14" fill="#2f855a" rx="2"/>
+<rect x="400.1" y="1201.0" width="5.9" height="14" fill="#a3acb3"/>
+<text x="293.0" y="1212.0" font-size="10.5" font-weight="700" fill="#ffffff">95%</text>
 <rect x="422.0" y="1202.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="1202.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="1202.0" x2="574.7" y2="1214.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
@@ -1403,7 +1407,6 @@
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1208.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -1417,51 +1420,32 @@
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1208.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="956.5" cy="1208.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="1212.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/40</text>
-<text x="866.0" y="1223.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
-<text x="908.7" y="1223.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="941.7" y="1223.0" font-size="8" fill="#6b7680" text-anchor="middle">solidity</text>
-<text x="974.6" y="1223.0" font-size="8" fill="#6b7680" text-anchor="middle">zig</text>
-<text x="16" y="1248.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">debug_prints</text>
+<circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1208.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="1212.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">38/40</text>
+<text x="922.1" y="1223.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
+<text x="969.8" y="1223.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
+<text x="16" y="1248.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">sync_locks</text>
 <text x="272" y="1248.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <rect x="288" y="1237.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="1237.0" width="105.2" height="14" fill="#2f855a" rx="2"/>
-<rect x="393.2" y="1237.0" width="12.8" height="14" fill="#a3acb3"/>
-<text x="293.0" y="1248.0" font-size="10.5" font-weight="700" fill="#ffffff">89%</text>
+<rect x="288" y="1237.0" width="106.2" height="14" fill="#2f855a" rx="2"/>
+<rect x="394.2" y="1237.0" width="11.8" height="14" fill="#a3acb3"/>
+<text x="293.0" y="1248.0" font-size="10.5" font-weight="700" fill="#ffffff">90%</text>
 <rect x="422.0" y="1238.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="1238.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="1238.0" x2="574.7" y2="1250.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="1238.0" x2="829.3" y2="1250.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="1236.0" x2="702.0" y2="1252.0" stroke="#9aa4ad"/>
-<circle cx="956.5" cy="1244.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="956.5" cy="1244.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1244.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -1485,32 +1469,36 @@
 <circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="956.5" cy="1244.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="1248.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">41/46</text>
-<text x="825.7" y="1259.0" font-size="8" fill="#6b7680" text-anchor="middle">abap</text>
-<text x="853.8" y="1259.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
-<text x="896.5" y="1259.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="941.7" y="1259.0" font-size="8" fill="#6b7680" text-anchor="middle">scheme</text>
-<text x="972.2" y="1259.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="16" y="1284.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">immutability_locks</text>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1244.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1244.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="1248.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/40</text>
+<text x="866.0" y="1259.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
+<text x="908.7" y="1259.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="941.7" y="1259.0" font-size="8" fill="#6b7680" text-anchor="middle">solidity</text>
+<text x="974.6" y="1259.0" font-size="8" fill="#6b7680" text-anchor="middle">zig</text>
+<text x="16" y="1284.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">debug_prints</text>
 <text x="272" y="1284.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <rect x="288" y="1273.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="1273.0" width="100.3" height="14" fill="#2f855a" rx="2"/>
-<rect x="388.3" y="1273.0" width="17.7" height="14" fill="#a3acb3"/>
-<text x="293.0" y="1284.0" font-size="10.5" font-weight="700" fill="#ffffff">85%</text>
+<rect x="288" y="1273.0" width="105.2" height="14" fill="#2f855a" rx="2"/>
+<rect x="393.2" y="1273.0" width="12.8" height="14" fill="#a3acb3"/>
+<text x="293.0" y="1284.0" font-size="10.5" font-weight="700" fill="#ffffff">89%</text>
 <rect x="422.0" y="1274.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="1274.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="1274.0" x2="574.7" y2="1286.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="1274.0" x2="829.3" y2="1286.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="1272.0" x2="702.0" y2="1288.0" stroke="#9aa4ad"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1280.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="956.5" cy="1280.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -1520,17 +1508,6 @@
 <circle cx="956.5" cy="1280.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1280.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1280.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="956.5" cy="1280.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
@@ -1544,19 +1521,42 @@
 <circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="1284.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">34/40</text>
-<text x="846.7" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
-<text x="862.5" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">cpp</text>
-<text x="893.0" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
-<text x="925.9" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="949.1" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">php</text>
-<text x="972.2" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
-<text x="16" y="1320.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">reflection_metaprogramming</text>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1280.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1280.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.0" cy="1280.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="1284.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">41/46</text>
+<text x="825.7" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">abap</text>
+<text x="853.8" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
+<text x="896.5" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="941.7" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">scheme</text>
+<text x="972.2" y="1295.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
+<text x="16" y="1320.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">immutability_locks</text>
 <text x="272" y="1320.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <rect x="288" y="1309.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="1309.0" width="96.5" height="14" fill="#2f855a" rx="2"/>
-<rect x="384.5" y="1309.0" width="21.5" height="14" fill="#a3acb3"/>
-<text x="293.0" y="1320.0" font-size="10.5" font-weight="700" fill="#ffffff">82%</text>
+<rect x="288" y="1309.0" width="100.3" height="14" fill="#2f855a" rx="2"/>
+<rect x="388.3" y="1309.0" width="17.7" height="14" fill="#a3acb3"/>
+<text x="293.0" y="1320.0" font-size="10.5" font-weight="700" fill="#ffffff">85%</text>
 <rect x="422.0" y="1310.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="1310.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="1310.0" x2="574.7" y2="1322.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
@@ -1565,6 +1565,19 @@
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -1578,7 +1591,6 @@
 <circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -1586,43 +1598,23 @@
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1316.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1316.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="1320.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/44</text>
-<text x="704.8" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">apex</text>
-<text x="737.8" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
-<text x="770.7" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="806.1" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
-<text x="856.2" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">powershell</text>
-<text x="899.0" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">shell</text>
-<text x="936.8" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">solidity</text>
-<text x="972.2" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="16" y="1356.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">dead_code</text>
+<text x="763.1" y="1320.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">34/40</text>
+<text x="846.7" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
+<text x="862.5" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">cpp</text>
+<text x="893.0" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
+<text x="925.9" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="949.1" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">php</text>
+<text x="972.2" y="1331.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
+<text x="16" y="1356.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">reflection_metaprogramming</text>
 <text x="272" y="1356.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <rect x="288" y="1345.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="1345.0" width="112.8" height="14" fill="#2f855a" rx="2"/>
-<rect x="400.8" y="1345.0" width="2.6" height="14" fill="#a3acb3"/>
-<rect x="403.4" y="1345.0" width="2.6" height="14" fill="#c0392b"/>
-<text x="293.0" y="1356.0" font-size="10.5" font-weight="700" fill="#ffffff">96%</text>
-<text x="410" y="1356.0" font-size="9" font-weight="700" fill="#c0392b">1</text>
+<rect x="288" y="1345.0" width="96.5" height="14" fill="#2f855a" rx="2"/>
+<rect x="384.5" y="1345.0" width="21.5" height="14" fill="#a3acb3"/>
+<text x="293.0" y="1356.0" font-size="10.5" font-weight="700" fill="#ffffff">82%</text>
 <rect x="422.0" y="1346.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="1346.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="1346.0" x2="574.7" y2="1358.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
@@ -1631,14 +1623,7 @@
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1352.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -1652,30 +1637,42 @@
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="1352.0" r="4.2" fill="#c0392b" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1352.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1352.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1352.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1352.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="956.5" cy="1352.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="956.5" cy="1352.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="1352.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="1356.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">43/45</text>
-<text x="956.5" y="1343.0" font-size="8" fill="#9e2b21" text-anchor="middle">makefile</text>
-<text x="956.5" y="1367.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="763.1" y="1356.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/44</text>
+<text x="704.8" y="1367.0" font-size="8" fill="#6b7680" text-anchor="middle">apex</text>
+<text x="737.8" y="1367.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
+<text x="770.7" y="1367.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="806.1" y="1367.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
+<text x="856.2" y="1367.0" font-size="8" fill="#6b7680" text-anchor="middle">powershell</text>
+<text x="899.0" y="1367.0" font-size="8" fill="#6b7680" text-anchor="middle">shell</text>
+<text x="936.8" y="1367.0" font-size="8" fill="#6b7680" text-anchor="middle">solidity</text>
+<text x="972.2" y="1367.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
 <line x1="16" y1="1380" x2="982" y2="1380" stroke="#e3e6ea"/>
 <text x="16" y="1398" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">DEPENDENCY GRAPH CREATION</text>
 <text x="241" y="1398" font-size="11.5" fill="#5c6670">graph measures over the same three planted imports (pagerank_score = pagerank; shown once)</text>
@@ -2854,9 +2851,9 @@
 <text x="16" y="2238.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_dead_code</text>
 <text x="272" y="2238.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact · n/a 1</text>
 <rect x="288" y="2227.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="2227.0" width="112.8" height="14" fill="#2f855a" rx="2"/>
-<rect x="400.8" y="2227.0" width="5.2" height="14" fill="#a3acb3"/>
-<text x="293.0" y="2238.0" font-size="10.5" font-weight="700" fill="#ffffff">96%</text>
+<rect x="288" y="2227.0" width="115.4" height="14" fill="#2f855a" rx="2"/>
+<rect x="403.4" y="2227.0" width="2.6" height="14" fill="#a3acb3"/>
+<text x="293.0" y="2238.0" font-size="10.5" font-weight="700" fill="#ffffff">98%</text>
 <rect x="422.0" y="2228.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2228.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2228.0" x2="574.7" y2="2240.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
@@ -2887,7 +2884,6 @@
 <circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="956.5" cy="2234.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -2907,9 +2903,9 @@
 <circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="2238.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">43/45</text>
-<text x="929.4" y="2249.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="962.4" y="2249.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
+<circle cx="702.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="2238.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">44/45</text>
+<text x="956.5" y="2249.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
 <text x="16" y="2274.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_concurrency</text>
 <text x="272" y="2274.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact · n/a 4</text>
 <rect x="288" y="2263.0" width="118" height="14" fill="#eceff2" rx="2"/>
@@ -3689,7 +3685,7 @@
 <circle cx="673.9" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="701.1" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="576.9" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="650.1" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="638.2" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="498.5" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="704.6" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="697.7" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -3710,7 +3706,7 @@
 <circle cx="551.3" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="704.6" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="767.6" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="2760.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">35/46</text>
+<text x="763.1" y="2760.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">34/46</text>
 <text x="498.5" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
 <text x="551.3" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
 <text x="581.8" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
