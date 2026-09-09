@@ -91,13 +91,13 @@
   "decoys": [
     {
       "file": "main.c",
-      "line_hint": "// decoy: this suite never calls into a shell and the fork word stays in prose",
+      "line_hint": "// decoy: this suite never calls system() and the fork word stays in prose",
       "surface": "comment",
       "signals": [
         "api",
         "high_risk_execution"
       ],
-      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires api 1, high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1 (`system(`, the call form gitgalaxy#2878 anchors on), api 1 (`calls system(` reads as a `<type> <name>(` function declarator to the #2907 rule) and ipc_rpc_bridges 1 (`fork`) when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Re-worded 2026-09-09 with gitgalaxy#2907: the old prose ('never calls into a shell ... the fork word') carried api only through the generic two-identifier declaration shape that #2907 retired, which put c under SPEC's 2-keyword floor (decoy_check); the new prose is back at three. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
     },
     {
       "file": "b.c",
