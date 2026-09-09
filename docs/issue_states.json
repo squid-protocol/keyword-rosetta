@@ -233,7 +233,7 @@
    "title": "abap args counts call-site parameter keywords (CALL FUNCTION ... EXPORTING, PERFORM ... CHANGING) as declared parameters"
   },
   "squid-protocol/gitgalaxy#2827": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "api_declared_orphans tokenizes api lines with `\\b\\w+\\b`, so a hyphenated or qualified name is never recognised as already-declared (#2731's double count returns for cobol and scheme)"
   },
   "squid-protocol/gitgalaxy#2841": {
