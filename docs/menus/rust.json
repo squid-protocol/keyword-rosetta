@@ -186,12 +186,7 @@
   },
   "immutability_locks": {
     "core": false,
-    "keywords": [
-      "const",
-      "static",
-      "immutable",
-      "readonly"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "import": {

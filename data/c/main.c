@@ -1,7 +1,7 @@
 // keyword rosetta control shell: c / main
 // @author keyword-rosetta generator
 // @brief dispatch each probe once
-// decoy: this suite never calls into a shell and the fork word stays in prose
+// decoy: this suite never calls system() and the fork word stays in prose
 #include "a.c"
 
 int entry(int argv) {

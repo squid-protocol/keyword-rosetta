@@ -222,17 +222,6 @@
     ],
     "pattern_defined": true
   },
-  "immutability_locks": {
-    "core": false,
-    "keywords": [
-      "pure",
-      "return",
-      "frozen",
-      "immutable",
-      "const"
-    ],
-    "pattern_defined": true
-  },
   "import": {
     "core": true,
     "keywords": [],

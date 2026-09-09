@@ -1,7 +1,9 @@
 {
   "api": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "typedef"
+    ],
     "pattern_defined": true
   },
   "args": {

@@ -184,6 +184,29 @@ changed in) an `expected_signals.json` manifest — **no deviation is ever baked
   the network; `bias-history.yml` runs it daily into `docs/issue_states.json` and re-baselines
   in the same step, so the PR gate is scan-free, API-free, and only ever sees staleness the PR
   itself introduced.
+- `tools/rebless.py <lang> --engine <worktree> --note "..." [--retire <id> --resolved-by
+  <issue> --verdict "..."] [--add-keys k1,k2] [--dry-run]` (keyword-rosetta#113) — the
+  scan/diff/apply/note/retire/re-verify loop a rebless PR does by hand, in one command.
+  Applies only the cells that moved (never a blind overwrite), refuses to write a file that
+  doesn't already round-trip under its committed formatting (manifest: `indent=2,
+  ensure_ascii=False`; ledger: `ensure_ascii=True`) so a rebless diff is never reformatting
+  noise, and exits with `verify_language.py`'s own status. `--dry-run` prints the diff and,
+  with `--retire`, the ledger entry that would close, without writing anything.
+- `tools/ledger_show.py <id> [--short] [--grep <text>]` — a condensed view of one ledger
+  entry (id, signal, languages_seen, disposition, status, still_reproduces, upstream_issue,
+  resolved_by, verdict head/tail) instead of reading the whole ~3 KB JSON object to check one
+  field. `--grep <text>` without an id searches every entry's id/signal/verdict instead.
+- `tools/open_rebless_pr.sh <gitgalaxy-issue-number> [--dry-run]` — given a merged engine
+  issue, confirms engine `origin/main` actually carries a commit naming it, finds the pushed
+  `rebless/<N>-*` / `replant/<N>-*` branch, and opens the PR with the standard body (a "what
+  moved" table diffed straight from the branch's manifests against `origin/main`, the ledger
+  ids it touched, a verification line, and the Cross-repo note rule 5 requires) — the step
+  that has been leaving re-bless branches pushed but unopened.
+- `--engine <worktree>` on `tools/verify_language.py` and `tools/screen_plant.py`
+  (`_registry.apply_engine`) sets GALAXYSCOPE_BIN/GITGALAXY_PATH/PYTHONPATH together instead
+  of the export recipe every rule-contract-audit session was hand-writing — that skill's
+  Phase 2 told agents to bypass `screen_plant.py` with an inline rules loop for exactly this
+  reason, no longer necessary.
 - Skills live in `.claude/skills/` (`.agents/skills` is a symlink to the same directory):
   **`rosetta-language-sweep`** — the end-to-end workflow for working one language's
   cross-language-consistency tracking issue (gitgalaxy epic #2560's children), including the

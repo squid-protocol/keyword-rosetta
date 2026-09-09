@@ -157,9 +157,7 @@
   },
   "immutability_locks": {
     "core": false,
-    "keywords": [
-      "readonly"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "import": {

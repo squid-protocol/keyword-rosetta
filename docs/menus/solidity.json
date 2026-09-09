@@ -148,9 +148,7 @@
     "core": false,
     "keywords": [
       "constant",
-      "immutable",
-      "view",
-      "pure"
+      "immutable"
     ],
     "pattern_defined": true
   },

@@ -192,6 +192,10 @@
    "state": "OPEN",
    "title": "control_flow_ratio is the corpus's worst metric (33%): it divides a pinned numerator by structural_boundaries, an ungoverned 0-45 vocabulary tally"
   },
+  "squid-protocol/gitgalaxy#2772": {
+   "state": "CLOSED",
+   "title": "immutability_locks has no contract: rust's `let` is invisible while swift's `let` scores 11 \u2014 and it is subtracted from the corpus's worst gated metric"
+  },
   "squid-protocol/gitgalaxy#2773": {
    "state": "CLOSED",
    "title": "args counts call-site arguments in objective-c (+62%) and typescript: a coupling signal that scales with how many calls a file makes"
@@ -229,7 +233,7 @@
    "title": "abap args counts call-site parameter keywords (CALL FUNCTION ... EXPORTING, PERFORM ... CHANGING) as declared parameters"
   },
   "squid-protocol/gitgalaxy#2827": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "api_declared_orphans tokenizes api lines with `\\b\\w+\\b`, so a hyphenated or qualified name is never recognised as already-declared (#2731's double count returns for cobol and scheme)"
   },
   "squid-protocol/gitgalaxy#2841": {
@@ -237,7 +241,7 @@
    "title": "io has no stated contract: javascript counts an identifier named path, sqlite counts every DML keyword, and tcl's source/close are claimed by two rules each"
   },
   "squid-protocol/gitgalaxy#2851": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "makefile dead_code reads any `# Word:` prose comment as a commented-out target"
   },
   "squid-protocol/gitgalaxy#2852": {
@@ -265,11 +269,11 @@
    "title": "`safety` has no stated contract: 2 open cells are token-double-counts and one-owner misfires, and haskell's rule counts `pure`, `return` and type constructors as runtime guards"
   },
   "squid-protocol/gitgalaxy#2871": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "Contextual Baseline Fix reads a weaker dependency resolver than every column it is audited by (haskell)"
   },
   "squid-protocol/gitgalaxy#2872": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "m4 and makefile have no visibility-export rule, so their api plant cannot name the function it publishes"
   },
   "squid-protocol/gitgalaxy#2875": {

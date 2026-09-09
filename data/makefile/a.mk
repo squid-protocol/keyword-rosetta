@@ -2,9 +2,9 @@
 # decoy: config reads are safe and the sudo word stays in prose
 include b.mk
 
-export PROBE_GLOBALS = 1
-export PROBE_TEST = 1
-export PROBE_SAFETY = 1
+.PHONY: probe_globals
+.PHONY: probe_test
+.PHONY: probe_safety
 
 probe_globals:
 	: $(MAKE)

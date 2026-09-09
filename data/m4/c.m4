@@ -2,10 +2,10 @@ dnl keyword rosetta control shell: m4 / c
 dnl decoy: tidy remarks stay in prose and the work happens elsewhere
 
 m4_define(probe_cleanup, [popdef(scratch) popdef(handle) $1])
-AC_SUBST([PROBE_CLEANUP])
+m4_provide([probe_cleanup])
 m4_define(probe_debt, [$1])
-AC_SUBST([PROBE_DEBT])
+m4_provide([probe_debt])
 dnl HACK: shortcut kept deliberately for the rosetta corpus
 m4_define(probe_todo, [$1])
-AC_SUBST([PROBE_TODO])
+m4_provide([probe_todo])
 dnl TODO: fill in the probe body later

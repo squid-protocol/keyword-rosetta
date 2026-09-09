@@ -182,7 +182,6 @@
   "immutability_locks": {
     "core": false,
     "keywords": [
-      "quote",
       "string->immutable-string"
     ],
     "pattern_defined": true

@@ -7,10 +7,15 @@ file-exclusion bugs (gitgalaxy#2512 class) surface as missing files here.
 Usage:
     python tools/verify_language.py python              # gate: diff vs manifest, exit 1 on mismatch
     python tools/verify_language.py python --report     # print every nonzero observed signal per file
+    python tools/verify_language.py python --engine <gitgalaxy-worktree>   # measure against a branch
 
 Environment:
     GALAXYSCOPE_BIN  path to the galaxyscope binary (default: "galaxyscope" on PATH)
     GITGALAXY_PATH   gitgalaxy checkout, for the SHORT_KEY_MAP schema (see _registry.py)
+
+`--engine <worktree>` sets all three (GALAXYSCOPE_BIN, GITGALAXY_PATH, PYTHONPATH) the
+way `_registry.apply_engine` documents, instead of the env-var recipe every
+rule-contract-audit session was hand-writing (keyword-rosetta#113).
 
 What a manifest key asserts (gitgalaxy#2729):
     Every signal key is the recorder column SHORT_KEY_MAP names for it, EXCEPT the
@@ -32,6 +37,9 @@ import sys
 import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import _registry
+
+sys.argv[1:] = _registry.consume_engine_arg(sys.argv[1:])
 from _registry import GITGALAXY_PATH
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
