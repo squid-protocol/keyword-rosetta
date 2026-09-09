@@ -2801,7 +2801,7 @@
    "fortran": 42.090825,
    "go": 34.519925,
    "groovy": 42.090825,
-   "haskell": 82.972825,
+   "haskell": 29.877875000000003,
    "html": 20.43935,
    "java": 29.877875000000003,
    "javascript": 42.090825,
@@ -3137,7 +3137,7 @@
    "fortran": 160,
    "go": 159,
    "groovy": 153,
-   "haskell": 127,
+   "haskell": 118,
    "html": 87,
    "java": 141,
    "javascript": 184,
@@ -3610,7 +3610,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "12b6713d3789f5d9235ca7f29e5a962da5be2294",
+ "engine_commit": "e4ec82f85b305575d6ae9fa9be8617e0a0a106c8",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -3910,7 +3910,6 @@
   "risk_tech_debt/cobol": "scoring",
   "risk_tech_debt/css": "scoring",
   "risk_tech_debt/dockerfile": "scoring",
-  "risk_tech_debt/haskell": "unexplained",
   "risk_tech_debt/jcl": "scoring",
   "risk_tech_debt/markdown": "scoring",
   "risk_tech_debt/sqlite": "scoring",
@@ -4121,7 +4120,7 @@
    45
   ],
   "risk_tech_debt": [
-   1,
+   0,
    46
   ],
   "risk_verification": [

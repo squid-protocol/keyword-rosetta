@@ -21,21 +21,17 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | undefined | 15 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
 | ledgered | 107 | a validated deviation-ledger entry names this language and this metric |
 | derived | 27 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
-| **unexplained** | **1** | **survived all three -- the real work remaining** |
-
-Unexplained cells, by metric:
-
-- `risk_tech_debt` — haskell
+| **unexplained** | **0** | **survived all three -- the real work remaining** |
 
 ## What the red cells are
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 4 of 2635 comparable cells (0.2%)** across 59 gated metrics; 4 of the 150 out-of-band cells are open defects.
+**Open-defect share: 3 of 2635 comparable cells (0.1%)** across 59 gated metrics; 3 of the 149 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
-| **unexplained** | 1 | survived every mechanism -- the gate fails on these |
+| **unexplained** | 0 | survived every mechanism -- the gate fails on these |
 | **extraction** | 3 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
 | scoring | 49 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
@@ -45,7 +41,6 @@ A verdict says a cell is accounted for; it does not say what the cell *is*, and 
 Metrics carrying the most open defect, by share of their comparable cells:
 
 - `raw_arch_api` — 2 of 46 (4%)
-- `risk_tech_debt` — 1 of 46 (2%)
 - `func_complexity_gini` — 1 of 46 (2%)
 
 Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `visibility-morphology-encapsulation`, `batch4-dual-keyword-overlaps`, `comment-lines-manifest-doc-classification`. Narrow or retire them.
@@ -61,7 +56,7 @@ Ledger entries that currently explain **no** out-of-band cell (validated, still 
 | `risk_cognitive_load` | 1.295 (4) | 1.295 (11) | 1.295 (13) | 1.295 (11) | 1.295 (3) | 1.190 (3) | 1.295 |
 | `risk_documentation` | 38.255 (4) | 39.195 (11) | 38.255 (13) | 41.665 (11) | 43.944 (3) | 21.522 (3) | 38.255 |
 | `risk_safety_score` | 39.811 (4) | 41.131 (11) | 42.314 (13) | 43.364 (11) | 44.290 (3) | 39.153 (3) | 42.314 |
-| `risk_tech_debt` | 29.878 (4) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 20.439 (4) | 38.665 |
+| `risk_tech_debt` | 29.878 (4) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 20.439 (4) | 36.592 |
 | `risk_verification` | 2.372 (4) | 2.380 (11) | 2.388 (13) | 2.396 (11) | 2.393 (3) | 2.353 (3) | 2.385 |
 
 ## Non-planted keyword extraction
@@ -131,7 +126,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | n/a | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | n/a | 13 | 13 | 13 | 13 | 13 | 13 |
 | classes_found | 0 | 0 | n/a | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | n/a | n/a | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| keyword_hits | 128 | 144 | 181 | 134 | 160 | 138 | 155 | 150 | 154 | 70 | 157 | 83 | 178 | 160 | 159 | 153 | 127 | 87 | 141 | 184 | 101 | 181 | 133 | 149 | 76 | 88 | 30 | 151 | 147 | 180 | 142 | 145 | 184 | 150 | 194 | 160 | 98 | 144 | 162 | 61 | 175 | 133 | 181 | 61 | 151 | 188 |
+| keyword_hits | 128 | 144 | 181 | 134 | 160 | 138 | 155 | 150 | 154 | 70 | 157 | 83 | 178 | 160 | 159 | 153 | 118 | 87 | 141 | 184 | 101 | 181 | 133 | 149 | 76 | 88 | 30 | 151 | 147 | 180 | 142 | 145 | 184 | 150 | 194 | 160 | 98 | 144 | 162 | 61 | 175 | 133 | 181 | 61 | 151 | 188 |
 | comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 13 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 16 | 12 | 12 | 12 | 12 | 12 | 11 | 12 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
@@ -152,7 +147,7 @@ n/a = the registry rule this count is a tally OF is absent for the language (`fu
 | risk_spec_match | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 91.667 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | n/a | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 93.750 | 100.000 |
 | risk_stability | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 0.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 |
 | risk_state_flux | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 5.787 | 7.751 | 5.787 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | n/a | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 |
-| risk_tech_debt | 34.520 | 34.520 | 48.534 | 34.520 | 44.707 | 38.665 | 23.104 | 38.665 | 34.520 | 29.878 | 34.520 | 23.814 | 38.665 | 42.091 | 34.520 | 42.091 | 82.973 | 20.439 | 29.878 | 42.091 | 23.814 | 34.520 | 42.091 | 42.091 | 42.091 | 42.091 | 0.000 | 38.665 | 38.665 | 42.091 | 38.665 | 38.665 | 38.665 | 38.665 | 29.878 | 34.520 | 38.665 | 42.091 | 34.520 | 23.104 | 29.878 | 38.665 | 34.520 | 49.165 | 20.439 | 34.520 |
+| risk_tech_debt | 34.520 | 34.520 | 48.534 | 34.520 | 44.707 | 38.665 | 23.104 | 38.665 | 34.520 | 29.878 | 34.520 | 23.814 | 38.665 | 42.091 | 34.520 | 42.091 | 29.878 | 20.439 | 29.878 | 42.091 | 23.814 | 34.520 | 42.091 | 42.091 | 42.091 | 42.091 | 0.000 | 38.665 | 38.665 | 42.091 | 38.665 | 38.665 | 38.665 | 38.665 | 29.878 | 34.520 | 38.665 | 42.091 | 34.520 | 23.104 | 29.878 | 38.665 | 34.520 | 49.165 | 20.439 | 34.520 |
 | risk_verification | 2.378 | 2.381 | 2.393 | 2.393 | 2.403 | 2.389 | 2.373 | 2.388 | 2.380 | 2.353 | 2.380 | 2.379 | 2.389 | 2.393 | 2.380 | 2.396 | 2.368 | 2.306 | 2.372 | 2.396 | 2.395 | 2.380 | 2.408 | 2.410 | 2.387 | 2.374 | n/a | 2.401 | 2.388 | 2.397 | 2.387 | 2.388 | 2.386 | 2.409 | 2.373 | 2.380 | 2.383 | 2.421 | 2.380 | 2.432 | 2.373 | 2.385 | 2.382 | 2.376 | 2.353 | 2.385 |
 
 n/a = every registry-governed input to this formula is absent for the language and the scan confirms the score is pinned at 0 (incomparable, excluded from bands and medians); † = at least one of those input absences is not yet backed by a validated ledger entry.

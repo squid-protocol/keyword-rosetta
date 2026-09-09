@@ -24,7 +24,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [fortran](#fortran) | 0 | 2 | 0 | 15 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 #2878 |
 | [go](#go) | 0 | 1 | 0 | 11 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
 | [groovy](#groovy) | 0 | 0 | 0 | 8 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 #2878 |
-| [haskell](#haskell) | 5 | 1 | 0 | 14 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
+| [haskell](#haskell) | 4 | 1 | 0 | 14 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
 | [html](#html) | 9 | 4 | 3 | 17 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2770 #2866 |
 | [java](#java) | 0 | 0 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2878 |
 | [javascript](#javascript) | 0 | 3 | 0 | 16 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 #2841 #2878 |
@@ -531,7 +531,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
 - 🔴 `risk_api_exposure`: 1.7629 vs median 7.0517 (-75%)
 - 🔴 `risk_documentation`: 16.5437 vs median 38.2552 (-57%)
-- 🔴 `risk_tech_debt`: 82.9728 vs median 29.8779 (+178%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `risk_safety_score`: 53.0245 vs median 39.811 (+33%)
 
