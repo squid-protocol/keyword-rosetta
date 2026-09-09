@@ -15,6 +15,55 @@ GITGALAXY_PATH = os.environ.get(
     "GITGALAXY_PATH", "/srv/storage_16tb/projects/gitgalaxy/v6"
 )
 
+
+def apply_engine(worktree):
+    """Point GITGALAXY_PATH, PYTHONPATH and (best-effort) GALAXYSCOPE_BIN at a
+    gitgalaxy worktree -- the recipe every rule-contract-audit session hand-runs
+    (that skill's L20-32) done once, in code, instead of copied into each
+    session's notes (keyword-rosetta#113).
+
+    PYTHONPATH is prepended, not just GITGALAXY_PATH set, because a subprocess
+    `galaxyscope` binary (verify_language.py's scan(), any GALAXYSCOPE_BIN) is a
+    separate interpreter with its own editable install; only PYTHONPATH shadows
+    that for a child process. GALAXYSCOPE_BIN is set only if unset AND the
+    worktree carries its own venv -- worktrees rarely build one, and the normal
+    shape is a fixed venv binary (e.g. the main checkout's) whose import the
+    PYTHONPATH shadow redirects, matching the audit skill's
+    `GALAXYSCOPE_BIN=<main .venv>/bin/galaxyscope` + worktree PYTHONPATH recipe.
+
+    Must run before the caller's own `from _registry import GITGALAXY_PATH` (or
+    any `os.environ.get("GALAXYSCOPE_BIN", ...)`) executes -- those bind to
+    whatever the env vars say at that line, not to a later mutation.
+    """
+    global GITGALAXY_PATH
+    path = pathlib.Path(worktree).expanduser().resolve()
+    if not path.is_dir():
+        raise SystemExit(f"--engine {worktree}: no such directory")
+    worktree = str(path)
+    os.environ["GITGALAXY_PATH"] = worktree
+    os.environ["PYTHONPATH"] = worktree + os.pathsep + os.environ.get("PYTHONPATH", "")
+    GITGALAXY_PATH = worktree
+    venv_bin = path / ".venv" / "bin" / "galaxyscope"
+    if venv_bin.exists():
+        os.environ.setdefault("GALAXYSCOPE_BIN", str(venv_bin))
+    return worktree
+
+
+def consume_engine_arg(argv):
+    """Pull a `--engine WORKTREE` pair out of argv (if present) and apply it.
+
+    Returns the remaining argv. Call this before importing anything that reads
+    GITGALAXY_PATH/GALAXYSCOPE_BIN at import time (see apply_engine's docstring).
+    """
+    out = list(argv)
+    if "--engine" in out:
+        i = out.index("--engine")
+        if i + 1 >= len(out):
+            raise SystemExit("--engine needs a path")
+        apply_engine(out[i + 1])
+        del out[i : i + 2]
+    return out
+
 # The 20-key core set every Tier-1 language defines (measured 2026-08-31; re-derived
 # live by tier_report() below rather than trusted, so a registry change surfaces
 # as a tier change, not a silent lie).

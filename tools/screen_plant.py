@@ -1,7 +1,21 @@
-"""Screen a candidate plant: which of a language's rules does this text fire?"""
+"""Screen a candidate plant: which of a language's rules does this text fire?
+
+Usage:
+    echo '[("python", "os.system(cmd)", "high_risk_execution")]' | python tools/screen_plant.py
+    echo '[...]' | python tools/screen_plant.py --engine <gitgalaxy-worktree>
+
+--engine points GITGALAXY_PATH (and PYTHONPATH, for consistency with the other
+tools' --engine) at a branch checkout instead of the $GITGALAXY_PATH env var,
+replacing the inline `LANGUAGE_DEFINITIONS[lang]["rules"]` loop the
+rule-contract-audit skill's Phase 2 was telling agents to hand-write because this
+hard-coded the primary checkout (keyword-rosetta#113).
+"""
 import pathlib
 import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import _registry
+
+sys.argv[1:] = _registry.consume_engine_arg(sys.argv[1:])
 from _registry import GITGALAXY_PATH  # honours $GITGALAXY_PATH, so a branch worktree can be screened (gitgalaxy#2765)
 sys.path.insert(0, str(GITGALAXY_PATH))
 from gitgalaxy.standards.language_standards import LANGUAGE_DEFINITIONS as LD
