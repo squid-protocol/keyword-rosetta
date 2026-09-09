@@ -2170,6 +2170,20 @@
       "investigated_by": "claude-fable-5 (gitgalaxy#2888 contract audit)",
       "validated_at": "2026-09-08",
       "still_reproduces": false
+    },
+    {
+      "id": "makefile-gini-toplevel-conditionals-inherency",
+      "signal": "func_complexity_gini",
+      "languages_seen": [
+        "makefile"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "GNU Make's top-level conditionals (ifeq/ifdef/else) execute at parse time and sit outside every target slice by grammar, so a per-unit inequality metric over target recipes measures the wrong universe: the file's dominant control flow belongs to no unit (makefile 0.354 vs 0.1875 median, gitgalaxy#2918). Contract-level inherency, not an extraction defect -- the slicer is correct that no target owns those branches. General principle: where a language's grammar places primary control flow at file scope outside all callable units, func_complexity_gini is n/a by contract. Scope note: cpp/livecode/powershell/ruby/tcl read the same 0.354 cell value but are NOT covered by this entry -- each is under separate diagnosis (inherency vs slicing defect vs corpus artifact) and joins only with its own validated entry, per this ledger's every-language-listed rule.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2918",
+      "investigated_by": "claude-opus-4-8",
+      "validated_at": "2026-09-09",
+      "still_reproduces": true
     }
   ]
 }
