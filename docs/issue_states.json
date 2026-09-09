@@ -241,7 +241,7 @@
    "title": "io has no stated contract: javascript counts an identifier named path, sqlite counts every DML keyword, and tcl's source/close are claimed by two rules each"
   },
   "squid-protocol/gitgalaxy#2851": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "makefile dead_code reads any `# Word:` prose comment as a commented-out target"
   },
   "squid-protocol/gitgalaxy#2852": {
@@ -273,7 +273,7 @@
    "title": "Contextual Baseline Fix reads a weaker dependency resolver than every column it is audited by (haskell)"
   },
   "squid-protocol/gitgalaxy#2872": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "m4 and makefile have no visibility-export rule, so their api plant cannot name the function it publishes"
   },
   "squid-protocol/gitgalaxy#2875": {
