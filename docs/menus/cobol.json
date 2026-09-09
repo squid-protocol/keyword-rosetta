@@ -83,10 +83,7 @@
   },
   "encapsulation": {
     "core": true,
-    "keywords": [
-      "LOCAL-STORAGE SECTION",
-      "PRIVATE"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "events": {

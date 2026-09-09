@@ -76,13 +76,6 @@
     ],
     "pattern_defined": true
   },
-  "encapsulation": {
-    "core": true,
-    "keywords": [
-      "m4_pattern_forbid"
-    ],
-    "pattern_defined": true
-  },
   "fragile_debt": {
     "core": true,
     "keywords": [

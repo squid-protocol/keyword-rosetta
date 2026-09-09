@@ -6,6 +6,8 @@
   "batch5-tier2-morphology-shapes/branch",
   "batch5-tier2-morphology-shapes/doc",
   "batch5-tier2-morphology-shapes/high_risk_execution",
+  "encapsulation-no-visibility-construct/encapsulation",
+  "encapsulation-scope-is-not-visibility/encapsulation",
   "fortran-common-globals-safety-dual-classification/globals",
   "function-body-length-morphology/func_internal_density",
   "haskell-caf-bindings-count-as-functions/args",

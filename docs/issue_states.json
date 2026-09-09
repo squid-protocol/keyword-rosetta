@@ -188,6 +188,10 @@
    "state": "CLOSED",
    "title": "state_mutation has no stated contract: three incompatible definitions across 46 languages, and it governs the corpus's two worst metrics"
   },
+  "squid-protocol/gitgalaxy#2766": {
+   "state": "CLOSED",
+   "title": "encapsulation has no stated contract: rust counts pub (the public modifier) and agc_assembly's rule matches every column-0 token"
+  },
   "squid-protocol/gitgalaxy#2770": {
    "state": "CLOSED",
    "title": "control_flow_ratio is the corpus's worst metric (33%): it divides a pinned numerator by structural_boundaries, an ungoverned 0-45 vocabulary tally"

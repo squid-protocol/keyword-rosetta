@@ -72,15 +72,6 @@
     "keywords": [],
     "pattern_defined": true
   },
-  "encapsulation": {
-    "core": true,
-    "keywords": [
-      "local",
-      "typeset",
-      "declare"
-    ],
-    "pattern_defined": true
-  },
   "events": {
     "core": false,
     "keywords": [

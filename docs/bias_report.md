@@ -14,20 +14,20 @@ Planted intent is identical in every language (SPEC.md probe table), so any colu
 
 ## Out-of-band cells: explained vs. unexplained
 
-An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does). The four program-length columns are context, not consistency claims, and are not counted here at all (49 of their cells are out of band; see the next section).
+An out-of-band cell is not automatically a defect. Three mechanisms account for one without anything being wrong with the engine, and the epic's close criterion is that nothing survives all three (`--gate` exits nonzero while anything does). The four program-length columns are context, not consistency claims, and are not counted here at all (51 of their cells are out of band; see the next section).
 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 15 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 107 | a validated deviation-ledger entry names this language and this metric |
-| derived | 27 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| ledgered | 100 | a validated deviation-ledger entry names this language and this metric |
+| derived | 22 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **0** | **survived all three -- the real work remaining** |
 
 ## What the red cells are
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 3 of 2635 comparable cells (0.1%)** across 59 gated metrics; 3 of the 149 out-of-band cells are open defects.
+**Open-defect share: 3 of 2635 comparable cells (0.1%)** across 59 gated metrics; 3 of the 137 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
@@ -35,15 +35,15 @@ A verdict says a cell is accounted for; it does not say what the cell *is*, and 
 | **extraction** | 3 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
 | scoring | 49 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
-| inherency | 70 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
-| echo | 27 | derived -- an upstream deviation counted again downstream |
+| inherency | 63 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
+| echo | 22 | derived -- an upstream deviation counted again downstream |
 
 Metrics carrying the most open defect, by share of their comparable cells:
 
 - `raw_arch_api` — 2 of 46 (4%)
 - `func_complexity_gini` — 1 of 46 (2%)
 
-Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `visibility-morphology-encapsulation`, `batch4-dual-keyword-overlaps`, `comment-lines-manifest-doc-classification`. Narrow or retire them.
+Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `batch4-dual-keyword-overlaps`, `comment-lines-manifest-doc-classification`. Narrow or retire them.
 
 ## The language-level risk constant is design; the report bands within it
 
@@ -92,7 +92,7 @@ The risk formulas read registry signals the SPEC does not plant: `concurrency`, 
 
 ![variance chart](bias_variance_chart.svg)
 
-Colour encodes **cause**, not magnitude: a dot inside ±25% of the cross-language median is green; outside it, **red** when the cell is an open engine defect (`unexplained`, `extraction`, `correlation` in the cause table above) and **grey** when it is a documented variation (a scoring choice, language inherency, or an echo of another row). Each gated row's bar splits its languages the same way — in band · documented · open defect — with the in-band share printed inside and the open-defect count after it; rows run best → worst (least open defect first). The header's first number is the open-defect share, the number to drive to 0. Average share in band across 55 gated metrics: **94%**; 53 metrics hold ≥80% of languages in band. Weakest by in-band share: risk_api_exposure 76%, raw_arch_api 76%, def_encapsulation 80%, reflection_metaprogramming 82%, avg_func_args 83%. *exact* marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): class_start, classes_found, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, spec_exposure, sync_locks, def_encapsulation, risk_concurrency, risk_dead_code. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): llm_api, state_slop_duplicates, risk_secrets_risk, risk_churn. Not-gated groups (program size & vocabulary, commit age) are drawn for context and never scored: languages vary too much in how they express these for a cross-language band to mean anything. Non-planted keyword extraction is NOT one of them -- nothing was written for those rules to match, so 0 everywhere is a comparable expectation and the group is scored against it. `pagerank` is not drawn (identical to pagerank_score).
+Colour encodes **cause**, not magnitude: a dot inside ±25% of the cross-language median is green; outside it, **red** when the cell is an open engine defect (`unexplained`, `extraction`, `correlation` in the cause table above) and **grey** when it is a documented variation (a scoring choice, language inherency, or an echo of another row). Each gated row's bar splits its languages the same way — in band · documented · open defect — with the in-band share printed inside and the open-defect count after it; rows run best → worst (least open defect first). The header's first number is the open-defect share, the number to drive to 0. Average share in band across 55 gated metrics: **94%**; 54 metrics hold ≥80% of languages in band. Weakest by in-band share: raw_arch_api 76%, reflection_metaprogramming 82%, avg_func_args 83%, cog_raw 83%, immutability_locks 85%. *exact* marks a metric scored on **exact agreement** with a zero median (relative deviation is undefined there, so the score is the share of languages sitting exactly on it): class_start, classes_found, concurrency, dead_code, debug_prints, immutability_locks, reflection_metaprogramming, spec_exposure, sync_locks, def_encapsulation, risk_concurrency, risk_dead_code. **Inert** (every language records exactly 0, so the column asks no cross-language question — scored as no result rather than as unanimous agreement): llm_api, state_slop_duplicates, risk_secrets_risk, risk_churn. Not-gated groups (program size & vocabulary, commit age) are drawn for context and never scored: languages vary too much in how they express these for a cross-language band to mean anything. Non-planted keyword extraction is NOT one of them -- nothing was written for those rules to match, so 0 everywhere is a comparable expectation and the group is scored against it. `pagerank` is not drawn (identical to pagerank_score).
 
 ## Planted keyword signals (corpus totals vs. planted intent)
 
@@ -126,7 +126,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | n/a | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | n/a | 13 | 13 | 13 | 13 | 13 | 13 |
 | classes_found | 0 | 0 | n/a | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 2 | 0 | 0 | n/a | n/a | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| keyword_hits | 128 | 144 | 181 | 134 | 160 | 138 | 155 | 150 | 154 | 70 | 141 | 83 | 178 | 158 | 159 | 153 | 118 | 87 | 141 | 184 | 101 | 181 | 133 | 149 | 76 | 88 | 30 | 151 | 147 | 174 | 142 | 145 | 184 | 150 | 194 | 160 | 98 | 144 | 162 | 61 | 175 | 133 | 181 | 61 | 151 | 174 |
+| keyword_hits | 128 | 144 | 130 | 134 | 160 | 138 | 155 | 150 | 154 | 69 | 141 | 83 | 177 | 158 | 145 | 153 | 118 | 87 | 141 | 184 | 101 | 181 | 133 | 149 | 76 | 88 | 30 | 151 | 147 | 159 | 142 | 145 | 183 | 150 | 182 | 160 | 98 | 144 | 162 | 61 | 175 | 133 | 181 | 61 | 151 | 168 |
 | comment_lines | 12 | 12 | 12 | 12 | 12 | 12 | 15 | 12 | 12 | 12 | 12 | 11 | 11 | 11 | 12 | 12 | 12 | 10 | 12 | 12 | 13 | 12 | 12 | 12 | 12 | 12 | 34 | 12 | 12 | 11 | 12 | 11 | 11 | 12 | 12 | 12 | 12 | 12 | 16 | 12 | 12 | 12 | 12 | 12 | 11 | 12 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
@@ -136,7 +136,7 @@ n/a = the registry rule this count is a tally OF is absent for the language (`fu
 
 | risk | abap | ada | agc_assembly | apex | assembly | c | cobol | cpp | csharp | css | dart | dockerfile | embedded_python | fortran | go | groovy | haskell | html | java | javascript | jcl | kotlin | livecode | lua | m4 | makefile | markdown | matlab | objective-c | perl | php | powershell | python | ruby | rust | scala | scheme | shell | solidity | sqlite | swift | tcl | typescript | yacc | yaml | zig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| risk_api_exposure | 7.335 | 7.335 | 1.672 | 7.052 | 7.052 | 7.335 | 6.170 | 7.052 | 7.052 | 6.581 | 7.335 | 3.526 | 6.926 | 7.335 | 3.767 | 7.052 | 1.763 | 4.041 | 7.052 | 7.052 | 0.881 | 7.052 | 7.335 | 7.335 | 7.052 | 7.335 | n/a | 7.335 | 5.289 | 3.416 | 7.052 | 7.052 | 6.926 | 7.052 | 3.526 | 7.335 | 7.052 | 7.052 | 7.052 | 0.000 | 7.052 | 7.052 | 7.052 | 7.021 | 3.526 | 4.760 |
+| risk_api_exposure | 7.335 | 7.335 | 7.021 | 7.052 | 7.052 | 7.335 | 6.170 | 7.052 | 7.052 | 7.021 | 7.335 | 3.526 | 7.335 | 7.335 | 6.611 | 7.052 | 1.763 | 4.041 | 7.052 | 7.052 | 0.881 | 7.052 | 7.335 | 7.335 | 7.052 | 7.335 | n/a | 7.335 | 5.289 | 7.335 | 7.052 | 7.052 | 7.335 | 7.052 | 7.052 | 7.335 | 7.052 | 7.052 | 7.052 | 0.000 | 7.052 | 7.052 | 7.052 | 7.021 | 3.526 | 7.052 |
 | risk_churn | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | risk_cognitive_load | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.303 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.619 | 1.295 | 1.295 | 1.295 | 1.295 | 3.670 | n/a | 1.295 | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 |
 | risk_concurrency | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | n/a | 0.000 | 0.000 |
@@ -180,7 +180,7 @@ Derived descriptions of the same program — topology, size, shape, complexity. 
 | cog_raw | 0.0205 | 0.0205 | 0.0205 | 0.055 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.015 | 0.0205 | 0.021 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.015 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.07325 | 0 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.055 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.0205 | 0.015 | 0.0205 | 0.0205 | 0.0205 | 0.055 | 0.0205 | 0.0205 |
 | raw_arch_api | 3.25 | 3.25 | 1 | 3 | 3 | 3.25 | 2.5 | 3 | 3 | 1 | 3.25 | 1 | 3.25 | 3.25 | 3 | 3 | 1 | 1.25 | 3 | 3 | 0.25 | 3 | 3.25 | 3.25 | 3 | 3.25 | 0 | 3.25 | 0 | 3.25 | 3 | 3 | 3.25 | 3 | 3 | 3.25 | 3 | 3 | 3 | 0 | 3 | 3 | 3 | 1 | 1 | 3 |
 | raw_state_unreferenced | 2.5 | 2.5 | 2.75 | 2.5 | 2.5 | 2.5 | 2.25 | 2.5 | 2.5 | 2.5 | 2.5 | n/a | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | n/a | 2.5 | 2.5 | n/a | 2.5 | 2.5 | 2.5 | 2.5 | 2.75 | n/a | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | 2.5 | n/a | 2.5 | 2.5 | 2.5 | 3 | n/a | 2.5 |
-| def_encapsulation | 0 | 0 | 12.75 | 0 | 0 | 0 | 0 | 0 | 0 | 0.25 | 0 | 0 | 0.25 | 0 | 3.75 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 3.75 | 0 | 0 | 0.25 | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1.5 |
+| def_encapsulation | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0.25 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | state_slop_duplicates | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 
 n/a = the registry says this census is unanswerable for the language -- `invocation_model` is not `by_name` (the extracted units execute in written order, gitgalaxy#2806/#2866) or no `func_start` rule exists to produce a population (gitgalaxy#2795's inference) -- and the scan confirms 0 (incomparable, excluded from bands and medians); † = the declaration is not yet backed by a validated ledger entry.

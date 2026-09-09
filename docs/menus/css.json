@@ -36,13 +36,6 @@
     "keywords": [],
     "pattern_defined": true
   },
-  "encapsulation": {
-    "core": true,
-    "keywords": [
-      "@scope"
-    ],
-    "pattern_defined": true
-  },
   "events": {
     "core": false,
     "keywords": [],

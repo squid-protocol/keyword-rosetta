@@ -132,8 +132,7 @@
     "core": true,
     "keywords": [
       "private",
-      "protected",
-      "internal"
+      "protected"
     ],
     "pattern_defined": true
   },

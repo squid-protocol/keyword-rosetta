@@ -125,15 +125,6 @@
     "keywords": [],
     "pattern_defined": true
   },
-  "encapsulation": {
-    "core": true,
-    "keywords": [
-      "my",
-      "state",
-      "local"
-    ],
-    "pattern_defined": true
-  },
   "events": {
     "core": false,
     "keywords": [

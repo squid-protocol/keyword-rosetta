@@ -110,8 +110,7 @@
   "encapsulation": {
     "core": true,
     "keywords": [
-      "@protected",
-      "@private"
+      "@protected"
     ],
     "pattern_defined": true
   },

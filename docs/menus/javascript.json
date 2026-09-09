@@ -119,11 +119,7 @@
   },
   "encapsulation": {
     "core": true,
-    "keywords": [
-      "private",
-      "protected",
-      "internal"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "events": {
