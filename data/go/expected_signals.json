@@ -16,7 +16,7 @@
       "ownership": 1,
       "import": 1,
       "safety_bypasses": 0,
-      "encapsulation": 6,
+      "encapsulation": 1,
       "state_mutation": 0,
       "globals": 0,
       "test": 0,
@@ -37,7 +37,7 @@
       "test": 2,
       "safety": 2,
       "safety_bypasses": 0,
-      "encapsulation": 4,
+      "encapsulation": 0,
       "branch": 0,
       "state_mutation": 0,
       "high_risk_execution": 0,
@@ -58,7 +58,7 @@
       "telemetry": 2,
       "state_mutation": 2,
       "branch": 0,
-      "encapsulation": 5,
+      "encapsulation": 0,
       "safety": 0,
       "high_risk_execution": 1,
       "io": 0,
@@ -122,5 +122,5 @@
       "outcome": "comment HACK/TODO count exactly 1 each"
     }
   ],
-  "notes": "safety_bypasses now counts only true dot-imports (import . \"pkg\"): the per-import FP RESOLVED via gitgalaxy#2542 -- main/a dropped 1->0, b 3->2, leaving b's two planted '_ =' discards (ledger go-import-counts-bypass). encapsulation counts every lowercase top-level symbol (correct go visibility morphology; recorded per file). doc 1 = the one deliberately Capitalized comment; header comments are lowercased to stay out of go's doc rule. Locked from hand-verified run 2026-08-31; safety_bypasses re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only os.Exit literal inside probeState — b.go branch 1->0, state_mutation 11->5 (phantom-branch flux gone), high_risk_execution 0->1. api (gitgalaxy#2729): the three probe functions per file are capitalised (ProbeBranch, ProbeGlobals, ... -- Go's export IS the spelling; entry stays lowercase), definitions and their call sites in main.go renamed together: api 3/3/3/3 (main/a/b/c). Carried: encapsulation counts lowercase top-level symbols, so it drops by exactly the 3 renamed functions per file (main 9->6, a 7->4, b 8->5, c 3->0); the capitalised calls ProbeX( are excluded from the api rule's indented alternative by its (?!\\() lookahead. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.go state_mutation 5->2: `note := ...` is a declaration and `_ = shape` (probe_bypass) discards into the blank identifier -- neither writes; `items = 1` / `items = 2` are the two writes. 2026-09-08 #2869 safety contract: probe_safety gains recover() x2 (the safety hits); the context.Context lines stay for encapsulation 4 but no longer count as safety (a type is not a guard); cell unchanged at 2."
+  "notes": "safety_bypasses now counts only true dot-imports (import . \"pkg\"): the per-import FP RESOLVED via gitgalaxy#2542 -- main/a dropped 1->0, b 3->2, leaving b's two planted '_ =' discards (ledger go-import-counts-bypass). encapsulation counts every lowercase top-level symbol (correct go visibility morphology; recorded per file). doc 1 = the one deliberately Capitalized comment; header comments are lowercased to stay out of go's doc rule. Locked from hand-verified run 2026-08-31; safety_bypasses re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only os.Exit literal inside probeState — b.go branch 1->0, state_mutation 11->5 (phantom-branch flux gone), high_risk_execution 0->1. api (gitgalaxy#2729): the three probe functions per file are capitalised (ProbeBranch, ProbeGlobals, ... -- Go's export IS the spelling; entry stays lowercase), definitions and their call sites in main.go renamed together: api 3/3/3/3 (main/a/b/c). Carried: encapsulation counts lowercase top-level symbols, so it drops by exactly the 3 renamed functions per file (main 9->6, a 7->4, b 8->5, c 3->0); the capitalised calls ProbeX( are excluded from the api rule's indented alternative by its (?!\\() lookahead. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.go state_mutation 5->2: `note := ...` is a declaration and `_ = shape` (probe_bypass) discards into the blank identifier -- neither writes; `items = 1` / `items = 2` are the two writes. 2026-09-08 #2869 safety contract: probe_safety gains recover() x2 (the safety hits); the context.Context lines stay for encapsulation 4 but no longer count as safety (a type is not a guard); cell unchanged at 2. 2026-09-09 (gitgalaxy#2766): encapsulation counts top-level lowercase declarations only; the old indented arm counted function locals. Grouped var/const member privates are a known limit until gitgalaxy#2859's scope filter."
 }

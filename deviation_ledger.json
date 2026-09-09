@@ -2190,6 +2190,42 @@
       "investigated_by": "claude-fable-5 (gitgalaxy#2772 contract audit, rule half)",
       "validated_at": "2026-09-08",
       "still_reproduces": true
+    },
+    {
+      "id": "encapsulation-scope-is-not-visibility",
+      "signal": "encapsulation",
+      "languages_seen": [
+        "lua",
+        "perl",
+        "shell",
+        "tcl"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "The encapsulation contract (gitgalaxy#2766, docs/encapsulation_rule_contract.md C4) states one hit as a declaration-position marker excluding a name from the public surface. perl my/state/local, lua local, and shell local/typeset/declare scope a variable's lifetime and lookup, and tcl's namespace eval is a structural boundary -- none marks a NAME non-public; every module-level name in these languages stays reachable. Their rules are contract-level absences (None); the encapsulation cells read 0 by morphology, not by extraction gap.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2766",
+      "investigated_by": "claude-opus-4-8",
+      "validated_at": "2026-09-09",
+      "still_reproduces": true
+    },
+    {
+      "id": "encapsulation-no-visibility-construct",
+      "signal": "encapsulation",
+      "languages_seen": [
+        "agc_assembly",
+        "css",
+        "dockerfile",
+        "html",
+        "m4",
+        "zig"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "Under the gitgalaxy#2766 contract these languages have no per-name non-public marker at all: zig's hiding is the unmarked default (no private keyword; the old rule's 15430 crucible hits were declaration volume, mostly function locals), agc_assembly has no visibility construct (the old rule was a line catch-all), m4's pattern_forbid is error generation, and css/html/dockerfile's isolation constructs (@scope/::part, template/shadowroot, FROM..AS stage aliases) isolate style, DOM or build stages -- not names. All six rules are contract-level absences (None); cells read 0 by morphology.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2766",
+      "investigated_by": "claude-opus-4-8",
+      "validated_at": "2026-09-09",
+      "still_reproduces": true
     }
   ]
 }
