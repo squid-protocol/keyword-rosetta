@@ -1178,7 +1178,7 @@
    "livecode": 0,
    "lua": 0,
    "m4": 0,
-   "makefile": 7,
+   "makefile": 0,
    "markdown": null,
    "matlab": 0,
    "objective-c": 0,
@@ -2522,7 +2522,7 @@
    "livecode": 0.0,
    "lua": 0.0,
    "m4": 0.0,
-   "makefile": 50.635825,
+   "makefile": 0.0,
    "markdown": null,
    "matlab": 0.0,
    "objective-c": 0.0,
@@ -3146,7 +3146,7 @@
    "livecode": 133,
    "lua": 149,
    "m4": 76,
-   "makefile": 119,
+   "makefile": 112,
    "markdown": 30,
    "matlab": 151,
    "objective-c": 147,
@@ -3610,7 +3610,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "3b58de705790554d7db3c50dae7d122feccaaaac",
+ "engine_commit": "78cc47926d79a9b740dc0e536d6e7cba98203720",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -3826,7 +3826,6 @@
   "concurrency/agc_assembly": "inherency",
   "concurrency/swift": "inherency",
   "dead_code/jcl": "inherency",
-  "dead_code/makefile": "extraction",
   "debug_prints/abap": "inherency",
   "debug_prints/cobol": "inherency",
   "debug_prints/dockerfile": "inherency",
@@ -3910,7 +3909,6 @@
   "risk_concurrency/agc_assembly": "echo",
   "risk_concurrency/swift": "echo",
   "risk_dead_code/jcl": "scoring",
-  "risk_dead_code/makefile": "scoring",
   "risk_documentation/cobol": "extraction",
   "risk_documentation/css": "scoring",
   "risk_documentation/dockerfile": "echo",
@@ -3993,7 +3991,7 @@
    40
   ],
   "dead_code": [
-   1,
+   0,
    45
   ],
   "debug_prints": [
