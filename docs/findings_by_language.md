@@ -33,7 +33,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [livecode](#livecode) | 0 | 0 | 0 | 12 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 #2869 #2878 |
 | [lua](#lua) | 0 | 0 | 0 | 15 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2766 #2770 #2822 #2841 #2852 #2878 |
 | [m4](#m4) | 1 | 0 | 3 | 13 | #2535 #2689 #2731 #2765 #2766 #2770 #2872 |
-| [makefile](#makefile) | 5 | 0 | 2 | 19 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 #2888 #2918 |
+| [makefile](#makefile) | 4 | 0 | 2 | 19 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 #2888 #2918 |
 | [markdown](#markdown) | 8 | 1 | 30 | 10 | #2549 #2638 #2655 #2689 #2770 #2866 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 0 | 0 | 0 | 7 | #2535 #2545 #2546 #2765 #2773 #2882 |
@@ -833,9 +833,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `args`: 1 vs median 13 (-92%)
 - 🔴 `avg_func_args`: 0.125 vs median 1 (-88%)
-- 🔴 `cog_raw`: 0.07325 vs median 0.0205 (+257%)
-- 🔴 `func_complexity_gini`: 0.354167 vs median 0.1875 (+89%)
-- 🔴 `risk_cognitive_load`: 3.67023 vs median 1.29535 (+183%)
+- 🔴 `cog_raw`: 0.055 vs median 0.0205 (+168%)
+- 🔴 `risk_cognitive_load`: 2.14335 vs median 1.29535 (+65%)
 
 **Not expressible as measured (n/a):** `class_start`, `classes_found`
 
@@ -859,7 +858,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `makefile-dead-code-reads-prose-labels` | upstream-bug | [#2851](https://github.com/squid-protocol/gitgalaxy/issues/2851) | — | makefile reads dead_code 7 where every other language in the corpus carrying the same comments reads 0 |
 | `api-column-is-rule-hits-only` | upstream-question | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | raw_arch_api is the api RULE count, snapshotted before galaxyscope.py L2228's Contextual Baseline Fix converts orphans into api (#2536 added the snapshot; see the api-co… |
 | `m4-makefile-api-scores-above-stratum` | upstream-question | [#2872](https://github.com/squid-protocol/gitgalaxy/issues/2872) | (notes) | OPEN INVESTIGATION (born 2026-09-06, Phase 0 cause triage) |
-| `makefile-gini-blind-to-toplevel-conditionals` | upstream-question | — | — | func_complexity_gini/makefile (0.354 vs 0.1875 median) surfaced as its own cell the moment gitgalaxy#2822 landed makefile's branch total on the median -- before that it … |
+| `makefile-gini-blind-to-toplevel-conditionals` | upstream-question | [#2918](https://github.com/squid-protocol/gitgalaxy/issues/2918) | — | func_complexity_gini/makefile (0.354 vs 0.1875 median) surfaced as its own cell the moment gitgalaxy#2822 landed makefile's branch total on the median -- before that it … |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 

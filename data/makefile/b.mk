@@ -8,7 +8,7 @@ include c.mk
 
 probe_bypass:
 	-rm scratch
-	: || true
+	-true
 
 probe_telemetry:
 	$(info first probe)

@@ -14,6 +14,8 @@ probe_dispatch: probe_branch probe_io probe_risk
 probe_branch:
 ifeq ($(FLAG),1)
 	:
+else ifeq ($(FLAG),0)
+	:
 else
 	:
 endif
