@@ -2240,6 +2240,44 @@
       "investigated_by": "claude-opus-4-8",
       "validated_at": "2026-09-09",
       "still_reproduces": true
+    },
+    {
+      "id": "units-public-main-outside-api-contract",
+      "signal": "units_public",
+      "languages_seen": [
+        "agc_assembly",
+        "cobol",
+        "css",
+        "makefile",
+        "objective-c",
+        "yacc"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "gitgalaxy#2908 Phase 2 D2: is_public per function is the union of three sources -- A) the unit's own header matches the language's api rule, B) the unit's name appears in an export-list construct, C) galaxyscope's Contextual Baseline Fix credits an UNCALLED (orphaned) unit as surface when its file is imported. agc_assembly, cobol, css, objective-c and yacc each fail all three for main: their unit forms (agc_assembly's positional label, cobol's PROCEDURE DIVISION paragraph, css's selector/at-rule block, objective-c's method, yacc's grammar rule) have no api-rule header pattern and no export-list construct in these files, and main's own probe_branch/probe_io/probe_risk units are all REFERENCED (main calls them), so they never qualify for source C's orphan credit either -- credit only ever applies to an uncalled unit, and main's probes are called. Result: units_public = 0 for all five mains, same shape as the corpus's other pre-#2908 api=0 cells for these languages (main is never imported, popularity 0, no orphan conversion at the FILE level either). Expected, surfaced-on-purpose api-contract cells, not a defect: fixing them would require extending the api/export-list rule contract itself, which is the risk_api_exposure score-contract epic (queued next behind #2812 Phase 4), not a #2908 D2 bug. Also recorded here: makefile's c.mk reads units_public=4 although its arch_api column reads 3 -- the fourth unit (probe_todo) matches source B's export/declared-name set without also matching the api rule's own counting pattern, so the is_public NAME-SET union is allowed to exceed the arch_api COUNT; not a contradiction, the two columns measure different things (D2's union vs. the api rule's own match count).",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5 (gitgalaxy#2908 Phase 2 corpus wave)",
+      "validated_at": "2026-09-09",
+      "still_reproduces": true
+    },
+    {
+      "id": "units-documented-structural-absences",
+      "signal": "units_documented",
+      "languages_seen": [
+        "css",
+        "haskell",
+        "jcl",
+        "m4",
+        "makefile",
+        "powershell"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "gitgalaxy#2908 Phase 2 D3: units_documented cannot read 1 for two structurally distinct reasons, both accounted for here. (1) jcl declares NO `doc` rule at all (same shape as the pre-existing api-no-rule-defined entry) -- doc_positional_end_lines is therefore always empty and is_documented is structurally 0 for every jcl unit regardless of file content; permanent, not a placement problem. (2) powershell's main.ps1 DOES have doc-rule text (`.SYNOPSIS`, doc=1) and it was moved (this session, count-neutral relocation) to sit directly adjacent (0-line gap) above probe_dispatch's header -- well inside the 5-line anchor window -- and units_documented still reads 0. Engine commit 698a06ef's message states 'powershell/embedded_syntax needed no change -- it was never excluded from the generic REGEX_MATRIX positional path', but the bare comment-based-help keyword form used here (`.SYNOPSIS` with no leading `#` and no `<# ... #>` wrapper) is evidently not being carried into doc_positional_end_lines by that path even though the SAME text is captured by the non-positional comment_stream that the plain `doc` count reads (doc=1 there). This is a live, unresolved extraction gap -- not filed as its own gitgalaxy issue yet (distinct from the already-filed gitgalaxy#2933 scheme start_line bug and gitgalaxy#2934 haskell arrowless-signature bug, NEITHER of which blocks main's own entry unit: scheme's `entry` and haskell's `entry :: Int -> Int` both anchored successfully once 698a06ef shipped and their doc comments were relocated -- see the 0->1/0->2 rebless in this same commit). Also recorded here: the accepted k=5 collateral-anchor tolerance -- one doc block whose END line falls inside TWO adjacent units' [start-5, start] windows documents BOTH of them. makefile's main.mk (doc comment 3 lines above probe_branch, which sits 3 lines below probe_dispatch) and m4's main.m4 and css's main.css all read units_documented=2 this way, and haskell's main.hs joins them after this session's relocation (entry and probeBranch, 3 lines apart). #2908 D3's own window design accepts this as correct collateral, not a bug: a doc block genuinely close to two units is ambiguous about which one it describes, and crediting both is the documented, accepted behavior of the k=5 tolerance.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5 (gitgalaxy#2908 Phase 2 corpus wave)",
+      "validated_at": "2026-09-09",
+      "still_reproduces": true
     }
   ]
 }
