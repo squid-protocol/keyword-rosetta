@@ -8,7 +8,7 @@ Planted intent is identical in every language (SPEC.md probe table), so any colu
 
 **n/a semantics:** 32 language/signal cells are marked n/a — the language's registry entry defines no rule for that signal, so the engine cannot ever report a nonzero there. Those cells are *incomparable*, not zero: they are excluded from medians, deviation bands, and consistency scores rather than counted as −100% divergence. An n/a does **not** certify the absence is correct — that takes a validated ledger entry (docs/GATING.md).
 
-**Derived metrics:** a further 12 cells are n/a in the `risk_*` columns. Those are formulas over the same signals, so a language whose every governed input is absent has a structurally pinned score, not a low one — it used to be scored as a −100% outlier against languages that actually measured something. The inputs are read live off the engine's risk assembly, and a derived cell qualifies only when its formula reads no engine-synthesized input **and** the scan confirms the observed value is 0 (rule absence alone is not enough: these formulas also read structure the registry does not govern — LOC, doc lines, the call graph, popularity). Its review status is inherited, not invented: it counts as ledgered only when every governed input is itself ledgered for that language.
+**Derived metrics:** a further 11 cells are n/a in the `risk_*` columns. Those are formulas over the same signals, so a language whose every governed input is absent has a structurally pinned score, not a low one — it used to be scored as a −100% outlier against languages that actually measured something. The inputs are read live off the engine's risk assembly, and a derived cell qualifies only when its formula reads no engine-synthesized input **and** the scan confirms the observed value is 0 (rule absence alone is not enough: these formulas also read structure the registry does not govern — LOC, doc lines, the call graph, popularity). Its review status is inherited, not invented: it counts as ledgered only when every governed input is itself ledgered for that language.
 
 **Structure counts:** and 7 cells are n/a in the STRUCTURE COUNTS group (gitgalaxy#2795). These columns read the engine's own `function_count`/`class_count`/`import_count` rather than a registry rule, so the rule-absence inference above never reached them and a language could be n/a on `func_start` and a −100% outlier on `functions_found` in the same report — the group's consistency scores were measured over a larger population than the rules they summarise. Each count now names the rule it is a tally of and inherits that rule's review status. `dependency_links` is governed by `_dependency_capture`, **not** by `import`: since gitgalaxy#2638 the two diverge, and markdown records 3 real edges with no `import` rule — a comparable cell that stays scored. A governing rule can also be present and govern nothing (gitgalaxy#2792): sqlite is sliced by Mode E, which never consults `func_start` for a name — it labels every bucket after the igniter keyword — so the language has no function population at all. That cell is reviewed by an entry naming the count itself, not inherited from a rule whose presence says nothing about what its matches mean.
 
@@ -20,14 +20,14 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 |---|---|---|
 | undefined | 15 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
 | ledgered | 100 | a validated deviation-ledger entry names this language and this metric |
-| derived | 22 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
+| derived | 20 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **0** | **survived all three -- the real work remaining** |
 
 ## What the red cells are
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 3 of 2635 comparable cells (0.1%)** across 59 gated metrics; 3 of the 137 out-of-band cells are open defects.
+**Open-defect share: 3 of 2636 comparable cells (0.1%)** across 59 gated metrics; 3 of the 135 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
@@ -36,7 +36,7 @@ A verdict says a cell is accounted for; it does not say what the cell *is*, and 
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
 | scoring | 49 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 63 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
-| echo | 22 | derived -- an upstream deviation counted again downstream |
+| echo | 20 | derived -- an upstream deviation counted again downstream |
 
 Metrics carrying the most open defect, by share of their comparable cells:
 
@@ -54,7 +54,6 @@ Ledger entries that currently explain **no** out-of-band cell (validated, still 
 | metric | irc0 median (n) | irc1 median (n) | irc2 median (n) | irc3 median (n) | irc4 median (n) | unprofiled median (n) | global median |
 |---|---|---|---|---|---|---|---|
 | `risk_cognitive_load` | 1.295 (4) | 1.295 (11) | 1.295 (13) | 1.295 (11) | 1.295 (3) | 1.190 (3) | 1.295 |
-| `risk_documentation` | 38.255 (4) | 39.195 (11) | 38.255 (13) | 41.665 (11) | 43.944 (3) | 21.522 (3) | 38.255 |
 | `risk_safety_score` | 39.811 (4) | 41.131 (11) | 42.314 (13) | 43.364 (11) | 44.290 (3) | 39.153 (3) | 42.314 |
 | `risk_tech_debt` | 29.878 (4) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 20.439 (4) | 36.592 |
 | `risk_verification` | 2.380 (4) | 2.388 (11) | 2.397 (13) | 2.405 (11) | 2.402 (3) | 2.358 (3) | 2.394 |
@@ -81,6 +80,7 @@ The risk formulas read registry signals the SPEC does not plant: `concurrency`, 
 
 | metric | languages | stratum | rho | verdict | inputs held in band | where length enters |
 |---|---|---|---|---|---|---|
+| `risk_documentation` | 13 | irc2 | +0.94 | **leak** | *(none known)* | _calc_documentation: (opaque_execution + api x 2 + dynamism) / (_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the denominator is the #2655 floor, constant for every file in this corpus, so the numerator's growth with program length is unopposed |
 | `immutability_locks` | 13 | irc2 | +0.54 | weak | *(none known)* | **not located yet** — the more interesting finding |
 | `risk_cognitive_load` | 12 | irc2 | +0.48 | weak | `branch`, `concurrency`, `doc`, `reflection_metaprogramming`, `state_mutation` | the same _calc_cog_load densities, post-sigmoid |
 | `reflection_metaprogramming` | 13 | irc2 | +0.46 | weak | *(none known)* | **not located yet** — the more interesting finding |
@@ -141,7 +141,7 @@ n/a = the registry rule this count is a tally OF is absent for the language (`fu
 | risk_cognitive_load | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.303 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.619 | 1.295 | 1.295 | 1.295 | 1.295 | 3.670 | n/a | 1.295 | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 |
 | risk_concurrency | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | n/a | 0.000 | 0.000 |
 | risk_dead_code | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 5.787 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
-| risk_documentation | 41.665 | 41.665 | 43.944 | 43.428 | 38.255 | 41.665 | 32.644 | 38.255 | 38.255 | 43.944 | 41.665 | 16.686 | 41.959 | 45.499 | 38.255 | 38.255 | 16.544 | 21.522 | 38.255 | 38.255 | 4.057 | 38.255 | 41.665 | 41.665 | 38.255 | 43.429 | n/a | 41.665 | 29.896 | 41.959 | 38.255 | 40.196 | 41.959 | 38.255 | 38.255 | 41.665 | 38.255 | 41.795 | 39.195 | 0.000 | 38.255 | 38.255 | 38.255 | 50.110 | 16.674 | 38.255 |
+| risk_documentation | 93.750 | 93.750 | 93.750 | 96.429 | 96.429 | 93.750 | 93.750 | 96.429 | 96.429 | 90.000 | 93.750 | 100.000 | 93.750 | 93.750 | 96.429 | 96.429 | 89.286 | 0.000 | 96.429 | 96.429 | 100.000 | 96.429 | 93.750 | 93.750 | 89.286 | 87.500 | 0.000 | 93.750 | 93.750 | 93.750 | 96.429 | 96.875 | 93.750 | 96.429 | 96.429 | 93.750 | 92.857 | 96.429 | 96.429 | 0.000 | 96.429 | 96.429 | 96.429 | 93.750 | 100.000 | 96.429 |
 | risk_safety_score | 41.131 | 41.131 | 42.064 | 41.131 | 44.290 | 42.314 | 53.496 | 42.314 | 41.131 | 39.153 | 41.131 | 43.364 | 42.314 | 57.462 | 41.131 | 43.364 | 53.024 | 39.084 | 39.811 | 57.496 | 43.413 | 41.131 | 43.364 | 43.364 | 43.364 | 43.364 | n/a | 42.314 | 42.314 | 43.364 | 42.314 | 42.314 | 55.190 | 42.314 | 39.811 | 41.131 | 42.314 | 43.364 | 41.131 | 42.314 | 39.811 | 42.314 | 41.131 | 44.290 | 39.811 | 41.131 |
 | risk_secrets_risk | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | risk_spec_match | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 91.667 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | n/a | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 93.750 | 100.000 |

@@ -2545,52 +2545,52 @@
    "zig": 0.0
   },
   "risk_documentation": {
-   "abap": 41.665099999999995,
-   "ada": 41.665099999999995,
-   "agc_assembly": 43.943975,
-   "apex": 43.428,
-   "assembly": 38.255174999999994,
-   "c": 41.665099999999995,
-   "cobol": 32.644325,
-   "cpp": 38.255174999999994,
-   "csharp": 38.255174999999994,
-   "css": 43.943975,
-   "dart": 41.665099999999995,
-   "dockerfile": 16.6864,
-   "embedded_python": 41.959075,
-   "fortran": 45.4987,
-   "go": 38.255174999999994,
-   "groovy": 38.255174999999994,
-   "haskell": 16.543725,
-   "html": 21.521725,
-   "java": 38.255174999999994,
-   "javascript": 38.255174999999994,
-   "jcl": 4.056775,
-   "kotlin": 38.255174999999994,
-   "livecode": 41.665099999999995,
-   "lua": 41.665099999999995,
-   "m4": 38.255174999999994,
-   "makefile": 43.428675,
-   "markdown": null,
-   "matlab": 41.665099999999995,
-   "objective-c": 29.8964,
-   "perl": 41.959075,
-   "php": 38.255174999999994,
-   "powershell": 40.196325,
-   "python": 41.959075,
-   "ruby": 38.255174999999994,
-   "rust": 38.255174999999994,
-   "scala": 41.665099999999995,
-   "scheme": 38.255174999999994,
-   "shell": 41.794799999999995,
-   "solidity": 39.1953,
+   "abap": 93.75,
+   "ada": 93.75,
+   "agc_assembly": 93.75,
+   "apex": 96.428575,
+   "assembly": 96.428575,
+   "c": 93.75,
+   "cobol": 93.75,
+   "cpp": 96.428575,
+   "csharp": 96.428575,
+   "css": 90.0,
+   "dart": 93.75,
+   "dockerfile": 100.0,
+   "embedded_python": 93.75,
+   "fortran": 93.75,
+   "go": 96.428575,
+   "groovy": 96.428575,
+   "haskell": 89.285725,
+   "html": 0.0,
+   "java": 96.428575,
+   "javascript": 96.428575,
+   "jcl": 100.0,
+   "kotlin": 96.428575,
+   "livecode": 93.75,
+   "lua": 93.75,
+   "m4": 89.285725,
+   "makefile": 87.5,
+   "markdown": 0.0,
+   "matlab": 93.75,
+   "objective-c": 93.75,
+   "perl": 93.75,
+   "php": 96.428575,
+   "powershell": 96.875,
+   "python": 93.75,
+   "ruby": 96.428575,
+   "rust": 96.428575,
+   "scala": 93.75,
+   "scheme": 92.85715,
+   "shell": 96.428575,
+   "solidity": 96.428575,
    "sqlite": 0.0,
-   "swift": 38.255174999999994,
-   "tcl": 38.255174999999994,
-   "typescript": 38.255174999999994,
-   "yacc": 50.11035,
-   "yaml": 16.67365,
-   "zig": 38.255174999999994
+   "swift": 96.428575,
+   "tcl": 96.428575,
+   "typescript": 96.428575,
+   "yacc": 93.75,
+   "yaml": 100.0,
+   "zig": 96.428575
   },
   "risk_safety_score": {
    "abap": 41.13145,
@@ -3445,9 +3445,6 @@
   "risk_dead_code": {
    "markdown": "ledgered"
   },
-  "risk_documentation": {
-   "markdown": "ledgered"
-  },
   "risk_safety_score": {
    "markdown": "ledgered"
   },
@@ -3585,14 +3582,9 @@
   },
   "risk_documentation": {
    "calc": "_calc_documentation",
-   "governed": [
-    "api",
-    "doc",
-    "ownership",
-    "reflection_metaprogramming"
-   ],
+   "governed": [],
    "engine": [],
-   "reads_constant": true
+   "reads_constant": false
   },
   "risk_secrets_risk": {
    "calc": "_calc_secrets_risk",
@@ -3610,7 +3602,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "ef9b8e651ef1a46803907c166da14e00f618516f",
+ "engine_commit": "90ddb3bca9144a583dfea7e6dae090b47c079a78",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -3673,7 +3665,6 @@
  },
  "constant_sensitive": [
   "risk_cognitive_load",
-  "risk_documentation",
   "risk_safety_score",
   "risk_tech_debt",
   "risk_verification"
@@ -3701,6 +3692,15 @@
   "total_loc"
  ],
  "length_leaks": [
+  {
+   "metric": "risk_documentation",
+   "n": 13,
+   "rho": 0.939,
+   "verdict": "leak",
+   "held": [],
+   "stratum": "irc2",
+   "where": "_calc_documentation: (opaque_execution + api x 2 + dynamism) / (_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the denominator is the #2655 floor, constant for every file in this corpus, so the numerator's growth with program length is unopposed"
+  },
   {
    "metric": "immutability_locks",
    "n": 13,
@@ -3880,10 +3880,8 @@
   "risk_concurrency/agc_assembly": "echo",
   "risk_concurrency/swift": "echo",
   "risk_dead_code/jcl": "scoring",
-  "risk_documentation/css": "scoring",
-  "risk_documentation/dockerfile": "echo",
-  "risk_documentation/haskell": "echo",
-  "risk_documentation/jcl": "scoring",
+  "risk_documentation/html": "scoring",
+  "risk_documentation/markdown": "scoring",
   "risk_documentation/sqlite": "scoring",
   "risk_safety_score/cobol": "scoring",
   "risk_safety_score/fortran": "echo",
@@ -4089,7 +4087,7 @@
   ],
   "risk_documentation": [
    0,
-   45
+   46
   ],
   "risk_safety_score": [
    0,
