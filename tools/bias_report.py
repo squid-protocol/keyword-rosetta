@@ -282,7 +282,7 @@ def ungated_metrics(unplanted_inputs=()):
     (see `basis == "agreement"`). The parameter is kept so callers that pass it stay
     valid; it no longer widens the set.
     """
-    return set(CONTEXT_METRICS) | set(VOCABULARY_METRICS) | set(TEMPORAL_METRICS)
+    return set(CONTEXT_METRICS) | set(VOCABULARY_METRICS) | set(TEMPORAL_METRICS) | set(UNIT_METRICS)
 
 
 def reference_medians(metrics, languages, strata=None, constant_sensitive=()):
@@ -316,7 +316,7 @@ def reference_medians(metrics, languages, strata=None, constant_sensitive=()):
 
 
 def gather(language, colmap):
-    """Scan one language: (signals, risk_means, struct, measure_means, zero_dep)."""
+    """Scan one language: (signals, risk_means, struct, measure_means, zero_dep, units)."""
     language_dir = REPO_ROOT / "data" / language
     # rosetta#25: the scan sweeps the whole folder, so expected_signals.json
     # itself lands in file_data and its generically-parsed hits used to inflate
@@ -343,6 +343,21 @@ def gather(language, colmap):
             + " FROM file_data"
         ).fetchall()
         rows = [r for r in rows if r["file_name"] in shell_files]
+        # gitgalaxy#2908: the per-unit attribute totals (function_data SUMs over
+        # the shell files). Pre-Phase-2 engines have no is_public column; the
+        # totals are simply absent then, never fabricated as zero.
+        units = {u: None for u in UNIT_METRICS}
+        fhave = {r[1] for r in conn.execute("PRAGMA table_info(function_data)")}
+        if {"is_public", "is_documented"} <= fhave:
+            row = conn.execute(
+                "SELECT COALESCE(SUM(fd.is_public), 0), COALESCE(SUM(fd.is_documented), 0),"
+                " COALESCE(SUM(fd.is_public * fd.is_documented), 0)"
+                " FROM function_data fd JOIN file_data f ON fd.file_id = f.id"
+                " WHERE f.file_name IN (%s)" % ",".join("?" * len(shell_files)),
+                sorted(shell_files),
+            ).fetchone()
+            units = {"units_public": row[0], "units_documented": row[1],
+                     "units_public_documented": row[2]}
         # Which mode the engine actually ran in, straight from the recorder rather
         # than inferred. Zero-Dependency Mode (any of networkx/tiktoken/numpy-ML/
         # pyyaml missing) nulls every network metric, so pagerank silently drops
@@ -385,7 +400,7 @@ def gather(language, colmap):
     risk_means = {c: (statistics.mean(v) if v else None) for c, v in risks.items()}
     measure_means = {c: (statistics.mean(v) if v else None) for c, v in measures.items()}
     struct["pagerank"] = statistics.mean(struct["pagerank"]) if struct["pagerank"] else None
-    return totals, risk_means, struct, measure_means, zero_dep
+    return totals, risk_means, struct, measure_means, zero_dep, units
 
 
 def _row_stats(values, medians=None):
@@ -500,6 +515,22 @@ PER_FUNCTION_METRICS = frozenset({
     "func_complexity_gini",
     "func_internal_density",
 })
+
+# ==============================================================================
+# PER-UNIT ATTRIBUTES (gitgalaxy#2908)
+# ==============================================================================
+# Phase 2 put `is_public` / `is_documented` on every extracted unit; Phase 3 made
+# `risk_documentation` a ratio over exactly those attributes. The cross-language
+# TOTALS are cached here so the derivation machinery can do its job -- a
+# documentation cell that goes out of band attributes to a unit input
+# ("derived: inherits units_public"), and the length-leak check holds the unit
+# inputs the way it holds any other measured input. They are reported, NEVER
+# gated: the per-file values are already gated by verify_language.py against the
+# manifests, and the cross-language spread of `main`'s split is the api-contract
+# question the ledger already owns (`units-public-main-outside-api-contract`,
+# `units-documented-structural-absences`) -- banding the totals here would count
+# the same finding a second time.
+UNIT_METRICS = ("units_public", "units_documented", "units_public_documented")
 
 # Composite metrics and the measured inputs they are built from, so a deviation
 # that entered through an input is not counted a second time as its own finding.
@@ -925,7 +956,9 @@ def derivation_inputs(metric, risk_inputs=None, include_context=False):
         edges = tuple(
             RISK_INPUT_COLUMNS.get(i, i)
             for i in (*spec.get("governed", ()), *spec.get("engine", ()))
-        )
+        # gitgalaxy#2908 Phase 3: the per-unit edges (units_public /
+        # units_documented), already cache column names.
+        ) + tuple(spec.get("units", ()))
     edges = tuple(edges or ())
     if include_context:
         return edges
@@ -975,10 +1008,19 @@ LENGTH_TERMS = {
     # denominator is a constant here and the numerator's growth is unopposed.
     # That is the floor behaving as designed (below it, score on counts), not a
     # new length term: the same formulas divide correctly on real files.
-    "risk_documentation": "_calc_documentation: (opaque_execution + api x 2 + dynamism) / "
-                          "(_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the "
-                          "denominator is the #2655 floor, constant for every file in this "
-                          "corpus, so the numerator's growth with program length is unopposed",
+    # gitgalaxy#2908 Phase 3 replaced the density formula: the score is now a
+    # pure per-unit coverage ratio (public-weighted units exposed / total, x the
+    # umbrella shield) with NO loc term, no floor, no sigmoid. This entry is the
+    # proof the epic's leak row asked for: any residual rank correlation is the
+    # units_public/units_documented composition of `main` (the api-contract
+    # split, ledgered `units-public-main-outside-api-contract`) riding the band
+    # tolerance of the held unit inputs -- unit composition, not length.
+    "risk_documentation": "no LOC term since gitgalaxy#2908 Phase 3: a pure per-unit coverage "
+                          "ratio (signal_processor.py `_calc_documentation`), constant across "
+                          "languages sharing the held unit profile -- the rho -0.83 leak this "
+                          "row used to carry is resolved by construction; variation between "
+                          "profiles is main's units_public/units_documented split, the api "
+                          "contract cells",
     "risk_api_exposure": "_calc_api_exposure: log1p(api) / log1p(max(total_loc, 50)) "
                          "(signal_processor.py ~L1738) -- same floor, same constant denominator",
     "risk_verification": "_calc_verification: untested impact / _mass_loc(loc) "
@@ -1065,6 +1107,55 @@ def length_leaks(metrics, languages, risk_inputs=None, strata=None, x_axis="codi
                 for i in held
             )
         ]
+        # gitgalaxy#2908 Phase 4: a POPULATION-BASED formula (per-unit `units`
+        # edges) is a PURE function of its held inputs -- no loc, no constant,
+        # nothing else free. The band-hold above is the wrong instrument there:
+        # ±25% leaves unit-composition variation on the table (main's 12-vs-13
+        # public split, the api contract cells), and any correlation it produces
+        # is input composition wearing length's rank order, not a LOC term. So
+        # these are held EXACTLY: within the languages sharing the modal held
+        # profile, the score must be constant -- emitted as verdict "invariant",
+        # the proof row #2908 asked the leak table to carry. Residual variation
+        # inside an exactly-held profile would be a real finding and is
+        # correlated like any other metric.
+        spec = (risk_inputs or {}).get(metric) or {}
+        if spec.get("units"):
+            profiles = collections.Counter(
+                tuple(metrics[i].get(lang) for i in held) for lang in langs
+            )
+            if not profiles:
+                continue
+            modal = max(profiles, key=profiles.get)
+            langs = [
+                lang for lang in langs
+                if tuple(metrics[i].get(lang) for i in held) == modal
+            ]
+            if len(langs) < LEAK_MIN_LANGUAGES:
+                continue
+            if len({values[lang] for lang in langs}) < 2:
+                out.append({
+                    "metric": metric,
+                    "n": len(langs),
+                    "rho": 0.0,
+                    "verdict": "invariant",
+                    "held": list(held),
+                    "stratum": None,
+                    "where": LENGTH_TERMS.get(metric),
+                })
+                continue
+            rho = _spearman([xs_all[lang] for lang in langs], [values[lang] for lang in langs])
+            if abs(rho) < LEAK_WEAK_RHO:
+                continue
+            out.append({
+                "metric": metric,
+                "n": len(langs),
+                "rho": round(rho, 3),
+                "verdict": "leak" if abs(rho) >= LEAK_RHO else "weak",
+                "held": list(held),
+                "stratum": None,
+                "where": LENGTH_TERMS.get(metric),
+            })
+            continue
         stratum = None
         if strata:
             by_stratum = collections.Counter(strata.get(lang, "irc0") for lang in langs)
@@ -1085,12 +1176,15 @@ def length_leaks(metrics, languages, risk_inputs=None, strata=None, x_axis="codi
             "stratum": stratum,
             "where": LENGTH_TERMS.get(metric),
         })
-    out.sort(key=lambda r: -abs(r["rho"]))
+    out.sort(key=lambda r: (r["verdict"] == "invariant", -abs(r["rho"])))
     return out
 
 
-def unmeasurable_risk_cells(deps, definitions, observed):
+def unmeasurable_risk_cells(deps, definitions, observed, populations=None):
     """n/a cells among the DERIVED risk_* metrics, plus the mismatches found.
+
+    `populations` is {language: functions_found} (0 or None = no unit population)
+    for the population-based formulas -- see the gitgalaxy#2908 branch below.
 
     The planted signals get n/a straight off the registry: no rule, no nonzero,
     incomparable (docs/GATING.md). The risk_* columns are one step downstream --
@@ -1121,6 +1215,24 @@ def unmeasurable_risk_cells(deps, definitions, observed):
     na, mismatches = {}, []
     for metric, dep in sorted(deps.items()):
         governed, engine = dep["governed"], dep["engine"]
+        # gitgalaxy#2908 Phase 3 (D6): a POPULATION-BASED formula (non-empty
+        # `units` edges) is a ratio over the extracted units, so its n/a basis
+        # is an empty unit population -- `functions_found` 0 or itself n/a --
+        # never rule absence. Its governed signals (per-unit reflection) are
+        # weight modifiers, not the measurable substance: a language with no
+        # reflection rule still has a fully measurable documentation ratio.
+        if dep.get("units"):
+            for lang, values in sorted(observed.items()):
+                if metric not in values:
+                    continue
+                if (populations or {}).get(lang) not in (0, None):
+                    continue
+                value = values[metric]
+                if value:
+                    mismatches.append((lang, metric, value))
+                else:
+                    na.setdefault(lang, []).append(metric)
+            continue
         if not governed or engine:
             continue
         for lang, values in sorted(observed.items()):
@@ -1158,8 +1270,12 @@ def na_audit_signals(deps):
     return sorted(set(PLANTED) | extra | set(STRUCTURE_GOVERNORS.values()))
 
 
-def classify_risk_na(risk_na, deps, signal_na_state):
+def classify_risk_na(risk_na, deps, signal_na_state, population_state=None):
     """{metric: {lang: "ledgered"|"unreviewed"}} for derived n/a cells.
+
+    `population_state` is {language: bool} -- whether the language's empty unit
+    population is itself accounted for -- consumed by the population-based
+    branch (gitgalaxy#2908 Phase 3).
 
     A derived n/a is a mechanical consequence of its input signals' absences, so
     it inherits their review status rather than opening a parallel backlog: the
@@ -1170,10 +1286,19 @@ def classify_risk_na(risk_na, deps, signal_na_state):
     out = {}
     for lang, metrics in risk_na.items():
         for metric in metrics:
-            covered = all(
-                signal_na_state.get(sig, {}).get(lang) == "ledgered"
-                for sig in deps[metric]["governed"]
-            )
+            if deps[metric].get("units"):
+                # gitgalaxy#2908 Phase 3 (D6): a population-based n/a inherits
+                # the review state of the POPULATION's own absence -- the
+                # structure-count n/a for functions_found (markdown, sqlite) or
+                # a validated entry that names functions_found for a language
+                # whose population records a comparable 0 (html,
+                # `html-probe-bodies-are-empty-by-design`).
+                covered = (population_state or {}).get(lang, False)
+            else:
+                covered = all(
+                    signal_na_state.get(sig, {}).get(lang) == "ledgered"
+                    for sig in deps[metric]["governed"]
+                )
             out.setdefault(metric, {})[lang] = "ledgered" if covered else "unreviewed"
     return out
 
@@ -1310,6 +1435,7 @@ CHART_BLURBS = {
     "internal function metrics": "per-function and census measures derived from the signals",
     "calculated risk exposure — per file": "what the product reports, per file (banded within the strictness stratum where a constant is read)",
     "program size & vocabulary": "how long the same program came out, and how the language spells it: token and keyword tallies, and the ratios that divide by them",
+    "per-unit attributes": "unit totals the per-unit risk ratios read (gitgalaxy#2908); gated per file by the manifests, reported here as attribution edges",
     "commit age": "temporal, not content",
 }
 
@@ -1680,7 +1806,7 @@ def main():
     print(f"engine: {engine_commit or '<not a git checkout>'} at {scanner_root or vl.GALAXYSCOPE_BIN}")
 
     colmap = vl._signal_columns()
-    all_totals, all_risks, all_struct, all_measures, zero_dep = {}, {}, {}, {}, {}
+    all_totals, all_risks, all_struct, all_measures, zero_dep, all_units = {}, {}, {}, {}, {}, {}
     for lang in languages:
         print(f"scanning {lang}...")
         (
@@ -1689,6 +1815,7 @@ def main():
             all_struct[lang],
             all_measures[lang],
             zero_dep[lang],
+            all_units[lang],
         ) = gather(lang, colmap)
         # Fail on the FIRST degraded scan rather than after all 46: the mode is a
         # property of the binary, so language 1 already settles it.
@@ -1704,20 +1831,6 @@ def main():
             )
             return 1
     degraded = sorted(lang for lang, z in zero_dep.items() if z)
-
-    risk_na, risk_mismatches = unmeasurable_risk_cells(deps, definitions, all_risks)
-    risk_na_by_metric = classify_risk_na(risk_na, deps, dep_na_state)
-    na_by_metric.update(risk_na_by_metric)
-    for lang, metrics in risk_na.items():
-        for metric in metrics:
-            all_risks[lang][metric] = None
-    if risk_mismatches:
-        print(
-            f"MISMATCH: {len(risk_mismatches)} derived cell(s) whose every registry "
-            "input is absent still measured nonzero (left comparable):"
-        )
-        for lang, metric, value in risk_mismatches:
-            print(f"  {lang}/{metric} = {value:.4f} (inputs: {deps[metric]['governed']})")
 
     # ...and the same question one step to the SIDE, for the structure counts
     # (gitgalaxy#2795). These read engine columns rather than registry rules, so
@@ -1746,6 +1859,45 @@ def main():
     for lang, metrics in struct_na.items():
         for metric in metrics:
             all_struct[lang][metric] = None
+
+    # The risk n/a pass runs AFTER the structure one (gitgalaxy#2908 Phase 4):
+    # risk_documentation is population-based, so its n/a basis and review state
+    # both come from `functions_found` -- the observed population and whether its
+    # absence (or comparable zero) is itself accounted for.
+    validated_live = [
+        e for e in ledger["entries"]
+        if e.get("status") == "validated" and e.get("still_reproduces") is not False
+    ]
+    populations = {lang: all_struct[lang].get("functions_found") for lang in languages}
+    population_state = {
+        lang: (
+            struct_na_by_metric.get("functions_found", {}).get(lang) == "ledgered"
+            or any(
+                lang in e.get("languages_seen", [])
+                and "functions_found" in (e.get("signal") or "").split("|")
+                for e in validated_live
+            )
+        )
+        for lang, pop in populations.items()
+        if pop in (0, None)
+    }
+    risk_na, risk_mismatches = unmeasurable_risk_cells(
+        deps, definitions, all_risks, populations=populations
+    )
+    risk_na_by_metric = classify_risk_na(risk_na, deps, dep_na_state, population_state)
+    na_by_metric.update(risk_na_by_metric)
+    for lang, metrics in risk_na.items():
+        for metric in metrics:
+            all_risks[lang][metric] = None
+    if risk_mismatches:
+        print(
+            f"MISMATCH: {len(risk_mismatches)} derived cell(s) whose every "
+            "registry (or population) input is absent still measured nonzero "
+            "(left comparable):"
+        )
+        for lang, metric, value in risk_mismatches:
+            print(f"  {lang}/{metric} = {value:.4f} (inputs: "
+                  f"{deps[metric].get('units') or deps[metric]['governed']})")
     if struct_mismatches:
         print(
             f"MISMATCH: {len(struct_mismatches)} structure count(s) whose governing "
@@ -1820,6 +1972,8 @@ def main():
             return [all_risks[lang].get(c) for lang in languages]
         if c in unplanted_inputs:
             return [None if lang in dep_na_state.get(c, {}) else all_totals[lang].get(c, 0) for lang in languages]
+        if c in UNIT_METRICS:
+            return [all_units[lang].get(c) for lang in languages]
         return None
 
     def group(names):
@@ -1841,6 +1995,9 @@ def main():
         ("calculated risk exposure — per file",
          group([c for c in risk_names if c not in TEMPORAL_METRICS and c not in measure_names]), True),
         ("program size & vocabulary", group(CHART_LENGTH + CHART_VOCAB), False),
+        # gitgalaxy#2908: the per-unit attribute totals -- attribution edges for
+        # the per-unit risk formulas, reported not gated (see UNIT_METRICS).
+        ("per-unit attributes", group(list(UNIT_METRICS)), False),
         ("commit age", group([c for c in risk_names if c in TEMPORAL_METRICS]), False),
     ]
     # scan cache: lets findings_report.py (and ad hoc queries) reuse this run.
@@ -1878,6 +2035,8 @@ def main():
         # full reported-not-gated set every consumer must skip.
         "constant_sensitive": constant_sensitive,
         "unplanted_inputs": unplanted_inputs,
+        # gitgalaxy#2908: per-unit attribute totals -- reported, never gated.
+        "unit_metrics": list(UNIT_METRICS),
         "ungated_metrics": sorted(ungated),
     }
     for _, metrics, _gated in groups:
@@ -2171,14 +2330,19 @@ def main():
               "qualifying languages, because the high-gap languages are largely the short shells and "
               "a strictness effect would otherwise read as a length effect. A metric with no known inputs is correlated over every "
               "language that records it (nothing held), which is weaker evidence and is marked as "
-              "such.", ""]
+              "such. A per-unit ratio (gitgalaxy#2908: `risk_documentation`) is a pure function of "
+              "its held inputs, so those are held EXACTLY rather than banded -- languages sharing "
+              "the modal unit profile must score identically, and a constant score there is printed "
+              "as **invariant**: the formula cannot read length, by measurement.", ""]
     if leaks:
         lines += ["| metric | languages | stratum | rho | verdict | inputs held in band | where length enters |",
                   "|---|---|---|---|---|---|---|"]
         for r in leaks:
             held = ", ".join(f"`{h}`" for h in r["held"]) if r["held"] else "*(none known)*"
+            if r["verdict"] == "invariant":
+                held += " *(held exactly)*"
             where = r["where"] or "**not located yet** — the more interesting finding"
-            label = {"leak": "**leak**", "weak": "weak"}[r["verdict"]]
+            label = {"leak": "**leak**", "weak": "weak", "invariant": "invariant — the proof"}[r["verdict"]]
             lines.append(f"| `{r['metric']}` | {r['n']} | {r.get('stratum') or '—'} | {r['rho']:+.2f} | "
                          f"{label} | {held} | {where} |")
         lines += [""]
@@ -2320,8 +2484,9 @@ def main():
         + (f"; decayed ledger entries: {len(decayed)}" if decayed else "")
     )
     n_leak = sum(1 for r in leaks if r["verdict"] == "leak")
+    n_inv = sum(1 for r in leaks if r["verdict"] == "invariant")
     print(
-        f"length leaks: {n_leak} leak / {len(leaks) - n_leak} weak -- "
+        f"length leaks: {n_leak} leak / {len(leaks) - n_leak - n_inv} weak / {n_inv} invariant -- "
         + (", ".join(f"{r['metric']} {r['rho']:+.2f}" for r in leaks if r["verdict"] == "leak")
            or "none")
     )

@@ -25,7 +25,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [go](#go) | 0 | 0 | 0 | 11 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
 | [groovy](#groovy) | 0 | 0 | 0 | 8 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 #2878 |
 | [haskell](#haskell) | 3 | 1 | 0 | 15 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
-| [html](#html) | 10 | 4 | 3 | 18 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2766 #2770 #2866 |
+| [html](#html) | 9 | 4 | 4 | 18 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2766 #2770 #2866 |
 | [java](#java) | 0 | 0 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2878 |
 | [javascript](#javascript) | 0 | 3 | 0 | 16 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 #2841 #2878 |
 | [jcl](#jcl) | 2 | 2 | 3 | 21 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2798 #2806 #2822 #2841 |
@@ -34,7 +34,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [lua](#lua) | 0 | 0 | 0 | 15 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2766 #2770 #2822 #2841 #2852 #2878 |
 | [m4](#m4) | 1 | 0 | 3 | 13 | #2535 #2689 #2731 #2765 #2766 #2770 #2872 |
 | [makefile](#makefile) | 5 | 0 | 2 | 19 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 #2888 #2918 |
-| [markdown](#markdown) | 9 | 1 | 29 | 10 | #2549 #2638 #2655 #2689 #2770 #2866 |
+| [markdown](#markdown) | 8 | 1 | 30 | 10 | #2549 #2638 #2655 #2689 #2770 #2866 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 1 | 0 | 0 | 9 | #2535 #2545 #2546 #2730 #2765 #2773 #2882 |
 | [perl](#perl) | 0 | 0 | 0 | 13 | #2535 #2546 #2670 #2689 #2730 #2731 #2765 #2766 #2770 #2852 #2878 |
@@ -47,7 +47,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [scheme](#scheme) | 0 | 0 | 0 | 10 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
 | [shell](#shell) | 0 | 0 | 2 | 13 | #2535 #2547 #2727 #2731 #2766 #2822 #2858 #2888 |
 | [solidity](#solidity) | 0 | 0 | 1 | 11 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 #2882 |
-| [sqlite](#sqlite) | 10 | 2 | 2 | 17 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 #2866 |
+| [sqlite](#sqlite) | 9 | 2 | 3 | 17 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 #2866 |
 | [swift](#swift) | 0 | 0 | 0 | 12 | #2535 #2543 #2546 #2730 #2731 #2765 #2772 #2822 #2858 |
 | [tcl](#tcl) | 0 | 0 | 0 | 10 | #2535 #2546 #2727 #2731 #2765 #2766 #2822 #2841 |
 | [typescript](#typescript) | 0 | 0 | 0 | 14 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 #2878 |
@@ -573,14 +573,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 1.25 vs median 3 (-58%)
-- 🔴 `risk_documentation`: 0 vs median 93.75 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 - 🟡 `func_start`: 9 vs median 13 (-31%)
 - 🟡 `risk_api_exposure`: 16.4519 vs median 31.8725 (-48%)
 
-**Not expressible as measured (n/a):** `globals`, `raw_state_unreferenced`, `state_mutation`
+**Not expressible as measured (n/a):** `globals`, `raw_state_unreferenced`, `risk_documentation`, `state_mutation`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -880,11 +879,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
-- 🔴 `risk_documentation`: 0 vs median 93.75 (-100%)
 - 🔴 `risk_tech_debt`: 0 vs median 20.4394 (-100%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 
-**Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `classes_found`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `functions_found`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `raw_state_unreferenced`, `risk_api_exposure`, `risk_cognitive_load`, `risk_concurrency`, `risk_dead_code`, `risk_safety_score`, `risk_spec_match`, `risk_state_flux`, `risk_verification`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
+**Not expressible as measured (n/a):** `args`, `branch`, `class_start`, `classes_found`, `cleanup`, `doc`, `fragile_debt`, `func_start`, `functions_found`, `globals`, `high_risk_execution`, `import`, `io`, `ownership`, `planned_debt`, `raw_state_unreferenced`, `risk_api_exposure`, `risk_cognitive_load`, `risk_concurrency`, `risk_dead_code`, `risk_documentation`, `risk_safety_score`, `risk_spec_match`, `risk_state_flux`, `risk_verification`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1228,12 +1226,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 31.8725 (-100%)
-- 🔴 `risk_documentation`: 0 vs median 93.75 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
 
-**Not expressible as measured (n/a):** `functions_found`, `raw_state_unreferenced`
+**Not expressible as measured (n/a):** `functions_found`, `raw_state_unreferenced`, `risk_documentation`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
