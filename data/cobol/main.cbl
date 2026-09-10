@@ -4,7 +4,6 @@
        IDENTIFICATION DIVISION.
        PROGRAM-ID. ROSETTA-MAIN.
        AUTHOR. KEYWORD-ROSETTA GENERATOR.
-       *> @return the probe result
 
        ENVIRONMENT DIVISION.
 
@@ -17,6 +16,7 @@
 
       * ---- procedure paragraphs, one probe each ----
        PROCEDURE DIVISION USING ARGV-BLOCK.
+       *> @return the probe result
        DISPATCH-PARA.
            DISPLAY 'DISPATCH EACH PROBE ONCE'.
            PERFORM PROBE-IO.

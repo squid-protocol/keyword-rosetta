@@ -23,7 +23,9 @@
       "telemetry": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 1
     },
     "a.php": {
       "class_start": 0,
@@ -43,7 +45,9 @@
       "telemetry": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "b.php": {
       "class_start": 0,
@@ -63,7 +67,9 @@
       "globals": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "c.php": {
       "class_start": 0,
@@ -85,7 +91,9 @@
       "globals": 0,
       "doc": 0,
       "ownership": 0,
-      "high_risk_execution": 0
+      "high_risk_execution": 0,
+      "units_public": 3,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -117,5 +125,5 @@
       "outcome": "HACK/TODO comments count exactly 1 each"
     }
   ],
-  "notes": "branch no longer counts the <?php open tag: the per-file tag-? FP RESOLVED via gitgalaxy#2541 (tag-context excluded from the ternary-? alternation; ledger php-open-tag-counts-branch). main branch 3 = if/else/switch; a/c branch 0; b branch 2 = string if/try. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"popen\" literal inside probe_state — b.php high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. api (gitgalaxy#2729): `public` visibility spelling prefixed on every probe definition (`public function probe_x(...)`), 3 per file in main/a/b/c (probe_dispatch stays plain); the rule's `\\b(public)\\b` alternation. PHP free functions are public by default and the keyword is the class-method visibility spelling, planted here as the language's own vocabulary for a declared surface. No overlap: func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: b.php's string decoy carries the call form (`\"plain popen() decoy text\"`): php's rule is anchored on call parens and a backtick at expression position (C2 -- the crucible's backticks were MySQL identifier quotes inside SQL strings). Cell unchanged at 1."
+  "notes": "branch no longer counts the <?php open tag: the per-file tag-? FP RESOLVED via gitgalaxy#2541 (tag-context excluded from the ternary-? alternation; ledger php-open-tag-counts-branch). main branch 3 = if/else/switch; a/c branch 0; b branch 2 = string if/try. Locked from hand-verified run 2026-08-31; branch re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"popen\" literal inside probe_state — b.php high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. api (gitgalaxy#2729): `public` visibility spelling prefixed on every probe definition (`public function probe_x(...)`), 3 per file in main/a/b/c (probe_dispatch stays plain); the rule's `\\b(public)\\b` alternation. PHP free functions are public by default and the keyword is the class-method visibility spelling, planted here as the language's own vocabulary for a declared surface. No overlap: func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: b.php's string decoy carries the call form (`\"plain popen() decoy text\"`): php's rule is anchored on call parens and a backtick at expression position (C2 -- the crucible's backticks were MySQL identifier quotes inside SQL strings). Cell unchanged at 1. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

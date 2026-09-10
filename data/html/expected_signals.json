@@ -23,7 +23,9 @@
       "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
-      "import": 1
+      "import": 1,
+      "units_public": 0,
+      "units_documented": 0
     },
     "a.html": {
       "branch": 0,
@@ -45,7 +47,9 @@
       "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0,
-      "import": 1
+      "import": 1,
+      "units_public": 0,
+      "units_documented": 0
     },
     "b.html": {
       "branch": 0,
@@ -67,7 +71,9 @@
       "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0,
-      "import": 1
+      "import": 1,
+      "units_public": 0,
+      "units_documented": 0
     },
     "c.html": {
       "branch": 0,
@@ -89,7 +95,9 @@
       "api_orphan_credit": 0,
       "doc": 0,
       "ownership": 0,
-      "import": 0
+      "import": 0,
+      "units_public": 0,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -122,5 +130,5 @@
       "outcome": "html's literal surface is markup TEXT, not an attribute value: the text goes inside the existing <div id=\"probe-api-b\">, so structural_boundaries and api are unmoved. io does not fire -- its rule needs src= and srcdoc= has no = after src."
     }
   ],
-  "notes": "func_start = one per <script>/<style> element opening: 2/3/1/3, nine corpus-wide against the SPEC's 13 function definitions, because markup declares no functions (ledger html-func-start-counts-script-elements). Re-blessed 2026-09-07 off 0 when gitgalaxy#2549 landed -- until then the splitter consumed the tag before html's rules ran and the rule was dead end-to-end (ledger html-script-func-start-unreachable, retired). functions_found stays 0: the probe bodies are still empty by design, which is a separate entry (html-probe-bodies-are-empty-by-design) and a separate decision. branch = details/summary/noscript tags; io = the chain link's href= (1 per importing file); doc 1 = title only: the meta name=author-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (author removed from doc's meta-name alternative; ownership still captures meta name=author exclusively); import = link rel=stylesheet (chain resolves as capture but no conversion observed). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. A.2 (gitgalaxy#2669): telemetry 2 = two `navigator.sendBeacon(...)` after probe_telemetry's script tag in b.html; cleanup 2 = `clearInterval(...)` / `clearTimeout(...)` after probe_cleanup's in c.html. Planted as element text rather than `on*=` handlers because `onclick=` also fires reflection_metaprogramming (a risk_cognitive_load input) and listeners; and rather than `<script src=\"...analytics...\">`, the telemetry rule's other form, which would have added 2 io to b.html. The tokens stay OUTSIDE `<script>` on purpose: the polyglot splitter hands script BODIES to the JS lens, so a body inside the tag would exercise JavaScript's rules instead of html's. gitgalaxy#2549 did not change that -- it moved only the opening tag back to html -- so the reason still holds. globals/high_risk_execution/state_mutation stay 0: html defines no rule for them. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology — the args rule matches attributes, not parameters, and the 3 hits are a.html's two data-testid plus main.html's name=\"author\" ownership meta (ledger args-no-parameter-surface-morphology). gitgalaxy#2645: html's high_risk_execution rule was None (cell n/a). Now wired to `srcdoc=`, with two srcdoc iframes replacing two of main.html's empty <script> probe placeholders. The same PR stops html's io claiming a srcdoc-bearing <iframe> as a fetch (srcdoc overrides src per the HTML spec, so the document is inline and nothing is fetched) -- without that, planting srcdoc would have pushed io off its planted 3 and traded one red cell for another.  keyword-rosetta#33: probe_bypass had an empty <script> placeholder; planted the `on*=` + eval( form x2. `target=\"_blank\"` and `href=\"javascript:\"` were both rejected -- they fire io, which is planted at 3. api (gitgalaxy#2729): one `<div id=\"probe-api-<file>\"></div>` per file (main 1+1, a 1, b 1, c 1) -- non-function surface; main reads 2 because the api rule also lists `name=` and the ownership meta `<meta name=\"author\" ...>` matched it already (the pre-wave 1); `name=` was not used for the plant because the args rule counts it (args planted 1/2/0/0), `<a>` is io and `<slot>` is generics+encapsulation; overlap: structural_boundaries +1 per file (ungated); api_orphan_credit and every planted count unchanged. 2026-09-07 (gitgalaxy#2866): declares invocation_model: positional -- script/style elements execute in document order; embedded-segment names belong to the embedded language. Also zeroes the crucible's phantom census (embedded @media buckets read as orphans in 10 real html files). raw_state_unreferenced renders n/a, ledger unreferenced-census-contract-2866."
+  "notes": "func_start = one per <script>/<style> element opening: 2/3/1/3, nine corpus-wide against the SPEC's 13 function definitions, because markup declares no functions (ledger html-func-start-counts-script-elements). Re-blessed 2026-09-07 off 0 when gitgalaxy#2549 landed -- until then the splitter consumed the tag before html's rules ran and the rule was dead end-to-end (ledger html-script-func-start-unreachable, retired). functions_found stays 0: the probe bodies are still empty by design, which is a separate entry (html-probe-bodies-are-empty-by-design) and a separate decision. branch = details/summary/noscript tags; io = the chain link's href= (1 per importing file); doc 1 = title only: the meta name=author-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (author removed from doc's meta-name alternative; ownership still captures meta name=author exclusively); import = link rel=stylesheet (chain resolves as capture but no conversion observed). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. A.2 (gitgalaxy#2669): telemetry 2 = two `navigator.sendBeacon(...)` after probe_telemetry's script tag in b.html; cleanup 2 = `clearInterval(...)` / `clearTimeout(...)` after probe_cleanup's in c.html. Planted as element text rather than `on*=` handlers because `onclick=` also fires reflection_metaprogramming (a risk_cognitive_load input) and listeners; and rather than `<script src=\"...analytics...\">`, the telemetry rule's other form, which would have added 2 io to b.html. The tokens stay OUTSIDE `<script>` on purpose: the polyglot splitter hands script BODIES to the JS lens, so a body inside the tag would exercise JavaScript's rules instead of html's. gitgalaxy#2549 did not change that -- it moved only the opening tag back to html -- so the reason still holds. globals/high_risk_execution/state_mutation stay 0: html defines no rule for them. A.4 (gitgalaxy#2669): args/avg_func_args ledgered as intended morphology — the args rule matches attributes, not parameters, and the 3 hits are a.html's two data-testid plus main.html's name=\"author\" ownership meta (ledger args-no-parameter-surface-morphology). gitgalaxy#2645: html's high_risk_execution rule was None (cell n/a). Now wired to `srcdoc=`, with two srcdoc iframes replacing two of main.html's empty <script> probe placeholders. The same PR stops html's io claiming a srcdoc-bearing <iframe> as a fetch (srcdoc overrides src per the HTML spec, so the document is inline and nothing is fetched) -- without that, planting srcdoc would have pushed io off its planted 3 and traded one red cell for another.  keyword-rosetta#33: probe_bypass had an empty <script> placeholder; planted the `on*=` + eval( form x2. `target=\"_blank\"` and `href=\"javascript:\"` were both rejected -- they fire io, which is planted at 3. api (gitgalaxy#2729): one `<div id=\"probe-api-<file>\"></div>` per file (main 1+1, a 1, b 1, c 1) -- non-function surface; main reads 2 because the api rule also lists `name=` and the ownership meta `<meta name=\"author\" ...>` matched it already (the pre-wave 1); `name=` was not used for the plant because the args rule counts it (args planted 1/2/0/0), `<a>` is io and `<slot>` is generics+encapsulation; overlap: structural_boundaries +1 per file (ungated); api_orphan_credit and every planted count unchanged. 2026-09-07 (gitgalaxy#2866): declares invocation_model: positional -- script/style elements execute in document order; embedded-segment names belong to the embedded language. Also zeroes the crucible's phantom census (embedded @media buckets read as orphans in 10 real html files). raw_state_unreferenced renders n/a, ledger unreferenced-census-contract-2866. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

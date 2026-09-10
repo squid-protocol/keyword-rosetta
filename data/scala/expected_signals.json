@@ -23,7 +23,9 @@
       "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
-      "import": 1
+      "import": 1,
+      "units_public": 4,
+      "units_documented": 0
     },
     "a.scala": {
       "class_start": 0,
@@ -43,7 +45,9 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 0
+      "api_orphan_credit": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "b.scala": {
       "class_start": 0,
@@ -63,7 +67,9 @@
       "func_start": 3,
       "args": 3,
       "api": 3,
-      "api_orphan_credit": 0
+      "api_orphan_credit": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "c.scala": {
       "class_start": 0,
@@ -85,7 +91,9 @@
       "api": 3,
       "api_orphan_credit": 0,
       "doc": 0,
-      "ownership": 0
+      "ownership": 0,
+      "units_public": 3,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -109,5 +117,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"Runtime.getRuntime.exec\" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     }
   ],
-  "notes": "scala's expression-oriented style needs no return keyword — branch stays exactly at planted+string values with no return inflation (contrast kotlin/apex/objc/powershell/zig). api counts public defs (main 4) + conversion (a/b/c 6 = 3 + 3). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Runtime.getRuntime.exec\" literal inside probeState — b.scala high_risk_execution 0->1, branch 2->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.scala re-planted as `var first = items; first = 1; first = 2` (2): a `var` declaration is not a write (corollary 1). 2026-09-08 #2869 safety contract: probe_safety re-planted from constructors (Option(value)/Either) to validation calls (require/assume); cell unchanged at 2."
+  "notes": "scala's expression-oriented style needs no return keyword — branch stays exactly at planted+string values with no return inflation (contrast kotlin/apex/objc/powershell/zig). api counts public defs (main 4) + conversion (a/b/c 6 = 3 + 3). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"Runtime.getRuntime.exec\" literal inside probeState — b.scala high_risk_execution 0->1, branch 2->0, state_mutation 6->2. gitgalaxy#2672 (batch B.3 wave 2): the doc rule counted one doc comment once per marker plus once per tag; it now pairs the block, so doc records the planted 1. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.scala re-planted as `var first = items; first = 1; first = 2` (2): a `var` declaration is not a write (corollary 1). 2026-09-08 #2869 safety contract: probe_safety re-planted from constructors (Option(value)/Either) to validation calls (require/assume); cell unchanged at 2. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }
