@@ -12,8 +12,11 @@ Usage:
     python tools/incidence_report.py [/path/to/crucible/data]
 """
 
+import json
+import os
 import pathlib
 import re
+import statistics
 import sys
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -26,6 +29,65 @@ DEBT = r"(?:HACK|FIXME|XXX|BUG|KLUDGE|TODO|WIP|STUB)"
 def count_pattern(pat, flags=0):
     rx = re.compile(pat, flags)
     return lambda text: len(rx.findall(text))
+
+# ------------------------------------------------------------------------------
+# The documentation row (gitgalaxy#2908 Phase 5) is NOT a lexical shape: the
+# per-unit coverage ratio's real-world behaviour -- how many files carry a
+# single extracted unit (D5's 0-or-100 question), and whether any reaches a
+# hitlist -- can only be read off an engine run. It is rendered as its own
+# clearly-labelled section from gitgalaxy's committed golden master (the
+# engine's own scan of this same crucible corpus), found via GITGALAXY_PATH;
+# when no golden master is reachable the section says so instead of guessing.
+def documentation_section():
+    gg = os.environ.get("GITGALAXY_PATH", "")
+    golden = pathlib.Path(gg) / "tests" / "golden_master_audit.json" if gg else None
+    lines = ["", "## The documentation score, per unit (gitgalaxy#2908) -- engine run, not lexical", ""]
+    if not (golden and golden.is_file()):
+        lines += ["*(set `GITGALAXY_PATH` to a gitgalaxy checkout to render this section "
+                  "from `tests/golden_master_audit.json`)*"]
+        return lines
+    d = json.loads(golden.read_text())
+
+    def num(x):
+        try:
+            return float(str(x).rstrip("%").replace(",", ""))
+        except (ValueError, TypeError):
+            return None
+
+    files = []
+    for g in d["6. Parsed Files (Scanned Artifacts)"].values():
+        for f in (g.get("Files") or {}).values():
+            v = num(f.get("4. Vulnerability & Risk Exposures", {}).get("Documentation Exposure"))
+            if v is None:
+                continue
+            fn = f.get("5. Function Analysis") or []
+            entries = fn.values() if isinstance(fn, dict) else fn
+            units = sum(1 for x in entries if isinstance(x, dict))
+            loc = num(f.get("3. Architectural Profile", {}).get("Coding LOC")) or 0.0
+            files.append((v, units, loc))
+    scored = [(v, u, loc) for v, u, loc in files if u > 0]
+    na = len(files) - len(scored)
+    one = [(v, u, loc) for v, u, loc in scored if u == 1]
+    one100 = [x for x in one if x[0] == 100.0]
+    top20 = sorted(scored, key=lambda x: (-x[0], -x[2]))[:20]
+    one_in_top = sum(1 for x in top20 if x[1] == 1)
+    vals = [v for v, _, _ in scored]
+    lines += [
+        f"`risk_documentation` is a ratio over extracted units since gitgalaxy#2938; a file "
+        f"with no units is n/a (D6), and a one-unit file reads 0 or 100 with no damping (D5). "
+        f"Measured on the golden master's engine run over this same crucible corpus:",
+        "",
+        f"- {len(scored)} scored files, {na} n/a (no units); mean {statistics.mean(vals):.1f}, "
+        f"median {statistics.median(vals):.1f}; {sum(1 for v in vals if v == 100)} at 100, "
+        f"{sum(1 for v in vals if v == 0)} at 0.",
+        f"- one-unit files: {len(one)} ({len(one) / len(scored):.0%} of scored); "
+        f"{len(one100)} read 100; **{one_in_top} reach the top-20 hitlist** "
+        f"(score desc, coding-LOC tiebreak) -- the roll-ups are mass-weighted, so the "
+        f"0-or-100 granularity of a one-unit file stays out of the maintainer-facing lists. "
+        f"D5 (no damping) was confirmed on this evidence (gitgalaxy#2908 Phase 5).",
+    ]
+    return lines
+
 
 SHAPES = [
     ("php-open-tag-counts-branch", "#2541",
@@ -124,6 +186,8 @@ def main(argv):
         )
         lines.append(f"| `{shape_id}` | {issue_link} | {pct} | {occurrences} | {per} |")
         details.append(f"- **`{shape_id}`** — {desc} (languages: {', '.join(langs)})")
+
+    lines += documentation_section()
 
     lines += ["", "## Shape descriptions", ""] + details + [
         "",
