@@ -43,7 +43,7 @@ Metrics carrying the most open defect, by share of their comparable cells:
 - `raw_arch_api` — 2 of 46 (4%)
 - `func_complexity_gini` — 1 of 46 (2%)
 
-Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `batch4-dual-keyword-overlaps`, `comment-lines-manifest-doc-classification`. Narrow or retire them.
+Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `batch4-dual-keyword-overlaps`, `comment-lines-manifest-doc-classification`, `units-public-main-outside-api-contract`, `units-documented-structural-absences`. Narrow or retire them.
 
 ## The language-level risk constant is design; the report bands within it
 
@@ -57,7 +57,7 @@ Ledger entries that currently explain **no** out-of-band cell (validated, still 
 | `risk_documentation` | 38.255 (4) | 39.195 (11) | 38.255 (13) | 41.665 (11) | 43.944 (3) | 21.522 (3) | 38.255 |
 | `risk_safety_score` | 39.811 (4) | 41.131 (11) | 42.314 (13) | 43.364 (11) | 44.290 (3) | 39.153 (3) | 42.314 |
 | `risk_tech_debt` | 29.878 (4) | 34.520 (11) | 38.665 (13) | 42.091 (11) | 48.534 (3) | 20.439 (4) | 36.592 |
-| `risk_verification` | 2.372 (4) | 2.380 (11) | 2.388 (13) | 2.396 (11) | 2.393 (3) | 2.353 (3) | 2.385 |
+| `risk_verification` | 2.380 (4) | 2.388 (11) | 2.397 (13) | 2.405 (11) | 2.402 (3) | 2.358 (3) | 2.394 |
 
 ## Non-planted keyword extraction
 
@@ -136,7 +136,7 @@ n/a = the registry rule this count is a tally OF is absent for the language (`fu
 
 | risk | abap | ada | agc_assembly | apex | assembly | c | cobol | cpp | csharp | css | dart | dockerfile | embedded_python | fortran | go | groovy | haskell | html | java | javascript | jcl | kotlin | livecode | lua | m4 | makefile | markdown | matlab | objective-c | perl | php | powershell | python | ruby | rust | scala | scheme | shell | solidity | sqlite | swift | tcl | typescript | yacc | yaml | zig |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| risk_api_exposure | 7.335 | 7.335 | 7.021 | 7.052 | 7.052 | 7.335 | 6.170 | 7.052 | 7.052 | 7.021 | 7.335 | 3.526 | 7.335 | 7.335 | 6.611 | 7.052 | 1.763 | 4.041 | 7.052 | 7.052 | 0.881 | 7.052 | 7.335 | 7.335 | 7.052 | 7.335 | n/a | 7.335 | 5.289 | 7.335 | 7.052 | 7.052 | 7.335 | 7.052 | 7.052 | 7.335 | 7.052 | 7.052 | 7.052 | 0.000 | 7.052 | 7.052 | 7.052 | 7.021 | 3.526 | 7.052 |
+| risk_api_exposure | 32.156 | 32.156 | 35.838 | 31.872 | 31.872 | 32.156 | 30.991 | 31.872 | 31.872 | 35.838 | 32.156 | 15.936 | 32.156 | 32.156 | 31.432 | 31.872 | 7.968 | 16.452 | 31.872 | 31.872 | 0.881 | 31.872 | 32.156 | 32.156 | 31.872 | 33.488 | n/a | 32.156 | 30.110 | 32.156 | 31.872 | 31.872 | 32.156 | 31.872 | 31.872 | 32.156 | 31.872 | 31.872 | 31.872 | 0.000 | 31.872 | 31.872 | 31.872 | 35.838 | 15.936 | 31.872 |
 | risk_churn | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | risk_cognitive_load | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.303 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.619 | 1.295 | 1.295 | 1.295 | 1.295 | 3.670 | n/a | 1.295 | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.295 | 1.190 | 1.295 | 1.295 | 1.295 | 2.143 | 1.295 | 1.295 |
 | risk_concurrency | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7.056 | 0.000 | 0.000 | n/a | 0.000 | 0.000 |
@@ -148,7 +148,7 @@ n/a = the registry rule this count is a tally OF is absent for the language (`fu
 | risk_stability | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 0.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 |
 | risk_state_flux | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 5.787 | 7.751 | 5.787 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | n/a | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 |
 | risk_tech_debt | 34.520 | 34.520 | 48.534 | 34.520 | 44.707 | 38.665 | 23.104 | 38.665 | 34.520 | 29.878 | 34.520 | 23.814 | 38.665 | 42.091 | 34.520 | 42.091 | 29.878 | 20.439 | 29.878 | 42.091 | 23.814 | 34.520 | 42.091 | 42.091 | 42.091 | 42.091 | 0.000 | 38.665 | 38.665 | 42.091 | 38.665 | 38.665 | 38.665 | 38.665 | 29.878 | 34.520 | 38.665 | 42.091 | 34.520 | 23.104 | 29.878 | 38.665 | 34.520 | 49.165 | 20.439 | 34.520 |
-| risk_verification | 2.378 | 2.381 | 2.393 | 2.393 | 2.403 | 2.389 | 2.373 | 2.388 | 2.380 | 2.353 | 2.380 | 2.379 | 2.389 | 2.393 | 2.380 | 2.396 | 2.368 | 2.306 | 2.372 | 2.396 | 2.395 | 2.380 | 2.408 | 2.410 | 2.387 | 2.374 | n/a | 2.401 | 2.388 | 2.397 | 2.387 | 2.388 | 2.386 | 2.409 | 2.373 | 2.380 | 2.383 | 2.421 | 2.380 | 2.432 | 2.373 | 2.385 | 2.382 | 2.376 | 2.353 | 2.385 |
+| risk_verification | 2.385 | 2.389 | 2.402 | 2.403 | 2.413 | 2.398 | 2.382 | 2.397 | 2.388 | 2.360 | 2.388 | 2.388 | 2.398 | 2.402 | 2.388 | 2.406 | 2.374 | 2.307 | 2.380 | 2.405 | 2.405 | 2.388 | 2.419 | 2.421 | 2.395 | 2.382 | n/a | 2.412 | 2.397 | 2.407 | 2.396 | 2.397 | 2.394 | 2.421 | 2.380 | 2.389 | 2.392 | 2.434 | 2.388 | 2.449 | 2.380 | 2.394 | 2.390 | 2.384 | 2.358 | 2.394 |
 
 n/a = every registry-governed input to this formula is absent for the language and the scan confirms the score is pinned at 0 (incomparable, excluded from bands and medians); † = at least one of those input absences is not yet backed by a validated ledger entry.
 

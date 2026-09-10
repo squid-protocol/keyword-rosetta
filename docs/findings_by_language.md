@@ -10,33 +10,33 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 |---|---|---|---|---|---|
 | [abap](#abap) | 0 | 0 | 0 | 7 | #2535 #2650 #2659 #2730 #2731 #2765 #2824 |
 | [ada](#ada) | 0 | 0 | 0 | 5 | #2535 #2546 #2822 |
-| [agc_assembly](#agc_assembly) | 1 | 1 | 2 | 10 | #2650 #2659 #2729 #2764 #2766 |
+| [agc_assembly](#agc_assembly) | 1 | 1 | 2 | 11 | #2650 #2659 #2729 #2764 #2766 |
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 #2878 |
 | [assembly](#assembly) | 0 | 0 | 0 | 7 | #2535 #2727 #2764 #2858 #2869 |
 | [c](#c) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 #2878 |
-| [cobol](#cobol) | 0 | 2 | 0 | 20 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
+| [cobol](#cobol) | 0 | 2 | 0 | 21 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
 | [csharp](#csharp) | 0 | 0 | 0 | 11 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 #2882 |
-| [css](#css) | 5 | 3 | 5 | 18 | #2549 #2655 #2689 #2729 #2752 #2766 #2770 #2866 #2878 |
+| [css](#css) | 5 | 3 | 5 | 20 | #2549 #2655 #2689 #2729 #2752 #2766 #2770 #2866 #2878 |
 | [dart](#dart) | 0 | 0 | 0 | 8 | #2535 #2651 #2689 #2730 #2731 #2852 #2878 |
-| [dockerfile](#dockerfile) | 5 | 3 | 1 | 21 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2766 #2770 #2792 #2798 #2822 #2856 #2866 #2875 |
+| [dockerfile](#dockerfile) | 4 | 4 | 1 | 21 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2766 #2770 #2792 #2798 #2822 #2856 #2866 #2875 |
 | [embedded_python](#embedded_python) | 2 | 0 | 0 | 14 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2852 #2869 #2875 |
 | [fortran](#fortran) | 0 | 2 | 0 | 15 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 #2878 |
 | [go](#go) | 0 | 0 | 0 | 11 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
 | [groovy](#groovy) | 0 | 0 | 0 | 8 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 #2878 |
-| [haskell](#haskell) | 4 | 1 | 0 | 14 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
+| [haskell](#haskell) | 4 | 1 | 0 | 15 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
 | [html](#html) | 9 | 4 | 3 | 18 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2766 #2770 #2866 |
 | [java](#java) | 0 | 0 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2878 |
 | [javascript](#javascript) | 0 | 3 | 0 | 16 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 #2841 #2878 |
-| [jcl](#jcl) | 3 | 2 | 3 | 20 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2798 #2806 #2822 #2841 |
+| [jcl](#jcl) | 3 | 2 | 3 | 21 | #2610 #2655 #2689 #2729 #2732 #2733 #2770 #2798 #2806 #2822 #2841 |
 | [kotlin](#kotlin) | 0 | 0 | 0 | 12 | #2535 #2545 #2546 #2689 #2730 #2731 #2765 #2770 #2798 |
 | [livecode](#livecode) | 0 | 0 | 0 | 12 | #2535 #2546 #2547 #2650 #2659 #2729 #2731 #2765 #2822 #2869 #2878 |
 | [lua](#lua) | 0 | 0 | 0 | 15 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2766 #2770 #2822 #2841 #2852 #2878 |
-| [m4](#m4) | 1 | 0 | 3 | 12 | #2535 #2689 #2731 #2765 #2766 #2770 #2872 |
-| [makefile](#makefile) | 5 | 0 | 2 | 17 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 #2888 #2918 |
+| [m4](#m4) | 1 | 0 | 3 | 13 | #2535 #2689 #2731 #2765 #2766 #2770 #2872 |
+| [makefile](#makefile) | 5 | 0 | 2 | 19 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 #2888 #2918 |
 | [markdown](#markdown) | 8 | 1 | 30 | 10 | #2549 #2638 #2655 #2689 #2770 #2866 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
-| [objective-c](#objective-c) | 1 | 0 | 0 | 8 | #2535 #2545 #2546 #2730 #2765 #2773 #2882 |
+| [objective-c](#objective-c) | 1 | 0 | 0 | 9 | #2535 #2545 #2546 #2730 #2765 #2773 #2882 |
 | [perl](#perl) | 0 | 0 | 0 | 13 | #2535 #2546 #2670 #2689 #2730 #2731 #2765 #2766 #2770 #2852 #2878 |
 | [php](#php) | 0 | 0 | 0 | 11 | #2535 #2541 #2546 #2689 #2730 #2731 #2770 #2852 #2878 |
 | [powershell](#powershell) | 2 | 0 | 0 | 10 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 #2822 |
@@ -51,8 +51,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [swift](#swift) | 0 | 0 | 0 | 12 | #2535 #2543 #2546 #2730 #2731 #2765 #2772 #2822 #2858 |
 | [tcl](#tcl) | 0 | 0 | 0 | 10 | #2535 #2546 #2727 #2731 #2765 #2766 #2822 #2841 |
 | [typescript](#typescript) | 0 | 0 | 0 | 14 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 #2878 |
-| [yacc](#yacc) | 5 | 0 | 2 | 9 | #2644 #2689 #2729 #2770 |
-| [yaml](#yaml) | 3 | 0 | 1 | 15 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 #2866 |
+| [yacc](#yacc) | 5 | 0 | 2 | 10 | #2644 #2689 #2729 #2770 |
+| [yaml](#yaml) | 2 | 1 | 1 | 15 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 #2866 |
 | [zig](#zig) | 0 | 0 | 0 | 10 | #2535 #2545 #2651 #2730 #2731 #2765 #2766 #2772 |
 
 ## abap
@@ -111,6 +111,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
 | `asm-call-ret-in-branch` | engine-semantic | [#2764](https://github.com/squid-protocol/gitgalaxy/issues/2764) | — | assembly's branch rule includes call and ret (all control transfers) — correct for asm morphology but it means every probe body's ret and every glue call counts branch (… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `units-public-main-outside-api-contract` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D2: is_public per function is the union of three sources -- A) the unit's own header matches the language's api rule, B) the unit's name appears i… |
 | `agc-assembly-class-start-no-struct-pseudoop` | intended-morphology | — | — | AGC's real 1960s YUL/GAP instruction set (agc_assembly.py:99-101, comment: 'AGC lacks native objects') has no struct/record-defining pseudo-op -- its data/memory constru… |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `encapsulation-no-visibility-construct` | intended-morphology | [#2766](https://github.com/squid-protocol/gitgalaxy/issues/2766) | — | Under the gitgalaxy#2766 contract these languages have no per-name non-public marker at all: zig's hiding is the unmarked default (no private keyword; the old rule's 154… |
@@ -226,6 +227,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | a.cpy | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `units-public-main-outside-api-contract` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D2: is_public per function is the union of three sources -- A) the unit's own header matches the language's api rule, B) the unit's name appears i… |
 | `cobol-args-clause-match-morphology` | intended-morphology | — | (notes) | cobol args 1 vs planted 13 is intended morphology, not an authoring gap (bucket-3 test run before ledgering, jcl PARM= precedent checked) |
 | `non-planted-rules-match-idiom-and-planted-tokens` | intended-morphology | — | — | The 'non-planted keyword extraction' group scores the registry signals the risk formulas read that the SPEC probe table never plants |
 | `cobol-working-storage-globals` | keyword-overlap | [#2805](https://github.com/squid-protocol/gitgalaxy/issues/2805) | (notes) | cobol globals pattern includes WORKING-STORAGE\s+SECTION as an alternative — every fixed-format program with a working-storage section records globals >= 1 |
@@ -323,6 +325,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `tech-debt-floor-census-rebased-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | With the census layer honest (gitgalaxy#2866), these four tech-debt cells stopped inheriting their explanation from raw_state_unreferenced (the cells were out of band be… |
+| `units-documented-structural-absences` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D3: units_documented cannot read 1 for jcl -- it declares NO `doc` rule at all (same shape as the pre-existing api-no-rule-defined entry), so doc_… |
+| `units-public-main-outside-api-contract` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D2: is_public per function is the union of three sources -- A) the unit's own header matches the language's api rule, B) the unit's name appears i… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `css-declarative-no-runtime-payload-morphology` | intended-morphology | — | — | CSS is purely declarative with no embedded imperative/scripting payload, unlike the other languages that wire these three signals only against such payload: html's clean… |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
@@ -372,10 +376,10 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `args`: 4 vs median 13 (-69%)
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
-- 🔴 `risk_api_exposure`: 3.5258 vs median 7.0517 (-50%)
 - 🔴 `risk_documentation`: 16.6864 vs median 41.6651 (-60%)
 - 🟡 `func_start`: 17 vs median 13 (+31%)
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
+- 🟡 `risk_api_exposure`: 15.9363 vs median 31.8725 (-50%)
 - 🟡 `risk_tech_debt`: 23.8144 vs median 42.0908 (-43%)
 
 **Not expressible as measured (n/a):** `raw_state_unreferenced`
@@ -529,7 +533,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
-- 🔴 `risk_api_exposure`: 1.7629 vs median 7.0517 (-75%)
+- 🔴 `risk_api_exposure`: 7.9681 vs median 31.8725 (-75%)
 - 🔴 `risk_documentation`: 16.5437 vs median 38.2552 (-57%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
 - 🟡 `risk_safety_score`: 53.0245 vs median 39.811 (+33%)
@@ -542,6 +546,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `function-body-length-morphology` | engine-semantic | — | — | The residual shape cells after gitgalaxy#2689's other four mechanisms are accounted for, and they are all the same thing seen from two directions: identical planted inte… |
 | `haskell-caf-bindings-count-as-functions` | engine-semantic | — | (notes) | Top-level value bindings (CAFs like 'region = unsafePerformIO ...') count func_start/args like any function binding — morphologically correct for haskell, where top-leve… |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.hs | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `units-documented-structural-absences` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D3: units_documented cannot read 1 for jcl -- it declares NO `doc` rule at all (same shape as the pre-existing api-no-rule-defined entry), so doc_… |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `immutability-locks-contract-2772` | intended-morphology | [#2772](https://github.com/squid-protocol/gitgalaxy/issues/2772) | — | Rule-absence declaration (docs/GATING.md n/a semantics, the html/globals precedent) plus the contract record |
 | `probe-idiom-collides-with-measured-signal` | intended-morphology | — | — | A probe's required idiom is legitimately also the signal being measured, so the surplus cannot be authored away without breaking the probe it belongs to |
@@ -575,7 +580,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 - 🟡 `func_start`: 9 vs median 13 (-31%)
-- 🟡 `risk_api_exposure`: 4.04143 vs median 7.0517 (-43%)
+- 🟡 `risk_api_exposure`: 16.4519 vs median 31.8725 (-48%)
 
 **Not expressible as measured (n/a):** `globals`, `raw_state_unreferenced`, `state_mutation`
 
@@ -673,7 +678,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `raw_arch_api`: 0.25 vs median 3 (-92%)
-- 🔴 `risk_api_exposure`: 0.88145 vs median 7.0517 (-88%)
+- 🔴 `risk_api_exposure`: 0.88145 vs median 31.8725 (-97%)
 - 🔴 `risk_documentation`: 4.05678 vs median 41.6651 (-90%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
 - 🟡 `risk_tech_debt`: 23.8144 vs median 42.0908 (-43%)
@@ -693,6 +698,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `jcl-steps-have-no-invocation-by-name` | engine-semantic | [#2806](https://github.com/squid-protocol/gitgalaxy/issues/2806) | (notes) | jcl records raw_state_unreferenced 0.00 against a 2.50 median, and 0 here means UNANSWERABLE, not clean |
 | `jcl-sync-locks-disp-enq-question` | engine-semantic | [#2733](https://github.com/squid-protocol/gitgalaxy/issues/2733) | — | Real serialization morphology with a rule-design conflict: DISP=OLD/MOD request an exclusive system ENQ on a dataset (DISP=SHR shared) -- z/OS's native lock idiom, and t… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
+| `units-documented-structural-absences` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D3: units_documented cannot read 1 for jcl -- it declares NO `doc` rule at all (same shape as the pre-existing api-no-rule-defined entry), so doc_… |
 | `jcl-no-const-no-metaprogramming` | intended-morphology | — | — | immutability_locks: JCL has no const concept |
 | `no-async-construct-concurrency` | intended-morphology | — | — | No async-execution construct exists in these languages, per-language: css -- declarative styling; animations/transitions are declarative timelines the renderer schedules… |
 | `no-visibility-construct-encapsulation` | intended-morphology | — | — | No visibility/privacy construct: jcl -- PROCs and symbolic parameters are parameterization, not privacy; nothing in JCL syntax hides one statement from another |
@@ -807,6 +813,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.m4 | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `units-documented-structural-absences` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D3: units_documented cannot read 1 for jcl -- it declares NO `doc` rule at all (same shape as the pre-existing api-no-rule-defined entry), so doc_… |
 | `encapsulation-no-visibility-construct` | intended-morphology | [#2766](https://github.com/squid-protocol/gitgalaxy/issues/2766) | — | Under the gitgalaxy#2766 contract these languages have no per-name non-public marker at all: zig's hiding is the unmarked default (no private keyword; the old rule's 154… |
 | `m4-class-start-no-object-concept` | intended-morphology | — | — | GNU M4 is a pure text-substitution macro processor; neither M4 nor Autoconf (the corpus's real-world use case) has any record/object/type-declaration concept |
 | `m4-macros-mutable-by-design` | intended-morphology | — | — | The engine's own registry records the rationale in-code: m4.py annotates the None rule with 'M4 macros are mutable by design' |
@@ -843,6 +850,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | (notes) | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.mk | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
+| `units-documented-structural-absences` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D3: units_documented cannot read 1 for jcl -- it declares NO `doc` rule at all (same shape as the pre-existing api-no-rule-defined entry), so doc_… |
+| `units-public-main-outside-api-contract` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D2: is_public per function is the union of three sources -- A) the unit's own header matches the language's api rule, B) the unit's name appears i… |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `makefile-class-start-no-entity-declaration` | intended-morphology | — | — | GNU Make's model is variables plus file/phony targets; it has no entity or type-declaration concept |
 | `makefile-gini-toplevel-conditionals-inherency` | intended-morphology | [#2918](https://github.com/squid-protocol/gitgalaxy/issues/2918) | — | GNU Make's top-level conditionals (ifeq/ifdef/else) execute at parse time and sit outside every target slice by grammar, so a per-unit inequality metric over target reci… |
@@ -924,6 +933,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.mm | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.mm | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
 | `ts-callparen-args` | engine-semantic | [#2773](https://github.com/squid-protocol/gitgalaxy/issues/2773) | (notes) | typescript's args rule counts statement-position call parens (describe(kit), expect(kit)) in addition to declaration params — a.ts args 5 for 3 declarations (finditer-co… |
+| `units-public-main-outside-api-contract` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D2: is_public per function is the union of three sources -- A) the unit's own header matches the language's api rule, B) the unit's name appears i… |
 | `ownership-contract-2882` | upstream-bug | [#2882](https://github.com/squid-protocol/gitgalaxy/issues/2882) | — | The ownership rule had no stated contract; its one open-defect cell (solidity 4 vs 1) was the rule reading the `// SPDX-License-Identifier:` line -- a license identifier… |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
 | `api-no-plantable-idiom` | upstream-question | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | — | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
@@ -1219,7 +1229,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
-- 🔴 `risk_api_exposure`: 0 vs median 7.0517 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 31.8725 (-100%)
 - 🔴 `risk_documentation`: 0 vs median 38.2552 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
@@ -1352,6 +1362,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-non-function-surfaces` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | — | These languages have no per-function visibility construct at all, so their api rule matches a FILE-level declaration and the corpus plants one per file: css `@property -… |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `control-flow-ratio-denominator-is-a-vocabulary-tally` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) [#2770](https://github.com/squid-protocol/gitgalaxy/issues/2770) | — | control_flow_ratio = branch / (branch + structural_boundaries) (gitgalaxy detector.py:1288) |
+| `units-public-main-outside-api-contract` | engine-semantic | — | — | gitgalaxy#2908 Phase 2 D2: is_public per function is the union of three sources -- A) the unit's own header matches the language's api rule, B) the unit's name appears i… |
 | `yacc-test-no-native-testing-concept` | engine-semantic | — | — | yacc.py's test rule is None |
 | `args-no-parameter-surface-morphology` | intended-morphology | — | (notes) | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
 | `no-async-construct-concurrency` | intended-morphology | — | — | No async-execution construct exists in these languages, per-language: css -- declarative styling; animations/transitions are declarative timelines the renderer schedules… |
@@ -1372,7 +1383,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
-- 🔴 `risk_api_exposure`: 3.5258 vs median 7.0517 (-50%)
+- 🟡 `risk_api_exposure`: 15.9363 vs median 31.8725 (-50%)
 
 **Not expressible as measured (n/a):** `raw_state_unreferenced`
 
