@@ -2562,7 +2562,7 @@
    "go": 96.428575,
    "groovy": 96.428575,
    "haskell": 89.285725,
-   "html": 0.0,
+   "html": null,
    "java": 96.428575,
    "javascript": 96.428575,
    "jcl": 100.0,
@@ -2571,7 +2571,7 @@
    "lua": 93.75,
    "m4": 89.285725,
    "makefile": 87.5,
-   "markdown": 0.0,
+   "markdown": null,
    "matlab": 93.75,
    "objective-c": 93.75,
    "perl": 93.75,
@@ -2584,7 +2584,7 @@
    "scheme": 92.85715,
    "shell": 96.428575,
    "solidity": 96.428575,
-   "sqlite": 0.0,
+   "sqlite": null,
    "swift": 96.428575,
    "tcl": 96.428575,
    "typescript": 96.428575,
@@ -3264,6 +3264,150 @@
    "yaml": 0.02675,
    "zig": 0.02875
   },
+  "units_public": {
+   "abap": 13,
+   "ada": 13,
+   "agc_assembly": 9,
+   "apex": 12,
+   "assembly": 12,
+   "c": 13,
+   "cobol": 9,
+   "cpp": 12,
+   "csharp": 12,
+   "css": 9,
+   "dart": 13,
+   "dockerfile": 0,
+   "embedded_python": 13,
+   "fortran": 13,
+   "go": 12,
+   "groovy": 12,
+   "haskell": 12,
+   "html": 0,
+   "java": 12,
+   "javascript": 12,
+   "jcl": 0,
+   "kotlin": 12,
+   "livecode": 13,
+   "lua": 13,
+   "m4": 12,
+   "makefile": 13,
+   "markdown": 0,
+   "matlab": 13,
+   "objective-c": 9,
+   "perl": 13,
+   "php": 12,
+   "powershell": 12,
+   "python": 13,
+   "ruby": 12,
+   "rust": 12,
+   "scala": 13,
+   "scheme": 12,
+   "shell": 12,
+   "solidity": 12,
+   "sqlite": 0,
+   "swift": 12,
+   "tcl": 12,
+   "typescript": 12,
+   "yacc": 9,
+   "yaml": 0,
+   "zig": 12
+  },
+  "units_documented": {
+   "abap": 1,
+   "ada": 1,
+   "agc_assembly": 1,
+   "apex": 1,
+   "assembly": 1,
+   "c": 1,
+   "cobol": 1,
+   "cpp": 1,
+   "csharp": 1,
+   "css": 2,
+   "dart": 1,
+   "dockerfile": 0,
+   "embedded_python": 1,
+   "fortran": 1,
+   "go": 1,
+   "groovy": 1,
+   "haskell": 2,
+   "html": 0,
+   "java": 1,
+   "javascript": 1,
+   "jcl": 0,
+   "kotlin": 1,
+   "livecode": 1,
+   "lua": 1,
+   "m4": 2,
+   "makefile": 2,
+   "markdown": 0,
+   "matlab": 1,
+   "objective-c": 1,
+   "perl": 1,
+   "php": 1,
+   "powershell": 1,
+   "python": 1,
+   "ruby": 1,
+   "rust": 1,
+   "scala": 1,
+   "scheme": 1,
+   "shell": 1,
+   "solidity": 1,
+   "sqlite": 0,
+   "swift": 1,
+   "tcl": 1,
+   "typescript": 1,
+   "yacc": 1,
+   "yaml": 0,
+   "zig": 1
+  },
+  "units_public_documented": {
+   "abap": 1,
+   "ada": 1,
+   "agc_assembly": 0,
+   "apex": 0,
+   "assembly": 0,
+   "c": 1,
+   "cobol": 0,
+   "cpp": 0,
+   "csharp": 0,
+   "css": 0,
+   "dart": 1,
+   "dockerfile": 0,
+   "embedded_python": 1,
+   "fortran": 1,
+   "go": 0,
+   "groovy": 0,
+   "haskell": 1,
+   "html": 0,
+   "java": 0,
+   "javascript": 0,
+   "jcl": 0,
+   "kotlin": 0,
+   "livecode": 1,
+   "lua": 1,
+   "m4": 1,
+   "makefile": 1,
+   "markdown": 0,
+   "matlab": 1,
+   "objective-c": 0,
+   "perl": 1,
+   "php": 0,
+   "powershell": 0,
+   "python": 1,
+   "ruby": 0,
+   "rust": 0,
+   "scala": 1,
+   "scheme": 1,
+   "shell": 0,
+   "solidity": 0,
+   "sqlite": 0,
+   "swift": 0,
+   "tcl": 0,
+   "typescript": 0,
+   "yacc": 0,
+   "yaml": 0,
+   "zig": 0
+  },
   "risk_churn": {
    "abap": 0.0,
    "ada": 0.0,
@@ -3430,6 +3574,17 @@
    "yacc": "ledgered",
    "jcl": "ledgered"
   },
+  "classes_found": {
+   "agc_assembly": "ledgered",
+   "m4": "ledgered",
+   "makefile": "ledgered",
+   "markdown": "ledgered",
+   "shell": "ledgered"
+  },
+  "functions_found": {
+   "markdown": "ledgered",
+   "sqlite": "ledgered"
+  },
   "risk_api_exposure": {
    "markdown": "ledgered"
   },
@@ -3445,6 +3600,11 @@
   "risk_dead_code": {
    "markdown": "ledgered"
   },
+  "risk_documentation": {
+   "markdown": "ledgered",
+   "html": "ledgered",
+   "sqlite": "ledgered"
+  },
   "risk_safety_score": {
    "markdown": "ledgered"
   },
@@ -3456,17 +3616,6 @@
   },
   "risk_verification": {
    "markdown": "ledgered"
-  },
-  "classes_found": {
-   "agc_assembly": "ledgered",
-   "m4": "ledgered",
-   "makefile": "ledgered",
-   "markdown": "ledgered",
-   "shell": "ledgered"
-  },
-  "functions_found": {
-   "markdown": "ledgered",
-   "sqlite": "ledgered"
   },
   "raw_state_unreferenced": {
    "dockerfile": "ledgered",
@@ -3488,7 +3637,8 @@
     "state_mutation"
    ],
    "engine": [],
-   "reads_constant": true
+   "reads_constant": true,
+   "units": []
   },
   "risk_safety_score": {
    "calc": "_calc_safety",
@@ -3501,7 +3651,8 @@
     "test"
    ],
    "engine": [],
-   "reads_constant": true
+   "reads_constant": true,
+   "units": []
   },
   "risk_tech_debt": {
    "calc": "_calc_tech_debt",
@@ -3513,7 +3664,8 @@
     "duplicate_logic",
     "unreferenced_by_name"
    ],
-   "reads_constant": true
+   "reads_constant": true,
+   "units": []
   },
   "risk_verification": {
    "calc": "_calc_verification",
@@ -3521,7 +3673,8 @@
     "high_risk_execution"
    ],
    "engine": [],
-   "reads_constant": true
+   "reads_constant": true,
+   "units": []
   },
   "risk_api_exposure": {
    "calc": "_calc_api_exposure",
@@ -3530,7 +3683,8 @@
     "encapsulation"
    ],
    "engine": [],
-   "reads_constant": false
+   "reads_constant": false,
+   "units": []
   },
   "risk_concurrency": {
    "calc": "_calc_concurrency",
@@ -3539,7 +3693,8 @@
     "sync_locks"
    ],
    "engine": [],
-   "reads_constant": false
+   "reads_constant": false,
+   "units": []
   },
   "risk_state_flux": {
    "calc": "_calc_state_flux",
@@ -3548,7 +3703,8 @@
     "state_mutation"
    ],
    "engine": [],
-   "reads_constant": false
+   "reads_constant": false,
+   "units": []
   },
   "risk_dead_code": {
    "calc": "_calc_graveyard",
@@ -3556,7 +3712,8 @@
     "dead_code"
    ],
    "engine": [],
-   "reads_constant": false
+   "reads_constant": false,
+   "units": []
   },
   "risk_spec_match": {
    "calc": "_calc_spec_alignment",
@@ -3566,25 +3723,36 @@
     "spec_exposure"
    ],
    "engine": [],
-   "reads_constant": false
+   "reads_constant": false,
+   "units": []
   },
   "risk_stability": {
    "calc": "_calc_raw_temporal_signals",
    "governed": [],
    "engine": [],
-   "reads_constant": false
+   "reads_constant": false,
+   "units": []
   },
   "risk_churn": {
    "calc": null,
    "governed": [],
    "engine": [],
-   "reads_constant": false
+   "reads_constant": false,
+   "units": []
   },
   "risk_documentation": {
    "calc": "_calc_documentation",
-   "governed": [],
+   "governed": [
+    "reflection_metaprogramming"
+   ],
    "engine": [],
-   "reads_constant": false
+   "reads_constant": false,
+   "units": [
+    "functions_found",
+    "units_documented",
+    "units_public",
+    "units_public_documented"
+   ]
   },
   "risk_secrets_risk": {
    "calc": "_calc_secrets_risk",
@@ -3598,7 +3766,8 @@
     "sec_hardcoded_secrets",
     "sec_reflection_metaprogramming"
    ],
-   "reads_constant": false
+   "reads_constant": false,
+   "units": []
   }
  },
  "engine_mode": "full-precision",
@@ -3679,6 +3848,11 @@
   "spec_exposure",
   "sync_locks"
  ],
+ "unit_metrics": [
+  "units_public",
+  "units_documented",
+  "units_public_documented"
+ ],
  "ungated_metrics": [
   "avg_func_loc",
   "coding_loc",
@@ -3689,18 +3863,12 @@
   "risk_stability",
   "structural_mass",
   "token_mass",
-  "total_loc"
+  "total_loc",
+  "units_documented",
+  "units_public",
+  "units_public_documented"
  ],
  "length_leaks": [
-  {
-   "metric": "risk_documentation",
-   "n": 13,
-   "rho": 0.939,
-   "verdict": "leak",
-   "held": [],
-   "stratum": "irc2",
-   "where": "_calc_documentation: (opaque_execution + api x 2 + dynamism) / (_mass_loc(loc) + 20) (signal_processor.py ~L1561-1568) -- the denominator is the #2655 floor, constant for every file in this corpus, so the numerator's growth with program length is unopposed"
-  },
   {
    "metric": "immutability_locks",
    "n": 13,
@@ -3769,6 +3937,21 @@
    ],
    "stratum": "irc2",
    "where": null
+  },
+  {
+   "metric": "risk_documentation",
+   "n": 15,
+   "rho": 0.0,
+   "verdict": "invariant",
+   "held": [
+    "reflection_metaprogramming",
+    "functions_found",
+    "units_documented",
+    "units_public",
+    "units_public_documented"
+   ],
+   "stratum": null,
+   "where": "no LOC term since gitgalaxy#2908 Phase 3: a pure per-unit coverage ratio (signal_processor.py `_calc_documentation`), constant across languages sharing the held unit profile -- the rho -0.83 leak this row used to carry is resolved by construction; variation between profiles is main's units_public/units_documented split, the api contract cells"
   }
  ],
  "cell_categories": {
@@ -3880,9 +4063,6 @@
   "risk_concurrency/agc_assembly": "echo",
   "risk_concurrency/swift": "echo",
   "risk_dead_code/jcl": "scoring",
-  "risk_documentation/html": "scoring",
-  "risk_documentation/markdown": "scoring",
-  "risk_documentation/sqlite": "scoring",
   "risk_safety_score/cobol": "scoring",
   "risk_safety_score/fortran": "echo",
   "risk_safety_score/haskell": "echo",
@@ -4087,7 +4267,7 @@
   ],
   "risk_documentation": [
    0,
-   46
+   43
   ],
   "risk_safety_score": [
    0,

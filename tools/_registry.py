@@ -237,6 +237,60 @@ class _SignalUses(ast.NodeVisitor):
         self.generic_visit(node)
 
 
+class _UnitAttrUses(ast.NodeVisitor):
+    """Collects per-UNIT inputs in one function (gitgalaxy#2908 Phase 3).
+
+    `_calc_documentation` stopped reading `raw_signals` entirely: it iterates the
+    extracted units and reads `func.get("is_public")`, `func.get("is_documented")`
+    and `func.get("hit_vector", {}).get("reflection_metaprogramming", 0)`. Those
+    are real derivation edges -- the corpus records them as the `units_public` /
+    `units_documented` function_data aggregates and the per-unit hit columns --
+    and losing them would repeat the #2719 `_dynamism` lesson this module's own
+    header tells: a formula input the AST walk cannot see silently drops out of
+    the attribution map.
+
+    `attrs` collects the unit attribute keys ({"is_public", "is_documented"});
+    `hit_keys` collects signal names read out of a unit's own `hit_vector`.
+    """
+
+    UNIT_ATTRS = {"is_public", "is_documented"}
+
+    def __init__(self):
+        self.attrs = set()
+        self.hit_keys = set()
+
+    def visit_Call(self, node):
+        f = node.func
+        if (
+            isinstance(f, ast.Attribute)
+            and f.attr == "get"
+            and node.args
+            and isinstance(node.args[0], ast.Constant)
+            and isinstance(node.args[0].value, str)
+        ):
+            key = node.args[0].value
+            if key in self.UNIT_ATTRS:
+                self.attrs.add(key)
+            # `<unit>.get("hit_vector", {}).get("<signal>")`: the outer .get's
+            # target is itself a .get("hit_vector") call.
+            inner = f.value
+            if (
+                isinstance(inner, ast.Call)
+                and isinstance(inner.func, ast.Attribute)
+                and inner.func.attr == "get"
+                and inner.args
+                and isinstance(inner.args[0], ast.Constant)
+                and inner.args[0].value == "hit_vector"
+            ):
+                self.hit_keys.add(key)
+        self.generic_visit(node)
+
+
+# The corpus column each per-unit attribute aggregates into (function_data SUMs,
+# the same columns verify_language.py gates per file since gitgalaxy#2908 Phase 2).
+UNIT_ATTR_COLUMNS = {"is_public": "units_public", "is_documented": "units_documented"}
+
+
 def _calc_name(node):
     """`self._calc_x(...)` / `_calc_x(...)` -> "_calc_x", else None."""
     if not isinstance(node, ast.Call):
@@ -277,12 +331,15 @@ def risk_dependencies(governed_signals):
     # `_calc_cog_load` no longer subscript raw_signals["reflection_metaprogramming"]
     # themselves, they call `self._dynamism(raw_signals)` -- and this map silently
     # lost the input, which had been carrying F.3's yacc cognitive-load verdict.
-    per_method, calls_out = {}, {}
+    per_method, calls_out, per_method_units = {}, {}, {}
     for node in ast.walk(tree):
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
             v = _SignalUses()
             v.visit(node)
             per_method[node.name] = v.keys
+            u = _UnitAttrUses()
+            u.visit(node)
+            per_method_units[node.name] = u
             calls_out[node.name] = {
                 n.func.attr for n in ast.walk(node)
                 if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)
@@ -299,10 +356,15 @@ def risk_dependencies(governed_signals):
             keys |= _signals_of(callee, seen)
         return keys
 
-    per_calc, owner, reads_tier = {}, {}, {}
+    per_calc, per_calc_units, owner, reads_tier = {}, {}, {}, {}
     for node in ast.walk(tree):
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith("_calc"):
             per_calc[node.name] = _signals_of(node.name)
+            u = per_method_units.get(node.name)
+            per_calc_units[node.name] = u.attrs if u else set()
+            # A unit's own hit_vector reads are registry-governed signals too:
+            # no reflection_metaprogramming rule, no per-unit reflection hits.
+            per_calc[node.name] = per_calc[node.name] | (u.hit_keys if u else set())
             # F.3: does the formula read a language-level constant (irc / ot, and
             # the per-signal fidelity map that replaced the scalar fc in #2718)? A
             # bare-name reference anywhere in the body counts; the constants are
@@ -342,11 +404,29 @@ def risk_dependencies(governed_signals):
         # separately-computed score) has no derivable signal dependency: it is
         # recorded with an empty map and can never qualify as unmeasurable.
         keys = per_calc.get(fn, set()) if fn else set()
+        unit_attrs = per_calc_units.get(fn, set()) if fn else set()
         out[f"risk_{k.value}"] = {
             "calc": fn,
             "governed": sorted(x for x in keys if x in governed_signals),
             "engine": sorted(x for x in keys if x not in governed_signals),
             "reads_constant": bool(fn and reads_tier.get(fn, False)),
+            # gitgalaxy#2908 Phase 3: the per-unit derivation edges, as corpus
+            # column names. Non-empty marks the formula POPULATION-BASED: it is
+            # a ratio over the extracted units, so its n/a basis is an empty
+            # unit population (functions_found 0 or n/a), never rule absence.
+            # The population count itself is an edge (every unit contributes
+            # weight), and when the formula reads BOTH is_public and
+            # is_documented their interaction is one too: a documented public
+            # unit removes public_weight from the exposed sum where a documented
+            # private unit removes 1, so the overlap total
+            # (`units_public_documented`) is part of the ratio's sufficient
+            # statistic, not a convenience column.
+            "units": (
+                (["functions_found"] if unit_attrs else [])
+                + sorted(UNIT_ATTR_COLUMNS[a] for a in unit_attrs)
+                + (["units_public_documented"]
+                   if {"is_public", "is_documented"} <= unit_attrs else [])
+            ),
         }
     if not out:
         raise RuntimeError(f"risk assembly in {path} yielded no metrics")
