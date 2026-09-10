@@ -16,6 +16,13 @@ The control corpus proves each shape exists; this table sizes it in the wild. Co
 | `swift-open-api-fp` | [#2544](https://github.com/squid-protocol/gitgalaxy/issues/2544) | 0/6 (0%) | 0 | — |
 | `html-script-func-start-unreachable` | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) | 39/54 (72%) | 113 | 2.9 |
 
+## The documentation score, per unit (gitgalaxy#2908) -- engine run, not lexical
+
+`risk_documentation` is a ratio over extracted units since gitgalaxy#2938; a file with no units is n/a (D6), and a one-unit file reads 0 or 100 with no damping (D5). Measured on the golden master's engine run over this same crucible corpus:
+
+- 2075 scored files, 574 n/a (no units); mean 71.1, median 100.0; 1159 at 100, 333 at 0.
+- one-unit files: 438 (21% of scored); 263 read 100; **0 reach the top-20 hitlist** (score desc, coding-LOC tiebreak) -- the roll-ups are mass-weighted, so the 0-or-100 granularity of a one-unit file stays out of the maintainer-facing lists. D5 (no damping) was confirmed on this evidence (gitgalaxy#2908 Phase 5).
+
 ## Shape descriptions
 
 - **`php-open-tag-counts-branch`** — branch +1 per `<?php`/`<?=` open tag (ternary-? alternation matches the tag) (languages: php)
