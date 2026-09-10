@@ -297,7 +297,7 @@
    "title": "cleanup has no stated contract: shell counts every exit, perl counts return undef, cobol matches CLOSE inside paragraph names, and eight languages count the declaration of a cleanup routine as a use of one"
   },
   "squid-protocol/gitgalaxy#2918": {
-   "state": "CLOSED",
+   "state": "OPEN",
    "title": "func_complexity_gini: make's top-level conditionals sit outside every target slice (makefile 0.354 vs 0.1875 median; the last open-defect cell)"
   },
   "squid-protocol/keyword-rosetta#71": {
