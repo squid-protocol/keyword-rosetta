@@ -60,6 +60,19 @@ RAW_COLUMNS = {"api": "raw_arch_api"}
 # api-contextual-baseline-fix).
 DERIVED_KEYS = {"api_orphan_credit": ("arch_api", "raw_arch_api")}
 
+# Per-file manifest keys aggregated from function_data (gitgalaxy#2908 Phase 2):
+# SUM of a per-function 0/1 column, joined to file_data by file_id. Unlike
+# RAW_COLUMNS/DERIVED_KEYS above (same-row file_data arithmetic), these read a
+# child table, so they get their own query in observed_signals() and their own
+# missing-column guard: a scan DB from a pre-#2908 engine has a function_data
+# table (CREATE TABLE IF NOT EXISTS won't retrofit an old one) but no
+# is_public/is_documented columns on it. PRAGMA-introspecting function_data,
+# mirroring the file_data introspection already below, just omits these keys
+# for that DB instead of faulting. A manifest that doesn't carry these keys
+# verifies unchanged either way: the compare loop in verify() only checks keys
+# present in the manifest's file entry.
+UNIT_AGGREGATE_KEYS = {"units_public": "is_public", "units_documented": "is_documented"}
+
 
 def _signal_columns():
     """{db_column: signal_key} for every SIGNAL_SCHEMA entry (RAW_COLUMNS applied)."""
@@ -111,6 +124,22 @@ def observed_signals(db_path, colmap):
         for key, (minuend, subtrahend) in derived.items():
             signals[key] = (row[minuend] or 0) - (row[subtrahend] or 0)
         out[row["file_name"]] = signals
+
+    func_have = {r[1] for r in conn.execute("PRAGMA table_info(function_data)")}
+    if all(c in func_have for c in UNIT_AGGREGATE_KEYS.values()):
+        agg_select = ", ".join(
+            f"SUM(function_data.{col}) AS {key}" for key, col in UNIT_AGGREGATE_KEYS.items()
+        )
+        unit_rows = conn.execute(
+            f"SELECT file_data.file_name AS file_name, {agg_select} "
+            "FROM file_data LEFT JOIN function_data "
+            "ON function_data.file_id = file_data.id "
+            "GROUP BY file_data.id"
+        ).fetchall()
+        for row in unit_rows:
+            signals = out.setdefault(row["file_name"], {})
+            for key in UNIT_AGGREGATE_KEYS:
+                signals[key] = row[key] or 0
     return out
 
 
