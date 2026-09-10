@@ -1,12 +1,12 @@
 -- Keyword Rosetta control shell: haskell / main
 -- Author: keyword-rosetta generator
--- | Dispatch each probe once.
 -- decoy: this suite never calls exitFailure and no case-of branch lives outside prose
 
 module Main (probeBranch, probeIo, probeRisk) where
 
 import A
 
+-- | Dispatch each probe once.
 entry :: Int -> Int
 entry argv = probeRisk (probeIo (probeBranch argv))
 

@@ -1,6 +1,5 @@
 # keyword rosetta control shell: makefile / main
 # author: keyword-rosetta generator
-## dispatch each probe once
 # decoy: this suite never runs sudo apt and no wget call lives outside prose
 include a.mk
 
@@ -8,6 +7,7 @@ include a.mk
 .PHONY: probe_io
 .PHONY: probe_risk
 
+## dispatch each probe once
 probe_dispatch: probe_branch probe_io probe_risk
 	$(call probe_branch)
 

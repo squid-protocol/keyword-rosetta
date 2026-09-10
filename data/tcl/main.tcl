@@ -1,12 +1,12 @@
 # keyword rosetta control shell: tcl / main
 # Author: keyword-rosetta generator
-# @brief dispatch each probe once
 # decoy: this suite never execs and the exit word stays in prose
 source a.tcl
 namespace export probe_branch
 namespace export probe_io
 namespace export probe_risk
 
+# @brief dispatch each probe once
 proc probe_dispatch {argv} {
     probe_branch $argv
     probe_io $argv

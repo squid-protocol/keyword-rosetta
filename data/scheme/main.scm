@@ -1,4 +1,3 @@
-;;; Dispatch each probe once.
 ;; Author: keyword-rosetta generator
 ;; keyword rosetta control shell: scheme / main
 ;; decoy: this suite never evaluates and the quit word stays in prose
@@ -7,6 +6,7 @@
 (export probe-io)
 (export probe-risk)
 
+;;; Dispatch each probe once.
 (define (entry argv)
   (probe-branch argv)
   (probe-io argv)

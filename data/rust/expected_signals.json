@@ -24,7 +24,9 @@
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
-      "encapsulation": 0
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 1
     },
     "a.rs": {
       "import": 1,
@@ -45,7 +47,9 @@
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
-      "encapsulation": 0
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "b.rs": {
       "import": 1,
@@ -66,7 +70,9 @@
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
-      "encapsulation": 0
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "c.rs": {
       "import": 0,
@@ -89,7 +95,9 @@
       "doc": 0,
       "ownership": 0,
       "high_risk_execution": 0,
-      "encapsulation": 0
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -122,5 +130,5 @@
       "outcome": "inert (underscore + lowercase)"
     }
   ],
-  "notes": "api deliberately 0 planted (rust api = \\bpub\\b; no pub anywhere) so a/b/c's api 3 is pure orphan conversion — the cleanest view of the Contextual Baseline Fix in the corpus. branch planted as if/else/loop (match avoided: it is also a rust safety keyword). state planted as two let-mut (avoided mut everywhere else, RefCell avoided as dual state keyword). panics_and_aborts 2 in main = process::exit/abort dual-mapped (unasserted). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-01): abort-only literal (rust's own danger keyword replaces the meaningless eval; state_mutation 6->2, branch 1->0, high_risk_execution 0->1). api (gitgalaxy#2729): 'pub fn' on the three probe functions per file (entry stays private): api 3/3/3/3 (main/a/b/c) -- supersedes the 'api deliberately 0 planted' sentence above; a/b/c's orphan conversion is now pinned by api_orphan_credit instead. Carried: rust's encapsulation rule is the same \\bpub\\b token, so encapsulation (newly recorded) is 3 per file, one per pub. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.rs re-planted as `let mut first = items; first = 1; first += 1;` (2): `mut` marks the binding, the write is the assignment (corollary 1), so the old plant read 0. 2026-09-08 #2869 safety contract: probe_safety re-planted from type annotations (`let some: Option`) to fallback forms (unwrap_or/ok_or) — a type name is not a guard; cell unchanged at 2. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.rs's `let quit = process::exit;` / `let stop = abort;` (bound aliases, C2) re-planted as `process::exit(payload);` / `abort();`. Cell unchanged at 2; structural_boundaries (ungated) -2. 2026-09-09 (gitgalaxy#2766): bare pub is api's token (public surface); encapsulation counts the restricted-pub forms pub(crate|super|self) only."
+  "notes": "api deliberately 0 planted (rust api = \\bpub\\b; no pub anywhere) so a/b/c's api 3 is pure orphan conversion — the cleanest view of the Contextual Baseline Fix in the corpus. branch planted as if/else/loop (match avoided: it is also a rust safety keyword). state planted as two let-mut (avoided mut everywhere else, RefCell avoided as dual state keyword). panics_and_aborts 2 in main = process::exit/abort dual-mapped (unasserted). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-01): abort-only literal (rust's own danger keyword replaces the meaningless eval; state_mutation 6->2, branch 1->0, high_risk_execution 0->1). api (gitgalaxy#2729): 'pub fn' on the three probe functions per file (entry stays private): api 3/3/3/3 (main/a/b/c) -- supersedes the 'api deliberately 0 planted' sentence above; a/b/c's orphan conversion is now pinned by api_orphan_credit instead. Carried: rust's encapsulation rule is the same \\bpub\\b token, so encapsulation (newly recorded) is 3 per file, one per pub. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.rs re-planted as `let mut first = items; first = 1; first += 1;` (2): `mut` marks the binding, the write is the assignment (corollary 1), so the old plant read 0. 2026-09-08 #2869 safety contract: probe_safety re-planted from type annotations (`let some: Option`) to fallback forms (unwrap_or/ok_or) — a type name is not a guard; cell unchanged at 2. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.rs's `let quit = process::exit;` / `let stop = abort;` (bound aliases, C2) re-planted as `process::exit(payload);` / `abort();`. Cell unchanged at 2; structural_boundaries (ungated) -2. 2026-09-09 (gitgalaxy#2766): bare pub is api's token (public surface); encapsulation counts the restricted-pub forms pub(crate|super|self) only. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data 2026-09-09 (gitgalaxy#2908 Phase 2, engine 698a06ef): positional doc pass now covers this comment family; main units_documented 0 -> 1, no corpus edit needed."
 }

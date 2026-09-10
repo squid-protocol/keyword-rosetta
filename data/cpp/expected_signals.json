@@ -23,7 +23,9 @@
       "telemetry": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 1
     },
     "a.cpp": {
       "class_start": 0,
@@ -43,7 +45,9 @@
       "telemetry": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "b.cpp": {
       "class_start": 0,
@@ -63,7 +67,9 @@
       "globals": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "c.cpp": {
       "class_start": 0,
@@ -85,7 +91,9 @@
       "globals": 0,
       "doc": 0,
       "ownership": 0,
-      "high_risk_execution": 0
+      "high_risk_execution": 0,
+      "units_public": 3,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -117,5 +125,5 @@
       "outcome": "inert"
     }
   ],
-  "notes": "branch 1 in a.cpp = catch (cpp branch includes catch — dual with safety's try/catch, finditer-confirmed). api 0 raw everywhere (cpp api = export only); a/b/c api 3 is pure orphan conversion. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.cpp high_risk_execution 0->1, branch 1->0, safety 1->0, state_mutation 9->3. api (gitgalaxy#2729): C++20 module-style `export` prefixed on every probe definition (`export int probe_x(...)`), 3 per file in main/a/b/c (entry stays unexported); the rule's `^[ \\t]*export\\b` alternation. Overlap: `export` is also a structural_boundaries keyword (+3 per file, unplanted/ungated); func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.cpp re-planted as `items = 1; items++;` (2): `mutable int held;` names mutable state and `std::move(items)` is a cast -- neither is a write under the contract, so the old plant read 0. 2026-09-06 (gitgalaxy#2822 corollary 1): branch no longer counts catch (a handler is safety's) -- a.cpp branch 1->0. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: b.cpp's string decoy carries the call form (`\"plain system() decoy text\"`): cpp's rule is anchored on call parens (C2 -- Godot's `bool exit = false; exit = true;` was 18 of its 29 files' hits) and memcpy/memset/setjmp left it (C5/C2). Cell unchanged at 1."
+  "notes": "branch 1 in a.cpp = catch (cpp branch includes catch — dual with safety's try/catch, finditer-confirmed). api 0 raw everywhere (cpp api = export only); a/b/c api 3 is pure orphan conversion. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"system\" literal inside probe_state — b.cpp high_risk_execution 0->1, branch 1->0, safety 1->0, state_mutation 9->3. api (gitgalaxy#2729): C++20 module-style `export` prefixed on every probe definition (`export int probe_x(...)`), 3 per file in main/a/b/c (entry stays unexported); the rule's `^[ \\t]*export\\b` alternation. Overlap: `export` is also a structural_boundaries keyword (+3 per file, unplanted/ungated); func_start, args and api_orphan_credit unchanged. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.cpp re-planted as `items = 1; items++;` (2): `mutable int held;` names mutable state and `std::move(items)` is a cast -- neither is a write under the contract, so the old plant read 0. 2026-09-06 (gitgalaxy#2822 corollary 1): branch no longer counts catch (a handler is safety's) -- a.cpp branch 1->0. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: b.cpp's string decoy carries the call form (`\"plain system() decoy text\"`): cpp's rule is anchored on call parens (C2 -- Godot's `bool exit = false; exit = true;` was 18 of its 29 files' hits) and memcpy/memset/setjmp left it (C5/C2). Cell unchanged at 1. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

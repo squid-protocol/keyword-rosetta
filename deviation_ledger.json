@@ -2240,6 +2240,43 @@
       "investigated_by": "claude-opus-4-8",
       "validated_at": "2026-09-09",
       "still_reproduces": true
+    },
+    {
+      "id": "units-public-main-outside-api-contract",
+      "signal": "units_public",
+      "languages_seen": [
+        "agc_assembly",
+        "cobol",
+        "css",
+        "makefile",
+        "objective-c",
+        "yacc"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "gitgalaxy#2908 Phase 2 D2: is_public per function is the union of three sources -- A) the unit's own header matches the language's api rule, B) the unit's name appears in an export-list construct, C) galaxyscope's Contextual Baseline Fix credits an UNCALLED (orphaned) unit as surface when its file is imported. agc_assembly, cobol, css, objective-c and yacc each fail all three for main: their unit forms (agc_assembly's positional label, cobol's PROCEDURE DIVISION paragraph, css's selector/at-rule block, objective-c's method, yacc's grammar rule) have no api-rule header pattern and no export-list construct in these files, and main's own probe_branch/probe_io/probe_risk units are all REFERENCED (main calls them), so they never qualify for source C's orphan credit either -- credit only ever applies to an uncalled unit, and main's probes are called. Result: units_public = 0 for all five mains, same shape as the corpus's other pre-#2908 api=0 cells for these languages (main is never imported, popularity 0, no orphan conversion at the FILE level either). Expected, surfaced-on-purpose api-contract cells, not a defect: fixing them would require extending the api/export-list rule contract itself, which is the risk_api_exposure score-contract epic (queued next behind #2812 Phase 4), not a #2908 D2 bug. Also recorded here: makefile's c.mk reads units_public=4 although its arch_api column reads 3 -- the fourth unit (probe_todo) matches source B's export/declared-name set without also matching the api rule's own counting pattern, so the is_public NAME-SET union is allowed to exceed the arch_api COUNT; not a contradiction, the two columns measure different things (D2's union vs. the api rule's own match count).",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5 (gitgalaxy#2908 Phase 2 corpus wave)",
+      "validated_at": "2026-09-09",
+      "still_reproduces": true
+    },
+    {
+      "id": "units-documented-structural-absences",
+      "signal": "units_documented",
+      "languages_seen": [
+        "css",
+        "haskell",
+        "jcl",
+        "m4",
+        "makefile"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "gitgalaxy#2908 Phase 2 D3: units_documented cannot read 1 for jcl -- it declares NO `doc` rule at all (same shape as the pre-existing api-no-rule-defined entry), so doc_positional_end_lines is always empty and is_documented is structurally 0 for every jcl unit regardless of file content; permanent, not a placement problem. Also recorded here: the accepted k=5 collateral-anchor tolerance -- one doc block whose END line falls inside TWO adjacent units' [start-5, start] windows documents BOTH of them. makefile's main.mk (doc comment 3 lines above probe_branch, which sits 3 lines below probe_dispatch) and m4's main.m4 and css's main.css all read units_documented=2 this way, and haskell's main.hs joined them after this session's relocation (entry and probeBranch, 3 lines apart). #2908 D3's own window design accepts this as correct collateral, not a bug: a doc block genuinely close to two units is ambiguous about which one it describes, and crediting both is the documented, accepted behavior of the k=5 tolerance. The haskell and scheme main re-plants (this session, moving each file's existing doc comment to a 0-line gap above its entry unit) and the earlier assembly/cobol/makefile/shell/tcl re-plants (closing a >5-line window gap) all predate engine commit c4101c85's comment+code_stream merge and remain necessary under it -- every one of their doc markers was already a real, delimited comment living in comment_stream, so the merge (which only adds code_stream-borne matches) changes nothing about why they needed moving; none are redundant. 2026-09-09 (later same session): powershell LEFT this entry -- gitgalaxy#2908's own engine half (commit c4101c85) merged doc-rule matches from code_stream into the is_documented anchor test, and main.ps1's `.SYNOPSIS` plant lives in code_stream (no comment delimiter), not comment_stream, which is exactly why the 698a06ef-era positional pass (comment_stream only) missed it even at 0-line adjacency. units_documented now reads 1 at main.ps1's ORIGINAL, unrelocated position -- no residue, no relocation needed. See the resolved upstream-question half of this finding for the historical record; this entry no longer explains any powershell cell.",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5 (gitgalaxy#2908 Phase 2 corpus wave)",
+      "validated_at": "2026-09-09",
+      "still_reproduces": true
     }
   ]
 }

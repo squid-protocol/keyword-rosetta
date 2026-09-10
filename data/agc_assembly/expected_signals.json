@@ -24,7 +24,9 @@
       "doc": 1,
       "ownership": 1,
       "import": 1,
-      "memory_alloc": 1
+      "memory_alloc": 1,
+      "units_public": 0,
+      "units_documented": 1
     },
     "a.agc": {
       "class_start": 0,
@@ -45,7 +47,9 @@
       "args": 3,
       "api": 1,
       "api_orphan_credit": 3,
-      "memory_alloc": 1
+      "memory_alloc": 1,
+      "units_public": 3,
+      "units_documented": 0
     },
     "b.agc": {
       "class_start": 0,
@@ -66,7 +70,9 @@
       "args": 3,
       "api": 1,
       "api_orphan_credit": 3,
-      "memory_alloc": 1
+      "memory_alloc": 1,
+      "units_public": 3,
+      "units_documented": 0
     },
     "c.agc": {
       "class_start": 0,
@@ -89,7 +95,9 @@
       "api_orphan_credit": 3,
       "doc": 0,
       "ownership": 0,
-      "memory_alloc": 1
+      "memory_alloc": 1,
+      "units_public": 3,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -112,5 +120,5 @@
       "outcome": "RESUME was dual cleanup+branch until gitgalaxy#2764 (c.agc branch 1); it is an interrupt RETURN, not a decision, and now reads cleanup only (plus structural_boundaries, which the SPEC does not plant). c.agc branch 0."
     }
   ],
-  "notes": "AGC morphology: functions are labels followed by a real opcode; args are register-target ops (TS A / XCH Q = 2 in b, the only file with them). BANK chain resolves (a/b/c api 3 = pure orphan conversion). doc 1 in main = PURPOSE only: the AUTHOR-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (AUTHOR removed from doc's alternation; ownership still captures it exclusively). encapsulation counts every line-start token (agc rule is ^token -- unasserted). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. A.3 (gitgalaxy#2669): args planted to SPEC's one-per-function, 13 total (4/3/3/3). AGC's args rule is register-target ops -- \\b(CA|CS|TS|AD|SU|MULT|DV|MASK|DXCH|LXCH|QXCH|XCH|INDEX|AUG|DIM|INCR|CCS)[ \\t]+(A|Q|L|Z)\\b -- so each function now opens its body with 'CA A', the AGC calling convention's 'the argument arrives in the accumulator'. Note CAF ZERO does NOT match despite the Z: \\bZ\\b fails against ZERO. b.agc's PROBESTATE had TWO args hits (its label line 'TS A' plus 'XCH Q'), so 'XCH Q' became 'XCH TEMP' -- keeps the state_mutation hit, drops the surplus arg. Was args 2 corpus-wide against a planted and median 13 (-85%), with avg_func_args -83%. api (gitgalaxy#2729): non-function surface — one canonical central-register erasable assignment per file, `A EQUALS 0` (main, the accumulator every probe reads via CA A), `L EQUALS 1` (a), `Q EQUALS 2` (b), `Z EQUALS 5` (c), placed directly after the BANK line (after the header in c.agc), count 1 per file. EQUALS is also in agc's memory_alloc rule, so memory_alloc is carried +1 in every file (pinned here). Until gitgalaxy#2815 c.agc read 0: spatial_correlation.py's Memory Leak/UAF tracker dampens an EQUALS hit within 800 chars of a cleanup keyword, c.agc's ENDOFJOB/RESUME cleanup plants sit inside that radius of the module-level line, and the dampener used to subtract from the recorded count in place. Since #2815 (contract roadmap Phase 2, D1) the recorded count is the raw hit and the dampening is a tally (mitigated_memory_allocs +1) applied only in the score layer's weighted view, so c.agc reads 1 like its siblings (re-blessed 2026-09-06). The label adds one line-start token to the unasserted encapsulation count; SUBROUTINE/BEXT/EXTEND were rejected as instructions, not a surface. api_orphan_credit stays 3/3/3 in a/b/c (the BANK chain still resolves; a one-letter symbol never recurs a probe label). branch (gitgalaxy#2764, re-blessed 2026-09-05): the rule used to match TC|TCF|TCR|CALL|GOTO (unconditional transfers -- TC is the AGC's subroutine call) and RESUME|RETURN (returns) alongside the real conditionals, so 4 of the corpus's 5 branch hits were not decisions. Those tokens moved to structural_boundaries, which the SPEC does not plant and this manifest does not assert. PROBEBR was re-authored in the same pass: it planted `TCF` + `BZF` and leaned on DISPATCH's `TC` to reach SPEC's branch x3, which no longer holds once only conditionals count. It now plants three real conditionals -- BZF on the label line (still a func_start opcode), then BZMF and BMN -- so main.agc branch stays 3 and every hit is a decision. c.agc's RESUME drops out (branch 1 -> 0) and keeps its cleanup reading. CCS also left structural_boundaries in #2764 (it was the one token both rules counted); the corpus plants no CCS, so nothing here moves for it. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: the cell (2 vs median 3) now reads inherency alone: batch4-dual-keyword-overlaps lost high_risk_execution from its signal union (apex's Database.query dual is stated in gitgalaxy#2878 C6), so the cross-product that marked this cell extraction is gone and string-decoy-unplantable-no-literal-surface is its only entry. No plant moves; agc cannot carry the string decoy."
+  "notes": "AGC morphology: functions are labels followed by a real opcode; args are register-target ops (TS A / XCH Q = 2 in b, the only file with them). BANK chain resolves (a/b/c api 3 = pure orphan conversion). doc 1 in main = PURPOSE only: the AUTHOR-also-counts-as-doc collision RESOLVED via gitgalaxy#2659 (AUTHOR removed from doc's alternation; ownership still captures it exclusively). encapsulation counts every line-start token (agc rule is ^token -- unasserted). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2659. A.3 (gitgalaxy#2669): args planted to SPEC's one-per-function, 13 total (4/3/3/3). AGC's args rule is register-target ops -- \\b(CA|CS|TS|AD|SU|MULT|DV|MASK|DXCH|LXCH|QXCH|XCH|INDEX|AUG|DIM|INCR|CCS)[ \\t]+(A|Q|L|Z)\\b -- so each function now opens its body with 'CA A', the AGC calling convention's 'the argument arrives in the accumulator'. Note CAF ZERO does NOT match despite the Z: \\bZ\\b fails against ZERO. b.agc's PROBESTATE had TWO args hits (its label line 'TS A' plus 'XCH Q'), so 'XCH Q' became 'XCH TEMP' -- keeps the state_mutation hit, drops the surplus arg. Was args 2 corpus-wide against a planted and median 13 (-85%), with avg_func_args -83%. api (gitgalaxy#2729): non-function surface — one canonical central-register erasable assignment per file, `A EQUALS 0` (main, the accumulator every probe reads via CA A), `L EQUALS 1` (a), `Q EQUALS 2` (b), `Z EQUALS 5` (c), placed directly after the BANK line (after the header in c.agc), count 1 per file. EQUALS is also in agc's memory_alloc rule, so memory_alloc is carried +1 in every file (pinned here). Until gitgalaxy#2815 c.agc read 0: spatial_correlation.py's Memory Leak/UAF tracker dampens an EQUALS hit within 800 chars of a cleanup keyword, c.agc's ENDOFJOB/RESUME cleanup plants sit inside that radius of the module-level line, and the dampener used to subtract from the recorded count in place. Since #2815 (contract roadmap Phase 2, D1) the recorded count is the raw hit and the dampening is a tally (mitigated_memory_allocs +1) applied only in the score layer's weighted view, so c.agc reads 1 like its siblings (re-blessed 2026-09-06). The label adds one line-start token to the unasserted encapsulation count; SUBROUTINE/BEXT/EXTEND were rejected as instructions, not a surface. api_orphan_credit stays 3/3/3 in a/b/c (the BANK chain still resolves; a one-letter symbol never recurs a probe label). branch (gitgalaxy#2764, re-blessed 2026-09-05): the rule used to match TC|TCF|TCR|CALL|GOTO (unconditional transfers -- TC is the AGC's subroutine call) and RESUME|RETURN (returns) alongside the real conditionals, so 4 of the corpus's 5 branch hits were not decisions. Those tokens moved to structural_boundaries, which the SPEC does not plant and this manifest does not assert. PROBEBR was re-authored in the same pass: it planted `TCF` + `BZF` and leaned on DISPATCH's `TC` to reach SPEC's branch x3, which no longer holds once only conditionals count. It now plants three real conditionals -- BZF on the label line (still a func_start opcode), then BZMF and BMN -- so main.agc branch stays 3 and every hit is a decision. c.agc's RESUME drops out (branch 1 -> 0) and keeps its cleanup reading. CCS also left structural_boundaries in #2764 (it was the one token both rules counted); the corpus plants no CCS, so nothing here moves for it. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: the cell (2 vs median 3) now reads inherency alone: batch4-dual-keyword-overlaps lost high_risk_execution from its signal union (apex's Database.query dual is stated in gitgalaxy#2878 C6), so the cross-product that marked this cell extraction is gone and string-decoy-unplantable-no-literal-surface is its only entry. No plant moves; agc cannot carry the string decoy. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

@@ -27,7 +27,9 @@
       "lit_code_blocks": 4,
       "lit_diagrams": 1,
       "lit_headers": 4,
-      "lit_links": 1
+      "lit_links": 1,
+      "units_public": 0,
+      "units_documented": 0
     },
     "a.md": {
       "branch": 0,
@@ -52,7 +54,9 @@
       "import": 0,
       "lit_code_blocks": 2,
       "lit_headers": 4,
-      "lit_links": 1
+      "lit_links": 1,
+      "units_public": 0,
+      "units_documented": 0
     },
     "b.md": {
       "branch": 0,
@@ -77,7 +81,9 @@
       "import": 0,
       "lit_code_blocks": 2,
       "lit_headers": 4,
-      "lit_links": 1
+      "lit_links": 1,
+      "units_public": 0,
+      "units_documented": 0
     },
     "c.md": {
       "branch": 0,
@@ -102,9 +108,11 @@
       "import": 0,
       "lit_code_blocks": 2,
       "lit_headers": 4,
-      "lit_links": 0
+      "lit_links": 0,
+      "units_public": 0,
+      "units_documented": 0
     }
   },
   "decoys": [],
-  "notes": "Tier-2 minimal: markdown defines only the lit_* literate signals — headers are the probe analogue (4 per file), code-block fences count in pairs, the mermaid fence is the one diagram, and the [a](a.md) links stand in for the import chain. Since gitgalaxy#2638 the relative links ALSO feed the real dependency DAG (_dependency_capture; an is_inert language that declares the rule opts back into Phase-6 extraction): main→a→b→c resolves, import_count main/a/b=1 c=0, popularity a/b/c=1, dependency_links 3 = the cross-language median. No import keyword rule on purpose — links are already counted as lit_links and captured for the DAG; a third counter would triple-count one construct. api stays 0: orphan→api conversion needs functions and markdown has none (functions_found 0 is the lit_headers plane, see markdown-lit-plane-morphology). Everything else asserts 0 — all 18 absent-rule n/a cells reviewed + ledgered 2026-09-01 (markdown-lit-plane-morphology). Locked 2026-08-31. DECOYS 2026-09-06 (keyword-rosetta#73): markdown carries NO decoy of any kind and is the one language SPEC §Decoys exempts outright -- every signal rule it defines is lit_* (lit_headers, lit_code_blocks, lit_diagrams, lit_links), so there is no code-stream keyword a comment could shield and no danger vocabulary a string literal could carry. A comment decoy here would assert nothing by construction, not by authoring gap. Recorded as the EXEMPT entry in tools/decoy_check.py so the exemption is a deliberate list rather than a silent skip. 2026-09-07 (gitgalaxy#2866): raw_state_unreferenced renders n/a by func_start absence -- the gitgalaxy#2795 inference extended to the census; no new ledger entry, the review inherits markdown-lit-plane-morphology via the rule."
+  "notes": "Tier-2 minimal: markdown defines only the lit_* literate signals — headers are the probe analogue (4 per file), code-block fences count in pairs, the mermaid fence is the one diagram, and the [a](a.md) links stand in for the import chain. Since gitgalaxy#2638 the relative links ALSO feed the real dependency DAG (_dependency_capture; an is_inert language that declares the rule opts back into Phase-6 extraction): main→a→b→c resolves, import_count main/a/b=1 c=0, popularity a/b/c=1, dependency_links 3 = the cross-language median. No import keyword rule on purpose — links are already counted as lit_links and captured for the DAG; a third counter would triple-count one construct. api stays 0: orphan→api conversion needs functions and markdown has none (functions_found 0 is the lit_headers plane, see markdown-lit-plane-morphology). Everything else asserts 0 — all 18 absent-rule n/a cells reviewed + ledgered 2026-09-01 (markdown-lit-plane-morphology). Locked 2026-08-31. DECOYS 2026-09-06 (keyword-rosetta#73): markdown carries NO decoy of any kind and is the one language SPEC §Decoys exempts outright -- every signal rule it defines is lit_* (lit_headers, lit_code_blocks, lit_diagrams, lit_links), so there is no code-stream keyword a comment could shield and no danger vocabulary a string literal could carry. A comment decoy here would assert nothing by construction, not by authoring gap. Recorded as the EXEMPT entry in tools/decoy_check.py so the exemption is a deliberate list rather than a silent skip. 2026-09-07 (gitgalaxy#2866): raw_state_unreferenced renders n/a by func_start absence -- the gitgalaxy#2795 inference extended to the census; no new ledger entry, the review inherits markdown-lit-plane-morphology via the rule. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

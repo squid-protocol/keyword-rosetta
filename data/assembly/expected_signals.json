@@ -23,7 +23,9 @@
       "cleanup": 0,
       "test": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 1
     },
     "a.asm": {
       "import": 1,
@@ -43,7 +45,9 @@
       "telemetry": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "b.asm": {
       "import": 1,
@@ -63,7 +67,9 @@
       "globals": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "c.asm": {
       "import": 0,
@@ -85,7 +91,9 @@
       "globals": 0,
       "doc": 0,
       "ownership": 0,
-      "high_risk_execution": 0
+      "high_risk_execution": 0,
+      "units_public": 3,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -118,5 +126,5 @@
       "outcome": "inert (underscore + lowercase)"
     }
   ],
-  "notes": "branch = the three CONDITIONAL jumps planted in probe_branch (jz/je/jne), 3 corpus-wide, all in main.asm; a/b/c read 0. Until gitgalaxy#2764 the branch rule also matched jmp|call|ret|b|bl|bx|blr, so every probe body's `ret` and every glue `call` counted a decision (main 10, a 4, b 5, c 5 = 25 hits of which 23 were transfers) -- ledger asm-call-ret-in-branch, now retired. #2764 relocated those tokens to structural_boundaries, which the SPEC does not plant and this manifest does not assert; total branch+structural mass per file is unchanged. probe_branch's third plant was `jmp` and was re-authored to `jz` in the same pass: `jmp` is an unconditional transfer, so leaving it would have left probe_branch planting two conditionals against SPEC's three. a.asm's 4th hit was the ARM mnemonic 'b' matching the literal filename inside %include \"b.asm\" (ledger asm-single-letter-mnemonic-in-path) -- that collision now lands on structural_boundaries instead, so it no longer claims a decision. args = calling-convention register mentions (one 'mov rdi, N' per probe = 13 corpus-wide; rax/rbx deliberately used elsewhere as they are NOT in the args register list). api = 0 planted + orphan conversion (a/b/c: 3 each). Locked from hand-verified run 2026-08-31; branch + b.asm state_mutation re-blessed 2026-09-05 against gitgalaxy#2764. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 -- gitgalaxy#2669 A.3): danger-only 'plain sys_exit decoy text' inside probe_state -- b.asm io 1->0, high_risk_execution 0->1. api (gitgalaxy#2729): one NASM `global probe_x` directive per probe label (the dialect the shell already uses: %include, section .data, db), placed directly after the %include line (after the header in c.asm), count 3 per file main/a/b/c (dispatch not exported); matches only assembly's api rule (its globals rule is section/.data/.bss, not the `global` directive). api_orphan_credit 3->0 in a/b/c: the directive is a second \\w+ occurrence of each label's name in its file, and the orphan check is name-recurrence (token_counts[name] <= 1), so nothing is left for the Contextual Baseline Fix to convert -- the %include chain still resolves (import 1 per link, unchanged); the credit is lost to the plant, not to the DAG. 2026-09-07 (gitgalaxy#2858 globals contract, corollary 4): a section switch (`section .data` / `section .bss`) is a region header, not shared state (gitgalaxy#2805's WORKING-STORAGE precedent), and left the rule; the global is the labeled storage the region holds. Re-planted as `region dd 1` / `home resd 1` (screened: only globals moves). b.asm's string decoy carried a label (`msg db \"...\"`) that the storage form now counts -- the label was dropped (an unlabeled `db` is legal NASM and the decoy's literal is unchanged), b.asm globals stays 0. a.asm globals stays 2. 2026-09-08 #2869 safety contract: probe_safety re-planted from frame mechanics (enter/leave) to hardening instructions (endbr64/paciasp); cell unchanged at 2."
+  "notes": "branch = the three CONDITIONAL jumps planted in probe_branch (jz/je/jne), 3 corpus-wide, all in main.asm; a/b/c read 0. Until gitgalaxy#2764 the branch rule also matched jmp|call|ret|b|bl|bx|blr, so every probe body's `ret` and every glue `call` counted a decision (main 10, a 4, b 5, c 5 = 25 hits of which 23 were transfers) -- ledger asm-call-ret-in-branch, now retired. #2764 relocated those tokens to structural_boundaries, which the SPEC does not plant and this manifest does not assert; total branch+structural mass per file is unchanged. probe_branch's third plant was `jmp` and was re-authored to `jz` in the same pass: `jmp` is an unconditional transfer, so leaving it would have left probe_branch planting two conditionals against SPEC's three. a.asm's 4th hit was the ARM mnemonic 'b' matching the literal filename inside %include \"b.asm\" (ledger asm-single-letter-mnemonic-in-path) -- that collision now lands on structural_boundaries instead, so it no longer claims a decision. args = calling-convention register mentions (one 'mov rdi, N' per probe = 13 corpus-wide; rax/rbx deliberately used elsewhere as they are NOT in the args register list). api = 0 planted + orphan conversion (a/b/c: 3 each). Locked from hand-verified run 2026-08-31; branch + b.asm state_mutation re-blessed 2026-09-05 against gitgalaxy#2764. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 3 -- gitgalaxy#2669 A.3): danger-only 'plain sys_exit decoy text' inside probe_state -- b.asm io 1->0, high_risk_execution 0->1. api (gitgalaxy#2729): one NASM `global probe_x` directive per probe label (the dialect the shell already uses: %include, section .data, db), placed directly after the %include line (after the header in c.asm), count 3 per file main/a/b/c (dispatch not exported); matches only assembly's api rule (its globals rule is section/.data/.bss, not the `global` directive). api_orphan_credit 3->0 in a/b/c: the directive is a second \\w+ occurrence of each label's name in its file, and the orphan check is name-recurrence (token_counts[name] <= 1), so nothing is left for the Contextual Baseline Fix to convert -- the %include chain still resolves (import 1 per link, unchanged); the credit is lost to the plant, not to the DAG. 2026-09-07 (gitgalaxy#2858 globals contract, corollary 4): a section switch (`section .data` / `section .bss`) is a region header, not shared state (gitgalaxy#2805's WORKING-STORAGE precedent), and left the rule; the global is the labeled storage the region holds. Re-planted as `region dd 1` / `home resd 1` (screened: only globals moves). b.asm's string decoy carried a label (`msg db \"...\"`) that the storage form now counts -- the label was dropped (an unlabeled `db` is legal NASM and the decoy's literal is unchanged), b.asm globals stays 0. a.asm globals stays 2. 2026-09-08 #2869 safety contract: probe_safety re-planted from frame mechanics (enter/leave) to hardening instructions (endbr64/paciasp); cell unchanged at 2. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

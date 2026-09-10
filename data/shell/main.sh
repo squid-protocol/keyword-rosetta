@@ -1,7 +1,6 @@
 #!/bin/sh
 # Keyword Rosetta control shell: shell / main
 # Author: keyword-rosetta generator
-# Description: dispatch each probe once
 # decoy: this suite never runs sudo and no while loop lives outside prose
 
 . ./a.sh
@@ -10,6 +9,7 @@ export -f probe_branch
 export -f probe_io
 export -f probe_risk
 
+# Description: dispatch each probe once
 dispatch() {
     : "$1"
     probe_branch

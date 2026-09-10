@@ -24,7 +24,9 @@
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
-      "encapsulation": 0
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 1
     },
     "a.js": {
       "import": 1,
@@ -46,7 +48,9 @@
       "cleanup": 0,
       "safety_bypasses": 0,
       "doc": 0,
-      "ownership": 0
+      "ownership": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "b.js": {
       "import": 1,
@@ -67,7 +71,9 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "high_risk_execution": 0,
-      "doc": 0
+      "doc": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "c.js": {
       "import": 0,
@@ -90,7 +96,9 @@
       "doc": 0,
       "ownership": 0,
       "high_risk_execution": 0,
-      "encapsulation": 0
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -133,5 +141,5 @@
       "outcome": "inert as in python — underscore is a word character so \\bHACK\\b cannot match; note this inertness is tokenization luck, not surface anchoring (see cobol + gitgalaxy#2537)"
     }
   ],
-  "notes": "io 4 in main.js = 3 planted (fetch/axios/fs) + the probeIo parameter literally named 'path', which is a js io keyword (ledger identifier-name-token-collision). func_start/args/api 3 in b.js = its 3 real functions: the 'with (shape) {}' func-named-'with' FP RESOLVED via gitgalaxy#2539 ('with' added to the statement-keyword exclusion; ledger js-with-statement-func-start-fp). api = defs orphan-converted in imported a/b/c as in python (ledger api-contextual-baseline-fix); main.js api 0 because nothing is exported and it is imported by nobody. doc is 1 here vs python's 2 for the same planted intent (one /** vs a pair of \"\"\" delimiters) -- genuine doc-idiom count bias, visible in the bias report. Locked from hand-verified run 2026-08-31; b.js re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal moved out of module scope into probeGlobals — a.js high_risk_execution 0->1, branch 2->0, safety 3->2. api (gitgalaxy#2729): 'export function' on the three probe functions per file (entry stays unexported): api 3/3/3/3 (main/a/b/c) -- supersedes the 'main.js api 0 because nothing is exported' clause above. No gated overlap: the import rule needs a following 'from' before the next ';', which no export line has; 'export' also feeds the unplanted structural_boundaries (+3 per file, not asserted). 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.js re-planted as `let first = items; first = 1; first = 2;` (2): `let`/`var` declarations are not writes (corollary 1), so the old plant read 0. 2026-09-07 gitgalaxy#2841 (io contract): bare `path` left the io rule (C1 ambiguity anchor -- it matched probeIo's `path` parameter, the collision `identifier-name-token-collision` recorded); main.js io 4->3, the three facility references (fetch/axios/fs) are the plant. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.js's `const runner = eval;` (a bound alias, C2) re-planted as `const runner = eval(payload);` -- the invocation, keeping the `const` so immutability_locks (a scored non-planted column) does not move. Cell unchanged at 2."
+  "notes": "io 4 in main.js = 3 planted (fetch/axios/fs) + the probeIo parameter literally named 'path', which is a js io keyword (ledger identifier-name-token-collision). func_start/args/api 3 in b.js = its 3 real functions: the 'with (shape) {}' func-named-'with' FP RESOLVED via gitgalaxy#2539 ('with' added to the statement-keyword exclusion; ledger js-with-statement-func-start-fp). api = defs orphan-converted in imported a/b/c as in python (ledger api-contextual-baseline-fix); main.js api 0 because nothing is exported and it is imported by nobody. doc is 1 here vs python's 2 for the same planted intent (one /** vs a pair of \"\"\" delimiters) -- genuine doc-idiom count bias, visible in the bias report. Locked from hand-verified run 2026-08-31; b.js re-baselined 2026-09-01 against gitgalaxy#2641. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal moved out of module scope into probeGlobals — a.js high_risk_execution 0->1, branch 2->0, safety 3->2. api (gitgalaxy#2729): 'export function' on the three probe functions per file (entry stays unexported): api 3/3/3/3 (main/a/b/c) -- supersedes the 'main.js api 0 because nothing is exported' clause above. No gated overlap: the import rule needs a following 'from' before the next ';', which no export line has; 'export' also feeds the unplanted structural_boundaries (+3 per file, not asserted). 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.js re-planted as `let first = items; first = 1; first = 2;` (2): `let`/`var` declarations are not writes (corollary 1), so the old plant read 0. 2026-09-07 gitgalaxy#2841 (io contract): bare `path` left the io rule (C1 ambiguity anchor -- it matched probeIo's `path` parameter, the collision `identifier-name-token-collision` recorded); main.js io 4->3, the three facility references (fetch/axios/fs) are the plant. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.js's `const runner = eval;` (a bound alias, C2) re-planted as `const runner = eval(payload);` -- the invocation, keeping the `const` so immutability_locks (a scored non-planted column) does not move. Cell unchanged at 2. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

@@ -23,7 +23,9 @@
       "telemetry": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 1
     },
     "a.ts": {
       "class_start": 0,
@@ -43,7 +45,9 @@
       "telemetry": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "b.ts": {
       "class_start": 0,
@@ -63,7 +67,9 @@
       "globals": 0,
       "cleanup": 0,
       "fragile_debt": 0,
-      "planned_debt": 0
+      "planned_debt": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "c.ts": {
       "class_start": 0,
@@ -85,7 +91,9 @@
       "globals": 0,
       "doc": 0,
       "ownership": 0,
-      "high_risk_execution": 0
+      "high_risk_execution": 0,
+      "units_public": 3,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -119,5 +127,5 @@
       "outcome": "inert (underscore)"
     }
   ],
-  "notes": "args 3 in a.ts = the 3 function params. It read 5 until gitgalaxy#2773 (PR #2786, engine 0b2e9b20): the class-member arm was `^[ \t]*IDENT(...)` with no declaration anchor, so the statement-position calls describe(kit)/expect(kit) -- both `test` plants -- scored as parameter lists. The arm now requires the parameter list to be followed by a body `{` or a `:` return type. Corpus-wide args is now the planted 13 exactly (one parameter per probe, SPEC.md). Ledger: ts-callparen-args (typescript arm retired). safety 3 in a.ts = unknown x2 (param type + local) + never. io kept clean by naming the probeIo param 'route' (the js folder's 'path' collision, avoided). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probeState — b.ts high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. api (gitgalaxy#2729): 'export function' on the three probe functions per file (entry stays unexported): api 3/3/3/3 (main/a/b/c). No gated overlap: the import rule needs a following 'from' before the next ';', which no export line has; class_start's export prefix only applies to class/enum/interface; 'export' also feeds the unplanted structural_boundaries (+3 per file, not asserted). 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.ts re-planted as `let first = items; first = 1; first = 2;` (2): a `let` declaration is not a write (corollary 1). 2026-09-06 (gitgalaxy#2822 mirror): safety no longer counts unknown/never/void (type keywords are not runtime guards; moved to structural_boundaries) -- probeSafety re-planted with try/catch plus its two const locals, a.ts safety 3->2; branch likewise no longer counts try/catch/finally. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.ts's `const runner = eval;` (a bound alias, C2) re-planted as `const runner = eval(payload);`, keeping the `const` so immutability_locks does not move. Cell unchanged at 2."
+  "notes": "args 3 in a.ts = the 3 function params. It read 5 until gitgalaxy#2773 (PR #2786, engine 0b2e9b20): the class-member arm was `^[ \t]*IDENT(...)` with no declaration anchor, so the statement-position calls describe(kit)/expect(kit) -- both `test` plants -- scored as parameter lists. The arm now requires the parameter list to be followed by a body `{` or a `:` return type. Corpus-wide args is now the planted 13 exactly (one parameter per probe, SPEC.md). Ledger: ts-callparen-args (typescript arm retired). safety 3 in a.ts = unknown x2 (param type + local) + never. io kept clean by naming the probeIo param 'route' (the js folder's 'path' collision, avoided). Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"eval\" literal inside probeState — b.ts high_risk_execution 0->1, branch 2->0, safety 1->0, state_mutation 6->2. api (gitgalaxy#2729): 'export function' on the three probe functions per file (entry stays unexported): api 3/3/3/3 (main/a/b/c). No gated overlap: the import rule needs a following 'from' before the next ';', which no export line has; class_start's export prefix only applies to class/enum/interface; 'export' also feeds the unplanted structural_boundaries (+3 per file, not asserted). 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.ts re-planted as `let first = items; first = 1; first = 2;` (2): a `let` declaration is not a write (corollary 1). 2026-09-06 (gitgalaxy#2822 mirror): safety no longer counts unknown/never/void (type keywords are not runtime guards; moved to structural_boundaries) -- probeSafety re-planted with try/catch plus its two const locals, a.ts safety 3->2; branch likewise no longer counts try/catch/finally. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.ts's `const runner = eval;` (a bound alias, C2) re-planted as `const runner = eval(payload);`, keeping the `const` so immutability_locks does not move. Cell unchanged at 2. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

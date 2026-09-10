@@ -23,7 +23,9 @@
       "api_orphan_credit": 0,
       "doc": 1,
       "ownership": 1,
-      "import": 1
+      "import": 1,
+      "units_public": 3,
+      "units_documented": 2
     },
     "a.m4": {
       "class_start": 0,
@@ -43,7 +45,9 @@
       "func_start": 3,
       "args": 5,
       "api": 3,
-      "api_orphan_credit": 0
+      "api_orphan_credit": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "b.m4": {
       "class_start": 0,
@@ -63,7 +67,9 @@
       "func_start": 3,
       "args": 4,
       "api": 3,
-      "api_orphan_credit": 0
+      "api_orphan_credit": 0,
+      "units_public": 3,
+      "units_documented": 0
     },
     "c.m4": {
       "class_start": 0,
@@ -85,7 +91,9 @@
       "api": 3,
       "api_orphan_credit": 0,
       "doc": 0,
-      "ownership": 0
+      "ownership": 0,
+      "units_public": 3,
+      "units_documented": 0
     }
   },
   "decoys": [
@@ -109,5 +117,5 @@
       "outcome": "danger-only decoy (#17 redesign): \"esyscmd\" COUNTS from inside the literal (+1), undampened — the probe_state macro body carries no safety keyword, so the Silencer Region never fires. Ledger: string-literal-selective-shielding"
     }
   ],
-  "notes": "args = $1 references, counted exactly as planted (main 6, a 5, b 4, c 3 — one of the few languages where args tracks intent perfectly). popdef is dual state+cleanup (c state 2). m4 has NO _dependency_capture (capture rule is None): include() counts import but produces no DAG edge, so orphans stay unconverted corpus-wide (main orphaned 4, a/b/c 3 — engine gap worth an upstream note). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"esyscmd\" literal inside the probe_state macro body — b.m4 high_risk_execution 0->1. GRAPH REBLESS (gitgalaxy#2685, Batch C.2 of gitgalaxy#2669, 2026-09-02): m4 now HAS a _dependency_capture (include/sinclude/m4_include/m4_sinclude, past m4's own quoting), so include(b.m4) finally produces a DAG edge. popularity 0 -> 1 on a/b/c, which fires galaxyscope's Contextual Baseline Fix (popularity > 0 converts orphaned_logic into api and wipes the debt): api 0 -> 3 on a/b/c, main unchanged at 0. That is the whole manifest delta, and it puts m4 on the same profile as its healthy siblings -- shell already expects api 3/3/3/0 over this identical four-file layout. Attributed to the capture rule alone: with it reverted and only gitgalaxy#2668's resolver fix in place, this gate PASSES unchanged. Ledger: no-dependency-capture-languages (now still_reproduces false). api (gitgalaxy#2729): one `AC_SUBST([PROBE_<NAME>])` line after each probe macro definition (main 3, a 3, b 3, c 3) -- the shell already speaks autoconf (AC_ARG_VAR/AC_CHECK_LIB/AC_MSG_*); no other rule matches AC_SUBST; `m4_provide([probe_x])` was tried and REJECTED: it names the macro, the orphan census is name-recurrence, and api_orphan_credit fell 3/3/3 -> 0/0/0 (main orphaned_logic 4 -> 1), erasing the #2685 graph-rebless evidence; api_orphan_credit and every planted count unchanged. gitgalaxy#2765 (state_mutation contract, 2026-09-06): c.m4 state_mutation 2->0: `popdef` is the cleanup rule's token and no longer also a write (count contract corollary 4). 2026-09-06 (gitgalaxy#2806): probe_dispatch was `m4_define(probe_dispatch, [$1])` -- it named no probe, so every macro read unreferenced (raw_state_unreferenced 3.25 vs a 2.50 median) purely because main never invoked them. Planted m4's own invocation form, bare-name expansion forwarding the argument: `m4_define(probe_dispatch, [probe_branch($1)probe_io($1)probe_risk($1)])`. Census 3.25 -> 2.50. main.m4 args 6 -> 8 follows and is correct morphology, not a defect: m4 has no formal parameter list and its args are use sites (ledger m4-parameters-are-use-sites), and a forwarding macro genuinely has three. 2026-09-09 RE-PLANT (gitgalaxy#2872 / #2902, keyword-rosetta#53 lineage; gitgalaxy#2908 Phase 1): every `AC_SUBST([PROBE_X])` became `m4_provide([probe_x])`, the idiom that NAMES the macro it publishes. The 2026-09-02 rejection above is superseded: #2902 gave m4 a `_visibility_export` capture, so naming the macro in a provide clause is a visibility declaration, not a use -- the orphan flag stays standing (raw_state_unreferenced unchanged) and api_declared_orphans now reads 3 in a/b/c, so the Contextual Baseline Fix credits nothing the api rule already counted: api_orphan_credit 3 -> 0 in a/b/c, api itself unchanged at 3 per file, and NOT A SINGLE OTHER CELL MOVED (verify_language against engine main d2b1742b). arch_api 6 -> 3 per file, so risk_api_exposure and risk_documentation drop from +30%/+62% against the irc3 stratum onto the median; ledger m4-makefile-api-scores-above-stratum retired. The chain-resolution evidence the rejection wanted to keep lives in the `popularity` column, not in a doubled api."
+  "notes": "args = $1 references, counted exactly as planted (main 6, a 5, b 4, c 3 — one of the few languages where args tracks intent perfectly). popdef is dual state+cleanup (c state 2). m4 has NO _dependency_capture (capture rule is None): include() counts import but produces no DAG edge, so orphans stay unconverted corpus-wide (main orphaned 4, a/b/c 3 — engine gap worth an upstream note). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"esyscmd\" literal inside the probe_state macro body — b.m4 high_risk_execution 0->1. GRAPH REBLESS (gitgalaxy#2685, Batch C.2 of gitgalaxy#2669, 2026-09-02): m4 now HAS a _dependency_capture (include/sinclude/m4_include/m4_sinclude, past m4's own quoting), so include(b.m4) finally produces a DAG edge. popularity 0 -> 1 on a/b/c, which fires galaxyscope's Contextual Baseline Fix (popularity > 0 converts orphaned_logic into api and wipes the debt): api 0 -> 3 on a/b/c, main unchanged at 0. That is the whole manifest delta, and it puts m4 on the same profile as its healthy siblings -- shell already expects api 3/3/3/0 over this identical four-file layout. Attributed to the capture rule alone: with it reverted and only gitgalaxy#2668's resolver fix in place, this gate PASSES unchanged. Ledger: no-dependency-capture-languages (now still_reproduces false). api (gitgalaxy#2729): one `AC_SUBST([PROBE_<NAME>])` line after each probe macro definition (main 3, a 3, b 3, c 3) -- the shell already speaks autoconf (AC_ARG_VAR/AC_CHECK_LIB/AC_MSG_*); no other rule matches AC_SUBST; `m4_provide([probe_x])` was tried and REJECTED: it names the macro, the orphan census is name-recurrence, and api_orphan_credit fell 3/3/3 -> 0/0/0 (main orphaned_logic 4 -> 1), erasing the #2685 graph-rebless evidence; api_orphan_credit and every planted count unchanged. gitgalaxy#2765 (state_mutation contract, 2026-09-06): c.m4 state_mutation 2->0: `popdef` is the cleanup rule's token and no longer also a write (count contract corollary 4). 2026-09-06 (gitgalaxy#2806): probe_dispatch was `m4_define(probe_dispatch, [$1])` -- it named no probe, so every macro read unreferenced (raw_state_unreferenced 3.25 vs a 2.50 median) purely because main never invoked them. Planted m4's own invocation form, bare-name expansion forwarding the argument: `m4_define(probe_dispatch, [probe_branch($1)probe_io($1)probe_risk($1)])`. Census 3.25 -> 2.50. main.m4 args 6 -> 8 follows and is correct morphology, not a defect: m4 has no formal parameter list and its args are use sites (ledger m4-parameters-are-use-sites), and a forwarding macro genuinely has three. 2026-09-09 RE-PLANT (gitgalaxy#2872 / #2902, keyword-rosetta#53 lineage; gitgalaxy#2908 Phase 1): every `AC_SUBST([PROBE_X])` became `m4_provide([probe_x])`, the idiom that NAMES the macro it publishes. The 2026-09-02 rejection above is superseded: #2902 gave m4 a `_visibility_export` capture, so naming the macro in a provide clause is a visibility declaration, not a use -- the orphan flag stays standing (raw_state_unreferenced unchanged) and api_declared_orphans now reads 3 in a/b/c, so the Contextual Baseline Fix credits nothing the api rule already counted: api_orphan_credit 3 -> 0 in a/b/c, api itself unchanged at 3 per file, and NOT A SINGLE OTHER CELL MOVED (verify_language against engine main d2b1742b). arch_api 6 -> 3 per file, so risk_api_exposure and risk_documentation drop from +30%/+62% against the irc3 stratum onto the median; ledger m4-makefile-api-scores-above-stratum retired. The chain-resolution evidence the rejection wanted to keep lives in the `popularity` column, not in a doubled api. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

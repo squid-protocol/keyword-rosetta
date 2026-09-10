@@ -1,12 +1,12 @@
 ; Keyword Rosetta control shell: assembly / main
 ; Author: keyword-rosetta generator
-; @brief dispatch each probe once
 ; decoy: this suite never runs hlt and no loop branch stays outside prose
 %include "a.asm"
 global probe_branch
 global probe_io
 global probe_risk
 
+; @brief dispatch each probe once
 dispatch:
     mov rdi, 1
     call probe_branch
