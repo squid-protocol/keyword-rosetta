@@ -2,7 +2,6 @@
  "orphan_tokens": [
   "batch4-dual-keyword-overlaps/globals",
   "batch4-dual-keyword-overlaps/safety_bypasses",
-  "batch4-dual-keyword-overlaps/state_mutation",
   "batch5-tier2-morphology-shapes/branch",
   "batch5-tier2-morphology-shapes/doc",
   "batch5-tier2-morphology-shapes/high_risk_execution",
@@ -17,7 +16,6 @@
   "markdown-prose-nonplanted-inputs/encapsulation",
   "no-visibility-construct-encapsulation/encapsulation",
   "path-and-extension-modifiers/risk_concurrency",
-  "state-mutation-2817-plain-reassignment/state_mutation",
   "string-literal-selective-shielding/high_risk_execution"
  ]
 }

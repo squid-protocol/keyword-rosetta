@@ -486,19 +486,7 @@
   },
   "test": {
     "core": true,
-    "keywords": [
-      "describe",
-      "context",
-      "expect",
-      "assert",
-      "refute",
-      "setup",
-      "teardown",
-      "before",
-      "after",
-      "let",
-      "subject"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "test_skip": {

@@ -408,12 +408,7 @@
   },
   "test": {
     "core": true,
-    "keywords": [
-      "describe",
-      "expect",
-      "assert",
-      "TestCase"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "thread_sleeps": {

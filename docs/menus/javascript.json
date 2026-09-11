@@ -463,14 +463,11 @@
   "test": {
     "core": true,
     "keywords": [
-      "describe",
-      "expect",
-      "assert",
-      "beforeEach",
-      "afterEach",
       "jest",
       "mocha",
-      "vitest"
+      "vitest",
+      "beforeEach",
+      "afterEach"
     ],
     "pattern_defined": true
   },

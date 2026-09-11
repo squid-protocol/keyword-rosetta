@@ -228,6 +228,10 @@
    "state": "CLOSED",
    "title": "orphaned_logic reports 100% dead code for five languages whose invocation model never names the callee \u2014 the family #2727 closed without covering"
   },
+  "squid-protocol/gitgalaxy#2817": {
+   "state": "CLOSED",
+   "title": "state_mutation: python, embedded_python and ruby never count a plain re-assignment (narrower than the #2765 contract)"
+  },
   "squid-protocol/gitgalaxy#2822": {
    "state": "CLOSED",
    "title": "branch has no stated contract: handler keywords, the syntax words of one conditional, and goto count as decisions in some languages and not in others"
