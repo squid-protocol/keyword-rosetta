@@ -2292,6 +2292,22 @@
       "investigated_by": "claude-sonnet-5 (gitgalaxy#2908 Phase 2 corpus wave)",
       "validated_at": "2026-09-09",
       "still_reproduces": true
+    },
+    {
+      "id": "state-mutation-2817-plain-reassignment",
+      "signal": "state_mutation",
+      "languages_seen": [
+        "python",
+        "embedded_python",
+        "ruby"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "still_reproduces": true,
+      "upstream_issue": "squid-protocol/gitgalaxy#2817",
+      "investigated_by": "claude-opus-4-8 (gitgalaxy#2817 rebless)",
+      "validated_at": "2026-09-11",
+      "verdict": "gitgalaxy#2817 (deferred from #2765): state_mutation now counts a plain assignment statement -- `x = v`, `obj.attr = v`, `d[k] = v` -- in python, embedded_python and ruby, per the #2765 contract's corollary 1 (a language with no declaration syntax counts the assignment statement as the write). Previously these rules counted only self.x=/@ivar=, :=, global/nonlocal and container mutators. The control-shell probes carry incidental assignments (region = ENV, args = ARGV, and the probe bodies' locals) that legitimately count now, so state_mutation rose across main/a/b/c: python 0/0/2/0 -> 11/5/4/1, embedded_python 0/0/2/0 -> 7/4/3/1, ruby 0/0/2/0 -> 3/2/5/1. Engine-semantic (deliberate, shipped) -- baked into the three manifests. ruby's a.rb was additionally re-planted for gitgalaxy#2853 (bare `describe`/`expect` value-assignments -> the framework call form `describe(kit) { }` / `expect(kit)` so its `test` signal survives the C3 anchor tightening, test stays 2); that re-plant removed a.rb's two probe_test assignments, which is why a.rb state_mutation settles at 2 (the probe_globals writes) rather than 4."
     }
   ]
 }
