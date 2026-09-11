@@ -4073,7 +4073,7 @@
   "safety_bypasses/haskell": "scoring",
   "spec_exposure/jcl": "inherency",
   "spec_exposure/yaml": "inherency",
-  "state_mutation/embedded_python": "extraction",
+  "state_mutation/embedded_python": "scoring",
   "state_mutation/python": "scoring",
   "state_mutation/ruby": "scoring",
   "sync_locks/agc_assembly": "inherency",
@@ -4299,7 +4299,7 @@
    45
   ],
   "state_mutation": [
-   1,
+   0,
    43
   ],
   "state_slop_duplicates": [
