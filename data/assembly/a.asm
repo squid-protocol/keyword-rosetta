@@ -13,8 +13,8 @@ home resd 1
 
 probe_test:
     mov rdi, 6
-    dq expect
-    dq assert
+    testcase alpha
+    testcase beta
     ret
 
 probe_safety:
