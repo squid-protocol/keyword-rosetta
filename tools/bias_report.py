@@ -15,9 +15,10 @@ used to be a third; since 2026-09-07 they are scored, because their honest value
 0 in every language and that is a comparable claim.
 
 Because the planted intent is identical everywhere, divergence IS measured language
-bias. Output: docs/bias_report.md + docs/bias_variance_chart.svg (strip plot, one
-dot per language per metric coloured by zone, rows best -> worst per group, red-zone
-outliers named, consistency badge per gated row; regenerated together).
+bias. Output: docs/bias_report.md + docs/bias_variance_chart.svg (strip plot,
+languages clustered into count-labelled dots per metric, coloured by cause, rows
+best -> worst per group, out-of-band languages named, accounted-share badge per
+gated row; regenerated together).
 
 MUST run against a full-precision engine. In Zero-Dependency Mode (any of networkx /
 tiktoken / numpy-ML / pyyaml missing) the recorder nulls every network metric, so
@@ -1483,7 +1484,7 @@ CHART_VOCAB = ["token_mass", "keyword_hits", "structural_mass", "control_flow_ra
 # every language: same number, two columns.
 CHART_HIDDEN = {"pagerank": "identical to pagerank_score"}
 CHART_BLURBS = {
-    "structural extraction": "the slicer: every function, its parameters, every class and dependency edge the engine found",
+    "structural extraction": "the slicer: functions, parameters, classes and dependency edges — the spread of one program's counts across languages, not recall",
     "keyword extraction": "one rule per signal; every count here was planted on purpose, in every language",
     "non-planted keyword extraction": "rules the risk formulas read that the corpus never plants — nothing here was written, so every language should read 0",
     "dependency graph creation": "graph measures over the same three planted imports (pagerank_score = pagerank; shown once)",
@@ -1566,7 +1567,14 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
     cell is an open engine defect (OPEN_DEFECT_CATEGORIES) and grey when it is a
     documented variation (a scoring choice, language inherency, an echo). Each
     gated row carries a three-share bar -- in band / documented / open defect --
-    with the in-band share printed inside and the open-defect count after it.
+    with the ACCOUNTED share printed inside (in band + documented: every
+    comparable cell whose verdict is not an open defect; a documented variation
+    is measured and explained, so it does not subtract from the badge) and the
+    open-defect count after it. The in-band story stays as counts: the n/n label
+    in the band's corner and a "N doc" tally in the row's mono extras.
+    Languages at the same strip position collapse into ONE dot sized by
+    population, with the count printed for clusters -- so "40 languages sit
+    exactly on the median" is visible instead of 40 overplotted circles.
     Open-defect languages are named above the strip, documented ones below; on
     not-gated rows the languages beyond +-50% are named. Every group opens with
     an axis row and faint guides at +-25% / +-50%.
@@ -1648,7 +1656,8 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
         f'<text x="{pad}" y="84" fill="{muted}">or a scoring weight sitting inside a count — the work left. '
         f'<tspan font-weight="600" fill="{grey_lab}">Grey</tspan> is a documented variation: the language cannot express the construct,</text>',
         f'<text x="{pad}" y="100" fill="{muted}">a deliberate scoring choice, or an echo of another row. Each row\'s bar: in band '
-        f"(±{GREEN_DEV:.0%} of the median) · documented · open defect. Rows run best → worst.</text>",
+        f"(±{GREEN_DEV:.0%} of the median) · documented · open defect; the badge prints the accounted share — "
+        f"everything that is not an open defect.</text>",
     ]
     tiles = [
         (f"{open_share:.1%}", f"open-defect share · {n_open_cells} of {n_comparable} cells", red),
@@ -1663,9 +1672,14 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
         s.append(f'<text x="{tx:.0f}" y="150" font-size="10.5" fill="{muted}">{cap}</text>')
     ly, lx = 174, pad
     legend = [(green, "in band"), (grey_dot, "documented variation"), (red, "open defect"),
+              ("cluster", "count = languages on that dot"),
               ("ring", "no verdict yet"), ("na", "n/a — no rule for this language")]
     for col, lab in legend:
-        if col == "ring":
+        if col == "cluster":
+            s.append(f'<circle cx="{lx + 5}" cy="{ly - 4}" r="5.5" fill="{green}" fill-opacity=".85"/>')
+            s.append(f'<text x="{lx + 5}" y="{ly - 1.5}" font-size="7" font-weight="700" fill="#ffffff" '
+                     f'text-anchor="middle">3</text>')
+        elif col == "ring":
             s.append(f'<circle cx="{lx + 5}" cy="{ly - 4}" r="5" fill="none" stroke="{red}" stroke-width="1.6"/>')
         elif col == "na":
             s.append(f'<text x="{lx}" y="{ly}" font-size="9.5" fill="{faint}" font-family="ui-monospace, Menlo, monospace">n/a</text>')
@@ -1724,6 +1738,8 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
             n_na = len(na_by_metric.get(name, {}))
             if n_na:
                 extras.append(f"n/a {n_na}")
+            if gated and n_doc:
+                extras.append(f"{n_doc} doc")
             if extras:
                 s.append(f'<text x="{pad + label_w}" y="{cy + 4}" fill="{faint}" font-size="9" text-anchor="end" '
                          f'font-family="ui-monospace, Menlo, monospace">{" · ".join(extras)}</text>')
@@ -1737,9 +1753,16 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
                     s.append(f'<rect x="{bx + g_w:.1f}" y="{cy - bh / 2}" width="{d_w:.1f}" height="{bh}" fill="{grey_dot}"/>')
                 if o_w:
                     s.append(f'<rect x="{bx + g_w + d_w:.1f}" y="{cy - bh / 2}" width="{o_w:.1f}" height="{bh}" fill="{red}"/>')
-                inside = green_share >= 0.3
+                # The badge prints the ACCOUNTED share (everything that is not an
+                # open defect), not the in-band share: a documented variation is a
+                # measured, explained difference -- next to a group called
+                # "structural extraction", printing the in-band share read as
+                # recall ("it only finds 95% of functions") when the misses are 0.
+                # The in-band count keeps its n/n label in the band's corner.
+                acct = (n - n_open) / n
+                inside = acct >= 0.3
                 s.append(f'<text x="{(bx + 5) if inside else (bx + g_w + d_w + o_w + 5):.1f}" y="{cy + 4}" font-size="10.5" '
-                         f'font-weight="700" fill="{"#ffffff" if inside else ink}">{green_share:.0%}</text>')
+                         f'font-weight="700" fill="{"#ffffff" if inside else ink}">{acct:.0%}</text>')
                 if n_open:
                     s.append(f'<text x="{bx + bar_w + 4}" y="{cy + 4}" font-size="9" font-weight="700" fill="{red}">{n_open}</text>')
             else:
@@ -1752,7 +1775,13 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
                 s.append(f'<line x1="{x_of(e):.1f}" y1="{cy - sh / 2}" x2="{x_of(e):.1f}" y2="{cy + sh / 2}" '
                          f'stroke="#cfd5da" stroke-dasharray="2,2"/>')
             s.append(f'<line x1="{x_of(0):.1f}" y1="{cy - sh / 2 - 2}" x2="{x_of(0):.1f}" y2="{cy + sh / 2 + 2}" stroke="{faint}"/>')
-            red_labels, grey_labels = [], []
+            # Languages at the same strip position and cause collapse into one
+            # dot sized by population, count printed for clusters. 40 languages
+            # agreeing exactly used to render as 40 fully-overplotted circles --
+            # the row's strongest claim, invisible. Cluster key rounds the pixel
+            # position, so exact ties collapse and near-ties (< 0.1px apart)
+            # merge rather than smear; a mixed-cause tie stays two dots.
+            red_labels, grey_labels, clusters, rings = [], [], {}, []
             for i, d in enumerate(devs):
                 lang = kept[i] if i < len(kept) else None
                 if abs(d) <= GREEN_DEV:
@@ -1766,9 +1795,21 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
                     col = red if is_open else grey_dot
                     if lang:
                         (red_labels if is_open else grey_labels).append((x_of(d), lang, d))
-                s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="4.2" fill="{col}" fill-opacity=".6"/>')
+                clusters[(round(x_of(d), 1), col)] = clusters.get((round(x_of(d), 1), col), 0) + 1
                 if lang and (name, lang) in unexplained:
-                    s.append(f'<circle cx="{x_of(d):.1f}" cy="{cy:.1f}" r="7" fill="none" stroke="{red}" stroke-width="1.6"/>')
+                    rings.append(x_of(d))
+            for (cx, col), count in clusters.items():
+                r = min(4.2 + 1.1 * math.sqrt(count - 1), 7.0)
+                s.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{r:.1f}" fill="{col}" '
+                         f'fill-opacity="{".85" if count > 1 else ".6"}"/>')
+                if count >= 3:
+                    s.append(f'<text x="{cx:.1f}" y="{cy + 2.5:.1f}" font-size="7" font-weight="700" fill="#ffffff" '
+                             f'text-anchor="middle" font-family="ui-monospace, Menlo, monospace">{count}</text>')
+                elif count == 2:
+                    s.append(f'<text x="{cx + r + 2:.1f}" y="{cy + 2.5:.1f}" font-size="6.5" font-weight="700" '
+                             f'fill="{col}" font-family="ui-monospace, Menlo, monospace">2</text>')
+            for rx in rings:
+                s.append(f'<circle cx="{rx:.1f}" cy="{cy:.1f}" r="7" fill="none" stroke="{red}" stroke-width="1.6"/>')
             # How many languages actually sit in the band, printed in the band's own
             # bottom-right corner. The bar to the left already gives the SHARE; a
             # reader comparing two rows with the same percentage still has to know
@@ -2442,7 +2483,11 @@ def main():
               "open engine defect (`unexplained`, `extraction`, `correlation` in the cause table above) and "
               "**grey** when it is a documented variation (a scoring choice, language inherency, or an echo of "
               "another row). Each gated row's bar splits its languages the same way — in band · documented · "
-              "open defect — with the in-band share printed inside and the open-defect count after it; rows run "
+              "open defect — with the **accounted share** printed inside (in band + documented: everything "
+              "that is not an open defect — a documented variation is measured and explained, so it does not "
+              "subtract from the badge) and the open-defect count after it; the in-band count keeps its n/n "
+              "label in the band's corner, and languages at the same position collapse into one dot carrying "
+              "their count, so exact agreement is visible instead of overplotted. Rows run "
               "best → worst (least open defect first). The header's first number is the open-defect share, the "
               f"number to drive to 0. Average share in band across {len(shares)} gated metrics: **{avg_share:.0%}**; "
               f"{n_strong} metrics hold ≥80% of languages in band. Weakest by in-band share: "
