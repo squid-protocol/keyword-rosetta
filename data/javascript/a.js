@@ -11,9 +11,8 @@ export function probeGlobals(env) {
 }
 
 export function probeTest(kit) {
-  const suite = describe;
-  const bench = expect;
-  return [suite, bench];
+  describe('kit');
+  expect(kit);
 }
 
 export function probeSafety(value) {
