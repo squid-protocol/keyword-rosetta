@@ -46,6 +46,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import _registry
 import verify_language as vl
 from _registry import (
+    declaration_strata,
     load_definitions,
     population_less_languages,
     registry_signals,
@@ -403,22 +404,43 @@ def gather(language, colmap):
     return totals, risk_means, struct, measure_means, zero_dep, units
 
 
-def _row_stats(values, medians=None):
+def _row_stats(values, medians=None, presence=None):
     """(devs, share, median, basis) for one metric across languages; None if unusable.
 
     `share` is the metric's cross-language consistency score (one outlier no longer
     flips a binary verdict; it just costs its share). `basis` says what it measures:
     "band" = fraction inside ±GREEN_DEV of a positive median; "agreement" = fraction
     exactly ON a zero median, the only meaningful reading when a relative deviation
-    would divide by zero. Returns None only when the row is unusable: no values at
-    all, or inert (every language records 0, so nothing was asked).
+    would divide by zero; "declaration" = the gitgalaxy#2796 presence rule below.
+    Returns None only when the row is unusable: no values at all, or inert (every
+    language records 0, so nothing was asked).
 
     `medians`, when given, is the per-language reference aligned with `values`
     (F.3: a constant-reading risk metric is banded against its own stratum's median);
-    the returned median is still the global one, for the label."""
+    the returned median is still the global one, for the label.
+
+    `presence`, when given, is the per-language declaration stratum aligned with
+    `values` ("container-required"/"declaration-optional"/None) and takes priority."""
     vals = [v for v in values if v is not None]
     if not vals:
         return None
+    if presence is not None:
+        # gitgalaxy#2796: the declaration-requirement row (classes_found) bands on
+        # container PRESENCE, not a cross-language count. A language whose file IS a
+        # container -- cobol PROGRAM-ID, jcl JOB card, dockerfile FROM -- is in band
+        # iff it declares >=1; a declaration-optional language iff it declares 0. How
+        # MANY containers a file carries is corpus structure (dockerfile's 4 stages vs
+        # cobol's 1 program), not engine quality, so an exact-count median would paint
+        # correct morphology red. A missing required container, or a spurious class in
+        # a language that requires none, still reads off-scale.
+        judged = [(v, p) for v, p in zip(values, presence) if v is not None and p is not None]
+        if judged:
+            devs, greens = [], 0
+            for v, p in judged:
+                ok = (v >= 1) if p == "container-required" else (v == 0)
+                greens += ok
+                devs.append(0.0 if ok else math.copysign(1.0, v - (1 if p == "container-required" else 0)))
+            return devs, greens / len(judged), statistics.median([v for v, _ in judged]), "declaration"
     med = statistics.median(vals)
     if medians is not None:
         pairs = [(v, m) for v, m in zip(values, medians) if v is not None and m is not None]
@@ -713,17 +735,21 @@ RISK_INPUT_COLUMNS = {
 }
 
 
-def out_of_band_cells(metrics, languages, refs=None):
+def out_of_band_cells(metrics, languages, refs=None, presence=None):
     """{(metric, lang)} for every comparable cell outside the green band.
 
     Mirrors _row_stats' banding: a zero median is scored on exact agreement, so a
     nonzero value there is out of band and everything else is in. `refs` is
     reference_medians()' output; without it every cell is banded against the
-    global median.
+    global median. `presence` is {metric: {lang: declaration stratum}}; a metric
+    it names is banded on the gitgalaxy#2796 container-PRESENCE rule instead, so the
+    gate and the chart agree on what is out of band.
     """
     out = set()
     refs = refs or {}
+    presence = presence or {}
     for metric, values in metrics.items():
+        pres = presence.get(metric)
         nums = [v for v in (values.get(lang) for lang in languages) if isinstance(v, (int, float))]
         if not nums:
             continue
@@ -731,6 +757,14 @@ def out_of_band_cells(metrics, languages, refs=None):
         for lang in languages:
             v = values.get(lang)
             if not isinstance(v, (int, float)):
+                continue
+            if pres is not None:
+                p = pres.get(lang)
+                if p is None:
+                    continue
+                ok = (v >= 1) if p == "container-required" else (v == 0)
+                if not ok:
+                    out.add((metric, lang))
                 continue
             med = refs.get(metric, {}).get(lang, global_med)
             if med == 0:
@@ -741,8 +775,29 @@ def out_of_band_cells(metrics, languages, refs=None):
     return out
 
 
+def ledger_incomparable_cells(ledger_entries):
+    """{(signal, language)} declared CROSS-PLANT-INCOMPARABLE by a validated entry.
+
+    gitgalaxy#2796: an entry with disposition "cross-plant-incomparable" states that a
+    signal's value in a language is dictated by a DIFFERENT plant (kotlin's class count
+    IS its `globals` plant), so it is not a comparable reading of that signal and is
+    treated as n/a -- distinct from the structure/census n/a passes, which fire on a
+    language whose registry has no rule for the signal at all.
+    """
+    out = set()
+    for e in ledger_entries:
+        if (e.get("status") == "validated"
+                and e.get("still_reproduces") is not False
+                and e.get("disposition") == "cross-plant-incomparable"):
+            for signal in (e.get("signal") or "").split("|"):
+                for lang in e.get("languages_seen", []):
+                    if signal:
+                        out.add((signal, lang))
+    return out
+
+
 def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inputs=None,
-                        strata=None, constant_sensitive=(), ungated=None):
+                        strata=None, constant_sensitive=(), ungated=None, presence=None):
     """{(metric, lang): (status, detail)} for every out-of-band cell.
 
     `strata` + `constant_sensitive` band the constant-reading risk metrics against
@@ -778,7 +833,7 @@ def explain_out_of_band(metrics, languages, ledger_entries, structure, risk_inpu
     ]
     ungated = set(ungated) if ungated is not None else set(CONTEXT_METRICS)
     refs = reference_medians(metrics, languages, strata, constant_sensitive)
-    oob = out_of_band_cells(metrics, languages, refs)
+    oob = out_of_band_cells(metrics, languages, refs, presence=presence)
     verdicts = {}
     for metric, lang in sorted(oob):
         if metric in ungated:
@@ -1444,10 +1499,13 @@ def _pretty(name):
     return name
 
 
-def _kept_languages(languages, values, medians):
+def _kept_languages(languages, values, medians, presence=None):
     """The languages _row_stats kept for this row, in the order its devs come back."""
     if languages is None:
         return None
+    if presence is not None:
+        # gitgalaxy#2796: mirror _row_stats' presence path -- same filter, same order.
+        return [l for l, v, p in zip(languages, values, presence) if v is not None and p is not None]
     if medians is not None:
         pairs = [(l, v, m) for l, v, m in zip(languages, values, medians) if v is not None and m is not None]
         if pairs and all(m > 0 for _, _, m in pairs):
@@ -1499,7 +1557,8 @@ def _place_labels(items, lo, hi, char_w=4.9, gap=6):
 
 
 def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
-                         languages=None, unexplained=(), categories=None, headline=None):
+                         languages=None, unexplained=(), categories=None, headline=None,
+                         presence=None):
     """Strip-plot SVG. groups = [(title, {metric: [values-per-language]}, gated)].
 
     Colour encodes CAUSE, not magnitude (gitgalaxy docs/contract_roadmap.md D4):
@@ -1543,12 +1602,13 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
             if name in CHART_HIDDEN:
                 continue
             row_meds = (medians or {}).get(name)
-            st = _row_stats(values, row_meds)
+            row_pres = (presence or {}).get(name)
+            st = _row_stats(values, row_meds, presence=row_pres)
             if st is None:
                 (inert if is_inert(values) else skipped).append(name)
                 continue
             devs, green_share, med, basis = st
-            kept = _kept_languages(languages, values, row_meds) or []
+            kept = _kept_languages(languages, values, row_meds, presence=row_pres) or []
             n = len(devs)
             n_open = sum(1 for i, d in enumerate(devs)
                          if abs(d) > GREEN_DEV and i < len(kept)
@@ -1659,6 +1719,8 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
             extras = []
             if basis == "agreement":
                 extras.append("exact")
+            elif basis == "declaration":
+                extras.append("presence")
             n_na = len(na_by_metric.get(name, {}))
             if n_na:
                 extras.append(f"n/a {n_na}")
@@ -1860,6 +1922,19 @@ def main():
         for metric in metrics:
             all_struct[lang][metric] = None
 
+    # gitgalaxy#2796: cells a validated ledger entry declares CROSS-PLANT-INCOMPARABLE
+    # -- their value is dictated by a different plant, so they are not a comparable
+    # reading of THIS signal. kotlin's classes_found IS its `globals` plant (Kotlin has
+    # no module-level mutable state, so the two globals must be `object` singletons, and
+    # an object is a class), not an independent class-detection measurement. Marked n/a
+    # the same shape as the structure/census n/a passes above, so it leaves the row's
+    # comparable denominator instead of scoring red against a stratum it does not belong
+    # to.
+    for signal, lang in ledger_incomparable_cells(ledger["entries"]):
+        if lang in languages and signal in all_struct.get(lang, {}):
+            all_struct[lang][signal] = None
+            na_by_metric.setdefault(signal, {})[lang] = "ledgered"
+
     # The risk n/a pass runs AFTER the structure one (gitgalaxy#2908 Phase 4):
     # risk_documentation is population-based, so its n/a basis and review state
     # both come from `functions_found` -- the observed population and whether its
@@ -1956,6 +2031,14 @@ def main():
     )
     ungated = ungated_metrics(unplanted_inputs)
     strata = scoring_strata(languages)
+    # gitgalaxy#2796: the declaration-requirement banding axis. `classes_found` is
+    # banded on container PRESENCE within two strata (a file that IS a container ->
+    # >=1; a file where a type is optional -> 0), not on a cross-language count median
+    # that would paint cobol/jcl/dockerfile's correct morphology red. Distinct from the
+    # strictness `strata` above -- a language's stratum differs by metric family.
+    declaration_sensitive = ("classes_found",)
+    decl_strata = declaration_strata(languages)
+    declaration_presence = {m: decl_strata for m in declaration_sensitive}
     # Chart groups in pipeline order (gitgalaxy docs/contract_roadmap.md D4): the
     # structural extraction first, then the planted keywords, the dependency graph,
     # the derived descriptors, the scores the product reports; then the not-gated
@@ -2054,6 +2137,7 @@ def main():
         {c: dict(zip(languages, [all_struct[lang].get(c) for lang in languages]))
          for c in struct_names},
         risk_inputs=deps, strata=strata, constant_sensitive=constant_sensitive, ungated=ungated,
+        presence=declaration_presence,
     )
     unexplained = sorted(k for k, (st, _) in verdicts.items() if st == "unexplained")
     by_status = collections.Counter(st for st, _ in verdicts.values())
@@ -2073,6 +2157,7 @@ def main():
     shares, skipped, inert, agreement = write_variance_chart(
         groups, len(languages), na_by_metric,
         medians={m: [refs[m].get(lang) for lang in languages] for m in constant_sensitive if m in refs},
+        presence={m: [decl_strata.get(lang) for lang in languages] for m in declaration_sensitive},
         languages=languages, unexplained=set(unexplained), categories=categories,
         headline=(sum(o for o, _ in defect_share.values()), sum(n for _, n in defect_share.values())),
     )
@@ -2414,9 +2499,12 @@ def main():
                   "language (`functions_found` ← `func_start`, `classes_found` ← "
                   "`class_start`, `dependency_links` ← `_dependency_capture`) — or, for "
                   "`functions_found`, present but able to name only slicer buckets "
-                  "(gitgalaxy#2792) — and the scan confirms the count is 0: incomparable, "
-                  "excluded from bands and medians; † = not yet backed by a validated "
-                  "ledger entry."]
+                  "(gitgalaxy#2792) — and the scan confirms the count is 0; or the cell is "
+                  "CROSS-PLANT-INCOMPARABLE (gitgalaxy#2796): its value is dictated by a "
+                  "different plant, so it is not an independent reading of this signal "
+                  "(kotlin `classes_found` IS its `globals` plant — objects are Kotlin's "
+                  "only module-level state). Either way: incomparable, excluded from bands "
+                  "and medians; † = not yet backed by a validated ledger entry."]
 
     lines += ["", "## Risk scores (mean per file)", "",
               "| risk | " + " | ".join(languages) + " |",

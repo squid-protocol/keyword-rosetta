@@ -489,3 +489,29 @@ def scoring_strata(languages):
         row = LANGUAGE_STRICTNESS.get(resolve_language_family(lang))
         out[lang] = "unprofiled" if row is None else f"irc{strictness_constants(lang)[0]}"
     return out
+
+
+# gitgalaxy#2796: languages whose compilation unit IS a named container -- the file
+# cannot exist without a container declaration, so a nonzero class/container count is
+# morphology, not an extraction defect. cobol PROGRAM-ID, jcl JOB card, dockerfile
+# FROM. Deliberately a small CURATED set, not derived from the container-construct
+# ledger entries' `languages_seen` (which also list plant artifacts -- kotlin's
+# object-as-globals -- and out-of-scope selector cases). The "file cannot exist
+# without it" test is what separates these three from a language that merely CAN
+# declare a type: a `.kt`/`.py`/`.rb` file is valid with no type at all.
+CONTAINER_REQUIRED_LANGUAGES = frozenset({"cobol", "jcl", "dockerfile"})
+
+
+def declaration_strata(languages):
+    """{language: "container-required" | "declaration-optional"} -- gitgalaxy#2796.
+
+    The banding axis for the structure-count `classes_found` row: a language whose
+    file IS a container is banded on container PRESENCE (>=1), a language where a
+    type declaration is optional on ABSENCE (==0). Distinct from scoring_strata's
+    strictness axis -- a language's stratum differs by metric family.
+    """
+    return {
+        lang: ("container-required" if lang in CONTAINER_REQUIRED_LANGUAGES
+               else "declaration-optional")
+        for lang in languages
+    }

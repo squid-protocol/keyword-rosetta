@@ -71,6 +71,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from bias_report import (  # noqa: E402  (sys.path shim above; see AGENTS.md testing note)
     CONTEXT_METRICS,
     RISK_INPUT_COLUMNS,
+    declaration_strata,
     out_of_band_cells,
     reference_medians,
 )
@@ -113,7 +114,11 @@ def analyse():
     ungated = set(data.get("ungated_metrics") or CONTEXT_METRICS)
 
     refs = reference_medians(metrics, languages, strata, constant_sensitive)
-    oob = out_of_band_cells(metrics, languages, refs)
+    # gitgalaxy#2796: classes_found bands on the declaration-requirement PRESENCE axis,
+    # the same one bias_report.py --gate uses, so the orphan check and the gate never
+    # disagree on which cells are out of band.
+    presence = {"classes_found": declaration_strata(languages)}
+    oob = out_of_band_cells(metrics, languages, refs, presence=presence)
 
     def resolve(token):
         # The signal names a SPEC signal; the recorder stores a few under other
