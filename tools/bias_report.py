@@ -1642,7 +1642,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
     open_share = n_open_cells / n_comparable if n_comparable else 0.0
 
     header_h = 200
-    height = header_h + sum(54 for _ in prepared) + n_rows * row_h + 62
+    height = header_h + sum(54 for _ in prepared) + n_rows * row_h + 76
     s = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'font-family="Inter, system-ui, sans-serif" font-size="12">',
@@ -1829,14 +1829,22 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
             for x, lang in _place_labels(_fit_labels(grey_labels, strip_w), lo, hi):
                 s.append(f'<text x="{x:.1f}" y="{cy + sh / 2 + 9}" font-size="8" fill="{grey_lab}" text-anchor="middle">{lang}</text>')
             y += row_h
-    foot_y = height - 42
+    foot_y = height - 56
     s.append(f'<text x="{pad}" y="{foot_y}" font-size="10" fill="{muted}">* not gated: languages vary too much in how they '
              f"express this — program length, token vocabulary, inputs the corpus does not plant, commit age — for a "
              f"cross-language band to mean anything.</text>")
     s.append(f'<text x="{pad}" y="{foot_y + 13}" font-size="10" fill="{muted}">Shown for context, never scored. '
              f"Every dot outside the band on a gated row has a verdict in deviation_ledger.json; the cause behind each "
              f"colour is in docs/bias_data.json (cell_categories).</text>")
-    s.append(f'<text x="{pad}" y="{foot_y + 28}" font-size="10" fill="{faint}">keyword-rosetta · tools/bias_report.py · '
+    # The rows the chart does NOT draw, named so their absence reads as a fact
+    # about the corpus rather than a gap in the picture: an inert column is 0 in
+    # every language (single-commit corpus -> no churn; no sec_* plants -> no
+    # secrets), so it asks no cross-language question at all.
+    if inert:
+        s.append(f'<text x="{pad}" y="{foot_y + 26}" font-size="10" fill="{muted}">Inert — recorded but drawn nowhere: '
+                 f'<tspan font-family="ui-monospace, Menlo, monospace">{_esc(", ".join(sorted(inert)))}</tspan> — every '
+                 f"language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>")
+    s.append(f'<text x="{pad}" y="{foot_y + 42}" font-size="10" fill="{faint}">keyword-rosetta · tools/bias_report.py · '
              f"band ±{GREEN_DEV:.0%} of the cross-language median (exact agreement where the median is 0) · "
              f"cause categories: gitgalaxy docs/contract_roadmap.md</text>")
     s.append("</svg>")

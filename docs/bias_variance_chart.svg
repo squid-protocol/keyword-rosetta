@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="998" height="3160" font-family="Inter, system-ui, sans-serif" font-size="12">
-<rect width="998" height="3160" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="998" height="3174" font-family="Inter, system-ui, sans-serif" font-size="12">
+<rect width="998" height="3174" fill="#ffffff"/>
 <text x="16" y="30" font-size="19" font-weight="700" fill="#1b2430">One program, 46 languages — does GitGalaxy count it the same everywhere?</text>
 <text x="16" y="52" fill="#5c6670">The same 12-probe program, written in every language. The engine should extract the same counts from each;</text>
 <text x="16" y="68" fill="#5c6670">every dot is one language's deviation from the cross-language median. <tspan font-weight="600" fill="#c0392b">Red</tspan> is an open engine defect — a rule matching the wrong construct,</text>
@@ -1695,5 +1695,6 @@
 <text x="447.5" y="3095.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
 <text x="16" y="3118" font-size="10" fill="#5c6670">* not gated: languages vary too much in how they express this — program length, token vocabulary, inputs the corpus does not plant, commit age — for a cross-language band to mean anything.</text>
 <text x="16" y="3131" font-size="10" fill="#5c6670">Shown for context, never scored. Every dot outside the band on a gated row has a verdict in deviation_ledger.json; the cause behind each colour is in docs/bias_data.json (cell_categories).</text>
-<text x="16" y="3146" font-size="10" fill="#9aa4ad">keyword-rosetta · tools/bias_report.py · band ±25% of the cross-language median (exact agreement where the median is 0) · cause categories: gitgalaxy docs/contract_roadmap.md</text>
+<text x="16" y="3144" font-size="10" fill="#5c6670">Inert — recorded but drawn nowhere: <tspan font-family="ui-monospace, Menlo, monospace">llm_api, risk_churn, risk_secrets_risk, state_slop_duplicates</tspan> — every language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>
+<text x="16" y="3160" font-size="10" fill="#9aa4ad">keyword-rosetta · tools/bias_report.py · band ±25% of the cross-language median (exact agreement where the median is 0) · cause categories: gitgalaxy docs/contract_roadmap.md</text>
 </svg>
