@@ -6,7 +6,7 @@
 <text x="16" y="84" fill="#5c6670">or a scoring weight sitting inside a count — the work left. <tspan font-weight="600" fill="#6b7680">Grey</tspan> is a documented variation: the language cannot express the construct,</text>
 <text x="16" y="100" fill="#5c6670">a deliberate scoring choice, or an echo of another row. Each row's bar: in band (±25% of the median) · documented · open defect. Rows run best → worst.</text>
 <text x="16" y="134" font-size="22" font-weight="700" fill="#c0392b">0.0%</text>
-<text x="16" y="150" font-size="10.5" fill="#5c6670">open-defect share · 1 of 2632 cells</text>
+<text x="16" y="150" font-size="10.5" fill="#5c6670">open-defect share · 0 of 2632 cells</text>
 <text x="258" y="134" font-size="22" font-weight="700" fill="#1b2430">94%</text>
 <text x="258" y="150" font-size="10.5" fill="#5c6670">average share in band, 55 gated metrics</text>
 <text x="499" y="134" font-size="22" font-weight="700" fill="#1b2430">0</text>
@@ -390,7 +390,7 @@
 <line x1="16" y1="480" x2="982" y2="480" stroke="#e3e6ea"/>
 <text x="16" y="498" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">KEYWORD EXTRACTION</text>
 <text x="184" y="498" font-size="11.5" fill="#5c6670">one rule per signal; every count here was planted on purpose, in every language</text>
-<text x="982" y="498" font-size="11.5" font-weight="700" fill="#1b2430" text-anchor="end">group: 99% in band · <tspan fill="#c0392b">1 open defect (0%)</tspan></text>
+<text x="982" y="498" font-size="11.5" font-weight="700" fill="#1b2430" text-anchor="end">group: 99% in band · <tspan fill="#c0392b">0 open defects (0%)</tspan></text>
 <text x="447.5" y="518" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
 <text x="574.7" y="518" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
 <text x="638.4" y="518" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
@@ -1190,10 +1190,8 @@
 <text x="272" y="1050.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 3</text>
 <rect x="288" y="1039.0" width="118" height="14" fill="#eceff2" rx="2"/>
 <rect x="288" y="1039.0" width="109.8" height="14" fill="#2f855a" rx="2"/>
-<rect x="397.8" y="1039.0" width="5.5" height="14" fill="#a3acb3"/>
-<rect x="403.3" y="1039.0" width="2.7" height="14" fill="#c0392b"/>
+<rect x="397.8" y="1039.0" width="8.2" height="14" fill="#a3acb3"/>
 <text x="293.0" y="1050.0" font-size="10.5" font-weight="700" fill="#ffffff">93%</text>
-<text x="410" y="1050.0" font-size="9" font-weight="700" fill="#c0392b">1</text>
 <rect x="422.0" y="1040.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="1040.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="1040.0" x2="574.7" y2="1052.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
@@ -1210,7 +1208,7 @@
 <circle cx="702.0" cy="1046.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1046.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1046.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="982.0" cy="1046.0" r="4.2" fill="#c0392b" fill-opacity=".6"/>
+<circle cx="982.0" cy="1046.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="702.0" cy="1046.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1046.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1046.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -1243,7 +1241,7 @@
 <circle cx="702.0" cy="1046.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.0" cy="1046.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <text x="763.1" y="1050.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/43</text>
-<text x="945.2" y="1037.0" font-size="8" fill="#9e2b21" text-anchor="middle">embedded_python</text>
+<text x="884.2" y="1061.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
 <text x="941.7" y="1061.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
 <text x="972.2" y="1061.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
 <line x1="16" y1="1074" x2="982" y2="1074" stroke="#e3e6ea"/>

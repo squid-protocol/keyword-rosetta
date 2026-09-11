@@ -27,22 +27,18 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 1 of 2632 comparable cells (0.0%)** across 59 gated metrics; 1 of the 139 out-of-band cells are open defects.
+**Open-defect share: 0 of 2632 comparable cells (0.0%)** across 59 gated metrics; 0 of the 139 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
 | **unexplained** | 0 | survived every mechanism -- the gate fails on these |
-| **extraction** | 1 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
+| **extraction** | 0 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
-| scoring | 48 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
+| scoring | 49 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 64 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
 | echo | 26 | derived -- an upstream deviation counted again downstream |
 
-Metrics carrying the most open defect, by share of their comparable cells:
-
-- `state_mutation` — 1 of 43 (2%)
-
-Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `comment-lines-manifest-doc-classification`, `units-public-main-outside-api-contract`. Narrow or retire them.
+Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `batch4-dual-keyword-overlaps`, `comment-lines-manifest-doc-classification`, `units-public-main-outside-api-contract`. Narrow or retire them.
 
 ## The language-level risk constant is design; the report bands within it
 
