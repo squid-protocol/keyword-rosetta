@@ -21,7 +21,7 @@
       "safety": 0,
       "safety_bypasses": 0,
       "telemetry": 0,
-      "state_mutation": 0,
+      "state_mutation": 11,
       "cleanup": 0,
       "fragile_debt": 0,
       "planned_debt": 0,
@@ -45,7 +45,7 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "telemetry": 0,
-      "state_mutation": 0,
+      "state_mutation": 5,
       "cleanup": 0,
       "safety_bypasses": 0,
       "doc": 0,
@@ -62,7 +62,7 @@
       "api_orphan_credit": 0,
       "safety_bypasses": 2,
       "telemetry": 2,
-      "state_mutation": 2,
+      "state_mutation": 4,
       "branch": 0,
       "class_start": 0,
       "io": 0,
@@ -88,7 +88,7 @@
       "planned_debt": 1,
       "class_start": 0,
       "branch": 0,
-      "state_mutation": 0,
+      "state_mutation": 1,
       "encapsulation": 0,
       "high_risk_execution": 0,
       "safety": 0,
@@ -154,5 +154,5 @@
       "outcome": "reverse decoy works: identifier did not count, the # HACK comment did (fragile_debt = 1 exactly)"
     }
   ],
-  "notes": "api = public defs PLUS the Contextual Baseline Fix (galaxyscope.py ~2145): a/b/c are each imported and their 3 probes are never called, so api = 3 + 3 = 6; main.py is imported by nobody and stays at 4. doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (doc rule now matches the full \"\"\"...\"\"\" span as a single bounded hit instead of counting open+close delimiters separately). See ledger entries os-sys-prefix-overlaps-io (resolved) and assert-overlaps-safety-and-test (python removed, still reproduces for c/perl). String decoy redesigned per keyword-rosetta#17 (2026-09-01). doc re-baselined 2026-09-02 against gitgalaxy#2658. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.py's `runner = eval` / `spawner = exec` (bound aliases, C2) re-planted as the invocations `eval(payload)` / `exec(payload)`. Cell unchanged at 2. sys.exit/os._exit/os.abort join the rule (embedded_python twin parity). 2026-09-09 (gitgalaxy#2766): encapsulation counts declaration position only (def _x/class _x/_x =/self._x =); dunders are the public protocol and are excluded. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
+  "notes": "api = public defs PLUS the Contextual Baseline Fix (galaxyscope.py ~2145): a/b/c are each imported and their 3 probes are never called, so api = 3 + 3 = 6; main.py is imported by nobody and stays at 4. doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (doc rule now matches the full \"\"\"...\"\"\" span as a single bounded hit instead of counting open+close delimiters separately). See ledger entries os-sys-prefix-overlaps-io (resolved) and assert-overlaps-safety-and-test (python removed, still reproduces for c/perl). String decoy redesigned per keyword-rosetta#17 (2026-09-01). doc re-baselined 2026-09-02 against gitgalaxy#2658. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-08 gitgalaxy#2878 high_risk_execution contract: main.py's `runner = eval` / `spawner = exec` (bound aliases, C2) re-planted as the invocations `eval(payload)` / `exec(payload)`. Cell unchanged at 2. sys.exit/os._exit/os.abort join the rule (embedded_python twin parity). 2026-09-09 (gitgalaxy#2766): encapsulation counts declaration position only (def _x/class _x/_x =/self._x =); dunders are the public protocol and are excluded. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data 2026-09-11 re-bless (gitgalaxy#2817): state_mutation now counts a plain re-assignment (x=v / obj.attr= / d[k]=) per the #2765 contract corollary 1 -- the probes' incidental assignments count, main/a/b/c 0/0/2/0 -> 11/5/4/1; ledger state-mutation-2817-plain-reassignment."
 }

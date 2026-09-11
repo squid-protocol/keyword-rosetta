@@ -9,9 +9,8 @@ def probe_globals(env)
 end
 
 def probe_test(kit)
-  suite = describe
-  bench = expect
-  [suite, bench]
+  describe(kit) { }
+  expect(kit)
 end
 
 def probe_safety(value)
