@@ -188,8 +188,6 @@
   "globals": {
     "core": true,
     "keywords": [
-      "static final",
-      "static const",
       "Platform.environment",
       "Zone.current"
     ],

@@ -141,12 +141,7 @@
   },
   "globals": {
     "core": true,
-    "keywords": [
-      "ERASABLE MEMORY",
-      "FIXED MEMORY",
-      "WORKING-STORAGE",
-      "COMMON"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "high_risk_execution": {

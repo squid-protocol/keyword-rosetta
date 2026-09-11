@@ -171,7 +171,18 @@
   },
   "globals": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "var",
+      "const",
+      "bos",
+      "Getenv",
+      "Environ",
+      "LookupEnv",
+      "Setenv",
+      "Unsetenv",
+      "Args",
+      "Getwd"
+    ],
     "pattern_defined": true
   },
   "high_risk_execution": {
