@@ -262,7 +262,7 @@
    "java": 0,
    "javascript": 0,
    "jcl": 1,
-   "kotlin": 2,
+   "kotlin": null,
    "livecode": 0,
    "lua": 0,
    "m4": null,
@@ -3579,7 +3579,8 @@
    "m4": "ledgered",
    "makefile": "ledgered",
    "markdown": "ledgered",
-   "shell": "ledgered"
+   "shell": "ledgered",
+   "kotlin": "ledgered"
   },
   "functions_found": {
    "markdown": "ledgered",
@@ -3771,7 +3772,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "458dc76cd231f2b7fd68316eb7f0f3a1d78c88ac",
+ "engine_commit": "a074a02d021a6d4760b06578ee360f3b1a77f67c",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -3980,10 +3981,6 @@
   "class_start/jcl": "scoring",
   "class_start/kotlin": "inherency",
   "class_start/yaml": "scoring",
-  "classes_found/cobol": "scoring",
-  "classes_found/dockerfile": "scoring",
-  "classes_found/jcl": "scoring",
-  "classes_found/kotlin": "scoring",
   "cog_raw/apex": "echo",
   "cog_raw/css": "echo",
   "cog_raw/html": "echo",
@@ -4113,7 +4110,7 @@
   ],
   "classes_found": [
    0,
-   41
+   40
   ],
   "cleanup": [
    0,

@@ -1289,6 +1289,21 @@
       "upstream_issue": "squid-protocol/gitgalaxy#2798 (fixed by PR #2837)",
       "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.5 singleton sweep); css narrowed out 2026-09-07 by claude-opus-5 (gitgalaxy#2798)",
       "validated_at": "2026-09-07",
+      "resolved_by": "gitgalaxy#2796 (2026-09-10): classes_found now bands on the declaration-requirement axis -- cobol/jcl/dockerfile read IN BAND on container PRESENCE within the container-required stratum, and kotlin's cell moved to the cross-plant-incomparable entry (kotlin-classes-found-is-globals-plant) as n/a. No cell of this entry reads out of band any more; retired, verified by the #2796 regen.",
+      "still_reproduces": false
+    },
+    {
+      "id": "kotlin-classes-found-is-globals-plant",
+      "signal": "classes_found",
+      "languages_seen": [
+        "kotlin"
+      ],
+      "disposition": "cross-plant-incomparable",
+      "status": "validated",
+      "verdict": "kotlin reads classes_found 2 (`object Region {}` / `object Home {}`), and the reading is correct -- but it is not an independent class-detection measurement. Kotlin has no module-level mutable state, so the corpus's two planted `globals` MUST be written as `object` singletons, and an `object` IS a class. The class count is the globals plant re-counted (globals = 2), the same documented cross-signal overlap the class_start layer records as kotlin-object-dual-globals-classstart. It is therefore incomparable as a classes_found signal and marked n/a (gitgalaxy#2796), so the row bands only the languages whose class count is an independent signal. Making it comparable would require planting kotlin's globals as something Kotlin does not have.",
+      "upstream_issue": null,
+      "investigated_by": "claude-opus-4-8 (gitgalaxy#2796)",
+      "validated_at": "2026-09-10",
       "still_reproduces": true
     },
     {
