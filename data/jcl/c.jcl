@@ -9,3 +9,4 @@
 //PROBETODO EXEC ROSPROC,PARM='P'
 //* [SPEC-2732] traceability tag for the rosetta corpus
 //*PROBEDEAD EXEC ROSPROC,PARM='D'
+//* api_key = "R0SETTA-PLANT-SECRET-2026"

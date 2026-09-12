@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="998" height="3174" font-family="Inter, system-ui, sans-serif" font-size="12">
-<rect width="998" height="3174" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="998" height="3210" font-family="Inter, system-ui, sans-serif" font-size="12">
+<rect width="998" height="3210" fill="#ffffff"/>
 <text x="16" y="30" font-size="19" font-weight="700" fill="#1b2430">One program, 46 languages — does GitGalaxy count it the same everywhere?</text>
 <text x="16" y="52" fill="#5c6670">The same 12-probe program, written in every language. The engine should extract the same counts from each;</text>
 <text x="16" y="68" fill="#5c6670">every dot is one language's deviation from the cross-language median. <tspan font-weight="600" fill="#c0392b">Red</tspan> is an open engine defect — a rule matching the wrong construct,</text>
@@ -8,7 +8,7 @@
 <text x="16" y="134" font-size="22" font-weight="700" fill="#c0392b">0.0%</text>
 <text x="16" y="150" font-size="10.5" fill="#5c6670">open-defect share · 0 of 2632 cells</text>
 <text x="258" y="134" font-size="22" font-weight="700" fill="#1b2430">94%</text>
-<text x="258" y="150" font-size="10.5" fill="#5c6670">average share in band, 55 gated metrics</text>
+<text x="258" y="150" font-size="10.5" fill="#5c6670">average share in band, 56 gated metrics</text>
 <text x="499" y="134" font-size="22" font-weight="700" fill="#1b2430">0</text>
 <text x="499" y="150" font-size="10.5" fill="#5c6670">cells with no verdict at all</text>
 <text x="740" y="134" font-size="22" font-weight="700" fill="#1b2430">46</text>
@@ -923,10 +923,10 @@
 <text x="765.6" y="2138" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
 <text x="829.3" y="2138" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
 <text x="956.5" y="2138" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
-<line x1="574.7" y1="2142" x2="574.7" y2="2502" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="638.4" y1="2142" x2="638.4" y2="2502" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="765.6" y1="2142" x2="765.6" y2="2502" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="829.3" y1="2142" x2="829.3" y2="2502" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="574.7" y1="2142" x2="574.7" y2="2538" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="638.4" y1="2142" x2="638.4" y2="2538" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="765.6" y1="2142" x2="765.6" y2="2538" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="829.3" y1="2142" x2="829.3" y2="2538" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <text x="16" y="2166.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_documentation</text>
 <text x="272" y="2166.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 3</text>
 <rect x="288" y="2155.0" width="118" height="14" fill="#eceff2" rx="2"/>
@@ -999,7 +999,7 @@
 <circle cx="701.8" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="704.6" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="701.5" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="705.0" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="705.1" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="707.6" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="702.7" cy="2234.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <text x="763.1" y="2238.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">45/45</text>
@@ -1019,11 +1019,11 @@
 <circle cx="956.5" cy="2270.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <text x="763.1" y="2274.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">44/45</text>
 <text x="956.5" y="2285.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="16" y="2310.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_concurrency</text>
-<text x="272" y="2310.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact · n/a 4 · 2 doc</text>
+<text x="16" y="2310.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_secrets_risk</text>
+<text x="272" y="2310.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">2 doc</text>
 <rect x="288" y="2299.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="2299.0" width="112.4" height="14" fill="#2f855a" rx="2"/>
-<rect x="400.4" y="2299.0" width="5.6" height="14" fill="#a3acb3"/>
+<rect x="288" y="2299.0" width="112.9" height="14" fill="#2f855a" rx="2"/>
+<rect x="400.9" y="2299.0" width="5.1" height="14" fill="#a3acb3"/>
 <text x="293.0" y="2310.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="2300.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2300.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -1031,17 +1031,17 @@
 <line x1="829.3" y1="2300.0" x2="829.3" y2="2312.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2298.0" x2="702.0" y2="2314.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="2306.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2308.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">40</text>
-<circle cx="956.5" cy="2306.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="963.8" y="2308.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<text x="763.1" y="2310.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/42</text>
-<text x="922.1" y="2321.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
-<text x="969.8" y="2321.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
-<text x="16" y="2346.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_tech_debt</text>
-<text x="272" y="2346.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">6 doc</text>
+<text x="702.0" y="2308.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">44</text>
+<circle cx="447.5" cy="2306.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="454.8" y="2308.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<text x="763.1" y="2310.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">44/46</text>
+<text x="447.5" y="2321.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="482.9" y="2321.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
+<text x="16" y="2346.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_concurrency</text>
+<text x="272" y="2346.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact · n/a 4 · 2 doc</text>
 <rect x="288" y="2335.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="2335.0" width="102.6" height="14" fill="#2f855a" rx="2"/>
-<rect x="390.6" y="2335.0" width="15.4" height="14" fill="#a3acb3"/>
+<rect x="288" y="2335.0" width="112.4" height="14" fill="#2f855a" rx="2"/>
+<rect x="400.4" y="2335.0" width="5.6" height="14" fill="#a3acb3"/>
 <text x="293.0" y="2346.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="2336.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2336.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -1049,86 +1049,74 @@
 <line x1="829.3" y1="2336.0" x2="829.3" y2="2348.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2334.0" x2="702.0" y2="2350.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="2342.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2344.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">38</text>
-<circle cx="681.9" cy="2342.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="599.6" cy="2342.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="606.9" y="2344.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="819.5" cy="2342.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="591.5" cy="2342.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="598.8" y="2344.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="447.5" cy="2342.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="705.3" cy="2342.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="2346.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/46</text>
-<text x="447.5" y="2357.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="591.5" y="2357.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="629.3" y="2357.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="654.9" y="2357.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
-<text x="687.9" y="2357.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="819.5" y="2357.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
-<text x="16" y="2382.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_api_exposure</text>
-<text x="272" y="2382.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1 · 6 doc</text>
+<text x="702.0" y="2344.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">40</text>
+<circle cx="956.5" cy="2342.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="963.8" y="2344.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<text x="763.1" y="2346.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/42</text>
+<text x="922.1" y="2357.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
+<text x="969.8" y="2357.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
+<text x="16" y="2382.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_tech_debt</text>
+<text x="272" y="2382.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">6 doc</text>
 <rect x="288" y="2371.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="2371.0" width="102.3" height="14" fill="#2f855a" rx="2"/>
-<rect x="390.3" y="2371.0" width="15.7" height="14" fill="#a3acb3"/>
+<rect x="288" y="2371.0" width="102.6" height="14" fill="#2f855a" rx="2"/>
+<rect x="390.6" y="2371.0" width="15.4" height="14" fill="#a3acb3"/>
 <text x="293.0" y="2382.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="2372.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2372.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2372.0" x2="574.7" y2="2384.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2372.0" x2="829.3" y2="2384.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2370.0" x2="702.0" y2="2386.0" stroke="#9aa4ad"/>
-<circle cx="704.3" cy="2378.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="704.3" y="2380.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">13</text>
-<circle cx="733.7" cy="2378.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="733.7" y="2380.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
 <circle cx="702.0" cy="2378.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2380.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">20</text>
-<circle cx="695.0" cy="2378.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="574.7" cy="2378.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="582.0" y="2380.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="698.5" cy="2378.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="511.1" cy="2378.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="578.8" cy="2378.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="454.5" cy="2378.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="714.9" cy="2378.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="702.0" y="2380.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">38</text>
+<circle cx="681.9" cy="2378.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="599.6" cy="2378.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="606.9" y="2380.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="819.5" cy="2378.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="591.5" cy="2378.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="598.8" y="2380.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
 <circle cx="447.5" cy="2378.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="2382.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">39/45</text>
-<text x="447.5" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="475.5" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="511.1" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
-<text x="574.7" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="615.0" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="640.6" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="16" y="2418.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_cognitive_load</text>
-<text x="272" y="2418.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1 · 7 doc</text>
+<circle cx="705.3" cy="2378.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="2382.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/46</text>
+<text x="447.5" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="591.5" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="629.3" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="654.9" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
+<text x="687.9" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="819.5" y="2393.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
+<text x="16" y="2418.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_api_exposure</text>
+<text x="272" y="2418.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1 · 6 doc</text>
 <rect x="288" y="2407.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="2407.0" width="99.6" height="14" fill="#2f855a" rx="2"/>
-<rect x="387.6" y="2407.0" width="18.4" height="14" fill="#a3acb3"/>
+<rect x="288" y="2407.0" width="102.3" height="14" fill="#2f855a" rx="2"/>
+<rect x="390.3" y="2407.0" width="15.7" height="14" fill="#a3acb3"/>
 <text x="293.0" y="2418.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="2408.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2408.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2408.0" x2="574.7" y2="2420.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2408.0" x2="829.3" y2="2420.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2406.0" x2="702.0" y2="2422.0" stroke="#9aa4ad"/>
+<circle cx="704.3" cy="2414.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="704.3" y="2416.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">13</text>
+<circle cx="733.7" cy="2414.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="733.7" y="2416.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
 <circle cx="702.0" cy="2414.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2416.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">34</text>
-<circle cx="868.6" cy="2414.0" r="6.1" fill="#a3acb3" fill-opacity=".85"/>
-<text x="868.6" y="2416.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
-<circle cx="703.4" cy="2414.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="982.0" cy="2414.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="989.3" y="2416.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="765.6" cy="2414.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="911.8" cy="2414.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="681.4" cy="2414.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="724.4" cy="2414.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="2418.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">38/45</text>
-<text x="705.9" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">apex</text>
-<text x="741.3" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
-<text x="791.4" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">powershell</text>
-<text x="831.7" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="857.3" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
-<text x="909.8" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
-<text x="967.3" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
-<text x="16" y="2454.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_safety_score</text>
+<text x="702.0" y="2416.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">20</text>
+<circle cx="695.0" cy="2414.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="574.7" cy="2414.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="582.0" y="2416.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="698.5" cy="2414.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="511.1" cy="2414.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="578.8" cy="2414.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="454.5" cy="2414.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="714.9" cy="2414.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="447.5" cy="2414.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="2418.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">39/45</text>
+<text x="447.5" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="475.5" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="511.1" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="574.7" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="615.0" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
+<text x="640.6" y="2429.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="16" y="2454.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_cognitive_load</text>
 <text x="272" y="2454.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1 · 7 doc</text>
 <rect x="288" y="2443.0" width="118" height="14" fill="#eceff2" rx="2"/>
 <rect x="288" y="2443.0" width="99.6" height="14" fill="#2f855a" rx="2"/>
@@ -1141,30 +1129,28 @@
 <line x1="702.0" y1="2442.0" x2="702.0" y2="2458.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="2450.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
 <text x="702.0" y="2452.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">34</text>
-<circle cx="689.2" cy="2450.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="769.3" cy="2450.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="899.5" cy="2450.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="784.8" cy="2450.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="786.5" cy="2450.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="701.5" cy="2450.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="785.0" cy="2450.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.3" cy="2450.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="906.6" cy="2450.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="877.5" cy="2450.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="706.3" cy="2450.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="868.6" cy="2450.0" r="6.1" fill="#a3acb3" fill-opacity=".85"/>
+<text x="868.6" y="2452.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<circle cx="703.4" cy="2450.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="982.0" cy="2450.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="989.3" y="2452.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="765.6" cy="2450.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="911.8" cy="2450.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="681.4" cy="2450.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="724.4" cy="2450.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <text x="763.1" y="2454.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">38/45</text>
-<text x="693.6" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
-<text x="729.0" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
-<text x="776.7" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">javascript</text>
-<text x="824.3" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="705.9" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">apex</text>
+<text x="741.3" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
+<text x="791.4" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">powershell</text>
+<text x="831.7" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
 <text x="857.3" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
 <text x="909.8" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
 <text x="967.3" y="2465.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
-<text x="16" y="2490.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_state_flux</text>
-<text x="272" y="2490.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1 · 8 doc</text>
+<text x="16" y="2490.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_safety_score</text>
+<text x="272" y="2490.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1 · 7 doc</text>
 <rect x="288" y="2479.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="2479.0" width="97.0" height="14" fill="#2f855a" rx="2"/>
-<rect x="385.0" y="2479.0" width="21.0" height="14" fill="#a3acb3"/>
+<rect x="288" y="2479.0" width="99.6" height="14" fill="#2f855a" rx="2"/>
+<rect x="387.6" y="2479.0" width="18.4" height="14" fill="#a3acb3"/>
 <text x="293.0" y="2490.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="2480.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2480.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -1172,529 +1158,561 @@
 <line x1="829.3" y1="2480.0" x2="829.3" y2="2492.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2478.0" x2="702.0" y2="2494.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="2486.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2488.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">37</text>
-<circle cx="637.5" cy="2486.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="644.8" y="2488.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="447.5" cy="2486.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
-<text x="447.5" y="2488.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="982.0" cy="2486.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
-<text x="982.0" y="2488.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<text x="763.1" y="2490.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">37/45</text>
-<text x="447.5" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
-<text x="470.6" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="501.1" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="637.5" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
-<text x="653.3" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">cpp</text>
-<text x="884.2" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
-<text x="941.7" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
-<text x="972.2" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
-<line x1="16" y1="2514" x2="982" y2="2514" stroke="#e3e6ea"/>
-<text x="16" y="2532" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">PROGRAM SIZE &amp; VOCABULARY</text>
-<text x="241" y="2532" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
-<text x="319" y="2532" font-size="11.5" fill="#5c6670">how long the same program came out, and how the language spells it: token and keyword tallies, and the ratios that divide by them</text>
-<text x="447.5" y="2552" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
-<text x="574.7" y="2552" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
-<text x="638.4" y="2552" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
-<text x="702.0" y="2552" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
-<text x="765.6" y="2552" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
-<text x="829.3" y="2552" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
-<text x="956.5" y="2552" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
-<line x1="574.7" y1="2556" x2="574.7" y2="2844" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="638.4" y1="2556" x2="638.4" y2="2844" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="765.6" y1="2556" x2="765.6" y2="2844" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="829.3" y1="2556" x2="829.3" y2="2844" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<text x="16" y="2580.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">comment_lines</text>
-<text x="406" y="2580.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
-<rect x="422.0" y="2570.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
-<rect x="638.4" y="2570.0" width="127.3" height="12" fill="#dcefe0"/>
-<line x1="574.7" y1="2570.0" x2="574.7" y2="2582.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="829.3" y1="2570.0" x2="829.3" y2="2582.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="702.0" y1="2568.0" x2="702.0" y2="2584.0" stroke="#9aa4ad"/>
-<circle cx="702.0" cy="2576.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2578.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">34</text>
-<circle cx="765.6" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="680.8" cy="2576.0" r="6.9" fill="#2f855a" fill-opacity=".85"/>
-<text x="680.8" y="2578.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
-<circle cx="659.6" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="723.2" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="982.0" cy="2576.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="786.8" cy="2576.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="2580.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">44/46</text>
-<text x="962.4" y="2591.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="16" y="2616.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">token_mass</text>
+<text x="702.0" y="2488.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">34</text>
+<circle cx="689.2" cy="2486.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="769.3" cy="2486.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="899.5" cy="2486.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="784.8" cy="2486.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="786.5" cy="2486.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="701.5" cy="2486.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="785.0" cy="2486.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.3" cy="2486.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="906.6" cy="2486.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="877.5" cy="2486.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="706.3" cy="2486.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="2490.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">38/45</text>
+<text x="693.6" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
+<text x="729.0" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
+<text x="776.7" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">javascript</text>
+<text x="824.3" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="857.3" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
+<text x="909.8" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
+<text x="967.3" y="2501.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
+<text x="16" y="2526.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_state_flux</text>
+<text x="272" y="2526.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1 · 8 doc</text>
+<rect x="288" y="2515.0" width="118" height="14" fill="#eceff2" rx="2"/>
+<rect x="288" y="2515.0" width="97.0" height="14" fill="#2f855a" rx="2"/>
+<rect x="385.0" y="2515.0" width="21.0" height="14" fill="#a3acb3"/>
+<text x="293.0" y="2526.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
+<rect x="422.0" y="2516.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
+<rect x="638.4" y="2516.0" width="127.3" height="12" fill="#dcefe0"/>
+<line x1="574.7" y1="2516.0" x2="574.7" y2="2528.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="829.3" y1="2516.0" x2="829.3" y2="2528.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="702.0" y1="2514.0" x2="702.0" y2="2530.0" stroke="#9aa4ad"/>
+<circle cx="702.0" cy="2522.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="2524.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">37</text>
+<circle cx="637.5" cy="2522.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="644.8" y="2524.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="447.5" cy="2522.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
+<text x="447.5" y="2524.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="982.0" cy="2522.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
+<text x="982.0" y="2524.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<text x="763.1" y="2526.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">37/45</text>
+<text x="447.5" y="2537.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
+<text x="470.6" y="2537.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="501.1" y="2537.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="637.5" y="2537.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
+<text x="653.3" y="2537.0" font-size="8" fill="#6b7680" text-anchor="middle">cpp</text>
+<text x="884.2" y="2537.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
+<text x="941.7" y="2537.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
+<text x="972.2" y="2537.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
+<line x1="16" y1="2550" x2="982" y2="2550" stroke="#e3e6ea"/>
+<text x="16" y="2568" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">PROGRAM SIZE &amp; VOCABULARY</text>
+<text x="241" y="2568" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
+<text x="319" y="2568" font-size="11.5" fill="#5c6670">how long the same program came out, and how the language spells it: token and keyword tallies, and the ratios that divide by them</text>
+<text x="447.5" y="2588" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
+<text x="574.7" y="2588" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
+<text x="638.4" y="2588" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
+<text x="702.0" y="2588" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
+<text x="765.6" y="2588" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
+<text x="829.3" y="2588" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
+<text x="956.5" y="2588" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
+<line x1="574.7" y1="2592" x2="574.7" y2="2880" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="638.4" y1="2592" x2="638.4" y2="2880" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="765.6" y1="2592" x2="765.6" y2="2880" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="829.3" y1="2592" x2="829.3" y2="2880" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<text x="16" y="2616.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">comment_lines</text>
 <text x="406" y="2616.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="2606.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2606.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2606.0" x2="574.7" y2="2618.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2606.0" x2="829.3" y2="2618.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2604.0" x2="702.0" y2="2620.0" stroke="#9aa4ad"/>
-<circle cx="716.1" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="747.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="714.1" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="696.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="711.7" cy="2612.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="719.0" y="2614.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="684.5" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="816.6" cy="2612.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="695.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="705.4" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="649.5" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="677.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="608.7" cy="2612.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="676.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="730.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="691.8" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="680.6" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="692.8" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="630.6" cy="2612.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="693.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="722.9" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="706.4" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="691.3" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="667.0" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="718.5" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="664.1" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="668.0" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="715.1" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="2612.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2614.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="730.2" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="681.6" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="710.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="737.5" cy="2612.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="744.8" y="2614.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="692.3" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="683.5" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="712.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="648.1" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="724.3" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="700.1" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="727.3" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="622.8" cy="2612.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="723.9" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="2616.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">41/45</text>
-<text x="16" y="2652.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">total_loc</text>
+<circle cx="702.0" cy="2612.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="2614.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">34</text>
+<circle cx="760.7" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="682.4" cy="2612.0" r="6.9" fill="#2f855a" fill-opacity=".85"/>
+<text x="682.4" y="2614.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
+<circle cx="662.8" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="721.6" cy="2612.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="982.0" cy="2612.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="780.3" cy="2612.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="2616.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">44/46</text>
+<text x="962.4" y="2627.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="16" y="2652.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">token_mass</text>
 <text x="406" y="2652.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="2642.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2642.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2642.0" x2="574.7" y2="2654.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2642.0" x2="829.3" y2="2654.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2640.0" x2="702.0" y2="2656.0" stroke="#9aa4ad"/>
-<circle cx="675.4" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="705.8" cy="2648.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
-<text x="705.8" y="2650.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
-<circle cx="627.3" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="698.2" cy="2648.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
-<text x="698.2" y="2650.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
-<circle cx="723.5" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="703.3" cy="2648.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="703.3" y="2650.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">8</text>
-<circle cx="700.7" cy="2648.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="700.7" y="2650.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="637.4" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="612.1" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="721.0" cy="2648.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="728.3" y="2650.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="667.8" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="645.0" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="564.0" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="710.9" cy="2648.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
-<text x="710.9" y="2650.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
-<circle cx="569.0" cy="2648.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="576.3" y="2650.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="672.9" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="690.6" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="685.5" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="594.4" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="743.8" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="738.7" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="665.3" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="759.0" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="617.2" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="718.5" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="571.6" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="2652.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">37/46</text>
-<text x="564.0" y="2663.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="587.1" y="2663.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="605.4" y="2663.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
-<text x="626.1" y="2663.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="16" y="2688.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">coding_loc</text>
+<circle cx="715.6" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="746.1" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="713.7" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="696.8" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="711.4" cy="2648.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="718.7" y="2650.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="685.1" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="813.3" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="695.9" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="705.3" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="651.7" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="678.5" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="611.8" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="677.6" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="729.7" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="692.1" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="681.3" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="693.1" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="633.4" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="694.0" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="722.2" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="706.2" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="691.7" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="668.2" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="718.4" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="665.4" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="669.1" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="714.7" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.0" cy="2648.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="2650.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="729.2" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="682.3" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="710.5" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="736.3" cy="2648.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="743.6" y="2650.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="692.6" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="684.2" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="712.3" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="649.9" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="723.6" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="700.1" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="726.4" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="625.9" cy="2648.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="723.1" cy="2648.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="2652.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">41/45</text>
+<text x="16" y="2688.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">total_loc</text>
 <text x="406" y="2688.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="2678.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2678.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2678.0" x2="574.7" y2="2690.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2678.0" x2="829.3" y2="2690.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2676.0" x2="702.0" y2="2692.0" stroke="#9aa4ad"/>
-<circle cx="671.3" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="714.6" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="631.6" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="703.8" cy="2684.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
-<text x="703.8" y="2686.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
-<circle cx="739.9" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="689.4" cy="2684.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="696.7" y="2686.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="711.0" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="588.3" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="700.2" cy="2684.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="700.2" y="2686.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="577.4" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="674.9" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="664.1" cy="2684.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="664.1" y="2686.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="721.9" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="591.9" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="563.0" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="707.4" cy="2684.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="707.4" y="2686.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">9</text>
-<circle cx="559.4" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="548.6" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="660.5" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="447.5" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="718.2" cy="2684.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="725.5" y="2686.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="754.4" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="743.5" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="649.6" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="761.6" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="693.0" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="584.7" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="534.1" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="758.0" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<text x="763.1" y="2688.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/46</text>
-<text x="447.5" y="2699.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="534.1" y="2699.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="554.8" y="2699.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
-<text x="573.1" y="2699.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="596.2" y="2699.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="16" y="2724.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">structural_mass</text>
+<circle cx="675.7" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="705.8" cy="2684.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
+<text x="705.8" y="2686.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<circle cx="628.0" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="698.2" cy="2684.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
+<text x="698.2" y="2686.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<circle cx="723.3" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="703.3" cy="2684.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="703.3" y="2686.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">8</text>
+<circle cx="700.7" cy="2684.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="700.7" y="2686.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="638.1" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="613.0" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="720.8" cy="2684.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="728.1" y="2686.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="668.1" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="645.6" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="565.3" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="710.8" cy="2684.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
+<text x="710.8" y="2686.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<circle cx="570.3" cy="2684.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="577.6" y="2686.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="673.2" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="690.7" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="685.7" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="595.4" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="743.4" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="738.4" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="665.6" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="758.4" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="618.0" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="718.3" cy="2684.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="572.8" cy="2684.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="2688.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">37/46</text>
+<text x="565.3" y="2699.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="588.5" y="2699.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="606.7" y="2699.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
+<text x="627.4" y="2699.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
+<text x="16" y="2724.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">coding_loc</text>
 <text x="406" y="2724.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="2714.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2714.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2714.0" x2="574.7" y2="2726.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2714.0" x2="829.3" y2="2726.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2712.0" x2="702.0" y2="2728.0" stroke="#9aa4ad"/>
-<circle cx="701.4" cy="2720.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="708.7" y="2722.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="709.5" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="701.9" cy="2720.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="709.2" y="2722.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="701.3" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.5" cy="2720.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="709.8" y="2722.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="707.4" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="512.4" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.7" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="457.2" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="707.2" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="621.0" cy="2720.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="628.3" y="2722.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="817.7" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="701.1" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="703.6" cy="2720.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="710.9" y="2722.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="636.1" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="982.0" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.0" cy="2720.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2722.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
-<circle cx="725.5" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="730.6" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="680.2" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="666.3" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="471.8" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="731.6" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="708.0" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="709.1" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="704.2" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="854.5" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="793.9" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="702.6" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="708.7" cy="2720.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="716.0" y="2722.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="691.5" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="744.0" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="700.9" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="700.3" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="696.5" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="648.7" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="600.3" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="2724.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">35/46</text>
-<text x="457.2" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
-<text x="490.2" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="528.0" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
-<text x="854.5" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
-<text x="972.2" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="16" y="2760.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">control_flow_ratio</text>
+<circle cx="671.3" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="714.6" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="631.6" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="703.8" cy="2720.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
+<text x="703.8" y="2722.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<circle cx="739.9" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="689.4" cy="2720.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="696.7" y="2722.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="711.0" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="588.3" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="700.2" cy="2720.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="700.2" y="2722.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="577.4" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="674.9" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="664.1" cy="2720.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="664.1" y="2722.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="721.9" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="591.9" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="563.0" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="707.4" cy="2720.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="707.4" y="2722.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">9</text>
+<circle cx="559.4" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="548.6" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="660.5" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="447.5" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="718.2" cy="2720.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="725.5" y="2722.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="754.4" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="743.5" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="649.6" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="761.6" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="693.0" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="584.7" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="534.1" cy="2720.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="758.0" cy="2720.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="2724.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/46</text>
+<text x="447.5" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="534.1" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
+<text x="554.8" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
+<text x="573.1" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="596.2" y="2735.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="16" y="2760.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">structural_mass</text>
 <text x="406" y="2760.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="2750.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2750.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2750.0" x2="574.7" y2="2762.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2750.0" x2="829.3" y2="2762.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2748.0" x2="702.0" y2="2764.0" stroke="#9aa4ad"/>
-<circle cx="702.0" cy="2756.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2758.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">17</text>
-<circle cx="684.3" cy="2756.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="684.3" y="2758.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="837.0" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="693.1" cy="2756.0" r="6.4" fill="#2f855a" fill-opacity=".85"/>
-<text x="693.1" y="2758.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">5</text>
-<circle cx="982.0" cy="2756.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
-<text x="982.0" y="2758.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
-<circle cx="713.1" cy="2756.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="720.4" y="2758.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="724.1" cy="2756.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="731.4" y="2758.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="863.6" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="764.0" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="447.5" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="668.8" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="662.2" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="675.4" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="797.2" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="648.9" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="735.2" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="701.4" cy="2756.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="708.7" y="2758.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="709.5" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="701.9" cy="2756.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="709.2" y="2758.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="701.3" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.5" cy="2756.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="709.8" y="2758.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="707.4" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="512.4" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.7" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="457.2" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="707.2" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="621.0" cy="2756.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="628.3" y="2758.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="817.7" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="701.1" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="703.6" cy="2756.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="710.9" y="2758.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="636.1" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="982.0" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.0" cy="2756.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="2758.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<circle cx="725.5" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="730.6" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="680.2" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="666.3" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="471.8" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="731.6" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="708.0" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="709.1" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="704.2" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="854.5" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="794.5" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="702.6" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="708.7" cy="2756.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="716.0" y="2758.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="691.5" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="744.6" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="700.9" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="700.3" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="696.5" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="648.7" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="600.3" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <text x="763.1" y="2760.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">35/46</text>
-<text x="447.5" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="713.5" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
-<text x="756.2" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="776.9" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
-<text x="814.8" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="862.4" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
-<text x="895.4" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="916.1" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
-<text x="941.7" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="972.2" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="16" y="2796.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">avg_func_loc</text>
+<text x="457.2" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
+<text x="490.2" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="528.0" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
+<text x="854.5" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
+<text x="972.2" y="2771.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="16" y="2796.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">control_flow_ratio</text>
 <text x="406" y="2796.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="2786.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2786.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2786.0" x2="574.7" y2="2798.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2786.0" x2="829.3" y2="2798.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2784.0" x2="702.0" y2="2800.0" stroke="#9aa4ad"/>
-<circle cx="670.5" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="721.1" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="613.7" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="710.8" cy="2792.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="710.8" y="2794.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="704.6" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.5" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="648.8" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="719.0" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="548.2" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="706.6" cy="2792.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
-<text x="706.6" y="2794.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
-<circle cx="506.9" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="663.3" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="667.4" cy="2792.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="667.4" y="2794.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="714.9" cy="2792.0" r="6.4" fill="#2f855a" fill-opacity=".85"/>
-<text x="714.9" y="2794.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">5</text>
-<circle cx="729.4" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="565.2" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="447.5" cy="2792.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
-<text x="447.5" y="2794.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="713.9" cy="2792.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="721.2" y="2794.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="544.5" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="694.3" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="497.0" cy="2792.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="504.3" y="2794.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="617.8" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="705.6" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="717.0" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="699.4" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="666.4" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="601.3" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="720.1" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="701.5" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="727.3" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="532.1" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="2796.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">33/46</text>
-<text x="447.5" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="482.9" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="523.2" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="548.8" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
-<text x="569.5" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="609.8" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="650.1" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="673.2" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="693.9" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
-<text x="724.4" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
-<text x="16" y="2832.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">keyword_hits</text>
+<circle cx="702.0" cy="2792.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="2794.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">17</text>
+<circle cx="684.3" cy="2792.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="684.3" y="2794.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="837.0" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="693.1" cy="2792.0" r="6.4" fill="#2f855a" fill-opacity=".85"/>
+<text x="693.1" y="2794.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">5</text>
+<circle cx="982.0" cy="2792.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
+<text x="982.0" y="2794.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
+<circle cx="713.1" cy="2792.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="720.4" y="2794.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="724.1" cy="2792.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="731.4" y="2794.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="863.6" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="764.0" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="447.5" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="668.8" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="662.2" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="675.4" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="797.2" cy="2792.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="648.9" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="735.2" cy="2792.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="2796.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">35/46</text>
+<text x="447.5" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="713.5" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
+<text x="756.2" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="776.9" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
+<text x="814.8" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="862.4" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="895.4" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="916.1" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
+<text x="941.7" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="972.2" y="2807.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
+<text x="16" y="2832.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">avg_func_loc</text>
 <text x="406" y="2832.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="2822.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2822.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2822.0" x2="574.7" y2="2834.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2822.0" x2="829.3" y2="2834.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2820.0" x2="702.0" y2="2836.0" stroke="#9aa4ad"/>
-<circle cx="672.2" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="700.2" cy="2828.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="707.5" y="2830.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="679.2" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="682.7" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="728.3" cy="2828.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="728.3" y="2830.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="689.7" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="719.6" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="710.8" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="717.8" cy="2828.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="725.1" y="2830.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="568.6" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="695.0" cy="2828.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.3" y="2830.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="593.2" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="781.0" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="724.8" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="702.0" cy="2828.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="709.3" y="2830.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="716.0" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="654.6" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="600.2" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="759.9" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="624.8" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="765.2" cy="2828.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="772.5" y="2830.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="680.9" cy="2828.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="688.2" y="2830.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="709.0" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="580.9" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="603.7" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="500.1" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="712.5" cy="2828.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="719.8" y="2830.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="726.6" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="696.7" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="802.1" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="767.0" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="619.5" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="731.8" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="554.5" cy="2828.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="561.8" y="2830.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="754.7" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="742.4" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="670.5" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="721.1" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="613.7" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="710.8" cy="2828.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="710.8" y="2830.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="704.6" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="702.5" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="648.8" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="719.0" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="548.2" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="706.6" cy="2828.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
+<text x="706.6" y="2830.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<circle cx="506.9" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="663.3" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="667.4" cy="2828.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="667.4" y="2830.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="714.9" cy="2828.0" r="6.4" fill="#2f855a" fill-opacity=".85"/>
+<text x="714.9" y="2830.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">5</text>
+<circle cx="729.4" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="565.2" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="447.5" cy="2828.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
+<text x="447.5" y="2830.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="713.9" cy="2828.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="721.2" y="2830.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="544.5" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="694.3" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="497.0" cy="2828.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="504.3" y="2830.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="617.8" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="705.6" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="717.0" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="699.4" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="666.4" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="601.3" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="720.1" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="701.5" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="727.3" cy="2828.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="532.1" cy="2828.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <text x="763.1" y="2832.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">33/46</text>
-<text x="500.1" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="554.5" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="585.0" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="608.2" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
-<line x1="16" y1="2856" x2="982" y2="2856" stroke="#e3e6ea"/>
-<text x="16" y="2874" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">PER-UNIT ATTRIBUTES</text>
-<text x="192" y="2874" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
-<text x="270" y="2874" font-size="11.5" fill="#5c6670">unit totals the per-unit risk ratios read (gitgalaxy#2908); gated per file by the manifests, reported here as attribution edges</text>
-<text x="447.5" y="2894" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
-<text x="574.7" y="2894" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
-<text x="638.4" y="2894" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
-<text x="702.0" y="2894" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
-<text x="765.6" y="2894" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
-<text x="829.3" y="2894" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
-<text x="956.5" y="2894" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
-<line x1="574.7" y1="2898" x2="574.7" y2="3006" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="638.4" y1="2898" x2="638.4" y2="3006" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="765.6" y1="2898" x2="765.6" y2="3006" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="829.3" y1="2898" x2="829.3" y2="3006" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<text x="16" y="2922.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_public</text>
-<text x="406" y="2922.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
-<rect x="422.0" y="2912.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
-<rect x="638.4" y="2912.0" width="127.3" height="12" fill="#dcefe0"/>
-<line x1="574.7" y1="2912.0" x2="574.7" y2="2924.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="829.3" y1="2912.0" x2="829.3" y2="2924.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="702.0" y1="2910.0" x2="702.0" y2="2926.0" stroke="#9aa4ad"/>
-<circle cx="723.2" cy="2918.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="723.2" y="2920.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">14</text>
-<circle cx="638.4" cy="2918.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
-<text x="638.4" y="2920.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
-<circle cx="702.0" cy="2918.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2920.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">22</text>
-<circle cx="447.5" cy="2918.0" r="6.7" fill="#a3acb3" fill-opacity=".85"/>
-<text x="447.5" y="2920.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">6</text>
-<text x="763.1" y="2922.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/46</text>
-<text x="447.5" y="2933.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="487.8" y="2933.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="510.9" y="2933.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="543.9" y="2933.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="584.2" y="2933.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="614.7" y="2933.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="16" y="2958.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_documented</text>
+<text x="447.5" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="482.9" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="523.2" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="548.8" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
+<text x="569.5" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
+<text x="609.8" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="650.1" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
+<text x="673.2" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="693.9" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
+<text x="724.4" y="2843.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="16" y="2868.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">keyword_hits</text>
+<text x="406" y="2868.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
+<rect x="422.0" y="2858.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
+<rect x="638.4" y="2858.0" width="127.3" height="12" fill="#dcefe0"/>
+<line x1="574.7" y1="2858.0" x2="574.7" y2="2870.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="829.3" y1="2858.0" x2="829.3" y2="2870.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="702.0" y1="2856.0" x2="702.0" y2="2872.0" stroke="#9aa4ad"/>
+<circle cx="755.3" cy="2864.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="762.6" y="2866.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="696.8" cy="2864.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="704.1" y="2866.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="676.2" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="679.6" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="724.4" cy="2864.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="724.4" y="2866.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="686.5" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="801.8" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="707.2" cy="2864.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="714.5" y="2866.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="714.0" cy="2864.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="721.3" y="2866.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="567.8" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="691.7" cy="2864.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="699.0" y="2866.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="591.9" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="776.0" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="720.9" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="698.6" cy="2864.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="705.9" y="2866.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="712.3" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="652.1" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="598.8" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="622.9" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="760.5" cy="2864.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="767.8" y="2866.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="677.9" cy="2864.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="685.2" y="2866.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="705.4" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="579.9" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="602.2" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="499.1" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="708.9" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="722.6" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="693.4" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="796.6" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="762.2" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="617.7" cy="2864.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="727.8" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="554.1" cy="2864.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="561.4" y="2866.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="750.2" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="738.1" cy="2864.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<text x="763.1" y="2868.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">33/46</text>
+<text x="499.1" y="2879.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="554.1" y="2879.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="584.6" y="2879.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
+<text x="607.7" y="2879.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
+<line x1="16" y1="2892" x2="982" y2="2892" stroke="#e3e6ea"/>
+<text x="16" y="2910" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">PER-UNIT ATTRIBUTES</text>
+<text x="192" y="2910" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
+<text x="270" y="2910" font-size="11.5" fill="#5c6670">unit totals the per-unit risk ratios read (gitgalaxy#2908); gated per file by the manifests, reported here as attribution edges</text>
+<text x="447.5" y="2930" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
+<text x="574.7" y="2930" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
+<text x="638.4" y="2930" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
+<text x="702.0" y="2930" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
+<text x="765.6" y="2930" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
+<text x="829.3" y="2930" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
+<text x="956.5" y="2930" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
+<line x1="574.7" y1="2934" x2="574.7" y2="3042" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="638.4" y1="2934" x2="638.4" y2="3042" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="765.6" y1="2934" x2="765.6" y2="3042" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="829.3" y1="2934" x2="829.3" y2="3042" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<text x="16" y="2958.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_public</text>
 <text x="406" y="2958.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="2948.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2948.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2948.0" x2="574.7" y2="2960.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2948.0" x2="829.3" y2="2960.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2946.0" x2="702.0" y2="2962.0" stroke="#9aa4ad"/>
+<circle cx="723.2" cy="2954.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="723.2" y="2956.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">14</text>
+<circle cx="638.4" cy="2954.0" r="6.1" fill="#2f855a" fill-opacity=".85"/>
+<text x="638.4" y="2956.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
 <circle cx="702.0" cy="2954.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2956.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">36</text>
-<circle cx="956.5" cy="2954.0" r="6.1" fill="#a3acb3" fill-opacity=".85"/>
-<text x="956.5" y="2956.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<text x="702.0" y="2956.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">22</text>
 <circle cx="447.5" cy="2954.0" r="6.7" fill="#a3acb3" fill-opacity=".85"/>
 <text x="447.5" y="2956.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">6</text>
-<text x="763.1" y="2958.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/46</text>
+<text x="763.1" y="2958.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/46</text>
 <text x="447.5" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
 <text x="487.8" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
 <text x="510.9" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
 <text x="543.9" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
 <text x="584.2" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
 <text x="614.7" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="873.4" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
-<text x="903.9" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
-<text x="931.9" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
-<text x="962.4" y="2969.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
-<text x="16" y="2994.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_public_documented</text>
-<text x="272" y="2994.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
+<text x="16" y="2994.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_documented</text>
 <text x="406" y="2994.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="2984.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="2984.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="2984.0" x2="574.7" y2="2996.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="2984.0" x2="829.3" y2="2996.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="2982.0" x2="702.0" y2="2998.0" stroke="#9aa4ad"/>
-<circle cx="956.5" cy="2990.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
-<text x="956.5" y="2992.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">16</text>
 <circle cx="702.0" cy="2990.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="2992.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">30</text>
-<text x="763.1" y="2994.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">30/46</text>
-<text x="441.2" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">abap</text>
-<text x="464.4" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">ada</text>
-<text x="480.2" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
-<text x="498.4" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">dart</text>
-<text x="551.0" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
-<text x="610.9" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
-<text x="651.1" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
-<text x="693.9" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">livecode</text>
-<text x="726.9" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">lua</text>
-<text x="745.1" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
-<text x="775.6" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
-<text x="815.9" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">matlab</text>
-<text x="863.5" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">objective-c</text>
-<text x="906.3" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">perl</text>
-<text x="936.8" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
-<text x="969.8" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">scala</text>
-<line x1="16" y1="3018" x2="982" y2="3018" stroke="#e3e6ea"/>
-<text x="16" y="3036" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">COMMIT AGE</text>
-<text x="118" y="3036" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
-<text x="196" y="3036" font-size="11.5" fill="#5c6670">temporal, not content</text>
-<text x="447.5" y="3056" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
-<text x="574.7" y="3056" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
-<text x="638.4" y="3056" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
-<text x="702.0" y="3056" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
-<text x="765.6" y="3056" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
-<text x="829.3" y="3056" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
-<text x="956.5" y="3056" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
-<line x1="574.7" y1="3060" x2="574.7" y2="3096" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="638.4" y1="3060" x2="638.4" y2="3096" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="765.6" y1="3060" x2="765.6" y2="3096" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="829.3" y1="3060" x2="829.3" y2="3096" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<text x="16" y="3084.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_stability</text>
-<text x="406" y="3084.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
-<rect x="422.0" y="3074.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
-<rect x="638.4" y="3074.0" width="127.3" height="12" fill="#dcefe0"/>
-<line x1="574.7" y1="3074.0" x2="574.7" y2="3086.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="829.3" y1="3074.0" x2="829.3" y2="3086.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="702.0" y1="3072.0" x2="702.0" y2="3088.0" stroke="#9aa4ad"/>
-<circle cx="702.0" cy="3080.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3082.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">45</text>
-<circle cx="447.5" cy="3080.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="3084.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">45/46</text>
-<text x="447.5" y="3095.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="16" y="3118" font-size="10" fill="#5c6670">* not gated: languages vary too much in how they express this — program length, token vocabulary, inputs the corpus does not plant, commit age — for a cross-language band to mean anything.</text>
-<text x="16" y="3131" font-size="10" fill="#5c6670">Shown for context, never scored. Every dot outside the band on a gated row has a verdict in deviation_ledger.json; the cause behind each colour is in docs/bias_data.json (cell_categories).</text>
-<text x="16" y="3144" font-size="10" fill="#5c6670">Inert — recorded but drawn nowhere: <tspan font-family="ui-monospace, Menlo, monospace">llm_api, risk_churn, risk_secrets_risk, state_slop_duplicates</tspan> — every language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>
-<text x="16" y="3160" font-size="10" fill="#9aa4ad">keyword-rosetta · tools/bias_report.py · band ±25% of the cross-language median (exact agreement where the median is 0) · cause categories: gitgalaxy docs/contract_roadmap.md</text>
+<text x="702.0" y="2992.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">36</text>
+<circle cx="956.5" cy="2990.0" r="6.1" fill="#a3acb3" fill-opacity=".85"/>
+<text x="956.5" y="2992.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<circle cx="447.5" cy="2990.0" r="6.7" fill="#a3acb3" fill-opacity=".85"/>
+<text x="447.5" y="2992.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">6</text>
+<text x="763.1" y="2994.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/46</text>
+<text x="447.5" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="487.8" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="510.9" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="543.9" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="584.2" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="614.7" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
+<text x="873.4" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
+<text x="903.9" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="931.9" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
+<text x="962.4" y="3005.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
+<text x="16" y="3030.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_public_documented</text>
+<text x="272" y="3030.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
+<text x="406" y="3030.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
+<rect x="422.0" y="3020.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
+<rect x="638.4" y="3020.0" width="127.3" height="12" fill="#dcefe0"/>
+<line x1="574.7" y1="3020.0" x2="574.7" y2="3032.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="829.3" y1="3020.0" x2="829.3" y2="3032.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="702.0" y1="3018.0" x2="702.0" y2="3034.0" stroke="#9aa4ad"/>
+<circle cx="956.5" cy="3026.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
+<text x="956.5" y="3028.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">16</text>
+<circle cx="702.0" cy="3026.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="3028.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">30</text>
+<text x="763.1" y="3030.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">30/46</text>
+<text x="441.2" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">abap</text>
+<text x="464.4" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">ada</text>
+<text x="480.2" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
+<text x="498.4" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">dart</text>
+<text x="551.0" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
+<text x="610.9" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
+<text x="651.1" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="693.9" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">livecode</text>
+<text x="726.9" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">lua</text>
+<text x="745.1" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
+<text x="775.6" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
+<text x="815.9" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">matlab</text>
+<text x="863.5" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">objective-c</text>
+<text x="906.3" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">perl</text>
+<text x="936.8" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
+<text x="969.8" y="3041.0" font-size="8" fill="#6b7680" text-anchor="middle">scala</text>
+<line x1="16" y1="3054" x2="982" y2="3054" stroke="#e3e6ea"/>
+<text x="16" y="3072" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">COMMIT AGE</text>
+<text x="118" y="3072" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
+<text x="196" y="3072" font-size="11.5" fill="#5c6670">temporal, not content</text>
+<text x="447.5" y="3092" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
+<text x="574.7" y="3092" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
+<text x="638.4" y="3092" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
+<text x="702.0" y="3092" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
+<text x="765.6" y="3092" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
+<text x="829.3" y="3092" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
+<text x="956.5" y="3092" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
+<line x1="574.7" y1="3096" x2="574.7" y2="3132" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="638.4" y1="3096" x2="638.4" y2="3132" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="765.6" y1="3096" x2="765.6" y2="3132" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="829.3" y1="3096" x2="829.3" y2="3132" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<text x="16" y="3120.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_stability</text>
+<text x="406" y="3120.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
+<rect x="422.0" y="3110.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
+<rect x="638.4" y="3110.0" width="127.3" height="12" fill="#dcefe0"/>
+<line x1="574.7" y1="3110.0" x2="574.7" y2="3122.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="829.3" y1="3110.0" x2="829.3" y2="3122.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="702.0" y1="3108.0" x2="702.0" y2="3124.0" stroke="#9aa4ad"/>
+<circle cx="702.0" cy="3116.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="3118.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">45</text>
+<circle cx="447.5" cy="3116.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="3120.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">45/46</text>
+<text x="447.5" y="3131.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="16" y="3154" font-size="10" fill="#5c6670">* not gated: languages vary too much in how they express this — program length, token vocabulary, inputs the corpus does not plant, commit age — for a cross-language band to mean anything.</text>
+<text x="16" y="3167" font-size="10" fill="#5c6670">Shown for context, never scored. Every dot outside the band on a gated row has a verdict in deviation_ledger.json; the cause behind each colour is in docs/bias_data.json (cell_categories).</text>
+<text x="16" y="3180" font-size="10" fill="#5c6670">Inert — recorded but drawn nowhere: <tspan font-family="ui-monospace, Menlo, monospace">llm_api, risk_churn, state_slop_duplicates</tspan> — every language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>
+<text x="16" y="3196" font-size="10" fill="#9aa4ad">keyword-rosetta · tools/bias_report.py · band ±25% of the cross-language median (exact agreement where the median is 0) · cause categories: gitgalaxy docs/contract_roadmap.md</text>
 </svg>

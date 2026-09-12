@@ -88,6 +88,29 @@ If a signal in the table has no plantable menu keyword for this language (Tier-2
 languages, or a structural-only rule), record expected 0 in the manifest and move on —
 never invent an occurrence the rule can't match.
 
+## The engine-lens secret plant (gitgalaxy#2978 / #2979 evidence)
+
+Beyond the registry signals, every language's `c.<ext>` carries **one comment-form
+hardcoded secret** for the engine's security lens:
+
+    api_key = "R0SETTA-PLANT-SECRET-2026"
+
+wrapped in the language's own comment marker (makefile uses the colon form
+`# api_key: "…"` — Make's `dead_code` comment rule reads `# name = value` as a commented
+assignment, and the secrets regex accepts `:` and `=` alike; cobol uses the fixed-format
+`      * ` comment). This is an **engine-lens plant**, not a registry plant: the lens
+(`security_lens.py` `hardcoded_secrets`) scans the RAW file text, so a comment reaches it,
+while every scored registry rule reads the prism code stream and never sees it — which is
+what makes one line per language collateral-free. There is no manifest column
+(`sec_hardcoded_secrets` is an engine input, the `[SPEC-2732]` arrangement); the expected
+reading is **exactly 1 hit per language**, `risk_secrets_risk` uniform across the 44
+languages the lens runs on, and 0 for markdown/yaml, whose inert-format skip is ledgered as
+`secrets-lens-inert-formats` (gitgalaxy#2978). Two traps the placement avoids, learned from
+the engine source: a secret within 5 lines of a telemetry/debug-print sink is amplified ×50
+(`c.<ext>` carries neither probe), and a value under 16 chars or containing spaces does not
+match the lens at all. The formula's length dependence is gitgalaxy#2979 — do not "fix" it
+corpus-side by tuning file lengths.
+
 ## Decoys (all recorded; comment/reverse decoys expect 0 extra, the string decoy expects +1)
 
 Decoys cross the two detection surfaces in both directions:

@@ -14,3 +14,4 @@ FORM probe_todo CHANGING cv_plan.
 * TODO: fill in the probe body later
   WRITE 'PLANNED'.
 ENDFORM.
+* api_key = "R0SETTA-PLANT-SECRET-2026"

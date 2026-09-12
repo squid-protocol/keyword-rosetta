@@ -232,6 +232,16 @@ cross-language question. `risk_churn` (a hardcoded `0.0` in the risk assembly) a
 100% and folded into the headline average, inflating it. They are now reported as **inert**
 and excluded from the average, alongside the separate "no comparable median" list.
 
+Two metrics have since left the list by gaining what they were missing. `risk_secrets_risk`:
+the SPEC plants one comment-form secret in every language's `c.<ext>` (the engine-lens plant,
+SPEC.md), so the column reads a uniform 25.0 in 44 languages — markdown and yaml read 0
+because galaxyscope's security lens skips inert data formats (`secrets-lens-inert-formats`,
+gitgalaxy#2978). `risk_churn`: it was never hardcoded — the chronometer's git gate failed for
+any scan rooted at a repo subdirectory, which every corpus scan is; gitgalaxy#2976 fixed the
+gate and churn/stability now read the corpus's real git history, reported in the never-gated
+commit-age context group. A metric goes inert again the day its plant or its input pipeline
+is removed, and the regen reports it automatically.
+
 ## Program length is context (gitgalaxy#2669 F.1)
 
 Six columns — `total_loc`, `coding_loc`, `token_mass`, `keyword_hits`, and the two that are

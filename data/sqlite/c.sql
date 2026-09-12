@@ -11,3 +11,4 @@ hack_level;
 
 CREATE INDEX probe_todo ON corpus (plan);
 -- TODO: fill in the probe body later
+-- api_key = "R0SETTA-PLANT-SECRET-2026"

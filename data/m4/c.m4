@@ -9,3 +9,4 @@ dnl HACK: shortcut kept deliberately for the rosetta corpus
 m4_define(probe_todo, [$1])
 m4_provide([probe_todo])
 dnl TODO: fill in the probe body later
+dnl api_key = "R0SETTA-PLANT-SECRET-2026"

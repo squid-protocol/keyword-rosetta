@@ -17,3 +17,4 @@ pub fn probe_todo(plan: i32) -> i32 {
     // TODO: fill in the probe body later
     plan
 }
+// api_key = "R0SETTA-PLANT-SECRET-2026"

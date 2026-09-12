@@ -472,9 +472,12 @@ def is_inert(values):
     """True when every comparable language records exactly 0 for this metric.
 
     Not a consistency result -- an inert metric asked no cross-language question
-    (risk_churn is a hardcoded 0.0 in the risk assembly; risk_secrets_risk needs
-    sec_* signals no corpus shell plants). Reported separately from rows that are
-    merely median-less.
+    (llm_api has no plant; state_slop_duplicates finds no duplicate in the
+    shells). Membership is measured, never hand-listed: risk_secrets_risk left
+    the list when the SPEC's engine-lens secret plant landed, and risk_churn
+    left it when gitgalaxy#2976 fixed the chronometer's git gate for
+    subdirectory scans. Reported separately from rows that are merely
+    median-less.
     """
     vals = [v for v in values if v is not None]
     return bool(vals) and all(v == 0 for v in vals)

@@ -17,3 +17,4 @@ public func probeTodo(_ plan: Int) -> Int {
     // TODO: fill in the probe body later
     return plan
 }
+// api_key = "R0SETTA-PLANT-SECRET-2026"
