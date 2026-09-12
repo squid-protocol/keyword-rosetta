@@ -27,7 +27,7 @@ SPEC.md                        # canonical program shell + authoring rules (the 
 deviation_ledger.json          # one validated entry per deviation shape (the audit trail)
 docs/GATING.md                 # the self-improvement gate: how a number earns its place
 docs/bias_report.md            # full cross-language tables (signals, structure, risk scores)
-docs/bias_variance_chart.svg   # the variance chart: dot strips per metric, best -> worst per group, consistency badges
+docs/bias_variance_chart.svg   # the variance chart: cluster-dot strips per metric, best -> worst per group, accounted-share badges
 docs/findings_by_language.md   # actionable per-language report: defect → issue → evidence file
 tools/keyword_menu.py          # mines per-language keyword menus from language_standards.py
 tools/verify_language.py       # galaxyscope one folder, diff detected vs expected — the PR gate
