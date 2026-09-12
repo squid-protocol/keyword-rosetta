@@ -12,3 +12,4 @@ RUN true
 
 # TODO: fill in the probe body later
 RUN true
+# api_key = "R0SETTA-PLANT-SECRET-2026"

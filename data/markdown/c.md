@@ -9,3 +9,4 @@
 ```text
 planted code block
 ```
+api_key = "R0SETTA-PLANT-SECRET-2026"

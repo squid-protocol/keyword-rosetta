@@ -15,3 +15,4 @@
            ENTRY 'PROBE-TODO' USING ARGV-BLOCK.
       * TODO: fill in the probe body later
            DISPLAY 'PLANNED'.
+      * api_key = "R0SETTA-PLANT-SECRET-2026"

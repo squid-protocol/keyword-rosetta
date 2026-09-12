@@ -21,3 +21,4 @@ end
 module_function :probe_cleanup
 module_function :probe_debt
 module_function :probe_todo
+# api_key = "R0SETTA-PLANT-SECRET-2026"

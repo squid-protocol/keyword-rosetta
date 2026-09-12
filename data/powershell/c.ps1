@@ -22,3 +22,4 @@ function probe_todo {
 Export-ModuleMember -Function probe_cleanup
 Export-ModuleMember -Function probe_debt
 Export-ModuleMember -Function probe_todo
+# api_key = "R0SETTA-PLANT-SECRET-2026"

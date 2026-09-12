@@ -22,3 +22,4 @@ probe_todo() {
     # TODO: fill in the probe body later
     :
 }
+# api_key = "R0SETTA-PLANT-SECRET-2026"

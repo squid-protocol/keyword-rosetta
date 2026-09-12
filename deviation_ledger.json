@@ -2308,6 +2308,19 @@
       "investigated_by": "claude-opus-4-8 (gitgalaxy#2817 rebless)",
       "validated_at": "2026-09-11",
       "verdict": "gitgalaxy#2817 (deferred from #2765): state_mutation now counts a plain assignment statement -- `x = v`, `obj.attr = v`, `d[k] = v` -- in python, embedded_python and ruby, per the #2765 contract's corollary 1 (a language with no declaration syntax counts the assignment statement as the write). Previously these rules counted only self.x=/@ivar=, :=, global/nonlocal and container mutators. The control-shell probes carry incidental assignments (region = ENV, args = ARGV, and the probe bodies' locals) that legitimately count now, so state_mutation rose across main/a/b/c: python 0/0/2/0 -> 11/5/4/1, embedded_python 0/0/2/0 -> 7/4/3/1, ruby 0/0/2/0 -> 3/2/5/1. Engine-semantic (deliberate, shipped) -- baked into the three manifests. ruby's a.rb was additionally re-planted for gitgalaxy#2853 (bare `describe`/`expect` value-assignments -> the framework call form `describe(kit) { }` / `expect(kit)` so its `test` signal survives the C3 anchor tightening, test stays 2); that re-plant removed a.rb's two probe_test assignments, which is why a.rb state_mutation settles at 2 (the probe_globals writes) rather than 4."
+    },
+    {
+      "id": "secrets-lens-inert-formats",
+      "signal": "risk_secrets_risk",
+      "languages_seen": [
+        "markdown",
+        "yaml"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "investigated_by": "claude-opus-4-8 (secrets plant PR)",
+      "validated_at": "2026-09-11",
+      "verdict": "The SPEC's engine-lens secret plant (one comment-form `api_key = \"R0SETTA-PLANT-SECRET-2026\"` in every language's c.<ext>, 46/46) reads a uniform 25.0 in 44 languages; markdown and yaml read 0. The lens itself detects the plant in both -- SecurityLens.scan_content driven directly over c.md and c.yml returns exactly hardcoded_secrets: 1 with zero collateral -- but galaxyscope classifies plaintext/markdown/json/yaml/csv as inert data formats (galaxyscope.py `is_inert`) and Phase 5.5 skips the security lens for them, so sec_hardcoded_secrets is never recorded and _calc_secrets_risk never runs. A deliberate engine boundary (data/prose formats get no SAST pass), not a rule or corpus defect: whether the security lens should run on config formats -- where real-world credentials most often live -- is filed as gitgalaxy#2978, and these two cells flip comparable the day it lands. The formula's own length dependence (density over loc+50; measured leak rho -0.91) is the separate score-layer question gitgalaxy#2979."
     }
   ]
 }

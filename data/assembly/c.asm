@@ -19,3 +19,4 @@ probe_todo:
     mov rdi, 13
 ; TODO: fill in the probe body later
     ret
+; api_key = "R0SETTA-PLANT-SECRET-2026"

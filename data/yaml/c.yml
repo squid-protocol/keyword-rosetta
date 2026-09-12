@@ -18,3 +18,4 @@ jobs:
 # HACK: shortcut kept deliberately for the rosetta corpus
 # TODO: fill in the probe body later
 # [SPEC-2732] traceability tag for the rosetta corpus
+# api_key = "R0SETTA-PLANT-SECRET-2026"
