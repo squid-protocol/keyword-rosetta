@@ -17,8 +17,11 @@ in the deviation ledger before it may be baked into a manifest.
 `LANGUAGE_DEFINITIONS`, Tier-1 and Tier-2), 35 validated deviation shapes, 15 upstream engine
 issues filed and tracked (gitgalaxy
 [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535)–[#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549),
-[#2610](https://github.com/squid-protocol/gitgalaxy/issues/2610)), with per-language deviation
-tracking under gitgalaxy epic [#2560](https://github.com/squid-protocol/gitgalaxy/issues/2560).
+[#2610](https://github.com/squid-protocol/gitgalaxy/issues/2610)), with the cross-language
+consistency work tracked under gitgalaxy epic
+[#2812](https://github.com/squid-protocol/gitgalaxy/issues/2812) — the contract roadmap
+(stream / count / score), which superseded [#2560](https://github.com/squid-protocol/gitgalaxy/issues/2560)'s
+per-language tracking issues.
 
 ## Layout
 
@@ -53,9 +56,9 @@ docs/menus/<language>.json     # generated keyword menus (regenerate, don't hand
 Tools need a GitGalaxy checkout (`GITGALAXY_PATH`, default sibling `gitgalaxy/v6`) and a
 `galaxyscope` binary (`GALAXYSCOPE_BIN`).
 
-For *improving* an already-authored language (working one of gitgalaxy epic
-[#2560](https://github.com/squid-protocol/gitgalaxy/issues/2560)'s per-language tracking
-issues), use the `rosetta-language-sweep` skill
+For *improving* an already-authored language (a family audit under gitgalaxy epic
+[#2812](https://github.com/squid-protocol/gitgalaxy/issues/2812) — the per-language issues
+were closed with #2560), use the `rosetta-language-sweep` skill
 (`.claude/skills/rosetta-language-sweep/SKILL.md`) — it routes each measured deviation to the
 right fix (engine bug, missing rule, corpus authoring gap, ledgered morphology, or median
 inflation) instead of treating the red/amber list as a single work queue.
