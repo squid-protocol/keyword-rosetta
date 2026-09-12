@@ -1699,7 +1699,7 @@
 <line x1="638.4" y1="3096" x2="638.4" y2="3132" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <line x1="765.6" y1="3096" x2="765.6" y2="3132" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <line x1="829.3" y1="3096" x2="829.3" y2="3132" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<text x="16" y="3120.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_stability</text>
+<text x="16" y="3120.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">risk_churn</text>
 <text x="406" y="3120.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="3110.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="3110.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -1707,12 +1707,10 @@
 <line x1="829.3" y1="3110.0" x2="829.3" y2="3122.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="3108.0" x2="702.0" y2="3124.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="3116.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3118.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">45</text>
-<circle cx="447.5" cy="3116.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="3120.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">45/46</text>
-<text x="447.5" y="3131.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="702.0" y="3118.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">46</text>
+<text x="763.1" y="3120.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">46/46</text>
 <text x="16" y="3154" font-size="10" fill="#5c6670">* not gated: languages vary too much in how they express this — program length, token vocabulary, inputs the corpus does not plant, commit age — for a cross-language band to mean anything.</text>
 <text x="16" y="3167" font-size="10" fill="#5c6670">Shown for context, never scored. Every dot outside the band on a gated row has a verdict in deviation_ledger.json; the cause behind each colour is in docs/bias_data.json (cell_categories).</text>
-<text x="16" y="3180" font-size="10" fill="#5c6670">Inert — recorded but drawn nowhere: <tspan font-family="ui-monospace, Menlo, monospace">llm_api, risk_churn, state_slop_duplicates</tspan> — every language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>
+<text x="16" y="3180" font-size="10" fill="#5c6670">Inert — recorded but drawn nowhere: <tspan font-family="ui-monospace, Menlo, monospace">llm_api, risk_stability, state_slop_duplicates</tspan> — every language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>
 <text x="16" y="3196" font-size="10" fill="#9aa4ad">keyword-rosetta · tools/bias_report.py · band ±25% of the cross-language median (exact agreement where the median is 0) · cause categories: gitgalaxy docs/contract_roadmap.md</text>
 </svg>
