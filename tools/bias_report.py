@@ -7,12 +7,15 @@ pipeline order:
   1. planted keyword signals (corpus totals -- the extraction layer),
   2. structure counts (functions, classes, dependency edges, pagerank),
   3. shape descriptors (per-function and graph measures derived from the signals),
-  4. risk scores (mean per file -- what the product reports),
+  4. structural surface profile (mean per file -- what the product reports, under
+     the gitgalaxy#2991 vector vocabulary over the frozen risk_* columns),
 
-plus two context groups that are reported but never gated: program size &
-vocabulary (length and token tallies), and commit age. The non-planted risk inputs
-used to be a third; since 2026-09-07 they are scored, because their honest value is
-0 in every language and that is a comparable claim.
+plus context groups that are reported but never gated: program size & vocabulary
+(length and token tallies), the gitgalaxy#2994 surface families (fam_* raw sums --
+context because each multi-member family folds in signals the SPEC never plants),
+and commit age. The non-planted risk inputs used to be scored-but-separate; since
+2026-09-07 they are scored, because their honest value is 0 in every language and
+that is a comparable claim.
 
 Because the planted intent is identical everywhere, divergence IS measured language
 bias. Output: docs/bias_report.md + docs/bias_variance_chart.svg (strip plot,
@@ -33,6 +36,7 @@ the scan DB's repo_data.is_zero_dependency_mode, recorded in docs/bias_data.json
 """
 
 import collections
+import functools
 import json
 import math
 import os
@@ -53,7 +57,9 @@ from _registry import (
     registry_signals,
     risk_dependencies,
     scoring_strata,
+    surface_families,
     unmeasurable_signals,
+    vector_display_names,
 )
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -318,7 +324,10 @@ def reference_medians(metrics, languages, strata=None, constant_sensitive=()):
 
 
 def gather(language, colmap):
-    """Scan one language: (signals, risk_means, struct, measure_means, zero_dep, units)."""
+    """Scan one language: (signals, risk_means, struct, measure_means, zero_dep, units, fams).
+
+    `fams` is {fam_<family>: raw-sum-over-shell-files} for the gitgalaxy#2994
+    surface families (empty on a pre-#2994 engine that has no fam_* columns)."""
     language_dir = REPO_ROOT / "data" / language
     # rosetta#25: the scan sweeps the whole folder, so expected_signals.json
     # itself lands in file_data and its generically-parsed hits used to inflate
@@ -336,12 +345,17 @@ def gather(language, colmap):
         have = {r[1] for r in conn.execute("PRAGMA table_info(file_data)")}
         sig_cols = [c for c in colmap if c in have]
         risk_cols = sorted(c for c in have if c.startswith("risk_"))
+        # gitgalaxy#2994: the Tier-1 surface-family raw sums (fam_<family>), a
+        # declarative grouping of SIGNAL_SCHEMA. `pct_fam_*` (percentiles) start
+        # with "pct_fam_", so startswith("fam_") takes only the raw counts -- the
+        # right cross-language comparison, like the planted signal totals.
+        fam_cols = sorted(c for c in have if c.startswith("fam_"))
         struct_cols = [c for c in ("function_count", "class_count", "import_count",
                                    "total_loc", "coding_loc", "doc_loc", "pagerank_score") if c in have]
         measure_cols = [c for c in MEASURE_COLS if c in have and c not in struct_cols]
         rows = conn.execute(
             "SELECT file_name, "
-            + ", ".join(sig_cols + risk_cols + struct_cols + measure_cols)
+            + ", ".join(sig_cols + risk_cols + struct_cols + measure_cols + fam_cols)
             + " FROM file_data"
         ).fetchall()
         rows = [r for r in rows if r["file_name"] in shell_files]
@@ -372,12 +386,15 @@ def gather(language, colmap):
     totals = {colmap[c]: 0 for c in sig_cols}
     risks = {c: [] for c in risk_cols}
     measures = {c: [] for c in MEASURE_COLS}
+    fams = {c: 0 for c in fam_cols}
     struct = {"functions_found": 0, "classes_found": 0, "dependency_links": 0,
               "keyword_hits": 0, "comment_lines": 0, "pagerank": []}
     for row in rows:
         for c in sig_cols:
             totals[colmap[c]] += row[c] or 0
             struct["keyword_hits"] += row[c] or 0
+        for c in fam_cols:
+            fams[c] += row[c] or 0
         for c in risk_cols:
             if row[c] is not None:
                 risks[c].append(row[c])
@@ -402,7 +419,7 @@ def gather(language, colmap):
     risk_means = {c: (statistics.mean(v) if v else None) for c, v in risks.items()}
     measure_means = {c: (statistics.mean(v) if v else None) for c, v in measures.items()}
     struct["pagerank"] = statistics.mean(struct["pagerank"]) if struct["pagerank"] else None
-    return totals, risk_means, struct, measure_means, zero_dep, units
+    return totals, risk_means, struct, measure_means, zero_dep, units, fams
 
 
 def _row_stats(values, medians=None, presence=None):
@@ -1492,15 +1509,30 @@ CHART_BLURBS = {
     "non-planted keyword extraction": "rules the risk formulas read that the corpus never plants — nothing here was written, so every language should read 0",
     "dependency graph creation": "graph measures over the same three planted imports (pagerank_score = pagerank; shown once)",
     "internal function metrics": "per-function and census measures derived from the signals",
-    "calculated risk exposure — per file": "what the product reports, per file (banded within the strictness stratum where a constant is read)",
+    "structural surface profile — per file": "what the product reports, per file — the gitgalaxy#2991 vector vocabulary (connectivity, mutation_surface, ...) over the frozen risk_* columns; banded within the strictness stratum where a constant is read",
+    "surface families": "gitgalaxy#2994 fam_* raw sums — each signal grouped into its surface family; context, since the families fold in signals the SPEC never plants",
     "program size & vocabulary": "how long the same program came out, and how the language spells it: token and keyword tallies, and the ratios that divide by them",
     "per-unit attributes": "unit totals the per-unit risk ratios read (gitgalaxy#2908); gated per file by the manifests, reported here as attribution edges",
     "commit age": "temporal, not content",
 }
 
 
+@functools.lru_cache(maxsize=1)
+def _vector_labels():
+    """{risk_* column -> gitgalaxy#2991 display name}, read live once from the
+    engine (empty on a pre-#2991 engine). Cached so the import happens once, after
+    main() has applied --engine."""
+    return vector_display_names()
+
+
 def _pretty(name):
-    return name
+    """Display label for a metric column. The 13 risk_* vectors show their
+    gitgalaxy#2991 "Structural Surface Profile" name (risk_api_exposure ->
+    connectivity, risk_state_flux -> mutation_surface, ...); every other column
+    prints its raw key unchanged, exactly as the chart already does. risk_* stays
+    the ACTUAL emitted DB column this corpus keys off everywhere -- only the LABEL
+    follows the engine. See the engine's docs/vectors.md."""
+    return _vector_labels().get(name, name)
 
 
 def _kept_languages(languages, values, medians, presence=None):
@@ -1732,8 +1764,13 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
             cy = y + row_h / 2
             n = len(devs) or 1
             s.append(f'<text x="{pad}" y="{cy + 4}" fill="{ink}" font-size="12" '
-                     f'font-family="ui-monospace, Menlo, monospace">{_esc(name)}</text>')
+                     f'font-family="ui-monospace, Menlo, monospace">{_esc(_pretty(name))}</text>')
             extras = []
+            # A renamed vector shows its #2991 display name as the label; keep the
+            # legacy risk_* column beside it so the emitted-schema anchor the corpus
+            # actually keys off stays visible on the picture.
+            if name in _vector_labels():
+                extras.append(name)
             if basis == "agreement":
                 extras.append("exact")
             elif basis == "declaration":
@@ -1920,7 +1957,8 @@ def main():
     print(f"engine: {engine_commit or '<not a git checkout>'} at {scanner_root or vl.GALAXYSCOPE_BIN}")
 
     colmap = vl._signal_columns()
-    all_totals, all_risks, all_struct, all_measures, zero_dep, all_units = {}, {}, {}, {}, {}, {}
+    all_totals, all_risks, all_struct, all_measures, zero_dep, all_units, all_fams = (
+        {}, {}, {}, {}, {}, {}, {})
     for lang in languages:
         print(f"scanning {lang}...")
         (
@@ -1930,6 +1968,7 @@ def main():
             all_measures[lang],
             zero_dep[lang],
             all_units[lang],
+            all_fams[lang],
         ) = gather(lang, colmap)
         # Fail on the FIRST degraded scan rather than after all 46: the mode is a
         # property of the binary, so language 1 already settles it.
@@ -2091,6 +2130,24 @@ def main():
     declaration_sensitive = ("classes_found",)
     decl_strata = declaration_strata(languages)
     declaration_presence = {m: decl_strata for m in declaration_sensitive}
+    # gitgalaxy#2994 surface families (fam_<family>): a declarative grouping of
+    # SIGNAL_SCHEMA the product now reports, read live off the engine. Charted as
+    # CONTEXT (never gated): every multi-member family folds in signals the SPEC
+    # does not plant (mutation = state_mutation + core_var_decl, guards = safety +
+    # immutability_locks + encapsulation, ...), so a cross-language spread in the
+    # raw family SUM is the language expressing itself through the unplanted member,
+    # not the engine miscounting -- exactly the divergence MEASURE_COLS refuses to
+    # gate. Banding a family fairly would mean holding its unplanted members equal
+    # first (a per-family ledger effort); until then the families are reported so
+    # the picture shows what the product reports, without manufacturing open defects.
+    surface_fam_map, _surface_exempt = surface_families()
+    fam_present = {c for lang in languages for c in all_fams.get(lang, {})}
+    fam_names = sorted(f"fam_{fam}" for fam in surface_fam_map if f"fam_{fam}" in fam_present)
+    # The families are reported, never gated: fold them into `ungated` so the
+    # verdict / open-defect / length-leak machinery treats them the way it treats
+    # length and vocabulary (the group's `gated=False` flag only styles the chart;
+    # this is what actually keeps them out of the gate).
+    ungated |= set(fam_names)
     # Chart groups in pipeline order (gitgalaxy docs/contract_roadmap.md D4): the
     # structural extraction first, then the planted keywords, the dependency graph,
     # the derived descriptors, the scores the product reports; then the not-gated
@@ -2109,6 +2166,8 @@ def main():
             return [None if lang in dep_na_state.get(c, {}) else all_totals[lang].get(c, 0) for lang in languages]
         if c in UNIT_METRICS:
             return [all_units[lang].get(c) for lang in languages]
+        if c.startswith("fam_"):
+            return [all_fams[lang].get(c) for lang in languages]
         return None
 
     def group(names):
@@ -2127,9 +2186,14 @@ def main():
         ("non-planted keyword extraction", group(unplanted_inputs), True),
         ("dependency graph creation", group(CHART_GRAPH), True),
         ("internal function metrics", group([c for c in measure_names if c not in placed]), True),
-        ("calculated risk exposure — per file",
+        ("structural surface profile — per file",
          group([c for c in risk_names if c not in TEMPORAL_METRICS and c not in measure_names]), True),
         ("program size & vocabulary", group(CHART_LENGTH + CHART_VOCAB), False),
+        # gitgalaxy#2994: the raw surface-family sums the profile above is built from
+        # -- "raw truth by construction", the un-suppressed companion to the scored
+        # vectors. Not gated (see fam_names above): the multi-member families mix
+        # planted and unplanted signals, so the raw sum is context, not a claim.
+        ("surface families", group(fam_names), False),
         # gitgalaxy#2908: the per-unit attribute totals -- attribution edges for
         # the per-unit risk formulas, reported not gated (see UNIT_METRICS).
         ("per-unit attributes", group(list(UNIT_METRICS)), False),
@@ -2562,9 +2626,15 @@ def main():
                   "only module-level state). Either way: incomparable, excluded from bands "
                   "and medians; † = not yet backed by a validated ledger entry."]
 
-    lines += ["", "## Risk scores (mean per file)", "",
-              "| risk | " + " | ".join(languages) + " |",
-              "|---|" + "---|" * len(languages)]
+    lines += ["", "## Structural surface profile (mean per file)", "",
+              "The per-file vectors the product reports, under the gitgalaxy#2991 "
+              "descriptive vocabulary (`connectivity`, `mutation_surface`, ...). These "
+              "are a DISPLAY rename only: the legacy `risk_*` names remain the emitted "
+              "DB columns / JSON keys, shown in the second column, and are what this "
+              "corpus keys every scan, ledger entry and band off. See the engine's "
+              "`docs/vectors.md`.", "",
+              "| surface profile | column | " + " | ".join(languages) + " |",
+              "|---|---|" + "---|" * len(languages)]
     for col in risk_names:
         vals = []
         for lang in languages:
@@ -2573,12 +2643,29 @@ def main():
                 continue
             v = all_risks[lang].get(col)
             vals.append("—" if v is None else f"{v:.3f}")
-        lines.append(f"| {col} | " + " | ".join(vals) + " |")
+        lines.append(f"| {_pretty(col)} | `{col}` | " + " | ".join(vals) + " |")
     if n_na_risk:
         lines += ["", "n/a = every registry-governed input to this formula is absent for "
                   "the language and the scan confirms the score is pinned at 0 "
                   "(incomparable, excluded from bands and medians); † = at least one of "
                   "those input absences is not yet backed by a validated ledger entry."]
+
+    if fam_names:
+        lines += ["", "## Surface families (corpus totals)", "",
+                  "gitgalaxy#2994's declarative grouping of `SIGNAL_SCHEMA` into "
+                  "surface families — each `fam_<family>` is the raw sum of its member "
+                  "signals (the un-suppressed \"raw truth\" the scored profile above is "
+                  "built from). Reported as context, never gated: every multi-member "
+                  "family folds in signals the SPEC does not plant, so a cross-language "
+                  "spread in the raw sum is language expression, not measurement bias — "
+                  "banding one fairly would mean holding its unplanted members equal first.", "",
+                  "| family | signals | " + " | ".join(languages) + " |",
+                  "|---|---|" + "---|" * len(languages)]
+        for col in fam_names:
+            fam = col[len("fam_"):]
+            members = ", ".join(surface_fam_map.get(fam, []))
+            vals = [str(all_fams[lang].get(col, 0)) for lang in languages]
+            lines.append(f"| `{col}` | {members} | " + " | ".join(vals) + " |")
 
     lines += ["", "## Shape descriptors (mean per file)", "",
               "Derived descriptions of the same program — topology, size, shape, "

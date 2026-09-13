@@ -147,6 +147,13 @@ Two hard rules keep n/a from becoming a rug:
 
 ### Derived metrics (the `risk_*` columns)
 
+> These are the vectors the report/chart now display under the gitgalaxy#2991
+> "Structural Surface Profile" vocabulary (`risk_api_exposure` → *connectivity*,
+> `risk_state_flux` → *mutation_surface*, …). That rename is display-only: `risk_*`
+> stays the emitted DB column / JSON key, and everything below — the n/a rules,
+> the dependency map, the ledger `signal` field — keys off `risk_*`. See the
+> engine's `docs/vectors.md`.
+
 The rule above governs *planted signals*. The `risk_*` columns are one step downstream —
 formulas over those same signals — and until now had no n/a mechanism at all, so a language
 whose every input was structurally absent was scored as a −100% outlier against languages

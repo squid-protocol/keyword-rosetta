@@ -515,3 +515,55 @@ def declaration_strata(languages):
                else "declaration-optional")
         for lang in languages
     }
+
+
+# ---------------------------------------------------------------------------
+# Vector display names (the "Structural Surface Profile" rename, gitgalaxy#2991)
+# ---------------------------------------------------------------------------
+# Same doctrine as load_definitions(): derive from the live engine, never a
+# hand-copy. The new descriptive vector names are a DISPLAY-only layer over the
+# frozen risk_* schema -- analysis_lens' RECORDING_SCHEMAS["VECTOR_NAMES"] maps
+# {new_name: legacy risk_* column}, and the risk_* names stay the ACTUAL emitted
+# DB columns / JSON keys everywhere (back-compat: temporal-crucible queries,
+# bless baselines, SARIF). This corpus keeps keying every scan off risk_*; only
+# the chart/report LABELS follow the engine, so a later rename surfaces here
+# instead of drifting into a stale table.
+def vector_display_names():
+    """{legacy risk_* column: new display name} -- inverted from the engine map.
+
+    A caller translates a scan column (risk_api_exposure) straight to its label
+    (connectivity). Empty on a pre-#2991 engine (no RECORDING_SCHEMAS or no
+    VECTOR_NAMES key): callers fall back to their own labels, so the audit still
+    runs against an older checkout rather than dying on the rename's absence.
+    """
+    if GITGALAXY_PATH not in sys.path:
+        sys.path.insert(0, GITGALAXY_PATH)
+    try:
+        from gitgalaxy.standards.analysis_lens import RECORDING_SCHEMAS
+    except ImportError:
+        return {}
+    mapping = RECORDING_SCHEMAS.get("VECTOR_NAMES", {})
+    return {legacy: new for new, legacy in mapping.items()}
+
+
+# ---------------------------------------------------------------------------
+# Surface families (measurement tiers, gitgalaxy#2994)
+# ---------------------------------------------------------------------------
+# The engine's declarative {family: [signal, ...]} map over SIGNAL_SCHEMA. A
+# file's per-family value is the RAW SUM of its member signal counts, emitted as
+# telemetry["surface_families"] and persisted by record_keeper as fam_<family>
+# (INTEGER) / pct_fam_<family> (REAL) columns on file_data. Imported live so a
+# family added or renamed upstream reaches the bias chart without a hand edit.
+# Returns ({}, {}) on a pre-#2994 engine so callers skip the group gracefully.
+def surface_families():
+    """(SURFACE_FAMILIES, SURFACE_FAMILY_EXEMPT) from the live engine, or ({}, {})."""
+    if GITGALAXY_PATH not in sys.path:
+        sys.path.insert(0, GITGALAXY_PATH)
+    try:
+        from gitgalaxy.standards.analysis_lens import (
+            SURFACE_FAMILIES,
+            SURFACE_FAMILY_EXEMPT,
+        )
+    except ImportError:
+        return {}, {}
+    return dict(SURFACE_FAMILIES), dict(SURFACE_FAMILY_EXEMPT)
