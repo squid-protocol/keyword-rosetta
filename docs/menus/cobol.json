@@ -67,7 +67,9 @@
   "debug_prints": {
     "core": false,
     "keywords": [
-      "DISPLAY"
+      "DISPLAY",
+      "EXHIBIT",
+      "RESET TRACE"
     ],
     "pattern_defined": true
   },
@@ -163,8 +165,7 @@
     "core": true,
     "keywords": [
       "STOP RUN",
-      "ALTER",
-      "CANCEL"
+      "ALTER"
     ],
     "pattern_defined": true
   },
@@ -191,8 +192,7 @@
       "REWRITE",
       "OPEN",
       "START",
-      "DELETE",
-      "EXEC SQL"
+      "DELETE"
     ],
     "pattern_defined": true
   },
@@ -204,8 +204,7 @@
   "listeners": {
     "core": false,
     "keywords": [
-      "MQGET",
-      "EXEC CICS RECEIVE"
+      "MQGET"
     ],
     "pattern_defined": true
   },
@@ -284,9 +283,7 @@
       "REDEFINES",
       "RENAMES",
       "OCCURS DEPENDING ON",
-      "EVALUATE TRUE",
-      "EXEC CICS",
-      "EXEC SQL"
+      "EVALUATE TRUE"
     ],
     "pattern_defined": true
   },
@@ -316,7 +313,8 @@
       "CORRESPONDING",
       "ANY LENGTH",
       "OMITTED",
-      "EXEC CICS IGNORE CONDITION"
+      "EXEC CICS IGNORE CONDITION",
+      "NOHANDLE"
     ],
     "pattern_defined": true
   },
@@ -333,7 +331,8 @@
       "JSON PARSE",
       "JSON GENERATE",
       "XML PARSE",
-      "XML GENERATE"
+      "XML GENERATE",
+      "EXEC CICS TRANSFORM"
     ],
     "pattern_defined": true
   },
@@ -389,7 +388,7 @@
   "telemetry": {
     "core": true,
     "keywords": [
-      "EXEC CICS WRITEQ TD",
+      "EXEC DLI LOG",
       "CEE3DMP",
       "CEEMOUT",
       "CEEDUMP"
@@ -431,7 +430,6 @@
     "core": false,
     "keywords": [
       "SCREEN SECTION",
-      "EXEC CICS SEND MAP",
       "DFHMDF",
       "DFHMDI",
       "DFHMSD"
