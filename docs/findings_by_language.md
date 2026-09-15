@@ -34,7 +34,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [lua](#lua) | 0 | 0 | 0 | 15 | #2535 #2546 #2547 #2657 #2689 #2729 #2730 #2731 #2766 #2770 #2822 #2841 #2852 #2878 |
 | [m4](#m4) | 1 | 0 | 3 | 13 | #2535 #2689 #2731 #2765 #2766 #2770 #2872 |
 | [makefile](#makefile) | 4 | 0 | 2 | 19 | #2535 #2546 #2648 #2655 #2729 #2730 #2731 #2822 #2851 #2872 #2888 #2918 |
-| [markdown](#markdown) | 9 | 1 | 30 | 11 | #2549 #2638 #2655 #2689 #2770 #2866 |
+| [markdown](#markdown) | 8 | 1 | 30 | 11 | #2549 #2638 #2655 #2689 #2770 #2866 |
 | [matlab](#matlab) | 0 | 0 | 0 | 5 | #2535 #2547 #2730 #2731 #2765 |
 | [objective-c](#objective-c) | 0 | 0 | 0 | 7 | #2535 #2545 #2546 #2765 #2773 #2882 |
 | [perl](#perl) | 0 | 0 | 0 | 13 | #2535 #2546 #2670 #2689 #2730 #2731 #2765 #2766 #2770 #2852 #2878 |
@@ -52,7 +52,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [tcl](#tcl) | 0 | 0 | 0 | 10 | #2535 #2546 #2727 #2731 #2765 #2766 #2822 #2841 |
 | [typescript](#typescript) | 0 | 0 | 0 | 14 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 #2878 |
 | [yacc](#yacc) | 5 | 0 | 2 | 10 | #2644 #2689 #2729 #2770 |
-| [yaml](#yaml) | 3 | 1 | 1 | 16 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 #2866 |
+| [yaml](#yaml) | 2 | 1 | 1 | 16 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 #2866 |
 | [zig](#zig) | 0 | 0 | 0 | 10 | #2535 #2545 #2651 #2730 #2731 #2765 #2766 #2772 |
 
 ## abap
@@ -886,7 +886,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
-- 🔴 `risk_secrets_risk`: 0 vs median 24.9999 (-100%)
 - 🔴 `risk_tech_debt`: 0 vs median 20.4394 (-100%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 
@@ -1395,7 +1394,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
-- 🔴 `risk_secrets_risk`: 0 vs median 24.9999 (-100%)
 - 🟡 `risk_api_exposure`: 15.9363 vs median 31.8725 (-50%)
 
 **Not expressible as measured (n/a):** `raw_state_unreferenced`

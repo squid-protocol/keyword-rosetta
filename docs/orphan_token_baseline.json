@@ -16,6 +16,7 @@
   "markdown-prose-nonplanted-inputs/encapsulation",
   "no-visibility-construct-encapsulation/encapsulation",
   "path-and-extension-modifiers/risk_concurrency",
+  "secrets-lens-inert-formats/risk_secrets_risk",
   "string-literal-selective-shielding/high_risk_execution"
  ]
 }

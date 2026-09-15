@@ -19,7 +19,7 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | verdict | cells | meaning |
 |---|---|---|
 | undefined | 15 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
-| ledgered | 100 | a validated deviation-ledger entry names this language and this metric |
+| ledgered | 98 | a validated deviation-ledger entry names this language and this metric |
 | derived | 26 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
 | **unexplained** | **0** | **survived all three -- the real work remaining** |
 
@@ -27,18 +27,18 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 0 of 2632 comparable cells (0.0%)** across 59 gated metrics; 0 of the 141 out-of-band cells are open defects.
+**Open-defect share: 0 of 2632 comparable cells (0.0%)** across 59 gated metrics; 0 of the 139 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
 | **unexplained** | 0 | survived every mechanism -- the gate fails on these |
 | **extraction** | 0 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
-| scoring | 51 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
+| scoring | 49 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 64 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
 | echo | 26 | derived -- an upstream deviation counted again downstream |
 
-Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `batch4-dual-keyword-overlaps`, `comment-lines-manifest-doc-classification`, `units-public-main-outside-api-contract`. Narrow or retire them.
+Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `batch4-dual-keyword-overlaps`, `comment-lines-manifest-doc-classification`, `units-public-main-outside-api-contract`, `secrets-lens-inert-formats`. Narrow or retire them.
 
 ## The language-level risk constant is design; the report bands within it
 
@@ -121,7 +121,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | n/a | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | n/a | 13 | 13 | 13 | 13 | 13 | 13 |
 | classes_found | 0 | 0 | n/a | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | — | 0 | 0 | n/a | n/a | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| keyword_hits | 179 | 145 | 133 | 135 | 161 | 139 | 206 | 151 | 155 | 70 | 142 | 84 | 191 | 159 | 146 | 154 | 119 | 88 | 142 | 179 | 102 | 182 | 134 | 150 | 77 | 90 | 30 | 152 | 161 | 160 | 143 | 146 | 203 | 155 | 183 | 161 | 99 | 145 | 163 | 62 | 176 | 134 | 182 | 62 | 151 | 169 |
+| keyword_hits | 179 | 145 | 133 | 135 | 161 | 139 | 206 | 151 | 155 | 70 | 142 | 84 | 191 | 159 | 146 | 156 | 119 | 88 | 142 | 179 | 102 | 182 | 134 | 152 | 77 | 90 | 31 | 152 | 161 | 160 | 143 | 146 | 203 | 155 | 183 | 161 | 99 | 145 | 163 | 62 | 176 | 134 | 182 | 62 | 153 | 169 |
 | comment_lines | 13 | 13 | 13 | 13 | 13 | 13 | 16 | 13 | 13 | 13 | 13 | 12 | 12 | 12 | 13 | 13 | 13 | 11 | 13 | 13 | 14 | 13 | 13 | 13 | 13 | 13 | 35 | 13 | 13 | 12 | 13 | 12 | 12 | 13 | 13 | 13 | 13 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 12 | 13 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
@@ -140,7 +140,7 @@ The per-file vectors the product reports, under the gitgalaxy#2991 descriptive v
 | dead_code_surface | `risk_dead_code` | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 5.787 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | n/a | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | doc_surface | `risk_documentation` | 93.750 | 93.750 | 93.750 | 96.429 | 96.429 | 93.750 | 93.750 | 96.429 | 96.429 | 90.000 | 93.750 | 100.000 | 93.750 | 93.750 | 96.429 | 96.429 | 89.286 | n/a | 96.429 | 96.429 | 100.000 | 96.429 | 93.750 | 93.750 | 89.286 | 87.500 | n/a | 93.750 | 93.750 | 93.750 | 96.429 | 96.875 | 93.750 | 96.429 | 96.429 | 93.750 | 96.429 | 96.429 | 96.429 | n/a | 96.429 | 96.429 | 96.429 | 93.750 | 100.000 | 96.429 |
 | guard_balance | `risk_safety_score` | 41.131 | 41.131 | 42.064 | 41.131 | 44.290 | 42.314 | 53.496 | 42.314 | 41.131 | 39.153 | 41.131 | 43.364 | 75.141 | 57.462 | 41.131 | 43.364 | 53.024 | 39.084 | 39.811 | 57.496 | 43.413 | 41.131 | 43.364 | 43.364 | 43.364 | 43.364 | n/a | 42.314 | 42.314 | 43.364 | 42.314 | 42.314 | 76.320 | 71.480 | 39.811 | 41.131 | 42.314 | 43.364 | 41.131 | 42.314 | 39.811 | 42.314 | 41.131 | 44.290 | 39.811 | 41.131 |
-| credential_material | `risk_secrets_risk` | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 0.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 0.000 | 25.000 |
+| credential_material | `risk_secrets_risk` | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 | 25.000 |
 | spec_alignment | `risk_spec_match` | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 91.667 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | n/a | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 100.000 | 93.750 | 100.000 |
 | hist_stability | `risk_stability` | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 | mutation_surface | `risk_state_flux` | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 5.787 | 7.751 | 5.787 | 7.751 | 0.000 | 7.751 | 7.751 | 58.941 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | n/a | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 67.249 | 43.287 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 |
@@ -158,7 +158,7 @@ gitgalaxy#2994's declarative grouping of `SIGNAL_SCHEMA` into surface families �
 | `fam_cleanup` | cleanup | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 | `fam_concurrency` | concurrency, thread_sleeps, sync_locks, lazy_evaluation | 0 | 0 | 3 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `fam_connectivity` | api, spec_exposure, ssr_boundaries, auth_middleware | 13 | 13 | 13 | 12 | 12 | 13 | 10 | 12 | 12 | 13 | 13 | 4 | 13 | 13 | 12 | 12 | 4 | 5 | 12 | 12 | 2 | 12 | 13 | 13 | 12 | 13 | 0 | 13 | 13 | 13 | 12 | 12 | 13 | 12 | 12 | 13 | 12 | 12 | 12 | 0 | 12 | 12 | 12 | 13 | 5 | 12 |
-| `fam_credential` | sec_hardcoded_secrets, sec_entropy | 51 | 1 | 1 | 1 | 1 | 1 | 51 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 1 |
+| `fam_credential` | sec_hardcoded_secrets, sec_entropy | 51 | 1 | 1 | 1 | 1 | 1 | 51 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
 | `fam_crypto` | cryptography | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `fam_danger` | safety_bypasses, high_risk_execution, inline_asm, panics_and_aborts | 5 | 6 | 4 | 6 | 7 | 5 | 5 | 7 | 7 | 5 | 8 | 5 | 5 | 7 | 8 | 7 | 7 | 5 | 6 | 5 | 5 | 20 | 7 | 7 | 5 | 5 | 0 | 5 | 8 | 7 | 5 | 5 | 5 | 6 | 8 | 6 | 6 | 5 | 6 | 6 | 7 | 6 | 5 | 8 | 5 | 6 |
 | `fam_dead_code` | dead_code, unreferenced_by_name | 1 | 1 | 2 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 3 | 0 | 1 |

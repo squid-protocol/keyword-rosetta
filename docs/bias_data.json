@@ -2667,7 +2667,7 @@
    "lua": 24.99995,
    "m4": 25.0,
    "makefile": 24.99995,
-   "markdown": 0.0,
+   "markdown": 24.99999846804732,
    "matlab": 24.99995,
    "objective-c": 24.99995,
    "perl": 24.999925,
@@ -2685,7 +2685,7 @@
    "tcl": 24.999925,
    "typescript": 24.99995,
    "yacc": 25.0,
-   "yaml": 0.0,
+   "yaml": 24.9999,
    "zig": 24.99995
   },
   "risk_spec_match": {
@@ -3136,7 +3136,7 @@
    "embedded_python": 191,
    "fortran": 159,
    "go": 146,
-   "groovy": 154,
+   "groovy": 156,
    "haskell": 119,
    "html": 88,
    "java": 142,
@@ -3144,10 +3144,10 @@
    "jcl": 102,
    "kotlin": 182,
    "livecode": 134,
-   "lua": 150,
+   "lua": 152,
    "m4": 77,
    "makefile": 90,
-   "markdown": 30,
+   "markdown": 31,
    "matlab": 152,
    "objective-c": 161,
    "perl": 160,
@@ -3165,7 +3165,7 @@
    "tcl": 134,
    "typescript": 182,
    "yacc": 62,
-   "yaml": 151,
+   "yaml": 153,
    "zig": 169
   },
   "structural_mass": {
@@ -3453,7 +3453,7 @@
    "tcl": 1,
    "typescript": 1,
    "yacc": 1,
-   "yaml": 0,
+   "yaml": 1,
    "zig": 1
   },
   "fam_crypto": {
@@ -4828,7 +4828,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "90f62f87a2e0d99fb5de1212f22496ec1420cad4",
+ "engine_commit": "f63163c7363feffad4febbfd45e7163a66bc5e79",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5147,8 +5147,6 @@
   "risk_safety_score/javascript": "scoring",
   "risk_safety_score/python": "scoring",
   "risk_safety_score/ruby": "echo",
-  "risk_secrets_risk/markdown": "scoring",
-  "risk_secrets_risk/yaml": "scoring",
   "risk_state_flux/c": "scoring",
   "risk_state_flux/cpp": "scoring",
   "risk_state_flux/css": "scoring",
