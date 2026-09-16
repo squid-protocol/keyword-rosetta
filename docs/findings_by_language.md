@@ -20,6 +20,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [csharp](#csharp) | 0 | 0 | 0 | 11 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 #2882 |
 | [css](#css) | 4 | 3 | 5 | 20 | #2549 #2655 #2689 #2729 #2752 #2766 #2770 #2866 #2878 |
 | [dart](#dart) | 0 | 0 | 0 | 8 | #2535 #2651 #2689 #2730 #2731 #2852 #2878 |
+| [db2_sql](#db2_sql) | 13 | 2 | 3 | 6 | #2511 #2655 #2730 #2866 |
 | [dockerfile](#dockerfile) | 3 | 4 | 1 | 21 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2766 #2770 #2792 #2798 #2822 #2856 #2866 #2875 |
 | [embedded_python](#embedded_python) | 7 | 0 | 0 | 15 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2852 #2869 #2875 |
 | [fortran](#fortran) | 0 | 2 | 0 | 15 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 #2878 |
@@ -396,6 +397,45 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.dart** · `// decoy: this suite never calls exit and no switch block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.dart** · `final note = "plain exit decoy line"; (probeState)` (string): danger-only decoy (#17 redesign): "exit" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+
+</details>
+
+## db2_sql
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
+- 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
+- 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
+- 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
+- 🔴 `dependency_density`: 0 vs median 0.015 (-100%)
+- 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
+- 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
+- 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
+- 🔴 `popularity`: 0 vs median 0.75 (-100%)
+- 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
+- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 31.8725 (-100%)
+- 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
+- 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
+- 🟡 `risk_tech_debt`: 22.0199 vs median 34.5199 (-36%)
+
+**Not expressible as measured (n/a):** `functions_found`†, `raw_state_unreferenced`, `risk_documentation`†
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
+| `tech-debt-floor-census-rebased-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | With the census layer honest (gitgalaxy#2866), these four tech-debt cells stopped inheriting their explanation from raw_state_unreferenced (the cells were out of band be… |
+| `unreferenced-census-contract-2866` | engine-semantic | [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | These four languages declare invocation_model: positional (gitgalaxy#2866, joining jcl's #2806 declaration), so the unreferenced_by_name census is not computed and the c… |
+| `api-no-plantable-idiom` | intended-morphology | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | — | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
+| `db2-sql-connect-to-resolves-no-file` | intended-morphology | [#2511](https://github.com/squid-protocol/gitgalaxy/issues/2511) | — | DB2 SQL has no file-include construct: SPUFI/DSNTEP2/the CLP execute one script top to bottom, and the language's only real dependency form is CONNECT TO <database> -- w… |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.sql** · `-- decoy: this shell never runs EXECUTE IMMEDIATE and no FETCH arrives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1 (EXECUTE IMMEDIATE) and io 1 (FETCH, not followed by FIRST) when the marker is removed; verified against the live compiled rules and by main's counts staying at their planted values in the report run.
+- **b.sql** · `INSERT INTO T1 VALUES ('plain DROP DATABASE decoy text'); (probe_state's carrier statement)` (string): danger-only literal, +1 high_risk_execution in b.sql (DROP DATABASE matches inside the string -- gitgalaxy#2535, no literal shielding). Same sentence as sqlite's decoy for cross-language comparability. Fillers (plain/decoy/text) checked against the menu: no other rule fires. Placed in probe_state, which carries no safety keywords, keeping the Silencer Region out of the experiment; b-file placement matches the corpus majority (see risk-safety-score-decoy-file-shortcircuit).
+- **a.sql** · `DECLARE HACK_LEVEL VARCHAR(128)` (code): contributes 0 -- db2_sql's fragile_debt is GLOBAL_FRAGILE_DEBT run over the comment stream only (detector.comment_analysis), so a code identifier carrying HACK never reaches it. a.sql's fragile_debt stayed 0 in the report run.
 
 </details>
 

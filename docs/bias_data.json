@@ -12,6 +12,7 @@
   "csharp",
   "css",
   "dart",
+  "db2_sql",
   "dockerfile",
   "embedded_python",
   "fortran",
@@ -63,6 +64,7 @@
    "csharp": 13,
    "css": 14,
    "dart": 13,
+   "db2_sql": 13,
    "dockerfile": 17,
    "embedded_python": 13,
    "fortran": 13,
@@ -113,6 +115,7 @@
    "csharp": 13,
    "css": null,
    "dart": 13,
+   "db2_sql": 13,
    "dockerfile": 4,
    "embedded_python": 13,
    "fortran": 13,
@@ -163,6 +166,7 @@
    "csharp": 0,
    "css": 1,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 4,
    "embedded_python": 0,
    "fortran": 0,
@@ -213,6 +217,7 @@
    "csharp": 13,
    "css": 14,
    "dart": 13,
+   "db2_sql": null,
    "dockerfile": 17,
    "embedded_python": 13,
    "fortran": 13,
@@ -263,6 +268,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 4,
    "embedded_python": 0,
    "fortran": 0,
@@ -313,6 +319,7 @@
    "csharp": 3,
    "css": 3,
    "dart": 3,
+   "db2_sql": 3,
    "dockerfile": 3,
    "embedded_python": 7,
    "fortran": 3,
@@ -363,6 +370,7 @@
    "csharp": 0.223983,
    "css": 0.223983,
    "dart": 0.223983,
+   "db2_sql": 0.2,
    "dockerfile": 0.223983,
    "embedded_python": 0.223983,
    "fortran": 0.223983,
@@ -413,6 +421,7 @@
    "csharp": 3,
    "css": 3,
    "dart": 3,
+   "db2_sql": 3,
    "dockerfile": 3,
    "embedded_python": 3,
    "fortran": 3,
@@ -463,6 +472,7 @@
    "csharp": 3,
    "css": 3,
    "dart": 3,
+   "db2_sql": 3,
    "dockerfile": 3,
    "embedded_python": 3,
    "fortran": 3,
@@ -513,6 +523,7 @@
    "csharp": 3,
    "css": 3,
    "dart": 3,
+   "db2_sql": 3,
    "dockerfile": 3,
    "embedded_python": 3,
    "fortran": 3,
@@ -563,6 +574,7 @@
    "csharp": 2,
    "css": 2,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 2,
    "fortran": 2,
@@ -613,6 +625,7 @@
    "csharp": 2,
    "css": 2,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 2,
    "fortran": 2,
@@ -663,6 +676,7 @@
    "csharp": 2,
    "css": 2,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 2,
    "fortran": 2,
@@ -713,6 +727,7 @@
    "csharp": 2,
    "css": 2,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 2,
    "fortran": 3,
@@ -763,6 +778,7 @@
    "csharp": 2,
    "css": null,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 2,
    "fortran": 2,
@@ -813,6 +829,7 @@
    "csharp": 2,
    "css": null,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 15,
    "fortran": 2,
@@ -863,6 +880,7 @@
    "csharp": 2,
    "css": null,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 2,
    "fortran": 2,
@@ -913,6 +931,7 @@
    "csharp": 1,
    "css": 1,
    "dart": 1,
+   "db2_sql": 1,
    "dockerfile": 1,
    "embedded_python": 1,
    "fortran": 1,
@@ -963,6 +982,7 @@
    "csharp": 1,
    "css": 1,
    "dart": 1,
+   "db2_sql": 1,
    "dockerfile": 1,
    "embedded_python": 1,
    "fortran": 1,
@@ -1013,6 +1033,7 @@
    "csharp": 3,
    "css": 3,
    "dart": 3,
+   "db2_sql": 3,
    "dockerfile": 3,
    "embedded_python": 7,
    "fortran": 3,
@@ -1063,6 +1084,7 @@
    "csharp": 1,
    "css": 1,
    "dart": 1,
+   "db2_sql": 1,
    "dockerfile": 1,
    "embedded_python": 1,
    "fortran": 1,
@@ -1113,6 +1135,7 @@
    "csharp": 1,
    "css": 1,
    "dart": 1,
+   "db2_sql": 1,
    "dockerfile": 1,
    "embedded_python": 1,
    "fortran": 1,
@@ -1163,6 +1186,7 @@
    "csharp": 0,
    "css": null,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -1213,6 +1237,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -1263,6 +1288,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 2,
    "embedded_python": 0,
    "fortran": 0,
@@ -1313,6 +1339,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 1,
@@ -1363,6 +1390,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -1413,6 +1441,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 2,
@@ -1463,6 +1492,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -1513,6 +1543,7 @@
    "csharp": 0,
    "css": null,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -1563,6 +1594,7 @@
    "csharp": 0.223983,
    "css": 0.223983,
    "dart": 0.223983,
+   "db2_sql": 0.2,
    "dockerfile": 0.223983,
    "embedded_python": 0.223983,
    "fortran": 0.223983,
@@ -1613,6 +1645,7 @@
    "csharp": 223.983,
    "css": 223.983,
    "dart": 223.983,
+   "db2_sql": 200.0,
    "dockerfile": 223.983,
    "embedded_python": 223.983,
    "fortran": 223.983,
@@ -1663,6 +1696,7 @@
    "csharp": 0.0833335,
    "css": 0.0833335,
    "dart": 0.0833335,
+   "db2_sql": 0.0,
    "dockerfile": 0.0833335,
    "embedded_python": 0.0833335,
    "fortran": 0.0833335,
@@ -1713,6 +1747,7 @@
    "csharp": 0.23958325,
    "css": 0.23958325,
    "dart": 0.23958325,
+   "db2_sql": 0.0,
    "dockerfile": 0.23958325,
    "embedded_python": 0.23958325,
    "fortran": 0.23958325,
@@ -1763,6 +1798,7 @@
    "csharp": 0.5,
    "css": 0.5,
    "dart": 0.5,
+   "db2_sql": 0.0,
    "dockerfile": 0.5,
    "embedded_python": 0.5,
    "fortran": 0.5,
@@ -1813,6 +1849,7 @@
    "csharp": 0.75,
    "css": 0.75,
    "dart": 0.75,
+   "db2_sql": 0,
    "dockerfile": 0.75,
    "embedded_python": 0.75,
    "fortran": 0.75,
@@ -1863,6 +1900,7 @@
    "csharp": 0.015,
    "css": 0.015,
    "dart": 0.015,
+   "db2_sql": 0.0,
    "dockerfile": 0.015,
    "embedded_python": 0.015,
    "fortran": 0.015,
@@ -1913,6 +1951,7 @@
    "csharp": 0.1875,
    "css": 0.15,
    "dart": 0.1875,
+   "db2_sql": 0.0,
    "dockerfile": 0.15,
    "embedded_python": 0.1875,
    "fortran": 0.1875,
@@ -1963,6 +2002,7 @@
    "csharp": 0.75,
    "css": 0.25,
    "dart": 0.75,
+   "db2_sql": 0.0,
    "dockerfile": 0.75,
    "embedded_python": 0.75,
    "fortran": 0.75,
@@ -2013,6 +2053,7 @@
    "csharp": 1.0,
    "css": 0.0,
    "dart": 1.0,
+   "db2_sql": 0.0,
    "dockerfile": 0.0,
    "embedded_python": 1.0,
    "fortran": 1.0,
@@ -2063,6 +2104,7 @@
    "csharp": 0.1875,
    "css": 0.1,
    "dart": 0.1875,
+   "db2_sql": 0.0,
    "dockerfile": 0.2,
    "embedded_python": 0.1875,
    "fortran": 0.1875,
@@ -2113,6 +2155,7 @@
    "csharp": 0.015625,
    "css": 0.012499999999999999,
    "dart": 0.015625,
+   "db2_sql": 0.0,
    "dockerfile": 0.012499999999999999,
    "embedded_python": 0.015625,
    "fortran": 0.015625,
@@ -2163,6 +2206,7 @@
    "csharp": 0.91675,
    "css": 0.75,
    "dart": 0.75,
+   "db2_sql": 0.83325,
    "dockerfile": 0.875,
    "embedded_python": 0.91675,
    "fortran": 0.75,
@@ -2213,6 +2257,7 @@
    "csharp": 0.0205,
    "css": 0.015,
    "dart": 0.0205,
+   "db2_sql": 0.015,
    "dockerfile": 0.021,
    "embedded_python": 0.1995,
    "fortran": 0.0205,
@@ -2263,6 +2308,7 @@
    "csharp": 3,
    "css": 1,
    "dart": 3.25,
+   "db2_sql": 0,
    "dockerfile": 1,
    "embedded_python": 3.25,
    "fortran": 3.25,
@@ -2313,6 +2359,7 @@
    "csharp": 2.5,
    "css": 2.5,
    "dart": 2.5,
+   "db2_sql": null,
    "dockerfile": null,
    "embedded_python": 2.5,
    "fortran": 2.5,
@@ -2363,6 +2410,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -2413,6 +2461,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -2463,6 +2512,7 @@
    "csharp": 31.8725,
    "css": 35.837599999999995,
    "dart": 32.15625,
+   "db2_sql": 0.0,
    "dockerfile": 15.936275,
    "embedded_python": 32.15625,
    "fortran": 32.15625,
@@ -2513,6 +2563,7 @@
    "csharp": 1.29535,
    "css": 1.190475,
    "dart": 1.29535,
+   "db2_sql": 1.190475,
    "dockerfile": 1.302625,
    "embedded_python": 10.94715,
    "fortran": 1.29535,
@@ -2563,6 +2614,7 @@
    "csharp": 0.0,
    "css": null,
    "dart": 0.0,
+   "db2_sql": 0.0,
    "dockerfile": 0.0,
    "embedded_python": 0.0,
    "fortran": 0.0,
@@ -2613,6 +2665,7 @@
    "csharp": 0.0,
    "css": 0.0,
    "dart": 0.0,
+   "db2_sql": 0.0,
    "dockerfile": 0.0,
    "embedded_python": 0.0,
    "fortran": 0.0,
@@ -2663,6 +2716,7 @@
    "csharp": 96.428575,
    "css": 90.0,
    "dart": 93.75,
+   "db2_sql": null,
    "dockerfile": 100.0,
    "embedded_python": 93.75,
    "fortran": 93.75,
@@ -2713,6 +2767,7 @@
    "csharp": 41.13145,
    "css": 39.153400000000005,
    "dart": 41.13145,
+   "db2_sql": 41.13145,
    "dockerfile": 43.363974999999996,
    "embedded_python": 75.141425,
    "fortran": 57.462325,
@@ -2763,6 +2818,7 @@
    "csharp": 24.99995,
    "css": 25.0,
    "dart": 24.99995,
+   "db2_sql": 24.999875,
    "dockerfile": 25.0,
    "embedded_python": 24.999975,
    "fortran": 24.999975,
@@ -2813,6 +2869,7 @@
    "csharp": 100.0,
    "css": 100.0,
    "dart": 100.0,
+   "db2_sql": 100.0,
    "dockerfile": 100.0,
    "embedded_python": 100.0,
    "fortran": 100.0,
@@ -2863,6 +2920,7 @@
    "csharp": 7.75065,
    "css": 0.0,
    "dart": 7.75065,
+   "db2_sql": 0.0,
    "dockerfile": 7.75065,
    "embedded_python": 58.940525,
    "fortran": 7.75065,
@@ -2913,6 +2971,7 @@
    "csharp": 34.519925,
    "css": 29.877875000000003,
    "dart": 34.519925,
+   "db2_sql": 22.019925,
    "dockerfile": 23.81435,
    "embedded_python": 38.665025,
    "fortran": 42.090825,
@@ -2963,6 +3022,7 @@
    "csharp": 2.388125,
    "css": 2.35985,
    "dart": 2.387725,
+   "db2_sql": 2.547075,
    "dockerfile": 2.387775,
    "embedded_python": 2.3976499999999996,
    "fortran": 2.4019,
@@ -3013,6 +3073,7 @@
    "csharp": 25.25,
    "css": 19,
    "dart": 25,
+   "db2_sql": 30,
    "dockerfile": 16.5,
    "embedded_python": 27.25,
    "fortran": 22,
@@ -3063,6 +3124,7 @@
    "csharp": 17.75,
    "css": 9.75,
    "dart": 17.5,
+   "db2_sql": 22.5,
    "dockerfile": 9,
    "embedded_python": 15.75,
    "fortran": 15,
@@ -3113,6 +3175,7 @@
    "csharp": 5.3125,
    "css": 2.033333333333333,
    "dart": 5.229166666666667,
+   "db2_sql": 0.0,
    "dockerfile": 1.2,
    "embedded_python": 4.354166666666666,
    "fortran": 4.4375,
@@ -3163,6 +3226,7 @@
    "csharp": 13,
    "css": 13,
    "dart": 13,
+   "db2_sql": 13,
    "dockerfile": 12,
    "embedded_python": 12,
    "fortran": 12,
@@ -3213,6 +3277,7 @@
    "csharp": 137.25,
    "css": 108.75,
    "dart": 123,
+   "db2_sql": 180,
    "dockerfile": 87.5,
    "embedded_python": 122.5,
    "fortran": 150.25,
@@ -3263,6 +3328,7 @@
    "csharp": 155,
    "css": 70,
    "dart": 142,
+   "db2_sql": 137,
    "dockerfile": 84,
    "embedded_python": 191,
    "fortran": 159,
@@ -3313,6 +3379,7 @@
    "csharp": 10.455,
    "css": 0.40249999999999997,
    "dart": 10.675,
+   "db2_sql": 20.2,
    "dockerfile": 7.13,
    "embedded_python": 15.215,
    "fortran": 10.425,
@@ -3363,6 +3430,7 @@
    "csharp": 0.02875,
    "css": 0.0625,
    "dart": 0.02875,
+   "db2_sql": 0.022,
    "dockerfile": 0.06825,
    "embedded_python": 0.03,
    "fortran": 0.03125,
@@ -3413,6 +3481,7 @@
    "csharp": 2,
    "css": 0,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 2,
    "fortran": 2,
@@ -3463,6 +3532,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -3513,6 +3583,7 @@
    "csharp": 12,
    "css": 13,
    "dart": 13,
+   "db2_sql": 0,
    "dockerfile": 4,
    "embedded_python": 13,
    "fortran": 13,
@@ -3563,6 +3634,7 @@
    "csharp": 1,
    "css": 1,
    "dart": 1,
+   "db2_sql": 1,
    "dockerfile": 1,
    "embedded_python": 1,
    "fortran": 1,
@@ -3613,6 +3685,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -3663,6 +3736,7 @@
    "csharp": 7,
    "css": 5,
    "dart": 8,
+   "db2_sql": 5,
    "dockerfile": 5,
    "embedded_python": 5,
    "fortran": 7,
@@ -3713,6 +3787,7 @@
    "csharp": 1,
    "css": 1,
    "dart": 1,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 1,
    "fortran": 1,
@@ -3763,6 +3838,7 @@
    "csharp": 2,
    "css": 2,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 4,
    "embedded_python": 2,
    "fortran": 2,
@@ -3813,6 +3889,7 @@
    "csharp": 1,
    "css": 1,
    "dart": 1,
+   "db2_sql": 1,
    "dockerfile": 1,
    "embedded_python": 1,
    "fortran": 1,
@@ -3863,6 +3940,7 @@
    "csharp": 2,
    "css": 0,
    "dart": 3,
+   "db2_sql": 2,
    "dockerfile": 6,
    "embedded_python": 2,
    "fortran": 2,
@@ -3913,6 +3991,7 @@
    "csharp": 2,
    "css": 2,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 2,
    "fortran": 3,
@@ -3963,6 +4042,7 @@
    "csharp": 3,
    "css": 3,
    "dart": 3,
+   "db2_sql": 3,
    "dockerfile": 3,
    "embedded_python": 3,
    "fortran": 3,
@@ -4013,6 +4093,7 @@
    "csharp": 1,
    "css": 0,
    "dart": 1,
+   "db2_sql": 0,
    "dockerfile": 5,
    "embedded_python": 0,
    "fortran": 0,
@@ -4063,6 +4144,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 1,
@@ -4113,6 +4195,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -4163,6 +4246,7 @@
    "csharp": 10,
    "css": 0,
    "dart": 5,
+   "db2_sql": 4,
    "dockerfile": 6,
    "embedded_python": 28,
    "fortran": 4,
@@ -4213,6 +4297,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -4263,6 +4348,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 1,
    "embedded_python": 0,
    "fortran": 0,
@@ -4313,6 +4399,7 @@
    "csharp": 2,
    "css": 2,
    "dart": 2,
+   "db2_sql": 2,
    "dockerfile": 2,
    "embedded_python": 2,
    "fortran": 2,
@@ -4363,6 +4450,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 2,
@@ -4413,6 +4501,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -4463,6 +4552,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 0,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 0,
    "fortran": 0,
@@ -4513,6 +4603,7 @@
    "csharp": 12,
    "css": 9,
    "dart": 13,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 13,
    "fortran": 13,
@@ -4563,6 +4654,7 @@
    "csharp": 1,
    "css": 2,
    "dart": 1,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 1,
    "fortran": 1,
@@ -4613,6 +4705,7 @@
    "csharp": 0,
    "css": 0,
    "dart": 1,
+   "db2_sql": 0,
    "dockerfile": 0,
    "embedded_python": 1,
    "fortran": 1,
@@ -4663,6 +4756,7 @@
    "csharp": 100.0,
    "css": 100.0,
    "dart": 100.0,
+   "db2_sql": 100.0,
    "dockerfile": 100.0,
    "embedded_python": 100.0,
    "fortran": 100.0,
@@ -4713,6 +4807,7 @@
    "csharp": 0.0,
    "css": 0.0,
    "dart": 0.0,
+   "db2_sql": 0.0,
    "dockerfile": 0.0,
    "embedded_python": 0.0,
    "fortran": 0.0,
@@ -4841,6 +4936,7 @@
   },
   "functions_found": {
    "markdown": "ledgered",
+   "db2_sql": "unreviewed",
    "sqlite": "ledgered"
   },
   "risk_api_exposure": {
@@ -4862,6 +4958,7 @@
   },
   "risk_documentation": {
    "markdown": "ledgered",
+   "db2_sql": "unreviewed",
    "html": "ledgered",
    "sqlite": "ledgered"
   },
@@ -4881,6 +4978,7 @@
   },
   "raw_state_unreferenced": {
    "bms": "ledgered",
+   "db2_sql": "ledgered",
    "dockerfile": "ledgered",
    "html": "ledgered",
    "jcl": "ledgered",
@@ -5034,7 +5132,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "6a4d7800e06df8077ccfa2f2297df5ce863ba122",
+ "engine_commit": "e83be08b4b3b668906aed7ab155663e5fc294e51",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5060,6 +5158,7 @@
   "csharp": "irc1",
   "css": "unprofiled",
   "dart": "irc1",
+  "db2_sql": "irc1",
   "dockerfile": "irc3",
   "embedded_python": "irc2",
   "fortran": "irc3",
@@ -5159,15 +5258,15 @@
   {
    "metric": "risk_secrets_risk",
    "n": 11,
-   "rho": -0.912,
-   "verdict": "leak",
+   "rho": -0.546,
+   "verdict": "weak",
    "held": [
     "dead_code",
     "debug_prints",
     "globals",
     "llm_api"
    ],
-   "stratum": "irc2",
+   "stratum": "irc1",
    "where": null
   },
   {
@@ -5178,6 +5277,81 @@
    "held": [],
    "stratum": "irc2",
    "where": null
+  },
+  {
+   "metric": "risk_cognitive_load",
+   "n": 10,
+   "rho": -0.529,
+   "verdict": "weak",
+   "held": [
+    "branch",
+    "concurrency",
+    "doc",
+    "reflection_metaprogramming",
+    "state_mutation"
+   ],
+   "stratum": "irc1",
+   "where": "the same _calc_cog_load densities, post-sigmoid"
+  },
+  {
+   "metric": "risk_state_flux",
+   "n": 11,
+   "rho": -0.502,
+   "verdict": "weak",
+   "held": [
+    "immutability_locks",
+    "state_mutation"
+   ],
+   "stratum": "irc1",
+   "where": null
+  },
+  {
+   "metric": "betweenness_score",
+   "n": 12,
+   "rho": -0.485,
+   "verdict": "weak",
+   "held": [
+    "dependency_links"
+   ],
+   "stratum": "irc1",
+   "where": null
+  },
+  {
+   "metric": "dependency_density",
+   "n": 12,
+   "rho": -0.485,
+   "verdict": "weak",
+   "held": [
+    "import",
+    "control_flow_ratio"
+   ],
+   "stratum": "irc1",
+   "where": "import_count / max(int(coding_loc * control_flow_ratio), 1) (record_keeper.py ~L489)"
+  },
+  {
+   "metric": "avg_func_args",
+   "n": 12,
+   "rho": -0.485,
+   "verdict": "weak",
+   "held": [
+    "args",
+    "func_start"
+   ],
+   "stratum": "irc1",
+   "where": null
+  },
+  {
+   "metric": "func_internal_density",
+   "n": 12,
+   "rho": -0.485,
+   "verdict": "weak",
+   "held": [
+    "branch",
+    "args",
+    "func_start"
+   ],
+   "stratum": "irc1",
+   "where": "avg_func_complexity / avg_func_loc (record_keeper.py ~L487)"
   },
   {
    "metric": "reflection_metaprogramming",
@@ -5248,6 +5422,7 @@
   "args/sqlite": "inherency",
   "args/yacc": "inherency",
   "avg_func_args/css": "inherency",
+  "avg_func_args/db2_sql": "inherency",
   "avg_func_args/dockerfile": "inherency",
   "avg_func_args/html": "inherency",
   "avg_func_args/makefile": "inherency",
@@ -5256,9 +5431,11 @@
   "avg_func_args/yacc": "inherency",
   "avg_func_args/yaml": "inherency",
   "avg_func_complexity/bms": "inherency",
+  "avg_func_complexity/db2_sql": "inherency",
   "avg_func_complexity/html": "inherency",
   "avg_func_complexity/markdown": "inherency",
   "avg_func_complexity/sqlite": "inherency",
+  "betweenness_score/db2_sql": "inherency",
   "betweenness_score/javascript": "inherency",
   "betweenness_score/python": "inherency",
   "class_start/bms": "scoring",
@@ -5269,9 +5446,11 @@
   "class_start/kotlin": "inherency",
   "class_start/yaml": "scoring",
   "classes_found/bms": "unexplained",
+  "closeness_score/db2_sql": "inherency",
   "cog_raw/apex": "echo",
   "cog_raw/bms": "echo",
   "cog_raw/css": "echo",
+  "cog_raw/db2_sql": "echo",
   "cog_raw/embedded_python": "echo",
   "cog_raw/html": "echo",
   "cog_raw/makefile": "echo",
@@ -5292,6 +5471,7 @@
   "debug_prints/yaml": "inherency",
   "def_encapsulation/go": "inherency",
   "def_encapsulation/haskell": "inherency",
+  "dependency_density/db2_sql": "echo",
   "dependency_links/embedded_python": "echo",
   "dependency_links/jcl": "scoring",
   "encapsulation_ratio/bms": "scoring",
@@ -5299,10 +5479,12 @@
   "encapsulation_ratio/markdown": "scoring",
   "func_complexity_gini/bms": "inherency",
   "func_complexity_gini/css": "scoring",
+  "func_complexity_gini/db2_sql": "inherency",
   "func_complexity_gini/html": "inherency",
   "func_complexity_gini/markdown": "inherency",
   "func_complexity_gini/sqlite": "inherency",
   "func_internal_density/bms": "echo",
+  "func_internal_density/db2_sql": "inherency",
   "func_internal_density/html": "inherency",
   "func_internal_density/markdown": "inherency",
   "func_internal_density/sqlite": "inherency",
@@ -5320,11 +5502,15 @@
   "import/embedded_python": "inherency",
   "max_func_complexity/bms": "inherency",
   "max_func_complexity/css": "scoring",
+  "max_func_complexity/db2_sql": "inherency",
   "max_func_complexity/html": "inherency",
   "max_func_complexity/markdown": "inherency",
   "max_func_complexity/sqlite": "inherency",
+  "popularity/db2_sql": "inherency",
+  "producer_ratio/db2_sql": "inherency",
   "raw_arch_api/agc_assembly": "scoring",
   "raw_arch_api/css": "scoring",
+  "raw_arch_api/db2_sql": "inherency",
   "raw_arch_api/dockerfile": "scoring",
   "raw_arch_api/haskell": "scoring",
   "raw_arch_api/html": "scoring",
@@ -5341,6 +5527,7 @@
   "reflection_metaprogramming/shell": "inherency",
   "reflection_metaprogramming/solidity": "inherency",
   "reflection_metaprogramming/yacc": "inherency",
+  "risk_api_exposure/db2_sql": "echo",
   "risk_api_exposure/dockerfile": "echo",
   "risk_api_exposure/haskell": "echo",
   "risk_api_exposure/html": "echo",
@@ -5369,6 +5556,7 @@
   "risk_state_flux/c": "scoring",
   "risk_state_flux/cpp": "scoring",
   "risk_state_flux/css": "scoring",
+  "risk_state_flux/db2_sql": "scoring",
   "risk_state_flux/embedded_python": "scoring",
   "risk_state_flux/html": "scoring",
   "risk_state_flux/python": "scoring",
@@ -5376,6 +5564,7 @@
   "risk_state_flux/sqlite": "scoring",
   "risk_tech_debt/cobol": "scoring",
   "risk_tech_debt/css": "scoring",
+  "risk_tech_debt/db2_sql": "scoring",
   "risk_tech_debt/dockerfile": "scoring",
   "risk_tech_debt/jcl": "scoring",
   "risk_tech_debt/markdown": "scoring",
@@ -5396,91 +5585,91 @@
  "open_defect_share": {
   "args": [
    0,
-   46
+   47
   ],
   "avg_func_args": [
    0,
-   48
+   49
   ],
   "avg_func_complexity": [
    0,
-   48
+   49
   ],
   "betweenness_score": [
    0,
-   48
+   49
   ],
   "branch": [
    0,
-   46
+   47
   ],
   "class_start": [
    0,
-   43
+   44
   ],
   "classes_found": [
    1,
-   42
+   43
   ],
   "cleanup": [
    0,
-   45
+   46
   ],
   "closeness_score": [
    0,
-   48
+   49
   ],
   "cog_raw": [
    0,
-   48
+   49
   ],
   "concurrency": [
    0,
-   41
+   42
   ],
   "dead_code": [
    1,
-   47
+   48
   ],
   "debug_prints": [
    0,
-   48
+   49
   ],
   "def_encapsulation": [
    0,
-   48
+   49
   ],
   "dependency_density": [
    0,
-   48
+   49
   ],
   "dependency_links": [
    0,
-   48
+   49
   ],
   "doc": [
    0,
-   45
+   46
   ],
   "encapsulation_ratio": [
    0,
-   48
+   49
   ],
   "fragile_debt": [
    0,
-   47
+   48
   ],
   "func_complexity_gini": [
    0,
-   48
+   49
   ],
   "func_internal_density": [
    0,
-   48
+   49
   ],
   "func_start": [
    0,
-   47
+   48
   ],
   "functions_found": [
    0,
@@ -5488,63 +5677,63 @@
   ],
   "globals": [
    0,
-   45
+   46
   ],
   "high_risk_execution": [
    0,
-   46
+   47
   ],
   "immutability_locks": [
    0,
-   41
+   42
   ],
   "import": [
    0,
-   47
+   48
   ],
   "io": [
    0,
-   45
+   46
   ],
   "llm_api": [
    0,
-   48
+   49
   ],
   "max_func_complexity": [
    0,
-   48
+   49
   ],
   "normalized_blast_radius": [
    0,
-   48
+   49
   ],
   "ownership": [
    0,
-   47
+   48
   ],
   "pagerank": [
    0,
-   48
+   49
   ],
   "pagerank_score": [
    0,
-   48
+   49
   ],
   "planned_debt": [
    0,
-   47
+   48
   ],
   "popularity": [
    0,
-   48
+   49
   ],
   "producer_ratio": [
    0,
-   48
+   49
   ],
   "raw_arch_api": [
    0,
-   48
+   49
   ],
   "raw_state_unreferenced": [
    0,
@@ -5552,23 +5741,23 @@
   ],
   "reflection_metaprogramming": [
    0,
-   45
+   46
   ],
   "risk_api_exposure": [
    0,
-   47
+   48
   ],
   "risk_cognitive_load": [
    0,
-   46
+   47
   ],
   "risk_concurrency": [
    0,
-   43
+   44
   ],
   "risk_dead_code": [
    0,
-   47
+   48
   ],
   "risk_documentation": [
    0,
@@ -5576,59 +5765,59 @@
   ],
   "risk_safety_score": [
    0,
-   46
+   47
   ],
   "risk_secrets_risk": [
    0,
-   48
+   49
   ],
   "risk_spec_match": [
    0,
-   47
+   48
   ],
   "risk_state_flux": [
    0,
-   46
+   47
   ],
   "risk_tech_debt": [
    0,
-   48
+   49
   ],
   "risk_verification": [
    0,
-   47
+   48
   ],
   "safety": [
    0,
-   46
+   47
   ],
   "safety_bypasses": [
    0,
-   46
+   47
   ],
   "spec_exposure": [
    1,
-   47
+   48
   ],
   "state_mutation": [
    0,
-   44
+   45
   ],
   "state_slop_duplicates": [
    0,
-   48
+   49
   ],
   "sync_locks": [
    0,
-   41
+   42
   ],
   "telemetry": [
    0,
-   45
+   46
   ],
   "test": [
    0,
-   44
+   45
   ]
  }
 }
