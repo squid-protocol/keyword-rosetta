@@ -1,0 +1,14 @@
+* keyword rosetta control shell: bms / c
+* decoy: tidy remarks stay in prose
+PROBECLN DFHMDI SIZE=(24,80),LINE=11,COLUMN=1
+CLNFLD   DFHMDF POS=(11,1),LENGTH=8,ATTRB=ASKIP
+* HACK: shortcut, see rosetta spec
+PROBEDBT DFHMDI SIZE=(24,80),LINE=12,COLUMN=1
+DBTFLD   DFHMDF POS=(12,1),LENGTH=8,ATTRB=ASKIP
+* TODO wire the final probe
+PROBETDO DFHMDI SIZE=(24,80),LINE=13,COLUMN=1
+TDOFLD   DFHMDF POS=(13,1),LENGTH=8,ATTRB=ASKIP
+* [SPEC-2505] traceability tag for the rosetta corpus
+*FLDDEAD  DFHMDF POS=(14,1),LENGTH=1
+* api_key = "R0SETTA-PLANT-SECRET-2026"
+         END
