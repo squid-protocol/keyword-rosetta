@@ -1,0 +1,137 @@
+{
+  "language": "pli",
+  "tier": 1,
+  "generator": "claude-fable-5",
+  "files": {
+    "main.pli": {
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "api": 4,
+      "api_orphan_credit": 0,
+      "import": 1,
+      "doc": 1,
+      "ownership": 1,
+      "class_start": 0,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "encapsulation": 0,
+      "units_public": 4,
+      "units_documented": 1
+    },
+    "a.pli": {
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "high_risk_execution": 1,
+      "branch": 0,
+      "class_start": 0,
+      "state_mutation": 0,
+      "io": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "doc": 0,
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 0
+    },
+    "b.pli": {
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "branch": 0,
+      "high_risk_execution": 0,
+      "io": 0,
+      "class_start": 0,
+      "safety": 0,
+      "test": 0,
+      "globals": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "doc": 0,
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 0
+    },
+    "c.pli": {
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "state_mutation": 0,
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "test": 0,
+      "globals": 0,
+      "doc": 0,
+      "ownership": 0,
+      "high_risk_execution": 0,
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 0
+    }
+  },
+  "decoys": [
+    {
+      "file": "main.pli",
+      "line_hint": "OPEN FILE(NOTES) and IF SQLCODE checks live in prose only",
+      "surface": "comment",
+      "signals": [
+        "io",
+        "safety",
+        "branch"
+      ],
+      "outcome": "stripped: contributed 0. The prose carries three anchored code-stream forms (contract C2): OPEN FILE( is io's record-I/O shape, IF SQLCODE is safety's embedded-SQL response test, and the bare IF is branch's -- pli's core menus are empty (statement-anchored rules), so the decoy plants the rules' own shapes, the fortran/bms precedent."
+    },
+    {
+      "file": "a.pli",
+      "line_hint": "DCL MSG CHAR(22) INIT('PLAIN STOP; DECOY TEXT') (inside PROBE_GLOBALS)",
+      "surface": "string",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "danger-only decoy (#17 design): STOP; COUNTS from inside the literal (+1, unshielded -- gitgalaxy#2535, no literal-shielding mechanism) and also counts panics_and_aborts +1 (unscored dual, gitgalaxy#2878's termination family -- same as fortran's STOP). STOP; is pli's own statement-shaped danger keyword; it is not a branch keyword, so no phantom flux context. Planted via DCL ... INIT (pli's declaration initial value), not an assignment, so state_mutation stays 0 in this file. PROBE_GLOBALS carries no safety keyword, keeping the Silencer Region out of the experiment."
+    },
+    {
+      "file": "c.pli",
+      "line_hint": "DCL HACK_LEVEL FIXED BIN(15);",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (underscore tokenization, as python -- \\bHACK\\b cannot fire mid-identifier; the gitgalaxy#2537 hyphen guard is not even needed). c.pli records exactly the planted /* HACK: */ comment (1)."
+    }
+  ],
+  "notes": "First scan matched planted intent exactly (0 unexplained deltas; engine main 6a4d7800, full_precision). api morphology: pli's api rule is the explicit-marker fallback family (OPTIONS(MAIN)/OPTIONS(FETCHABLE), EXPORTS(, label: ENTRY -- an external PL/I procedure is public by default with nothing in the syntax marking it, docs/api_rule_contract.md), so the shell plants OPTIONS(MAIN) on the entry (which also takes the runtime parm string, keeping args at 13 corpus-wide) and OPTIONS(FETCHABLE) on every probe -- coherent with main.pli's FETCH WORKER plant, and api reads 4/3/3/3 = 13 like fortran. api_orphan_credit 0 everywhere: each probe's name sits on its own api-matched OPTIONS line, so gitgalaxy#2827's name search finds every orphan already declared and the Contextual Baseline Fix credits nothing; the main->a->b->c %INCLUDE chain is asserted by the import cells (fortran precedent, ledger api-declared-orphans-are-not-new-surface). Every core menu except branch/globals/test/debt is empty because pli's rules are statement-anchored (READ FILE(, ON ERROR, CALL PLIDUMP(, label: PROC), so plants use the rules' own anchored shapes per SPEC/#73 contract C2. safety 2 = one ON-unit with a real handler (ON ERROR CALL ...) + one enabling condition prefix ((STRINGRANGE):); safety_bypasses 2 = one disabling prefix ((NOSIZE):) + one null on-unit (ON CONVERSION; -- excluded from safety by its own ;-lookahead, no double count). state_mutation is statement-anchored (PL/I spells = for assignment and comparison), so only PROBE_STATE's two assignment statements count; every other probe uses CALL/DCL glue with zero assignments. GO TO deliberately unused anywhere (it is safety_bypasses'). encapsulation (INTERNAL), dead_code and spec_exposure rules exist but the corpus plants none (zero-median columns, exact-agreement scoring) -- recorded 0, INTERNAL never written. STOP in PROBE_RISK also counts panics_and_aborts +1 (unscored). decorators reads 4/3/3/3 from the OPTIONS( attribute lists (unplanted vocabulary). %INCLUDE members resolve case-insensitively to a.pli/b.pli/c.pli (case_insensitive_imports, PDS-member semantics). Secret plant /* api_key = ... */ in c.pli reads sec_hardcoded_secrets 1 (engine-lens, no manifest column), placed away from any telemetry/debug sink (the x50 amplifier)."
+}

@@ -1,0 +1,35 @@
+ /* Keyword Rosetta control shell: pli / main */
+ /* decoy: OPEN FILE(NOTES) and IF SQLCODE checks live in prose only */
+
+ /** Rosetta control shell entry: drives the first three probes
+     through one dispatch pass; the shell never runs. */
+ ROSETTA: PROC(SYSPARM) OPTIONS(MAIN);
+    /* Author: keyword-rosetta generator */
+    %INCLUDE a;
+    CALL PROBE_BRANCH(1);
+    CALL PROBE_IO(1);
+    CALL PROBE_RISK(1);
+ END ROSETTA;
+
+ /* ---- probe procedures, one planted signal family each ---- */
+
+ PROBE_BRANCH: PROC(V) OPTIONS(FETCHABLE);
+    IF V > 1 THEN
+       CALL NOTE_ONE(V);
+    ELSE
+       CALL NOTE_TWO(V);
+    DO WHILE(V > 9);
+       CALL NOTE_THREE(V);
+    END;
+ END PROBE_BRANCH;
+
+ PROBE_IO: PROC(V) OPTIONS(FETCHABLE);
+    OPEN FILE(MASTER);
+    READ FILE(MASTER) INTO(REC);
+    WRITE FILE(DETAIL) FROM(REC);
+ END PROBE_IO;
+
+ PROBE_RISK: PROC(V) OPTIONS(FETCHABLE);
+    FETCH WORKER;
+    STOP;
+ END PROBE_RISK;
