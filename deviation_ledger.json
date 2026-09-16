@@ -2413,6 +2413,20 @@
    "investigated_by": "claude-fable-5",
    "validated_at": "2026-09-16",
    "still_reproduces": true
+  },
+  {
+   "id": "hlasm-stated-absences",
+   "signal": "encapsulation|test",
+   "languages_seen": [
+    "hlasm"
+   ],
+   "disposition": "intended-morphology",
+   "status": "validated",
+   "verdict": "Both rules are None by real morphology, not engine gap (gitgalaxy#2503's landing; the profile documents each inline). test: no framework executes an HLASM unit as a test case -- IBM zUnit runs COBOL/PL/I test cases and Test4z is COBOL-only, so there is no per-case idiom a framework executes (the #2852 yacc ledger family; pli by contrast gets ZUNIT/TEST4Z as bare framework names because zUnit DOES execute PL/I). encapsulation: HLASM has no declaration-position marker that excludes a name from the public surface -- a symbol is external only if a section/ENTRY declares it, and every other label is file-local by LEXICAL SCOPE, which the #2766 contract explicitly rules out (the perl `my` / shell `local` precedent, verbatim). Restore either rule only if IBM ships an assembler-native test framework or the encapsulation contract is widened to count scope.",
+   "upstream_issue": "squid-protocol/gitgalaxy#2503",
+   "investigated_by": "claude-fable-5",
+   "validated_at": "2026-09-16",
+   "still_reproduces": true
   }
  ]
 }
