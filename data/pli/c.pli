@@ -1,0 +1,19 @@
+ /* Keyword Rosetta control shell: pli / c */
+ /* decoy: quiet furniture line for shell parallelism */
+
+ PROBE_CLEANUP: PROC(V) OPTIONS(FETCHABLE);
+    CLOSE FILE(MASTER);
+    CLOSE FILE(DETAIL);
+ END PROBE_CLEANUP;
+
+ PROBE_DEBT: PROC(V) OPTIONS(FETCHABLE);
+    /* HACK: shortcut kept for the rosetta shell */
+    DCL HACK_LEVEL FIXED BIN(15);
+ END PROBE_DEBT;
+
+ PROBE_TODO: PROC(V) OPTIONS(FETCHABLE);
+    /* TODO: plant the follow-up probe */
+    CALL NOTE_SEVEN(V);
+ END PROBE_TODO;
+
+ /* api_key = "R0SETTA-PLANT-SECRET-2026" */

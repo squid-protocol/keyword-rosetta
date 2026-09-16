@@ -2365,6 +2365,20 @@
       "investigated_by": "claude-fable-5 (gitgalaxy#3077 rebless)",
       "validated_at": "2026-09-16",
       "still_reproduces": true
+    },
+    {
+      "id": "risk-safety-score-decoy-file-shortcircuit",
+      "signal": "risk_safety_score",
+      "languages_seen": [
+        "pli"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "_calc_safety returns 0.0 the moment attack_hits == 0 (signal_processor.py -- the same zero-input short-circuit family as risk-api-exposure-zero-api-shortcircuit), and the recorded risk_safety_score is the mean per file over the four shell files. Identical planted totals therefore score differently by WHERE the SPEC's danger-only string decoy (+1 high_risk_execution, keyword-rosetta#17) sits: the file that carries it clears the short-circuit and takes the density breach floor (30 + danger_density x 500, large over ~14-coding-loc shell files), while a file with no danger hit scores exactly 0.0. Micro-repro (2026-09-16, engine main 6a4d7800, full precision): pli per-file scores main 86.6293 / a 66.5013 / b 76.8525 / c 0.0 -> mean 57.4958, byte-identical to javascript (same per-file scores, same decoy-in-a placement); lua plants the same six governed inputs (doc 1 / high_risk_execution 3 / safety 2 / safety_bypasses 2 / state_mutation 2 / test 2) with its string decoy outside the a file, so a.lua's attack_hits stays 0 -> a.lua 0.0 and mean 43.3640, which is the irc3 stratum median pli is banded against (+33%). Fidelity rows and path modifiers (safety x0.85, uniform under data/) do not separate the two groups -- verified against the live table and _get_locational_multipliers. Deliberate engine behaviour (a file with no attack surface has no safety exposure; the density floor is #2655-pass design), and the corpus side is SPEC #17's own placement rule (the literal sits in a probe with no safety keywords -- pli's PROBE_GLOBALS in a.pli, cobol's arrangement); moving the decoy to chase a stratum median would trade a documented scoring shape for a worse-read experiment. javascript and cobol share this mechanism but their cells are currently accounted through path-and-extension-modifiers; re-pointing them is a candidate scope-down for that entry, not this one.",
+      "upstream_issue": null,
+      "investigated_by": "claude-fable-5 (pli language addition, corpus/pli-2502)",
+      "validated_at": "2026-09-16",
+      "still_reproduces": true
     }
   ]
 }
