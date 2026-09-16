@@ -204,7 +204,14 @@ Verified empirically; every generator must account for them:
    language's api rule actually matched — and records the conversion under
    **`api_orphan_credit`** (= `arch_api − raw_arch_api`). With the spec's main→a→b→c
    chain and uncalled probes, expect `api_orphan_credit = defs` in a/b/c and 0 in
-   main; list it in every manifest, it is the gate's proof the chain resolved. Plant
+   main — **unless the language's api rule already counts the probes' own declaration
+   lines** (gitgalaxy#2731: the fix credits only orphans the api rule did NOT count, so
+   a declared-public-by-default language whose api hit IS the declaration — go's
+   capitalised funcs, hlasm's CSECT statements — correctly reads `api_orphan_credit = 0`
+   everywhere; the chain's proof is then the debt WIPE, `unreferenced_by_name` 0 in
+   a/b/c with main keeping its uncalled entry). Decide which shape yours is from the api
+   rule, not from this paragraph's default; list the column in every manifest either
+   way. Plant
    `api` as an explicit public surface in the language's own vocabulary (`pub`,
    `public`, `export`, a capitalised Go name, `EXPOSE`, ...) on every probe function
    the rule can see; where the language has no such construct the shell can carry,
