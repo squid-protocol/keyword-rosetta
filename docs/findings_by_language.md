@@ -40,6 +40,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [objective-c](#objective-c) | 0 | 0 | 0 | 7 | #2535 #2545 #2546 #2765 #2773 #2882 |
 | [perl](#perl) | 0 | 0 | 0 | 13 | #2535 #2546 #2670 #2689 #2730 #2731 #2765 #2766 #2770 #2852 #2878 |
 | [php](#php) | 0 | 0 | 0 | 11 | #2535 #2541 #2546 #2689 #2730 #2731 #2770 #2852 #2878 |
+| [pli](#pli) | 0 | 1 | 0 | 2 | — |
 | [powershell](#powershell) | 2 | 0 | 0 | 10 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 #2822 |
 | [python](#python) | 5 | 1 | 0 | 14 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2878 |
 | [ruby](#ruby) | 5 | 0 | 0 | 11 | #2535 #2546 #2547 #2727 #2731 #2817 #2822 #2878 |
@@ -1027,6 +1028,25 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.php** · `// decoy: this suite never spawns a process and the exec() call stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.php** · `$note = "plain popen() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "popen()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.php** · `(comment decoys only)` (comment): HACK/TODO comments count exactly 1 each
+
+</details>
+
+## pli
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🟡 `risk_safety_score`: 57.4958 vs median 43.364 (+33%)
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `risk-safety-score-decoy-file-shortcircuit` | engine-semantic | — | — | _calc_safety returns 0.0 the moment attack_hits == 0 (signal_processor.py -- the same zero-input short-circuit family as risk-api-exposure-zero-api-shortcircuit), and th… |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.pli** · `OPEN FILE(NOTES) and IF SQLCODE checks live in prose only` (comment): stripped: contributed 0. The prose carries three anchored code-stream forms (contract C2): OPEN FILE( is io's record-I/O shape, IF SQLCODE is safety's embedded-SQL response test, and the bare IF is branch's -- pli's core menus are empty (statement-anchored rules), so the decoy plants the rules' own shapes, the fortran/bms precedent.
+- **a.pli** · `DCL MSG CHAR(22) INIT('PLAIN STOP; DECOY TEXT') (inside PROBE_GLOBALS)` (string): danger-only decoy (#17 design): STOP; COUNTS from inside the literal (+1, unshielded -- gitgalaxy#2535, no literal-shielding mechanism) and also counts panics_and_aborts +1 (unscored dual, gitgalaxy#2878's termination family -- same as fortran's STOP). STOP; is pli's own statement-shaped danger keyword; it is not a branch keyword, so no phantom flux context. Planted via DCL ... INIT (pli's declaration initial value), not an assignment, so state_mutation stays 0 in this file. PROBE_GLOBALS carries no safety keyword, keeping the Silencer Region out of the experiment.
+- **c.pli** · `DCL HACK_LEVEL FIXED BIN(15);` (code): inert (underscore tokenization, as python -- \bHACK\b cannot fire mid-identifier; the gitgalaxy#2537 hyphen guard is not even needed). c.pli records exactly the planted /* HACK: */ comment (1).
 
 </details>
 
