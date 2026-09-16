@@ -1230,6 +1230,7 @@
       "id": "encapsulation-ratio-tracks-unplanted-local-declarations",
       "signal": "encapsulation_ratio",
       "languages_seen": [
+        "bms",
         "cobol",
         "html",
         "javascript",
@@ -1238,7 +1239,7 @@
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero. `globals` is planted (2 in a.*); `core_var_decl` is NOT in the probe table, so the metric is a ratio of one controlled quantity to one uncontrolled one and moves with how many local declarations a language's syntax requires. Measured per file: html / jcl / markdown 1.0 in every file because they define no globals rule at all (n/a), so the numerator is structurally zero whatever the local count; cobol a.cpy var_decl 0 / globals 2 -> 0.0 and main.cbl 0 / 1 -> 0.0, mean 0.50, because COBOL declares its state in WORKING-STORAGE and has no local declarations to balance it (the same language fact the engine's LANGUAGE_STRICTNESS table records as no_implicit_globals: False); javascript a.js var_decl 7 / globals 2 -> 0.778, mean 0.9445, because its probe declares seven locals where the median language declares fewer. The whole corpus spread comes from the single file per language that plants globals. Deliberate formula reading an unplanted input -- the same disposition F.3 gave the risk formulas' unplanted inputs, kept as a ledger entry here because encapsulation_ratio is a measured column rather than a risk composite.",
+      "verdict": "signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero. `globals` is planted (2 in a.*); `core_var_decl` is NOT in the probe table, so the metric is a ratio of one controlled quantity to one uncontrolled one and moves with how many local declarations a language's syntax requires. Measured per file: html / jcl / markdown 1.0 in every file because they define no globals rule at all (n/a), so the numerator is structurally zero whatever the local count; cobol a.cpy var_decl 0 / globals 2 -> 0.0 and main.cbl 0 / 1 -> 0.0, mean 0.50, because COBOL declares its state in WORKING-STORAGE and has no local declarations to balance it (the same language fact the engine's LANGUAGE_STRICTNESS table records as no_implicit_globals: False); javascript a.js var_decl 7 / globals 2 -> 0.778, mean 0.9445, because its probe declares seven locals where the median language declares fewer. The whole corpus spread comes from the single file per language that plants globals. Deliberate formula reading an unplanted input -- the same disposition F.3 gave the risk formulas' unplanted inputs, kept as a ledger entry here because encapsulation_ratio is a measured column rather than a risk composite. 2026-09-16 (gitgalaxy#2505/#3078): bms joins on identical terms to html/markdown -- its globals rule is None (a declarative screen has no program-scope binding, reviewed in bms-declarative-screen-morphology), so the numerator is structurally zero and the ratio is 1.0 in every file whatever core_var_decl reads (28, the generic NAME=value operand heuristic firing on every DFHMDF POS=... line). gitgalaxy#3078 asks whether the engine should emit NULL here for a globals-less language rather than a pinned 1.0; until it decides, this cell is engine-semantic, not a bms deviation.",
       "investigated_by": "claude-opus-5 (gitgalaxy#2669 F.4 orphan/api census)",
       "validated_at": "2026-09-04",
       "still_reproduces": true
@@ -2335,6 +2336,34 @@
       "upstream_issue": "squid-protocol/gitgalaxy#2505",
       "investigated_by": "claude-fable-5 (gitgalaxy#2505 corpus folder)",
       "validated_at": "2026-09-15",
+      "still_reproduces": true
+    },
+    {
+      "id": "bms-maps-have-no-invocation-by-name",
+      "signal": "raw_state_unreferenced|risk_documentation",
+      "languages_seen": [
+        "bms"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "bms records raw_state_unreferenced n/a via the census-skip mechanism, and that is UNANSWERABLE, not clean -- the same fact as jcl-steps-have-no-invocation-by-name. The census asks whether anything outside a callable unit's own definition names it. A BMS map's callable units are its named DFHMDI maps (func_start), and a map is never reached from inside a BMS source: EXEC CICS SEND MAP('m') MAPSET('s') lives in the hosting COBOL/PL/I program (a different file), and the macros otherwise assemble top to bottom in written order. gitgalaxy#2505 declares invocation_model: \"positional\" at the top level of bms.py (the jcl #2806 shape), so detector.py does not compute the census for bms at all -- the value is absent, not maximal. Confirmed by test_bms_invocation_model_is_top_level_and_not_a_rule and the #2806 contract test's POSITIONAL_LANGUAGES pin, which bms joins. risk_documentation inherits the same absence (its per-unit coverage inputs read against a unit set the census cannot characterise), pinned at 0 with no bms deviation of its own -- jcl carries the identical inheritance. The import chain, not the census, is what asserts main->a->b->c resolved (each file's import cell = 1). Verified 2026-09-16 against gitgalaxy#3079's engine (functions_found 13 restored, units_public 4/3/3/3): verify_language.py bms PASS, 100 assertions.",
+      "upstream_issue": "squid-protocol/gitgalaxy#2505",
+      "investigated_by": "claude-fable-5 (gitgalaxy#2505 bias-report follow-up)",
+      "validated_at": "2026-09-16",
+      "still_reproduces": true
+    },
+    {
+      "id": "bms-maps-have-zero-cyclomatic-complexity",
+      "signal": "avg_func_complexity|max_func_complexity|func_complexity_gini",
+      "languages_seen": [
+        "bms"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "Surfaced the moment gitgalaxy#3077 routed bms through Mode A: once the 13 named DFHMDI maps extract as function-units (functions_found 0 -> 13), their per-function complexity descriptors stop rendering `undefined` (no population) and read a genuine 0 against positive medians (avg 0.1875, max 0.75). This is correct, not bias: cyclomatic complexity is a count of branch points, and bms's `branch` rule is None -- a declarative 3270 screen definition has no control flow whatever (reviewed in bms-declarative-screen-morphology). Every one of the 13 maps is a straight-line list of DFHMDF field macros, so each unit's complexity is exactly 0, the mean and max are 0, and func_complexity_gini is 0 because a set of identical (zero) values has no inequality to measure. bms is the only corpus language with functions_found > 0 AND avg_func_complexity == 0 (every other function-bearing language has at least one branch keyword its rule matches), which is exactly why no prior entry covers this shape. The derived cog_raw and func_internal_density cells inherit their deviation from program length (total_loc/coding_loc/avg_func_loc), a separate accounted path, and are unaffected by this entry. gitgalaxy#3078's encapsulation_ratio question is the sibling shape (a metric pinned by a None rule); this one needs no engine change because a zero complexity for a branchless unit is the true measurement, not a formula artifact. Verified 2026-09-16 against gitgalaxy#3079's engine: verify_language.py bms PASS (100 assertions), functions_found 13, language_deviations.py bms clean.",
+      "upstream_issue": "squid-protocol/gitgalaxy#3077",
+      "investigated_by": "claude-fable-5 (gitgalaxy#3077 rebless)",
+      "validated_at": "2026-09-16",
       "still_reproduces": true
     }
   ]
