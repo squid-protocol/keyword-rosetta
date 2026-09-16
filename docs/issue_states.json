@@ -1,5 +1,9 @@
 {
  "issues": {
+  "squid-protocol/gitgalaxy#2505": {
+   "state": "CLOSED",
+   "title": "Language Reassignment: Divorce .bms from JCL into dedicated BMS Map parser"
+  },
   "squid-protocol/gitgalaxy#2535": {
    "state": "CLOSED",
    "title": "prism/detector: string-literal shielding is selective by signal family (if/try/open count inside a literal, eval does not)"

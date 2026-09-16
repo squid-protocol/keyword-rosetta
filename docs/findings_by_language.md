@@ -13,6 +13,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [agc_assembly](#agc_assembly) | 1 | 1 | 2 | 11 | #2650 #2659 #2729 #2764 #2766 |
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 #2878 |
 | [assembly](#assembly) | 0 | 0 | 0 | 7 | #2535 #2727 #2764 #2858 #2869 |
+| [bms](#bms) | 7 | 1 | 17 | 3 | #2505 |
 | [c](#c) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 #2878 |
 | [cobol](#cobol) | 0 | 2 | 0 | 21 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
@@ -175,6 +176,34 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.asm** · `; decoy: this suite never runs hlt and no loop branch stays outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires bitwise_ops 1, branch 1, high_risk_execution 1, panics_and_aborts 1, thread_sleeps 1 when the marker is removed; bitwise_ops, panics_and_aborts, thread_sleeps are not manifest keys, so not listed in signals. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose named 'halts' and 'branch', neither of which assembly's rules match -- it scored 2 only by accident, on the English words 'in' (io's `in` mnemonic) and 'and' (bitwise_ops). hlt and loop are the real mnemonics.
 - **b.asm** · `msg db "plain sys_exit decoy text" (inside probe_state)` (string): danger-only decoy (#17 redesign, wave 3): sys_exit COUNTS from inside the literal (+1), undampened -- probe_state carries no safety keyword. Retiring the shared sentence dropped branch 6->5 (its 'jmp') and io 1->0 (its 'syscall'). state_mutation was 6 until gitgalaxy#2764: probe_state's own 'ret' used to be a branch keyword, so the x3 flux weighting survived the loss of the phantom jmp. With call/ret/jmp out of `branch`, b.asm has no branch context at all and state_mutation reads its raw 2 (inc + dec) -- the same de-amplification #2634 produced for apex. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.asm** · `mov rax, hack_level` (code): inert (underscore + lowercase)
+
+</details>
+
+## bms
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
+- 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
+- 🔴 `cog_raw`: 0 vs median 0.0205 (-100%)
+- 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
+- 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
+- 🔴 `functions_found`: 0 vs median 13 (-100%)
+- 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
+- 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
+
+**Not expressible as measured (n/a):** `branch`, `cleanup`, `doc`, `globals`, `high_risk_execution`, `io`, `raw_state_unreferenced`†, `risk_cognitive_load`, `risk_concurrency`, `risk_documentation`†, `risk_safety_score`, `risk_state_flux`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `container-construct-reads-as-class-start` | engine-semantic | — | (notes) | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
+| `bms-declarative-screen-morphology` | intended-morphology | [#2505](https://github.com/squid-protocol/gitgalaxy/issues/2505) | (notes) | BMS (gitgalaxy#2505, PR #3074: .bms divorced from jcl into its own profile) is a purely declarative CICS 3270 screen definition in HLASM macro form -- the DFHMSD/DFHMDI/… |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.bms** · `* decoy: FLDA DFHMDF POS UNSET STAYS IN PROSE` (comment): contributes 0 -- prism's bms mode (gitgalaxy#2505) strips the column-1 * line. Prose fires args 1 + ui_framework 1 when the marker is removed (the prose is macro-shaped by necessity: every bms code-stream rule is statement-position anchored, so only text that opens with a name field and a DFH macro can fire anything). The operand is written POS (no =) so the line cannot double as the dead_code plant while the marker is present -- dead_code's operand guard requires KEYWORD=.
+- **a.bms** · `HACKFLD (PROBEGLB's field)` (code): contributes 0, report-confirmed: fragile_debt's shared rule is \b-anchored, so the HACK inside the HACKFLD identifier never matches in the code stream (rule 18: the debt rules DO sweep the code stream, so this asserts the boundary, not comment anchoring). The string decoy is not carried: bms's high_risk_execution rule is None (nothing to receive the +1) and every non-comment rule is anchored to line-start statement position, so no mid-line INITIAL='...' keyword can strike any rule -- SPEC's +1 assertion is structurally unaskable here (see notes).
 
 </details>
 
