@@ -202,7 +202,7 @@
    "agc_assembly": 13,
    "apex": 13,
    "assembly": 13,
-   "bms": 0,
+   "bms": 13,
    "c": 13,
    "cobol": 13,
    "cpp": 13,
@@ -251,7 +251,7 @@
    "agc_assembly": null,
    "apex": 0,
    "assembly": 0,
-   "bms": 0,
+   "bms": 1,
    "c": 0,
    "cobol": 1,
    "cpp": 0,
@@ -1966,7 +1966,7 @@
    "agc_assembly": 1.0,
    "apex": 1.0,
    "assembly": 1.0,
-   "bms": 0.0,
+   "bms": 1.0,
    "c": 1.0,
    "cobol": 0.75,
    "cpp": 1.0,
@@ -2603,7 +2603,7 @@
    "agc_assembly": 93.75,
    "apex": 96.428575,
    "assembly": 96.428575,
-   "bms": null,
+   "bms": 100.0,
    "c": 93.75,
    "cobol": 93.75,
    "cpp": 96.428575,
@@ -2897,7 +2897,7 @@
    "agc_assembly": 2.402075,
    "apex": 2.403325,
    "assembly": 2.4131,
-   "bms": 2.2977,
+   "bms": 2.3625249999999998,
    "c": 2.397625,
    "cobol": 2.3817,
    "cpp": 2.39655,
@@ -3044,7 +3044,7 @@
    "agc_assembly": 3.3541666666666665,
    "apex": 5.3125,
    "assembly": 5.1875,
-   "bms": 0.0,
+   "bms": 2.625,
    "c": 5.145833333333333,
    "cobol": 4.0625,
    "cpp": 5.479166666666667,
@@ -3240,7 +3240,7 @@
    "agc_assembly": 10.455,
    "apex": 10.43,
    "assembly": 10.48,
-   "bms": 1.4325,
+   "bms": 0.435,
    "c": 10.68,
    "cobol": 2.6675,
    "cpp": 10.49,
@@ -4416,7 +4416,7 @@
    "agc_assembly": 9,
    "apex": 12,
    "assembly": 12,
-   "bms": 0,
+   "bms": 13,
    "c": 13,
    "cobol": 9,
    "cpp": 12,
@@ -4767,7 +4767,6 @@
   },
   "risk_documentation": {
    "markdown": "ledgered",
-   "bms": "unreviewed",
    "html": "ledgered",
    "sqlite": "ledgered"
   },
@@ -4786,7 +4785,7 @@
    "markdown": "ledgered"
   },
   "raw_state_unreferenced": {
-   "bms": "unreviewed",
+   "bms": "ledgered",
    "dockerfile": "ledgered",
    "html": "ledgered",
    "jcl": "ledgered",
@@ -4940,7 +4939,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "f9743377330225c03d02c409e95737c04f35272d",
+ "engine_commit": "18514051e36e1592e89b84b7300a8f26d2eb9745",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5152,7 +5151,6 @@
   "args/makefile": "inherency",
   "args/sqlite": "inherency",
   "args/yacc": "inherency",
-  "avg_func_args/bms": "inherency",
   "avg_func_args/css": "inherency",
   "avg_func_args/dockerfile": "inherency",
   "avg_func_args/html": "inherency",
@@ -5174,6 +5172,7 @@
   "class_start/jcl": "scoring",
   "class_start/kotlin": "inherency",
   "class_start/yaml": "scoring",
+  "classes_found/bms": "unexplained",
   "cog_raw/apex": "echo",
   "cog_raw/bms": "echo",
   "cog_raw/css": "echo",
@@ -5199,7 +5198,7 @@
   "def_encapsulation/haskell": "inherency",
   "dependency_links/embedded_python": "echo",
   "dependency_links/jcl": "scoring",
-  "encapsulation_ratio/bms": "unexplained",
+  "encapsulation_ratio/bms": "scoring",
   "encapsulation_ratio/html": "scoring",
   "encapsulation_ratio/markdown": "scoring",
   "func_complexity_gini/bms": "inherency",
@@ -5207,13 +5206,12 @@
   "func_complexity_gini/html": "inherency",
   "func_complexity_gini/markdown": "inherency",
   "func_complexity_gini/sqlite": "inherency",
-  "func_internal_density/bms": "inherency",
+  "func_internal_density/bms": "echo",
   "func_internal_density/html": "inherency",
   "func_internal_density/markdown": "inherency",
   "func_internal_density/sqlite": "inherency",
   "func_start/dockerfile": "inherency",
   "func_start/html": "inherency",
-  "functions_found/bms": "unexplained",
   "functions_found/dockerfile": "scoring",
   "functions_found/html": "scoring",
   "high_risk_execution/agc_assembly": "inherency",
@@ -5324,7 +5322,7 @@
    42
   ],
   "classes_found": [
-   0,
+   1,
    41
   ],
   "cleanup": [
@@ -5368,7 +5366,7 @@
    44
   ],
   "encapsulation_ratio": [
-   1,
+   0,
    47
   ],
   "fragile_debt": [
@@ -5388,7 +5386,7 @@
    46
   ],
   "functions_found": [
-   1,
+   0,
    45
   ],
   "globals": [
@@ -5477,7 +5475,7 @@
   ],
   "risk_documentation": [
    0,
-   43
+   44
   ],
   "risk_safety_score": [
    0,

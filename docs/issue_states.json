@@ -308,6 +308,10 @@
    "state": "CLOSED",
    "title": "func_complexity_gini: make's top-level conditionals sit outside every target slice (makefile 0.354 vs 0.1875 median; the last open-defect cell)"
   },
+  "squid-protocol/gitgalaxy#3077": {
+   "state": "CLOSED",
+   "title": "bms falls through to Mode_B_Braces: functions_found 0 on the rosetta shell (13 raw DFHMDI matches, none reach function_data)"
+  },
   "squid-protocol/keyword-rosetta#71": {
    "state": "CLOSED",
    "title": "jcl is the only language with an empty decoys list, and it is short exactly the +1 the SPEC decoy asserts"

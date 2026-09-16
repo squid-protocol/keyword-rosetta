@@ -6,6 +6,7 @@
   "batch5-tier2-morphology-shapes/doc",
   "batch5-tier2-morphology-shapes/high_risk_execution",
   "bms-declarative-screen-morphology/encapsulation",
+  "bms-maps-have-no-invocation-by-name/risk_documentation",
   "encapsulation-no-visibility-construct/encapsulation",
   "encapsulation-scope-is-not-visibility/encapsulation",
   "fortran-common-globals-safety-dual-classification/globals",

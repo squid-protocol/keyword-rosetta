@@ -13,7 +13,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [agc_assembly](#agc_assembly) | 1 | 1 | 2 | 11 | #2650 #2659 #2729 #2764 #2766 |
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 #2878 |
 | [assembly](#assembly) | 0 | 0 | 0 | 7 | #2535 #2727 #2764 #2858 #2869 |
-| [bms](#bms) | 7 | 1 | 17 | 3 | #2505 |
+| [bms](#bms) | 5 | 1 | 16 | 6 | #2505 #3077 |
 | [c](#c) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 #2878 |
 | [cobol](#cobol) | 0 | 2 | 0 | 21 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
@@ -183,22 +183,23 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
 - 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
 - 🔴 `cog_raw`: 0 vs median 0.0205 (-100%)
 - 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
 - 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
-- 🔴 `functions_found`: 0 vs median 13 (-100%)
 - 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🟡 `encapsulation_ratio`: 1 vs median 0.75 (+33%)
 
-**Not expressible as measured (n/a):** `branch`, `cleanup`, `doc`, `globals`, `high_risk_execution`, `io`, `raw_state_unreferenced`†, `risk_cognitive_load`, `risk_concurrency`, `risk_documentation`†, `risk_safety_score`, `risk_state_flux`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
+**Not expressible as measured (n/a):** `branch`, `cleanup`, `doc`, `globals`, `high_risk_execution`, `io`, `raw_state_unreferenced`, `risk_cognitive_load`, `risk_concurrency`, `risk_safety_score`, `risk_state_flux`, `safety`, `safety_bypasses`, `state_mutation`, `telemetry`, `test`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
+| `bms-maps-have-no-invocation-by-name` | engine-semantic | [#2505](https://github.com/squid-protocol/gitgalaxy/issues/2505) | — | bms records raw_state_unreferenced n/a via the census-skip mechanism, and that is UNANSWERABLE, not clean -- the same fact as jcl-steps-have-no-invocation-by-name |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `container-construct-reads-as-class-start` | engine-semantic | — | (notes) | The SPEC probe program is function-only: 12 probes plus an entry point, no type declarations, so 40 of 46 languages plant class_start 0 and the corpus median is 0 |
+| `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
 | `bms-declarative-screen-morphology` | intended-morphology | [#2505](https://github.com/squid-protocol/gitgalaxy/issues/2505) | (notes) | BMS (gitgalaxy#2505, PR #3074: .bms divorced from jcl into its own profile) is a purely declarative CICS 3270 screen definition in HLASM macro form -- the DFHMSD/DFHMDI/… |
+| `bms-maps-have-zero-cyclomatic-complexity` | intended-morphology | [#3077](https://github.com/squid-protocol/gitgalaxy/issues/3077) | — | Surfaced the moment gitgalaxy#3077 routed bms through Mode A: once the 13 named DFHMDI maps extract as function-units (functions_found 0 -> 13), their per-function compl… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
