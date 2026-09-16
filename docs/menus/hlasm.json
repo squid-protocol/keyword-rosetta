@@ -1,0 +1,473 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [
+      "NR",
+      "NG",
+      "NGR",
+      "OR",
+      "OG",
+      "OGR",
+      "XR",
+      "XG",
+      "XGR",
+      "SLL",
+      "SRL",
+      "SLA",
+      "SRA",
+      "SLDL",
+      "SRDL",
+      "SLDA",
+      "SRDA",
+      "SLLG",
+      "SRLG",
+      "SLAG",
+      "SRAG"
+    ],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "BCR",
+      "BRCT",
+      "BCTG",
+      "BXLEG",
+      "BXHG"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "FREEMAIN",
+      "FREEPOOL"
+    ],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "ATTACHX",
+      "DETACH",
+      "WAIT",
+      "POST"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "WTO",
+      "WTOR"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [
+      "AMODE",
+      "RMODE",
+      "XATTR"
+    ],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [
+      "CVB",
+      "CVD",
+      "PACK",
+      "UNPK"
+    ],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "ABEND",
+      "MODESET"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "MACRO",
+      "MEND",
+      "MEXIT",
+      "AIF",
+      "AGO",
+      "ANOP",
+      "ACTR",
+      "AREAD",
+      "MNOTE",
+      "SETA",
+      "SETB",
+      "SETC",
+      "GBLA",
+      "GBLB",
+      "GBLC",
+      "LCLA",
+      "LCLB",
+      "LCLC"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "GETMAIN",
+      "FREEMAIN",
+      "CPOOL"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "ABEND"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "ESTAEX",
+      "ESPIE",
+      "SPIE",
+      "SETRP"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "LDEB",
+      "LEDB"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "ssr_boundaries": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "OI",
+      "NI",
+      "XI",
+      "OC",
+      "NC",
+      "XC",
+      "AP",
+      "SP",
+      "MP",
+      "DP"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "LR",
+      "LG",
+      "LGR",
+      "LGF",
+      "LH",
+      "LA",
+      "LARL",
+      "LM",
+      "LMG",
+      "LT",
+      "LTR",
+      "LTG",
+      "ST",
+      "STG",
+      "STH",
+      "STC",
+      "STCM",
+      "STM",
+      "STMG",
+      "IC",
+      "ICM",
+      "MVC",
+      "MVI",
+      "MVCL",
+      "MVCLE",
+      "MVN",
+      "MVZ",
+      "MVO",
+      "CLC",
+      "CLI",
+      "CLM",
+      "CLR",
+      "CR",
+      "CH",
+      "CG",
+      "CGR",
+      "CL",
+      "CLG",
+      "AR",
+      "AH",
+      "AL",
+      "ALR",
+      "AG",
+      "AGR",
+      "AFI",
+      "AHI",
+      "AGHI",
+      "SR",
+      "SH",
+      "SL",
+      "SLR",
+      "SG",
+      "SGR",
+      "MR",
+      "MH",
+      "MHI",
+      "MS",
+      "MSR",
+      "DR",
+      "BR",
+      "BRU",
+      "BAL",
+      "BALR",
+      "BAS",
+      "BASR",
+      "BRAS",
+      "BRASL",
+      "BSM",
+      "BASSM",
+      "DC",
+      "DS",
+      "USING",
+      "DROP",
+      "ORG",
+      "LTORG",
+      "CNOP",
+      "END",
+      "TITLE",
+      "EJECT",
+      "SPACE",
+      "PRINT",
+      "PUSH",
+      "POP",
+      "EXTRN",
+      "WXTRN"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "CS",
+      "CDS",
+      "CSG",
+      "CDSG",
+      "TS",
+      "ENQ",
+      "DEQ",
+      "RESERVE"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "SNAPX",
+      "WTL"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "TIME",
+      "STCK",
+      "CONVTOD"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  }
+}
