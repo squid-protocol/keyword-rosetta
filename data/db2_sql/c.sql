@@ -1,0 +1,24 @@
+-- Keyword Rosetta control shell: db2_sql / c
+-- decoy: shell furniture line (see main)
+-- api_key = "R0SETTA-PLANT-SECRET-2026"
+
+CREATE PROCEDURE PROBE_CLEANUP (IN V INTEGER)
+LANGUAGE SQL
+BEGIN
+  CLOSE C9;
+  DELETE FROM T9;
+END;
+
+CREATE PROCEDURE PROBE_DEBT (IN V INTEGER)
+LANGUAGE SQL
+BEGIN
+  -- HACK: shortcut, see rosetta spec
+  CALL NOTE_SEVEN(V);
+END;
+
+CREATE PROCEDURE PROBE_TODO (IN V INTEGER)
+LANGUAGE SQL
+BEGIN
+  -- TODO: replace probe filler
+  CALL NOTE_EIGHT(V);
+END;
