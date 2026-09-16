@@ -19,6 +19,7 @@
   "go",
   "groovy",
   "haskell",
+  "hlasm",
   "html",
   "java",
   "javascript",
@@ -71,6 +72,7 @@
    "go": 13,
    "groovy": 13,
    "haskell": 15,
+   "hlasm": 13,
    "html": 9,
    "java": 13,
    "javascript": 13,
@@ -122,6 +124,7 @@
    "go": 13,
    "groovy": 13,
    "haskell": 15,
+   "hlasm": 1,
    "html": 3,
    "java": 13,
    "javascript": 13,
@@ -173,6 +176,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -224,6 +228,7 @@
    "go": 13,
    "groovy": 13,
    "haskell": 13,
+   "hlasm": 13,
    "html": 0,
    "java": 13,
    "javascript": 13,
@@ -275,6 +280,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -326,6 +332,7 @@
    "go": 3,
    "groovy": 3,
    "haskell": 3,
+   "hlasm": 3,
    "html": 3,
    "java": 3,
    "javascript": 3,
@@ -377,6 +384,7 @@
    "go": 0.223983,
    "groovy": 0.223983,
    "haskell": 0.223983,
+   "hlasm": 0.223983,
    "html": 0.223983,
    "java": 0.223983,
    "javascript": 0.20287075,
@@ -428,6 +436,7 @@
    "go": 3,
    "groovy": 3,
    "haskell": 3,
+   "hlasm": 3,
    "html": 3,
    "java": 3,
    "javascript": 3,
@@ -479,6 +488,7 @@
    "go": 3,
    "groovy": 3,
    "haskell": 3,
+   "hlasm": 3,
    "html": 3,
    "java": 3,
    "javascript": 3,
@@ -530,6 +540,7 @@
    "go": 3,
    "groovy": 3,
    "haskell": 3,
+   "hlasm": 3,
    "html": 3,
    "java": 3,
    "javascript": 3,
@@ -581,6 +592,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": 2,
    "html": null,
    "java": 2,
    "javascript": 2,
@@ -632,6 +644,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": null,
    "html": 2,
    "java": 2,
    "javascript": 2,
@@ -683,6 +696,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": 2,
    "html": 2,
    "java": 2,
    "javascript": 2,
@@ -734,6 +748,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 4,
+   "hlasm": 2,
    "html": 2,
    "java": 2,
    "javascript": 2,
@@ -785,6 +800,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": 2,
    "html": 2,
    "java": 2,
    "javascript": 2,
@@ -836,6 +852,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": 2,
    "html": null,
    "java": 2,
    "javascript": 2,
@@ -887,6 +904,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": 2,
    "html": 2,
    "java": 2,
    "javascript": 2,
@@ -938,6 +956,7 @@
    "go": 1,
    "groovy": 1,
    "haskell": 1,
+   "hlasm": 1,
    "html": 1,
    "java": 1,
    "javascript": 1,
@@ -989,6 +1008,7 @@
    "go": 1,
    "groovy": 1,
    "haskell": 1,
+   "hlasm": 1,
    "html": 1,
    "java": 1,
    "javascript": 1,
@@ -1040,6 +1060,7 @@
    "go": 3,
    "groovy": 3,
    "haskell": 3,
+   "hlasm": 3,
    "html": 3,
    "java": 3,
    "javascript": 3,
@@ -1091,6 +1112,7 @@
    "go": 1,
    "groovy": 1,
    "haskell": 1,
+   "hlasm": 1,
    "html": 1,
    "java": 1,
    "javascript": 1,
@@ -1142,6 +1164,7 @@
    "go": 1,
    "groovy": 1,
    "haskell": 1,
+   "hlasm": 1,
    "html": 1,
    "java": 1,
    "javascript": 1,
@@ -1193,6 +1216,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -1244,6 +1268,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 1,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -1295,6 +1320,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -1346,6 +1372,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": null,
+   "hlasm": 0,
    "html": 1,
    "java": 0,
    "javascript": 0,
@@ -1397,6 +1424,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -1448,6 +1476,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 2,
    "java": 0,
    "javascript": 0,
@@ -1499,6 +1528,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 1,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -1550,6 +1580,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": null,
    "java": 0,
    "javascript": 0,
@@ -1601,6 +1632,7 @@
    "go": 0.223983,
    "groovy": 0.223983,
    "haskell": 0.223983,
+   "hlasm": 0.223983,
    "html": 0.223983,
    "java": 0.223983,
    "javascript": 0.20287075,
@@ -1652,6 +1684,7 @@
    "go": 223.983,
    "groovy": 223.983,
    "haskell": 223.983,
+   "hlasm": 223.983,
    "html": 223.983,
    "java": 223.983,
    "javascript": 202.87075,
@@ -1703,6 +1736,7 @@
    "go": 0.0833335,
    "groovy": 0.0833335,
    "haskell": 0.0833335,
+   "hlasm": 0.0833335,
    "html": 0.0833335,
    "java": 0.0833335,
    "javascript": 0.05,
@@ -1754,6 +1788,7 @@
    "go": 0.23958325,
    "groovy": 0.23958325,
    "haskell": 0.23958325,
+   "hlasm": 0.23958325,
    "html": 0.23958325,
    "java": 0.23958325,
    "javascript": 0.19166675,
@@ -1805,6 +1840,7 @@
    "go": 0.5,
    "groovy": 0.5,
    "haskell": 0.5,
+   "hlasm": 0.5,
    "html": 0.5,
    "java": 0.5,
    "javascript": 0.5,
@@ -1856,6 +1892,7 @@
    "go": 0.75,
    "groovy": 0.75,
    "haskell": 0.75,
+   "hlasm": 0.75,
    "html": 0.75,
    "java": 0.75,
    "javascript": 0.75,
@@ -1907,6 +1944,7 @@
    "go": 0.015,
    "groovy": 0.015,
    "haskell": 0.015,
+   "hlasm": 0.015,
    "html": 0.015,
    "java": 0.015,
    "javascript": 0.015,
@@ -1958,6 +1996,7 @@
    "go": 0.1875,
    "groovy": 0.1875,
    "haskell": 0.1875,
+   "hlasm": 0.1875,
    "html": 0.0,
    "java": 0.1875,
    "javascript": 0.1875,
@@ -2009,6 +2048,7 @@
    "go": 0.75,
    "groovy": 0.75,
    "haskell": 0.75,
+   "hlasm": 0.75,
    "html": 0.0,
    "java": 0.75,
    "javascript": 0.75,
@@ -2060,6 +2100,7 @@
    "go": 1.0,
    "groovy": 1.0,
    "haskell": 1.0,
+   "hlasm": 0.0,
    "html": 0.0,
    "java": 1.0,
    "javascript": 1.0,
@@ -2111,6 +2152,7 @@
    "go": 0.1875,
    "groovy": 0.1875,
    "haskell": 0.1875,
+   "hlasm": 0.1875,
    "html": 0.0,
    "java": 0.1875,
    "javascript": 0.1875,
@@ -2162,6 +2204,7 @@
    "go": 0.015625,
    "groovy": 0.015625,
    "haskell": 0.015625,
+   "hlasm": 0.015625,
    "html": 0.0,
    "java": 0.015625,
    "javascript": 0.015625,
@@ -2213,6 +2256,7 @@
    "go": 0.75,
    "groovy": 0.83325,
    "haskell": 0.9285,
+   "hlasm": 0.75,
    "html": 1.0,
    "java": 0.83325,
    "javascript": 0.9285,
@@ -2264,6 +2308,7 @@
    "go": 0.0205,
    "groovy": 0.0205,
    "haskell": 0.0205,
+   "hlasm": 0.0205,
    "html": 0.015,
    "java": 0.0205,
    "javascript": 0.0205,
@@ -2315,6 +2360,7 @@
    "go": 3,
    "groovy": 3,
    "haskell": 1,
+   "hlasm": 3.25,
    "html": 1.25,
    "java": 3,
    "javascript": 3,
@@ -2366,6 +2412,7 @@
    "go": 2.5,
    "groovy": 2.5,
    "haskell": 2.5,
+   "hlasm": 2.5,
    "html": null,
    "java": 2.5,
    "javascript": 2.5,
@@ -2417,6 +2464,7 @@
    "go": 0.25,
    "groovy": 0,
    "haskell": 1,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -2468,6 +2516,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -2519,6 +2568,7 @@
    "go": 31.431749999999997,
    "groovy": 31.8725,
    "haskell": 7.9681,
+   "hlasm": 32.15625,
    "html": 16.451900000000002,
    "java": 31.8725,
    "javascript": 31.8725,
@@ -2570,6 +2620,7 @@
    "go": 1.29535,
    "groovy": 1.29535,
    "haskell": 1.29535,
+   "hlasm": 1.29535,
    "html": 1.190475,
    "java": 1.29535,
    "javascript": 1.29535,
@@ -2621,6 +2672,7 @@
    "go": 0.0,
    "groovy": 0.0,
    "haskell": 0.0,
+   "hlasm": 0.0,
    "html": 0.0,
    "java": 0.0,
    "javascript": 0.0,
@@ -2672,6 +2724,7 @@
    "go": 0.0,
    "groovy": 0.0,
    "haskell": 0.0,
+   "hlasm": 5.786875,
    "html": 0.0,
    "java": 0.0,
    "javascript": 0.0,
@@ -2723,6 +2776,7 @@
    "go": 96.428575,
    "groovy": 96.428575,
    "haskell": 89.285725,
+   "hlasm": 93.75,
    "html": null,
    "java": 96.428575,
    "javascript": 96.428575,
@@ -2774,6 +2828,7 @@
    "go": 41.13145,
    "groovy": 43.363974999999996,
    "haskell": 53.02445,
+   "hlasm": 43.40345,
    "html": 39.08385,
    "java": 39.811,
    "javascript": 57.495775,
@@ -2825,6 +2880,7 @@
    "go": 24.99995,
    "groovy": 24.99995,
    "haskell": 25.0,
+   "hlasm": 25.0,
    "html": 25.0,
    "java": 24.99995,
    "javascript": 24.99995,
@@ -2876,6 +2932,7 @@
    "go": 100.0,
    "groovy": 100.0,
    "haskell": 100.0,
+   "hlasm": 91.666675,
    "html": 100.0,
    "java": 100.0,
    "javascript": 100.0,
@@ -2927,6 +2984,7 @@
    "go": 7.75065,
    "groovy": 7.75065,
    "haskell": 7.75065,
+   "hlasm": 7.75065,
    "html": 0.0,
    "java": 7.75065,
    "javascript": 7.75065,
@@ -2978,6 +3036,7 @@
    "go": 34.519925,
    "groovy": 42.090825,
    "haskell": 29.877875000000003,
+   "hlasm": 44.70655,
    "html": 20.43935,
    "java": 29.877875000000003,
    "javascript": 42.090825,
@@ -3029,6 +3088,7 @@
    "go": 2.38775,
    "groovy": 2.4063,
    "haskell": 2.374425,
+   "hlasm": 2.388325,
    "html": 2.306725,
    "java": 2.379725,
    "javascript": 2.4053,
@@ -3080,6 +3140,7 @@
    "go": 27.25,
    "groovy": 25,
    "haskell": 19.75,
+   "hlasm": 20.5,
    "html": 11.75,
    "java": 25.5,
    "javascript": 26.25,
@@ -3131,6 +3192,7 @@
    "go": 19,
    "groovy": 17.5,
    "haskell": 10,
+   "hlasm": 16.25,
    "html": 8,
    "java": 18,
    "javascript": 18,
@@ -3182,6 +3244,7 @@
    "go": 5.395833333333333,
    "groovy": 5.6875,
    "haskell": 2.375,
+   "hlasm": 4.645833333333333,
    "html": 0.0,
    "java": 5.395833333333334,
    "javascript": 5.375,
@@ -3233,6 +3296,7 @@
    "go": 13,
    "groovy": 13,
    "haskell": 13,
+   "hlasm": 13,
    "html": 11,
    "java": 13,
    "javascript": 13,
@@ -3284,6 +3348,7 @@
    "go": 130.25,
    "groovy": 124.5,
    "haskell": 130.75,
+   "hlasm": 169,
    "html": 99,
    "java": 131.25,
    "javascript": 140.5,
@@ -3335,6 +3400,7 @@
    "go": 146,
    "groovy": 156,
    "haskell": 119,
+   "hlasm": 146,
    "html": 88,
    "java": 142,
    "javascript": 179,
@@ -3386,6 +3452,7 @@
    "go": 10.48,
    "groovy": 10.525,
    "haskell": 7.75,
+   "hlasm": 8.775,
    "html": 28.8825,
    "java": 10.46,
    "javascript": 10.46,
@@ -3437,6 +3504,7 @@
    "go": 0.02775,
    "groovy": 0.02875,
    "haskell": 0.0625,
+   "hlasm": 0.02875,
    "html": 0.06825,
    "java": 0.02875,
    "javascript": 0.02775,
@@ -3488,6 +3556,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": 2,
    "html": 2,
    "java": 2,
    "javascript": 2,
@@ -3539,6 +3608,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -3590,6 +3660,7 @@
    "go": 12,
    "groovy": 12,
    "haskell": 4,
+   "hlasm": 14,
    "html": 5,
    "java": 12,
    "javascript": 12,
@@ -3641,6 +3712,7 @@
    "go": 1,
    "groovy": 1,
    "haskell": 1,
+   "hlasm": 1,
    "html": 1,
    "java": 1,
    "javascript": 1,
@@ -3692,6 +3764,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -3743,6 +3816,7 @@
    "go": 8,
    "groovy": 7,
    "haskell": 7,
+   "hlasm": 7,
    "html": 5,
    "java": 6,
    "javascript": 5,
@@ -3794,6 +3868,7 @@
    "go": 1,
    "groovy": 1,
    "haskell": 1,
+   "hlasm": 2,
    "html": 0,
    "java": 1,
    "javascript": 1,
@@ -3845,6 +3920,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": 2,
    "html": 2,
    "java": 2,
    "javascript": 2,
@@ -3896,6 +3972,7 @@
    "go": 1,
    "groovy": 1,
    "haskell": 1,
+   "hlasm": 1,
    "html": 1,
    "java": 1,
    "javascript": 1,
@@ -3947,6 +4024,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": 2,
    "html": 5,
    "java": 2,
    "javascript": 2,
@@ -3998,6 +4076,7 @@
    "go": 3,
    "groovy": 2,
    "haskell": 6,
+   "hlasm": 2,
    "html": 3,
    "java": 2,
    "javascript": 2,
@@ -4049,6 +4128,7 @@
    "go": 3,
    "groovy": 3,
    "haskell": 3,
+   "hlasm": 3,
    "html": 3,
    "java": 3,
    "javascript": 3,
@@ -4100,6 +4180,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 1,
    "javascript": 0,
@@ -4151,6 +4232,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 4,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -4202,6 +4284,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -4253,6 +4336,7 @@
    "go": 6,
    "groovy": 7,
    "haskell": 18,
+   "hlasm": 4,
    "html": 12,
    "java": 6,
    "javascript": 20,
@@ -4304,6 +4388,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -4355,6 +4440,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -4406,6 +4492,7 @@
    "go": 2,
    "groovy": 2,
    "haskell": 2,
+   "hlasm": 0,
    "html": 2,
    "java": 2,
    "javascript": 2,
@@ -4457,6 +4544,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 2,
    "java": 0,
    "javascript": 0,
@@ -4508,6 +4596,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -4559,6 +4648,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 0,
+   "hlasm": 0,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -4610,6 +4700,7 @@
    "go": 12,
    "groovy": 12,
    "haskell": 12,
+   "hlasm": 13,
    "html": 0,
    "java": 12,
    "javascript": 12,
@@ -4661,6 +4752,7 @@
    "go": 1,
    "groovy": 1,
    "haskell": 2,
+   "hlasm": 1,
    "html": 0,
    "java": 1,
    "javascript": 1,
@@ -4712,6 +4804,7 @@
    "go": 0,
    "groovy": 0,
    "haskell": 1,
+   "hlasm": 1,
    "html": 0,
    "java": 0,
    "javascript": 0,
@@ -4763,6 +4856,7 @@
    "go": 100.0,
    "groovy": 100.0,
    "haskell": 100.0,
+   "hlasm": 100.0,
    "html": 100.0,
    "java": 100.0,
    "javascript": 100.0,
@@ -4814,6 +4908,7 @@
    "go": 0.0,
    "groovy": 0.0,
    "haskell": 0.0,
+   "hlasm": 0.0,
    "html": 0.0,
    "java": 0.0,
    "javascript": 0.0,
@@ -4924,7 +5019,8 @@
    "markdown": "ledgered",
    "yacc": "ledgered",
    "jcl": "ledgered",
-   "bms": "ledgered"
+   "bms": "ledgered",
+   "hlasm": "ledgered"
   },
   "classes_found": {
    "agc_assembly": "ledgered",
@@ -5132,7 +5228,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "e83be08b4b3b668906aed7ab155663e5fc294e51",
+ "engine_commit": "f5161c55e476cb2819e3b97762d0b89c0ba3ee2f",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5165,6 +5261,7 @@
   "go": "irc1",
   "groovy": "irc3",
   "haskell": "irc0",
+  "hlasm": "irc4",
   "html": "unprofiled",
   "java": "irc0",
   "javascript": "irc3",
@@ -5416,6 +5513,7 @@
  ],
  "cell_categories": {
   "args/dockerfile": "inherency",
+  "args/hlasm": "inherency",
   "args/html": "inherency",
   "args/m4": "inherency",
   "args/makefile": "inherency",
@@ -5424,6 +5522,7 @@
   "avg_func_args/css": "inherency",
   "avg_func_args/db2_sql": "inherency",
   "avg_func_args/dockerfile": "inherency",
+  "avg_func_args/hlasm": "inherency",
   "avg_func_args/html": "inherency",
   "avg_func_args/makefile": "inherency",
   "avg_func_args/markdown": "inherency",
@@ -5462,7 +5561,8 @@
   "cog_raw/yacc": "echo",
   "concurrency/agc_assembly": "inherency",
   "concurrency/swift": "inherency",
-  "dead_code/bms": "unexplained",
+  "dead_code/bms": "inherency",
+  "dead_code/hlasm": "inherency",
   "dead_code/jcl": "inherency",
   "debug_prints/abap": "inherency",
   "debug_prints/cobol": "inherency",
@@ -5544,6 +5644,7 @@
   "risk_concurrency/agc_assembly": "echo",
   "risk_concurrency/swift": "echo",
   "risk_dead_code/bms": "echo",
+  "risk_dead_code/hlasm": "echo",
   "risk_dead_code/jcl": "scoring",
   "risk_safety_score/cobol": "scoring",
   "risk_safety_score/embedded_python": "scoring",
@@ -5571,7 +5672,8 @@
   "risk_tech_debt/sqlite": "scoring",
   "safety_bypasses/fortran": "scoring",
   "safety_bypasses/haskell": "scoring",
-  "spec_exposure/bms": "unexplained",
+  "spec_exposure/bms": "inherency",
+  "spec_exposure/hlasm": "inherency",
   "spec_exposure/jcl": "inherency",
   "spec_exposure/yaml": "inherency",
   "state_mutation/embedded_python": "scoring",
@@ -5585,235 +5687,235 @@
  "open_defect_share": {
   "args": [
    0,
-   47
+   48
   ],
   "avg_func_args": [
    0,
-   49
+   50
   ],
   "avg_func_complexity": [
    0,
-   49
+   50
   ],
   "betweenness_score": [
    0,
-   49
+   50
   ],
   "branch": [
    0,
-   47
+   48
   ],
   "class_start": [
    0,
-   44
+   45
   ],
   "classes_found": [
    1,
-   43
+   44
   ],
   "cleanup": [
    0,
-   46
+   47
   ],
   "closeness_score": [
    0,
-   49
+   50
   ],
   "cog_raw": [
    0,
-   49
+   50
   ],
   "concurrency": [
    0,
-   42
+   43
   ],
   "dead_code": [
-   1,
-   48
+   0,
+   49
   ],
   "debug_prints": [
    0,
-   49
+   50
   ],
   "def_encapsulation": [
    0,
-   49
+   50
   ],
   "dependency_density": [
    0,
-   49
+   50
   ],
   "dependency_links": [
    0,
-   49
+   50
   ],
   "doc": [
    0,
-   46
+   47
   ],
   "encapsulation_ratio": [
    0,
-   49
+   50
   ],
   "fragile_debt": [
    0,
-   48
+   49
   ],
   "func_complexity_gini": [
    0,
-   49
+   50
   ],
   "func_internal_density": [
    0,
-   49
+   50
   ],
   "func_start": [
    0,
-   48
+   49
   ],
   "functions_found": [
    0,
-   46
+   47
   ],
   "globals": [
    0,
-   46
+   47
   ],
   "high_risk_execution": [
    0,
-   47
+   48
   ],
   "immutability_locks": [
    0,
-   42
+   43
   ],
   "import": [
    0,
-   48
+   49
   ],
   "io": [
    0,
-   46
+   47
   ],
   "llm_api": [
    0,
-   49
+   50
   ],
   "max_func_complexity": [
    0,
-   49
+   50
   ],
   "normalized_blast_radius": [
    0,
-   49
+   50
   ],
   "ownership": [
    0,
-   48
+   49
   ],
   "pagerank": [
    0,
-   49
+   50
   ],
   "pagerank_score": [
    0,
-   49
+   50
   ],
   "planned_debt": [
    0,
-   48
+   49
   ],
   "popularity": [
    0,
-   49
+   50
   ],
   "producer_ratio": [
    0,
-   49
+   50
   ],
   "raw_arch_api": [
    0,
-   49
+   50
   ],
   "raw_state_unreferenced": [
    0,
-   41
+   42
   ],
   "reflection_metaprogramming": [
    0,
-   46
+   47
   ],
   "risk_api_exposure": [
    0,
-   48
+   49
   ],
   "risk_cognitive_load": [
    0,
-   47
+   48
   ],
   "risk_concurrency": [
    0,
-   44
+   45
   ],
   "risk_dead_code": [
    0,
-   48
+   49
   ],
   "risk_documentation": [
    0,
-   45
+   46
   ],
   "risk_safety_score": [
    0,
-   47
+   48
   ],
   "risk_secrets_risk": [
    0,
-   49
+   50
   ],
   "risk_spec_match": [
    0,
-   48
+   49
   ],
   "risk_state_flux": [
    0,
-   47
+   48
   ],
   "risk_tech_debt": [
    0,
-   49
+   50
   ],
   "risk_verification": [
    0,
-   48
+   49
   ],
   "safety": [
    0,
-   47
+   48
   ],
   "safety_bypasses": [
    0,
-   47
-  ],
-  "spec_exposure": [
-   1,
    48
   ],
-  "state_mutation": [
-   0,
-   45
-  ],
-  "state_slop_duplicates": [
+  "spec_exposure": [
    0,
    49
   ],
+  "state_mutation": [
+   0,
+   46
+  ],
+  "state_slop_duplicates": [
+   0,
+   50
+  ],
   "sync_locks": [
    0,
-   42
+   43
   ],
   "telemetry": [
    0,
-   46
+   47
   ],
   "test": [
    0,

@@ -13,7 +13,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [agc_assembly](#agc_assembly) | 1 | 1 | 2 | 11 | #2650 #2659 #2729 #2764 #2766 |
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 #2878 |
 | [assembly](#assembly) | 0 | 0 | 0 | 7 | #2535 #2727 #2764 #2858 #2869 |
-| [bms](#bms) | 5 | 1 | 16 | 6 | #2505 #3077 |
+| [bms](#bms) | 5 | 1 | 16 | 7 | #2503 #2505 #3077 |
 | [c](#c) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 #2878 |
 | [cobol](#cobol) | 0 | 2 | 0 | 21 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
@@ -27,6 +27,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [go](#go) | 0 | 0 | 0 | 11 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
 | [groovy](#groovy) | 0 | 0 | 0 | 8 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 #2878 |
 | [haskell](#haskell) | 3 | 1 | 0 | 15 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
+| [hlasm](#hlasm) | 2 | 0 | 1 | 4 | #2503 |
 | [html](#html) | 9 | 4 | 4 | 18 | #2549 #2645 #2650 #2655 #2659 #2689 #2729 #2766 #2770 #2866 |
 | [java](#java) | 0 | 0 | 0 | 9 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2878 |
 | [javascript](#javascript) | 0 | 2 | 0 | 16 | #2535 #2539 #2655 #2689 #2730 #2731 #2765 #2770 #2841 #2878 |
@@ -202,6 +203,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `encapsulation-ratio-tracks-unplanted-local-declarations` | engine-semantic | — | — | signal_processor.py L515-L522: encapsulation_ratio = 1 - globals / (core_var_decl + globals), and 1.0 by definition when both are zero |
 | `bms-declarative-screen-morphology` | intended-morphology | [#2505](https://github.com/squid-protocol/gitgalaxy/issues/2505) | (notes) | BMS (gitgalaxy#2505, PR #3074: .bms divorced from jcl into its own profile) is a purely declarative CICS 3270 screen definition in HLASM macro form -- the DFHMSD/DFHMDI/… |
 | `bms-maps-have-zero-cyclomatic-complexity` | intended-morphology | [#3077](https://github.com/squid-protocol/gitgalaxy/issues/3077) | — | Surfaced the moment gitgalaxy#3077 routed bms through Mode A: once the 13 named DFHMDI maps extract as function-units (functions_found 0 -> 13), their per-function compl… |
+| `planted-comment-tags-exceed-zero-median` | intended-morphology | [#2503](https://github.com/squid-protocol/gitgalaxy/issues/2503) | — | dead_code and spec_exposure read 1 against a 0 cross-language median in every language whose shell PLANTS them: SPEC's api/encapsulation/ownership/dead_code/spec_exposur… |
 
 <details><summary>Decoy outcomes (file-level evidence)</summary>
 
@@ -635,6 +637,30 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.hs** · `-- decoy: this suite never calls exitFailure and no case-of branch lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 2, high_risk_execution 1 when the marker is removed. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping.
 - **b.hs** · `where message = "plain die decoy text" (probeState's where-clause)` (string): danger-only decoy (#17 redesign): "die" COUNTS from inside the literal (+1), undampened — probeState's where-clause carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.hs** · `hackLevel where hackLevel = level` (code): inert (camelCase lowercase vs case-sensitive \bHACK\b)
+
+</details>
+
+## hlasm
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `args`: 1 vs median 13 (-92%)
+- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
+
+**Not expressible as measured (n/a):** `test`
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `args-no-parameter-surface-morphology` | intended-morphology | — | — | The corpus's function construct takes no parameter list in these languages, so `args` and `avg_func_args` read low by morphology, not by an authoring gap |
+| `hlasm-stated-absences` | intended-morphology | [#2503](https://github.com/squid-protocol/gitgalaxy/issues/2503) | — | Both rules are None by real morphology, not engine gap (gitgalaxy#2503's landing; the profile documents each inline) |
+| `planted-comment-tags-exceed-zero-median` | intended-morphology | [#2503](https://github.com/squid-protocol/gitgalaxy/issues/2503) | — | dead_code and spec_exposure read 1 against a 0 cross-language median in every language whose shell PLANTS them: SPEC's api/encapsulation/ownership/dead_code/spec_exposur… |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.asm** · `*ROSDECOY ABEND 777 AFTER EXEC CICS DELAY STAYS PROSE` (comment): contributes 0 -- prism's bms-mode positional stripper (gitgalaxy#2503 widened the gate to hlasm) removes the column-1 * line. With the marker stripped the prose is statement-shaped by necessity (every hlasm code-stream rule anchors the operation field): name ROSDECOY + op ABEND fires high_risk_execution AND panics_and_aborts (the #2878 termination dual), and the unanchored EXEC CICS DELAY alternative fires thread_sleeps AND concurrency (the pli-inherited CICS dual) -- four rules from one stripped line.
+- **main.asm** · `DC C'EXEC CICS ABEND decoy text'` (string): +1 high_risk_execution in main.asm, the SPEC's literal-counting assertion: hlasm's statement-anchored rules cannot be struck mid-line, but the EXEC CICS command alternations are unanchored (they match wherever the translator-level text appears), so a danger phrase inside a C'...' literal counts like code (gitgalaxy#2535). Spill: panics_and_aborts +1 (EXEC CICS ABEND is the deliberate #2878 dual, so main reads 2 = the ABEND statement + this literal). Placed in PROBEIO, which carries no safety keywords, keeping the Silencer Region out of the experiment. The DC is unnamed so globals stays 0.
+- **a.asm** · `HACKLBL (PROBEGLB's local label)` (code): contributes 0: fragile_debt's shared rule is \b-anchored, so the HACK inside the HACKLBL identifier never matches in the code stream (rule 18: the debt rules DO sweep the code stream; this asserts the boundary, not comment anchoring). The label is a named DS 0H, which globals deliberately excludes (DC-only, the Rule 17 DSECT-layout ambiguity), so globals stays 2.
 
 </details>
 
