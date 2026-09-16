@@ -1,0 +1,153 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "MACRO",
+      "MEND",
+      "MEXIT",
+      "AIF",
+      "AGO",
+      "ANOP",
+      "SETA",
+      "SETB",
+      "SETC",
+      "GBLA",
+      "GBLB",
+      "GBLC",
+      "LCLA",
+      "LCLB",
+      "LCLC"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "END",
+      "TITLE",
+      "PRINT",
+      "EJECT",
+      "SPACE"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  }
+}
