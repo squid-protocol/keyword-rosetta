@@ -118,7 +118,7 @@
         "branch",
         "high_risk_execution"
       ],
-      "outcome": "contributes 0 -- the recursive_block_rexx nested peel (gitgalaxy#2504) strips the /* */ block. With the marker stripped the prose fires branch (if) and high_risk_execution twice (bare exit and interpret both match mid-prose; then is #2822's excluded continuation word), verified against the live compiled rules."
+      "outcome": "contributes 0 -- the recursive_block_rexx nested peel (gitgalaxy#2504) strips the /* */ block. With the marker stripped the prose fires branch (if) and high_risk_execution twice (bare exit and interpret both match mid-prose; then is #2822's excluded continuation word), verified against the live compiled rules; spill: the prose exit also fires panics_and_aborts (the #2878 dual), equally stripped to 0."
     },
     {
       "file": "main.rexx",
