@@ -1,6 +1,6 @@
 /* keyword rosetta control shell: rexx / c */
 /* decoy: furniture line keeping the four shells parallel */
-/* api_key = "R0SETTA-PLANT-SECRET-2026" */
+/* api_key: "R0SETTA-PLANT-SECRET-2026" */
 /* control tag [SPEC-2504] for traceability */
 /* call old_probe 1 */
 probe_cleanup:
