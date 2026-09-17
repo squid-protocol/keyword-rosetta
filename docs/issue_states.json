@@ -4,6 +4,10 @@
    "state": "CLOSED",
    "title": "Language Addition: HLASM / IBM Z Assembly (hlasm)"
   },
+  "squid-protocol/gitgalaxy#2504": {
+   "state": "CLOSED",
+   "title": "Language Addition: REXX (rexx)"
+  },
   "squid-protocol/gitgalaxy#2505": {
    "state": "CLOSED",
    "title": "Language Reassignment: Divorce .bms from JCL into dedicated BMS Map parser"

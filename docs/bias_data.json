@@ -37,6 +37,7 @@
   "pli",
   "powershell",
   "python",
+  "rexx",
   "ruby",
   "rust",
   "scala",
@@ -90,6 +91,7 @@
    "pli": 13,
    "powershell": 13,
    "python": 13,
+   "rexx": 13,
    "ruby": 13,
    "rust": 13,
    "scala": 13,
@@ -142,6 +144,7 @@
    "pli": 13,
    "powershell": 13,
    "python": 13,
+   "rexx": 13,
    "ruby": 13,
    "rust": 13,
    "scala": 13,
@@ -194,6 +197,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -246,6 +250,7 @@
    "pli": 13,
    "powershell": 13,
    "python": 13,
+   "rexx": 13,
    "ruby": 13,
    "rust": 13,
    "scala": 13,
@@ -298,6 +303,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -350,6 +356,7 @@
    "pli": 3,
    "powershell": 3,
    "python": 3,
+   "rexx": 3,
    "ruby": 3,
    "rust": 3,
    "scala": 3,
@@ -402,6 +409,7 @@
    "pli": 0.223983,
    "powershell": 0.223983,
    "python": 0.20287075,
+   "rexx": 0.223983,
    "ruby": 0.223983,
    "rust": 0.223983,
    "scala": 0.223983,
@@ -454,6 +462,7 @@
    "pli": 3,
    "powershell": 3,
    "python": 3,
+   "rexx": 3,
    "ruby": 3,
    "rust": 3,
    "scala": 3,
@@ -506,6 +515,7 @@
    "pli": 3,
    "powershell": 3,
    "python": 3,
+   "rexx": 3,
    "ruby": 3,
    "rust": 3,
    "scala": 3,
@@ -558,6 +568,7 @@
    "pli": 3,
    "powershell": 3,
    "python": 3,
+   "rexx": 3,
    "ruby": 3,
    "rust": 3,
    "scala": 3,
@@ -610,6 +621,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 2,
    "ruby": 2,
    "rust": 2,
    "scala": 2,
@@ -662,6 +674,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": null,
    "ruby": 2,
    "rust": 2,
    "scala": 2,
@@ -714,6 +727,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 2,
    "ruby": 2,
    "rust": 2,
    "scala": 2,
@@ -766,6 +780,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 2,
    "ruby": 2,
    "rust": 2,
    "scala": 2,
@@ -818,6 +833,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 2,
    "ruby": 2,
    "rust": 2,
    "scala": 2,
@@ -870,6 +886,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 21,
+   "rexx": 2,
    "ruby": 11,
    "rust": 2,
    "scala": 2,
@@ -922,6 +939,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 2,
    "ruby": 2,
    "rust": 2,
    "scala": 2,
@@ -974,6 +992,7 @@
    "pli": 1,
    "powershell": 1,
    "python": 1,
+   "rexx": 1,
    "ruby": 1,
    "rust": 1,
    "scala": 1,
@@ -1026,6 +1045,7 @@
    "pli": 1,
    "powershell": 1,
    "python": 1,
+   "rexx": 1,
    "ruby": 1,
    "rust": 1,
    "scala": 1,
@@ -1078,6 +1098,7 @@
    "pli": 3,
    "powershell": 3,
    "python": 3,
+   "rexx": 3,
    "ruby": 3,
    "rust": 3,
    "scala": 3,
@@ -1130,6 +1151,7 @@
    "pli": 1,
    "powershell": 1,
    "python": 1,
+   "rexx": 1,
    "ruby": 1,
    "rust": 1,
    "scala": 1,
@@ -1182,6 +1204,7 @@
    "pli": 1,
    "powershell": 1,
    "python": 1,
+   "rexx": 1,
    "ruby": 1,
    "rust": 1,
    "scala": 1,
@@ -1234,6 +1257,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": null,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -1286,6 +1310,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 1,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -1338,6 +1363,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -1390,6 +1416,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 1,
    "rust": 0,
    "scala": 0,
@@ -1442,6 +1469,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -1494,6 +1522,7 @@
    "pli": 0,
    "powershell": 1,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -1546,6 +1575,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 1,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -1598,6 +1628,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": null,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -1650,6 +1681,7 @@
    "pli": 0.223983,
    "powershell": 0.223983,
    "python": 0.20287075,
+   "rexx": 0.223983,
    "ruby": 0.223983,
    "rust": 0.223983,
    "scala": 0.223983,
@@ -1702,6 +1734,7 @@
    "pli": 223.983,
    "powershell": 223.983,
    "python": 202.87075,
+   "rexx": 223.983,
    "ruby": 223.983,
    "rust": 223.983,
    "scala": 223.983,
@@ -1754,6 +1787,7 @@
    "pli": 0.0833335,
    "powershell": 0.0833335,
    "python": 0.05,
+   "rexx": 0.0833335,
    "ruby": 0.0833335,
    "rust": 0.0833335,
    "scala": 0.0833335,
@@ -1806,6 +1840,7 @@
    "pli": 0.23958325,
    "powershell": 0.23958325,
    "python": 0.19166675,
+   "rexx": 0.23958325,
    "ruby": 0.23958325,
    "rust": 0.23958325,
    "scala": 0.23958325,
@@ -1858,6 +1893,7 @@
    "pli": 0.5,
    "powershell": 0.5,
    "python": 0.5,
+   "rexx": 0.5,
    "ruby": 0.5,
    "rust": 0.5,
    "scala": 0.5,
@@ -1910,6 +1946,7 @@
    "pli": 0.75,
    "powershell": 0.75,
    "python": 0.75,
+   "rexx": 0.75,
    "ruby": 0.75,
    "rust": 0.75,
    "scala": 0.75,
@@ -1962,6 +1999,7 @@
    "pli": 0.015,
    "powershell": 0.015,
    "python": 0.015,
+   "rexx": 0.015,
    "ruby": 0.015,
    "rust": 0.015,
    "scala": 0.015,
@@ -2014,6 +2052,7 @@
    "pli": 0.1875,
    "powershell": 0.1875,
    "python": 0.1875,
+   "rexx": 0.1875,
    "ruby": 0.1875,
    "rust": 0.1875,
    "scala": 0.1875,
@@ -2066,6 +2105,7 @@
    "pli": 0.75,
    "powershell": 0.75,
    "python": 0.75,
+   "rexx": 0.75,
    "ruby": 0.75,
    "rust": 0.75,
    "scala": 0.75,
@@ -2118,6 +2158,7 @@
    "pli": 1.0,
    "powershell": 1.0,
    "python": 1.0,
+   "rexx": 1.0,
    "ruby": 1.0,
    "rust": 1.0,
    "scala": 1.0,
@@ -2170,6 +2211,7 @@
    "pli": 0.1875,
    "powershell": 0.1875,
    "python": 0.1875,
+   "rexx": 0.1875,
    "ruby": 0.1875,
    "rust": 0.1875,
    "scala": 0.1875,
@@ -2222,6 +2264,7 @@
    "pli": 0.015625,
    "powershell": 0.015625,
    "python": 0.015625,
+   "rexx": 0.015625,
    "ruby": 0.015625,
    "rust": 0.015625,
    "scala": 0.015625,
@@ -2274,6 +2317,7 @@
    "pli": 0.75,
    "powershell": 0.75,
    "python": 0.9285,
+   "rexx": 0.75,
    "ruby": 0.875,
    "rust": 0.91675,
    "scala": 0.9,
@@ -2326,6 +2370,7 @@
    "pli": 0.0205,
    "powershell": 0.055,
    "python": 0.2545,
+   "rexx": 0.0205,
    "ruby": 0.06175,
    "rust": 0.0205,
    "scala": 0.0205,
@@ -2378,6 +2423,7 @@
    "pli": 3.25,
    "powershell": 3,
    "python": 3.25,
+   "rexx": 0,
    "ruby": 3,
    "rust": 3,
    "scala": 3.25,
@@ -2430,6 +2476,7 @@
    "pli": 2.5,
    "powershell": 2.5,
    "python": 2.5,
+   "rexx": 2.5,
    "ruby": 2.5,
    "rust": 2.5,
    "scala": 2.5,
@@ -2482,6 +2529,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -2534,6 +2582,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -2586,6 +2635,7 @@
    "pli": 32.15625,
    "powershell": 31.8725,
    "python": 32.15625,
+   "rexx": 30.109575,
    "ruby": 31.8725,
    "rust": 31.8725,
    "scala": 32.15625,
@@ -2638,6 +2688,7 @@
    "pli": 1.29535,
    "powershell": 2.14335,
    "python": 14.89195,
+   "rexx": 1.29535,
    "ruby": 2.36315,
    "rust": 1.29535,
    "scala": 1.29535,
@@ -2690,6 +2741,7 @@
    "pli": 0.0,
    "powershell": 0.0,
    "python": 0.0,
+   "rexx": null,
    "ruby": 0.0,
    "rust": 0.0,
    "scala": 0.0,
@@ -2742,6 +2794,7 @@
    "pli": 0.0,
    "powershell": 0.0,
    "python": 0.0,
+   "rexx": 5.786875,
    "ruby": 0.0,
    "rust": 0.0,
    "scala": 0.0,
@@ -2794,6 +2847,7 @@
    "pli": 93.75,
    "powershell": 96.875,
    "python": 93.75,
+   "rexx": 93.75,
    "ruby": 96.428575,
    "rust": 96.428575,
    "scala": 93.75,
@@ -2846,6 +2900,7 @@
    "pli": 57.495775,
    "powershell": 42.3138,
    "python": 76.32025,
+   "rexx": 42.40965,
    "ruby": 71.480225,
    "rust": 39.811,
    "scala": 41.13145,
@@ -2898,6 +2953,7 @@
    "pli": 24.999975,
    "powershell": 24.999875,
    "python": 24.999975,
+   "rexx": 25.0,
    "ruby": 24.9999,
    "rust": 24.99995,
    "scala": 24.99995,
@@ -2950,6 +3006,7 @@
    "pli": 100.0,
    "powershell": 100.0,
    "python": 100.0,
+   "rexx": 91.666675,
    "ruby": 100.0,
    "rust": 100.0,
    "scala": 100.0,
@@ -3002,6 +3059,7 @@
    "pli": 7.75065,
    "powershell": 7.75065,
    "python": 67.249,
+   "rexx": 7.75065,
    "ruby": 43.286875,
    "rust": 7.75065,
    "scala": 7.75065,
@@ -3054,6 +3112,7 @@
    "pli": 42.090825,
    "powershell": 38.665025,
    "python": 38.665025,
+   "rexx": 42.090825,
    "ruby": 38.665025,
    "rust": 29.877875000000003,
    "scala": 34.519925,
@@ -3106,6 +3165,7 @@
    "pli": 2.4030750000000003,
    "powershell": 2.3969500000000004,
    "python": 2.39435,
+   "rexx": 2.411575,
    "ruby": 2.4212,
    "rust": 2.3800499999999998,
    "scala": 2.3885,
@@ -3158,6 +3218,7 @@
    "pli": 24.5,
    "powershell": 29.5,
    "python": 26.25,
+   "rexx": 25,
    "ruby": 29,
    "rust": 26.25,
    "scala": 25.5,
@@ -3210,6 +3271,7 @@
    "pli": 15.5,
    "powershell": 21.25,
    "python": 15,
+   "rexx": 17.25,
    "ruby": 20.5,
    "rust": 18,
    "scala": 18,
@@ -3262,6 +3324,7 @@
    "pli": 4.729166666666666,
    "powershell": 5.375,
    "python": 4.416666666666667,
+   "rexx": 5.145833333333333,
    "ruby": 5.229166666666667,
    "rust": 5.395833333333334,
    "scala": 5.395833333333334,
@@ -3314,6 +3377,7 @@
    "pli": 15,
    "powershell": 12,
    "python": 12,
+   "rexx": 15,
    "ruby": 13,
    "rust": 13,
    "scala": 13,
@@ -3366,6 +3430,7 @@
    "pli": 182,
    "powershell": 150,
    "python": 125,
+   "rexx": 123.5,
    "ruby": 140,
    "rust": 153.75,
    "scala": 130.5,
@@ -3418,6 +3483,7 @@
    "pli": 156,
    "powershell": 146,
    "python": 203,
+   "rexx": 128,
    "ruby": 155,
    "rust": 183,
    "scala": 161,
@@ -3470,6 +3536,7 @@
    "pli": 10.51,
    "powershell": 10.55,
    "python": 16.725,
+   "rexx": 9.67,
    "ruby": 14.26,
    "rust": 10.485,
    "scala": 10.735,
@@ -3522,6 +3589,7 @@
    "pli": 0.03125,
    "powershell": 0.02425,
    "python": 0.03,
+   "rexx": 0.02875,
    "ruby": 0.02575,
    "rust": 0.02875,
    "scala": 0.02875,
@@ -3574,6 +3642,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 2,
    "ruby": 2,
    "rust": 2,
    "scala": 2,
@@ -3626,6 +3695,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -3678,6 +3748,7 @@
    "pli": 13,
    "powershell": 12,
    "python": 13,
+   "rexx": 10,
    "ruby": 12,
    "rust": 12,
    "scala": 13,
@@ -3730,6 +3801,7 @@
    "pli": 1,
    "powershell": 1,
    "python": 1,
+   "rexx": 1,
    "ruby": 1,
    "rust": 1,
    "scala": 1,
@@ -3782,6 +3854,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -3834,6 +3907,7 @@
    "pli": 7,
    "powershell": 5,
    "python": 5,
+   "rexx": 6,
    "ruby": 6,
    "rust": 8,
    "scala": 6,
@@ -3886,6 +3960,7 @@
    "pli": 1,
    "powershell": 1,
    "python": 1,
+   "rexx": 2,
    "ruby": 1,
    "rust": 1,
    "scala": 1,
@@ -3938,6 +4013,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 2,
    "ruby": 2,
    "rust": 2,
    "scala": 2,
@@ -3990,6 +4066,7 @@
    "pli": 1,
    "powershell": 1,
    "python": 1,
+   "rexx": 1,
    "ruby": 1,
    "rust": 1,
    "scala": 1,
@@ -4042,6 +4119,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 2,
    "ruby": 2,
    "rust": 2,
    "scala": 3,
@@ -4094,6 +4172,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 2,
    "ruby": 3,
    "rust": 2,
    "scala": 2,
@@ -4146,6 +4225,7 @@
    "pli": 3,
    "powershell": 3,
    "python": 3,
+   "rexx": 3,
    "ruby": 3,
    "rust": 3,
    "scala": 3,
@@ -4198,6 +4278,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -4250,6 +4331,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 13,
    "scala": 1,
@@ -4302,6 +4384,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -4354,6 +4437,7 @@
    "pli": 4,
    "powershell": 2,
    "python": 40,
+   "rexx": 4,
    "ruby": 20,
    "rust": 19,
    "scala": 21,
@@ -4406,6 +4490,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -4458,6 +4543,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -4510,6 +4596,7 @@
    "pli": 2,
    "powershell": 2,
    "python": 2,
+   "rexx": 0,
    "ruby": 2,
    "rust": 2,
    "scala": 2,
@@ -4562,6 +4649,7 @@
    "pli": 0,
    "powershell": 1,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -4614,6 +4702,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -4666,6 +4755,7 @@
    "pli": 0,
    "powershell": 0,
    "python": 0,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 0,
@@ -4718,6 +4808,7 @@
    "pli": 13,
    "powershell": 12,
    "python": 13,
+   "rexx": 9,
    "ruby": 12,
    "rust": 12,
    "scala": 13,
@@ -4770,6 +4861,7 @@
    "pli": 1,
    "powershell": 1,
    "python": 1,
+   "rexx": 1,
    "ruby": 1,
    "rust": 1,
    "scala": 1,
@@ -4822,6 +4914,7 @@
    "pli": 1,
    "powershell": 0,
    "python": 1,
+   "rexx": 0,
    "ruby": 0,
    "rust": 0,
    "scala": 1,
@@ -4874,6 +4967,7 @@
    "pli": 100.0,
    "powershell": 100.0,
    "python": 100.0,
+   "rexx": 100.0,
    "ruby": 100.0,
    "rust": 100.0,
    "scala": 100.0,
@@ -4926,6 +5020,7 @@
    "pli": 0.0,
    "powershell": 0.0,
    "python": 0.0,
+   "rexx": 0.0,
    "ruby": 0.0,
    "rust": 0.0,
    "scala": 0.0,
@@ -5020,7 +5115,8 @@
    "yacc": "ledgered",
    "jcl": "ledgered",
    "bms": "ledgered",
-   "hlasm": "ledgered"
+   "hlasm": "ledgered",
+   "rexx": "ledgered"
   },
   "classes_found": {
    "agc_assembly": "ledgered",
@@ -5047,6 +5143,7 @@
    "bms": "ledgered",
    "css": "ledgered",
    "m4": "ledgered",
+   "rexx": "ledgered",
    "yacc": "ledgered"
   },
   "risk_dead_code": {
@@ -5228,7 +5325,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "f5161c55e476cb2819e3b97762d0b89c0ba3ee2f",
+ "engine_commit": "17d40fc9b1d0870c06a5e43a184c2369d6fde095",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5279,6 +5376,7 @@
   "pli": "irc3",
   "powershell": "irc2",
   "python": "irc2",
+  "rexx": "irc3",
   "ruby": "irc2",
   "rust": "irc0",
   "scala": "irc1",
@@ -5496,6 +5594,15 @@
    "where": null
   },
   {
+   "metric": "functions_found",
+   "n": 13,
+   "rho": -0.402,
+   "verdict": "weak",
+   "held": [],
+   "stratum": "irc3",
+   "where": null
+  },
+  {
    "metric": "risk_documentation",
    "n": 16,
    "rho": 0.0,
@@ -5564,6 +5671,7 @@
   "dead_code/bms": "inherency",
   "dead_code/hlasm": "inherency",
   "dead_code/jcl": "inherency",
+  "dead_code/rexx": "inherency",
   "debug_prints/abap": "inherency",
   "debug_prints/cobol": "inherency",
   "debug_prints/dockerfile": "inherency",
@@ -5616,6 +5724,7 @@
   "raw_arch_api/html": "scoring",
   "raw_arch_api/jcl": "scoring",
   "raw_arch_api/markdown": "scoring",
+  "raw_arch_api/rexx": "inherency",
   "raw_arch_api/sqlite": "inherency",
   "raw_arch_api/yacc": "scoring",
   "raw_arch_api/yaml": "scoring",
@@ -5646,6 +5755,7 @@
   "risk_dead_code/bms": "echo",
   "risk_dead_code/hlasm": "echo",
   "risk_dead_code/jcl": "scoring",
+  "risk_dead_code/rexx": "echo",
   "risk_safety_score/cobol": "scoring",
   "risk_safety_score/embedded_python": "scoring",
   "risk_safety_score/fortran": "echo",
@@ -5675,6 +5785,7 @@
   "spec_exposure/bms": "inherency",
   "spec_exposure/hlasm": "inherency",
   "spec_exposure/jcl": "inherency",
+  "spec_exposure/rexx": "inherency",
   "spec_exposure/yaml": "inherency",
   "state_mutation/embedded_python": "scoring",
   "state_mutation/python": "scoring",
@@ -5687,43 +5798,43 @@
  "open_defect_share": {
   "args": [
    0,
-   48
+   49
   ],
   "avg_func_args": [
    0,
-   50
+   51
   ],
   "avg_func_complexity": [
    0,
-   50
+   51
   ],
   "betweenness_score": [
    0,
-   50
+   51
   ],
   "branch": [
    0,
-   48
+   49
   ],
   "class_start": [
    0,
-   45
+   46
   ],
   "classes_found": [
    1,
-   44
+   45
   ],
   "cleanup": [
    0,
-   47
+   48
   ],
   "closeness_score": [
    0,
-   50
+   51
   ],
   "cog_raw": [
    0,
-   50
+   51
   ],
   "concurrency": [
    0,
@@ -5731,127 +5842,127 @@
   ],
   "dead_code": [
    0,
-   49
+   50
   ],
   "debug_prints": [
    0,
-   50
+   51
   ],
   "def_encapsulation": [
    0,
-   50
+   51
   ],
   "dependency_density": [
    0,
-   50
+   51
   ],
   "dependency_links": [
    0,
-   50
+   51
   ],
   "doc": [
    0,
-   47
+   48
   ],
   "encapsulation_ratio": [
    0,
-   50
+   51
   ],
   "fragile_debt": [
    0,
-   49
+   50
   ],
   "func_complexity_gini": [
    0,
-   50
+   51
   ],
   "func_internal_density": [
    0,
-   50
+   51
   ],
   "func_start": [
    0,
-   49
+   50
   ],
   "functions_found": [
    0,
-   47
+   48
   ],
   "globals": [
    0,
-   47
+   48
   ],
   "high_risk_execution": [
    0,
-   48
+   49
   ],
   "immutability_locks": [
    0,
-   43
+   44
   ],
   "import": [
    0,
-   49
+   50
   ],
   "io": [
    0,
-   47
+   48
   ],
   "llm_api": [
    0,
-   50
+   51
   ],
   "max_func_complexity": [
    0,
-   50
+   51
   ],
   "normalized_blast_radius": [
    0,
-   50
+   51
   ],
   "ownership": [
    0,
-   49
+   50
   ],
   "pagerank": [
    0,
-   50
+   51
   ],
   "pagerank_score": [
    0,
-   50
+   51
   ],
   "planned_debt": [
    0,
-   49
+   50
   ],
   "popularity": [
    0,
-   50
+   51
   ],
   "producer_ratio": [
    0,
-   50
+   51
   ],
   "raw_arch_api": [
    0,
-   50
+   51
   ],
   "raw_state_unreferenced": [
    0,
-   42
+   43
   ],
   "reflection_metaprogramming": [
    0,
-   47
+   48
   ],
   "risk_api_exposure": [
    0,
-   49
+   50
   ],
   "risk_cognitive_load": [
    0,
-   48
+   49
   ],
   "risk_concurrency": [
    0,
@@ -5859,55 +5970,55 @@
   ],
   "risk_dead_code": [
    0,
-   49
+   50
   ],
   "risk_documentation": [
    0,
-   46
+   47
   ],
   "risk_safety_score": [
    0,
-   48
+   49
   ],
   "risk_secrets_risk": [
    0,
-   50
+   51
   ],
   "risk_spec_match": [
    0,
-   49
+   50
   ],
   "risk_state_flux": [
    0,
-   48
+   49
   ],
   "risk_tech_debt": [
    0,
-   50
+   51
   ],
   "risk_verification": [
    0,
-   49
+   50
   ],
   "safety": [
    0,
-   48
+   49
   ],
   "safety_bypasses": [
    0,
-   48
+   49
   ],
   "spec_exposure": [
    0,
-   49
+   50
   ],
   "state_mutation": [
    0,
-   46
+   47
   ],
   "state_slop_duplicates": [
    0,
-   50
+   51
   ],
   "sync_locks": [
    0,
@@ -5915,7 +6026,7 @@
   ],
   "telemetry": [
    0,
-   47
+   48
   ],
   "test": [
    0,

@@ -45,6 +45,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [pli](#pli) | 0 | 1 | 0 | 2 | — |
 | [powershell](#powershell) | 2 | 0 | 0 | 10 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 #2822 |
 | [python](#python) | 5 | 1 | 0 | 14 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2878 |
+| [rexx](#rexx) | 1 | 0 | 2 | 4 | #2503 #2504 #2730 |
 | [ruby](#ruby) | 5 | 0 | 0 | 11 | #2535 #2546 #2547 #2727 #2731 #2817 #2822 #2878 |
 | [rust](#rust) | 0 | 0 | 0 | 10 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 #2878 |
 | [scala](#scala) | 0 | 0 | 0 | 10 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 #2869 |
@@ -1179,6 +1180,29 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **a.py** · `message = "plain eval decoy text" (inside probe_globals)` (string): danger-only decoy (#17 redesign): eval COUNTS from inside the literal (+1), undampened -- proves strings count like code for the high-risk family too. The old sentence's eval read 0 only because its own 'try' fed python's safety rule and the Silencer Region dampener (high_risk <- safety, 500-char radius) fired; see string-literal-selective-shielding. PLACEMENT RULE: the literal sits INSIDE probe_globals -- module-level code falls back to flat-radius dampening (apply_dampener_correlations docstring), where probe_safety's assert would re-dampen it.
 - **b.py** · `the try keyword stays in prose` (comment): stripped: contributed 0
 - **c.py** · `HACK_LEVEL = level` (code): reverse decoy works: identifier did not count, the # HACK comment did (fragile_debt = 1 exactly)
+
+</details>
+
+## rexx
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
+
+**Not expressible as measured (n/a):** `risk_concurrency`, `test`
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `api-no-plantable-idiom` | intended-morphology | [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | — | Seven languages define an api rule and still record 0 after the gitgalaxy#2729 wave, for two distinct reasons, both measured in the real pipeline before the plant was re… |
+| `planted-comment-tags-exceed-zero-median` | intended-morphology | [#2503](https://github.com/squid-protocol/gitgalaxy/issues/2503) | — | dead_code and spec_exposure read 1 against a 0 cross-language median in every language whose shell PLANTS them: SPEC's api/encapsulation/ownership/dead_code/spec_exposur… |
+| `rexx-stated-absences` | intended-morphology | [#2504](https://github.com/squid-protocol/gitgalaxy/issues/2504) | (notes) | All three rules are None by real morphology, not engine gap (gitgalaxy#2504's landing; the profile documents each inline) |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.rexx** · `ROSDECOY if the backlog grows then exit and interpret nothing` (comment): contributes 0 -- the recursive_block_rexx nested peel (gitgalaxy#2504) strips the /* */ block. With the marker stripped the prose fires branch (if) and high_risk_execution twice (bare exit and interpret both match mid-prose; then is #2822's excluded continuation word), verified against the live compiled rules; spill: the prose exit also fires panics_and_aborts (the #2878 dual), equally stripped to 0.
+- **main.rexx** · `'plain interpret decoy text'` (string): +1 high_risk_execution in main.rexx, the SPEC's literal-counting assertion (gitgalaxy#2535). The literal is a bare expression statement -- REXX's own host-command idiom -- so it plants no assignment and state_mutation stays 0 in main. Placed in probe_io, which carries no safety keywords, keeping the Silencer Region out of the experiment. interpret is not a branch keyword, per the string-decoy design rule.
+- **a.rexx** · `hack_level (probe_test's parameter)` (code): contributes 0: fragile_debt's shared rule is \b-anchored, so the HACK inside the hack_level identifier never matches in the code stream (the debt rules DO sweep the code stream; this asserts the boundary, not comment anchoring). As a parse arg template symbol it plants no assignment either.
 
 </details>
 
