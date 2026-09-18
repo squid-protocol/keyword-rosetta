@@ -9,6 +9,18 @@
     "keywords": [],
     "pattern_defined": true
   },
+  "auth_middleware": {
+    "core": false,
+    "keywords": [
+      "requireAuthId",
+      "maybeAuthId",
+      "AuthProtect",
+      "BasicAuthCheck",
+      "verifyPassword",
+      "validatePassword"
+    ],
+    "pattern_defined": true
+  },
   "bitwise_ops": {
     "core": false,
     "keywords": [

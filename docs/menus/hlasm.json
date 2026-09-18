@@ -9,6 +9,17 @@
     "keywords": [],
     "pattern_defined": true
   },
+  "auth_middleware": {
+    "core": false,
+    "keywords": [
+      "RACROUTE",
+      "RACHECK",
+      "FRACHECK",
+      "RACINIT",
+      "RACDEF"
+    ],
+    "pattern_defined": true
+  },
   "bitwise_ops": {
     "core": false,
     "keywords": [

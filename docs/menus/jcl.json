@@ -163,6 +163,11 @@
     "keywords": [],
     "pattern_defined": true
   },
+  "system_config_mutation": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "telemetry": {
     "core": true,
     "keywords": [],

@@ -9,6 +9,17 @@
     "keywords": [],
     "pattern_defined": true
   },
+  "auth_middleware": {
+    "core": false,
+    "keywords": [
+      "kinit",
+      "kdestroy",
+      "chpasswd",
+      "runuser",
+      "passwd"
+    ],
+    "pattern_defined": true
+  },
   "branch": {
     "core": true,
     "keywords": [
