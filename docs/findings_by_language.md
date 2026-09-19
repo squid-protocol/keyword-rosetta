@@ -495,7 +495,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `import`: 7 vs median 3 (+133%)
 - 🔴 `risk_cognitive_load`: 10.9472 vs median 1.29535 (+745%)
-- 🔴 `risk_safety_score`: 75.1414 vs median 42.3138 (+78%)
+- 🔴 `risk_safety_score`: 73.7431 vs median 42.3138 (+74%)
 - 🔴 `risk_state_flux`: 58.9405 vs median 7.75065 (+660%)
 - 🔴 `state_mutation`: 15 vs median 2 (+650%)
 
@@ -613,7 +613,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
 - 🔴 `risk_api_exposure`: 7.9681 vs median 31.8725 (-75%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
-- 🟡 `risk_safety_score`: 53.0245 vs median 39.811 (+33%)
+- 🟡 `risk_safety_score`: 52.311 vs median 39.811 (+31%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
