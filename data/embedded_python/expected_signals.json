@@ -26,7 +26,28 @@
       "import": 2,
       "encapsulation": 0,
       "units_public": 4,
-      "units_documented": 1
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "probe_branch": {
+          "calls_out_to": []
+        },
+        "entry": {
+          "calls_out_to": [
+            "probe_branch",
+            "probe_io",
+            "probe_risk"
+          ]
+        },
+        "probe_io": {
+          "calls_out_to": []
+        },
+        "probe_risk": {
+          "calls_out_to": [
+            "reset",
+            "deepsleep"
+          ]
+        }
+      }
     },
     "a.py": {
       "class_start": 0,
@@ -48,7 +69,18 @@
       "api": 3,
       "api_orphan_credit": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_globals": {
+          "calls_out_to": []
+        },
+        "probe_test": {
+          "calls_out_to": []
+        },
+        "probe_safety": {
+          "calls_out_to": []
+        }
+      }
     },
     "b.py": {
       "class_start": 0,
@@ -70,7 +102,24 @@
       "api": 3,
       "api_orphan_credit": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_state": {
+          "calls_out_to": [
+            "append",
+            "update"
+          ]
+        },
+        "probe_bypass": {
+          "calls_out_to": []
+        },
+        "probe_telemetry": {
+          "calls_out_to": [
+            "info",
+            "error"
+          ]
+        }
+      }
     },
     "c.py": {
       "class_start": 0,
@@ -94,7 +143,21 @@
       "doc": 0,
       "ownership": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_cleanup": {
+          "calls_out_to": [
+            "collect",
+            "close"
+          ]
+        },
+        "probe_debt": {
+          "calls_out_to": []
+        },
+        "probe_todo": {
+          "calls_out_to": []
+        }
+      }
     }
   },
   "decoys": [
@@ -115,7 +178,7 @@
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"machine.reset\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 3->2, io 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"machine.reset\" COUNTS from inside the literal (+1), undampened \u2014 probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 3->2, io 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.py",
@@ -127,5 +190,5 @@
       "outcome": "inert (underscore)"
     }
   ],
-  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON. Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Under embedded classification the io rule has NO os./sys. alternation and orphan->api conversion fires (api 3 raw + 3 converted = 6, matching plain python; gitgalaxy#2548). doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (shares python's doc regex fix). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2658. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"machine.reset\" literal inside probe_state — b.py high_risk_execution 0->1, branch 2->0, safety 3->2, io 1->0, state_mutation 6->2. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-07 (gitgalaxy#2852 test contract C1): the bare assert token left the test rule (#2626 applied to the twin) -- a.py test 3->2 (unittest + pytest). 2026-09-08 #2869 safety contract: b.py safety 2 -> 0 — the two bare `except:` are the safety_bypasses plant alone now (a blanket handler is the anti-safety marker, one owner); a.py's `assert isinstance` stays safety's canonical 2. 2026-09-09 (gitgalaxy#2766): encapsulation declaration-position only, python twin parity. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data 2026-09-11 re-bless (gitgalaxy#2817): state_mutation now counts a plain re-assignment (same as python); main/a/b/c 0/0/2/0 -> 7/4/3/1; ledger state-mutation-2817-plain-reassignment."
+  "notes": "Every file needs its own micropython discriminator ('import machine', +1 import per file) or it classifies as plain PYTHON. Per-file classification, no folder-context bleed. b safety 3 = except x2 (dual bypasses+safety) + try-string. a test 3 = unittest+pytest+assert overlap. Under embedded classification the io rule has NO os./sys. alternation and orphan->api conversion fires (api 3 raw + 3 converted = 6, matching plain python; gitgalaxy#2548). doc 1 in main = the docstring counted once: the delimiter-double-count bug RESOLVED via gitgalaxy#2658 (shares python's doc regex fix). Locked 2026-08-31; doc re-baselined 2026-09-02 against gitgalaxy#2658. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"machine.reset\" literal inside probe_state \u2014 b.py high_risk_execution 0->1, branch 2->0, safety 3->2, io 1->0, state_mutation 6->2. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-07 (gitgalaxy#2852 test contract C1): the bare assert token left the test rule (#2626 applied to the twin) -- a.py test 3->2 (unittest + pytest). 2026-09-08 #2869 safety contract: b.py safety 2 -> 0 \u2014 the two bare `except:` are the safety_bypasses plant alone now (a blanket handler is the anti-safety marker, one owner); a.py's `assert isinstance` stays safety's canonical 2. 2026-09-09 (gitgalaxy#2766): encapsulation declaration-position only, python twin parity. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data 2026-09-11 re-bless (gitgalaxy#2817): state_mutation now counts a plain re-assignment (same as python); main/a/b/c 0/0/2/0 -> 7/4/3/1; ledger state-mutation-2817-plain-reassignment."
 }

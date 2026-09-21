@@ -25,7 +25,31 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 4,
-      "units_documented": 1
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "Probe_Branch": {
+          "calls_out_to": []
+        },
+        "Dispatch": {
+          "calls_out_to": [
+            "Probe_Branch",
+            "Probe_Io",
+            "Probe_Risk"
+          ]
+        },
+        "Probe_Io": {
+          "calls_out_to": [
+            "Open",
+            "Create",
+            "Read"
+          ]
+        },
+        "Probe_Risk": {
+          "calls_out_to": [
+            "OS_Exit"
+          ]
+        }
+      }
     },
     "a.adb": {
       "import": 1,
@@ -47,7 +71,23 @@
       "planned_debt": 0,
       "telemetry": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "Probe_Globals": {
+          "calls_out_to": [
+            "Volatile"
+          ]
+        },
+        "Probe_Test": {
+          "calls_out_to": [
+            "Assert",
+            "Run"
+          ]
+        },
+        "Probe_Safety": {
+          "calls_out_to": []
+        }
+      }
     },
     "b.adb": {
       "import": 1,
@@ -69,7 +109,23 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "Probe_Bypass": {
+          "calls_out_to": [
+            "Suppress"
+          ]
+        },
+        "Probe_Telemetry": {
+          "calls_out_to": [
+            "Trace",
+            "Log"
+          ]
+        },
+        "Probe_State": {
+          "calls_out_to": []
+        }
+      }
     },
     "c.adb": {
       "import": 0,
@@ -93,7 +149,21 @@
       "ownership": 0,
       "high_risk_execution": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "Probe_Cleanup": {
+          "calls_out_to": [
+            "Finalize",
+            "Unchecked_Deallocation"
+          ]
+        },
+        "Probe_Debt": {
+          "calls_out_to": []
+        },
+        "Probe_Todo": {
+          "calls_out_to": []
+        }
+      }
     }
   },
   "decoys": [
@@ -114,7 +184,7 @@
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"OS_Exit\" COUNTS from inside the literal (+1), undampened — Probe_State carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+      "outcome": "danger-only decoy (#17 redesign): \"OS_Exit\" COUNTS from inside the literal (+1), undampened \u2014 Probe_State carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
     },
     {
       "file": "c.adb",
@@ -126,5 +196,5 @@
       "outcome": "inert (underscore + lowercase vs case-sensitive \\bHACK\\b); declared without := so no state hit"
     }
   ],
-  "notes": "branch 4 in main = if + elsif + else + the closing 'end if' (ada's closing keyword re-matches \\bif\\b — ledger ada-end-if-branch-inflation; every well-formed ada if statement counts at least 2 branch). state_mutation is := and gets the x3 flux weighting under branch context (b.adb: 2 x 3 = 6, branch context from the string decoy's 'if'). No orphan->api conversion anywhere: ada's api rule is the package declaration (0 planted) and ada procedures are not orphan-tracked (orphaned_logic 0 on all files) so there is nothing to convert — unlike python/js/cobol/fortran/abap/assembly. Assert() counts test only (bare call), pragma-free safety planted via 'exception' + 'range'. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"OS_Exit\" literal inside Probe_State — b.adb high_risk_execution 0->1, branch 1->0, state_mutation 6->2. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api 0 -> 3 per file (4 in main). gitgalaxy#2730 gave the api rule a stated contract -- *a declaration that makes a named function or type visible outside this file* -- and under it the rule now counts a column-0 library-level subprogram (a compilation unit of its own; nested ones are indented and private); ledger api-no-plantable-idiom. ada keeps credit 0 either way -- `end Probe_Globals;` repeats the name, so its probes were never orphans under gitgalaxy#2727's name-recurrence census. 2026-09-06 (gitgalaxy#2822 corollary 2): the closing 'end if' no longer re-matches \\bif\\b -- main branch 4->3 = if + elsif + else exactly; ledger ada-end-if-branch-inflation retired. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
+  "notes": "branch 4 in main = if + elsif + else + the closing 'end if' (ada's closing keyword re-matches \\bif\\b \u2014 ledger ada-end-if-branch-inflation; every well-formed ada if statement counts at least 2 branch). state_mutation is := and gets the x3 flux weighting under branch context (b.adb: 2 x 3 = 6, branch context from the string decoy's 'if'). No orphan->api conversion anywhere: ada's api rule is the package declaration (0 planted) and ada procedures are not orphan-tracked (orphaned_logic 0 on all files) so there is nothing to convert \u2014 unlike python/js/cobol/fortran/abap/assembly. Assert() counts test only (bare call), pragma-free safety planted via 'exception' + 'range'. Locked from hand-verified run 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"OS_Exit\" literal inside Probe_State \u2014 b.adb high_risk_execution 0->1, branch 1->0, state_mutation 6->2. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api 0 -> 3 per file (4 in main). gitgalaxy#2730 gave the api rule a stated contract -- *a declaration that makes a named function or type visible outside this file* -- and under it the rule now counts a column-0 library-level subprogram (a compilation unit of its own; nested ones are indented and private); ledger api-no-plantable-idiom. ada keeps credit 0 either way -- `end Probe_Globals;` repeats the name, so its probes were never orphans under gitgalaxy#2727's name-recurrence census. 2026-09-06 (gitgalaxy#2822 corollary 2): the closing 'end if' no longer re-matches \\bif\\b -- main branch 4->3 = if + elsif + else exactly; ledger ada-end-if-branch-inflation retired. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }
