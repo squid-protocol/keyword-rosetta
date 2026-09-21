@@ -5,6 +5,10 @@
 #include "a.c"
 
 int entry(int argv) {
+    /* 
+       Graph Decoy: this block comment contains a fake function call.
+       phantom_decoy_call(argv); 
+    */
     probe_branch(argv);
     probe_io(argv);
     probe_risk(argv);
