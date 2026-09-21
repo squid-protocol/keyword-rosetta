@@ -1,4 +1,8 @@
 // keyword rosetta control shell: cpp / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // @author keyword-rosetta generator
 // @brief dispatch each probe once
 // decoy: this suite never terminates early and the exit() call stays in prose
@@ -32,3 +36,4 @@ export int probe_risk(int payload) {
     longjmp();
     return payload;
 }
+

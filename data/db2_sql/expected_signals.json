@@ -99,22 +99,36 @@
       "file": "main.sql",
       "line_hint": "-- decoy: this shell never runs EXECUTE IMMEDIATE and no FETCH arrives outside prose",
       "surface": "comment",
-      "signals": ["high_risk_execution", "io"],
+      "signals": [
+        "high_risk_execution",
+        "io"
+      ],
       "outcome": "contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1 (EXECUTE IMMEDIATE) and io 1 (FETCH, not followed by FIRST) when the marker is removed; verified against the live compiled rules and by main's counts staying at their planted values in the report run."
     },
     {
       "file": "b.sql",
       "line_hint": "INSERT INTO T1 VALUES ('plain DROP DATABASE decoy text'); (probe_state's carrier statement)",
       "surface": "string",
-      "signals": ["high_risk_execution"],
+      "signals": [
+        "high_risk_execution"
+      ],
       "outcome": "danger-only literal, +1 high_risk_execution in b.sql (DROP DATABASE matches inside the string -- gitgalaxy#2535, no literal shielding). Same sentence as sqlite's decoy for cross-language comparability. Fillers (plain/decoy/text) checked against the menu: no other rule fires. Placed in probe_state, which carries no safety keywords, keeping the Silencer Region out of the experiment; b-file placement matches the corpus majority (see risk-safety-score-decoy-file-shortcircuit)."
     },
     {
       "file": "a.sql",
       "line_hint": "DECLARE HACK_LEVEL VARCHAR(128)",
       "surface": "code",
-      "signals": ["fragile_debt"],
+      "signals": [
+        "fragile_debt"
+      ],
       "outcome": "contributes 0 -- db2_sql's fragile_debt is GLOBAL_FRAGILE_DEBT run over the comment stream only (detector.comment_analysis), so a code identifier carrying HACK never reaches it. a.sql's fragile_debt stayed 0 in the report run."
+    },
+    {
+      "file": "main.sql",
+      "line_hint": "phantom_decoy_call",
+      "surface": "comment",
+      "signals": [],
+      "outcome": "Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology."
     }
   ],
   "notes": "Probes are SQL PL CREATE PROCEDURE ... LANGUAGE SQL blocks -- unlike sqlite's CREATE INDEX statements, db2_sql has a genuinely function-shaped construct with a declared one-parameter list, so func_start 13 and args 13 corpus-wide (the entry's parameter is its SYSPARM string). Every file carries LANGUAGE SQL, which locks classification to db2_sql at Tier 2 (internal_discriminator) -- necessary because an all-.sql folder would otherwise gravitate to sqlite through its own .sql discriminator (75% dominance). NO CREATE TABLE/VIEW/TABLESPACE anywhere keeps class_start 0 as a live tripwire. import is CONNECT TO (the CLP script's real dependency form -- a database, not a file): DB2 SQL has no file-include construct, so the main->a->b->c DAG cannot resolve to sibling files and api_orphan_credit is 0 corpus-wide (the pli SQLCA shape: a real import whose target resolves to nothing); databases are named A/B/C to mirror the chain's intent. api 0: db2_sql's api markers (CREATE VIEW/ALIAS/SYNONYM) are object declarations no procedure can carry -- the sqlite fallback shape (docs/GATING.md, What api asserts). branch 3 is exactly IF/ELSE/WHILE -- END IF / END WHILE closers are excluded by the engine rule (#2822 C2), so unlike sqlite's CASE-expression inflation the planted count equals the conditional count. SET CURRENT EXPLAIN MODE is test's hit and deliberately NOT state_mutation's (the rule excludes SET CURRENT -- special registers are environment, not variables). DELETE FROM is cleanup's, not state_mutation's (#2843/#2888, the engine-side deviation ledgered in gitgalaxy#3090). probe_state's UPDATE counts once: the same-line SET clause is not a statement-start SET."

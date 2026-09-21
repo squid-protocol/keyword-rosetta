@@ -1,4 +1,6 @@
 * keyword rosetta control shell: hlasm / main
+; Graph Decoy: this comment cluster contains a fake function call.
+; phantom_decoy_call();
 * Author: keyword-rosetta generator
 *ROSDECOY ABEND 777 AFTER EXEC CICS DELAY STAYS PROSE
          COPY  a
@@ -28,3 +30,4 @@ PROBERSK CSECT
          MODESET KEY=ZERO
          BR    14
          END
+

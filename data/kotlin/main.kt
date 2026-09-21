@@ -1,4 +1,8 @@
 // keyword rosetta control shell: kotlin / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Created by: keyword-rosetta generator
 /** @param argv probe input */
 // decoy: this suite never calls exitProcess and no when block runs outside prose
@@ -32,3 +36,4 @@ public fun probeRisk(payload: Int): Int {
     System.exit(payload)
     return payload
 }
+

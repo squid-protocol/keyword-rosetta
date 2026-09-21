@@ -1,4 +1,8 @@
 # keyword rosetta control shell: powershell / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 # Author: keyword-rosetta generator
 .SYNOPSIS
 # decoy: this suite never invokes iex words outside prose
@@ -37,3 +41,4 @@ function probe_risk {
 Export-ModuleMember -Function probe_branch
 Export-ModuleMember -Function probe_io
 Export-ModuleMember -Function probe_risk
+

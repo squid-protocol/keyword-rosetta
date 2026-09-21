@@ -1,4 +1,8 @@
 /* keyword rosetta control shell: rexx / main */
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 /* Author: keyword-rosetta generator */
 /* ROSDECOY if the backlog grows then exit and interpret nothing */
 /* PURPOSE: dispatch each probe once */
@@ -32,3 +36,4 @@ probe_risk:
 return
 
 ::requires 'a.rexx'
+

@@ -1,4 +1,8 @@
 % keyword rosetta control shell: matlab / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 % Author: keyword-rosetta generator
 %% DISPATCH
 % decoy: this suite never calls system words outside prose
@@ -33,3 +37,4 @@ system(payload);
 dos(payload);
 out = payload;
 end
+

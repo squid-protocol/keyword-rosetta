@@ -1,4 +1,8 @@
  /* Keyword Rosetta control shell: pli / main */
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
  /* decoy: OPEN FILE(NOTES) and IF SQLCODE checks live in prose only */
 
  /** Rosetta control shell entry: drives the first three probes
@@ -33,3 +37,4 @@
     FETCH WORKER;
     STOP;
  END PROBE_RISK;
+

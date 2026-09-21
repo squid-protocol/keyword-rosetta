@@ -1,4 +1,8 @@
 // keyword rosetta control shell: zig / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Author: keyword-rosetta generator
 /// Dispatch each probe once.
 // decoy: this suite never calls @panic and no switch block runs outside prose
@@ -32,3 +36,4 @@ pub fn probeRisk(payload: i32) i32 {
     std.process.exit(payload);
     return payload;
 }
+

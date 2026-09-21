@@ -1,4 +1,6 @@
 # keyword rosetta control shell: makefile / main
+# Graph Decoy: this comment cluster contains a fake function call.
+# phantom_decoy_call();
 # author: keyword-rosetta generator
 # decoy: this suite never runs sudo apt and no wget call lives outside prose
 include a.mk
@@ -28,3 +30,4 @@ probe_io:
 probe_risk:
 	sudo true
 	kill -9 1
+

@@ -1,4 +1,8 @@
 // keyword rosetta control shell: java / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // @author keyword-rosetta generator
 /** @param argv probe input */
 // decoy: this suite never calls System.exit and no switch block runs outside prose
@@ -32,3 +36,4 @@ public static int probeRisk(int payload) {
     System.exit(payload);
     return payload;
 }
+

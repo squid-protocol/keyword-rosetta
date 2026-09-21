@@ -1,4 +1,6 @@
 * keyword rosetta control shell: bms / main
+* Graph Decoy: this comment cluster contains a fake function call.
+* phantom_decoy_call();
 * Author: keyword-rosetta generator
 * decoy: FLDA DFHMDF POS UNSET STAYS IN PROSE
 ROSETSET DFHMSD TYPE=&SYSPARM,MODE=INOUT,LANG=COBOL,TIOAPFX=YES
@@ -13,3 +15,4 @@ PROBERSK DFHMDI SIZE=(24,80),LINE=4,COLUMN=1
 RSKFLD   DFHMDF POS=(4,1),LENGTH=8,ATTRB=ASKIP
          DFHMSD TYPE=FINAL
          END
+

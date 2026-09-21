@@ -167,6 +167,11 @@ Decoys cross the two detection surfaces in both directions:
 4. **The `#hack` tag** — probe_debt's comment is written as the tech-debt tag itself
    (`# HACK: shortcut, see rosetta spec`), the corpus's one deliberate tech-debt marker
    per language.
+5. **Graph Block-Comment Decoy** — one multi-line block comment per language that wraps
+   a fake function call, e.g. `/* phantom_decoy_call() */`. This asserts that the engine's
+   generic literal shielder successfully blanks out block comments before extracting the
+   Information Flow Graph (`calls_out_to`), ensuring phantom calls do not leak into the
+   network topology.
 
 ## expected_signals.json schema
 

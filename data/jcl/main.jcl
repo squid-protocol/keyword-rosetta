@@ -1,4 +1,6 @@
 //* keyword rosetta control shell: jcl / main
+//* Graph Decoy: this comment cluster contains a fake function call.
+//* phantom_decoy_call();
 //* Author: keyword-rosetta generator
 //* decoy: this suite never runs PGM=IKJEFT01 and no DISP=(OLD,DELETE) operand lives outside prose
 //ROSETTA JOB
@@ -17,3 +19,4 @@
 //DD2 DD SYSOUT=A
 //DD5 DD SYSOUT=L
 //PROBERISK EXEC PGM=IKJEFT01,PARM='R'
+
