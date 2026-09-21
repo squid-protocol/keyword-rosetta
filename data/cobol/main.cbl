@@ -1,4 +1,6 @@
       * Keyword Rosetta control shell: cobol / main
+* Graph Decoy: this comment cluster contains a fake function call.
+* phantom_decoy_call();
       * decoy: never ALTER this flow and no PERFORM loop lives in prose
 
        IDENTIFICATION DIVISION.
@@ -38,3 +40,4 @@
        PROBE-RISK.
            ALTER DISPATCH-PARA TO PROCEED TO PROBE-BRANCH.
            CANCEL HELPER-MODULE.
+

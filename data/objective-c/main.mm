@@ -1,4 +1,8 @@
 // keyword rosetta control shell: objective-c / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Created by: keyword-rosetta generator
 // @brief dispatch each probe once
 // decoy: this suite never aborts and the exit word stays in prose
@@ -32,3 +36,4 @@
     exit(payload);
     return payload;
 }
+

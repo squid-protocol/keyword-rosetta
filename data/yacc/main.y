@@ -1,4 +1,8 @@
 /* keyword rosetta control shell: yacc / main */
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 /* @author keyword-rosetta generator */
 /* @param flag the probe input */
 /* decoy: this suite never calls abort and no while loop lives outside a rule action */
@@ -12,3 +16,4 @@ probe_branch : ONE { if (1) { } else { } switch (0) {} } ;
 probe_io : TWO { fopen(0); yyin; yyout; } ;
 
 probe_risk : THREE { abort(); exit(0); } ;
+

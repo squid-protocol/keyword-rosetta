@@ -1,4 +1,8 @@
 // Keyword Rosetta control shell: rust / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Author: keyword-rosetta generator
 // decoy: this suite never calls abort and no loop keyword lives outside prose
 
@@ -33,3 +37,4 @@ pub fn probe_risk(payload: i32) -> i32 {
     abort();
     payload
 }
+

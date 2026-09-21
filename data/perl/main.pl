@@ -1,4 +1,6 @@
 # keyword rosetta control shell: perl / main
+# Graph Decoy: this comment cluster contains a fake function call.
+# phantom_decoy_call();
 # Author: keyword-rosetta generator
 =pod
 # decoy: this suite never spawns a process and the qx word stays in prose
@@ -36,3 +38,4 @@ sub probe_risk {
     system($payload);
     qx($payload);
 }
+

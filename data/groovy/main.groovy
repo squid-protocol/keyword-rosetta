@@ -1,4 +1,8 @@
 // keyword rosetta control shell: groovy / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // @author keyword-rosetta generator
 /** @param argv probe input */
 // decoy: this suite never exits and the System.exit() call stays in prose
@@ -32,3 +36,4 @@ public def probeRisk(payload) {
     "true".execute()
     return payload
 }
+

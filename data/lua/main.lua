@@ -1,4 +1,8 @@
 -- keyword rosetta control shell: lua / main
+--[[
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+]]
 -- Author: keyword-rosetta generator
 --- Dispatch each probe once.
 -- decoy: this suite never exits and the loop words stay in prose
@@ -32,3 +36,4 @@ function probe_risk(payload)
   os.exit(payload)
   return payload
 end
+

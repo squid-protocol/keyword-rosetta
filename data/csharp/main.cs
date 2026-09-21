@@ -1,4 +1,8 @@
 // keyword rosetta control shell: csharp / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Created by: keyword-rosetta generator
 /// <summary>Dispatch each probe once.</summary>
 // decoy: this suite never exits the process and the Environment.Exit word stays in prose
@@ -32,3 +36,4 @@ public static int ProbeRisk(int payload) {
     Environment.Exit(payload);
     return payload;
 }
+

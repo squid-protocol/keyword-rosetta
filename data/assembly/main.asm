@@ -1,4 +1,6 @@
 ; Keyword Rosetta control shell: assembly / main
+; Graph Decoy: this comment cluster contains a fake function call.
+; phantom_decoy_call();
 ; Author: keyword-rosetta generator
 ; decoy: this suite never runs hlt and no loop branch stays outside prose
 %include "a.asm"
@@ -33,3 +35,4 @@ probe_risk:
     hlt
     brk
     ret
+

@@ -209,6 +209,13 @@
       "outcome": "stripped: contributed 0"
     },
     {
+      "file": "main.py",
+      "line_hint": "phantom_decoy_call",
+      "surface": "comment",
+      "signals": [],
+      "outcome": "Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology."
+    },
+    {
       "file": "c.py",
       "line_hint": "HACK_LEVEL = level",
       "surface": "code",

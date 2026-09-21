@@ -1,4 +1,8 @@
 // keyword rosetta control shell: typescript / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // @author keyword-rosetta generator
 // decoy: this suite never calls eval and no while loop appears outside prose
 
@@ -33,3 +37,4 @@ export function probeRisk(payload: number): number {
   debugger;
   return payload;
 }
+

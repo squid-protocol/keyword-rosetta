@@ -1,4 +1,8 @@
 -- Keyword Rosetta control shell: haskell / main
+{-
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+-}
 -- Author: keyword-rosetta generator
 -- decoy: this suite never calls exitFailure and no case-of branch lives outside prose
 
@@ -20,3 +24,4 @@ probeIo path = readFile writeFile openFile
 
 probeRisk :: Int -> Int
 probeRisk payload = die exitFailure
+

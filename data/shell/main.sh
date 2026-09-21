@@ -1,5 +1,7 @@
 #!/bin/sh
 # Keyword Rosetta control shell: shell / main
+# Graph Decoy: this comment cluster contains a fake function call.
+# phantom_decoy_call();
 # Author: keyword-rosetta generator
 # decoy: this suite never runs sudo and no while loop lives outside prose
 
@@ -41,3 +43,4 @@ probe_risk() {
     sudo true
     dd
 }
+

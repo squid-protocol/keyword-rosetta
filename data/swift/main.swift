@@ -1,4 +1,8 @@
 // keyword rosetta control shell: swift / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Created by: keyword-rosetta generator
 /// Dispatch each probe once.
 // decoy: this suite never traps and the abort word stays in prose
@@ -32,3 +36,4 @@ public func probeRisk(_ payload: Int) -> Int {
     abort(payload)
     return payload
 }
+

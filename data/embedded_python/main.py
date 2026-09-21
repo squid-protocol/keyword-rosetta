@@ -1,4 +1,8 @@
 # keyword rosetta control shell: embedded_python / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 # decoy: this suite never calls machine.reset and no while loop runs outside prose
 
 __author__ = "keyword-rosetta generator"
@@ -36,3 +40,4 @@ def probe_risk(payload):
     machine.reset()
     machine.deepsleep()
     return payload
+

@@ -1,4 +1,8 @@
 # keyword rosetta control shell: dockerfile / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 # Description: dispatch each probe once
 # decoy: this suite never calls exec and no while loop runs outside prose
 FROM a
@@ -16,3 +20,4 @@ RUN eval :
 RUN exec :
 
 CMD ["dispatch"]
+

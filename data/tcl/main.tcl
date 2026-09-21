@@ -1,4 +1,8 @@
 # keyword rosetta control shell: tcl / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 # Author: keyword-rosetta generator
 # decoy: this suite never execs and the exit word stays in prose
 source a.tcl
@@ -33,3 +37,4 @@ proc probe_risk {payload} {
     exec $payload
     exit
 }
+

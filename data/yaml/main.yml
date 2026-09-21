@@ -1,4 +1,6 @@
 # keyword rosetta control shell: yaml / main
+# Graph Decoy: this comment cluster contains a fake function call.
+# phantom_decoy_call();
 # decoy: this suite never calls eval and no while loop runs outside prose
 name: rosetta-main
 author: keyword-rosetta generator
@@ -28,3 +30,4 @@ jobs:
           eval :
           exec :
       - run: ':'
+

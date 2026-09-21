@@ -1,4 +1,8 @@
 -- Keyword Rosetta control shell: sqlite / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 -- Author: keyword-rosetta generator
 -- Description: dispatch each probe once
 -- decoy: this suite never runs DROP DATABASE and no SELECT statement lives outside prose
@@ -18,3 +22,4 @@ SELECT writefile('output.bin', 1);
 CREATE INDEX probe_risk ON corpus (payload);
 .shell echo risk
 .exit
+

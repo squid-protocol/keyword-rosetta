@@ -1,4 +1,8 @@
 // keyword rosetta control shell: go / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Author: keyword-rosetta generator
 // decoy: this suite never calls os.Exit and no select statement runs outside prose
 package main
@@ -34,3 +38,4 @@ func ProbeRisk(payload int) int {
     log.Fatal(payload)
     return payload
 }
+
