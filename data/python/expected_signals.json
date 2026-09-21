@@ -27,7 +27,29 @@
       "planned_debt": 0,
       "dead_code": 0,
       "units_public": 4,
-      "units_documented": 1
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "probe_branch": {
+          "calls_out_to": []
+        },
+        "entry": {
+          "calls_out_to": [
+            "probe_branch",
+            "probe_io",
+            "probe_risk",
+            "probe_globals"
+          ]
+        },
+        "probe_io": {
+          "calls_out_to": []
+        },
+        "probe_risk": {
+          "calls_out_to": [
+            "eval",
+            "exec"
+          ]
+        }
+      }
     },
     "a.py": {
       "import": 1,
@@ -52,7 +74,18 @@
       "ownership": 0,
       "encapsulation": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_globals": {
+          "calls_out_to": []
+        },
+        "probe_test": {
+          "calls_out_to": []
+        },
+        "probe_safety": {
+          "calls_out_to": []
+        }
+      }
     },
     "b.py": {
       "import": 1,
@@ -75,7 +108,24 @@
       "high_risk_execution": 0,
       "doc": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_bypass": {
+          "calls_out_to": []
+        },
+        "probe_telemetry": {
+          "calls_out_to": [
+            "info",
+            "error"
+          ]
+        },
+        "probe_state": {
+          "calls_out_to": [
+            "append",
+            "update"
+          ]
+        }
+      }
     },
     "c.py": {
       "import": 0,
@@ -101,7 +151,21 @@
       "ownership": 0,
       "dead_code": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_cleanup": {
+          "calls_out_to": [
+            "close",
+            "shutdown"
+          ]
+        },
+        "probe_debt": {
+          "calls_out_to": []
+        },
+        "probe_todo": {
+          "calls_out_to": []
+        }
+      }
     }
   },
   "decoys": [

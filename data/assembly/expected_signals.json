@@ -25,7 +25,21 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 3,
-      "units_documented": 1
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "probe_branch": {
+          "calls_out_to": []
+        },
+        "dispatch": {
+          "calls_out_to": []
+        },
+        "probe_io": {
+          "calls_out_to": []
+        },
+        "probe_risk": {
+          "calls_out_to": []
+        }
+      }
     },
     "a.asm": {
       "import": 1,
@@ -47,7 +61,18 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_globals": {
+          "calls_out_to": []
+        },
+        "probe_test": {
+          "calls_out_to": []
+        },
+        "probe_safety": {
+          "calls_out_to": []
+        }
+      }
     },
     "b.asm": {
       "import": 1,
@@ -69,7 +94,18 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_bypass": {
+          "calls_out_to": []
+        },
+        "probe_telemetry": {
+          "calls_out_to": []
+        },
+        "probe_state": {
+          "calls_out_to": []
+        }
+      }
     },
     "c.asm": {
       "import": 0,
@@ -93,7 +129,18 @@
       "ownership": 0,
       "high_risk_execution": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_cleanup": {
+          "calls_out_to": []
+        },
+        "probe_debt": {
+          "calls_out_to": []
+        },
+        "probe_todo": {
+          "calls_out_to": []
+        }
+      }
     }
   },
   "decoys": [

@@ -25,7 +25,32 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 4,
-      "units_documented": 1
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "probe_branch": {
+          "calls_out_to": []
+        },
+        "entry": {
+          "calls_out_to": [
+            "probe_branch",
+            "probe_io",
+            "probe_risk"
+          ]
+        },
+        "probe_io": {
+          "calls_out_to": [
+            "open",
+            "read",
+            "lines"
+          ]
+        },
+        "probe_risk": {
+          "calls_out_to": [
+            "execute",
+            "exit"
+          ]
+        }
+      }
     },
     "a.lua": {
       "class_start": 0,
@@ -47,7 +72,24 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_test": {
+          "calls_out_to": [
+            "busted",
+            "luassert"
+          ]
+        },
+        "probe_safety": {
+          "calls_out_to": [
+            "pcall",
+            "xpcall"
+          ]
+        },
+        "probe_globals": {
+          "calls_out_to": []
+        }
+      }
     },
     "b.lua": {
       "class_start": 0,
@@ -69,7 +111,23 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_bypass": {
+          "calls_out_to": [
+            "rawget",
+            "rawset"
+          ]
+        },
+        "probe_telemetry": {
+          "calls_out_to": [
+            "ERR"
+          ]
+        },
+        "probe_state": {
+          "calls_out_to": []
+        }
+      }
     },
     "c.lua": {
       "class_start": 0,
@@ -93,7 +151,21 @@
       "ownership": 0,
       "high_risk_execution": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_cleanup": {
+          "calls_out_to": [
+            "collectgarbage",
+            "close"
+          ]
+        },
+        "probe_debt": {
+          "calls_out_to": []
+        },
+        "probe_todo": {
+          "calls_out_to": []
+        }
+      }
     }
   },
   "decoys": [
@@ -113,7 +185,7 @@
       "signals": [
         "high_risk_execution"
       ],
-      "outcome": "danger-only decoy (#17 redesign): \"os.exit\" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1."
+      "outcome": "danger-only decoy (#17 redesign): \"os.exit\" COUNTS from inside the literal (+1), undampened \u2014 probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1."
     },
     {
       "file": "c.lua",
@@ -125,5 +197,5 @@
       "outcome": "HACK/TODO comments count exactly 1 each"
     }
   ],
-  "notes": "_G is dual globals+safety_bypasses (+1 bypasses a.lua); collectgarbage is dual cleanup+safety_bypasses and io.close is dual cleanup+io (+1 each in c.lua). api: the indented-return-miscounted-as-module-export bug RESOLVED via gitgalaxy#2657 (the `return <ident>` module-export alternative anchored to column 0; indented function-body returns no longer count). main.lua api 6->4 (2 indented 'return kit'/'return value'-shaped lines no longer match, leaving the 4 real 'function probe_*' matches). a/b/c.lua api 8/9/9 -> 6/6/6 (raw regex contribution drops from the function-decl-plus-indented-return mix down to just the function-decl matches; the orphan-conversion +3 credit per file is unaffected). Locked from hand-verified run 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2657. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"os.remove\" literal inside probe_state — b.lua high_risk_execution 0->1, branch 1->0, state_mutation 6->2. gitgalaxy#2675: safety_bypasses claimed `_G`/`_ENV` (globals owns) and `collectgarbage` (cleanup owns); dropped, so safety_bypasses records the planted 2. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-06 (gitgalaxy#2822): then/do/until/in left branch for structural_boundaries (corollary 2) and goto with them (corollary 3) -- probe_branch re-planted with a while loop so the cell stays 3. 2026-09-07 gitgalaxy#2841 (io contract): io.close is cleanup's hit alone (C2); probe_cleanup's io.close(conn) in c.lua no longer double-counts io (c.lua io 1->0, total on the median at 3). 2026-09-08 gitgalaxy#2878 high_risk_execution contract: b.lua's decoy carries `os.exit`: os.remove/os.rename are single-file deletions and cleanup's question (C4, gitgalaxy#2843). Cell unchanged at 1; panics_and_aborts (unscored) +1. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
+  "notes": "_G is dual globals+safety_bypasses (+1 bypasses a.lua); collectgarbage is dual cleanup+safety_bypasses and io.close is dual cleanup+io (+1 each in c.lua). api: the indented-return-miscounted-as-module-export bug RESOLVED via gitgalaxy#2657 (the `return <ident>` module-export alternative anchored to column 0; indented function-body returns no longer count). main.lua api 6->4 (2 indented 'return kit'/'return value'-shaped lines no longer match, leaving the 4 real 'function probe_*' matches). a/b/c.lua api 8/9/9 -> 6/6/6 (raw regex contribution drops from the function-decl-plus-indented-return mix down to just the function-decl matches; the orphan-conversion +3 credit per file is unaffected). Locked from hand-verified run 2026-08-31; api re-baselined 2026-09-02 against gitgalaxy#2657. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"os.remove\" literal inside probe_state \u2014 b.lua high_risk_execution 0->1, branch 1->0, state_mutation 6->2. gitgalaxy#2675: safety_bypasses claimed `_G`/`_ENV` (globals owns) and `collectgarbage` (cleanup owns); dropped, so safety_bypasses records the planted 2. 2026-09-05 re-bless (gitgalaxy#2729 close-out): api_orphan_credit 3 -> 0 in a/b/c. The api rule already declares these three functions, so galaxyscope's Contextual Baseline Fix now credits only the orphans it did not count -- gitgalaxy#2731, shipped as #2734; ledger api-declared-orphans-are-not-new-surface. 2026-09-06 (gitgalaxy#2822): then/do/until/in left branch for structural_boundaries (corollary 2) and goto with them (corollary 3) -- probe_branch re-planted with a while loop so the cell stays 3. 2026-09-07 gitgalaxy#2841 (io contract): io.close is cleanup's hit alone (C2); probe_cleanup's io.close(conn) in c.lua no longer double-counts io (c.lua io 1->0, total on the median at 3). 2026-09-08 gitgalaxy#2878 high_risk_execution contract: b.lua's decoy carries `os.exit`: os.remove/os.rename are single-file deletions and cleanup's question (C4, gitgalaxy#2843). Cell unchanged at 1; panics_and_aborts (unscored) +1. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
 }

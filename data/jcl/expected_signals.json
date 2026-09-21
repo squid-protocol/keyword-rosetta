@@ -27,7 +27,21 @@
       "dead_code": 0,
       "spec_exposure": 0,
       "units_public": 0,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "DISPATCH": {
+          "calls_out_to": []
+        },
+        "STEP2": {
+          "calls_out_to": []
+        },
+        "PROBEIO": {
+          "calls_out_to": []
+        },
+        "PROBERISK": {
+          "calls_out_to": []
+        }
+      }
     },
     "a.jcl": {
       "branch": 0,
@@ -53,7 +67,18 @@
       "dead_code": 0,
       "spec_exposure": 0,
       "units_public": 0,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBEGLOB": {
+          "calls_out_to": []
+        },
+        "PROBETEST": {
+          "calls_out_to": []
+        },
+        "PROBESAFE": {
+          "calls_out_to": []
+        }
+      }
     },
     "b.jcl": {
       "branch": 0,
@@ -79,7 +104,18 @@
       "dead_code": 0,
       "spec_exposure": 0,
       "units_public": 0,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBESTATE": {
+          "calls_out_to": []
+        },
+        "PROBETEL": {
+          "calls_out_to": []
+        },
+        "PROBEBYP": {
+          "calls_out_to": []
+        }
+      }
     },
     "c.jcl": {
       "branch": 0,
@@ -105,7 +141,18 @@
       "dead_code": 1,
       "spec_exposure": 1,
       "units_public": 0,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBECLEAN": {
+          "calls_out_to": []
+        },
+        "PROBEDEBT": {
+          "calls_out_to": []
+        },
+        "PROBETODO": {
+          "calls_out_to": []
+        }
+      }
     }
   },
   "decoys": [
