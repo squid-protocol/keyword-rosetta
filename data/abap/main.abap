@@ -1,4 +1,6 @@
 * Keyword Rosetta control shell: abap / main
+# Graph Decoy: this comment cluster contains a fake function call.
+# phantom_decoy_call();
 * AUTHOR: keyword-rosetta generator
 "! @parameter cv_argv | probe input
 * decoy: this suite never uses TRUNCATE and the SY-SUBRC field stays in prose
@@ -32,3 +34,4 @@ FORM probe_risk CHANGING cv_payload.
   TRUNCATE.
   TRUNCATE.
 ENDFORM.
+

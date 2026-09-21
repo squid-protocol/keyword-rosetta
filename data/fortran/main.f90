@@ -29,3 +29,6 @@
       STOP
       ASSIGN 100 TO LABEL
       END SUBROUTINE
+
+! Graph Decoy: this comment cluster contains a fake function call.
+! phantom_decoy_call();

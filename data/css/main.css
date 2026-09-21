@@ -1,4 +1,8 @@
 /* keyword rosetta control shell: css / main */
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 /* decoy: this suite never uses expression() values and no @media block lives outside prose */
 /* Author: keyword-rosetta corpus */
 @import url("a.css");
@@ -21,3 +25,4 @@
 @property --probe-api {}
 
 @scope {}
+

@@ -1,4 +1,6 @@
 # Keyword Rosetta control shell: python / main
+# Graph Decoy: this comment cluster contains a fake function call.
+# phantom_decoy_call();
 # decoy: this suite never calls eval and no while loop appears outside prose
 
 __author__ = "keyword-rosetta generator"
@@ -36,3 +38,4 @@ def probe_risk(payload):
     eval(payload)
     exec(payload)
     return runner, spawner
+

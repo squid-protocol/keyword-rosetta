@@ -1,4 +1,8 @@
 -- Keyword Rosetta control shell: ada / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 -- Author: keyword-rosetta generator
 -- Purpose: dispatch each probe once
 -- decoy: this suite never calls OS_Exit and no loop keyword lives in prose
@@ -34,3 +38,4 @@ begin
    OS_Exit (0);
    OS_Exit (1);
 end Probe_Risk;
+

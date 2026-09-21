@@ -1,4 +1,8 @@
 // keyword rosetta control shell: apex / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Author: keyword-rosetta generator
 // @description dispatch each probe once
 // decoy: this suite never calls emptyRecycleBin and no while loop lives outside prose
@@ -32,3 +36,4 @@ global static Integer probeRisk(Integer payload) {
     System.abortJob(payload);
     return payload;
 }
+

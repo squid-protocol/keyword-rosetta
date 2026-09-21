@@ -1,4 +1,8 @@
 -- keyword rosetta control shell: livecode / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 -- Author: keyword-rosetta generator
 -- Purpose: dispatch each probe once
 -- decoy: this suite never quits and the quit word stays in prose
@@ -30,3 +34,4 @@ on probe_risk pPayload
   get shell(pPayload)
   quit
 end probe_risk
+

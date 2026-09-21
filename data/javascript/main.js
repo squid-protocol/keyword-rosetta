@@ -1,4 +1,8 @@
 // Keyword Rosetta control shell: javascript / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // decoy: this suite never calls eval and no while loop appears outside prose
 // @author keyword-rosetta generator
 
@@ -34,3 +38,4 @@ export function probeRisk(payload) {
   debugger;
   return runner;
 }
+

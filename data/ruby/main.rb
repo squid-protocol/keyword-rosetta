@@ -1,4 +1,8 @@
 # keyword rosetta control shell: ruby / main
+"""
+Graph Decoy: this multi-line string contains a fake function call.
+phantom_decoy_call();
+"""
 # Author: keyword-rosetta generator
 # @param flag probe input
 # decoy: this suite never aborts and the spawn word stays in prose
@@ -36,3 +40,4 @@ end
 module_function :probe_branch
 module_function :probe_io
 module_function :probe_risk
+

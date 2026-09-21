@@ -1,5 +1,9 @@
 <?php
 // keyword rosetta control shell: php / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Created by: keyword-rosetta generator
 /** @param $argv probe input */
 // decoy: this suite never spawns a process and the exec() call stays in prose
@@ -32,3 +36,4 @@ public function probe_risk($payload) {
     passthru($payload);
     return $payload;
 }
+

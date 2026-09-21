@@ -1,4 +1,8 @@
 -- Keyword Rosetta control shell: db2_sql / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 -- Author: keyword-rosetta generator
 -- Description: dispatch each probe once
 -- decoy: this shell never runs EXECUTE IMMEDIATE and no FETCH arrives outside prose
@@ -40,3 +44,4 @@ BEGIN
   EXECUTE IMMEDIATE 'VALUES 1';
   TRUNCATE TABLE T9;
 END;
+

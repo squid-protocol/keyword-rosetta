@@ -1,4 +1,8 @@
 // keyword rosetta control shell: scala / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Created by: keyword-rosetta generator
 /** @param argv probe input */
 // decoy: this suite never calls sys.exit and no match block runs outside prose
@@ -32,3 +36,4 @@ def probeRisk(payload: Int): Int = {
   Thread.stop()
   payload
 }
+

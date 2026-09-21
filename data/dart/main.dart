@@ -1,4 +1,8 @@
 // keyword rosetta control shell: dart / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 // Author: keyword-rosetta generator
 /// Dispatch each probe once.
 // decoy: this suite never calls exit and no switch block runs outside prose
@@ -32,3 +36,4 @@ int probeRisk(int payload) {
   Process.killPid(payload);
   return payload;
 }
+

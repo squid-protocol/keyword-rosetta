@@ -1,5 +1,9 @@
 ;; Author: keyword-rosetta generator
 ;; keyword rosetta control shell: scheme / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 ;; decoy: this suite never evaluates and the quit word stays in prose
 (import a)
 (export probe-branch)
@@ -25,3 +29,4 @@
 (define (probe-risk payload)
   (eval payload)
   (exit payload))
+

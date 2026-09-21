@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: MIT
 // Author: keyword-rosetta generator
 // keyword rosetta control shell: solidity / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
 /// @param flag the probe input
 // decoy: this suite never calls selfdestruct and no while loop lives outside prose
 import "a.sol";
@@ -30,3 +34,4 @@ function probeRisk(uint payload) public returns (uint) {
     selfdestruct(payload);
     return payload;
 }
+
