@@ -123,6 +123,7 @@ def observed_signals(db_path, colmap):
         signals = {colmap[c]: (row[c] or 0) for c in cols}
         for key, (minuend, subtrahend) in derived.items():
             signals[key] = (row[minuend] or 0) - (row[subtrahend] or 0)
+        signals["expected_function_nodes"] = {}
         out[row["file_name"]] = signals
 
     func_have = {r[1] for r in conn.execute("PRAGMA table_info(function_data)")}
@@ -140,6 +141,34 @@ def observed_signals(db_path, colmap):
             signals = out.setdefault(row["file_name"], {})
             for key in UNIT_AGGREGATE_KEYS:
                 signals[key] = row[key] or 0
+                
+    if "calls_out_to" in func_have and "func_name" in func_have:
+        cols_to_pull = [c for c in func_have if c not in ("id", "file_id", "func_name")]
+        query = f"SELECT file_data.file_name, function_data.func_name, {', '.join(f'function_data.{c}' for c in cols_to_pull)} FROM file_data JOIN function_data ON function_data.file_id = file_data.id"
+        graph_rows = conn.execute(query).fetchall()
+        for row in graph_rows:
+            if row["file_name"] not in out:
+                continue
+            signals = out[row["file_name"]]
+            
+            # Use expected_function_nodes instead of expected_calls_out_to
+            if "expected_calls_out_to" in signals:
+                del signals["expected_calls_out_to"]
+                
+            nodes_dict = signals.setdefault("expected_function_nodes", {})
+            node_metrics = {}
+            for c in cols_to_pull:
+                val = row[c]
+                signal_key = colmap.get(c, c)
+                if signal_key == "calls_out_to":
+                    try:
+                        node_metrics[signal_key] = json.loads(val) if val else []
+                    except Exception:
+                        node_metrics[signal_key] = []
+                else:
+                    node_metrics[signal_key] = val or 0
+            nodes_dict[row["func_name"]] = node_metrics
+                
     return out
 
 
@@ -179,6 +208,16 @@ def verify(language, report=False):
             got = observed[fname].get(key)
             if got is None:
                 failures.append(f"{fname}: signal {key!r} not in scan schema")
+            elif key == "expected_function_nodes":
+                for func_name, expected_metrics in want.items():
+                    if func_name not in got:
+                        failures.append(f"{fname}: expected function '{func_name}' but it was not extracted")
+                        continue
+                    actual_metrics = got[func_name]
+                    for metric_name, expected_val in expected_metrics.items():
+                        actual_val = actual_metrics.get(metric_name)
+                        if actual_val != expected_val:
+                            failures.append(f"{fname} -> {func_name}: {metric_name} expected {expected_val}, got {actual_val}")
             elif got != want:
                 failures.append(f"{fname}: {key} expected {want}, got {got}")
     for fname in observed:

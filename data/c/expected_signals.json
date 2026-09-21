@@ -25,7 +25,34 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 4,
-      "units_documented": 1
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "entry": {
+          "calls_out_to": [
+            "probe_branch",
+            "probe_io",
+            "probe_risk"
+          ]
+        },
+        "probe_branch": {
+          "calls_out_to": []
+        },
+        "probe_io": {
+          "calls_out_to": [
+            "fopen",
+            "fread",
+            "socket"
+          ],
+          "io": 3
+        },
+        "probe_risk": {
+          "calls_out_to": [
+            "system",
+            "fork"
+          ],
+          "high_risk_execution": 2
+        }
+      }
     },
     "a.c": {
       "class_start": 0,
