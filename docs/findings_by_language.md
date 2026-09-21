@@ -79,6 +79,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.abap** · `* decoy: this suite never uses TRUNCATE and the SY-SUBRC field stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires globals 1, high_risk_execution 1 when the marker is removed. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping.
 - **b.abap** · `lv_note = 'PLAIN TRUNCATE DECOY TEXT'. (inside probe_state)` (string): danger-only decoy (#17 redesign, wave 3): TRUNCATE is abap's own danger keyword and was ALREADY in the retired sentence, but it read 0 — the sentence's own TRY fed abap's safety rule and the Silencer Region dampener (high_risk <- safety, 500 chars, same function) silenced it. That is the same mechanism the pilot found in python, not the 'third shielding profile' this entry previously recorded: abap shields nothing. Dropping TRY takes safety 1->0 and high_risk_execution 0->1. IF and SELECT never counted here (abap's branch and io rules do not match them), which is why no other count moves. Ledger: string-literal-selective-shielding
 - **c.abap** · `hack_level = cv_level` (code): inert (underscore + lowercase vs case-sensitive \bHACK\b)
+- **main.abap** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -99,6 +100,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.adb** · `never calls OS_Exit and no loop keyword` (comment): stripped: contributed 0
 - **b.adb** · `Note := "plain OS_Exit decoy text"; (Probe_State)` (string): danger-only decoy (#17 redesign): "OS_Exit" COUNTS from inside the literal (+1), undampened — Probe_State carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.adb** · `Hack_Level : Integer` (code): inert (underscore + lowercase vs case-sensitive \bHACK\b); declared without := so no state hit
+- **main.adb** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -129,6 +131,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.agc** · `# DECOY: THIS SUITE NEVER REACHES CURTAINS AND THE HALT WORD STAYS IN PROSE` (comment): contributes 0 -- CURTAINS and HALT both match agc's danger rule raw, and prism strips the # comment surface, so main.agc reads the 2 planted (CURTAINS/WHIMPER in PROBERISK) and no more. Recorded 2026-09-06 (keyword-rosetta#71): it was the only decoy in the corpus carrying two danger keywords and it was unlisted. NO STRING DECOY IS PLANTED FOR agc_assembly and none can be: the AGC assembler has no character-literal type at all (data is OCT/DEC/ERASE/EQUALS, all numeric), so there is no data position a danger token can sit in that is not an instruction position. SPEC §Decoys' own 'skip only if the language has no string literals' clause applies -- ledger string-decoy-unplantable-no-literal-surface.
 - **c.agc** · `RESUME under PROBECLEAN` (code): RESUME was dual cleanup+branch until gitgalaxy#2764 (c.agc branch 1); it is an interrupt RETURN, not a decision, and now reads cleanup only (plus structural_boundaries, which the SPEC does not plant). c.agc branch 0.
+- **main.agc** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -158,6 +161,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.cls** · `// decoy: this suite never calls emptyRecycleBin and no while loop lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.cls** · `String note = 'plain emptyRecycleBin decoy text'; (probeState)` (string): danger-only decoy (#17 redesign): "emptyRecycleBin" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.cls** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -180,6 +184,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.asm** · `; decoy: this suite never runs hlt and no loop branch stays outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires bitwise_ops 1, branch 1, high_risk_execution 1, panics_and_aborts 1, thread_sleeps 1 when the marker is removed; bitwise_ops, panics_and_aborts, thread_sleeps are not manifest keys, so not listed in signals. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose named 'halts' and 'branch', neither of which assembly's rules match -- it scored 2 only by accident, on the English words 'in' (io's `in` mnemonic) and 'and' (bitwise_ops). hlt and loop are the real mnemonics.
 - **b.asm** · `msg db "plain sys_exit decoy text" (inside probe_state)` (string): danger-only decoy (#17 redesign, wave 3): sys_exit COUNTS from inside the literal (+1), undampened -- probe_state carries no safety keyword. Retiring the shared sentence dropped branch 6->5 (its 'jmp') and io 1->0 (its 'syscall'). state_mutation was 6 until gitgalaxy#2764: probe_state's own 'ret' used to be a branch keyword, so the x3 flux weighting survived the loss of the phantom jmp. With call/ret/jmp out of `branch`, b.asm has no branch context at all and state_mutation reads its raw 2 (inc + dec) -- the same de-amplification #2634 produced for apex. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.asm** · `mov rax, hack_level` (code): inert (underscore + lowercase)
+- **main.asm** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -210,6 +215,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.bms** · `* decoy: FLDA DFHMDF POS UNSET STAYS IN PROSE` (comment): contributes 0 -- prism's bms mode (gitgalaxy#2505) strips the column-1 * line. Prose fires args 1 + ui_framework 1 when the marker is removed (the prose is macro-shaped by necessity: every bms code-stream rule is statement-position anchored, so only text that opens with a name field and a DFH macro can fire anything). The operand is written POS (no =) so the line cannot double as the dead_code plant while the marker is present -- dead_code's operand guard requires KEYWORD=.
 - **a.bms** · `HACKFLD (PROBEGLB's field)` (code): contributes 0, report-confirmed: fragile_debt's shared rule is \b-anchored, so the HACK inside the HACKFLD identifier never matches in the code stream (rule 18: the debt rules DO sweep the code stream, so this asserts the boundary, not comment anchoring). The string decoy is not carried: bms's high_risk_execution rule is None (nothing to receive the +1) and every non-comment rule is anchored to line-start statement position, so no mid-line INITIAL='...' keyword can strike any rule -- SPEC's +1 assertion is structurally unaskable here (see notes).
+- **main.bms** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -240,6 +246,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.c** · `// decoy: this suite never calls system() and the fork word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1 (`system(`, the call form gitgalaxy#2878 anchors on), api 1 (`calls system(` reads as a `<type> <name>(` function declarator to the #2907 rule) and ipc_rpc_bridges 1 (`fork`) when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Re-worded 2026-09-09 with gitgalaxy#2907: the old prose ('never calls into a shell ... the fork word') carried api only through the generic two-identifier declaration shape that #2907 retired, which put c under SPEC's 2-keyword floor (decoy_check); the new prose is back at three. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.c** · `const char *note = "plain system() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.c** · `int hack_level;` (code): inert (underscore + lowercase)
+- **main.c** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -279,6 +286,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.cbl** · `never ALTER this flow and no PERFORM loop` (comment): stripped: contributed 0
 - **a.cpy** · `DISPLAY 'PLAIN ALTER DECOY TEXT'. (inside PROBE-GLOBALS)` (string): danger-only decoy (#17 redesign, wave 3): ALTER is cobol's own danger keyword and was already in the retired sentence, counting +1 undampened — cobol shields nothing and PROBE-GLOBALS carries no safety keyword, so high_risk_execution does not move. What the redesign removes is the contamination: branch 1->0 (the old 'IF') and io 1->0 (the old 'OPEN'). Ledger: string-literal-selective-shielding
 - **c.cpy** · `77 HACK-LEVEL PIC 9. / DISPLAY HACK-LEVEL.` (code): INERT (fixed): gitgalaxy#2537 (PR #2622) added hyphenated-identifier guards to the shared debt patterns, so \bHACK\b no longer matches inside HACK-LEVEL and the PROBE-TODO paragraph name no longer adds planned_debt — c.cpy now records exactly the planted * HACK: / * TODO: comments (1 each). Ledger: cobol-hyphen-identifier-debt-leak (resolved)
+- **main.cbl** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -307,6 +315,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.cpp** · `// decoy: this suite never terminates early and the exit() call stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.cpp** · `const char *note = "plain system() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.cpp** · `int hack_level;` (code): inert
+- **main.cpp** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -333,6 +342,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.cs** · `// decoy: this suite never exits the process and the Environment.Exit word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 2, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.cs** · `var note = "plain Process.Start decoy text"; (ProbeState)` (string): danger-only decoy (#17 redesign): "Process.Start" COUNTS from inside the literal (+1), undampened — ProbeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.cs** · `var hack_level = level;` (code): inert
+- **main.cs** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -378,6 +388,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.css** · `/* decoy: this suite never uses expression() values and no @media block lives outside prose */` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **main.css** · `@media / @supports / @container` (code): the three planted branch at-rules are TRIPLE-counted: each is func_start (the #2507/#2513 'closest function-shaped construct' precedent), @media/@supports/@container are branch, and @supports is also safety — one @supports line = 3 signals
 - **b.css** · `content: "plain expression() decoy text" (@keyframes probe-state)` (string): the declaration goes INSIDE the existing @keyframes probe-state block, so structural_boundaries and func_start are unmoved; a new selector would have cost class_start +1. `expression` is css's own danger vocabulary (the IE expression() sink c.css plants for real). 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
+- **main.css** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -400,6 +411,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.dart** · `// decoy: this suite never calls exit and no switch block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.dart** · `final note = "plain exit decoy line"; (probeState)` (string): danger-only decoy (#17 redesign): "exit" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.dart** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -439,6 +451,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.sql** · `-- decoy: this shell never runs EXECUTE IMMEDIATE and no FETCH arrives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1 (EXECUTE IMMEDIATE) and io 1 (FETCH, not followed by FIRST) when the marker is removed; verified against the live compiled rules and by main's counts staying at their planted values in the report run.
 - **b.sql** · `INSERT INTO T1 VALUES ('plain DROP DATABASE decoy text'); (probe_state's carrier statement)` (string): danger-only literal, +1 high_risk_execution in b.sql (DROP DATABASE matches inside the string -- gitgalaxy#2535, no literal shielding). Same sentence as sqlite's decoy for cross-language comparability. Fillers (plain/decoy/text) checked against the menu: no other rule fires. Placed in probe_state, which carries no safety keywords, keeping the Silencer Region out of the experiment; b-file placement matches the corpus majority (see risk-safety-score-decoy-file-shortcircuit).
 - **a.sql** · `DECLARE HACK_LEVEL VARCHAR(128)` (code): contributes 0 -- db2_sql's fragile_debt is GLOBAL_FRAGILE_DEBT run over the comment stream only (detector.comment_analysis), so a code identifier carrying HACK never reaches it. a.sql's fragile_debt stayed 0 in the report run.
+- **main.sql** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -484,6 +497,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.dockerfile** · `# decoy: this suite never calls exec and no while loop runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.dockerfile** · `RUN export NOTE="plain eval decoy text" (the NOTE export line)` (string): danger-only decoy (#17 redesign): "eval" was already dockerfile's own danger keyword and still COUNTS from inside the literal (+1) — what the redesign removes is the branch/io contamination that made the old read ambiguous. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 4->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.dockerfile** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -522,6 +536,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.py** · `# decoy: this suite never calls machine.reset and no while loop runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 2, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.py** · `note = "plain machine.reset decoy line" (probe_state)` (string): danger-only decoy (#17 redesign): "machine.reset" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 3->2, io 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.py** · `hack_level = level` (code): inert (underscore)
+- **main.py** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -555,6 +570,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.f90** · `never uses GOTO and no DO loop -> re-authored 2026-09-08: `this suite never calls STOP and no DO loop appears outside prose`` (comment): stripped: contributed 0 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.f90** · `NOTE = 'PLAIN ASSIGN DECOY TEXT'` (string): danger-only decoy (#17 redesign): ASSIGN COUNTS from inside the literal (+1) -- same unshielded read as before, now uncontaminated. ASSIGN chosen over GOTO deliberately: GOTO is ALSO a fortran branch keyword, so the old literal's phantom branch context tripled this file's 2 assignments via the flux weighting (state 6) and added branch +2/io +1 noise. Now state reads 2 raw at x1.
 - **c.f90** · `HACK_LEVEL = LEV` (code): inert (underscore tokenization, as python) — but the assignment itself counts state_mutation +1 (fortran counts every NAME = value)
+- **main.f90** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -581,6 +597,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.go** · `// decoy: this suite never calls os.Exit and no select statement runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.go** · `note := "plain os.Exit decoy text" (inside probeState)` (string): danger-only decoy (#17 redesign): os.Exit COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the old sentence also removed its phantom branch ("if"), which had tripled probeState via the x3 flux weighting: state_mutation 11 -> 5 (3 raw + probe_bypass 2). Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.go** · `(no code reverse decoy — go file carries comment decoys only)` (comment): comment HACK/TODO count exactly 1 each
+- **main.go** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -603,6 +620,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.groovy** · `// decoy: this suite never exits and the System.exit() call stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.groovy** · `note = "plain System.exit() decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "System.exit()" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
+- **main.groovy** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -638,6 +656,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.hs** · `-- decoy: this suite never calls exitFailure and no case-of branch lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 2, high_risk_execution 1 when the marker is removed. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping.
 - **b.hs** · `where message = "plain die decoy text" (probeState's where-clause)` (string): danger-only decoy (#17 redesign): "die" COUNTS from inside the literal (+1), undampened — probeState's where-clause carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.hs** · `hackLevel where hackLevel = level` (code): inert (camelCase lowercase vs case-sensitive \bHACK\b)
+- **main.hs** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -662,6 +681,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.asm** · `*ROSDECOY ABEND 777 AFTER EXEC CICS DELAY STAYS PROSE` (comment): contributes 0 -- prism's bms-mode positional stripper (gitgalaxy#2503 widened the gate to hlasm) removes the column-1 * line. With the marker stripped the prose is statement-shaped by necessity (every hlasm code-stream rule anchors the operation field): name ROSDECOY + op ABEND fires high_risk_execution AND panics_and_aborts (the #2878 termination dual), and the unanchored EXEC CICS DELAY alternative fires thread_sleeps AND concurrency (the pli-inherited CICS dual) -- four rules from one stripped line.
 - **main.asm** · `DC C'EXEC CICS ABEND decoy text'` (string): +1 high_risk_execution in main.asm, the SPEC's literal-counting assertion: hlasm's statement-anchored rules cannot be struck mid-line, but the EXEC CICS command alternations are unanchored (they match wherever the translator-level text appears), so a danger phrase inside a C'...' literal counts like code (gitgalaxy#2535). Spill: panics_and_aborts +1 (EXEC CICS ABEND is the deliberate #2878 dual, so main reads 2 = the ABEND statement + this literal). Placed in PROBEIO, which carries no safety keywords, keeping the Silencer Region out of the experiment. The DC is unnamed so globals stays 0.
 - **a.asm** · `HACKLBL (PROBEGLB's local label)` (code): contributes 0: fragile_debt's shared rule is \b-anchored, so the HACK inside the HACKLBL identifier never matches in the code stream (rule 18: the debt rules DO sweep the code stream; this asserts the boundary, not comment anchoring). The label is a named DS 0H, which globals deliberately excludes (DC-only, the Rule 17 DSECT-layout ambiguity), so globals stays 2.
+- **main.asm** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -711,6 +731,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.html** · `<!-- decoy: this suite never sets srcdoc="anything" and the disabled word stays in prose -->` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, immutability_locks 1, safety 1 when the marker is removed; immutability_locks is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **main.html** · `9 <script></script> tags corpus-wide (main 2, a 3, b 1, c 3)` (code): func_start now reads one per tag (2/3/1/3) -- gitgalaxy#2549 FIXED: the splitter used to hand the whole <script>/<style> element to the JS/CSS lens, tag included, so html's own rule never saw its only anchor and every file baked 0. The opening tag is host markup now and stays in the html segment; only the payload after the `>` goes to the embedded lens, so the micro-repro that recorded a JS body's signals still does. Ledger html-script-func-start-unreachable (retired) and html-func-start-counts-script-elements (the live cause of 9 against the SPEC's 13)
 - **b.html** · `plain srcdoc="withheld" decoy text (#probe-api-b text node)` (string): html's literal surface is markup TEXT, not an attribute value: the text goes inside the existing <div id="probe-api-b">, so structural_boundaries and api are unmoved. io does not fire -- its rule needs src= and srcdoc= has no = after src.
+- **main.html** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -735,6 +756,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.java** · `// decoy: this suite never calls System.exit and no switch block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.java** · `String note = "plain Unsafe decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "Unsafe" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.java** · `int hack_level;` (code): inert
+- **main.java** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -770,6 +792,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **a.js** · `const message = "plain eval decoy text"; (probeGlobals)` (string): danger-only decoy (#17 redesign): "eval" now COUNTS from inside the literal (+1). It read 0 before only because the old sentence's own "try" fed the safety rule and the Silencer Region dampener (high_risk <- safety, 500 chars, same function) fired on it. PLACEMENT RULE: the literal moved from module scope into probeGlobals — module-level code falls back to flat 500-char-radius dampening (apply_dampener_correlations docstring), where probeSafety's typeof would re-dampen it. Retiring the shared sentence also dropped branch 2->0, safety 3->2. Ledger: string-literal-selective-shielding
 - **b.js** · `the try keyword stays in prose` (comment): stripped: contributed 0
 - **c.js** · `const HACK_LEVEL = level` (code): inert as in python — underscore is a word character so \bHACK\b cannot match; note this inertness is tokenization luck, not surface anchoring (see cobol + gitgalaxy#2537)
+- **main.js** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -812,6 +835,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.jcl** · `//* decoy: this suite never runs PGM=IKJEFT01 and no DISP=(OLD,DELETE) operand lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, cleanup 1, sync_locks 1 when the marker is removed. Re-authored 2026-09-07 (gitgalaxy#2841): the old prose used SYSOUT, but the contract's DD-statement-anchored io rule cannot fire on a comment line at all, which dropped the decoy under the SPEC 2-keyword floor; DISP=(OLD,DELETE) keeps two operand-anchored rules live.
 - **b.jcl** · `PARM='PLAIN PGM=IKJEFT01 DECOY' (PROBESTATE)` (string): widens an EXISTING EXEC step's PARM literal instead of adding a step: PARM= is once-per-EXEC and func_start counts the EXEC, so func_start and args both stay at 13. A new //DECOYX EXEC step would have cost +1 on each (keyword-rosetta#71).
+- **main.jcl** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -842,6 +866,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.kt** · `// decoy: this suite never calls exitProcess and no when block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.kt** · `val note = "plain System.exit decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "System.exit" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.kt** · `val hackLevel = level` (code): inert (camelCase)
+- **main.kt** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -869,6 +894,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.lc** · `-- decoy: this suite never quits and the quit word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.lc** · `put "plain quit decoy text" into tNote (probe_state)` (string): danger-only decoy (#17 redesign): "quit" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **a.lc** · `global gRegion / global gHome` (code): global is dual globals+safety_bypasses in livecode (a bypasses 2, predicted from the menus before scanning)
+- **main.lc** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -899,6 +925,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.lua** · `-- decoy: this suite never exits and the loop words stay in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 2 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.lua** · `note = "plain os.exit decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "os.exit" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.lua** · `(comment decoys only)` (comment): HACK/TODO comments count exactly 1 each
+- **main.lua** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -930,6 +957,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.m4** · `dnl decoy: this suite never runs esyscmd and no ifelse branch lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.m4** · `m4_define(probe_state, [pushdef(counter) m4_append(note, [plain esyscmd decoy text]) $1]) (the probe_state macro body)` (string): danger-only decoy (#17 redesign): "esyscmd" COUNTS from inside the literal (+1), undampened — the probe_state macro body carries no safety keyword, so the Silencer Region never fires. Ledger: string-literal-selective-shielding
+- **main.m4** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -970,6 +998,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.mk** · `# decoy: this suite never runs sudo apt and no wget call lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, io 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.mk** · `NOTE != echo "plain sudo decoy text" (the module-level NOTE assignment)` (string): danger-only decoy (#17 redesign): "sudo" COUNTS from inside the literal (+1), undampened — the module-level NOTE assignment carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped io 1->0. Ledger: string-literal-selective-shielding
+- **main.mk** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1003,6 +1032,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `markdown-prose-nonplanted-inputs` | intended-morphology | — | — | Markdown is prose: no execution model (concurrency, sync_locks), no visibility construct (encapsulation), no const/freeze concept (immutability_locks), no metaprogrammin… |
 | `orphan-detection-is-name-recurrence` | upstream-bug | [#2549](https://github.com/squid-protocol/gitgalaxy/issues/2549) [#2866](https://github.com/squid-protocol/gitgalaxy/issues/2866) | — | detector.py L1383 is the whole definition of orphaned_logic: `elif len(func_name) > 3 and token_counts[func_name] <= 1` -- a function is an orphan when its identifier ap… |
 
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.md** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
+
+</details>
 
 ## matlab
 
@@ -1020,6 +1054,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.m** · `% decoy: this suite never calls system words outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.m** · `note = 'plain exit decoy text'; (probe_state)` (string): danger-only decoy (#17 redesign): "exit" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, safety_bypasses 3->2, state_mutation 14->6. Ledger: string-literal-selective-shielding, state-flux-branch-weighting. 2026-09-03 (gitgalaxy#2654): state_mutation here is now 3, not 6 -- probe_state's `out = items;` is a return, not a mutation, so the survivors are `clear`, `clearvars` and this decoy's own `note =`.
+- **main.m** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1041,6 +1076,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.mm** · `// decoy: this suite never aborts and the exit word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.mm** · `NSString *note = @"plain abort decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "abort" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.mm** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1069,6 +1105,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.pl** · `# decoy: this suite never spawns a process and the qx word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.pl** · `my $note = "plain system() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.pl** · `my $hack_level = $level` (code): inert for debt, but the assignment counts state +1 (perl counts $var =)
+- **main.pl** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1095,6 +1132,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.php** · `// decoy: this suite never spawns a process and the exec() call stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.php** · `$note = "plain popen() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "popen()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.php** · `(comment decoys only)` (comment): HACK/TODO comments count exactly 1 each
+- **main.php** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1114,6 +1152,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.pli** · `OPEN FILE(NOTES) and IF SQLCODE checks live in prose only` (comment): stripped: contributed 0. The prose carries three anchored code-stream forms (contract C2): OPEN FILE( is io's record-I/O shape, IF SQLCODE is safety's embedded-SQL response test, and the bare IF is branch's -- pli's core menus are empty (statement-anchored rules), so the decoy plants the rules' own shapes, the fortran/bms precedent.
 - **a.pli** · `DCL MSG CHAR(22) INIT('PLAIN STOP; DECOY TEXT') (inside PROBE_GLOBALS)` (string): danger-only decoy (#17 design): STOP; COUNTS from inside the literal (+1, unshielded -- gitgalaxy#2535, no literal-shielding mechanism) and also counts panics_and_aborts +1 (unscored dual, gitgalaxy#2878's termination family -- same as fortran's STOP). STOP; is pli's own statement-shaped danger keyword; it is not a branch keyword, so no phantom flux context. Planted via DCL ... INIT (pli's declaration initial value), not an assignment, so state_mutation stays 0 in this file. PROBE_GLOBALS carries no safety keyword, keeping the Silencer Region out of the experiment.
 - **c.pli** · `DCL HACK_LEVEL FIXED BIN(15);` (code): inert (underscore tokenization, as python -- \bHACK\b cannot fire mid-identifier; the gitgalaxy#2537 hyphen guard is not even needed). c.pli records exactly the planted /* HACK: */ comment (1).
+- **main.pli** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1142,6 +1181,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.ps1** · `# decoy: this suite never invokes iex words outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, reflection_metaprogramming 1 when the marker is removed; reflection_metaprogramming is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.ps1** · `$note = "plain kill decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "kill" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.ps1** · `$hack_level = $level (probe_debt, no return)` (code): state stays 1 (x1): probe_debt has no branch keyword, so no flux context. Post-#2545 probe_todo's return is no longer a branch either, so c branch is 0 and the file is x1 throughout — this shell no longer discriminates per-function scoping (the go/matlab/dockerfile proofs in state-flux-branch-weighting still do).
+- **main.ps1** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1179,6 +1219,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **a.py** · `could open a socket in prose only` (comment): stripped: contributed 0
 - **a.py** · `message = "plain eval decoy text" (inside probe_globals)` (string): danger-only decoy (#17 redesign): eval COUNTS from inside the literal (+1), undampened -- proves strings count like code for the high-risk family too. The old sentence's eval read 0 only because its own 'try' fed python's safety rule and the Silencer Region dampener (high_risk <- safety, 500-char radius) fired; see string-literal-selective-shielding. PLACEMENT RULE: the literal sits INSIDE probe_globals -- module-level code falls back to flat-radius dampening (apply_dampener_correlations docstring), where probe_safety's assert would re-dampen it.
 - **b.py** · `the try keyword stays in prose` (comment): stripped: contributed 0
+- **main.py** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 - **c.py** · `HACK_LEVEL = level` (code): reverse decoy works: identifier did not count, the # HACK comment did (fragile_debt = 1 exactly)
 
 </details>
@@ -1203,6 +1244,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.rexx** · `ROSDECOY if the backlog grows then exit and interpret nothing` (comment): contributes 0 -- the recursive_block_rexx nested peel (gitgalaxy#2504) strips the /* */ block. With the marker stripped the prose fires branch (if) and high_risk_execution twice (bare exit and interpret both match mid-prose; then is #2822's excluded continuation word), verified against the live compiled rules; spill: the prose exit also fires panics_and_aborts (the #2878 dual), equally stripped to 0.
 - **main.rexx** · `'plain interpret decoy text'` (string): +1 high_risk_execution in main.rexx, the SPEC's literal-counting assertion (gitgalaxy#2535). The literal is a bare expression statement -- REXX's own host-command idiom -- so it plants no assignment and state_mutation stays 0 in main. Placed in probe_io, which carries no safety keywords, keeping the Silencer Region out of the experiment. interpret is not a branch keyword, per the string-decoy design rule.
 - **a.rexx** · `hack_level (probe_test's parameter)` (code): contributes 0: fragile_debt's shared rule is \b-anchored, so the HACK inside the hack_level identifier never matches in the code stream (the debt rules DO sweep the code stream; this asserts the boundary, not comment anchoring). As a parse arg template symbol it plants no assignment either.
+- **main.rexx** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1235,6 +1277,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.rb** · `# decoy: this suite never aborts and the spawn word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.rb** · `note = "plain system decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "system" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety_bypasses 3->2, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.rb** · `hack_level = level` (code): inert (underscore + lowercase)
+- **main.rb** · `phantom_decoy_call` (string): Graph Multi-line String Decoy (Rule 5 Exempt Fallback): Asserts that large literal blocks are successfully shielded from the Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1260,6 +1303,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.rs** · `// decoy: this suite never calls abort and no loop keyword lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping.
 - **b.rs** · `let message = "plain abort decoy text"` (string): danger-only decoy (#17 redesign): abort COUNTS from inside the literal (+1) -- the FIRST time rust's string decoy tests anything: the old sentence's eval matches nothing in rust's danger rule (process::exit/abort), a morphology mismatch mislabeled as shielding. Also feeds the non-core panics_and_aborts signal (+1, recorded not asserted). Phantom branch gone: the old 'if' tripled the 2 planted muts (state 6 -> 2 raw at x1).
 - **c.rs** · `let hack_level = level` (code): inert (underscore + lowercase)
+- **main.rs** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1284,6 +1328,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.scala** · `// decoy: this suite never calls sys.exit and no match block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.scala** · `val note = "plain Runtime.getRuntime.exec decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "Runtime.getRuntime.exec" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.scala** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1309,6 +1354,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.scm** · `;; decoy: this suite never evaluates and the quit word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.scm** · `(set! note "plain eval decoy text")) (probe-state)` (string): danger-only decoy (#17 redesign): "eval" already COUNTED from inside the literal (+1) and still does. scheme's sexp-anchored branch rule never matched the old prose "if", so no count moved at all — the redesign only removes the safety/io words that made the read ambiguous in every other language. Ledger: string-literal-selective-shielding
 - **c.scm** · `(define (probe-todo plan) ...)` (code): INERT (fixed): gitgalaxy#2537 (PR #2622) hyphenated-identifier guards — \bTODO\b no longer matches inside the probe-todo symbol; c.scm planned_debt re-baselined 2→1 (the ;; TODO: comment only). Kebab-case symbols no longer feed debt scoring.
+- **main.scm** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1339,6 +1385,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.sh** · `# decoy: this suite never runs sudo and no while loop lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping.
 - **b.sh** · `note="plain sudo decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "sudo" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, io 1->0, safety_bypasses 3->2, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.sh** · `: "$hack_level"` (code): inert (underscore + lowercase)
+- **main.sh** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1367,6 +1414,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.sol** · `// decoy: this suite never calls selfdestruct and no while loop lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, ipc_rpc_bridges 1 when the marker is removed; ipc_rpc_bridges is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.sol** · `string memory note = "plain selfdestruct decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "selfdestruct" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.sol** · `uint hack_level;` (code): inert (underscore)
+- **main.sol** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1413,6 +1461,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.sql** · `-- decoy: this suite never runs DROP DATABASE and no SELECT statement lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, io 1, structural_boundaries 1 when the marker is removed; structural_boundaries is not a manifest key, so not listed in signals. Re-authored 2026-09-06 (keyword-rosetta#73): the previous prose fired nothing (or one keyword), so it asserted nothing about comment stripping.
 - **b.sql** · `SELECT 'plain DROP DATABASE decoy text'; (probe_state's carrier statement)` (string): danger-only decoy (#17 redesign, wave 3): 'DROP DATABASE' COUNTS from inside the literal (+1). sqlite's danger vocabulary is multi-word (PRAGMA legacy_alter_table | DROP DATABASE) or a line-anchored dot-command, so a single bare token cannot express it — this is the one language where the decoy needs two words. Retiring the shared sentence dropped io 5->3 (its UPDATE and SELECT both being io keywords) and state_mutation 3->2 (its UPDATE). The carrier SELECT keeps its own io hit; b.sql io 3 is now planted UPDATE + carrier SELECT + .read. Ledger: string-literal-selective-shielding
 - **c.sql** · `hack_level;` (code): inert (underscore + lowercase)
+- **main.sql** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1440,6 +1489,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.swift** · `// decoy: this suite never traps and the abort word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.swift** · `let note = "plain assertionFailure decoy text" (probeState)` (string): danger-only decoy (#17 redesign): "assertionFailure" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, api 4->3, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.swift** · `let hackLevel = level` (code): inert (camelCase)
+- **main.swift** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1464,6 +1514,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.tcl** · `# decoy: this suite never execs and the exit word stays in prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.tcl** · `set note "plain exec decoy text" (probe_state)` (string): danger-only decoy (#17 redesign): "exec" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.tcl** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1493,6 +1544,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.ts** · `// decoy: this suite never calls eval and no while loop appears outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, safety 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.ts** · `const note = "plain eval decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "eval" now COUNTS from inside the literal (+1). It read 0 before only because the old sentence's own "try" fed the safety rule and the Silencer Region dampener (high_risk <- safety, 500 chars, same function) fired on it. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **c.ts** · `const HACK_LEVEL = level` (code): inert (underscore)
+- **main.ts** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1525,6 +1577,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.y** · `/* decoy: this suite never calls abort and no while loop lives outside a rule action */` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1, panics_and_aborts 1 when the marker is removed; panics_and_aborts is not a manifest key, so not listed in signals. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.y** · `(void)"plain abort decoy text" (probe_state action block)` (string): RECORD-ONLY (keyword-rosetta#71): the literal has been in b.y since the #17 redesign and is the whole of b.y's high_risk_execution 1, but the decoys array was left empty, so yacc read as a language with no decoy at all. No count changes with this entry. The `(void)` cast keeps it a statement inside the C action block without adding a state_mutation; `abort` is yacc's own danger vocabulary (abort|exit|YYNOMEM) and is not a branch keyword.
+- **main.y** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1561,6 +1614,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.yml** · `# decoy: this suite never calls eval and no while loop runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
 - **b.yml** · `NOTE: "plain eval decoy text" (probe_state env block)` (string): replaces the value of the existing NOTE key in probe_state's env block, so state_mutation (which the env: block header carries) and args are unmoved. Same shape as dockerfile's RUN export NOTE=.
+- **main.yml** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1585,5 +1639,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - **main.zig** · `// decoy: this suite never calls @panic and no switch block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.zig** · `var note = "plain std.process.exit decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "std.process.exit" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **main.zig** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
