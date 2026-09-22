@@ -1,0 +1,602 @@
+{
+  "_meta": {
+    "purpose": "Independent ground-truth oracle for the calls_out_to metric (gitgalaxy#3264 Phase 3). Derived by hand-reading every data/<lang>/ source file on 2026-09-22 with the engine NOT in the loop, so re-blessing expected_signals.json against a new engine build can be validated against corpus-design truth instead of circularly blessing engine output.",
+    "semantics": {
+      "entry_file": "file containing the dispatch/entry node",
+      "entry_node": "the dispatch/entry function name exactly as the engine extracts it",
+      "entry_required": "bare callee names that MUST all appear in the entry node's calls_out_to (subset check, order-free)",
+      "periphery": "informational per-function planted calls (bare form, minus names the engine's global ignore set filters); a precision-first engine may miss some -- the checker WARNS on these, never fails",
+      "forbidden_everywhere": "names that must NEVER appear in any calls_out_to array for this language (decoys, keyword traps); the checker FAILS on these",
+      "tolerated_noise": "known false-positive captures currently accepted; listed so future tightening has a ledger",
+      "known_gaps": "call edges that exist in the sample but are intentionally not extracted (precision-first), with rationale",
+      "expect_empty": "true = every calls_out_to in the manifest must be []; used for no-call-graph corpora and intentionally-blind languages"
+    },
+    "global_forbidden": ["phantom_decoy_call"],
+    "note": "Derived facts double-checked against the samples: cobol's entry deliberately PERFORMs only PROBE-IO and PROBE-RISK; rexx's 'call on error' is a condition trap, never a call; agc_assembly has exactly one real TC call; tcl contains no [bracket] substitutions; python/javascript/rust are the only languages with a real cross-file entry call (a.probe_globals / a.probeGlobals / a::probe_globals)."
+  },
+  "abap": {
+    "entry_file": "main.abap",
+    "entry_node": "dispatch",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {"probe_test": ["assert_equals"]},
+    "forbidden_everywhere": ["FUNCTION", "METHOD", "TRANSACTION", "WRITE", "TRUNCATE", "SELECT"],
+    "known_gaps": {"class_methods": "CL_ABAP_UNIT_ASSERT=>assert_equals( ) style method calls extracted only if the abap rule covers CALL METHOD/=> forms"}
+  },
+  "ada": {
+    "entry_file": "main.adb",
+    "entry_node": "Dispatch",
+    "entry_required": ["Probe_Branch", "Probe_Io", "Probe_Risk"],
+    "periphery": {
+      "Probe_Io": ["Open", "Create", "Read"],
+      "Probe_Risk": ["OS_Exit"],
+      "Probe_Test": ["Assert", "Run"],
+      "Probe_Telemetry": ["Trace", "Log"],
+      "Probe_Cleanup": ["Finalize", "Unchecked_Deallocation"]
+    },
+    "forbidden_everywhere": ["Volatile", "Suppress", "pragma"],
+    "known_gaps": {"pragmas": "pragma Volatile (X) / pragma Suppress (All_Checks) are written exactly like calls; the ada calls_out_ignore must swallow them"}
+  },
+  "agc_assembly": {
+    "entry_file": "main.agc",
+    "entry_node": "DISPATCH",
+    "entry_required": ["PROBEBR"],
+    "periphery": {},
+    "forbidden_everywhere": ["CA", "CAF", "TS", "XCH", "BANK", "EQUALS"],
+    "known_gaps": {"branches": "BZF/BZMF/BMN PROBEIO are conditional branches, not calls; only TC (transfer control) is a call. The sample's single real call edge is DISPATCH TC PROBEBR."}
+  },
+  "apex": {
+    "entry_file": "main.cls",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["emptyRecycleBin", "abortJob"],
+      "probeSafety": ["isAccessible", "StripInaccessible"],
+      "probeTelemetry": ["info", "error"],
+      "probeCleanup": ["rollback", "clear"]
+    },
+    "forbidden_everywhere": ["insert", "update"]
+  },
+  "assembly": {
+    "entry_file": "main.asm",
+    "entry_node": "dispatch",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_telemetry": ["log_info", "log_error"],
+      "probe_cleanup": ["free"]
+    },
+    "forbidden_everywhere": ["jz", "je", "jne", "mov", "syscall", "hlt", "sys_read", "sys_open"],
+    "known_gaps": {"jumps": "jz/je/jne are branches, not calls; only the `call` mnemonic produces edges"}
+  },
+  "bms": {
+    "expect_empty": true,
+    "note": "CICS screen-map macros (DFHMSD/DFHMDI/DFHMDF); no executable call syntax exists",
+    "forbidden_everywhere": ["DFHMDF", "DFHMDI", "POS", "LENGTH"]
+  },
+  "c": {
+    "entry_file": "main.c",
+    "entry_node": "entry",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_io": ["fopen", "fread", "socket"],
+      "probe_risk": ["system", "fork"],
+      "probe_test": ["TEST", "RUN_TEST"],
+      "probe_bypass": ["strcpy", "gets"],
+      "probe_telemetry": ["syslog", "log_info"],
+      "probe_cleanup": ["free", "close"]
+    },
+    "forbidden_everywhere": [],
+    "note": "the phantom_decoy_call comment sits INSIDE entry's body (unlike most languages) -- the strongest decoy tripwire in the corpus"
+  },
+  "cobol": {
+    "entry_file": "main.cbl",
+    "entry_node": "DISPATCH-PARA",
+    "entry_required": ["PROBE-IO", "PROBE-RISK"],
+    "periphery": {},
+    "forbidden_everywhere": ["PROBE-BRANCH", "ALTER", "PROCEED", "ENTRY", "HELPER-MODULE"],
+    "known_gaps": {"alter": "ALTER DISPATCH-PARA TO PROCEED TO PROBE-BRANCH references paragraphs without calling them; CANCEL HELPER-MODULE unloads, not calls. The entry deliberately does NOT perform PROBE-BRANCH -- if PROBE-BRANCH ever appears in DISPATCH-PARA's calls_out_to the extractor is capturing ALTER/PROCEED targets."}
+  },
+  "cpp": {
+    "entry_file": "main.cpp",
+    "entry_node": "entry",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_risk": ["terminate", "longjmp"],
+      "probe_test": ["TEST", "REQUIRE"],
+      "probe_telemetry": ["info", "error"],
+      "probe_cleanup": ["close", "free"]
+    },
+    "forbidden_everywhere": []
+  },
+  "csharp": {
+    "entry_file": "main.cs",
+    "entry_node": "Entry",
+    "entry_required": ["ProbeBranch", "ProbeIo", "ProbeRisk"],
+    "periphery": {
+      "ProbeIo": ["Open", "Join", "Wrap"],
+      "ProbeRisk": ["FailFast", "Exit"],
+      "ProbeTest": ["True"],
+      "ProbeTelemetry": ["LogInformation", "LogError"],
+      "ProbeState": ["Mutate"],
+      "ProbeCleanup": ["Collect", "SuppressFinalize"]
+    },
+    "forbidden_everywhere": [],
+    "tolerated_noise": ["nameof"]
+  },
+  "css": {
+    "expect_empty": true,
+    "note": "at-rules and @keyframes blocks; url()/expression() are value functions, not a call graph",
+    "forbidden_everywhere": ["expression", "url"]
+  },
+  "dart": {
+    "entry_file": "main.dart",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["exit", "killPid"],
+      "probeTest": ["group", "setUp"],
+      "probeTelemetry": ["info", "error"],
+      "probeState": ["setState", "notifyListeners"],
+      "probeCleanup": ["dispose", "close"]
+    },
+    "forbidden_everywhere": []
+  },
+  "db2_sql": {
+    "entry_file": "main.sql",
+    "entry_node": "ROSETTA_MAIN",
+    "entry_required": ["PROBE_BRANCH", "PROBE_IO", "PROBE_RISK"],
+    "periphery": {
+      "PROBE_BRANCH": ["NOTE_ONE", "NOTE_TWO", "NOTE_THREE"],
+      "PROBE_SAFETY": ["NOTE_FOUR", "NOTE_FIVE"],
+      "PROBE_BYPASS": ["NOTE_SIX"],
+      "PROBE_DEBT": ["NOTE_SEVEN"],
+      "PROBE_TODO": ["NOTE_EIGHT"]
+    },
+    "forbidden_everywhere": ["TABLE", "IMMEDIATE", "SESSION_USER", "SYSTEM_USER", "CURSOR"]
+  },
+  "dockerfile": {
+    "expect_empty": true,
+    "note": "intentionally blind (gitgalaxy#3264 Phase 3 decision): RUN bodies are shell, where call-vs-binary cannot be told apart by regex",
+    "forbidden_everywhere": ["RUN", "FROM", "eval", "exec"]
+  },
+  "embedded_python": {
+    "entry_file": "main.py",
+    "entry_node": "entry",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_risk": ["reset", "deepsleep"],
+      "probe_telemetry": ["info", "error"],
+      "probe_state": ["append", "update"],
+      "probe_cleanup": ["collect", "close"]
+    },
+    "forbidden_everywhere": []
+  },
+  "fortran": {
+    "entry_file": "main.f90",
+    "entry_node": "DISPATCH_PROBE",
+    "entry_required": ["PROBE_BRANCH", "PROBE_IO", "PROBE_RISK"],
+    "periphery": {"PROBE_TELEMETRY": ["log_info", "log_error"]},
+    "forbidden_everywhere": ["OPEN", "READ", "REWIND", "IF", "ELSEIF", "STOP", "ASSIGN", "DEALLOCATE", "NULLIFY", "EQUIVALENCE"],
+    "known_gaps": {"io_statements": "OPEN(UNIT=1)/READ(UNIT=1)/DEALLOCATE(...) are paren-attached statements the legacy C-style regex captured as garbage; the CALL-verb paradigm must not"}
+  },
+  "go": {
+    "entry_file": "main.go",
+    "entry_node": "entry",
+    "entry_required": ["ProbeBranch", "ProbeIo", "ProbeRisk"],
+    "periphery": {
+      "ProbeIo": ["Open", "Copy", "NewReader"],
+      "ProbeRisk": ["Exit", "Fatal"],
+      "ProbeGlobals": ["Getenv", "Environ"],
+      "ProbeTest": ["Run"],
+      "ProbeSafety": ["recover"],
+      "ProbeTelemetry": ["Info", "Error"],
+      "ProbeCleanup": ["Close", "Stop"]
+    },
+    "forbidden_everywhere": []
+  },
+  "groovy": {
+    "entry_file": "main.groovy",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["exit", "execute"],
+      "probeGlobals": ["getenv"],
+      "probeTest": ["assertEquals"],
+      "probeCleanup": ["close", "dispose"]
+    },
+    "forbidden_everywhere": []
+  },
+  "haskell": {
+    "entry_file": "main.hs",
+    "entry_node": "entry",
+    "entry_required": ["probeRisk", "probeIo", "probeBranch"],
+    "periphery": {
+      "region": ["unsafePerformIO", "newIORef"],
+      "home": ["unsafePerformIO", "newIORef"]
+    },
+    "forbidden_everywhere": ["where", "module", "data"],
+    "known_gaps": {"juxtaposition": "bare whitespace application (readFile writeFile openFile, die exitFailure, hspec shouldBe, ...) is not regex-extractable with acceptable precision; only parenthesis-adjacent applications are captured. entry's nested `probeRisk (probeIo (probeBranch argv))` yields all three."}
+  },
+  "hlasm": {
+    "entry_file": "main.asm",
+    "entry_node": "DISPATCH",
+    "entry_required": ["PROBEBR", "PROBEIO", "PROBERSK"],
+    "periphery": {},
+    "forbidden_everywhere": ["BALR", "BR", "DC", "DS", "CSECT", "COPY"],
+    "known_gaps": {"macros": "system macros (OPEN/GET/PUT/ABEND/ESTAEX/SNAPX/FREEMAIN/...) sit in the operation column and are not extracted; only =V(NAME) external linkage constants are calls. ROSMAC is defined but never invoked."}
+  },
+  "html": {
+    "expect_empty": true,
+    "note": "pure markup; onclick/srcdoc attribute strings and prose sendBeacon/clearInterval mentions are inert lures",
+    "forbidden_everywhere": ["eval", "sendBeacon", "clearInterval", "clearTimeout"]
+  },
+  "java": {
+    "entry_file": "main.java",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["ProcessBuilder", "exit"],
+      "probeGlobals": ["getenv"],
+      "probeTest": ["assertEquals"],
+      "probeCleanup": ["close", "release"]
+    },
+    "forbidden_everywhere": []
+  },
+  "javascript": {
+    "entry_file": "main.js",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk", "probeGlobals"],
+    "periphery": {
+      "probeRisk": ["eval"],
+      "probeTest": ["describe"],
+      "probeTelemetry": ["info", "error"],
+      "probeCleanup": ["close", "dispose"]
+    },
+    "forbidden_everywhere": [],
+    "note": "entry's a.probeGlobals(...) is one of the corpus's three real cross-file call edges"
+  },
+  "jcl": {
+    "entry_file": "main.jcl",
+    "entry_node": "DISPATCH",
+    "entry_required": ["ROSPROC"],
+    "periphery": {
+      "STEP2": ["BPXBATCH"],
+      "PROBEIO": ["ROSPROC"],
+      "PROBERISK": ["IKJEFT01"]
+    },
+    "forbidden_everywhere": ["INCLUDE", "PGM", "PROC", "MEMBER"],
+    "known_gaps": {"commented_step": "//*PROBEDEAD EXEC ROSPROC,PARM='D' in c.jcl is a commented-out step decoy: no PROBEDEAD node/edge may exist. INCLUDE MEMBER=a/b/c are copybook includes, not program calls."}
+  },
+  "kotlin": {
+    "entry_file": "main.kt",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["exitProcess", "exit"],
+      "probeTest": ["shouldBe"],
+      "probeSafety": ["check"],
+      "probeCleanup": ["close", "use"]
+    },
+    "forbidden_everywhere": []
+  },
+  "livecode": {
+    "entry_file": "main.lc",
+    "entry_node": "probe_dispatch",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_risk": ["shell"],
+      "probe_test": ["Levure", "runTests"],
+      "probe_telemetry": ["revLog", "logInfo"]
+    },
+    "forbidden_everywhere": ["on", "end", "then", "repeat", "into", "global"],
+    "tolerated_noise": ["open", "read", "write", "get", "put", "delete", "disable", "unlock", "stop"],
+    "known_gaps": {"builtins": "command-position capture cannot distinguish user handlers from english-verb built-in commands; the tolerated_noise verbs are genuine command invocations, kept"}
+  },
+  "lua": {
+    "entry_file": "main.lua",
+    "entry_node": "entry",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_io": ["open", "read", "lines"],
+      "probe_risk": ["execute", "exit"],
+      "probe_test": ["busted", "luassert"],
+      "probe_safety": ["pcall", "xpcall"],
+      "probe_bypass": ["rawget", "rawset"],
+      "probe_telemetry": ["ERR"],
+      "probe_cleanup": ["collectgarbage", "close"]
+    },
+    "forbidden_everywhere": []
+  },
+  "m4": {
+    "entry_file": "main.m4",
+    "entry_node": "probe_dispatch",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_risk": ["syscmd", "esyscmd"],
+      "probe_globals": ["AC_ARG_VAR"],
+      "probe_test": ["AT_SETUP", "AT_CHECK"],
+      "probe_safety": ["m4_assert", "AC_CHECK_LIB"],
+      "probe_telemetry": ["AC_MSG_CHECKING", "AC_MSG_RESULT"],
+      "probe_state": ["pushdef", "m4_append"],
+      "probe_cleanup": ["popdef"]
+    },
+    "forbidden_everywhere": [],
+    "tolerated_noise": ["ifelse", "ifdef", "m4_if", "changequote", "changecom"],
+    "known_gaps": {"control_macros": "m4 control flow IS macro invocation (ifelse/ifdef); they are genuine calls but graph noise -- candidates for calls_out_ignore, ledgered as tolerated_noise until then"}
+  },
+  "makefile": {
+    "entry_file": "main.mk",
+    "entry_node": "probe_dispatch",
+    "entry_required": ["probe_branch"],
+    "periphery": {},
+    "forbidden_everywhere": ["PHONY", "ifeq", "MAKE", "SHELL"],
+    "known_gaps": {"prerequisites": "the dependency edges `probe_dispatch: probe_branch probe_io probe_risk` cannot be captured by a one-group findall (documented non-goal, gitgalaxy#3264); recipe lines are shell. Only $(call name) is extracted -- the sample's single $(call probe_branch)."}
+  },
+  "markdown": {
+    "expect_empty": true,
+    "note": "prose and headings; the mermaid block and [a](a.md) links are not calls",
+    "forbidden_everywhere": []
+  },
+  "matlab": {
+    "entry_file": "main.m",
+    "entry_node": "entry",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_io": ["load", "save", "fopen"],
+      "probe_risk": ["system", "dos"],
+      "probe_test": ["verifyEqual", "assertEqual"],
+      "probe_safety": ["narginchk", "validateattributes"],
+      "probe_bypass": ["eval", "evalin"],
+      "probe_telemetry": ["log4m", "logInfo"],
+      "probe_cleanup": ["delete", "onCleanup"]
+    },
+    "forbidden_everywhere": [],
+    "known_gaps": {"indexing": "array indexing x(3) is syntactically identical to a call; an inherent, documented precision limit of the paren paradigm in matlab"}
+  },
+  "objective-c": {
+    "entry_file": "main.mm",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["abort", "exit"],
+      "probeTest": ["XCTAssert"],
+      "probeSafety": ["NSAssert"],
+      "probeTelemetry": ["os_log", "DDLogInfo"],
+      "probeCleanup": ["free", "release"]
+    },
+    "forbidden_everywhere": ["self"],
+    "known_gaps": {"selectors": "the three entry edges are [self probeX:argv] message sends -- the paradigm must capture the selector head, never the receiver; unary no-arg selectors [obj init] are a known recall gap"}
+  },
+  "perl": {
+    "entry_file": "main.pl",
+    "entry_node": "entry",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_io": ["open", "sysopen", "opendir"],
+      "probe_risk": ["system", "qx"],
+      "probe_test": ["ok", "subtest"],
+      "probe_safety": ["croak", "confess"],
+      "probe_bypass": ["eval"],
+      "probe_telemetry": ["info", "error"],
+      "probe_state": ["push", "pop"],
+      "probe_cleanup": ["undef", "finish"]
+    },
+    "forbidden_everywhere": ["my", "our", "local", "unless", "elsif"]
+  },
+  "php": {
+    "entry_file": "main.php",
+    "entry_node": "probe_dispatch",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_io": ["fopen", "fread", "query"],
+      "probe_risk": ["exec", "passthru"],
+      "probe_test": ["run", "assertTrue"],
+      "probe_safety": ["isset"],
+      "probe_bypass": ["unserialize", "extract"],
+      "probe_telemetry": ["info", "error"],
+      "probe_cleanup": ["unset", "dispose"]
+    },
+    "forbidden_everywhere": []
+  },
+  "pli": {
+    "entry_file": "main.pli",
+    "entry_node": "ROSETTA",
+    "entry_required": ["PROBE_BRANCH", "PROBE_IO", "PROBE_RISK"],
+    "periphery": {
+      "PROBE_BRANCH": ["NOTE_ONE", "NOTE_TWO", "NOTE_THREE"],
+      "PROBE_TEST": ["ZUNIT", "TEST4Z"],
+      "PROBE_SAFETY": ["NOTE_FOUR", "NOTE_FIVE"],
+      "PROBE_BYPASS": ["NOTE_SIX"],
+      "PROBE_TELEMETRY": ["PLIDUMP", "CEEMOUT"],
+      "PROBE_TODO": ["NOTE_SEVEN"]
+    },
+    "forbidden_everywhere": ["FILE", "OPTIONS", "INIT", "WHILE", "NOTES"],
+    "known_gaps": {"statements": "OPEN/READ/WRITE/CLOSE FILE(...), DCL ...(...), FETCH WORKER are paren-attached statements, not calls; ON ERROR CALL X and (STRINGRANGE): CALL X condition-prefixed CALLs ARE calls"}
+  },
+  "powershell": {
+    "entry_file": "main.ps1",
+    "entry_node": "probe_dispatch",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_io": ["iwr", "irm", "TcpClient"],
+      "probe_risk": ["iex", "kill"],
+      "probe_test": ["Mock", "Should"],
+      "probe_safety": ["ValidateSet"],
+      "probe_bypass": ["Out-Null"],
+      "probe_telemetry": ["Write-Verbose", "Write-Warning"]
+    },
+    "forbidden_everywhere": ["param"],
+    "known_gaps": {"methods": "$conn.dispose() method calls start the line with $ and are outside command position -- a recall gap; Export-ModuleMember names functions without invoking them"}
+  },
+  "python": {
+    "entry_file": "main.py",
+    "entry_node": "entry",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk", "probe_globals"],
+    "periphery": {
+      "probe_risk": ["eval", "exec"],
+      "probe_telemetry": ["info", "error"],
+      "probe_state": ["append", "update"],
+      "probe_cleanup": ["close", "shutdown"]
+    },
+    "forbidden_everywhere": ["open", "pathlib", "socket", "unittest", "pytest"],
+    "note": "open/pathlib/socket/unittest/pytest appear ONLY as bare name references (no parens) -- if any shows up in calls_out_to the extractor started capturing references. entry's a.probe_globals(...) is a real cross-file edge."
+  },
+  "rexx": {
+    "entry_file": "main.rexx",
+    "entry_node": "dispatch",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {},
+    "forbidden_everywhere": ["on", "off", "error", "old_probe", "value"],
+    "known_gaps": {"condition_traps": "'call on error' (a.rexx) and 'signal on syntax' set condition traps -- a naive CALL regex captures 'on'; rexx's calls_out_ignore must swallow on/off/error. /* call old_probe 1 */ is a commented-out call decoy. ooRexx ~method messages (.environment~put) are not extracted."}
+  },
+  "ruby": {
+    "entry_file": "main.rb",
+    "entry_node": "entry",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_risk": ["abort", "spawn"],
+      "probe_test": ["describe"],
+      "probe_safety": ["freeze"],
+      "probe_telemetry": ["info", "error"],
+      "probe_state": ["push", "pop"],
+      "probe_cleanup": ["close", "shutdown"]
+    },
+    "forbidden_everywhere": ["module_function", "elsif"]
+  },
+  "rust": {
+    "entry_file": "main.rs",
+    "entry_node": "entry",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk", "probe_globals"],
+    "periphery": {
+      "probe_risk": ["exit", "abort"],
+      "probe_safety": ["unwrap_or", "ok_or"],
+      "probe_bypass": ["unwrap"],
+      "probe_cleanup": ["drop", "close"]
+    },
+    "forbidden_everywhere": [],
+    "known_gaps": {"macros": "name!(...) macro invocations (assert!, assert_eq!, info!, error!) are not captured by the paren paradigm (the ! breaks adjacency) -- known recall gap. entry's a::probe_globals(...) is a real cross-file edge."}
+  },
+  "scala": {
+    "entry_file": "main.scala",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["exit", "stop"],
+      "probeTest": ["assertEquals"],
+      "probeSafety": ["assume"],
+      "probeBypass": ["asInstanceOf"],
+      "probeTelemetry": ["info", "error"],
+      "probeCleanup": ["close", "dispose"]
+    },
+    "forbidden_everywhere": []
+  },
+  "scheme": {
+    "entry_file": "main.scm",
+    "entry_node": "entry",
+    "entry_required": ["probe-branch", "probe-io", "probe-risk"],
+    "periphery": {
+      "probe-io": ["read", "write", "display"],
+      "probe-risk": ["eval", "exit"],
+      "probe-test": ["test-assert", "test-equal"],
+      "probe-safety": ["guard"],
+      "probe-bypass": ["set-car!", "set-cdr!"],
+      "probe-telemetry": ["syslog"],
+      "probe-cleanup": ["close-input-port", "close-port"]
+    },
+    "forbidden_everywhere": ["define", "cond", "lambda", "quote", "export"],
+    "known_gaps": {"operators": "(> flag 0) applies the > procedure; the letter-first identifier rule misses it (accepted precision trade)"}
+  },
+  "shell": {
+    "expect_empty": true,
+    "note": "intentionally blind (gitgalaxy#3264 Phase 3 decision, confirmed 2026-09-22): every command-position word is potentially an external binary; call-vs-binary cannot be told apart by regex",
+    "forbidden_everywhere": ["sudo", "eval", "curl"]
+  },
+  "solidity": {
+    "entry_file": "main.sol",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["selfdestruct"],
+      "probeTest": ["assertEq", "setUp"],
+      "probeState": ["push"]
+    },
+    "forbidden_everywhere": ["unchecked", "assembly"]
+  },
+  "sqlite": {
+    "expect_empty": true,
+    "note": "no user call graph exists: probe_* names are CREATE INDEX names; the only paren-call syntax is the readfile()/writefile() builtins",
+    "forbidden_everywhere": ["corpus", "VALUES", "PRAGMA"]
+  },
+  "swift": {
+    "entry_file": "main.swift",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["fatalError", "abort"],
+      "probeTest": ["XCTest", "XCTAssert"],
+      "probeSafety": ["precondition"],
+      "probeTelemetry": ["Logger", "os_log"],
+      "probeCleanup": ["close", "free"]
+    },
+    "forbidden_everywhere": ["guard"]
+  },
+  "tcl": {
+    "entry_file": "main.tcl",
+    "entry_node": "probe_dispatch",
+    "entry_required": ["probe_branch", "probe_io", "probe_risk"],
+    "periphery": {
+      "probe_io": ["open", "gets", "socket"],
+      "probe_risk": ["exec", "exit"],
+      "probe_test": ["do_test", "finish_test"],
+      "probe_safety": ["trap"],
+      "probe_bypass": ["uplevel", "upvar"],
+      "probe_telemetry": ["log::log", "syslog"],
+      "probe_cleanup": ["close", "unset"]
+    },
+    "forbidden_everywhere": ["proc", "namespace", "source", "elseif", "global"],
+    "known_gaps": {"no_brackets": "the sample contains zero [bracket] command substitutions; command position is the only call site"}
+  },
+  "typescript": {
+    "entry_file": "main.ts",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["eval"],
+      "probeTest": ["describe"],
+      "probeTelemetry": ["info", "error"],
+      "probeCleanup": ["close", "dispose"]
+    },
+    "forbidden_everywhere": ["fetch", "axios", "fs"],
+    "note": "fetch/axios/fs appear only as bare references (no parens); their presence in calls_out_to means reference-capture regression"
+  },
+  "yacc": {
+    "entry_file": "main.y",
+    "entry_node": "dispatch",
+    "entry_required": [],
+    "periphery": {
+      "probe_io": ["fopen"],
+      "probe_risk": ["abort", "exit"],
+      "probe_telemetry": ["syslog", "YYDPRINTF"],
+      "probe_cleanup": ["free", "YYFREE"]
+    },
+    "forbidden_everywhere": ["ONE", "TWO", "THREE"],
+    "known_gaps": {"productions": "dispatch : probe_branch ; is a grammar production reference, not a C call -- entry has NO call edges; real calls live only inside { } action blocks"}
+  },
+  "yaml": {
+    "expect_empty": true,
+    "note": "workflow markup; probe_* are input keys, uses: ./a.yml is an include, shell lives inside run: string scalars",
+    "forbidden_everywhere": ["curl", "wget", "eval", "chmod"]
+  },
+  "zig": {
+    "entry_file": "main.zig",
+    "entry_node": "entry",
+    "entry_required": ["probeBranch", "probeIo", "probeRisk"],
+    "periphery": {
+      "probeRisk": ["panic", "exit"],
+      "probeTest": ["expectEqual"],
+      "probeSafety": ["unlock"],
+      "probeTelemetry": ["info", "err"],
+      "probeCleanup": ["deinit", "free"]
+    },
+    "forbidden_everywhere": []
+  }
+}
