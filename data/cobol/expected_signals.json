@@ -32,7 +32,10 @@
           "calls_out_to": []
         },
         "DISPATCH-PARA": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "PROBE-IO",
+            "PROBE-RISK"
+          ]
         },
         "PROBE-IO": {
           "calls_out_to": []
