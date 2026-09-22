@@ -190,7 +190,7 @@
       "signals": [
         "fragile_debt"
       ],
-      "outcome": "inert (underscore tokenization, as python) \u2014 but the assignment itself counts state_mutation +1 (fortran counts every NAME = value)"
+      "outcome": "inert (underscore tokenization, as python) — but the assignment itself counts state_mutation +1 (fortran counts every NAME = value)"
     },
     {
       "file": "main.f90",
