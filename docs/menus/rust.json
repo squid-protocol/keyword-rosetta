@@ -33,6 +33,11 @@
     ],
     "pattern_defined": true
   },
+  "calls_out": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "class_start": {
     "core": false,
     "keywords": [],
