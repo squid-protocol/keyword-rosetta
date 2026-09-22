@@ -6,10 +6,10 @@
 <text x="16" y="84" fill="#5c6670">or a scoring weight sitting inside a count — the work left. <tspan font-weight="600" fill="#6b7680">Grey</tspan> is a documented variation: the language cannot express the construct,</text>
 <text x="16" y="100" fill="#5c6670">a deliberate scoring choice, or an echo of another row. Each row's bar: in band (±25% of the median) · documented · open defect; the badge prints the accounted share — everything that is not an open defect.</text>
 <text x="16" y="134" font-size="22" font-weight="700" fill="#c0392b">0.0%</text>
-<text x="16" y="150" font-size="10.5" fill="#5c6670">open-defect share · 1 of 2850 cells</text>
+<text x="16" y="150" font-size="10.5" fill="#5c6670">open-defect share · 0 of 2850 cells</text>
 <text x="258" y="134" font-size="22" font-weight="700" fill="#1b2430">94%</text>
 <text x="258" y="150" font-size="10.5" fill="#5c6670">average share in band, 54 gated metrics</text>
-<text x="499" y="134" font-size="22" font-weight="700" fill="#1b2430">1</text>
+<text x="499" y="134" font-size="22" font-weight="700" fill="#1b2430">0</text>
 <text x="499" y="150" font-size="10.5" fill="#5c6670">cells with no verdict at all</text>
 <text x="740" y="134" font-size="22" font-weight="700" fill="#1b2430">51</text>
 <text x="740" y="150" font-size="10.5" fill="#5c6670">languages</text>
@@ -30,7 +30,7 @@
 <line x1="16" y1="210" x2="982" y2="210" stroke="#e3e6ea"/>
 <text x="16" y="228" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">STRUCTURAL EXTRACTION</text>
 <text x="208" y="228" font-size="11.5" fill="#5c6670">the slicer: functions, parameters, classes and dependency edges — the spread of one program's counts across languages, not recall</text>
-<text x="982" y="228" font-size="11.5" font-weight="700" fill="#1b2430" text-anchor="end">group: 93% in band · <tspan fill="#c0392b">1 open defect (0%)</tspan></text>
+<text x="982" y="228" font-size="11.5" font-weight="700" fill="#1b2430" text-anchor="end">group: 93% in band · <tspan fill="#c0392b">0 open defects (0%)</tspan></text>
 <text x="447.5" y="248" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
 <text x="574.7" y="248" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
 <text x="638.4" y="248" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
@@ -42,11 +42,10 @@
 <line x1="638.4" y1="252" x2="638.4" y2="468" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <line x1="765.6" y1="252" x2="765.6" y2="468" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <line x1="829.3" y1="252" x2="829.3" y2="468" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<text x="16" y="276.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">dependency_links</text>
-<text x="272" y="276.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">2 doc</text>
+<text x="16" y="276.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">classes_found</text>
+<text x="272" y="276.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">presence · n/a 6</text>
 <rect x="288" y="265.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="265.0" width="113.4" height="14" fill="#2f855a" rx="2"/>
-<rect x="401.4" y="265.0" width="4.6" height="14" fill="#a3acb3"/>
+<rect x="288" y="265.0" width="118.0" height="14" fill="#2f855a" rx="2"/>
 <text x="293.0" y="276.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="266.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="266.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -54,17 +53,13 @@
 <line x1="829.3" y1="266.0" x2="829.3" y2="278.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="264.0" x2="702.0" y2="280.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="272.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="274.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">49</text>
-<circle cx="982.0" cy="272.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="786.8" cy="272.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="276.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">49/51</text>
-<text x="786.8" y="287.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="945.2" y="287.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
-<text x="16" y="312.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">func_start</text>
-<text x="272" y="312.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1 · 2 doc</text>
+<text x="702.0" y="274.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">45</text>
+<text x="763.1" y="276.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">45/45</text>
+<text x="16" y="312.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">dependency_links</text>
+<text x="272" y="312.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">2 doc</text>
 <rect x="288" y="301.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="301.0" width="113.3" height="14" fill="#2f855a" rx="2"/>
-<rect x="401.3" y="301.0" width="4.7" height="14" fill="#a3acb3"/>
+<rect x="288" y="301.0" width="113.4" height="14" fill="#2f855a" rx="2"/>
+<rect x="401.4" y="301.0" width="4.6" height="14" fill="#a3acb3"/>
 <text x="293.0" y="312.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="302.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="302.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -72,20 +67,17 @@
 <line x1="829.3" y1="302.0" x2="829.3" y2="314.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="300.0" x2="702.0" y2="316.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="308.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="310.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">45</text>
-<circle cx="721.6" cy="308.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="728.9" y="310.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="780.3" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="741.2" cy="308.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="623.7" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="312.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">48/50</text>
-<text x="623.7" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="780.3" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="16" y="348.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">functions_found</text>
-<text x="272" y="348.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 3 · 2 doc</text>
+<text x="702.0" y="310.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">49</text>
+<circle cx="982.0" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="786.8" cy="308.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="312.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">49/51</text>
+<text x="786.8" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="945.2" y="323.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
+<text x="16" y="348.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">func_start</text>
+<text x="272" y="348.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 1 · 2 doc</text>
 <rect x="288" y="337.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="337.0" width="113.1" height="14" fill="#2f855a" rx="2"/>
-<rect x="401.1" y="337.0" width="4.9" height="14" fill="#a3acb3"/>
+<rect x="288" y="337.0" width="113.3" height="14" fill="#2f855a" rx="2"/>
+<rect x="401.3" y="337.0" width="4.7" height="14" fill="#a3acb3"/>
 <text x="293.0" y="348.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="338.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="338.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -93,19 +85,20 @@
 <line x1="829.3" y1="338.0" x2="829.3" y2="350.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="336.0" x2="702.0" y2="352.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="344.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="346.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">44</text>
+<text x="702.0" y="346.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">45</text>
 <circle cx="721.6" cy="344.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
 <text x="728.9" y="346.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
 <circle cx="780.3" cy="344.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="447.5" cy="344.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="348.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">46/48</text>
-<text x="447.5" y="359.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<circle cx="741.2" cy="344.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="623.7" cy="344.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="348.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">48/50</text>
+<text x="623.7" y="359.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
 <text x="780.3" y="359.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="16" y="384.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">args</text>
-<text x="272" y="384.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 2 · 7 doc</text>
+<text x="16" y="384.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">functions_found</text>
+<text x="272" y="384.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 3 · 2 doc</text>
 <rect x="288" y="373.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="373.0" width="101.1" height="14" fill="#2f855a" rx="2"/>
-<rect x="389.1" y="373.0" width="16.9" height="14" fill="#a3acb3"/>
+<rect x="288" y="373.0" width="113.1" height="14" fill="#2f855a" rx="2"/>
+<rect x="401.1" y="373.0" width="4.9" height="14" fill="#a3acb3"/>
 <text x="293.0" y="384.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="374.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="374.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -113,28 +106,19 @@
 <line x1="829.3" y1="374.0" x2="829.3" y2="386.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="372.0" x2="702.0" y2="388.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="380.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="382.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">40</text>
-<circle cx="643.3" cy="380.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="525.8" cy="380.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="741.2" cy="380.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="467.0" cy="380.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
-<text x="467.0" y="382.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="506.2" cy="380.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="839.1" cy="380.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="486.6" cy="380.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="384.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">42/49</text>
-<text x="467.0" y="395.0" font-size="8" fill="#6b7680" text-anchor="middle">hlasm</text>
-<text x="504.9" y="395.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
-<text x="545.2" y="395.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="575.7" y="395.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="601.3" y="395.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="641.6" y="395.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="839.1" y="395.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
-<text x="16" y="420.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">class_start</text>
-<text x="272" y="420.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact · n/a 5 · 7 doc</text>
+<text x="702.0" y="382.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">44</text>
+<circle cx="721.6" cy="380.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="728.9" y="382.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="780.3" cy="380.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="447.5" cy="380.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="384.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">46/48</text>
+<text x="447.5" y="395.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="780.3" y="395.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="16" y="420.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">args</text>
+<text x="272" y="420.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">n/a 2 · 7 doc</text>
 <rect x="288" y="409.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="409.0" width="100.0" height="14" fill="#2f855a" rx="2"/>
-<rect x="388.0" y="409.0" width="18.0" height="14" fill="#a3acb3"/>
+<rect x="288" y="409.0" width="101.1" height="14" fill="#2f855a" rx="2"/>
+<rect x="389.1" y="409.0" width="16.9" height="14" fill="#a3acb3"/>
 <text x="293.0" y="420.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="410.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="410.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -142,35 +126,46 @@
 <line x1="829.3" y1="410.0" x2="829.3" y2="422.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="408.0" x2="702.0" y2="424.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="416.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="418.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">39</text>
-<circle cx="956.5" cy="416.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
-<text x="956.5" y="418.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
-<text x="763.1" y="420.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">39/46</text>
-<text x="786.8" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">bms</text>
-<text x="812.4" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
-<text x="838.0" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
-<text x="875.8" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="913.7" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="941.7" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">kotlin</text>
-<text x="972.2" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="16" y="456.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">classes_found</text>
-<text x="272" y="456.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">presence · n/a 6</text>
+<text x="702.0" y="418.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">40</text>
+<circle cx="643.3" cy="416.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="525.8" cy="416.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="741.2" cy="416.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="467.0" cy="416.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
+<text x="467.0" y="418.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="506.2" cy="416.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="839.1" cy="416.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="486.6" cy="416.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="420.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">42/49</text>
+<text x="467.0" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">hlasm</text>
+<text x="504.9" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
+<text x="545.2" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="575.7" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
+<text x="601.3" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="641.6" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="839.1" y="431.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
+<text x="16" y="456.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">class_start</text>
+<text x="272" y="456.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact · n/a 5 · 7 doc</text>
 <rect x="288" y="445.0" width="118" height="14" fill="#eceff2" rx="2"/>
-<rect x="288" y="445.0" width="115.4" height="14" fill="#2f855a" rx="2"/>
-<rect x="403.4" y="445.0" width="2.6" height="14" fill="#c0392b"/>
-<text x="293.0" y="456.0" font-size="10.5" font-weight="700" fill="#ffffff">98%</text>
-<text x="410" y="456.0" font-size="9" font-weight="700" fill="#c0392b">1</text>
+<rect x="288" y="445.0" width="100.0" height="14" fill="#2f855a" rx="2"/>
+<rect x="388.0" y="445.0" width="18.0" height="14" fill="#a3acb3"/>
+<text x="293.0" y="456.0" font-size="10.5" font-weight="700" fill="#ffffff">100%</text>
 <rect x="422.0" y="446.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="446.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="446.0" x2="574.7" y2="458.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="446.0" x2="829.3" y2="458.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="444.0" x2="702.0" y2="460.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="452.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="454.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">44</text>
-<circle cx="956.5" cy="452.0" r="4.2" fill="#c0392b" fill-opacity=".6"/>
-<circle cx="956.5" cy="452.0" r="7" fill="none" stroke="#c0392b" stroke-width="1.6"/>
-<text x="763.1" y="456.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">44/45</text>
-<text x="956.5" y="443.0" font-size="8" fill="#9e2b21" text-anchor="middle">bms</text>
+<text x="702.0" y="454.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">39</text>
+<circle cx="956.5" cy="452.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
+<text x="956.5" y="454.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
+<text x="763.1" y="456.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">39/46</text>
+<text x="786.8" y="467.0" font-size="8" fill="#6b7680" text-anchor="middle">bms</text>
+<text x="812.4" y="467.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
+<text x="838.0" y="467.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
+<text x="875.8" y="467.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="913.7" y="467.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="941.7" y="467.0" font-size="8" fill="#6b7680" text-anchor="middle">kotlin</text>
+<text x="972.2" y="467.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
 <line x1="16" y1="480" x2="982" y2="480" stroke="#e3e6ea"/>
 <text x="16" y="498" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">KEYWORD EXTRACTION</text>
 <text x="184" y="498" font-size="11.5" fill="#5c6670">one rule per signal; every count here was planted on purpose, in every language</text>

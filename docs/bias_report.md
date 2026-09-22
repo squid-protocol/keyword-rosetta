@@ -23,30 +23,22 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | undefined | 20 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
 | ledgered | 115 | a validated deviation-ledger entry names this language and this metric |
 | derived | 34 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
-| **unexplained** | **1** | **survived all three -- the real work remaining** |
-
-Unexplained cells, by metric:
-
-- `classes_found` — bms
+| **unexplained** | **0** | **survived all three -- the real work remaining** |
 
 ## What the red cells are
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 1 of 2850 comparable cells (0.0%)** across 58 gated metrics; 1 of the 170 out-of-band cells are open defects.
+**Open-defect share: 0 of 2850 comparable cells (0.0%)** across 58 gated metrics; 0 of the 169 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
-| **unexplained** | 1 | survived every mechanism -- the gate fails on these |
+| **unexplained** | 0 | survived every mechanism -- the gate fails on these |
 | **extraction** | 0 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
 | scoring | 54 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
 | inherency | 81 | the best the language can do: intended-morphology, or a per-function descriptor where the language has no functions |
 | echo | 34 | derived -- an upstream deviation counted again downstream |
-
-Metrics carrying the most open defect, by share of their comparable cells:
-
-- `classes_found` — 1 of 45 (2%)
 
 Ledger entries that currently explain **no** out-of-band cell (validated, still reproducing, but their signal x language cross-product lands entirely in band — keyword-rosetta#75's decay check): `api-contextual-baseline-fix`, `asm-single-letter-mnemonic-in-path`, `haskell-caf-bindings-count-as-functions`, `batch4-dual-keyword-overlaps`, `comment-lines-manifest-doc-classification`, `units-public-main-outside-api-contract`, `secrets-lens-inert-formats`. Narrow or retire them.
 
