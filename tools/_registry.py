@@ -494,12 +494,16 @@ def scoring_strata(languages):
 # gitgalaxy#2796: languages whose compilation unit IS a named container -- the file
 # cannot exist without a container declaration, so a nonzero class/container count is
 # morphology, not an extraction defect. cobol PROGRAM-ID, jcl JOB card, dockerfile
-# FROM. Deliberately a small CURATED set, not derived from the container-construct
-# ledger entries' `languages_seen` (which also list plant artifacts -- kotlin's
-# object-as-globals -- and out-of-scope selector cases). The "file cannot exist
-# without it" test is what separates these three from a language that merely CAN
-# declare a type: a `.kt`/`.py`/`.rb` file is valid with no type at all.
-CONTAINER_REQUIRED_LANGUAGES = frozenset({"cobol", "jcl", "dockerfile"})
+# FROM, bms DFHMSD mapset header. Deliberately a small CURATED set, not derived from
+# the container-construct ledger entries' `languages_seen` (which also list plant
+# artifacts -- kotlin's object-as-globals -- and out-of-scope selector cases). The
+# "file cannot exist without it" test is what separates these from a language that
+# merely CAN declare a type: a `.kt`/`.py`/`.rb` file is valid with no type at all.
+# bms qualifies on the same test (keyword-rosetta bms classes_found red dot): a `.bms`
+# source cannot BE a mapset without its `DFHMSD TYPE=...` header, so classes_found 1
+# is the mapset container, banded on presence like the others -- the same fact the
+# `container-construct-reads-as-class-start` ledger entry validated for class_start.
+CONTAINER_REQUIRED_LANGUAGES = frozenset({"cobol", "jcl", "dockerfile", "bms"})
 
 
 def declaration_strata(languages):
