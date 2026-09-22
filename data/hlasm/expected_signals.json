@@ -29,7 +29,25 @@
       "dead_code": 0,
       "spec_exposure": 0,
       "units_public": 4,
-      "units_documented": 1
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "PROBEBR": {
+          "calls_out_to": []
+        },
+        "DISPATCH": {
+          "calls_out_to": [
+            "PROBEBR",
+            "PROBEIO",
+            "PROBERSK"
+          ]
+        },
+        "PROBEIO": {
+          "calls_out_to": []
+        },
+        "PROBERSK": {
+          "calls_out_to": []
+        }
+      }
     },
     "a.asm": {
       "branch": 0,
@@ -55,7 +73,18 @@
       "dead_code": 0,
       "spec_exposure": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBEGLB": {
+          "calls_out_to": []
+        },
+        "PROBESAF": {
+          "calls_out_to": []
+        },
+        "PROBETST": {
+          "calls_out_to": []
+        }
+      }
     },
     "b.asm": {
       "branch": 0,
@@ -81,7 +110,18 @@
       "dead_code": 0,
       "spec_exposure": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBEBYP": {
+          "calls_out_to": []
+        },
+        "PROBETEL": {
+          "calls_out_to": []
+        },
+        "PROBESTA": {
+          "calls_out_to": []
+        }
+      }
     },
     "c.asm": {
       "branch": 0,
@@ -107,7 +147,18 @@
       "dead_code": 1,
       "spec_exposure": 1,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBECLN": {
+          "calls_out_to": []
+        },
+        "PROBETOD": {
+          "calls_out_to": []
+        },
+        "PROBEDBT": {
+          "calls_out_to": []
+        }
+      }
     }
   },
   "decoys": [
@@ -147,5 +198,5 @@
       "outcome": "Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology."
     }
   ],
-  "notes": "HLASM morphology (gitgalaxy#2503): functions are named control sections (CSECT; 13 = 12 probes + DISPATCH), each body running to the next section statement (Mode A). args is the MACRO-prototype symbolic-parameter list -- the only construct that DECLARES parameters (executable units receive theirs via the undeclared R1 parameter-list convention) -- planted once in b.asm (&LAB ROSMAC &ARG1); the CSECT probes therefore read args 0, a stated fallback (docs/args_rule_contract.md). api = every CSECT (an external symbol, public to the linker by default -- the func_start dual, bms's DFHMDI shape); no ENTRY statement is planted, so api == func_start per file. hlasm keeps the by_name census (deliberately unlike bms/jcl: `L 15,=V(name)` + BALR reaches a CSECT by name), but api_orphan_credit reads 0 in a/b/c as well as main: every uncalled probe's declaration line (name CSECT) is itself an api-rule hit, so galaxyscope's Contextual Baseline Fix credits only the orphans the api rule did NOT already count (gitgalaxy#2731, the go shell's exact shape -- ledger api-declared-orphans-are-not-new-surface). The chain still resolves (COPY member names, case-insensitive): the fix's debt wipe runs, so a/b/c read unreferenced_by_name 0 post-adjustment while main keeps 1 (DISPATCH, uncalled and unimported); DISPATCH's =V() references clear main's own probes. import is the assembler COPY statement (main->a->b->c, members resolve case-insensitively). branch plants are menu-exact conditional/count branches (BCR/BRCT/BCTG); BR 14 returns and BALR calls are structural_boundaries (#2764's relocation) and are not asserted. globals = the two NAMED DC constants in a.asm (the assembly.py labeled-storage family; named DS is excluded by the Rule 17 DSECT ambiguity). safety = ESTAEX/ESPIE installs; ESTAE 0 is the CANCEL form and lands in safety_bypasses beside EXEC CICS IGNORE CONDITION. cleanup = FREEMAIN + FREEPOOL; FREEMAIN is also memory_alloc's (the pli ALLOCATE/FREE dual), so c.asm shows memory_alloc 1 in the report -- recorded here, not asserted. test is a stated absence (rule None -- zUnit/Test4z execute COBOL/PL/I, not assembler). Unasserted report-visible spill, all explained: pointers 3 in main (the =V() address constants), structural_boundaries everywhere (the instruction tally), macros 2 in b.asm (MACRO/MEND around the args prototype), decorators/scientific 0. The engine-lens secret plant sits on c.asm as a * comment (sec_hardcoded_secrets 1). dead_code 1 is c.asm's *DEADLBL commented-out DC (operand-guarded); spec_exposure 1 is the *-anchored [SPEC-2503] tag. class_start 0 everywhere is the corpus tripwire: no DSECT is planted, and DSECT is hlasm's class_start (the #2856 record/struct family), the profile's documented deviation from the issue text."
+  "notes": "HLASM morphology (gitgalaxy#2503): functions are named control sections (CSECT; 13 = 12 probes + DISPATCH), each body running to the next section statement (Mode A). args is the MACRO-prototype symbolic-parameter list -- the only construct that DECLARES parameters (executable units receive theirs via the undeclared R1 parameter-list convention) -- planted once in b.asm (&LAB ROSMAC &ARG1); the CSECT probes therefore read args 0, a stated fallback (docs/args_rule_contract.md). api = every CSECT (an external symbol, public to the linker by default -- the func_start dual, bms's DFHMDI shape); no ENTRY statement is planted, so api == func_start per file. hlasm keeps the by_name census (deliberately unlike bms/jcl: `L 15,=V(name)` + BALR reaches a CSECT by name), but api_orphan_credit reads 0 in a/b/c as well as main: every uncalled probe's declaration line (name CSECT) is itself an api-rule hit, so galaxyscope's Contextual Baseline Fix credits only the orphans the api rule did NOT already count (gitgalaxy#2731, the go shell's exact shape -- ledger api-declared-orphans-are-not-new-surface). The chain still resolves (COPY member names, case-insensitive): the fix's debt wipe runs, so a/b/c read unreferenced_by_name 0 post-adjustment while main keeps 1 (DISPATCH, uncalled and unimported); DISPATCH's =V() references clear main's own probes. import is the assembler COPY statement (main->a->b->c, members resolve case-insensitively). branch plants are menu-exact conditional/count branches (BCR/BRCT/BCTG); BR 14 returns and BALR calls are structural_boundaries (#2764's relocation) and are not asserted. globals = the two NAMED DC constants in a.asm (the assembly.py labeled-storage family; named DS is excluded by the Rule 17 DSECT ambiguity). safety = ESTAEX/ESPIE installs; ESTAE 0 is the CANCEL form and lands in safety_bypasses beside EXEC CICS IGNORE CONDITION. cleanup = FREEMAIN + FREEPOOL; FREEMAIN is also memory_alloc's (the pli ALLOCATE/FREE dual), so c.asm shows memory_alloc 1 in the report -- recorded here, not asserted. test is a stated absence (rule None -- zUnit/Test4z execute COBOL/PL/I, not assembler). Unasserted report-visible spill, all explained: pointers 3 in main (the =V() address constants), structural_boundaries everywhere (the instruction tally), macros 2 in b.asm (MACRO/MEND around the args prototype), decorators/scientific 0. The engine-lens secret plant sits on c.asm as a * comment (sec_hardcoded_secrets 1). dead_code 1 is c.asm's *DEADLBL commented-out DC (operand-guarded); spec_exposure 1 is the *-anchored [SPEC-2503] tag. class_start 0 everywhere is the corpus tripwire: no DSECT is planted, and DSECT is hlasm's class_start (the #2856 record/struct family), the profile's documented deviation from the issue text. 2026-09-22: calls_out re-baselined for the CALL-verb/mainframe paradigms (gitgalaxy#3284, Epic #3264 Phase 3)."
 }
