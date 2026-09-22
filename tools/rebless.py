@@ -74,8 +74,24 @@ def _qualify_issue(ref):
     return ref
 
 
+FUNCTION_NODES = "expected_function_nodes"
+
+
+def _key_str(key):
+    """Render a moved-cell key (plain string or per-function tuple) for printing."""
+    return ".".join(key) if isinstance(key, tuple) else key
+
+
 def diff_manifest(manifest, observed, add_keys):
-    """(moved, warnings). moved is [(file, key, old_or_None, new)]."""
+    """(moved, warnings). moved is [(file, key, old_or_None, new)].
+
+    `key` is a plain manifest key, or -- for per-function metrics -- the tuple
+    (FUNCTION_NODES, func_name, metric). The manifest's function nodes are a
+    CURATED subset of the scan's raw rows (which carry every signal column), so
+    the diff recurses per function per metric instead of comparing the whole
+    dict; a wholesale replacement would flood the manifest with the raw payload
+    (gitgalaxy#3264 Phase 3 hit exactly that on the first calls_out_to move).
+    """
     moved, warnings = [], []
     for fname, expectations in manifest.get("files", {}).items():
         obs = observed.get(fname)
@@ -83,19 +99,49 @@ def diff_manifest(manifest, observed, add_keys):
             warnings.append(f"{fname}: NOT SCANNED (skipped)")
             continue
         for key, want in expectations.items():
+            if key == FUNCTION_NODES:
+                got_nodes = obs.get(FUNCTION_NODES) or {}
+                for func, want_metrics in want.items():
+                    got_node = got_nodes.get(func)
+                    if got_node is None:
+                        warnings.append(f"{fname}: function {func!r} not in scan (skipped)")
+                        continue
+                    for metric, want_val in want_metrics.items():
+                        if metric not in got_node:
+                            warnings.append(
+                                f"{fname}: {func}.{metric} not in scan schema (skipped)"
+                            )
+                        elif got_node[metric] != want_val:
+                            moved.append(
+                                (fname, (FUNCTION_NODES, func, metric), want_val, got_node[metric])
+                            )
+                continue
             got = obs.get(key)
             if got is None:
                 warnings.append(f"{fname}: signal {key!r} not in scan schema (skipped)")
             elif got != want:
                 moved.append((fname, key, want, got))
-        for key in add_keys:
-            if key in expectations:
+        for spec in add_keys:
+            if spec.startswith("functions:"):
+                metric = spec.split(":", 1)[1]
+                want_nodes = expectations.get(FUNCTION_NODES, {})
+                for func, got_node in (obs.get(FUNCTION_NODES) or {}).items():
+                    if metric in (want_nodes.get(func) or {}):
+                        continue
+                    if metric not in got_node:
+                        warnings.append(
+                            f"{fname}: --add-keys {func}.{metric} not in scan schema (skipped)"
+                        )
+                        continue
+                    moved.append((fname, (FUNCTION_NODES, func, metric), None, got_node[metric]))
                 continue
-            got = obs.get(key)
+            if spec in expectations:
+                continue
+            got = obs.get(spec)
             if got is None:
-                warnings.append(f"{fname}: --add-keys {key!r} not in scan schema (skipped)")
+                warnings.append(f"{fname}: --add-keys {spec!r} not in scan schema (skipped)")
                 continue
-            moved.append((fname, key, None, got))
+            moved.append((fname, spec, None, got))
     return moved, warnings
 
 
@@ -139,7 +185,7 @@ def main():
         print(f"{args.language}: {len(moved)} cell(s) moved against {args.engine}")
         for fname, key, old, new in moved:
             was = "absent" if old is None else old
-            print(f"  {fname}: {key} {was} -> {new}")
+            print(f"  {fname}: {_key_str(key)} {was} -> {new}")
     else:
         print(f"{args.language}: nothing moved against {args.engine}")
 
@@ -161,7 +207,13 @@ def main():
         return 0
 
     for fname, key, _old, new in moved:
-        manifest["files"][fname][key] = new
+        target = manifest["files"][fname]
+        if isinstance(key, tuple):
+            for part in key[:-1]:
+                target = target.setdefault(part, {})
+            target[key[-1]] = new
+        else:
+            target[key] = new
     note = args.note.strip()
     existing = manifest.get("notes", "")
     manifest["notes"] = f"{existing.rstrip()} {note}".strip() if existing else note
