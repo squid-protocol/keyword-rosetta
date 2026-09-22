@@ -31,13 +31,24 @@
           "calls_out_to": []
         },
         "probe_dispatch": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "probe_branch",
+            "probe_io",
+            "probe_risk"
+          ]
         },
         "probe_io": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "open",
+            "gets",
+            "socket"
+          ]
         },
         "probe_risk": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "exec",
+            "exit"
+          ]
         }
       }
     },
@@ -67,10 +78,15 @@
           "calls_out_to": []
         },
         "probe_test": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "do_test",
+            "finish_test"
+          ]
         },
         "probe_safety": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "trap"
+          ]
         }
       }
     },
@@ -97,10 +113,16 @@
       "units_documented": 0,
       "expected_function_nodes": {
         "probe_bypass": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "uplevel",
+            "upvar"
+          ]
         },
         "probe_telemetry": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "log::log",
+            "syslog"
+          ]
         },
         "probe_state": {
           "calls_out_to": []
@@ -132,7 +154,10 @@
       "units_documented": 0,
       "expected_function_nodes": {
         "probe_cleanup": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "close",
+            "unset"
+          ]
         },
         "probe_debt": {
           "calls_out_to": []
@@ -170,5 +195,5 @@
       "outcome": "Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology."
     }
   ],
-  "notes": "source is dual import+io (main io 4 = 3 planted + source; every chain link adds io — sqlite .read family). close is dual cleanup+io (c io 1). a branch 1 = trap (dual safety+branch, finditer-confirmed). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exec\" literal inside probe_state — b.tcl high_risk_execution 0->1, branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3. api (gitgalaxy#2729): one `namespace export probe_x` per probe proc, placed directly after the source line (after the header in c.tcl), count 3 per file main/a/b/c (probe_dispatch not exported); matches only tcl's api rule (structural_boundaries, ungated, picks up `namespace`). api_orphan_credit 3->0 in a/b/c: the export line is a second occurrence of each proc's name in its file, and the orphan check (detector.py, token_counts[name] <= 1) is name-recurrence, so the imported probes are no longer orphans and there is nothing left for the Contextual Baseline Fix to convert — the source chain still resolves (import 1 per link, unchanged); the credit is lost to the plant, not to the DAG. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.tcl state_mutation 3->2: `lappend items 2` removed -- the decoy's own `set note \"...\"` is a real write and was the third; the rule agrees with the contract, the plant carried three writes. 2026-09-06 (gitgalaxy#2822 corollary 1): branch no longer counts trap/catch/try/finally (safety owns all four) -- a branch 1->0. 2026-09-07 gitgalaxy#2841 (io contract): `source` is import's hit and `close` is cleanup's (C2 one-owner -- retires this language's `batch4-dual-keyword-overlaps` io slice and the probe-idiom io surplus); open/gets/socket count in command position. main.tcl io 4->3, a/b/c 1->0. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data"
+  "notes": "source is dual import+io (main io 4 = 3 planted + source; every chain link adds io — sqlite .read family). close is dual cleanup+io (c io 1). a branch 1 = trap (dual safety+branch, finditer-confirmed). Locked 2026-08-31. String decoy redesigned per keyword-rosetta#17 (2026-09-02, wave 2): danger-only \"exec\" literal inside probe_state — b.tcl high_risk_execution 0->1, branch 2->0, safety 1->0, io 2->1, safety_bypasses 3->2, state_mutation 9->3. api (gitgalaxy#2729): one `namespace export probe_x` per probe proc, placed directly after the source line (after the header in c.tcl), count 3 per file main/a/b/c (probe_dispatch not exported); matches only tcl's api rule (structural_boundaries, ungated, picks up `namespace`). api_orphan_credit 3->0 in a/b/c: the export line is a second occurrence of each proc's name in its file, and the orphan check (detector.py, token_counts[name] <= 1) is name-recurrence, so the imported probes are no longer orphans and there is nothing left for the Contextual Baseline Fix to convert — the source chain still resolves (import 1 per link, unchanged); the credit is lost to the plant, not to the DAG. gitgalaxy#2765 (state_mutation contract, 2026-09-06): b.tcl state_mutation 3->2: `lappend items 2` removed -- the decoy's own `set note \"...\"` is a real write and was the third; the rule agrees with the contract, the plant carried three writes. 2026-09-06 (gitgalaxy#2822 corollary 1): branch no longer counts trap/catch/try/finally (safety owns all four) -- a branch 1->0. 2026-09-07 gitgalaxy#2841 (io contract): `source` is import's hit and `close` is cleanup's (C2 one-owner -- retires this language's `batch4-dual-keyword-overlaps` io slice and the probe-idiom io surplus); open/gets/socket count in command position. main.tcl io 4->3, a/b/c 1->0. 2026-09-09 (gitgalaxy#2908 Phase 2): per-unit is_public/is_documented recorded; units_public/units_documented added from function_data 2026-09-22: calls_out re-baselined for the command-position paradigm -- real command edges recorded, keyword/param garbage removed (gitgalaxy#3285, Epic #3264 Phase 3)."
 }
