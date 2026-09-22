@@ -26,7 +26,29 @@
       "planned_debt": 0,
       "encapsulation": 0,
       "units_public": 4,
-      "units_documented": 1
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "PROBE_BRANCH": {
+          "calls_out_to": [
+            "NOTE_ONE",
+            "NOTE_TWO",
+            "NOTE_THREE"
+          ]
+        },
+        "ROSETTA": {
+          "calls_out_to": [
+            "PROBE_BRANCH",
+            "PROBE_IO",
+            "PROBE_RISK"
+          ]
+        },
+        "PROBE_IO": {
+          "calls_out_to": []
+        },
+        "PROBE_RISK": {
+          "calls_out_to": []
+        }
+      }
     },
     "a.pli": {
       "import": 1,
@@ -50,7 +72,24 @@
       "doc": 0,
       "encapsulation": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBE_GLOBALS": {
+          "calls_out_to": []
+        },
+        "PROBE_TEST": {
+          "calls_out_to": [
+            "ZUNIT",
+            "TEST4Z"
+          ]
+        },
+        "PROBE_SAFETY": {
+          "calls_out_to": [
+            "NOTE_FOUR",
+            "NOTE_FIVE"
+          ]
+        }
+      }
     },
     "b.pli": {
       "import": 1,
@@ -74,7 +113,23 @@
       "doc": 0,
       "encapsulation": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBE_STATE": {
+          "calls_out_to": []
+        },
+        "PROBE_BYPASS": {
+          "calls_out_to": [
+            "NOTE_SIX"
+          ]
+        },
+        "PROBE_TELEMETRY": {
+          "calls_out_to": [
+            "PLIDUMP",
+            "CEEMOUT"
+          ]
+        }
+      }
     },
     "c.pli": {
       "import": 0,
@@ -99,7 +154,20 @@
       "high_risk_execution": 0,
       "encapsulation": 0,
       "units_public": 3,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBE_CLEANUP": {
+          "calls_out_to": []
+        },
+        "PROBE_DEBT": {
+          "calls_out_to": []
+        },
+        "PROBE_TODO": {
+          "calls_out_to": [
+            "NOTE_SEVEN"
+          ]
+        }
+      }
     }
   },
   "decoys": [
@@ -140,5 +208,5 @@
       "outcome": "Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology."
     }
   ],
-  "notes": "First scan matched planted intent exactly (0 unexplained deltas; engine main 6a4d7800, full_precision). api morphology: pli's api rule is the explicit-marker fallback family (OPTIONS(MAIN)/OPTIONS(FETCHABLE), EXPORTS(, label: ENTRY -- an external PL/I procedure is public by default with nothing in the syntax marking it, docs/api_rule_contract.md), so the shell plants OPTIONS(MAIN) on the entry (which also takes the runtime parm string, keeping args at 13 corpus-wide) and OPTIONS(FETCHABLE) on every probe -- coherent with main.pli's FETCH WORKER plant, and api reads 4/3/3/3 = 13 like fortran. api_orphan_credit 0 everywhere: each probe's name sits on its own api-matched OPTIONS line, so gitgalaxy#2827's name search finds every orphan already declared and the Contextual Baseline Fix credits nothing; the main->a->b->c %INCLUDE chain is asserted by the import cells (fortran precedent, ledger api-declared-orphans-are-not-new-surface). Every core menu except branch/globals/test/debt is empty because pli's rules are statement-anchored (READ FILE(, ON ERROR, CALL PLIDUMP(, label: PROC), so plants use the rules' own anchored shapes per SPEC/#73 contract C2. safety 2 = one ON-unit with a real handler (ON ERROR CALL ...) + one enabling condition prefix ((STRINGRANGE):); safety_bypasses 2 = one disabling prefix ((NOSIZE):) + one null on-unit (ON CONVERSION; -- excluded from safety by its own ;-lookahead, no double count). state_mutation is statement-anchored (PL/I spells = for assignment and comparison), so only PROBE_STATE's two assignment statements count; every other probe uses CALL/DCL glue with zero assignments. GO TO deliberately unused anywhere (it is safety_bypasses'). encapsulation (INTERNAL), dead_code and spec_exposure rules exist but the corpus plants none (zero-median columns, exact-agreement scoring) -- recorded 0, INTERNAL never written. STOP in PROBE_RISK also counts panics_and_aborts +1 (unscored). decorators reads 4/3/3/3 from the OPTIONS( attribute lists (unplanted vocabulary). %INCLUDE members resolve case-insensitively to a.pli/b.pli/c.pli (case_insensitive_imports, PDS-member semantics). Secret plant /* api_key = ... */ in c.pli reads sec_hardcoded_secrets 1 (engine-lens, no manifest column), placed away from any telemetry/debug sink (the x50 amplifier)."
+  "notes": "First scan matched planted intent exactly (0 unexplained deltas; engine main 6a4d7800, full_precision). api morphology: pli's api rule is the explicit-marker fallback family (OPTIONS(MAIN)/OPTIONS(FETCHABLE), EXPORTS(, label: ENTRY -- an external PL/I procedure is public by default with nothing in the syntax marking it, docs/api_rule_contract.md), so the shell plants OPTIONS(MAIN) on the entry (which also takes the runtime parm string, keeping args at 13 corpus-wide) and OPTIONS(FETCHABLE) on every probe -- coherent with main.pli's FETCH WORKER plant, and api reads 4/3/3/3 = 13 like fortran. api_orphan_credit 0 everywhere: each probe's name sits on its own api-matched OPTIONS line, so gitgalaxy#2827's name search finds every orphan already declared and the Contextual Baseline Fix credits nothing; the main->a->b->c %INCLUDE chain is asserted by the import cells (fortran precedent, ledger api-declared-orphans-are-not-new-surface). Every core menu except branch/globals/test/debt is empty because pli's rules are statement-anchored (READ FILE(, ON ERROR, CALL PLIDUMP(, label: PROC), so plants use the rules' own anchored shapes per SPEC/#73 contract C2. safety 2 = one ON-unit with a real handler (ON ERROR CALL ...) + one enabling condition prefix ((STRINGRANGE):); safety_bypasses 2 = one disabling prefix ((NOSIZE):) + one null on-unit (ON CONVERSION; -- excluded from safety by its own ;-lookahead, no double count). state_mutation is statement-anchored (PL/I spells = for assignment and comparison), so only PROBE_STATE's two assignment statements count; every other probe uses CALL/DCL glue with zero assignments. GO TO deliberately unused anywhere (it is safety_bypasses'). encapsulation (INTERNAL), dead_code and spec_exposure rules exist but the corpus plants none (zero-median columns, exact-agreement scoring) -- recorded 0, INTERNAL never written. STOP in PROBE_RISK also counts panics_and_aborts +1 (unscored). decorators reads 4/3/3/3 from the OPTIONS( attribute lists (unplanted vocabulary). %INCLUDE members resolve case-insensitively to a.pli/b.pli/c.pli (case_insensitive_imports, PDS-member semantics). Secret plant /* api_key = ... */ in c.pli reads sec_hardcoded_secrets 1 (engine-lens, no manifest column), placed away from any telemetry/debug sink (the x50 amplifier). 2026-09-22: calls_out re-baselined for the CALL-verb/mainframe paradigms (gitgalaxy#3284, Epic #3264 Phase 3)."
 }
