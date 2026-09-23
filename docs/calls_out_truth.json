@@ -594,17 +594,36 @@
     "note": "entry's a.probeGlobals(...) is one of the corpus's three real cross-file call edges"
   },
   "jcl": {
-    "expect_empty": true,
-    "note": "engine limitation, not corpus truth: the step-card EXEC lives on the function signature line, outside the body block calls_out scans -- gitgalaxy#3292. Derived step edges preserved below for when that lands.",
+    "entry_file": "main.jcl",
+    "entry_node": "DISPATCH",
+    "entry_required": [
+      "ROSPROC"
+    ],
     "forbidden_everywhere": [
       "INCLUDE",
       "PGM",
       "PROC",
-      "MEMBER"
+      "MEMBER",
+      "PROBEDEAD"
     ],
     "known_gaps": {
-      "deferred_extraction": "DISPATCH->ROSPROC, PROBEIO->ROSPROC, PROBERISK->IKJEFT01, STEP2->BPXBATCH; //*PROBEDEAD commented step must never edge (gitgalaxy#3292)"
-    }
+      "positional_steps": "a step edges only to the program/proc on its own EXEC card; steps never call each other (JCL runs them in order), so DISPATCH has exactly one callee. PGM=*.step.dd referbacks and PGM=&sym symbolics abstain (gitgalaxy#3292)."
+    },
+    "periphery": {
+      "STEP2": [
+        "BPXBATCH"
+      ],
+      "PROBEIO": [
+        "ROSPROC"
+      ],
+      "PROBERISK": [
+        "IKJEFT01"
+      ],
+      "PROBESTATE": [
+        "ROSPROC"
+      ]
+    },
+    "note": "gitgalaxy#3292: the step-card EXEC operand is the call edge. b.jcl PROBESTATE's PARM='PLAIN PGM=IKJEFT01 DECOY' must edge ROSPROC only; //*PROBEDEAD is a comment card and never becomes a node."
   },
   "kotlin": {
     "entry_file": "main.kt",
