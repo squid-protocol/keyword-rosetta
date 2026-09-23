@@ -107,7 +107,6 @@
       "print",
       "say",
       "printf",
-      "sprintf",
       "warn"
     ],
     "pattern_defined": true

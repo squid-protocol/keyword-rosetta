@@ -3,5 +3,10 @@
     "core": false,
     "keywords": [],
     "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
   }
 }
