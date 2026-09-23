@@ -20,7 +20,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [csharp](#csharp) | 0 | 0 | 0 | 11 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 #2882 |
 | [css](#css) | 4 | 3 | 5 | 20 | #2549 #2655 #2689 #2729 #2752 #2766 #2770 #2866 #2878 |
 | [dart](#dart) | 0 | 0 | 0 | 8 | #2535 #2651 #2689 #2730 #2731 #2852 #2878 |
-| [db2_sql](#db2_sql) | 13 | 2 | 3 | 6 | #2511 #2655 #2730 #2866 |
+| [db2_sql](#db2_sql) | 9 | 1 | 1 | 6 | #2511 #2655 #2730 #2866 |
 | [dockerfile](#dockerfile) | 3 | 4 | 1 | 21 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2766 #2770 #2792 #2798 #2822 #2856 #2866 #2875 |
 | [embedded_python](#embedded_python) | 7 | 0 | 0 | 15 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2852 #2869 #2875 |
 | [fortran](#fortran) | 0 | 2 | 0 | 15 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 #2878 |
@@ -419,23 +419,18 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🔴 `avg_func_args`: 0 vs median 1 (-100%)
-- 🔴 `avg_func_complexity`: 0 vs median 0.1875 (-100%)
+- 🔴 `avg_func_args`: 5 vs median 1 (+400%)
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
 - 🔴 `dependency_density`: 0 vs median 0.015 (-100%)
-- 🔴 `func_complexity_gini`: 0 vs median 0.1875 (-100%)
-- 🔴 `func_internal_density`: 0 vs median 0.015625 (-100%)
-- 🔴 `max_func_complexity`: 0 vs median 0.75 (-100%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 31.8725 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
-- 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
 - 🟡 `risk_tech_debt`: 22.0199 vs median 34.5199 (-36%)
 
-**Not expressible as measured (n/a):** `functions_found`†, `raw_state_unreferenced`, `risk_documentation`†
+**Not expressible as measured (n/a):** `raw_state_unreferenced`
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
