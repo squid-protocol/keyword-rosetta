@@ -289,8 +289,7 @@
         "SuppressFinalize"
       ]
     },
-    "forbidden_everywhere": [],
-    "tolerated_noise": [
+    "forbidden_everywhere": [
       "nameof"
     ]
   },
@@ -503,7 +502,9 @@
         "dispose"
       ]
     },
-    "forbidden_everywhere": []
+    "forbidden_everywhere": [
+      "SuppressWarnings"
+    ]
   },
   "haskell": {
     "entry_file": "main.hs",
@@ -587,7 +588,9 @@
         "release"
       ]
     },
-    "forbidden_everywhere": []
+    "forbidden_everywhere": [
+      "SuppressWarnings"
+    ]
   },
   "javascript": {
     "entry_file": "main.js",
@@ -673,7 +676,10 @@
         "use"
       ]
     },
-    "forbidden_everywhere": []
+    "forbidden_everywhere": [
+      "when",
+      "Suppress"
+    ]
   },
   "livecode": {
     "entry_file": "main.lc",
@@ -980,9 +986,6 @@
         "run",
         "assertTrue"
       ],
-      "probe_safety": [
-        "isset"
-      ],
       "probe_bypass": [
         "unserialize",
         "extract"
@@ -992,11 +995,13 @@
         "error"
       ],
       "probe_cleanup": [
-        "unset",
         "dispose"
       ]
     },
-    "forbidden_everywhere": []
+    "forbidden_everywhere": [
+      "isset",
+      "unset"
+    ]
   },
   "pli": {
     "entry_file": "main.pli",
@@ -1261,9 +1266,6 @@
         "test-assert",
         "test-equal"
       ],
-      "probe-safety": [
-        "guard"
-      ],
       "probe-bypass": [
         "set-car!",
         "set-cdr!"
@@ -1281,7 +1283,8 @@
       "cond",
       "lambda",
       "quote",
-      "export"
+      "export",
+      "guard"
     ],
     "known_gaps": {
       "operators": "(> flag 0) applies the > procedure; the letter-first identifier rule misses it (accepted precision trade)"
@@ -1318,7 +1321,8 @@
     },
     "forbidden_everywhere": [
       "unchecked",
-      "assembly"
+      "assembly",
+      "returns"
     ]
   },
   "sqlite": {
