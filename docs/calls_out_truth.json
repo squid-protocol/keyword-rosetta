@@ -335,8 +335,13 @@
     "forbidden_everywhere": []
   },
   "db2_sql": {
-    "expect_empty": true,
-    "note": "engine limitation, not corpus truth: db2_sql corpus scans persist zero function_data rows, so the manifest cannot record a calls_out key -- gitgalaxy#3293. Splice-level truth preserved below.",
+    "entry_file": "main.sql",
+    "entry_node": "ROSETTA_MAIN",
+    "entry_required": [
+      "PROBE_BRANCH",
+      "PROBE_IO",
+      "PROBE_RISK"
+    ],
     "forbidden_everywhere": [
       "TABLE",
       "IMMEDIATE",
@@ -344,9 +349,28 @@
       "SYSTEM_USER",
       "CURSOR"
     ],
-    "known_gaps": {
-      "deferred_persistence": "ROSETTA_MAIN->PROBE_BRANCH/PROBE_IO/PROBE_RISK; PROBE_BRANCH->NOTE_ONE/NOTE_TWO/NOTE_THREE; PROBE_SAFETY->NOTE_FOUR/NOTE_FIVE; PROBE_BYPASS->NOTE_SIX; PROBE_DEBT->NOTE_SEVEN; PROBE_TODO->NOTE_EIGHT (gitgalaxy#3293)"
-    }
+    "known_gaps": {},
+    "periphery": {
+      "PROBE_BRANCH": [
+        "NOTE_ONE",
+        "NOTE_TWO",
+        "NOTE_THREE"
+      ],
+      "PROBE_SAFETY": [
+        "NOTE_FOUR",
+        "NOTE_FIVE"
+      ],
+      "PROBE_BYPASS": [
+        "NOTE_SIX"
+      ],
+      "PROBE_DEBT": [
+        "NOTE_SEVEN"
+      ],
+      "PROBE_TODO": [
+        "NOTE_EIGHT"
+      ]
+    },
+    "note": "gitgalaxy#3293: routines persist as named function nodes (Mode E names CREATE PROCEDURE buckets after the routine and spans BEGIN...END), so the splice-level truth is now a manifest answer key."
   },
   "dockerfile": {
     "expect_empty": true,

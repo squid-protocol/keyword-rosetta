@@ -25,7 +25,29 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 0,
-      "units_documented": 0
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "PROBE_BRANCH": {
+          "calls_out_to": [
+            "NOTE_ONE",
+            "NOTE_TWO",
+            "NOTE_THREE"
+          ]
+        },
+        "ROSETTA_MAIN": {
+          "calls_out_to": [
+            "PROBE_BRANCH",
+            "PROBE_IO",
+            "PROBE_RISK"
+          ]
+        },
+        "PROBE_IO": {
+          "calls_out_to": []
+        },
+        "PROBE_RISK": {
+          "calls_out_to": []
+        }
+      }
     },
     "a.sql": {
       "import": 1,
@@ -47,7 +69,21 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 0,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBE_GLOBALS": {
+          "calls_out_to": []
+        },
+        "PROBE_TEST": {
+          "calls_out_to": []
+        },
+        "PROBE_SAFETY": {
+          "calls_out_to": [
+            "NOTE_FOUR",
+            "NOTE_FIVE"
+          ]
+        }
+      }
     },
     "b.sql": {
       "import": 1,
@@ -69,7 +105,20 @@
       "fragile_debt": 0,
       "planned_debt": 0,
       "units_public": 0,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBE_BYPASS": {
+          "calls_out_to": [
+            "NOTE_SIX"
+          ]
+        },
+        "PROBE_TELEMETRY": {
+          "calls_out_to": []
+        },
+        "PROBE_STATE": {
+          "calls_out_to": []
+        }
+      }
     },
     "c.sql": {
       "func_start": 3,
@@ -91,7 +140,22 @@
       "safety_bypasses": 0,
       "telemetry": 0,
       "units_public": 0,
-      "units_documented": 0
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBE_CLEANUP": {
+          "calls_out_to": []
+        },
+        "PROBE_DEBT": {
+          "calls_out_to": [
+            "NOTE_SEVEN"
+          ]
+        },
+        "PROBE_TODO": {
+          "calls_out_to": [
+            "NOTE_EIGHT"
+          ]
+        }
+      }
     }
   },
   "decoys": [
@@ -131,5 +195,5 @@
       "outcome": "Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology."
     }
   ],
-  "notes": "Probes are SQL PL CREATE PROCEDURE ... LANGUAGE SQL blocks -- unlike sqlite's CREATE INDEX statements, db2_sql has a genuinely function-shaped construct with a declared one-parameter list, so func_start 13 and args 13 corpus-wide (the entry's parameter is its SYSPARM string). Every file carries LANGUAGE SQL, which locks classification to db2_sql at Tier 2 (internal_discriminator) -- necessary because an all-.sql folder would otherwise gravitate to sqlite through its own .sql discriminator (75% dominance). NO CREATE TABLE/VIEW/TABLESPACE anywhere keeps class_start 0 as a live tripwire. import is CONNECT TO (the CLP script's real dependency form -- a database, not a file): DB2 SQL has no file-include construct, so the main->a->b->c DAG cannot resolve to sibling files and api_orphan_credit is 0 corpus-wide (the pli SQLCA shape: a real import whose target resolves to nothing); databases are named A/B/C to mirror the chain's intent. api 0: db2_sql's api markers (CREATE VIEW/ALIAS/SYNONYM) are object declarations no procedure can carry -- the sqlite fallback shape (docs/GATING.md, What api asserts). branch 3 is exactly IF/ELSE/WHILE -- END IF / END WHILE closers are excluded by the engine rule (#2822 C2), so unlike sqlite's CASE-expression inflation the planted count equals the conditional count. SET CURRENT EXPLAIN MODE is test's hit and deliberately NOT state_mutation's (the rule excludes SET CURRENT -- special registers are environment, not variables). DELETE FROM is cleanup's, not state_mutation's (#2843/#2888, the engine-side deviation ledgered in gitgalaxy#3090). probe_state's UPDATE counts once: the same-line SET clause is not a statement-start SET."
+  "notes": "Probes are SQL PL CREATE PROCEDURE ... LANGUAGE SQL blocks -- unlike sqlite's CREATE INDEX statements, db2_sql has a genuinely function-shaped construct with a declared one-parameter list, so func_start 13 and args 13 corpus-wide (the entry's parameter is its SYSPARM string). Every file carries LANGUAGE SQL, which locks classification to db2_sql at Tier 2 (internal_discriminator) -- necessary because an all-.sql folder would otherwise gravitate to sqlite through its own .sql discriminator (75% dominance). NO CREATE TABLE/VIEW/TABLESPACE anywhere keeps class_start 0 as a live tripwire. import is CONNECT TO (the CLP script's real dependency form -- a database, not a file): DB2 SQL has no file-include construct, so the main->a->b->c DAG cannot resolve to sibling files and api_orphan_credit is 0 corpus-wide (the pli SQLCA shape: a real import whose target resolves to nothing); databases are named A/B/C to mirror the chain's intent. api 0: db2_sql's api markers (CREATE VIEW/ALIAS/SYNONYM) are object declarations no procedure can carry -- the sqlite fallback shape (docs/GATING.md, What api asserts). branch 3 is exactly IF/ELSE/WHILE -- END IF / END WHILE closers are excluded by the engine rule (#2822 C2), so unlike sqlite's CASE-expression inflation the planted count equals the conditional count. SET CURRENT EXPLAIN MODE is test's hit and deliberately NOT state_mutation's (the rule excludes SET CURRENT -- special registers are environment, not variables). DELETE FROM is cleanup's, not state_mutation's (#2843/#2888, the engine-side deviation ledgered in gitgalaxy#3090). probe_state's UPDATE counts once: the same-line SET clause is not a statement-start SET. 2026-09-22 (gitgalaxy#3293): db2_sql routines persist as named function nodes -- Mode E now names a CREATE PROCEDURE/FUNCTION/TRIGGER bucket after the routine and spans its BEGIN...END body; calls_out_to recorded for all 13 routines (ROSETTA_MAIN->PROBE_BRANCH/PROBE_IO/PROBE_RISK), and main.sql's documented entry routine lifts units_documented 0->1."
 }
