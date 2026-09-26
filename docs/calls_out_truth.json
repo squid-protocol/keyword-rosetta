@@ -1204,12 +1204,18 @@
       "probe_cleanup": [
         "drop",
         "close"
+      ],
+      "probe_test": [
+        "assert",
+        "assert_eq"
+      ],
+      "probe_telemetry": [
+        "info",
+        "error"
       ]
     },
     "forbidden_everywhere": [],
-    "known_gaps": {
-      "macros": "name!(...) macro invocations (assert!, assert_eq!, info!, error!) are not captured by the paren paradigm (the ! breaks adjacency) -- known recall gap. entry's a::probe_globals(...) is a real cross-file edge."
-    }
+    "note": "entry's a::probe_globals(...) is a real cross-file edge. Macro invocations (assert!, assert_eq!, info!, error!) are calls to their names (gitgalaxy#3643) and are listed in periphery since 2026-09-26."
   },
   "scala": {
     "entry_file": "main.scala",
