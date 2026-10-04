@@ -1,0 +1,93 @@
+{
+  "branch": {
+    "core": true,
+    "keywords": [
+      "IF",
+      "ELSE",
+      "END-IF",
+      "DO",
+      "WHILE",
+      "UNTIL",
+      "CASE",
+      "WHEN",
+      "END-CASE"
+    ],
+    "pattern_defined": true
+  },
+  "calls_out": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "hardcoded_secrets": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "STOP",
+      "EXIT"
+    ],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "GET",
+      "PUT",
+      "READ",
+      "WRITE",
+      "PRINT",
+      "DISPLAY"
+    ],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "MACRO"
+    ],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "STOP",
+      "EXIT"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "END-PROC",
+      "END-MACRO",
+      "END-JOB",
+      "RETURN",
+      "GOTO"
+    ],
+    "pattern_defined": true
+  }
+}
