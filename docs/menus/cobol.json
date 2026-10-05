@@ -47,7 +47,9 @@
   },
   "calls_out": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "EXIT PERFORM"
+    ],
     "pattern_defined": true
   },
   "class_start": {
