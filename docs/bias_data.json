@@ -411,7 +411,7 @@
    "python": 0.20287075,
    "rexx": 0.223983,
    "ruby": 0.223983,
-   "rust": 0.223983,
+   "rust": 0.2,
    "scala": 0.223983,
    "scheme": 0.223983,
    "shell": 0.223983,
@@ -1630,7 +1630,7 @@
    "python": 0.20287075,
    "rexx": 0.223983,
    "ruby": 0.223983,
-   "rust": 0.223983,
+   "rust": 0.2,
    "scala": 0.223983,
    "scheme": 0.223983,
    "shell": 0.223983,
@@ -1683,7 +1683,7 @@
    "python": 202.87075,
    "rexx": 223.983,
    "ruby": 223.983,
-   "rust": 223.983,
+   "rust": 200.0,
    "scala": 223.983,
    "scheme": 223.983,
    "shell": 223.983,
@@ -1736,7 +1736,7 @@
    "python": 0.05,
    "rexx": 0.0833335,
    "ruby": 0.0833335,
-   "rust": 0.0833335,
+   "rust": 0.0,
    "scala": 0.0833335,
    "scheme": 0.0833335,
    "shell": 0.0833335,
@@ -1789,7 +1789,7 @@
    "python": 0.19166675,
    "rexx": 0.23958325,
    "ruby": 0.23958325,
-   "rust": 0.23958325,
+   "rust": 0.0,
    "scala": 0.23958325,
    "scheme": 0.23958325,
    "shell": 0.23958325,
@@ -1842,7 +1842,7 @@
    "python": 0.5,
    "rexx": 0.5,
    "ruby": 0.5,
-   "rust": 0.5,
+   "rust": 0.0,
    "scala": 0.5,
    "scheme": 0.5,
    "shell": 0.5,
@@ -1895,7 +1895,7 @@
    "python": 0.75,
    "rexx": 0.75,
    "ruby": 0.75,
-   "rust": 0.75,
+   "rust": 0,
    "scala": 0.75,
    "scheme": 0.75,
    "shell": 0.75,
@@ -1948,7 +1948,7 @@
    "python": 0.015,
    "rexx": 0.015,
    "ruby": 0.015,
-   "rust": 0.015,
+   "rust": 0.0,
    "scala": 0.015,
    "scheme": 0.015,
    "shell": 0.015,
@@ -5263,7 +5263,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "0440595ee10293ad309d4b823ce4bdfb4f4f3522",
+ "engine_commit": "f9aa99046943c8458a7d0f2674b4300299f9e906",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5554,6 +5554,7 @@
   "betweenness_score/db2_sql": "inherency",
   "betweenness_score/javascript": "inherency",
   "betweenness_score/python": "inherency",
+  "betweenness_score/rust": "unexplained",
   "class_start/bms": "scoring",
   "class_start/cobol": "scoring",
   "class_start/css": "scoring",
@@ -5562,6 +5563,7 @@
   "class_start/kotlin": "inherency",
   "class_start/yaml": "scoring",
   "closeness_score/db2_sql": "inherency",
+  "closeness_score/rust": "unexplained",
   "cog_raw/apex": "echo",
   "cog_raw/bms": "echo",
   "cog_raw/css": "echo",
@@ -5588,6 +5590,7 @@
   "def_encapsulation/go": "inherency",
   "def_encapsulation/haskell": "inherency",
   "dependency_density/db2_sql": "echo",
+  "dependency_density/rust": "unexplained",
   "dependency_links/embedded_python": "echo",
   "dependency_links/jcl": "scoring",
   "encapsulation_ratio/bms": "scoring",
@@ -5620,7 +5623,9 @@
   "max_func_complexity/markdown": "inherency",
   "max_func_complexity/sqlite": "inherency",
   "popularity/db2_sql": "inherency",
+  "popularity/rust": "unexplained",
   "producer_ratio/db2_sql": "inherency",
+  "producer_ratio/rust": "unexplained",
   "raw_arch_api/agc_assembly": "scoring",
   "raw_arch_api/css": "scoring",
   "raw_arch_api/db2_sql": "inherency",
@@ -5709,7 +5714,7 @@
    51
   ],
   "betweenness_score": [
-   0,
+   1,
    51
   ],
   "branch": [
@@ -5729,7 +5734,7 @@
    48
   ],
   "closeness_score": [
-   0,
+   1,
    51
   ],
   "cog_raw": [
@@ -5753,7 +5758,7 @@
    51
   ],
   "dependency_density": [
-   0,
+   1,
    51
   ],
   "dependency_links": [
@@ -5837,11 +5842,11 @@
    50
   ],
   "popularity": [
-   0,
+   1,
    51
   ],
   "producer_ratio": [
-   0,
+   1,
    51
   ],
   "raw_arch_api": [

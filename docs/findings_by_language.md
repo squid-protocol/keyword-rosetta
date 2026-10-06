@@ -47,7 +47,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [python](#python) | 5 | 1 | 0 | 14 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2878 |
 | [rexx](#rexx) | 1 | 0 | 2 | 4 | #2503 #2504 #2730 |
 | [ruby](#ruby) | 5 | 0 | 0 | 11 | #2535 #2546 #2547 #2727 #2731 #2817 #2822 #2878 |
-| [rust](#rust) | 0 | 0 | 0 | 10 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 #2878 |
+| [rust](#rust) | 5 | 0 | 0 | 10 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 #2878 |
 | [scala](#scala) | 0 | 0 | 0 | 10 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 #2869 |
 | [scheme](#scheme) | 0 | 0 | 0 | 10 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
 | [shell](#shell) | 0 | 0 | 2 | 13 | #2535 #2547 #2727 #2731 #2766 #2822 #2858 #2888 |
@@ -1278,7 +1278,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## rust
 
-**In band on every metric.**
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
+- 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
+- 🔴 `dependency_density`: 0 vs median 0.015 (-100%)
+- 🔴 `popularity`: 0 vs median 0.75 (-100%)
+- 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
