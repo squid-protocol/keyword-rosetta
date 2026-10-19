@@ -304,11 +304,6 @@
     "keywords": [],
     "pattern_defined": true
   },
-  "ml_traditional": {
-    "core": false,
-    "keywords": [],
-    "pattern_defined": true
-  },
   "ownership": {
     "core": true,
     "keywords": [],
