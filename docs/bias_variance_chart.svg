@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="998" height="3876" font-family="Inter, system-ui, sans-serif" font-size="12">
-<rect width="998" height="3876" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="998" height="3840" font-family="Inter, system-ui, sans-serif" font-size="12">
+<rect width="998" height="3840" fill="#ffffff"/>
 <text x="16" y="30" font-size="19" font-weight="700" fill="#1b2430">One program, 51 languages — does GitGalaxy count it the same everywhere?</text>
 <text x="16" y="52" fill="#5c6670">The same 12-probe program, written in every language. The engine should extract the same counts from each;</text>
 <text x="16" y="68" fill="#5c6670">every dot is one language's deviation from the cross-language median. <tspan font-weight="600" fill="#c0392b">Red</tspan> is an open engine defect — a rule matching the wrong construct,</text>
@@ -1703,10 +1703,10 @@
 <text x="765.6" y="2858" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
 <text x="829.3" y="2858" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
 <text x="956.5" y="2858" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
-<line x1="574.7" y1="2862" x2="574.7" y2="3546" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="638.4" y1="2862" x2="638.4" y2="3546" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="765.6" y1="2862" x2="765.6" y2="3546" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="829.3" y1="2862" x2="829.3" y2="3546" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="574.7" y1="2862" x2="574.7" y2="3510" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="638.4" y1="2862" x2="638.4" y2="3510" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="765.6" y1="2862" x2="765.6" y2="3510" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="829.3" y1="2862" x2="829.3" y2="3510" stroke="#d9dee2" stroke-dasharray="1,3"/>
 <text x="16" y="2886.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_ml_ai</text>
 <text x="272" y="2886.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <text x="406" y="2886.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
@@ -1928,51 +1928,48 @@
 <text x="567.0" y="3293.0" font-size="8" fill="#6b7680" text-anchor="middle">rexx</text>
 <text x="592.6" y="3293.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
 <text x="956.5" y="3293.0" font-size="8" fill="#6b7680" text-anchor="middle">apex</text>
-<text x="16" y="3318.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_threat</text>
-<text x="272" y="3318.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
+<text x="16" y="3318.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_danger</text>
 <text x="406" y="3318.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="3308.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="3308.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="3308.0" x2="574.7" y2="3320.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="3308.0" x2="829.3" y2="3320.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="3306.0" x2="702.0" y2="3322.0" stroke="#9aa4ad"/>
+<circle cx="659.6" cy="3314.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="659.6" y="3316.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">19</text>
 <circle cx="702.0" cy="3314.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3316.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">43</text>
-<circle cx="956.5" cy="3314.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
-<text x="956.5" y="3316.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">8</text>
-<text x="763.1" y="3318.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">43/51</text>
-<text x="704.8" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">apex</text>
-<text x="737.8" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
-<text x="770.7" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="806.1" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
-<text x="856.2" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">powershell</text>
-<text x="899.0" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">shell</text>
-<text x="936.8" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">solidity</text>
-<text x="972.2" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="16" y="3354.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_danger</text>
+<text x="702.0" y="3316.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">11</text>
+<circle cx="617.2" cy="3314.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="744.4" cy="3314.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="744.4" y="3316.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">12</text>
+<circle cx="447.5" cy="3314.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="454.8" y="3316.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="786.8" cy="3314.0" r="6.4" fill="#a3acb3" fill-opacity=".85"/>
+<text x="786.8" y="3316.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">5</text>
+<circle cx="982.0" cy="3314.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="3318.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">42/51</text>
+<text x="447.5" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">bms</text>
+<text x="480.4" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="967.3" y="3329.0" font-size="8" fill="#6b7680" text-anchor="middle">kotlin</text>
+<text x="16" y="3354.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_guards</text>
 <text x="406" y="3354.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="3344.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="3344.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="3344.0" x2="574.7" y2="3356.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="3344.0" x2="829.3" y2="3356.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="3342.0" x2="702.0" y2="3358.0" stroke="#9aa4ad"/>
-<circle cx="659.6" cy="3350.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="659.6" y="3352.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">19</text>
 <circle cx="702.0" cy="3350.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3352.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">11</text>
-<circle cx="617.2" cy="3350.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<circle cx="744.4" cy="3350.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="744.4" y="3352.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">12</text>
+<text x="702.0" y="3352.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">41</text>
 <circle cx="447.5" cy="3350.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
 <text x="454.8" y="3352.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="786.8" cy="3350.0" r="6.4" fill="#a3acb3" fill-opacity=".85"/>
-<text x="786.8" y="3352.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">5</text>
+<circle cx="829.3" cy="3350.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
+<text x="829.3" y="3352.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
 <circle cx="982.0" cy="3350.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="3354.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">42/51</text>
+<text x="763.1" y="3354.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">41/51</text>
 <text x="447.5" y="3365.0" font-size="8" fill="#6b7680" text-anchor="middle">bms</text>
 <text x="480.4" y="3365.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="967.3" y="3365.0" font-size="8" fill="#6b7680" text-anchor="middle">kotlin</text>
-<text x="16" y="3390.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_guards</text>
+<text x="964.9" y="3365.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="16" y="3390.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_dead_code</text>
 <text x="406" y="3390.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="3380.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="3380.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -1980,17 +1977,26 @@
 <line x1="829.3" y1="3380.0" x2="829.3" y2="3392.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="3378.0" x2="702.0" y2="3394.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="3386.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3388.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">41</text>
-<circle cx="447.5" cy="3386.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="454.8" y="3388.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="829.3" cy="3386.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
-<text x="829.3" y="3388.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
+<text x="702.0" y="3388.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">40</text>
+<circle cx="956.5" cy="3386.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
+<text x="956.5" y="3388.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="447.5" cy="3386.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
+<text x="447.5" y="3388.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
 <circle cx="982.0" cy="3386.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="3390.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">41/51</text>
-<text x="447.5" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">bms</text>
-<text x="480.4" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="964.9" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
-<text x="16" y="3426.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_dead_code</text>
+<text x="763.1" y="3390.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/51</text>
+<text x="447.5" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
+<text x="482.9" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">db2_sql</text>
+<text x="530.5" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="570.8" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="606.2" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="646.5" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="677.0" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
+<text x="870.9" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
+<text x="918.6" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">hlasm</text>
+<text x="946.6" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">rexx</text>
+<text x="972.2" y="3401.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
+<text x="16" y="3426.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_ipc</text>
+<text x="272" y="3426.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <text x="406" y="3426.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="3416.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="3416.0" width="127.3" height="12" fill="#dcefe0"/>
@@ -1998,25 +2004,26 @@
 <line x1="829.3" y1="3416.0" x2="829.3" y2="3428.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="3414.0" x2="702.0" y2="3430.0" stroke="#9aa4ad"/>
 <circle cx="702.0" cy="3422.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3424.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">40</text>
-<circle cx="956.5" cy="3422.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
-<text x="956.5" y="3424.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="447.5" cy="3422.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
-<text x="447.5" y="3424.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
-<circle cx="982.0" cy="3422.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="3426.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/51</text>
-<text x="447.5" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
-<text x="482.9" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">db2_sql</text>
-<text x="530.5" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="570.8" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="606.2" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="646.5" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="677.0" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="870.9" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
-<text x="918.6" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">hlasm</text>
-<text x="946.6" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">rexx</text>
-<text x="972.2" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="16" y="3462.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_ipc</text>
+<text x="702.0" y="3424.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">36</text>
+<circle cx="956.5" cy="3422.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
+<text x="956.5" y="3424.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">15</text>
+<text x="763.1" y="3426.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/51</text>
+<text x="503.6" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
+<text x="526.7" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">csharp</text>
+<text x="557.2" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">dart</text>
+<text x="597.5" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="637.8" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">java</text>
+<text x="673.2" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">livecode</text>
+<text x="706.1" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">lua</text>
+<text x="739.1" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
+<text x="779.4" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">matlab</text>
+<text x="809.9" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">perl</text>
+<text x="833.0" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">php</text>
+<text x="858.6" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">shell</text>
+<text x="896.5" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">solidity</text>
+<text x="936.8" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="969.8" y="3437.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
+<text x="16" y="3462.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_memory</text>
 <text x="272" y="3462.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <text x="406" y="3462.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="3452.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
@@ -2024,213 +2031,185 @@
 <line x1="574.7" y1="3452.0" x2="574.7" y2="3464.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="3452.0" x2="829.3" y2="3464.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="3450.0" x2="702.0" y2="3466.0" stroke="#9aa4ad"/>
-<circle cx="702.0" cy="3458.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3460.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">36</text>
 <circle cx="956.5" cy="3458.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
-<text x="956.5" y="3460.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">15</text>
-<text x="763.1" y="3462.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">36/51</text>
-<text x="503.6" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
-<text x="526.7" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">csharp</text>
-<text x="557.2" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">dart</text>
-<text x="597.5" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="637.8" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">java</text>
-<text x="673.2" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">livecode</text>
-<text x="706.1" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">lua</text>
-<text x="739.1" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
-<text x="779.4" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">matlab</text>
-<text x="809.9" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">perl</text>
-<text x="833.0" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">php</text>
-<text x="858.6" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">shell</text>
-<text x="896.5" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">solidity</text>
-<text x="936.8" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="969.8" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
-<text x="16" y="3498.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_memory</text>
-<text x="272" y="3498.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
+<text x="956.5" y="3460.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">16</text>
+<circle cx="702.0" cy="3458.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="3460.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">35</text>
+<text x="763.1" y="3462.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">35/51</text>
+<text x="475.5" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">abap</text>
+<text x="520.7" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
+<text x="558.6" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
+<text x="579.3" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
+<text x="604.9" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">cpp</text>
+<text x="635.4" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
+<text x="670.8" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">hlasm</text>
+<text x="703.7" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">kotlin</text>
+<text x="731.8" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">lua</text>
+<text x="772.1" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">objective-c</text>
+<text x="814.8" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">perl</text>
+<text x="840.4" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">rust</text>
+<text x="868.5" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">scala</text>
+<text x="906.3" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">solidity</text>
+<text x="944.2" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
+<text x="972.2" y="3473.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
+<text x="16" y="3498.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_mutation</text>
 <text x="406" y="3498.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="3488.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="3488.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="3488.0" x2="574.7" y2="3500.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="3488.0" x2="829.3" y2="3500.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="3486.0" x2="702.0" y2="3502.0" stroke="#9aa4ad"/>
-<circle cx="956.5" cy="3494.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
-<text x="956.5" y="3496.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">16</text>
 <circle cx="702.0" cy="3494.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3496.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">35</text>
-<text x="763.1" y="3498.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">35/51</text>
-<text x="475.5" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">abap</text>
-<text x="520.7" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">agc_assembly</text>
-<text x="558.6" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
-<text x="579.3" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">cobol</text>
-<text x="604.9" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">cpp</text>
-<text x="635.4" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
-<text x="670.8" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">hlasm</text>
-<text x="703.7" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">kotlin</text>
-<text x="731.8" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">lua</text>
-<text x="772.1" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">objective-c</text>
-<text x="814.8" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">perl</text>
-<text x="840.4" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">rust</text>
-<text x="868.5" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">scala</text>
-<text x="906.3" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">solidity</text>
-<text x="944.2" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
-<text x="972.2" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">yacc</text>
-<text x="16" y="3534.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">fam_mutation</text>
-<text x="406" y="3534.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
-<rect x="422.0" y="3524.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
-<rect x="638.4" y="3524.0" width="127.3" height="12" fill="#dcefe0"/>
-<line x1="574.7" y1="3524.0" x2="574.7" y2="3536.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="829.3" y1="3524.0" x2="829.3" y2="3536.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="702.0" y1="3522.0" x2="702.0" y2="3538.0" stroke="#9aa4ad"/>
-<circle cx="702.0" cy="3530.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3532.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">10</text>
-<circle cx="574.7" cy="3530.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
-<text x="574.7" y="3532.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">14</text>
-<circle cx="638.4" cy="3530.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
-<text x="638.4" y="3532.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="982.0" cy="3530.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
-<text x="982.0" y="3532.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">16</text>
-<circle cx="447.5" cy="3530.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
-<text x="454.8" y="3532.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="765.6" cy="3530.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="772.9" y="3532.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="829.3" cy="3530.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
-<text x="829.3" y="3532.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
-<circle cx="892.9" cy="3530.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
-<text x="763.1" y="3534.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">15/51</text>
-<text x="459.5" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">bms</text>
-<text x="509.6" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
-<text x="569.5" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
-<text x="602.4" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="642.7" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">javascript</text>
-<text x="680.6" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="708.6" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">kotlin</text>
-<text x="744.0" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">matlab</text>
-<text x="779.4" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
-<text x="809.9" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
-<text x="835.5" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">rust</text>
-<text x="863.5" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">scala</text>
-<text x="894.0" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
-<text x="936.8" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">typescript</text>
-<text x="974.6" y="3545.0" font-size="8" fill="#6b7680" text-anchor="middle">zig</text>
-<line x1="16" y1="3558" x2="982" y2="3558" stroke="#e3e6ea"/>
-<text x="16" y="3576" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">PER-UNIT ATTRIBUTES</text>
-<text x="192" y="3576" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
-<text x="270" y="3576" font-size="11.5" fill="#5c6670">unit totals the per-unit risk ratios read (gitgalaxy#2908); gated per file by the manifests, reported here as attribution edges</text>
-<text x="447.5" y="3596" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
-<text x="574.7" y="3596" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
-<text x="638.4" y="3596" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
-<text x="702.0" y="3596" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
-<text x="765.6" y="3596" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
-<text x="829.3" y="3596" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
-<text x="956.5" y="3596" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
-<line x1="574.7" y1="3600" x2="574.7" y2="3708" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="638.4" y1="3600" x2="638.4" y2="3708" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="765.6" y1="3600" x2="765.6" y2="3708" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="829.3" y1="3600" x2="829.3" y2="3708" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<text x="16" y="3624.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_public</text>
+<text x="702.0" y="3496.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">10</text>
+<circle cx="574.7" cy="3494.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
+<text x="574.7" y="3496.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">14</text>
+<circle cx="638.4" cy="3494.0" r="5.8" fill="#2f855a" fill-opacity=".85"/>
+<text x="638.4" y="3496.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="982.0" cy="3494.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
+<text x="982.0" y="3496.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">16</text>
+<circle cx="447.5" cy="3494.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
+<text x="454.8" y="3496.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="765.6" cy="3494.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
+<text x="772.9" y="3496.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="829.3" cy="3494.0" r="5.8" fill="#a3acb3" fill-opacity=".85"/>
+<text x="829.3" y="3496.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">3</text>
+<circle cx="892.9" cy="3494.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<text x="763.1" y="3498.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">15/51</text>
+<text x="459.5" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">bms</text>
+<text x="509.6" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
+<text x="569.5" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="602.4" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="642.7" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">javascript</text>
+<text x="680.6" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="708.6" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">kotlin</text>
+<text x="744.0" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">matlab</text>
+<text x="779.4" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">python</text>
+<text x="809.9" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">ruby</text>
+<text x="835.5" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">rust</text>
+<text x="863.5" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">scala</text>
+<text x="894.0" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">swift</text>
+<text x="936.8" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">typescript</text>
+<text x="974.6" y="3509.0" font-size="8" fill="#6b7680" text-anchor="middle">zig</text>
+<line x1="16" y1="3522" x2="982" y2="3522" stroke="#e3e6ea"/>
+<text x="16" y="3540" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">PER-UNIT ATTRIBUTES</text>
+<text x="192" y="3540" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
+<text x="270" y="3540" font-size="11.5" fill="#5c6670">unit totals the per-unit risk ratios read (gitgalaxy#2908); gated per file by the manifests, reported here as attribution edges</text>
+<text x="447.5" y="3560" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
+<text x="574.7" y="3560" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
+<text x="638.4" y="3560" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
+<text x="702.0" y="3560" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
+<text x="765.6" y="3560" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
+<text x="829.3" y="3560" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
+<text x="956.5" y="3560" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
+<line x1="574.7" y1="3564" x2="574.7" y2="3672" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="638.4" y1="3564" x2="638.4" y2="3672" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="765.6" y1="3564" x2="765.6" y2="3672" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="829.3" y1="3564" x2="829.3" y2="3672" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<text x="16" y="3588.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_public</text>
+<text x="406" y="3588.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
+<rect x="422.0" y="3578.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
+<rect x="638.4" y="3578.0" width="127.3" height="12" fill="#dcefe0"/>
+<line x1="574.7" y1="3578.0" x2="574.7" y2="3590.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="829.3" y1="3578.0" x2="829.3" y2="3590.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="702.0" y1="3576.0" x2="702.0" y2="3592.0" stroke="#9aa4ad"/>
+<circle cx="723.2" cy="3584.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="723.2" y="3586.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">17</text>
+<circle cx="638.4" cy="3584.0" r="6.4" fill="#2f855a" fill-opacity=".85"/>
+<text x="638.4" y="3586.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">5</text>
+<circle cx="702.0" cy="3584.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="3586.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">22</text>
+<circle cx="447.5" cy="3584.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
+<text x="447.5" y="3586.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
+<text x="763.1" y="3588.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">44/51</text>
+<text x="447.5" y="3599.0" font-size="8" fill="#6b7680" text-anchor="middle">db2_sql</text>
+<text x="495.1" y="3599.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="535.4" y="3599.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="558.6" y="3599.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="591.5" y="3599.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="631.8" y="3599.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="662.3" y="3599.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
+<text x="16" y="3624.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_documented</text>
 <text x="406" y="3624.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="3614.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="3614.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="3614.0" x2="574.7" y2="3626.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="3614.0" x2="829.3" y2="3626.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="3612.0" x2="702.0" y2="3628.0" stroke="#9aa4ad"/>
-<circle cx="723.2" cy="3620.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="723.2" y="3622.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">17</text>
-<circle cx="638.4" cy="3620.0" r="6.4" fill="#2f855a" fill-opacity=".85"/>
-<text x="638.4" y="3622.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">5</text>
 <circle cx="702.0" cy="3620.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3622.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">22</text>
+<text x="702.0" y="3622.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">40</text>
 <circle cx="447.5" cy="3620.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
 <text x="447.5" y="3622.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
-<text x="763.1" y="3624.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">44/51</text>
-<text x="447.5" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">db2_sql</text>
-<text x="495.1" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="535.4" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="558.6" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="591.5" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="631.8" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="662.3" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="16" y="3660.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_documented</text>
+<circle cx="956.5" cy="3620.0" r="6.1" fill="#a3acb3" fill-opacity=".85"/>
+<text x="956.5" y="3622.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
+<text x="763.1" y="3624.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/51</text>
+<text x="447.5" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">bms</text>
+<text x="485.3" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
+<text x="525.6" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
+<text x="548.8" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
+<text x="581.7" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
+<text x="622.0" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
+<text x="652.5" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
+<text x="873.4" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
+<text x="903.9" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="931.9" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
+<text x="962.4" y="3635.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
+<text x="16" y="3660.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_public_documented</text>
+<text x="272" y="3660.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
 <text x="406" y="3660.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
 <rect x="422.0" y="3650.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
 <rect x="638.4" y="3650.0" width="127.3" height="12" fill="#dcefe0"/>
 <line x1="574.7" y1="3650.0" x2="574.7" y2="3662.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="829.3" y1="3650.0" x2="829.3" y2="3662.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
 <line x1="702.0" y1="3648.0" x2="702.0" y2="3664.0" stroke="#9aa4ad"/>
+<circle cx="956.5" cy="3656.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
+<text x="956.5" y="3658.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">18</text>
 <circle cx="702.0" cy="3656.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3658.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">40</text>
-<circle cx="447.5" cy="3656.0" r="6.9" fill="#a3acb3" fill-opacity=".85"/>
-<text x="447.5" y="3658.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">7</text>
-<circle cx="956.5" cy="3656.0" r="6.1" fill="#a3acb3" fill-opacity=".85"/>
-<text x="956.5" y="3658.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">4</text>
-<text x="763.1" y="3660.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">40/51</text>
-<text x="447.5" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">bms</text>
-<text x="485.3" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">dockerfile</text>
-<text x="525.6" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">html</text>
-<text x="548.8" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">jcl</text>
-<text x="581.7" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">markdown</text>
-<text x="622.0" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">sqlite</text>
-<text x="652.5" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">yaml</text>
-<text x="873.4" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">css</text>
-<text x="903.9" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
-<text x="931.9" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
-<text x="962.4" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
-<text x="16" y="3696.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">units_public_documented</text>
-<text x="272" y="3696.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">exact</text>
-<text x="406" y="3696.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
-<rect x="422.0" y="3686.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
-<rect x="638.4" y="3686.0" width="127.3" height="12" fill="#dcefe0"/>
-<line x1="574.7" y1="3686.0" x2="574.7" y2="3698.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="829.3" y1="3686.0" x2="829.3" y2="3698.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="702.0" y1="3684.0" x2="702.0" y2="3700.0" stroke="#9aa4ad"/>
-<circle cx="956.5" cy="3692.0" r="7.0" fill="#a3acb3" fill-opacity=".85"/>
-<text x="956.5" y="3694.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">18</text>
-<circle cx="702.0" cy="3692.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3694.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">33</text>
-<text x="763.1" y="3696.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">33/51</text>
-<text x="455.9" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">abap</text>
-<text x="479.1" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">ada</text>
-<text x="494.9" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
-<text x="513.1" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">dart</text>
-<text x="565.7" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
-<text x="625.6" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
-<text x="665.9" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
-<text x="701.2" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">hlasm</text>
-<text x="739.1" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">livecode</text>
-<text x="772.1" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">lua</text>
-<text x="790.3" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
-<text x="820.8" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
-<text x="861.1" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">matlab</text>
-<text x="908.8" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">objective-c</text>
-<text x="951.5" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">perl</text>
-<text x="974.6" y="3707.0" font-size="8" fill="#6b7680" text-anchor="middle">pli</text>
-<line x1="16" y1="3720" x2="982" y2="3720" stroke="#e3e6ea"/>
-<text x="16" y="3738" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">COMMIT AGE</text>
-<text x="118" y="3738" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
-<text x="196" y="3738" font-size="11.5" fill="#5c6670">temporal, not content</text>
-<text x="447.5" y="3758" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
-<text x="574.7" y="3758" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
-<text x="638.4" y="3758" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
-<text x="702.0" y="3758" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
-<text x="765.6" y="3758" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
-<text x="829.3" y="3758" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
-<text x="956.5" y="3758" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
-<line x1="574.7" y1="3762" x2="574.7" y2="3798" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="638.4" y1="3762" x2="638.4" y2="3798" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="765.6" y1="3762" x2="765.6" y2="3798" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<line x1="829.3" y1="3762" x2="829.3" y2="3798" stroke="#d9dee2" stroke-dasharray="1,3"/>
-<text x="16" y="3786.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">hist_churn</text>
-<text x="272" y="3786.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">risk_churn</text>
-<text x="406" y="3786.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
-<rect x="422.0" y="3776.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
-<rect x="638.4" y="3776.0" width="127.3" height="12" fill="#dcefe0"/>
-<line x1="574.7" y1="3776.0" x2="574.7" y2="3788.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="829.3" y1="3776.0" x2="829.3" y2="3788.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
-<line x1="702.0" y1="3774.0" x2="702.0" y2="3790.0" stroke="#9aa4ad"/>
-<circle cx="702.0" cy="3782.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.0" y="3784.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">51</text>
-<text x="763.1" y="3786.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">51/51</text>
-<text x="16" y="3820" font-size="10" fill="#5c6670">* not gated: languages vary too much in how they express this — program length, token vocabulary, inputs the corpus does not plant, commit age — for a cross-language band to mean anything.</text>
-<text x="16" y="3833" font-size="10" fill="#5c6670">Shown for context, never scored. Every dot outside the band on a gated row has a verdict in deviation_ledger.json; the cause behind each colour is in docs/bias_data.json (cell_categories).</text>
-<text x="16" y="3846" font-size="10" fill="#5c6670">Inert — recorded but drawn nowhere: <tspan font-family="ui-monospace, Menlo, monospace">fam_crypto, fam_regex, fam_time, llm_api, risk_spec_match, risk_stability, state_slop_duplicates</tspan> — every language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>
-<text x="16" y="3862" font-size="10" fill="#9aa4ad">keyword-rosetta · tools/bias_report.py · band ±25% of the cross-language median (exact agreement where the median is 0) · cause categories: gitgalaxy docs/contract_roadmap.md</text>
+<text x="702.0" y="3658.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">33</text>
+<text x="763.1" y="3660.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">33/51</text>
+<text x="455.9" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">abap</text>
+<text x="479.1" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">ada</text>
+<text x="494.9" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">c</text>
+<text x="513.1" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">dart</text>
+<text x="565.7" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">embedded_python</text>
+<text x="625.6" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">fortran</text>
+<text x="665.9" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">haskell</text>
+<text x="701.2" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">hlasm</text>
+<text x="739.1" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">livecode</text>
+<text x="772.1" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">lua</text>
+<text x="790.3" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">m4</text>
+<text x="820.8" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">makefile</text>
+<text x="861.1" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">matlab</text>
+<text x="908.8" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">objective-c</text>
+<text x="951.5" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">perl</text>
+<text x="974.6" y="3671.0" font-size="8" fill="#6b7680" text-anchor="middle">pli</text>
+<line x1="16" y1="3684" x2="982" y2="3684" stroke="#e3e6ea"/>
+<text x="16" y="3702" font-size="13" font-weight="700" fill="#1b2430" letter-spacing=".6">COMMIT AGE</text>
+<text x="118" y="3702" font-size="10" font-weight="700" fill="#9aa4ad" letter-spacing=".5">NOT GATED*</text>
+<text x="196" y="3702" font-size="11.5" fill="#5c6670">temporal, not content</text>
+<text x="447.5" y="3722" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−100%</text>
+<text x="574.7" y="3722" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−50%</text>
+<text x="638.4" y="3722" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">−25%</text>
+<text x="702.0" y="3722" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">median</text>
+<text x="765.6" y="3722" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+25%</text>
+<text x="829.3" y="3722" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+50%</text>
+<text x="956.5" y="3722" font-size="8.5" fill="#9aa4ad" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">+100%</text>
+<line x1="574.7" y1="3726" x2="574.7" y2="3762" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="638.4" y1="3726" x2="638.4" y2="3762" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="765.6" y1="3726" x2="765.6" y2="3762" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<line x1="829.3" y1="3726" x2="829.3" y2="3762" stroke="#d9dee2" stroke-dasharray="1,3"/>
+<text x="16" y="3750.0" fill="#1b2430" font-size="12" font-family="ui-monospace, Menlo, monospace">hist_churn</text>
+<text x="272" y="3750.0" fill="#9aa4ad" font-size="9" text-anchor="end" font-family="ui-monospace, Menlo, monospace">risk_churn</text>
+<text x="406" y="3750.0" font-size="10" fill="#9aa4ad" text-anchor="end">not gated*</text>
+<rect x="422.0" y="3740.0" width="560" height="12" fill="#f4f5f7" rx="3"/>
+<rect x="638.4" y="3740.0" width="127.3" height="12" fill="#dcefe0"/>
+<line x1="574.7" y1="3740.0" x2="574.7" y2="3752.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="829.3" y1="3740.0" x2="829.3" y2="3752.0" stroke="#cfd5da" stroke-dasharray="2,2"/>
+<line x1="702.0" y1="3738.0" x2="702.0" y2="3754.0" stroke="#9aa4ad"/>
+<circle cx="702.0" cy="3746.0" r="7.0" fill="#2f855a" fill-opacity=".85"/>
+<text x="702.0" y="3748.5" font-size="7" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="ui-monospace, Menlo, monospace">51</text>
+<text x="763.1" y="3750.5" font-size="7.5" fill="#2f855a" text-anchor="end" font-family="ui-monospace, Menlo, monospace" paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">51/51</text>
+<text x="16" y="3784" font-size="10" fill="#5c6670">* not gated: languages vary too much in how they express this — program length, token vocabulary, inputs the corpus does not plant, commit age — for a cross-language band to mean anything.</text>
+<text x="16" y="3797" font-size="10" fill="#5c6670">Shown for context, never scored. Every dot outside the band on a gated row has a verdict in deviation_ledger.json; the cause behind each colour is in docs/bias_data.json (cell_categories).</text>
+<text x="16" y="3810" font-size="10" fill="#5c6670">Inert — recorded but drawn nowhere: <tspan font-family="ui-monospace, Menlo, monospace">fam_crypto, fam_regex, fam_threat, fam_time, llm_api, risk_spec_match, risk_stability, state_slop_duplicates</tspan> — every language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>
+<text x="16" y="3826" font-size="10" fill="#9aa4ad">keyword-rosetta · tools/bias_report.py · band ±25% of the cross-language median (exact agreement where the median is 0) · cause categories: gitgalaxy docs/contract_roadmap.md</text>
 </svg>
