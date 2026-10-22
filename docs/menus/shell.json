@@ -36,7 +36,13 @@
   },
   "calls_out": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "time",
+      "exec",
+      "nohup",
+      "nice",
+      "sudo"
+    ],
     "pattern_defined": true
   },
   "cleanup": {
