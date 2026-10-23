@@ -41,7 +41,8 @@
       "exec",
       "nohup",
       "nice",
-      "sudo"
+      "sudo",
+      "trap"
     ],
     "pattern_defined": true
   },

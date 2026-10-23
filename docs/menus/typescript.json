@@ -79,6 +79,11 @@
     ],
     "pattern_defined": true
   },
+  "cryptography": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "dead_code": {
     "core": true,
     "keywords": [],
@@ -220,6 +225,11 @@
   },
   "globals": {
     "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "hardware_bridge": {
+    "core": false,
     "keywords": [],
     "pattern_defined": true
   },

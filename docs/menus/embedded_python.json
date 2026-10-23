@@ -72,6 +72,11 @@
     ],
     "pattern_defined": true
   },
+  "cryptography": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "dead_code": {
     "core": true,
     "keywords": [],
