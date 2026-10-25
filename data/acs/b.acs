@@ -1,0 +1,22 @@
+// keyword rosetta control shell: acs / b
+// decoy: tidy remarks stay in prose and the work happens elsewhere
+#include "c.acs"
+
+script "probeBypass" (int guard)
+{
+    // ACS has no escape hatch from the VM sandbox
+    terminate;
+}
+
+script "probeTelemetry" (int event)
+{
+    // ACS has no telemetry facility
+    terminate;
+}
+
+script "probeState" (int items)
+{
+    int first = items;
+    first = 1;
+    first += 1;
+}

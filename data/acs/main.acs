@@ -1,0 +1,43 @@
+// keyword rosetta control shell: acs / main
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
+// Author: keyword-rosetta generator
+// decoy: this suite never loops with while and no switch block runs outside prose
+#include "a.acs"
+
+script "entry" (int argv)
+{
+    ACS_NamedExecute("probeBranch", 0, argv);
+    ACS_NamedExecute("probeIo", 0, argv);
+    ACS_NamedExecute("probeRisk", 0, argv);
+}
+
+script "probeBranch" (int flag)
+{
+    if (flag > 0)
+    {
+        terminate;
+    }
+    else
+    {
+        restart;
+    }
+    switch (flag)
+    {
+    }
+}
+
+script "probeIo" (int route)
+{
+    GetCVar("rosetta_a");
+    SetCVar("rosetta_b", route);
+    ConsoleCommand("rosetta_c");
+}
+
+script "probeRisk" (int payload)
+{
+    // no process, shell or dynamic-eval facility exists in the ACS VM
+    terminate;
+}
