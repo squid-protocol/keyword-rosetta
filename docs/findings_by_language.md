@@ -24,7 +24,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [dockerfile](#dockerfile) | 3 | 4 | 1 | 21 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2766 #2770 #2792 #2798 #2822 #2856 #2866 #2875 |
 | [embedded_python](#embedded_python) | 7 | 0 | 0 | 15 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2852 #2869 #2875 |
 | [fortran](#fortran) | 0 | 2 | 0 | 15 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 #2878 |
-| [go](#go) | 0 | 0 | 0 | 11 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
+| [go](#go) | 5 | 0 | 0 | 11 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
 | [groovy](#groovy) | 0 | 0 | 0 | 8 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 #2878 |
 | [haskell](#haskell) | 3 | 1 | 0 | 15 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
 | [hlasm](#hlasm) | 2 | 0 | 1 | 4 | #2503 |
@@ -571,7 +571,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## go
 
-**In band on every metric.**
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
+- 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
+- 🔴 `dependency_density`: 0 vs median 0.015 (-100%)
+- 🔴 `popularity`: 0 vs median 0.75 (-100%)
+- 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|

@@ -388,7 +388,7 @@
    "dockerfile": 0.223983,
    "embedded_python": 0.223983,
    "fortran": 0.223983,
-   "go": 0.223983,
+   "go": 0.2,
    "groovy": 0.223983,
    "haskell": 0.223983,
    "hlasm": 0.223983,
@@ -1607,7 +1607,7 @@
    "dockerfile": 0.223983,
    "embedded_python": 0.223983,
    "fortran": 0.223983,
-   "go": 0.223983,
+   "go": 0.2,
    "groovy": 0.223983,
    "haskell": 0.223983,
    "hlasm": 0.223983,
@@ -1660,7 +1660,7 @@
    "dockerfile": 223.983,
    "embedded_python": 223.983,
    "fortran": 223.983,
-   "go": 223.983,
+   "go": 200.0,
    "groovy": 223.983,
    "haskell": 223.983,
    "hlasm": 223.983,
@@ -1713,7 +1713,7 @@
    "dockerfile": 0.0833335,
    "embedded_python": 0.0833335,
    "fortran": 0.0833335,
-   "go": 0.0833335,
+   "go": 0.0,
    "groovy": 0.0833335,
    "haskell": 0.0833335,
    "hlasm": 0.0833335,
@@ -1766,7 +1766,7 @@
    "dockerfile": 0.23958325,
    "embedded_python": 0.23958325,
    "fortran": 0.23958325,
-   "go": 0.23958325,
+   "go": 0.0,
    "groovy": 0.23958325,
    "haskell": 0.23958325,
    "hlasm": 0.23958325,
@@ -1819,7 +1819,7 @@
    "dockerfile": 0.5,
    "embedded_python": 0.5,
    "fortran": 0.5,
-   "go": 0.5,
+   "go": 0.0,
    "groovy": 0.5,
    "haskell": 0.5,
    "hlasm": 0.5,
@@ -1872,7 +1872,7 @@
    "dockerfile": 0.75,
    "embedded_python": 0.75,
    "fortran": 0.75,
-   "go": 0.75,
+   "go": 0,
    "groovy": 0.75,
    "haskell": 0.75,
    "hlasm": 0.75,
@@ -1925,7 +1925,7 @@
    "dockerfile": 0.015,
    "embedded_python": 0.015,
    "fortran": 0.015,
-   "go": 0.015,
+   "go": 0.0,
    "groovy": 0.015,
    "haskell": 0.015,
    "hlasm": 0.015,
@@ -5263,7 +5263,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "edd87d301b4f9643ed4e67883049b7ef78ba003c",
+ "engine_commit": "435cca7d394a0f96f49d0e3397077fb76daaa266",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5402,21 +5402,9 @@
    "where": null
   },
   {
-   "metric": "risk_state_flux",
-   "n": 11,
-   "rho": -0.502,
-   "verdict": "weak",
-   "held": [
-    "immutability_locks",
-    "state_mutation"
-   ],
-   "stratum": "irc1",
-   "where": null
-  },
-  {
    "metric": "betweenness_score",
    "n": 12,
-   "rho": -0.483,
+   "rho": -0.553,
    "verdict": "weak",
    "held": [
     "dependency_links"
@@ -5427,7 +5415,7 @@
   {
    "metric": "dependency_density",
    "n": 12,
-   "rho": -0.483,
+   "rho": -0.553,
    "verdict": "weak",
    "held": [
     "import",
@@ -5435,6 +5423,18 @@
    ],
    "stratum": "irc1",
    "where": "import_count / max(int(coding_loc * control_flow_ratio), 1) (record_keeper.py ~L489)"
+  },
+  {
+   "metric": "risk_state_flux",
+   "n": 11,
+   "rho": -0.502,
+   "verdict": "weak",
+   "held": [
+    "immutability_locks",
+    "state_mutation"
+   ],
+   "stratum": "irc1",
+   "where": null
   },
   {
    "metric": "avg_func_args",
@@ -5552,6 +5552,7 @@
   "avg_func_complexity/markdown": "inherency",
   "avg_func_complexity/sqlite": "inherency",
   "betweenness_score/db2_sql": "inherency",
+  "betweenness_score/go": "unexplained",
   "betweenness_score/javascript": "inherency",
   "betweenness_score/python": "inherency",
   "betweenness_score/rust": "unexplained",
@@ -5563,6 +5564,7 @@
   "class_start/kotlin": "inherency",
   "class_start/yaml": "scoring",
   "closeness_score/db2_sql": "inherency",
+  "closeness_score/go": "unexplained",
   "closeness_score/rust": "unexplained",
   "cog_raw/apex": "echo",
   "cog_raw/bms": "echo",
@@ -5590,6 +5592,7 @@
   "def_encapsulation/go": "inherency",
   "def_encapsulation/haskell": "inherency",
   "dependency_density/db2_sql": "echo",
+  "dependency_density/go": "unexplained",
   "dependency_density/rust": "unexplained",
   "dependency_links/embedded_python": "echo",
   "dependency_links/jcl": "scoring",
@@ -5623,8 +5626,10 @@
   "max_func_complexity/markdown": "inherency",
   "max_func_complexity/sqlite": "inherency",
   "popularity/db2_sql": "inherency",
+  "popularity/go": "unexplained",
   "popularity/rust": "unexplained",
   "producer_ratio/db2_sql": "inherency",
+  "producer_ratio/go": "unexplained",
   "producer_ratio/rust": "unexplained",
   "raw_arch_api/agc_assembly": "scoring",
   "raw_arch_api/css": "scoring",
@@ -5714,7 +5719,7 @@
    51
   ],
   "betweenness_score": [
-   1,
+   2,
    51
   ],
   "branch": [
@@ -5734,7 +5739,7 @@
    48
   ],
   "closeness_score": [
-   1,
+   2,
    51
   ],
   "cog_raw": [
@@ -5758,7 +5763,7 @@
    51
   ],
   "dependency_density": [
-   1,
+   2,
    51
   ],
   "dependency_links": [
@@ -5842,11 +5847,11 @@
    50
   ],
   "popularity": [
-   1,
+   2,
    51
   ],
   "producer_ratio": [
-   1,
+   2,
    51
   ],
   "raw_arch_api": [
