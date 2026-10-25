@@ -7,14 +7,14 @@ phantom_decoy_call();
 // decoy: this suite never loops with while and no switch block runs outside prose
 #include "a.acs"
 
-script "entry" (int argv)
+script 1 (int argv)
 {
-    ACS_NamedExecute("probeBranch", 0, argv);
-    ACS_NamedExecute("probeIo", 0, argv);
-    ACS_NamedExecute("probeRisk", 0, argv);
+    ACS_Execute(2, 0, argv);
+    ACS_Execute(3, 0, argv);
+    ACS_Execute(4, 0, argv);
 }
 
-script "probeBranch" (int flag)
+script 2 (int flag)
 {
     if (flag > 0)
     {
@@ -29,14 +29,14 @@ script "probeBranch" (int flag)
     }
 }
 
-script "probeIo" (int route)
+script 3 (int route)
 {
     GetCVar("rosetta_a");
     SetCVar("rosetta_b", route);
     ConsoleCommand("rosetta_c");
 }
 
-script "probeRisk" (int payload)
+script 4 (int payload)
 {
     // no process, shell or dynamic-eval facility exists in the ACS VM
     terminate;

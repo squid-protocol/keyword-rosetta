@@ -1,19 +1,19 @@
 // keyword rosetta control shell: acs / c
 // decoy: tidy remarks stay in prose and the work happens elsewhere
 
-script "probeCleanup" (int conn)
+script 11 (int conn)
 {
     Thing_Remove(conn);
     Thing_Destroy(conn, 0);
 }
 
-script "probeDebt" (int level)
+script 12 (int level)
 {
     // HACK: shortcut kept deliberately for the rosetta corpus
     int hackLevel = level;
 }
 
-script "probeTodo" (int plan)
+script 13 (int plan)
 {
     // TODO: fill in the probe body later
     terminate;
