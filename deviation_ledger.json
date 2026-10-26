@@ -2513,6 +2513,20 @@
       "investigated_by": "claude-sonnet-5-5",
       "validated_at": "2026-10-25",
       "still_reproduces": true
+    },
+    {
+      "id": "crystal-api-rule-top-level-def",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "crystal"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "crystal's api rule matches only a column-0 `fun` (a C-callable export) and the web frameworks' `get|post|put|patch|delete \"/path\"` route macros. A top-level `def` is public by default in Crystal (only `private`/`protected` narrow it) yet the rule never sees it, so the shell's 13 `def` probes read raw_arch_api 0 against the corpus median 3 -- the ruby shape (api-contract corollary: a function dispatchable from anywhere counts). Measured 2026-10-25 with `verify_language.py crystal --report` against gitgalaxy main: api 0 in main/a/b/c, api_orphan_credit 3 in a/b/c. Re-planting the probes as column-0 `fun` would make api 3 but is rejected: `fun` is not Crystal's idiom for ordinary functions, and the args rule reads only `def`/`macro` parameter lists, so every probe would drop to args 0 (a manufactured declaration moving a planted count, the dart/objective-c trap in api-no-plantable-idiom). The gap is the finding: the engine half is to count a top-level `def` the way ruby/objective-c definitions are counted, paired with no corpus change (the probes already carry the idiom).",
+      "upstream_issue": "",
+      "investigated_by": "claude-sonnet-5-5 (gitgalaxy#5781)",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
     }
   ]
 }
