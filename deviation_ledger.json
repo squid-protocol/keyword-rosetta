@@ -2443,6 +2443,62 @@
       "investigated_by": "claude-fable-5",
       "validated_at": "2026-09-16",
       "still_reproduces": true
+    },
+    {
+      "id": "fsharp-api-needs-module-header",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "fsharp"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "fsharp's api rule matches only a column-0 `module X` / `namespace X` header or a signature file's `val x :`. The shell may not carry a module or namespace header (class_start counts both, and class_start 0 is the corpus tripwire), and a `.fsi` would break the four-file layout, so api plants 0 in every file. Read from the rule in languages/fsharp.py, confirmed by the --report run (api 0 in all four files).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2729",
+      "investigated_by": "claude-sonnet-5-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
+      "id": "fsharp-nested-block-comment-not-stripped",
+      "signal": "closures",
+      "languages_seen": [
+        "fsharp"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "The lexical family for fsharp is recursive_block but no family handles the `(* *)` pair, so a `(* ... *)` block stays in the code stream (docs/language_status/fsharp.md limitations). main.fs's nested Graph Block-Comment Decoy has the word 'function' in its prose, which fsharp's closures rule matches: closures 1 in main.fs where a stripped comment would read 0. Micro-repro: the same prose behind `//` reads 0. The phantom call inside the block adds nothing to calls_out_to (it sits outside every function span). Baked as the current behaviour; flip still_reproduces when `(* *)` is stripped.",
+      "upstream_issue": "squid-protocol/gitgalaxy#5780 (sibling gap; the orchestrator files the issue)",
+      "investigated_by": "claude-sonnet-5-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
+      "id": "fsharp-juxtaposed-call-invisible",
+      "signal": "calls_out",
+      "languages_seen": [
+        "fsharp"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "F# applies a function by juxtaposition (`probeBranch argv`); the shared C-style calls_out rule needs `name(` or `name (`. In `probeRisk (probeIo (probeBranch argv))` the engine records probeRisk and probeIo but not the innermost probeBranch, so entry's calls_out_to is [probeRisk, probeIo] and probeBranch reads unreferenced_by_name 1 in main.fs. Baked as the current behaviour; the plant is left idiomatic rather than rewritten as `probeBranch(argv)`.",
+      "upstream_issue": "squid-protocol/gitgalaxy#5780 (sibling gap; the orchestrator files the issue)",
+      "investigated_by": "claude-sonnet-5-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
+      "id": "fsharp-open-module-not-resolved-to-file",
+      "signal": "api_orphan_credit",
+      "languages_seen": [
+        "fsharp"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "`open A` names the implicit module of a.fs (F# capitalises the file stem), but fsharp is not in CASE_INSENSITIVE_IMPORT_LANGS and the stem fallback rejects stems under 3 characters, so neither resolver (galaxyscope's pass 1.5, network_risk_sensor) binds it: popularity 0 in a/b/c/main, the Contextual Baseline Fix never runs, api_orphan_credit 0 and unreferenced_by_name 3 in a/b/c. Same shape haskell had before gitgalaxy#2540/#2871. Because of this the import chain is not proven by api_orphan_credit for fsharp. Baked as the current behaviour.",
+      "upstream_issue": "squid-protocol/gitgalaxy#5780 (sibling gap; the orchestrator files the issue)",
+      "investigated_by": "claude-sonnet-5-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
     }
   ]
 }

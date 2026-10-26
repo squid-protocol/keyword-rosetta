@@ -53,7 +53,7 @@
       "test": 2,
       "safety": 2,
       "api": 0,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "class_start": 0,
       "safety_bypasses": 0,
       "state_mutation": 0,
@@ -79,7 +79,7 @@
       "state_mutation": 2,
       "high_risk_execution": 1,
       "api": 0,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "class_start": 0,
       "expected_function_nodes": {
         "probeState": {
@@ -100,7 +100,7 @@
       "fragile_debt": 1,
       "planned_debt": 1,
       "api": 0,
-      "api_orphan_credit": 3,
+      "api_orphan_credit": 0,
       "class_start": 0,
       "expected_function_nodes": {
         "probeDebt": {
@@ -154,5 +154,5 @@
       "outcome": "Graph Block-Comment Decoy over a NESTED (* (* *) *) block. The phantom call adds nothing to calls_out_to (it sits outside every function span), but the block is NOT stripped from the code stream: the word 'function' in its prose fires closures +1 in main.fs (ledger: fsharp-nested-block-comment-not-stripped, docs/language_status/fsharp.md limitation)."
     }
   ],
-  "notes": "Free functions only: no module/namespace header (class_start would count it), so the shell relies on implicit top-level modules and api is 0 (ledger fsharp-api-needs-module-header; api_orphan_credit = 3 in a/b/c proves 'open A/B/C' resolved the chain). Every probe body sits on its own line: a one-line `let f x = e` is counted by func_start but never becomes a function unit (no calls_out_to, no units). Calls are F# juxtaposition; the engine sees only `name (`: entry calls probeRisk and probeIo but not probeBranch (ledger fsharp-juxtaposed-call-invisible). units_public is not asserted: F# module lets are public by default yet is_public reads 0 (reported as a sibling gap). .fs content-proof detection holds: every file opens with `open X` / `let name args =`."
+  "notes": "Free functions only: no module/namespace header (class_start would count it), so the shell relies on implicit top-level modules and api is 0 (ledger fsharp-api-needs-module-header; api_orphan_credit is 0 in a/b/c because `open A/B/C` does NOT resolve to the files in the engine (ledger fsharp-open-module-not-resolved-to-file)). Every probe body sits on its own line: a one-line `let f x = e` is counted by func_start but never becomes a function unit (no calls_out_to, no units). Calls are F# juxtaposition; the engine sees only `name (`: entry calls probeRisk and probeIo but not probeBranch (ledger fsharp-juxtaposed-call-invisible). units_public is not asserted: F# module lets are public by default yet is_public reads 0 (reported as a sibling gap). .fs content-proof detection holds: every file opens with `open X` / `let name args =`."
 }
