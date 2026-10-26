@@ -1,0 +1,21 @@
+// keyword rosetta control shell: acs / a
+// decoy: tidy remarks stay in prose and the work happens elsewhere
+#include "b.acs"
+
+script 5 (int slot)
+{
+    GameType();
+    PlayerCount();
+}
+
+script 6 (int expect)
+{
+    // ACS has no test framework
+    terminate;
+}
+
+script 7 (int value)
+{
+    Min(value, 1);
+    Max(value, 0);
+}

@@ -2445,6 +2445,90 @@
       "still_reproduces": true
     },
     {
+      "id": "acs-sandboxed-vm-stated-absences",
+      "signal": "class_start|doc|encapsulation|high_risk_execution|immutability_locks|safety_bypasses|sync_locks|telemetry|test",
+      "languages_seen": [
+        "acs"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "acs (Action Code Script, the Hexen/ZDoom map-scripting language) defines no rule for class_start, doc, encapsulation, high_risk_execution, immutability_locks, safety_bypasses, sync_locks, telemetry or test, so every one is a measured n/a, not a found-nothing 0. Each absence restates what gitgalaxy/standards/language_standards/languages/acs.py declares for the target it names (ACC / BCC / GDCC-ACC): scripts and functions are the only units, so class_start is None and the manifest plants class_start 0 as the usual tripwire; scripts run as cooperative tasks inside a sandboxed VM with no process, shell or dynamic-eval facility (high_risk_execution None) and no escape hatch from that sandbox (safety_bypasses None); there is no documentation-comment convention (doc None), no test framework (test None), no lock or mutex construct because scripts are scheduled cooperatively (sync_locks None), no const/final marker the rule set models (immutability_locks None), no per-name visibility marker (encapsulation None: a `function` is file-local and a `script` is reachable by number, which the api rule already counts), and no telemetry sink distinct from the console-print family that debug_prints owns (telemetry None). Verified 2026-10-25 against engine main plus the #5782 worktree: verify_language.py acs PASS, 92 assertions, all five of high_risk_execution, safety_bypasses, telemetry, test and doc planted 0 and read 0. Review scope, stated plainly: this entry checks the absences against the registry's own stated morphology and a real scan; it did not re-audit BCC-only extensions (struct, enum, const), which the registry's target_version does not claim, so a later widening of that target reopens class_start and immutability_locks. Because high_risk_execution is None the SPEC's danger-only string decoy has no danger keyword the rule could match and is not planted; the comment decoy (main.acs, `while` and `switch` prose, branch 2 with the marker stripped) carries the comment-stripping half of the experiment.",
+      "upstream_issue": "squid-protocol/gitgalaxy#5782",
+      "investigated_by": "claude-sonnet-5-5 (keyword-rosetta acs shell, gitgalaxy#5782)",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
+      "id": "fsharp-api-needs-module-header",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "fsharp"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "fsharp's api rule matches only a column-0 `module X` / `namespace X` header or a signature file's `val x :`. The shell may not carry a module or namespace header (class_start counts both, and class_start 0 is the corpus tripwire), and a `.fsi` would break the four-file layout, so api plants 0 in every file. Read from the rule in languages/fsharp.py, confirmed by the --report run (api 0 in all four files).",
+      "upstream_issue": "squid-protocol/gitgalaxy#2729",
+      "investigated_by": "claude-sonnet-5-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
+      "id": "fsharp-nested-block-comment-not-stripped",
+      "signal": "closures",
+      "languages_seen": [
+        "fsharp"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "The lexical family for fsharp is recursive_block but no family handles the `(* *)` pair, so a `(* ... *)` block stays in the code stream (docs/language_status/fsharp.md limitations). main.fs's nested Graph Block-Comment Decoy has the word 'function' in its prose, which fsharp's closures rule matches: closures 1 in main.fs where a stripped comment would read 0. Micro-repro: the same prose behind `//` reads 0. The phantom call inside the block adds nothing to calls_out_to (it sits outside every function span). Baked as the current behaviour; flip still_reproduces when `(* *)` is stripped.",
+      "upstream_issue": "squid-protocol/gitgalaxy#5780 (sibling gap; the orchestrator files the issue)",
+      "investigated_by": "claude-sonnet-5-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
+      "id": "fsharp-juxtaposed-call-invisible",
+      "signal": "calls_out",
+      "languages_seen": [
+        "fsharp"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "F# applies a function by juxtaposition (`probeBranch argv`); the shared C-style calls_out rule needs `name(` or `name (`. In `probeRisk (probeIo (probeBranch argv))` the engine records probeRisk and probeIo but not the innermost probeBranch, so entry's calls_out_to is [probeRisk, probeIo] and probeBranch reads unreferenced_by_name 1 in main.fs. Baked as the current behaviour; the plant is left idiomatic rather than rewritten as `probeBranch(argv)`.",
+      "upstream_issue": "squid-protocol/gitgalaxy#5780 (sibling gap; the orchestrator files the issue)",
+      "investigated_by": "claude-sonnet-5-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
+      "id": "fsharp-open-module-not-resolved-to-file",
+      "signal": "api_orphan_credit",
+      "languages_seen": [
+        "fsharp"
+      ],
+      "disposition": "upstream-bug",
+      "status": "validated",
+      "verdict": "`open A` names the implicit module of a.fs (F# capitalises the file stem), but fsharp is not in CASE_INSENSITIVE_IMPORT_LANGS and the stem fallback rejects stems under 3 characters, so neither resolver (galaxyscope's pass 1.5, network_risk_sensor) binds it: popularity 0 in a/b/c/main, the Contextual Baseline Fix never runs, api_orphan_credit 0 and unreferenced_by_name 3 in a/b/c. Same shape haskell had before gitgalaxy#2540/#2871. Because of this the import chain is not proven by api_orphan_credit for fsharp. Baked as the current behaviour.",
+      "upstream_issue": "squid-protocol/gitgalaxy#5780 (sibling gap; the orchestrator files the issue)",
+      "investigated_by": "claude-sonnet-5-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
+      "id": "crystal-api-rule-top-level-def",
+      "signal": "api|raw_arch_api",
+      "languages_seen": [
+        "crystal"
+      ],
+      "disposition": "upstream-question",
+      "status": "validated",
+      "verdict": "crystal's api rule matches only a column-0 `fun` (a C-callable export) and the web frameworks' `get|post|put|patch|delete \"/path\"` route macros. A top-level `def` is public by default in Crystal (only `private`/`protected` narrow it) yet the rule never sees it, so the shell's 13 `def` probes read raw_arch_api 0 against the corpus median 3 -- the ruby shape (api-contract corollary: a function dispatchable from anywhere counts). Measured 2026-10-25 with `verify_language.py crystal --report` against gitgalaxy main: api 0 in main/a/b/c, api_orphan_credit 3 in a/b/c. Re-planting the probes as column-0 `fun` would make api 3 but is rejected: `fun` is not Crystal's idiom for ordinary functions, and the args rule reads only `def`/`macro` parameter lists, so every probe would drop to args 0 (a manufactured declaration moving a planted count, the dart/objective-c trap in api-no-plantable-idiom). The gap is the finding: the engine half is to count a top-level `def` the way ruby/objective-c definitions are counted, paired with no corpus change (the probes already carry the idiom).",
+      "upstream_issue": "",
+      "investigated_by": "claude-sonnet-5-5 (gitgalaxy#5781)",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
       "id": "zscript-sandboxed-vm-no-process-or-thread-surface",
       "signal": "concurrency|high_risk_execution|sync_locks",
       "verdict": "zscript.py sets concurrency, high_risk_execution and sync_locks to None. ZScript runs in GZDoom's sandboxed, single-threaded tick VM: there is no thread, task or async facility (concurrency, sync_locks have no construct to count), and no process, shell, native-call or dynamic-eval facility (high_risk_execution). The closest real constructs are already owned elsewhere: ThrowAbortException is panics_and_aborts, and clearscope/virtualscope scope escapes are safety_bypasses (both rules exist in zscript.py). Corpus-confirmed: probeRisk in data/zscript/main.zs carries no planted keyword (bucket-3 test, could the shell plant something real?, fails), so the string decoy uses the language's abort vocabulary on panics_and_aborts instead of high_risk_execution.",
