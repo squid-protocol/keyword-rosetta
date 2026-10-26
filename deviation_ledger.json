@@ -2443,6 +2443,20 @@
       "investigated_by": "claude-fable-5",
       "validated_at": "2026-09-16",
       "still_reproduces": true
+    },
+    {
+      "id": "acs-sandboxed-vm-stated-absences",
+      "signal": "class_start|doc|encapsulation|high_risk_execution|immutability_locks|safety_bypasses|sync_locks|telemetry|test",
+      "languages_seen": [
+        "acs"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "verdict": "acs (Action Code Script, the Hexen/ZDoom map-scripting language) defines no rule for class_start, doc, encapsulation, high_risk_execution, immutability_locks, safety_bypasses, sync_locks, telemetry or test, so every one is a measured n/a, not a found-nothing 0. Each absence restates what gitgalaxy/standards/language_standards/languages/acs.py declares for the target it names (ACC / BCC / GDCC-ACC): scripts and functions are the only units, so class_start is None and the manifest plants class_start 0 as the usual tripwire; scripts run as cooperative tasks inside a sandboxed VM with no process, shell or dynamic-eval facility (high_risk_execution None) and no escape hatch from that sandbox (safety_bypasses None); there is no documentation-comment convention (doc None), no test framework (test None), no lock or mutex construct because scripts are scheduled cooperatively (sync_locks None), no const/final marker the rule set models (immutability_locks None), no per-name visibility marker (encapsulation None: a `function` is file-local and a `script` is reachable by number, which the api rule already counts), and no telemetry sink distinct from the console-print family that debug_prints owns (telemetry None). Verified 2026-10-25 against engine main plus the #5782 worktree: verify_language.py acs PASS, 92 assertions, all five of high_risk_execution, safety_bypasses, telemetry, test and doc planted 0 and read 0. Review scope, stated plainly: this entry checks the absences against the registry's own stated morphology and a real scan; it did not re-audit BCC-only extensions (struct, enum, const), which the registry's target_version does not claim, so a later widening of that target reopens class_start and immutability_locks. Because high_risk_execution is None the SPEC's danger-only string decoy has no danger keyword the rule could match and is not planted; the comment decoy (main.acs, `while` and `switch` prose, branch 2 with the marker stripped) carries the comment-stripping half of the experiment.",
+      "upstream_issue": "squid-protocol/gitgalaxy#5782",
+      "investigated_by": "claude-sonnet-5-5 (keyword-rosetta acs shell, gitgalaxy#5782)",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
     }
   ]
 }
