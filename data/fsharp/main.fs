@@ -8,13 +8,16 @@
 open A
 
 /// Dispatch each probe once.
-let entry argv = probeRisk (probeIo (probeBranch argv))
+let entry argv =
+    probeRisk (probeIo (probeBranch argv))
 
 let probeBranch flag =
     if flag > 0 then 1
     elif flag < 0 then 2
     else match flag with 0 -> 3 | _ -> 4
 
-let probeIo path = (StreamReader path, StreamWriter path, FileStream path)
+let probeIo path =
+    (StreamReader path, StreamWriter path, FileStream path)
 
-let probeRisk payload = exit 1 + failwith payload
+let probeRisk payload =
+    exit 1 + failwith payload

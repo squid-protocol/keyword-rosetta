@@ -3,9 +3,11 @@
 
 open C
 
-let probeBypass shape = Option.get Unchecked.defaultof
+let probeBypass shape =
+    Option.get Unchecked.defaultof
 
-let probeTelemetry msg = ILogger LogInformation
+let probeTelemetry msg =
+    ILogger LogInformation
 
 let probeState cell =
     let message = "plain exit decoy text"
