@@ -1,0 +1,193 @@
+{
+  "language": "acs",
+  "tier": 1,
+  "generator": "claude-sonnet-5-5",
+  "files": {
+    "main.acs": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "ownership": 1,
+      "func_start": 4,
+      "args": 4,
+      "api": 4,
+      "api_orphan_credit": 0,
+      "doc": 0,
+      "units_public": 4,
+      "units_documented": 0,
+      "import": 1,
+      "expected_function_nodes": {
+        "1": {
+          "calls_out_to": [
+            "ACS_Execute"
+          ]
+        },
+        "2": {
+          "calls_out_to": []
+        },
+        "3": {
+          "calls_out_to": [
+            "GetCVar",
+            "SetCVar",
+            "ConsoleCommand"
+          ]
+        },
+        "4": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "a.acs": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 0,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "doc": 0,
+      "ownership": 0,
+      "units_public": 3,
+      "units_documented": 0,
+      "import": 1,
+      "expected_function_nodes": {
+        "5": {
+          "calls_out_to": [
+            "GameType",
+            "PlayerCount"
+          ]
+        },
+        "6": {
+          "calls_out_to": []
+        },
+        "7": {
+          "calls_out_to": [
+            "Min",
+            "Max"
+          ]
+        }
+      }
+    },
+    "b.acs": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 2,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "doc": 0,
+      "ownership": 0,
+      "units_public": 3,
+      "units_documented": 0,
+      "import": 1,
+      "expected_function_nodes": {
+        "8": {
+          "calls_out_to": []
+        },
+        "9": {
+          "calls_out_to": []
+        },
+        "10": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "c.acs": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "doc": 0,
+      "ownership": 0,
+      "units_public": 3,
+      "units_documented": 0,
+      "import": 0,
+      "expected_function_nodes": {
+        "11": {
+          "calls_out_to": [
+            "Thing_Remove",
+            "Thing_Destroy"
+          ]
+        },
+        "12": {
+          "calls_out_to": []
+        },
+        "13": {
+          "calls_out_to": []
+        }
+      }
+    }
+  },
+  "decoys": [
+    {
+      "file": "main.acs",
+      "line_hint": "// decoy: this suite never loops with while and no switch block runs outside prose",
+      "surface": "comment",
+      "signals": [
+        "branch"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 2 (while, switch) when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. The language has no danger rule (high_risk_execution is None), so branch is the only code-stream family the prose can exercise."
+    },
+    {
+      "file": "c.acs",
+      "line_hint": "int hackLevel = level;",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "contributes 0 to fragile_debt -- the rule is comment-anchored, so HACK inside an identifier does not count; c.acs reads the 1 planted HACK comment only."
+    },
+    {
+      "file": "main.acs",
+      "line_hint": "phantom_decoy_call",
+      "surface": "comment",
+      "signals": [],
+      "outcome": "Graph Block-Comment Decoy (Rule 5): the multi-line block comment is stripped before Information Flow Graph extraction, so the phantom call contributes 0 to calls_out_to."
+    }
+  ],
+  "notes": "ACS (Action Code Script, ACC/BCC/GDCC) has no classes, so class_start is 0 (rule None). Functions are numbered `script N (int x)` units (the issue-5782 language note): probes are scripts 2..13, the entry is script 1, and scripts reach each other by number through ACS_Execute, so the entry's calls_out_to is [ACS_Execute] rather than the probe names. Rules that are None in the registry and so plant expected 0 (n/a, see the ledger): high_risk_execution (no process/shell/eval facility in the sandboxed VM), safety_bypasses (no escape hatch), telemetry, test (no test framework), doc (no documentation-comment convention). Probes 3, 5, 7, 8 and 12 therefore carry a comment naming the absence and a bare `terminate;` so the unit is not empty. io is GetCVar/SetCVar/ConsoleCommand call statements (3, no assignment so state_mutation stays 0); globals is the GameType()/PlayerCount() accessors (2), not `global int` declarations; safety is Min()/Max() (2); cleanup is Thing_Remove()/Thing_Destroy() (2); state_mutation is `int first = items; first = 1; first += 1;` (2: a typed declaration is not a write). api = scripts, 3/3/3/4, and api_orphan_credit 0 in a/b/c because the api rule already counts every script (same as zig, ledger api-declared-orphans-are-not-new-surface). units_public equals the script count: engine marks a script public. Branch 3 in main = if, else, switch; `terminate`/`restart` are structural_boundaries, not branch. No string decoy: the danger-only string decoy needs a danger keyword the language's own rule can match and acs has no such rule (high_risk_execution None); see ledger entry string-decoy-unplantable-no-danger-rule. Engine gap found while authoring (not planted around): a QUOTED-NAME script (`script \"probeBranch\" (int x)`) is counted by func_start/args/api but produces no function unit (function_data empty for the file, units_public 0), so the shell uses numbered scripts as the issue's language note prescribes; the named-script form is a sibling gap on the engine side."
+}
