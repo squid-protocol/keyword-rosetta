@@ -1,5 +1,6 @@
 {
  "orphan_tokens": [
+  "acs-sandboxed-vm-stated-absences/encapsulation",
   "batch4-dual-keyword-overlaps/globals",
   "batch4-dual-keyword-overlaps/safety_bypasses",
   "batch5-tier2-morphology-shapes/branch",
@@ -20,6 +21,7 @@
   "no-visibility-construct-encapsulation/encapsulation",
   "path-and-extension-modifiers/risk_concurrency",
   "secrets-lens-inert-formats/risk_secrets_risk",
-  "string-literal-selective-shielding/high_risk_execution"
+  "string-literal-selective-shielding/high_risk_execution",
+  "visibility-morphology-encapsulation/encapsulation"
  ]
 }

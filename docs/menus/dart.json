@@ -33,8 +33,6 @@
       "for",
       "while",
       "do",
-      "break",
-      "continue",
       "when"
     ],
     "pattern_defined": true
@@ -441,6 +439,8 @@
       "var",
       "late",
       "return",
+      "break",
+      "continue",
       "yield",
       "await",
       "class",

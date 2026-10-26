@@ -9,14 +9,16 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | language | red-zone metrics | amber | n/a cells | ledgered shapes | upstream issues |
 |---|---|---|---|---|---|
 | [abap](#abap) | 0 | 0 | 0 | 7 | #2535 #2650 #2659 #2730 #2731 #2765 #2824 |
+| [acs](#acs) | 3 | 0 | 7 | 2 | #5782 |
 | [ada](#ada) | 0 | 0 | 0 | 5 | #2535 #2546 #2822 |
-| [agc_assembly](#agc_assembly) | 1 | 1 | 2 | 11 | #2650 #2659 #2729 #2764 #2766 |
+| [agc_assembly](#agc_assembly) | 1 | 2 | 2 | 11 | #2650 #2659 #2729 #2764 #2766 |
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 #2878 |
 | [assembly](#assembly) | 0 | 0 | 0 | 7 | #2535 #2727 #2764 #2858 #2869 |
 | [bms](#bms) | 5 | 1 | 16 | 7 | #2503 #2505 #3077 |
 | [c](#c) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 #2878 |
 | [cobol](#cobol) | 0 | 2 | 0 | 21 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
+| [crystal](#crystal) | 6 | 1 | 0 | 2 | — |
 | [csharp](#csharp) | 0 | 0 | 0 | 11 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 #2882 |
 | [css](#css) | 4 | 3 | 5 | 20 | #2549 #2655 #2689 #2729 #2752 #2766 #2770 #2866 #2878 |
 | [dart](#dart) | 0 | 0 | 0 | 8 | #2535 #2651 #2689 #2730 #2731 #2852 #2878 |
@@ -24,6 +26,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [dockerfile](#dockerfile) | 3 | 4 | 1 | 21 | #2535 #2546 #2547 #2549 #2689 #2728 #2729 #2730 #2731 #2765 #2766 #2770 #2792 #2798 #2822 #2856 #2866 #2875 |
 | [embedded_python](#embedded_python) | 7 | 0 | 0 | 15 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2852 #2869 #2875 |
 | [fortran](#fortran) | 0 | 2 | 0 | 15 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 #2878 |
+| [fsharp](#fsharp) | 8 | 0 | 0 | 5 | #2729 #5780 |
 | [go](#go) | 5 | 0 | 0 | 11 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
 | [groovy](#groovy) | 0 | 0 | 0 | 8 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 #2878 |
 | [haskell](#haskell) | 3 | 1 | 0 | 15 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
@@ -43,6 +46,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [perl](#perl) | 0 | 0 | 0 | 13 | #2535 #2546 #2670 #2689 #2730 #2731 #2765 #2766 #2770 #2852 #2878 |
 | [php](#php) | 0 | 0 | 0 | 11 | #2535 #2541 #2546 #2689 #2730 #2731 #2770 #2852 #2878 |
 | [pli](#pli) | 0 | 1 | 0 | 2 | — |
+| [postgresql](#postgresql) | 4 | 1 | 1 | 1 | — |
 | [powershell](#powershell) | 2 | 0 | 0 | 10 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 #2822 |
 | [python](#python) | 5 | 1 | 0 | 14 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2878 |
 | [rexx](#rexx) | 1 | 0 | 2 | 4 | #2503 #2504 #2730 |
@@ -53,12 +57,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [shell](#shell) | 0 | 0 | 2 | 13 | #2535 #2547 #2727 #2731 #2766 #2822 #2858 #2888 |
 | [solidity](#solidity) | 0 | 0 | 1 | 11 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 #2882 |
 | [sqlite](#sqlite) | 9 | 2 | 3 | 17 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 #2866 |
-| [swift](#swift) | 0 | 0 | 0 | 12 | #2535 #2543 #2546 #2730 #2731 #2765 #2772 #2822 #2858 |
+| [swift](#swift) | 5 | 0 | 0 | 12 | #2535 #2543 #2546 #2730 #2731 #2765 #2772 #2822 #2858 |
 | [tcl](#tcl) | 0 | 0 | 0 | 10 | #2535 #2546 #2727 #2731 #2765 #2766 #2822 #2841 |
 | [typescript](#typescript) | 0 | 0 | 0 | 14 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 #2878 |
-| [yacc](#yacc) | 5 | 0 | 2 | 10 | #2644 #2689 #2729 #2770 |
+| [yacc](#yacc) | 5 | 1 | 2 | 10 | #2644 #2689 #2729 #2770 |
 | [yaml](#yaml) | 2 | 1 | 1 | 16 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 #2866 |
 | [zig](#zig) | 0 | 0 | 0 | 10 | #2535 #2545 #2651 #2730 #2731 #2765 #2766 #2772 |
+| [zscript](#zscript) | 1 | 0 | 5 | 3 | — |
 
 ## abap
 
@@ -80,6 +85,29 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **b.abap** · `lv_note = 'PLAIN TRUNCATE DECOY TEXT'. (inside probe_state)` (string): danger-only decoy (#17 redesign, wave 3): TRUNCATE is abap's own danger keyword and was ALREADY in the retired sentence, but it read 0 — the sentence's own TRY fed abap's safety rule and the Silencer Region dampener (high_risk <- safety, 500 chars, same function) silenced it. That is the same mechanism the pilot found in python, not the 'third shielding profile' this entry previously recorded: abap shields nothing. Dropping TRY takes safety 1->0 and high_risk_execution 0->1. IF and SELECT never counted here (abap's branch and io rules do not match them), which is why no other count moves. Ledger: string-literal-selective-shielding
 - **c.abap** · `hack_level = cv_level` (code): inert (underscore + lowercase vs case-sensitive \bHACK\b)
 - **main.abap** · `phantom_decoy_call` (comment): Graph Single-Comment Cluster Decoy (Rule 5 Exempt Fallback): Language lacks multi-line block comments, fell back to single-line cluster. Asserts the phantom call contributes 0 to the `calls_out_to` topology.
+
+</details>
+
+## acs
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `cog_raw`: 0.0825 vs median 0.0205 (+302%)
+- 🔴 `risk_cognitive_load`: 3.92738 vs median 1.29535 (+203%)
+- 🔴 `risk_safety_score`: 12.857 vs median 30.5829 (-58%)
+
+**Not expressible as measured (n/a):** `class_start`, `classes_found`, `doc`, `high_risk_execution`, `safety_bypasses`, `telemetry`, `test`
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `acs-sandboxed-vm-stated-absences` | intended-morphology | [#5782](https://github.com/squid-protocol/gitgalaxy/issues/5782) | — | acs (Action Code Script, the Hexen/ZDoom map-scripting language) defines no rule for class_start, doc, encapsulation, high_risk_execution, immutability_locks, safety_byp… |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.acs** · `// decoy: this suite never loops with while and no switch block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 2 (while, switch) when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. The language has no danger rule (high_risk_execution is None), so branch is the only code-stream family the prose can exercise.
+- **c.acs** · `int hackLevel = level;` (code): contributes 0 to fragile_debt -- the rule is comment-anchored, so HACK inside an identifier does not count; c.acs reads the 1 planted HACK comment only.
+- **main.acs** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): the multi-line block comment is stripped before Information Flow Graph extraction, so the phantom call contributes 0 to calls_out_to.
 
 </details>
 
@@ -110,6 +138,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
 - 🟡 `high_risk_execution`: 2 vs median 3 (-33%)
+- 🟡 `risk_tech_debt`: 40.8787 vs median 29.8779 (+37%)
 
 **Not expressible as measured (n/a):** `class_start`, `classes_found`
 
@@ -254,8 +283,8 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🟡 `risk_safety_score`: 53.496 vs median 42.3138 (+26%)
-- 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
+- 🟡 `risk_safety_score`: 41.6278 vs median 30.5829 (+36%)
+- 🟡 `risk_tech_debt`: 20.4394 vs median 29.8779 (-32%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -316,6 +345,32 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **b.cpp** · `const char *note = "plain system() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, safety 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.cpp** · `int hack_level;` (code): inert
 - **main.cpp** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
+
+</details>
+
+## crystal
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `cog_raw`: 0.06175 vs median 0.0205 (+201%)
+- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
+- 🔴 `risk_cognitive_load`: 2.36315 vs median 1.29535 (+82%)
+- 🔴 `risk_safety_score`: 55.7212 vs median 30.5829 (+82%)
+- 🔴 `risk_state_flux`: 36.9502 vs median 7.75065 (+377%)
+- 🔴 `state_mutation`: 9 vs median 2 (+350%)
+- 🟡 `betweenness_score`: 0.05 vs median 0.0833335 (-40%)
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `crystal-api-rule-top-level-def` | upstream-question | — | (notes) | crystal's api rule matches only a column-0 `fun` (a C-callable export) and the web frameworks' `get|post|put|patch|delete "/path"` route macros |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.cr** · `# decoy: this suite never calls abort and has no unless branch` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 (plus panics_and_aborts, calls_out) when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys.
+- **b.cr** · `note = "plain system decoy text" (probe_state)` (string): danger-only decoy (#17): "system" COUNTS from inside the literal (+1), undampened -- probe_state carries no safety keyword. Also one plain-assignment state_mutation (note = ...). Ledger: string-literal-selective-shielding, state-flux-branch-weighting
+- **c.cr** · `hack_level = level` (code): inert (underscore + lowercase)
+- **main.cr** · `phantom_decoy_call` (comment): Graph block-comment decoy: a run of `#` lines (Crystal has no block comment) wrapping a fake call. The phantom call contributes 0 to the calls_out_to topology (entry calls only the three probes).
 
 </details>
 
@@ -428,7 +483,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
 - 🔴 `risk_api_exposure`: 0 vs median 31.8725 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
-- 🟡 `risk_tech_debt`: 22.0199 vs median 34.5199 (-36%)
+- 🟡 `risk_tech_debt`: 20.4394 vs median 29.8779 (-32%)
 
 **Not expressible as measured (n/a):** `raw_state_unreferenced`
 
@@ -460,7 +515,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🟡 `func_start`: 17 vs median 13 (+31%)
 - 🟡 `functions_found`: 17 vs median 13 (+31%)
 - 🟡 `risk_api_exposure`: 15.9363 vs median 31.8725 (-50%)
-- 🟡 `risk_tech_debt`: 23.8144 vs median 42.0908 (-43%)
+- 🟡 `risk_tech_debt`: 20.4394 vs median 29.8779 (-32%)
 
 **Not expressible as measured (n/a):** `raw_state_unreferenced`
 
@@ -504,7 +559,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `dependency_links`: 7 vs median 3 (+133%)
 - 🔴 `import`: 7 vs median 3 (+133%)
 - 🔴 `risk_cognitive_load`: 10.9472 vs median 1.29535 (+745%)
-- 🔴 `risk_safety_score`: 73.7431 vs median 42.3138 (+74%)
+- 🔴 `risk_safety_score`: 57.67 vs median 30.5829 (+89%)
 - 🔴 `risk_state_flux`: 58.9405 vs median 7.75065 (+660%)
 - 🔴 `state_mutation`: 15 vs median 2 (+650%)
 
@@ -539,7 +594,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🟡 `risk_safety_score`: 57.4623 vs median 43.364 (+33%)
+- 🟡 `risk_safety_score`: 42.5475 vs median 30.5829 (+39%)
 - 🟡 `safety_bypasses`: 3 vs median 2 (+50%)
 
 | defect | type | issue | evidence in this folder | summary |
@@ -569,6 +624,36 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 </details>
 
+## fsharp
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
+- 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
+- 🔴 `dependency_density`: 0 vs median 0.015 (-100%)
+- 🔴 `popularity`: 0 vs median 0.75 (-100%)
+- 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
+- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 31.8725 (-100%)
+- 🔴 `risk_tech_debt`: 82.9728 vs median 29.8779 (+178%)
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `fsharp-api-needs-module-header` | engine-semantic | [#2729](https://github.com/squid-protocol/gitgalaxy/issues/2729) | (notes) | fsharp's api rule matches only a column-0 `module X` / `namespace X` header or a signature file's `val x :` |
+| `fsharp-juxtaposed-call-invisible` | upstream-bug | [#5780](https://github.com/squid-protocol/gitgalaxy/issues/5780) | (notes) | F# applies a function by juxtaposition (`probeBranch argv`); the shared C-style calls_out rule needs `name(` or `name (` |
+| `fsharp-nested-block-comment-not-stripped` | upstream-bug | [#5780](https://github.com/squid-protocol/gitgalaxy/issues/5780) | main.fs | The lexical family for fsharp is recursive_block but no family handles the `(* *)` pair, so a `(* .. |
+| `fsharp-open-module-not-resolved-to-file` | upstream-bug | [#5780](https://github.com/squid-protocol/gitgalaxy/issues/5780) | (notes) | `open A` names the implicit module of a.fs (F# capitalises the file stem), but fsharp is not in CASE_INSENSITIVE_IMPORT_LANGS and the stem fallback rejects stems under 3… |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.fs** · `// decoy: this suite never calls failwith and no if elif branch lives outside prose` (comment): contributes 0 -- the // comment surface is stripped. Prose fires branch 2 (if, elif), high_risk_execution 1 (failwith) when the marker is removed.
+- **b.fs** · `let message = "plain exit decoy text" (probeState)` (string): danger-only decoy: "exit" COUNTS from inside the literal (+1) -- strings are not stripped (gitgalaxy#2535). probeState carries no safety keyword, so nothing dampens it.
+- **c.fs** · `let HACK_LEVEL = level (probeDebt)` (code): inert (\bHACK\b does not match across the underscore of HACK_LEVEL; the one fragile_debt hit is the // HACK: comment).
+- **main.fs** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy over a NESTED (* (* *) *) block. The phantom call adds nothing to calls_out_to (it sits outside every function span), but the block is NOT stripped from the code stream: the word 'function' in its prose fires closures +1 in main.fs (ledger: fsharp-nested-block-comment-not-stripped, docs/language_status/fsharp.md limitation).
+
+</details>
+
 ## go
 
 **Out-of-band metrics** (vs the cross-language median):
@@ -587,7 +672,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.go | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
 | `string-literal-selective-shielding` | engine-semantic | [#2535](https://github.com/squid-protocol/gitgalaxy/issues/2535) | b.go | Keywords inside one string literal ('if eval fails, try open') count toward branch (+2), safety (+1), io (+1) but eval does NOT count toward high_risk_execution (routes … |
-| `visibility-morphology-encapsulation` | engine-semantic | — | — | Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), … |
+| `visibility-morphology-encapsulation` | engine-semantic | — | (notes) | Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), … |
 | `encapsulation-is-language-idiom` | intended-morphology | — | — | The SPEC probe table does not plant `encapsulation`: it appears in 8 of 46 manifests, and only because the rule fires on constructs the probes write for other reasons |
 | `safety-contract-2869` | upstream-bug | [#2869](https://github.com/squid-protocol/gitgalaxy/issues/2869) | — | The safety rule had no stated contract; its two open-defect cells were two diseases each |
 | `state-mutation-contract-2765` | upstream-bug | [#2765](https://github.com/squid-protocol/gitgalaxy/issues/2765) | — | gitgalaxy#2765 gave state_mutation a stated contract (docs/state_mutation_rule_contract.md): one hit is a statement that writes a new value into state that already exist… |
@@ -632,7 +717,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
 - 🔴 `risk_api_exposure`: 7.9681 vs median 31.8725 (-75%)
 - 🔴 `safety_bypasses`: 4 vs median 2 (+100%)
-- 🟡 `risk_safety_score`: 52.311 vs median 39.811 (+31%)
+- 🟡 `risk_safety_score`: 43.0829 vs median 30.5829 (+41%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -766,7 +851,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🟡 `betweenness_score`: 0.05 vs median 0.0833335 (-40%)
-- 🟡 `risk_safety_score`: 57.4958 vs median 43.364 (+33%)
+- 🟡 `risk_safety_score`: 42.0539 vs median 30.5829 (+38%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -804,7 +889,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `raw_arch_api`: 0.25 vs median 3 (-92%)
 - 🔴 `risk_api_exposure`: 0.88145 vs median 31.8725 (-97%)
 - 🟡 `dependency_links`: 4 vs median 3 (+33%)
-- 🟡 `risk_tech_debt`: 23.8144 vs median 42.0908 (-43%)
+- 🟡 `risk_tech_debt`: 20.4394 vs median 29.8779 (-32%)
 
 **Not expressible as measured (n/a):** `doc`, `raw_state_unreferenced`, `test`
 
@@ -1141,7 +1226,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 **Out-of-band metrics** (vs the cross-language median):
 
-- 🟡 `risk_safety_score`: 57.4958 vs median 43.364 (+33%)
+- 🟡 `risk_safety_score`: 42.0539 vs median 30.5829 (+38%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1154,6 +1239,31 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **a.pli** · `DCL MSG CHAR(22) INIT('PLAIN STOP; DECOY TEXT') (inside PROBE_GLOBALS)` (string): danger-only decoy (#17 design): STOP; COUNTS from inside the literal (+1, unshielded -- gitgalaxy#2535, no literal-shielding mechanism) and also counts panics_and_aborts +1 (unscored dual, gitgalaxy#2878's termination family -- same as fortran's STOP). STOP; is pli's own statement-shaped danger keyword; it is not a branch keyword, so no phantom flux context. Planted via DCL ... INIT (pli's declaration initial value), not an assignment, so state_mutation stays 0 in this file. PROBE_GLOBALS carries no safety keyword, keeping the Silencer Region out of the experiment.
 - **c.pli** · `DCL HACK_LEVEL FIXED BIN(15);` (code): inert (underscore tokenization, as python -- \bHACK\b cannot fire mid-identifier; the gitgalaxy#2537 hyphen guard is not even needed). c.pli records exactly the planted /* HACK: */ comment (1).
 - **main.pli** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
+
+</details>
+
+## postgresql
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `avg_func_args`: 3 vs median 1 (+200%)
+- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
+- 🔴 `risk_api_exposure`: 0 vs median 31.8725 (-100%)
+- 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
+- 🟡 `risk_tech_debt`: 20.4394 vs median 29.8779 (-32%)
+
+**Not expressible as measured (n/a):** `raw_state_unreferenced`†
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.sql** · `-- decoy: this suite never runs DROP DATABASE and no VACUUM or DISCARD lives outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires high_risk_execution 1 (DROP DATABASE) and cleanup 2 (VACUUM, DISCARD) when the marker is removed; both are manifest keys.
+- **b.sql** · `PERFORM 'plain DROP DATABASE decoy text'; (probe_state's carrier statement)` (string): danger-only decoy: 'DROP DATABASE' COUNTS from inside the literal (+1 high_risk_execution). postgresql's danger vocabulary is multi-word or call-shaped, so the literal needs two words, as in sqlite. DROP DATABASE is not a safety_bypasses or cleanup keyword (those take DROP TABLE/VIEW/INDEX/...), so nothing else moves. Ledger: string-literal-selective-shielding
+- **c.sql** · `PERFORM hack_level;` (code): inert (underscore + lowercase)
+- **main.sql** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
 
 </details>
 
@@ -1192,7 +1302,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `cog_raw`: 0.2545 vs median 0.0205 (+1141%)
 - 🔴 `risk_cognitive_load`: 14.8919 vs median 1.29535 (+1050%)
-- 🔴 `risk_safety_score`: 76.3203 vs median 42.3138 (+80%)
+- 🔴 `risk_safety_score`: 58.6611 vs median 30.5829 (+92%)
 - 🔴 `risk_state_flux`: 67.249 vs median 7.75065 (+768%)
 - 🔴 `state_mutation`: 21 vs median 2 (+950%)
 - 🟡 `betweenness_score`: 0.05 vs median 0.0833335 (-40%)
@@ -1255,7 +1365,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 - 🔴 `cog_raw`: 0.06175 vs median 0.0205 (+201%)
 - 🔴 `risk_cognitive_load`: 2.36315 vs median 1.29535 (+82%)
-- 🔴 `risk_safety_score`: 71.4802 vs median 42.3138 (+69%)
+- 🔴 `risk_safety_score`: 56.0557 vs median 30.5829 (+83%)
 - 🔴 `risk_state_flux`: 43.2869 vs median 7.75065 (+458%)
 - 🔴 `state_mutation`: 11 vs median 2 (+450%)
 
@@ -1439,7 +1549,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `risk_api_exposure`: 0 vs median 31.8725 (-100%)
 - 🔴 `risk_state_flux`: 0 vs median 7.75065 (-100%)
 - 🟡 `cog_raw`: 0.015 vs median 0.0205 (-27%)
-- 🟡 `risk_tech_debt`: 23.1035 vs median 38.665 (-40%)
+- 🟡 `risk_tech_debt`: 20.4394 vs median 29.8779 (-32%)
 
 **Not expressible as measured (n/a):** `functions_found`, `raw_state_unreferenced`, `risk_documentation`
 
@@ -1474,7 +1584,13 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## swift
 
-**In band on every metric.**
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
+- 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
+- 🔴 `dependency_density`: 0 vs median 0.015 (-100%)
+- 🔴 `popularity`: 0 vs median 0.75 (-100%)
+- 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1564,6 +1680,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `cog_raw`: 0.055 vs median 0.0205 (+168%)
 - 🔴 `raw_arch_api`: 1 vs median 3 (-67%)
 - 🔴 `risk_cognitive_load`: 2.14335 vs median 1.29535 (+65%)
+- 🟡 `risk_tech_debt`: 44.7066 vs median 29.8779 (+50%)
 
 **Not expressible as measured (n/a):** `risk_concurrency`, `test`
 
@@ -1647,5 +1764,28 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **main.zig** · `// decoy: this suite never calls @panic and no switch block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. 2026-09-08 #2878: the prose carries the rule's anchored form (contract C2) so it still fires 2+ code-stream rules with the marker stripped.
 - **b.zig** · `var note = "plain std.process.exit decoy text"; (probeState)` (string): danger-only decoy (#17 redesign): "std.process.exit" COUNTS from inside the literal (+1), undampened — probeState carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 2->0, safety 1->0, state_mutation 6->2. Ledger: string-literal-selective-shielding, state-flux-branch-weighting
 - **main.zig** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
+
+</details>
+
+## zscript
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `risk_safety_score`: 13.9224 vs median 30.5829 (-54%)
+
+**Not expressible as measured (n/a):** `doc`, `high_risk_execution`, `risk_concurrency`, `telemetry`, `test`
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `zscript-no-doc-test-telemetry-convention` | intended-morphology | — | — | zscript.py sets doc, telemetry and test to None |
+| `zscript-sandboxed-vm-no-process-or-thread-surface` | intended-morphology | — | — | zscript.py sets concurrency, high_risk_execution and sync_locks to None |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.zs** · `// decoy: this probe never calls Destroy( and no switch block runs outside prose` (comment): contributes 0 -- prism strips the comment surface. Prose fires cleanup 1 (the anchored `Destroy(` form) and branch 1 (`switch`) when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. zscript has no high_risk_execution rule, so the keywords used are `Destroy(` and `switch`.
+- **main.zs** · `string note = "plain ThrowAbortException decoy text"; (probeRisk)` (string): danger-only decoy (#17): zscript's high_risk_execution rule is None (sandboxed VM: no process, shell or eval), so the literal carries the language's own abort vocabulary instead -- `ThrowAbortException` COUNTS from inside the literal (panics_and_aborts +1 in main.zs). probeRisk holds no safety keyword, so no dampener is involved.
+- **main.zs** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): asserts that multi-line block comments are stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
+- **c.zs** · `int hackLevel = level; (probeDebt)` (code): reverse decoy: `hackLevel` as an identifier does not count -- fragile_debt is word-bounded; the only hit is the `// HACK:` comment.
 
 </details>
