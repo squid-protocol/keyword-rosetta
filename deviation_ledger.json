@@ -2527,6 +2527,34 @@
       "investigated_by": "claude-sonnet-5-5 (gitgalaxy#5781)",
       "validated_at": "2026-10-25",
       "still_reproduces": true
+    },
+    {
+      "id": "zscript-sandboxed-vm-no-process-or-thread-surface",
+      "signal": "concurrency|high_risk_execution|sync_locks",
+      "verdict": "zscript.py sets concurrency, high_risk_execution and sync_locks to None. ZScript runs in GZDoom's sandboxed, single-threaded tick VM: there is no thread, task or async facility (concurrency, sync_locks have no construct to count), and no process, shell, native-call or dynamic-eval facility (high_risk_execution). The closest real constructs are already owned elsewhere: ThrowAbortException is panics_and_aborts, and clearscope/virtualscope scope escapes are safety_bypasses (both rules exist in zscript.py). Corpus-confirmed: probeRisk in data/zscript/main.zs carries no planted keyword (bucket-3 test, could the shell plant something real?, fails), so the string decoy uses the language's abort vocabulary on panics_and_aborts instead of high_risk_execution.",
+      "languages_seen": [
+        "zscript"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
+    },
+    {
+      "id": "zscript-no-doc-test-telemetry-convention",
+      "signal": "doc|telemetry|test",
+      "verdict": "zscript.py sets doc, telemetry and test to None. ZScript has no documentation-comment convention (only // and /* */; the ZDoc-style tags some mods write are plain comments with no tool contract), no test framework or assertion facility, and no telemetry/analytics facility (console output is debug_prints: A_Log/Printf/DPrintf, a separate rule that exists). Corpus-confirmed: probeTest and probeTelemetry in data/zscript/{a,b}.zs are empty placeholders because nothing real exists to author, and main.zs plants no doc-comment (doc and units_documented are 0).",
+      "languages_seen": [
+        "zscript"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5",
+      "validated_at": "2026-10-25",
+      "still_reproduces": true
     }
   ]
 }

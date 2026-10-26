@@ -1522,5 +1522,32 @@
       ]
     },
     "forbidden_everywhere": []
+  },
+  "zscript": {
+    "entry_file": "main.zs",
+    "entry_node": "entry",
+    "entry_required": [
+      "probeBranch",
+      "probeIo",
+      "probeRisk"
+    ],
+    "periphery": {
+      "probeIo": [
+        "GetCVar",
+        "FindCVar",
+        "ReadLump"
+      ],
+      "probeSafety": [
+        "clamp",
+        "isValid"
+      ],
+      "probeCleanup": [
+        "Destroy",
+        "A_Remove"
+      ]
+    },
+    "forbidden_everywhere": [
+      "ThrowAbortException"
+    ]
   }
 }

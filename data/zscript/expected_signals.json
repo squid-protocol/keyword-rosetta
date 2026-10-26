@@ -1,0 +1,202 @@
+{
+  "language": "zscript",
+  "tier": 1,
+  "generator": "claude-sonnet-5",
+  "files": {
+    "main.zs": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "func_start": 4,
+      "args": 4,
+      "api": 4,
+      "api_orphan_credit": 0,
+      "doc": 0,
+      "ownership": 1,
+      "import": 1,
+      "encapsulation": 0,
+      "units_public": 4,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probeBranch": {
+          "calls_out_to": []
+        },
+        "entry": {
+          "calls_out_to": [
+            "probeBranch",
+            "probeIo",
+            "probeRisk"
+          ]
+        },
+        "probeIo": {
+          "calls_out_to": [
+            "GetCVar",
+            "FindCVar",
+            "ReadLump"
+          ]
+        },
+        "probeRisk": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "a.zs": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 0,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probeGlobals": {
+          "calls_out_to": []
+        },
+        "probeTest": {
+          "calls_out_to": []
+        },
+        "probeSafety": {
+          "calls_out_to": [
+            "clamp",
+            "isValid"
+          ]
+        }
+      }
+    },
+    "b.zs": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 0,
+      "state_mutation": 2,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "encapsulation": 0,
+      "units_public": 3,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probeBypass": {
+          "calls_out_to": []
+        },
+        "probeTelemetry": {
+          "calls_out_to": []
+        },
+        "probeState": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "c.zs": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 3,
+      "api_orphan_credit": 0,
+      "encapsulation": 0,
+      "doc": 0,
+      "ownership": 0,
+      "units_public": 3,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probeCleanup": {
+          "calls_out_to": [
+            "Destroy",
+            "A_Remove"
+          ]
+        },
+        "probeDebt": {
+          "calls_out_to": []
+        },
+        "probeTodo": {
+          "calls_out_to": []
+        }
+      }
+    }
+  },
+  "decoys": [
+    {
+      "file": "main.zs",
+      "line_hint": "// decoy: this probe never calls Destroy( and no switch block runs outside prose",
+      "surface": "comment",
+      "signals": [
+        "cleanup",
+        "branch"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires cleanup 1 (the anchored `Destroy(` form) and branch 1 (`switch`) when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys. zscript has no high_risk_execution rule, so the keywords used are `Destroy(` and `switch`."
+    },
+    {
+      "file": "main.zs",
+      "line_hint": "string note = \"plain ThrowAbortException decoy text\"; (probeRisk)",
+      "surface": "string",
+      "signals": [
+        "panics_and_aborts"
+      ],
+      "outcome": "danger-only decoy (#17): zscript's high_risk_execution rule is None (sandboxed VM: no process, shell or eval), so the literal carries the language's own abort vocabulary instead -- `ThrowAbortException` COUNTS from inside the literal (panics_and_aborts +1 in main.zs). probeRisk holds no safety keyword, so no dampener is involved."
+    },
+    {
+      "file": "main.zs",
+      "line_hint": "phantom_decoy_call",
+      "surface": "comment",
+      "signals": [],
+      "outcome": "Graph Block-Comment Decoy (Rule 5): asserts that multi-line block comments are stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology."
+    },
+    {
+      "file": "c.zs",
+      "line_hint": "int hackLevel = level; (probeDebt)",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "reverse decoy: `hackLevel` as an identifier does not count -- fragile_debt is word-bounded; the only hit is the `// HACK:` comment."
+    }
+  ],
+  "notes": "Free functions, not class methods, per SPEC rule 2: real ZScript only allows methods inside a class/struct, but the engine's func_start/args/api rules read the method-header shape without a class around it and class_start expected 0 is the corpus tripwire; the shell is not valid ZScript and need not be (SPEC rule 1). Extension .zs (the root zscript.txt lump is out of scope, gitgalaxy#5465). Absent by rule: high_risk_execution, test, telemetry and doc are None in zscript (sandboxed tick VM, no test framework, no telemetry facility, no doc-comment convention) so probeRisk/probeTest/probeTelemetry carry no planted keyword -- recorded 0 and ledgered as n/a. encapsulation counts private/protected, which the shell never writes (0). `#include \"x.zs\"` is the import chain. State mutation is `total = 1; total += 2;` on a parameter; a typed declaration is not a write. Locked 2026-10-25 against gitgalaxy main (#5535 language, #5783 corpus)."
+}
