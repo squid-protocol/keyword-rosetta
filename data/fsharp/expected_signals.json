@@ -1,0 +1,158 @@
+{
+  "language": "fsharp",
+  "tier": 1,
+  "generator": "claude-sonnet-5-5",
+  "files": {
+    "main.fs": {
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "func_start": 4,
+      "args": 4,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "api": 0,
+      "api_orphan_credit": 0,
+      "class_start": 0,
+      "closures": 1,
+      "state_mutation": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "encapsulation": 0,
+      "units_documented": 2,
+      "expected_function_nodes": {
+        "probeBranch": {
+          "calls_out_to": []
+        },
+        "entry": {
+          "calls_out_to": [
+            "probeRisk",
+            "probeIo"
+          ]
+        },
+        "probeIo": {
+          "calls_out_to": []
+        },
+        "probeRisk": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "a.fs": {
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "api": 0,
+      "api_orphan_credit": 0,
+      "class_start": 0,
+      "safety_bypasses": 0,
+      "state_mutation": 0,
+      "high_risk_execution": 0,
+      "expected_function_nodes": {
+        "probeGlobals": {
+          "calls_out_to": []
+        },
+        "probeTest": {
+          "calls_out_to": []
+        },
+        "probeSafety": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "b.fs": {
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "high_risk_execution": 1,
+      "api": 0,
+      "api_orphan_credit": 0,
+      "class_start": 0,
+      "expected_function_nodes": {
+        "probeState": {
+          "calls_out_to": []
+        },
+        "probeBypass": {
+          "calls_out_to": []
+        },
+        "probeTelemetry": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "c.fs": {
+      "func_start": 3,
+      "args": 3,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "api": 0,
+      "api_orphan_credit": 0,
+      "class_start": 0,
+      "expected_function_nodes": {
+        "probeDebt": {
+          "calls_out_to": []
+        },
+        "probeCleanup": {
+          "calls_out_to": []
+        },
+        "probeTodo": {
+          "calls_out_to": []
+        }
+      }
+    }
+  },
+  "decoys": [
+    {
+      "file": "main.fs",
+      "line_hint": "// decoy: this suite never calls failwith and no if elif branch lives outside prose",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- the // comment surface is stripped. Prose fires branch 2 (if, elif), high_risk_execution 1 (failwith) when the marker is removed."
+    },
+    {
+      "file": "b.fs",
+      "line_hint": "let message = \"plain exit decoy text\" (probeState)",
+      "surface": "string",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "danger-only decoy: \"exit\" COUNTS from inside the literal (+1) -- strings are not stripped (gitgalaxy#2535). probeState carries no safety keyword, so nothing dampens it."
+    },
+    {
+      "file": "c.fs",
+      "line_hint": "let HACK_LEVEL = level (probeDebt)",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (\\bHACK\\b does not match across the underscore of HACK_LEVEL; the one fragile_debt hit is the // HACK: comment)."
+    },
+    {
+      "file": "main.fs",
+      "line_hint": "phantom_decoy_call",
+      "surface": "comment",
+      "signals": [
+        "closures"
+      ],
+      "outcome": "Graph Block-Comment Decoy over a NESTED (* (* *) *) block. The phantom call adds nothing to calls_out_to (it sits outside every function span), but the block is NOT stripped from the code stream: the word 'function' in its prose fires closures +1 in main.fs (ledger: fsharp-nested-block-comment-not-stripped, docs/language_status/fsharp.md limitation)."
+    }
+  ],
+  "notes": "Free functions only: no module/namespace header (class_start would count it), so the shell relies on implicit top-level modules and api is 0 (ledger fsharp-api-needs-module-header; api_orphan_credit is 0 in a/b/c because `open A/B/C` does NOT resolve to the files in the engine (ledger fsharp-open-module-not-resolved-to-file)). Every probe body sits on its own line: a one-line `let f x = e` is counted by func_start but never becomes a function unit (no calls_out_to, no units). Calls are F# juxtaposition; the engine sees only `name (`: entry calls probeRisk and probeIo but not probeBranch (ledger fsharp-juxtaposed-call-invisible). units_public is not asserted: F# module lets are public by default yet is_public reads 0 (reported as a sibling gap). .fs content-proof detection holds: every file opens with `open X` / `let name args =`."
+}

@@ -1,0 +1,204 @@
+{
+  "language": "crystal",
+  "tier": 1,
+  "generator": "claude-sonnet-5-5 (churn worker, gitgalaxy#5781)",
+  "files": {
+    "main.cr": {
+      "class_start": 0,
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 2,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "state_mutation": 3,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "api_orphan_credit": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 1,
+      "units_public": 0,
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "probe_branch": {
+          "calls_out_to": []
+        },
+        "entry": {
+          "calls_out_to": [
+            "probe_branch",
+            "probe_io",
+            "probe_risk"
+          ]
+        },
+        "probe_io": {
+          "calls_out_to": []
+        },
+        "probe_risk": {
+          "calls_out_to": [
+            "abort",
+            "system"
+          ]
+        }
+      }
+    },
+    "a.cr": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 2,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "state_mutation": 2,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
+      "units_public": 3,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_globals": {
+          "calls_out_to": []
+        },
+        "probe_test": {
+          "calls_out_to": [
+            "describe",
+            "expect_raises"
+          ]
+        },
+        "probe_safety": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "b.cr": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 1,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "state_mutation": 3,
+      "import": 1,
+      "func_start": 3,
+      "args": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
+      "units_public": 3,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_bypass": {
+          "calls_out_to": [
+            "unsafe_as",
+            "unsafe_fetch"
+          ]
+        },
+        "probe_telemetry": {
+          "calls_out_to": [
+            "info",
+            "error"
+          ]
+        },
+        "probe_state": {
+          "calls_out_to": [
+            "push",
+            "pop"
+          ]
+        }
+      }
+    },
+    "c.cr": {
+      "class_start": 0,
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "state_mutation": 1,
+      "import": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 0,
+      "api_orphan_credit": 3,
+      "units_public": 3,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "probe_cleanup": {
+          "calls_out_to": [
+            "close",
+            "shutdown"
+          ]
+        },
+        "probe_debt": {
+          "calls_out_to": []
+        },
+        "probe_todo": {
+          "calls_out_to": []
+        }
+      }
+    }
+  },
+  "decoys": [
+    {
+      "file": "main.cr",
+      "line_hint": "# decoy: this suite never calls abort and has no unless branch",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "high_risk_execution"
+      ],
+      "outcome": "contributes 0 -- prism strips the comment surface. Prose fires branch 1, high_risk_execution 1 (plus panics_and_aborts, calls_out) when the marker is removed. Designated comment decoy for this language (keyword-rosetta#73): the decoy: lines in a/b/c are shell furniture, not decoys."
+    },
+    {
+      "file": "b.cr",
+      "line_hint": "note = \"plain system decoy text\" (probe_state)",
+      "surface": "string",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "danger-only decoy (#17): \"system\" COUNTS from inside the literal (+1), undampened -- probe_state carries no safety keyword. Also one plain-assignment state_mutation (note = ...). Ledger: string-literal-selective-shielding, state-flux-branch-weighting"
+    },
+    {
+      "file": "c.cr",
+      "line_hint": "hack_level = level",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "inert (underscore + lowercase)"
+    },
+    {
+      "file": "main.cr",
+      "line_hint": "phantom_decoy_call",
+      "surface": "comment",
+      "signals": [],
+      "outcome": "Graph block-comment decoy: a run of `#` lines (Crystal has no block comment) wrapping a fake call. The phantom call contributes 0 to the calls_out_to topology (entry calls only the three probes)."
+    }
+  ],
+  "notes": "Lexical family line_exclusive (# only). No classes: class_start 0 is SPEC rule 2's tripwire (gitgalaxy#5781's note to plant class/struct/module was not followed -- it contradicts SPEC rule 2). Probes are top-level `def`s taking one type-restricted argument; the import chain is `require \"./x\"`. api 0 planted: the engine's api rule counts only a column-0 `fun` (C export) and `get \"/path\"` route macros, never a top-level `def` (public by default); a `fun` probe would also drop out of the `args` rule (def/macro parameter lists only) -- ledger crystal-api-rule-top-level-def. api_orphan_credit 3 in a/b/c (uncalled probes, nothing names them); main 0. state_mutation: main 3 (disk/folder/plug =), a 2 (region/args =), b 3 (note = plus .push/.pop), c 1 (hack_level =); plain re-assignment counts per gitgalaxy#2817. Incidental unplanted reads, not asserted: main ipc_rpc_bridges 1 + panics_and_aborts 1 (abort/system), b explicit_casts 1 (unsafe_as) -- `items : Array` is deliberately unparenthesised because `Array(Int32)` in a parameter list reads as a call to Array in calls_out_to. shard.yml is the idiomatic manifest and is not asserted (yaml scan, doc 1). Secret plant: c.cr comment-form api_key, sec_hardcoded_secrets 1."
+}
