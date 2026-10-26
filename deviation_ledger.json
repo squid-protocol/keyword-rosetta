@@ -462,7 +462,7 @@
       ],
       "disposition": "engine-semantic",
       "status": "validated",
-      "verdict": "Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), perl's counts every my declaration (3-4 per file). Correct morphology, but cross-language encapsulation comparisons must expect these to run structurally hot.",
+      "verdict": "Languages whose visibility IS a naming/declaration convention count it wholesale: go's encapsulation rule counts every lowercase top-level symbol (7-9 per corpus file), perl's counts every my declaration (3-4 per file). Correct morphology, but cross-language encapsulation comparisons must expect these to run structurally hot. UPDATE 2026-10-26 (gitgalaxy#5897, PR #6701): go's rule now skips lowercase top-level symbols in a `package main` file (no visibility meaning there), so every go corpus file (all package main) now reads encapsulation 0; the go half of this entry now describes library packages only and is not exercised by this corpus. perl's `my` count is unchanged and still reproduces.",
       "upstream_issue": null,
       "investigated_by": "claude-sonnet-5",
       "validated_at": "2026-08-31",
