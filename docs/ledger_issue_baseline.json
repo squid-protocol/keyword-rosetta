@@ -1,5 +1,8 @@
 {
  "stale_entries": [
-  "asm-single-letter-mnemonic-in-path/squid-protocol/gitgalaxy#2535"
+  "asm-single-letter-mnemonic-in-path/squid-protocol/gitgalaxy#2535",
+  "fsharp-juxtaposed-call-invisible/squid-protocol/gitgalaxy#5780",
+  "fsharp-nested-block-comment-not-stripped/squid-protocol/gitgalaxy#5780",
+  "fsharp-open-module-not-resolved-to-file/squid-protocol/gitgalaxy#5780"
  ]
 }

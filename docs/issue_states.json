@@ -325,11 +325,11 @@
    "title": "bms falls through to Mode_B_Braces: functions_found 0 on the rosetta shell (13 raw DFHMDI matches, none reach function_data)"
   },
   "squid-protocol/gitgalaxy#5780": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "keyword-rosetta: F# (fsharp) has no control folder; author data/fsharp/ and backfill its cost record"
   },
   "squid-protocol/gitgalaxy#5782": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "keyword-rosetta: ACS (acs) has no control folder; author data/acs/ and backfill its cost record"
   },
   "squid-protocol/keyword-rosetta#71": {
