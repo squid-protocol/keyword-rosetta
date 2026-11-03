@@ -11,7 +11,10 @@
   },
   "auth_middleware": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "LoginRequiredMixin",
+      "PermissionRequiredMixin"
+    ],
     "pattern_defined": true
   },
   "bitwise_ops": {
