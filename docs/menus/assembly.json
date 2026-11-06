@@ -207,9 +207,7 @@
   },
   "immutability_locks": {
     "core": false,
-    "keywords": [
-      "equ"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "import": {

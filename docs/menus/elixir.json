@@ -382,9 +382,7 @@
   },
   "sync_locks": {
     "core": false,
-    "keywords": [
-      "Registry.lock"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "system_config_mutation": {
