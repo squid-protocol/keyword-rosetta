@@ -15,7 +15,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [apex](#apex) | 2 | 0 | 0 | 12 | #2535 #2536 #2545 #2546 #2671 #2730 #2731 #2765 #2782 #2783 #2878 |
 | [assembly](#assembly) | 0 | 0 | 0 | 7 | #2535 #2727 #2764 #2858 #2869 |
 | [bms](#bms) | 5 | 1 | 16 | 7 | #2503 #2505 #3077 |
-| [c](#c) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 #2878 |
+| [c](#c) | 0 | 2 | 0 | 13 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 #2878 |
 | [cobol](#cobol) | 0 | 2 | 0 | 21 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
 | [crystal](#crystal) | 6 | 1 | 0 | 2 | — |
@@ -253,6 +253,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🟡 `risk_state_flux`: 5.78688 vs median 7.75065 (-25%)
+- 🟡 `safety`: 1 vs median 2 (-50%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|

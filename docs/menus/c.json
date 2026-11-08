@@ -332,7 +332,6 @@
       "assert",
       "static_assert",
       "_Static_assert",
-      "size_t",
       "snprintf",
       "strncat",
       "strncpy",

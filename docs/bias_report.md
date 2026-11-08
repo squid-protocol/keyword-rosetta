@@ -23,7 +23,7 @@ An out-of-band cell is not automatically a defect. Three mechanisms account for 
 | undefined | 15 | a per-function descriptor for a language with no functions -- the quotient has no value, it is not a deviation |
 | ledgered | 116 | a validated deviation-ledger entry names this language and this metric |
 | derived | 43 | a composite whose deviation entered through an input that is itself out of band, so it is the same finding counted twice |
-| **unexplained** | **32** | **survived all three -- the real work remaining** |
+| **unexplained** | **33** | **survived all three -- the real work remaining** |
 
 Unexplained cells, by metric:
 
@@ -38,17 +38,18 @@ Unexplained cells, by metric:
 - `risk_safety_score` — acs, zscript
 - `risk_state_flux` — postgresql
 - `risk_tech_debt` — agc_assembly, fsharp, postgresql, yacc
+- `safety` — c
 - `state_mutation` — crystal
 
 ## What the red cells are
 
 A verdict says a cell is accounted for; it does not say what the cell *is*, and the consistency badges above paint a validated "this language cannot express that" the same red as an open engine defect. Folding each ledgered cell's dispositions into one cause (most severe first where an entry list mixes them) gives the split that the badge cannot: how much of the red is a finding somebody still owes. The **open-defect share** counts `unexplained`, `extraction` and `correlation` cells over every comparable cell of the gated metrics; scoring choices are ledgered design, inherency and echo are not findings at all. Cause categories, the roadmap they come from and what each one's right response is: gitgalaxy `docs/contract_roadmap.md`.
 
-**Open-defect share: 33 of 3125 comparable cells (1.1%)** across 58 gated metrics; 33 of the 206 out-of-band cells are open defects.
+**Open-defect share: 34 of 3125 comparable cells (1.1%)** across 58 gated metrics; 34 of the 207 out-of-band cells are open defects.
 
 | cause | cells | what it is |
 |---|---|---|
-| **unexplained** | 32 | survived every mechanism -- the gate fails on these |
+| **unexplained** | 33 | survived every mechanism -- the gate fails on these |
 | **extraction** | 1 | a rule matches the wrong construct, or two rules claim one token (upstream-bug, upstream-question, engine-defect, keyword-overlap) |
 | **correlation** | 0 | a proximity pair in spatial_correlation.py used to edit the recorded count (the x3 cascading flux, the silencer dampener); since gitgalaxy#2815 (Phase 2) they are tallies applied only in the score layer's weighted view |
 | scoring | 55 | a deliberate engine choice in a formula or a path modifier (engine-semantic) |
@@ -100,7 +101,7 @@ The risk formulas read registry signals the SPEC does not plant: `concurrency`, 
 | metric | languages | stratum | rho | verdict | inputs held in band | where length enters |
 |---|---|---|---|---|---|---|
 | `risk_secrets_risk` | 44 | irc0 | -0.90 | **leak** | `dead_code`, `debug_prints`, `globals`, `llm_api` | **not located yet** — the more interesting finding |
-| `risk_verification` | 48 | irc0 | +0.57 | weak | `high_risk_execution` | _calc_verification: untested impact / _mass_loc(loc) (signal_processor.py ~L1664) -- same floor, same constant denominator |
+| `risk_verification` | 48 | irc0 | +0.56 | weak | `high_risk_execution` | _calc_verification: untested impact / _mass_loc(loc) (signal_processor.py ~L1664) -- same floor, same constant denominator |
 | `risk_documentation` | 16 | — | +0.00 | invariant — the proof | `reflection_metaprogramming`, `functions_found`, `units_documented`, `units_public`, `units_public_documented` *(held exactly)* | no LOC term since gitgalaxy#2908 Phase 3: a pure per-unit coverage ratio (signal_processor.py `_calc_documentation`), constant across languages sharing the held unit profile -- the rho -0.83 leak this row used to carry is resolved by construction; variation between profiles is main's units_public/units_documented split, the api contract cells |
 
 ## Cross-language variance chart
@@ -118,7 +119,7 @@ Colour encodes **cause**, not magnitude: a dot inside ±25% of the cross-languag
 | high_risk_execution ⚠ | 2 | 3 | n/a | 3 | 2 | 3 | 3 | n/a | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | n/a | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | n/a |
 | globals | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 | test | 2 | 2 | n/a | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | n/a |
-| safety | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| safety ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 1 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 | safety_bypasses ⚠ | 2 | 2 | n/a | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 4 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 | telemetry | 2 | 2 | n/a | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a |
 | state_mutation ⚠ | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 9 | 2 | n/a | 2 | 2 | 2 | 15 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | n/a | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 21 | 2 | 11 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
@@ -141,7 +142,7 @@ n/a = no rule defined for this language (incomparable, excluded from bands and m
 | functions_found | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 13 | 13 | 17 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | 0 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 14 | n/a | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | 13 | n/a | 13 | 13 | 13 | 13 | 13 | 13 | 13 |
 | classes_found | 0 | n/a | 0 | n/a | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | — | 0 | 0 | n/a | n/a | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | dependency_links | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 7 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
-| keyword_hits | 179 | 120 | 145 | 133 | 134 | 161 | 147 | 137 | 206 | 150 | 137 | 155 | 70 | 141 | 137 | 83 | 191 | 159 | 146 | 145 | 156 | 119 | 147 | 88 | 142 | 178 | 101 | 181 | 134 | 152 | 77 | 88 | 31 | 152 | 161 | 160 | 143 | 156 | 191 | 147 | 202 | 128 | 155 | 183 | 160 | 99 | 145 | 162 | 62 | 176 | 134 | 181 | 61 | 152 | 168 | 121 |
+| keyword_hits | 179 | 120 | 145 | 133 | 134 | 161 | 147 | 136 | 206 | 150 | 137 | 155 | 70 | 141 | 137 | 83 | 191 | 159 | 146 | 145 | 156 | 119 | 147 | 88 | 142 | 178 | 101 | 181 | 134 | 152 | 77 | 88 | 31 | 152 | 161 | 160 | 143 | 156 | 191 | 147 | 202 | 128 | 155 | 183 | 160 | 99 | 145 | 162 | 62 | 176 | 134 | 181 | 61 | 152 | 168 | 121 |
 | comment_lines | 13 | 20 | 13 | 15 | 17 | 15 | 16 | 17 | 18 | 17 | 14 | 17 | 17 | 17 | 17 | 12 | 12 | 14 | 13 | 17 | 17 | 17 | 13 | 15 | 17 | 17 | 16 | 17 | 17 | 17 | 13 | 15 | 39 | 13 | 17 | 14 | 17 | 19 | 17 | 12 | 14 | 19 | 17 | 17 | 17 | 13 | 15 | 21 | 17 | 17 | 13 | 17 | 17 | 14 | 13 | 16 |
 | pagerank | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2000 | 0.2240 | 0.2240 | 0.2240 | 0.2000 | 0.2000 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2029 | 0.2240 | 0.2240 | 0.2000 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2000 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 | 0.2240 |
 
@@ -165,7 +166,7 @@ The per-file vectors the product reports, under the gitgalaxy#2991 descriptive v
 | hist_stability | `risk_stability` | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 0.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 | 50.000 |
 | mutation_surface | `risk_state_flux` | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | n/a | 5.787 | 7.751 | 5.787 | 36.950 | 7.751 | 0.000 | 7.751 | 0.000 | 7.751 | 58.941 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | n/a | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 67.249 | 7.751 | 43.287 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 0.000 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 | 7.751 |
 | debt_markers | `risk_tech_debt` | 29.878 | 29.878 | 29.878 | 40.879 | 29.878 | 29.878 | 20.439 | 29.878 | 20.439 | 29.878 | 29.878 | 29.878 | 29.878 | 29.878 | 20.439 | 20.439 | 29.878 | 29.878 | 82.973 | 29.878 | 29.878 | 29.878 | 29.878 | 20.439 | 29.878 | 29.878 | 20.439 | 29.878 | 29.878 | 29.878 | 29.878 | 29.878 | 0.000 | 29.878 | 29.878 | 29.878 | 29.878 | 29.878 | 20.439 | 29.878 | 29.878 | 29.878 | 29.878 | 29.878 | 29.878 | 29.878 | 29.878 | 29.878 | 20.439 | 29.878 | 29.878 | 29.878 | 44.707 | 20.439 | 29.878 | 29.878 |
-| test_surface | `risk_verification` | 2.377 | 2.377 | 2.380 | 2.372 | 2.393 | 2.379 | 2.363 | 2.380 | 2.367 | 2.380 | 2.393 | 2.380 | 2.360 | 2.379 | 2.430 | 2.367 | 2.378 | 2.377 | 2.367 | 2.379 | 2.381 | 2.374 | 2.366 | 2.307 | 2.380 | 2.380 | 2.380 | 2.380 | 2.391 | 2.393 | 2.372 | 2.362 | n/a | 2.393 | 2.380 | 2.380 | 2.379 | 2.378 | 2.424 | 2.380 | 2.378 | 2.385 | 2.401 | 2.380 | 2.380 | 2.376 | 2.402 | 2.379 | 2.423 | 2.380 | 2.377 | 2.380 | 2.359 | 2.358 | 2.386 | 2.374 |
+| test_surface | `risk_verification` | 2.377 | 2.377 | 2.380 | 2.372 | 2.393 | 2.379 | 2.363 | 2.382 | 2.367 | 2.380 | 2.393 | 2.380 | 2.360 | 2.379 | 2.430 | 2.367 | 2.378 | 2.377 | 2.367 | 2.379 | 2.381 | 2.374 | 2.366 | 2.307 | 2.380 | 2.380 | 2.380 | 2.380 | 2.391 | 2.393 | 2.372 | 2.362 | n/a | 2.393 | 2.380 | 2.380 | 2.379 | 2.378 | 2.424 | 2.380 | 2.378 | 2.385 | 2.401 | 2.380 | 2.380 | 2.376 | 2.402 | 2.379 | 2.423 | 2.380 | 2.377 | 2.380 | 2.359 | 2.358 | 2.386 | 2.374 |
 
 n/a = every registry-governed input to this formula is absent for the language and the scan confirms the score is pinned at 0 (incomparable, excluded from bands and medians); † = at least one of those input absences is not yet backed by a validated ledger entry.
 
@@ -185,7 +186,7 @@ gitgalaxy#2994's declarative grouping of `SIGNAL_SCHEMA` into surface families �
 | `fam_debt` | planned_debt, fragile_debt, debug_prints, duplicate_logic | 7 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 9 | 2 | 2 | 2 | 2 | 2 | 2 | 4 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 4 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 4 | 2 | 2 |
 | `fam_docs` | doc, lit_code_blocks, lit_diagrams, lit_headers, lit_links | 1 | 0 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 0 |
 | `fam_events` | events, telemetry, listeners | 2 | 0 | 2 | 2 | 2 | 2 | 0 | 2 | 2 | 2 | 2 | 2 | 0 | 3 | 2 | 6 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 5 | 2 | 2 | 2 | 2 | 15 | 2 | 2 | 2 | 0 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 0 |
-| `fam_guards` | safety, immutability_locks, encapsulation | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 3 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 6 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| `fam_guards` | safety, immutability_locks, encapsulation | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 6 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 0 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 3 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 | `fam_io` | io | 3 | 3 | 3 | 3 | 3 | 3 | 0 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 0 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 0 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
 | `fam_ipc` | hardware_bridge, ipc_rpc_bridges | 0 | 3 | 0 | 0 | 0 | 0 | 0 | 2 | 0 | 0 | 1 | 1 | 0 | 1 | 0 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 1 | 1 | 0 | 2 | 0 | 2 | 0 | 3 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 2 | 3 | 3 | 1 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `fam_memory` | memory_alloc, explicit_casts | 2 | 0 | 0 | 4 | 0 | 0 | 0 | 1 | 2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 26 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 1 | 0 | 0 | 2 | 0 | 0 | 0 |

@@ -210,7 +210,6 @@
     "keywords": [
       "keyof",
       "infer",
-      "extends",
       "Omit",
       "Pick",
       "Partial",
