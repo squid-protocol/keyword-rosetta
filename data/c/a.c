@@ -17,6 +17,6 @@ int probe_test(int kit) {
 
 int probe_safety(int value) {
     assert(value);
-    size_t width;
+    _Static_assert(1, "the probe value fits an int");
     return value;
 }
