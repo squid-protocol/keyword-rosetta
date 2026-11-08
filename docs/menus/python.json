@@ -30,8 +30,6 @@
       "else",
       "for",
       "while",
-      "match",
-      "case",
       "and",
       "or"
     ],

@@ -762,7 +762,7 @@
    "apex": 2,
    "assembly": 2,
    "bms": null,
-   "c": 1,
+   "c": 2,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -3372,7 +3372,7 @@
    "apex": 2.393475,
    "assembly": 2.379425,
    "bms": 2.3625249999999998,
-   "c": 2.382375,
+   "c": 2.38,
    "cobol": 2.367475,
    "cpp": 2.379725,
    "crystal": 2.39255,
@@ -3662,7 +3662,7 @@
    "apex": 138.25,
    "assembly": 145.75,
    "bms": 214.25,
-   "c": 133.5,
+   "c": 136,
    "cobol": 200,
    "cpp": 137.75,
    "crystal": 131,
@@ -4474,7 +4474,7 @@
    "apex": 2,
    "assembly": 2,
    "bms": 0,
-   "c": 2,
+   "c": 3,
    "cobol": 2,
    "cpp": 3,
    "crystal": 2,
@@ -5746,7 +5746,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "f965fcae3f3f8691f62934c7dccfa99c6d442636",
+ "engine_commit": "9048af9492a6ce11dbd7102f663f2b7768f0fa9e",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5892,7 +5892,7 @@
   {
    "metric": "risk_verification",
    "n": 48,
-   "rho": 0.56,
+   "rho": 0.566,
    "verdict": "weak",
    "held": [
     "high_risk_execution"
@@ -6113,7 +6113,6 @@
   "risk_tech_debt/postgresql": "unexplained",
   "risk_tech_debt/sqlite": "scoring",
   "risk_tech_debt/yacc": "unexplained",
-  "safety/c": "unexplained",
   "safety_bypasses/fortran": "scoring",
   "safety_bypasses/haskell": "scoring",
   "state_mutation/crystal": "unexplained",
@@ -6331,7 +6330,7 @@
    55
   ],
   "safety": [
-   1,
+   0,
    54
   ],
   "safety_bypasses": [
