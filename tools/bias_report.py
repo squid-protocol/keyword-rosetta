@@ -1634,9 +1634,16 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
     def x_of(dev):
         return strip_x0 + half + max(-1.1, min(1.1, dev)) * px_per_dev
 
-    ink, muted, faint = "#1b2430", "#5c6670", "#9aa4ad"
-    green, band = "#2f855a", "#dcefe0"
-    grey_dot, grey_lab, red, red_lab = "#a3acb3", "#6b7680", "#c0392b", "#9e2b21"
+    # Dark house style of gitgalaxy docs/media (owner 2026-11-08): the chart is
+    # shown through <img> on the README, where prefers-color-scheme follows the
+    # viewer's OS, so this dark palette is the only one. Series colours keep
+    # their light-theme values except where they went muddy on #0f1117: red
+    # (#c0392b at .6 opacity read brown) and the green / red / grey label shades
+    # (the old #9e2b21 / #6b7680 labels fall under 3:1 on the dark background).
+    bg, ink, muted, faint = "#0f1117", "#f0efec", "#c3c2b7", "#8f8e86"
+    strip, track, rule = "#171a22", "#22252e", "#3c3d46"
+    green, band, green_lab = "#2f855a", "#1c3527", "#48bb78"
+    grey_dot, grey_lab, red, red_lab = "#a3acb3", "#9aa4ad", "#e05545", "#e8735f"
 
     prepared, shares, n_rows, skipped, inert, agreement = [], {}, 0, [], [], []
     for title, metrics, gated in groups:
@@ -1681,13 +1688,13 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
     s = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'font-family="Inter, system-ui, sans-serif" font-size="12">',
-        f'<rect width="{width}" height="{height}" fill="#ffffff"/>',
+        f'<rect width="{width}" height="{height}" fill="{bg}"/>',
         f'<text x="{pad}" y="30" font-size="19" font-weight="700" fill="{ink}">'
         f"One program, {n_langs} languages — does GitGalaxy count it the same everywhere?</text>",
         f'<text x="{pad}" y="52" fill="{muted}">The same 12-probe program, written in every language. The engine should '
         f"extract the same counts from each;</text>",
         f'<text x="{pad}" y="68" fill="{muted}">every dot is one language\'s deviation from the cross-language median. '
-        f'<tspan font-weight="600" fill="{red}">Red</tspan> is an open engine defect — a rule matching the wrong construct,</text>',
+        f'<tspan font-weight="600" fill="{red_lab}">Red</tspan> is an open engine defect — a rule matching the wrong construct,</text>',
         f'<text x="{pad}" y="84" fill="{muted}">or a scoring weight sitting inside a count — the work left. '
         f'<tspan font-weight="600" fill="{grey_lab}">Grey</tspan> is a documented variation: the language cannot express the construct,</text>',
         f'<text x="{pad}" y="100" fill="{muted}">a deliberate scoring choice, or an echo of another row. Each row\'s bar: in band '
@@ -1695,7 +1702,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
         f"everything that is not an open defect.</text>",
     ]
     tiles = [
-        (f"{open_share:.1%}", f"open-defect share · {n_open_cells} of {n_comparable} cells", red),
+        (f"{open_share:.1%}", f"open-defect share · {n_open_cells} of {n_comparable} cells", red_lab),
         (f"{avg_share:.0%}", f"average share in band, {len(shares)} gated metrics", ink),
         (f"{len(unexplained)}", "cells with no verdict at all", ink),
         (f"{n_langs}", "languages", ink),
@@ -1730,7 +1737,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
     y = header_h
     for title, rows, gated in prepared:
         y += 24
-        s.append(f'<line x1="{pad}" y1="{y - 14}" x2="{width - pad}" y2="{y - 14}" stroke="#e3e6ea"/>')
+        s.append(f'<line x1="{pad}" y1="{y - 14}" x2="{width - pad}" y2="{y - 14}" stroke="{rule}"/>')
         s.append(f'<text x="{pad}" y="{y + 4}" font-size="13" font-weight="700" fill="{ink}" '
                  f'letter-spacing=".6">{_esc(title.upper())}</text>')
         tx = pad + 8.2 * len(title) + 20
@@ -1746,7 +1753,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
             g_open = sum(r[6] for r in rows)
             g_n = sum(len(r[1]) for r in rows)
             s.append(f'<text x="{width - pad}" y="{y + 4}" font-size="11.5" font-weight="700" fill="{ink}" text-anchor="end">'
-                     f'group: {gavg:.0%} in band · <tspan fill="{red}">{g_open} open defect{"" if g_open == 1 else "s"} '
+                     f'group: {gavg:.0%} in band · <tspan fill="{red_lab}">{g_open} open defect{"" if g_open == 1 else "s"} '
                      f'({g_open / g_n:.0%})</tspan></text>')
         y += 22
         ay = y + 2
@@ -1758,7 +1765,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
         group_bottom = group_top + len(rows) * row_h
         for dev in (-0.5, -GREEN_DEV, GREEN_DEV, 0.5):
             s.append(f'<line x1="{x_of(dev):.1f}" y1="{group_top}" x2="{x_of(dev):.1f}" y2="{group_bottom}" '
-                     f'stroke="#d9dee2" stroke-dasharray="1,3"/>')
+                     f'stroke="{rule}" stroke-dasharray="1,3"/>')
         y += 8
         for name, devs, green_share, med, basis, kept, n_open, n_doc in rows:
             cy = y + row_h / 2
@@ -1787,7 +1794,7 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
             if gated:
                 bh = 14
                 g_w, d_w, o_w = bar_w * green_share, bar_w * n_doc / n, bar_w * n_open / n
-                s.append(f'<rect x="{bx}" y="{cy - bh / 2}" width="{bar_w}" height="{bh}" fill="#eceff2" rx="2"/>')
+                s.append(f'<rect x="{bx}" y="{cy - bh / 2}" width="{bar_w}" height="{bh}" fill="{track}" rx="2"/>')
                 s.append(f'<rect x="{bx}" y="{cy - bh / 2}" width="{g_w:.1f}" height="{bh}" fill="{green}" rx="2"/>')
                 if d_w:
                     s.append(f'<rect x="{bx + g_w:.1f}" y="{cy - bh / 2}" width="{d_w:.1f}" height="{bh}" fill="{grey_dot}"/>')
@@ -1804,16 +1811,16 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
                 s.append(f'<text x="{(bx + 5) if inside else (bx + g_w + d_w + o_w + 5):.1f}" y="{cy + 4}" font-size="10.5" '
                          f'font-weight="700" fill="{"#ffffff" if inside else ink}">{acct:.0%}</text>')
                 if n_open:
-                    s.append(f'<text x="{bx + bar_w + 4}" y="{cy + 4}" font-size="9" font-weight="700" fill="{red}">{n_open}</text>')
+                    s.append(f'<text x="{bx + bar_w + 4}" y="{cy + 4}" font-size="9" font-weight="700" fill="{red_lab}">{n_open}</text>')
             else:
                 s.append(f'<text x="{bx + bar_w}" y="{cy + 4}" font-size="10" fill="{faint}" text-anchor="end">not gated*</text>')
             sh = 12
-            s.append(f'<rect x="{x_of(-1.1):.1f}" y="{cy - sh / 2}" width="{strip_w}" height="{sh}" fill="#f4f5f7" rx="3"/>')
+            s.append(f'<rect x="{x_of(-1.1):.1f}" y="{cy - sh / 2}" width="{strip_w}" height="{sh}" fill="{strip}" rx="3"/>')
             s.append(f'<rect x="{x_of(-GREEN_DEV):.1f}" y="{cy - sh / 2}" '
                      f'width="{x_of(GREEN_DEV) - x_of(-GREEN_DEV):.1f}" height="{sh}" fill="{band}"/>')
             for e in (-0.5, 0.5):
                 s.append(f'<line x1="{x_of(e):.1f}" y1="{cy - sh / 2}" x2="{x_of(e):.1f}" y2="{cy + sh / 2}" '
-                         f'stroke="#cfd5da" stroke-dasharray="2,2"/>')
+                         f'stroke="{rule}" stroke-dasharray="2,2"/>')
             s.append(f'<line x1="{x_of(0):.1f}" y1="{cy - sh / 2 - 2}" x2="{x_of(0):.1f}" y2="{cy + sh / 2 + 2}" stroke="{faint}"/>')
             # Languages at the same strip position and cause collapse into one
             # dot sized by population, count printed for clusters. 40 languages
@@ -1855,13 +1862,13 @@ def write_variance_chart(groups, n_langs, na_by_metric=None, medians=None,
             # reader comparing two rows with the same percentage still has to know
             # whether that is 40 of 46 or 4 of 5 (n varies per row -- n/a cells and
             # population-less languages drop out), and the dots are too dense to
-            # count by eye. Drawn AFTER the dots and carrying a white halo
+            # count by eye. Drawn AFTER the dots and carrying a background-coloured halo
             # (paint-order: stroke, then fill): the band is only `sh` tall and the dots
             # are centred in it, so anything near +25% sits under this label.
             n_green = sum(1 for d in devs if abs(d) <= GREEN_DEV)
             s.append(f'<text x="{x_of(GREEN_DEV) - 2.5:.1f}" y="{cy + sh / 2 - 1.5:.1f}" font-size="7.5" '
-                     f'fill="{green}" text-anchor="end" font-family="ui-monospace, Menlo, monospace" '
-                     f'paint-order="stroke" stroke="#ffffff" stroke-width="2.4" stroke-linejoin="round">'
+                     f'fill="{green_lab}" text-anchor="end" font-family="ui-monospace, Menlo, monospace" '
+                     f'paint-order="stroke" stroke="{bg}" stroke-width="2.4" stroke-linejoin="round">'
                      f'{n_green}/{n}</text>')
             lo, hi = x_of(-1.1), x_of(1.1)
             for x, lang in _place_labels(_fit_labels(red_labels, strip_w), lo, hi):
