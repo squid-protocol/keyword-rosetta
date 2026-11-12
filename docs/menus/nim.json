@@ -1,0 +1,686 @@
+{
+  "api": {
+    "core": true,
+    "keywords": [
+      "newHttpClient",
+      "newAsyncHttpClient",
+      "newAsyncHttpServer",
+      "AsyncHttpServer",
+      "HttpClient",
+      "AsyncHttpClient",
+      "Jester",
+      "Prologue"
+    ],
+    "pattern_defined": true
+  },
+  "args": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "auth_middleware": {
+    "core": false,
+    "keywords": [
+      "bcrypt",
+      "argon2",
+      "jwt",
+      "nimcrypto",
+      "libsodium",
+      "bearer",
+      "authenticate",
+      "authorize",
+      "hmac",
+      "pbkdf2",
+      "oauth2",
+      "scram"
+    ],
+    "pattern_defined": true
+  },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [
+      "shl",
+      "shr",
+      "ashr",
+      "xor",
+      "rotateLeftBits",
+      "rotateRightBits",
+      "countSetBits",
+      "popcount"
+    ],
+    "pattern_defined": true
+  },
+  "branch": {
+    "core": true,
+    "keywords": [
+      "if",
+      "elif",
+      "else",
+      "when",
+      "case",
+      "for",
+      "while",
+      "try",
+      "except",
+      "finally",
+      "of"
+    ],
+    "pattern_defined": true
+  },
+  "class_start": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "cleanup": {
+    "core": true,
+    "keywords": [
+      "close",
+      "closeFile",
+      "closeSocket",
+      "defer",
+      "dealloc",
+      "deallocShared",
+      "deinitLock",
+      "deinitCond",
+      "finally",
+      "destroy"
+    ],
+    "pattern_defined": true
+  },
+  "closures": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "comprehensions": {
+    "core": false,
+    "keywords": [
+      "mapIt",
+      "filterIt",
+      "anyIt",
+      "allIt",
+      "foldl",
+      "foldr",
+      "collect",
+      "toSeq",
+      "applyIt",
+      "keepItIf",
+      "zip",
+      "apply"
+    ],
+    "pattern_defined": true
+  },
+  "concurrency": {
+    "core": false,
+    "keywords": [
+      "spawn",
+      "createThread",
+      "joinThread",
+      "initLock",
+      "withLock",
+      "asyncCheck",
+      "waitFor",
+      "await",
+      "async",
+      "Atomic",
+      "Channel",
+      "FlowVar",
+      "AsyncEvent",
+      "newFuture",
+      "Future"
+    ],
+    "pattern_defined": true
+  },
+  "dead_code": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "debug_prints": {
+    "core": false,
+    "keywords": [
+      "echo",
+      "debugEcho",
+      "writeStackTrace",
+      "dump"
+    ],
+    "pattern_defined": true
+  },
+  "decorators": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "dependency_injection": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "doc": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "encapsulation": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "events": {
+    "core": false,
+    "keywords": [
+      "AsyncEvent",
+      "newAsyncEvent",
+      "addTimer",
+      "addEvent",
+      "addSignal",
+      "addProcess",
+      "setControlCHook",
+      "onSignal"
+    ],
+    "pattern_defined": true
+  },
+  "explicit_casts": {
+    "core": false,
+    "keywords": [
+      "parseInt",
+      "parseFloat",
+      "parseBiggestInt",
+      "parseBiggestUInt",
+      "parseUInt",
+      "parseHexInt",
+      "toInt",
+      "toFloat",
+      "toBiggestInt"
+    ],
+    "pattern_defined": true
+  },
+  "fragile_debt": {
+    "core": true,
+    "keywords": [
+      "HACK",
+      "FIXME",
+      "XXX",
+      "BUG",
+      "KLUDGE",
+      "UGLY",
+      "WTF",
+      "PARCHE",
+      "ARREGLAR",
+      "TRUCO",
+      "FEO",
+      "CHAPUZA",
+      "GAMBIARRA",
+      "CONSERTAR",
+      "REPARAR",
+      "FEIO",
+      "REMENDO",
+      "BIDOUILLE",
+      "A CORRIGER",
+      "REPARER",
+      "MOCHE",
+      "KAPUTT",
+      "REPARIEREN",
+      "PFUSCH",
+      "SISTEMARE",
+      "PEZZA",
+      "ORRIBILE",
+      "DA FIXARE",
+      "TYMCZASOWE",
+      "FIXEN",
+      "TIJDELIJK",
+      "LELIJK",
+      "OPLOSSING",
+      "PERBAIKI",
+      "SEMENTARA",
+      "JELEK"
+    ],
+    "pattern_defined": true
+  },
+  "func_start": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "generics": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "globals": {
+    "core": true,
+    "keywords": [
+      "var"
+    ],
+    "pattern_defined": true
+  },
+  "high_risk_execution": {
+    "core": true,
+    "keywords": [
+      "execCmd",
+      "execCmdEx",
+      "execProcess",
+      "execProcesses",
+      "execShellCmd",
+      "startProcess",
+      "staticExec",
+      "gorgeEx",
+      "loadLib",
+      "dlopen"
+    ],
+    "pattern_defined": true
+  },
+  "immutability_locks": {
+    "core": false,
+    "keywords": [
+      "let",
+      "const",
+      "func"
+    ],
+    "pattern_defined": true
+  },
+  "import": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "io": {
+    "core": true,
+    "keywords": [
+      "readFile",
+      "writeFile",
+      "readLine",
+      "readAll",
+      "writeLine",
+      "newFileStream",
+      "openFileStream",
+      "readBuffer",
+      "writeBuffer",
+      "copyFile",
+      "moveFile",
+      "removeFile",
+      "createDir",
+      "walkDir",
+      "walkFiles",
+      "newSocket",
+      "newAsyncSocket",
+      "openAsync",
+      "stdin",
+      "stdout",
+      "stderr"
+    ],
+    "pattern_defined": true
+  },
+  "ipc_rpc_bridges": {
+    "core": false,
+    "keywords": [
+      "grpc",
+      "zmq",
+      "zeromq",
+      "nanomsg",
+      "nng",
+      "jsonrpc",
+      "nimqtt",
+      "dbus",
+      "socketpair",
+      "createPipe",
+      "newAsyncPipe",
+      "asyncPipe",
+      "RpcClient",
+      "RpcServer"
+    ],
+    "pattern_defined": true
+  },
+  "listeners": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "macros": {
+    "core": false,
+    "keywords": [
+      "template",
+      "macro"
+    ],
+    "pattern_defined": true
+  },
+  "memory_alloc": {
+    "core": false,
+    "keywords": [
+      "alloc",
+      "alloc0",
+      "allocShared",
+      "allocShared0",
+      "createShared",
+      "realloc",
+      "reallocShared",
+      "newSeq",
+      "newSeqOfCap",
+      "newString",
+      "newStringOfCap",
+      "newSeqUninitialized",
+      "GC_fullCollect",
+      "GC_disable",
+      "GC_enable",
+      "GC_ref",
+      "GC_unref"
+    ],
+    "pattern_defined": true
+  },
+  "ownership": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "panics_and_aborts": {
+    "core": false,
+    "keywords": [
+      "raise",
+      "quit",
+      "raiseAssert",
+      "sysFatal",
+      "panic",
+      "abort",
+      "unreachable"
+    ],
+    "pattern_defined": true
+  },
+  "planned_debt": {
+    "core": true,
+    "keywords": [
+      "TODO",
+      "WIP",
+      "STUB",
+      "IMPLEMENT",
+      "@todo",
+      "POR HACER",
+      "A IMPLEMENTAR",
+      "PENDIENTE",
+      "A FAZER",
+      "PENDENTE",
+      "TAREFA",
+      "A FAIRE",
+      "A IMPLEMENTER",
+      "EN ATTENTE",
+      "ZU ERLEDIGEN",
+      "MACHEN",
+      "OFFEN",
+      "IMPLEMENTIEREN",
+      "DA FARE",
+      "DA IMPLEMENTARE",
+      "DO ZROBIENIA",
+      "DO POPRAWY",
+      "TE DOEN",
+      "NOG DOEN",
+      "HARUS DIBUAT",
+      "UNTUK DIBUAT"
+    ],
+    "pattern_defined": true
+  },
+  "pointers": {
+    "core": false,
+    "keywords": [
+      "ptr",
+      "addr",
+      "unsafeAddr",
+      "pointer",
+      "cstring",
+      "ref"
+    ],
+    "pattern_defined": true
+  },
+  "reflection_metaprogramming": {
+    "core": false,
+    "keywords": [
+      "getAst",
+      "newNimNode",
+      "newIdentNode",
+      "parseExpr",
+      "parseStmt",
+      "getTypeImpl",
+      "getTypeInst",
+      "astToStr",
+      "bindSym",
+      "genSym",
+      "NimNode",
+      "typedesc",
+      "compiles",
+      "declared",
+      "hasCustomPragma"
+    ],
+    "pattern_defined": true
+  },
+  "regex_execution": {
+    "core": false,
+    "keywords": [
+      "findAll",
+      "findAllBounds",
+      "replacef",
+      "matchLen"
+    ],
+    "pattern_defined": true
+  },
+  "safety": {
+    "core": true,
+    "keywords": [
+      "try",
+      "except",
+      "finally",
+      "isSome",
+      "isNone",
+      "isNil",
+      "doAssert",
+      "assert",
+      "require"
+    ],
+    "pattern_defined": true
+  },
+  "safety_bypasses": {
+    "core": true,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "scientific": {
+    "core": false,
+    "keywords": [
+      "arraymancer",
+      "numericalnim",
+      "nimpy",
+      "linalg",
+      "Tensor",
+      "sqrt",
+      "ln",
+      "arctan2",
+      "arcsin",
+      "arccos",
+      "sinh",
+      "cosh",
+      "tanh",
+      "fmod"
+    ],
+    "pattern_defined": true
+  },
+  "serialization_parsing": {
+    "core": false,
+    "keywords": [
+      "parseJson",
+      "parseXml",
+      "parseCsv",
+      "parseCfg",
+      "parseToml",
+      "toJson",
+      "fromJson",
+      "jsony",
+      "msgpack4nim",
+      "protobuf",
+      "flatty",
+      "packedjson",
+      "marshal",
+      "loadToml",
+      "loadYaml",
+      "newJObject",
+      "JsonNode"
+    ],
+    "pattern_defined": true
+  },
+  "spec_exposure": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "state_mutation": {
+    "core": true,
+    "keywords": [
+      "inc",
+      "dec",
+      "incl",
+      "excl"
+    ],
+    "pattern_defined": true
+  },
+  "structural_boundaries": {
+    "core": false,
+    "keywords": [
+      "proc",
+      "func",
+      "method",
+      "iterator",
+      "template",
+      "macro",
+      "converter",
+      "type",
+      "object",
+      "enum",
+      "tuple",
+      "concept",
+      "import",
+      "from",
+      "include",
+      "export",
+      "const",
+      "let",
+      "var",
+      "block",
+      "when"
+    ],
+    "pattern_defined": true
+  },
+  "sync_locks": {
+    "core": false,
+    "keywords": [
+      "withLock",
+      "initLock",
+      "deinitLock",
+      "tryAcquire",
+      "initCond",
+      "deinitCond",
+      "AtomicFlag",
+      "Lock",
+      "Cond",
+      "MultiLock",
+      "RwLock"
+    ],
+    "pattern_defined": true
+  },
+  "system_config_mutation": {
+    "core": false,
+    "keywords": [
+      "putEnv",
+      "delEnv",
+      "setCurrentDir",
+      "setFilePermissions",
+      "setLastModificationTime",
+      "createSymlink",
+      "createHardlink",
+      "removeDir",
+      "removeFile",
+      "moveFile",
+      "moveDir",
+      "createDir",
+      "setFileAttrs",
+      "chdir",
+      "chmod",
+      "chown",
+      "umask",
+      "setuid",
+      "setgid",
+      "setrlimit",
+      "setLocale"
+    ],
+    "pattern_defined": true
+  },
+  "telemetry": {
+    "core": true,
+    "keywords": [
+      "newConsoleLogger",
+      "newFileLogger",
+      "newRollingFileLogger",
+      "logScope",
+      "chronicles"
+    ],
+    "pattern_defined": true
+  },
+  "test": {
+    "core": true,
+    "keywords": [
+      "check",
+      "expect"
+    ],
+    "pattern_defined": true
+  },
+  "test_skip": {
+    "core": false,
+    "keywords": [
+      "skip"
+    ],
+    "pattern_defined": true
+  },
+  "thread_sleeps": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
+  "time_date_logic": {
+    "core": false,
+    "keywords": [
+      "getTime",
+      "epochTime",
+      "cpuTime",
+      "getMonoTime",
+      "initDuration",
+      "initDateTime",
+      "parseTime",
+      "toTime",
+      "fromUnix",
+      "toUnix",
+      "fromUnixFloat",
+      "getLocalTime",
+      "getGMTime",
+      "DateTime",
+      "Duration",
+      "MonoTime",
+      "Timezone",
+      "inSeconds",
+      "inMilliseconds"
+    ],
+    "pattern_defined": true
+  },
+  "ui_framework": {
+    "core": false,
+    "keywords": [
+      "nigui",
+      "owlkettle",
+      "wNim",
+      "nimx",
+      "illwill",
+      "karax",
+      "gintro",
+      "sdl2",
+      "raylib",
+      "nimgl",
+      "imgui"
+    ],
+    "pattern_defined": true
+  }
+}
