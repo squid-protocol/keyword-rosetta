@@ -9,7 +9,7 @@ phantom_decoy_call();
 #include "a.y"
 %define api.pure full
 %%
-dispatch : probe_branch ;
+dispatch : probe_branch probe_io probe_risk ;
 
 probe_branch : ONE { if (1) { } else { } switch (0) {} } ;
 
