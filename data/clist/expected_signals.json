@@ -1,0 +1,202 @@
+{
+  "language": "clist",
+  "tier": 1,
+  "generator": "claude-sonnet-5-5",
+  "files": {
+    "main.clist": {
+      "branch": 3,
+      "io": 3,
+      "high_risk_execution": 3,
+      "panics_and_aborts": 3,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 1,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 4,
+      "args": 4,
+      "api": 0,
+      "api_orphan_credit": 0,
+      "doc": 1,
+      "ownership": 1,
+      "import": 0,
+      "dead_code": 0,
+      "spec_exposure": 0,
+      "units_public": 0,
+      "units_documented": 1,
+      "expected_function_nodes": {
+        "PROBE_BRANCH": {
+          "calls_out_to": []
+        },
+        "DISPATCH": {
+          "calls_out_to": [
+            "PROBE_BRANCH",
+            "PROBE_IO",
+            "PROBE_RISK"
+          ]
+        },
+        "PROBE_IO": {
+          "calls_out_to": []
+        },
+        "PROBE_RISK": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "a.clist": {
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 2,
+      "test": 0,
+      "safety": 2,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 0,
+      "api_orphan_credit": 0,
+      "doc": 0,
+      "ownership": 0,
+      "import": 0,
+      "dead_code": 0,
+      "spec_exposure": 0,
+      "units_public": 0,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBE_SAFETY": {
+          "calls_out_to": []
+        },
+        "PROBE_GLOBALS": {
+          "calls_out_to": []
+        },
+        "PROBE_TEST": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "b.clist": {
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 2,
+      "telemetry": 2,
+      "state_mutation": 2,
+      "cleanup": 0,
+      "fragile_debt": 0,
+      "planned_debt": 0,
+      "class_start": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 0,
+      "api_orphan_credit": 0,
+      "doc": 0,
+      "ownership": 0,
+      "import": 0,
+      "dead_code": 0,
+      "spec_exposure": 0,
+      "units_public": 0,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBE_BYPASS": {
+          "calls_out_to": []
+        },
+        "PROBE_TELEMETRY": {
+          "calls_out_to": []
+        },
+        "PROBE_STATE": {
+          "calls_out_to": []
+        }
+      }
+    },
+    "c.clist": {
+      "branch": 0,
+      "io": 0,
+      "high_risk_execution": 0,
+      "globals": 0,
+      "test": 0,
+      "safety": 0,
+      "safety_bypasses": 0,
+      "telemetry": 0,
+      "state_mutation": 0,
+      "cleanup": 2,
+      "fragile_debt": 1,
+      "planned_debt": 1,
+      "class_start": 0,
+      "func_start": 3,
+      "args": 3,
+      "api": 0,
+      "api_orphan_credit": 0,
+      "doc": 0,
+      "ownership": 0,
+      "import": 0,
+      "dead_code": 0,
+      "spec_exposure": 0,
+      "units_public": 0,
+      "units_documented": 0,
+      "expected_function_nodes": {
+        "PROBE_CLEANUP": {
+          "calls_out_to": []
+        },
+        "PROBE_DEBT": {
+          "calls_out_to": []
+        },
+        "PROBE_TODO": {
+          "calls_out_to": []
+        }
+      }
+    }
+  },
+  "decoys": [
+    {
+      "file": "main.clist",
+      "line_hint": "decoy: if the backlog grows then exit and goto nowhere",
+      "surface": "comment",
+      "signals": [
+        "branch",
+        "high_risk_execution",
+        "safety_bypasses"
+      ],
+      "outcome": "contributes 0 -- prism strips the /* */ comment before the code-stream rules run. With the marker stripped the prose fires branch (if), high_risk_execution and panics_and_aborts (exit, the dual) and safety_bypasses (goto), per the live compiled rules; all stripped to 0."
+    },
+    {
+      "file": "main.clist",
+      "line_hint": "&STR(plain EXIT decoy text)",
+      "surface": "string",
+      "signals": [
+        "high_risk_execution"
+      ],
+      "outcome": "+1 high_risk_execution (and +1 panics_and_aborts, the same rule) in main.clist, the SPEC's literal-counting assertion (gitgalaxy#2535). Spill, recorded: the literal sits in a `SET &NOTE = ...` assignment, CLIST's only way to hold a string, so main.clist reads state_mutation 1. Placed in probe_risk, which carries no safety keywords."
+    },
+    {
+      "file": "a.clist",
+      "line_hint": "HACK_LEVEL (probe_test's parameter)",
+      "surface": "code",
+      "signals": [
+        "fragile_debt"
+      ],
+      "outcome": "contributes 0: fragile_debt's shared rule is word-boundary anchored, so HACK inside HACK_LEVEL never matches; PROC parameters plant no assignment either."
+    },
+    {
+      "file": "main.clist",
+      "line_hint": "phantom_decoy_call",
+      "surface": "comment",
+      "signals": [],
+      "outcome": "Graph Block-Comment Decoy (Rule 5): the multi-line block comment is stripped before Information Flow Graph extraction, so the phantom call contributes 0 to calls_out_to."
+    }
+  ],
+  "notes": "CLIST morphology (gitgalaxy#8625): functions are labels (13 = 12 probes + dispatch), each unit running from its label to the next; each label is followed by `PROC 1 name`, CLIST's parameter-declaring statement, so args == func_start per file. Units are reached by `SYSCALL label` (dispatch's calls_out_to) and by GOTO, so clist keeps the by_name census and every probe in a/b/c reads unreferenced_by_name. The shell is an extensionless-member-style `.clist` repository spelling. Rules that are None in the registry and so plant expected 0 (n/a, ledger entry clist-stated-absences): import (a CLIST member has no import form, so the main->a->b->c chain cannot be planted and api_orphan_credit / units_public read 0), api, class_start, test, and the unplanted concurrency, encapsulation, immutability_locks, reflection_metaprogramming, sync_locks. Plants: branch is IF, ELSE and the SELECT group's WHEN (the iterative and WHILE/UNTIL DO forms are unused so the count stays 3; a plain DO is a group, not a branch); io is OPENFILE, GETFILE and READ (3; CLOSFILE is also an io verb, so cleanup uses FREE twice to avoid a keyword overlap); high_risk_execution and panics_and_aborts are the same EXIT rule (2 planted + the 1 string decoy); globals is GLOBAL twice; safety is `ERROR DO` and `ATTN DO`; safety_bypasses is `ERROR OFF` and `ATTN OFF` (GOTO is deliberately unplanted); telemetry is CONTROL LIST and CONTROL SYMLIST; state_mutation is SET &x twice in b.clist plus the string decoy's SET in main.clist; cleanup is `FREE FI(...)` and `FREE DA(...)`. doc is the PURPOSE: comment and ownership the Author: comment, both on main.clist. c.clist carries the engine-lens secret plant as a comment (sec_hardcoded_secrets 1, read by the mainframe_secrets lens, not a registry rule)."
+}

@@ -1,0 +1,16 @@
+/* keyword rosetta control shell: clist / a */
+/* decoy: furniture line keeping the four shells parallel */
+PROBE_GLOBALS: PROC 1 TAG
+  GLOBAL GTOTAL
+  GLOBAL GTAG
+  RETURN
+
+PROBE_TEST: PROC 1 HACK_LEVEL
+  RETURN
+
+PROBE_SAFETY: PROC 1 S
+  ERROR DO
+  END
+  ATTN DO
+  END
+  RETURN

@@ -2608,6 +2608,20 @@
       "investigated_by": "gemini-4-argon (rosetta cell validation, 2026-11-13)",
       "validated_at": "2026-11-13",
       "still_reproduces": true
+    },
+    {
+      "id": "clist-stated-absences",
+      "signal": "_dependency_capture|api|class_start|concurrency|encapsulation|immutability_locks|import|reflection_metaprogramming|sync_locks|test",
+      "verdict": "clist.py (gitgalaxy#8625) sets these ten keys to None, each for a language reason, not an engine gap. A CLIST member is a TSO command procedure run by member name (`%MEMBER` or EXEC), not a module: there is no import, include or require statement and so no dependency-binding form (import, _dependency_capture are None; the shell cannot plant the main->a->b->c chain, and `%name` / SYSCALL are invocations measured by calls_out and ipc_rpc_bridges, not bindings). CLIST has no visibility modifier (api, encapsulation), no named-type declaration (class_start), no threads or locks (concurrency, sync_locks), no constant declaration and no reflection (immutability_locks, reflection_metaprogramming: `&SYSDSN`-style variables are read-only ambient state, owned by globals), and no test framework or assertion facility (test). Corpus-confirmed: probe_test in data/clist/a.clist is an empty placeholder carrying only the reverse decoy HACK_LEVEL, api / api_orphan_credit / import / units_public read 0 everywhere, and class_start is 0 in all four files.",
+      "languages_seen": [
+        "clist"
+      ],
+      "disposition": "intended-morphology",
+      "status": "validated",
+      "upstream_issue": null,
+      "investigated_by": "claude-sonnet-5-5",
+      "validated_at": "2026-11-19",
+      "still_reproduces": true
     }
   ]
 }
