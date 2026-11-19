@@ -1549,5 +1549,22 @@
     "forbidden_everywhere": [
       "ThrowAbortException"
     ]
+  },
+  "clist": {
+    "entry_file": "main.clist",
+    "entry_node": "DISPATCH",
+    "entry_required": [
+      "PROBE_BRANCH",
+      "PROBE_IO",
+      "PROBE_RISK"
+    ],
+    "periphery": {},
+    "forbidden_everywhere": [
+      "old_probe",
+      "nowhere"
+    ],
+    "known_gaps": {
+      "decoys": "'/* call old_probe 1 */' (c.clist) is a commented-out call decoy and the main.clist decoy prose names goto and exit; neither reaches calls_out. The members are not linked by import (clist has no import form), so no cross-file edge is planted."
+    }
   }
 }

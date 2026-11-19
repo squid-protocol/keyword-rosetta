@@ -1,0 +1,16 @@
+/* keyword rosetta control shell: clist / c */
+/* decoy: furniture line keeping the four shells parallel */
+/* api_key: "R0SETTA-PLANT-SECRET-2026" */
+/* call old_probe 1 */
+PROBE_CLEANUP: PROC 1 JUNK
+  FREE FI(INDD)
+  FREE DA(WORK.DATA)
+  RETURN
+
+PROBE_DEBT: PROC 1 D
+  /* HACK: shortcut, see rosetta spec */
+  RETURN
+
+PROBE_TODO: PROC 1 T
+  /* TODO: widen probe coverage */
+  RETURN

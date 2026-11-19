@@ -1,0 +1,36 @@
+/* keyword rosetta control shell: clist / main */
+/*
+Graph Decoy: this block comment contains a fake function call.
+phantom_decoy_call();
+*/
+/* Author: keyword-rosetta generator */
+/* decoy: if the backlog grows then exit and goto nowhere */
+/* PURPOSE: dispatch each probe once */
+DISPATCH: PROC 1 RUNMODE
+  SYSCALL PROBE_BRANCH 1
+  SYSCALL PROBE_IO 2
+  SYSCALL PROBE_RISK 3
+  RETURN
+
+PROBE_BRANCH: PROC 1 N
+  IF &N = 0 THEN DO
+  END
+  ELSE DO
+  END
+  SELECT (&N)
+    WHEN (1) DO
+    END
+  END
+  RETURN
+
+PROBE_IO: PROC 1 FNAME
+  OPENFILE INDD INPUT
+  GETFILE INDD
+  READ &LINE
+  RETURN
+
+PROBE_RISK: PROC 1 CODE
+  SET &NOTE = &STR(plain EXIT decoy text)
+  EXIT CODE(0)
+  EXIT
+  RETURN
