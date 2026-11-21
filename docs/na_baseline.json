@@ -1,3 +1,23 @@
 {
- "unreviewed": []
+ "unreviewed": [
+  "abap/short_circuit",
+  "agc_assembly/short_circuit",
+  "assembly/short_circuit",
+  "bms/short_circuit",
+  "cobol/short_circuit",
+  "css/short_circuit",
+  "db2_sql/short_circuit",
+  "fsharp/short_circuit",
+  "hlasm/short_circuit",
+  "html/short_circuit",
+  "jcl/short_circuit",
+  "m4/short_circuit",
+  "markdown/short_circuit",
+  "pli/short_circuit",
+  "postgresql/short_circuit",
+  "rexx/short_circuit",
+  "sqlite/short_circuit",
+  "tcl/short_circuit",
+  "yacc/short_circuit"
+ ]
 }
