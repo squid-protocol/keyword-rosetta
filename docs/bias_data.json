@@ -8,6 +8,7 @@
   "assembly",
   "bms",
   "c",
+  "clist",
   "cobol",
   "cpp",
   "crystal",
@@ -67,6 +68,7 @@
    "assembly": 13,
    "bms": 13,
    "c": 13,
+   "clist": 13,
    "cobol": 13,
    "cpp": 13,
    "crystal": 13,
@@ -125,6 +127,7 @@
    "assembly": 13,
    "bms": 13,
    "c": 13,
+   "clist": 13,
    "cobol": 10,
    "cpp": 13,
    "crystal": 13,
@@ -183,6 +186,7 @@
    "assembly": 0,
    "bms": 1,
    "c": 0,
+   "clist": null,
    "cobol": 1,
    "cpp": 0,
    "crystal": 0,
@@ -241,6 +245,7 @@
    "assembly": 13,
    "bms": 13,
    "c": 13,
+   "clist": 13,
    "cobol": 13,
    "cpp": 13,
    "crystal": 13,
@@ -299,6 +304,7 @@
    "assembly": 0,
    "bms": 1,
    "c": 0,
+   "clist": null,
    "cobol": 1,
    "cpp": 0,
    "crystal": 0,
@@ -357,6 +363,7 @@
    "assembly": 3,
    "bms": 3,
    "c": 3,
+   "clist": null,
    "cobol": 3,
    "cpp": 3,
    "crystal": 3,
@@ -415,6 +422,7 @@
    "assembly": 0.223983,
    "bms": 0.223983,
    "c": 0.223983,
+   "clist": 0.2,
    "cobol": 0.223983,
    "cpp": 0.223983,
    "crystal": 0.20287075,
@@ -473,6 +481,7 @@
    "assembly": 3,
    "bms": null,
    "c": 3,
+   "clist": 3,
    "cobol": 3,
    "cpp": 3,
    "crystal": 3,
@@ -531,6 +540,7 @@
    "assembly": 3,
    "bms": null,
    "c": 3,
+   "clist": 3,
    "cobol": 3,
    "cpp": 3,
    "crystal": 3,
@@ -589,6 +599,7 @@
    "assembly": 3,
    "bms": null,
    "c": 3,
+   "clist": 3,
    "cobol": 3,
    "cpp": 3,
    "crystal": 3,
@@ -647,6 +658,7 @@
    "assembly": 2,
    "bms": null,
    "c": 2,
+   "clist": 2,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -705,6 +717,7 @@
    "assembly": 2,
    "bms": null,
    "c": 2,
+   "clist": null,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -763,6 +776,7 @@
    "assembly": 2,
    "bms": null,
    "c": 2,
+   "clist": 2,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -821,6 +835,7 @@
    "assembly": 2,
    "bms": null,
    "c": 2,
+   "clist": 2,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -879,6 +894,7 @@
    "assembly": 2,
    "bms": null,
    "c": 2,
+   "clist": 2,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -937,6 +953,7 @@
    "assembly": 2,
    "bms": null,
    "c": 2,
+   "clist": 3,
    "cobol": 2,
    "cpp": 2,
    "crystal": 9,
@@ -995,6 +1012,7 @@
    "assembly": 2,
    "bms": null,
    "c": 2,
+   "clist": 2,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -1053,6 +1071,7 @@
    "assembly": 1,
    "bms": 1,
    "c": 1,
+   "clist": 1,
    "cobol": 1,
    "cpp": 1,
    "crystal": 1,
@@ -1111,6 +1130,7 @@
    "assembly": 1,
    "bms": 1,
    "c": 1,
+   "clist": 1,
    "cobol": 1,
    "cpp": 1,
    "crystal": 1,
@@ -1169,6 +1189,7 @@
    "assembly": 3,
    "bms": 3,
    "c": 3,
+   "clist": null,
    "cobol": 3,
    "cpp": 3,
    "crystal": 3,
@@ -1227,6 +1248,7 @@
    "assembly": 1,
    "bms": null,
    "c": 1,
+   "clist": 1,
    "cobol": 1,
    "cpp": 1,
    "crystal": 1,
@@ -1285,6 +1307,7 @@
    "assembly": 1,
    "bms": 1,
    "c": 1,
+   "clist": 1,
    "cobol": 1,
    "cpp": 1,
    "crystal": 1,
@@ -1343,6 +1366,7 @@
    "assembly": 0,
    "bms": null,
    "c": 0,
+   "clist": null,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -1401,6 +1425,7 @@
    "assembly": 0,
    "bms": 1,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -1459,6 +1484,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 7,
    "cpp": 0,
    "crystal": 0,
@@ -1517,6 +1543,7 @@
    "assembly": 0,
    "bms": null,
    "c": 1,
+   "clist": null,
    "cobol": 0,
    "cpp": 1,
    "crystal": 0,
@@ -1575,6 +1602,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -1633,6 +1661,7 @@
    "assembly": 0,
    "bms": null,
    "c": 0,
+   "clist": null,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -1691,6 +1720,7 @@
    "assembly": 0,
    "bms": null,
    "c": 0,
+   "clist": null,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -1749,6 +1779,7 @@
    "assembly": 0.223983,
    "bms": 0.223983,
    "c": 0.223983,
+   "clist": 0.2,
    "cobol": 0.223983,
    "cpp": 0.223983,
    "crystal": 0.20287075,
@@ -1807,6 +1838,7 @@
    "assembly": 223.983,
    "bms": 223.983,
    "c": 223.983,
+   "clist": 200.0,
    "cobol": 223.983,
    "cpp": 223.983,
    "crystal": 202.87075,
@@ -1865,6 +1897,7 @@
    "assembly": 0.0833335,
    "bms": 0.0833335,
    "c": 0.0833335,
+   "clist": 0.0,
    "cobol": 0.0833335,
    "cpp": 0.0833335,
    "crystal": 0.05,
@@ -1923,6 +1956,7 @@
    "assembly": 0.23958325,
    "bms": 0.23958325,
    "c": 0.23958325,
+   "clist": 0.0,
    "cobol": 0.23958325,
    "cpp": 0.23958325,
    "crystal": 0.19166675,
@@ -1981,6 +2015,7 @@
    "assembly": 0.5,
    "bms": 0.5,
    "c": 0.5,
+   "clist": 0.0,
    "cobol": 0.5,
    "cpp": 0.5,
    "crystal": 0.5,
@@ -2039,6 +2074,7 @@
    "assembly": 0.75,
    "bms": 0.75,
    "c": 0.75,
+   "clist": 0,
    "cobol": 0.75,
    "cpp": 0.75,
    "crystal": 0.75,
@@ -2097,6 +2133,7 @@
    "assembly": 0.015,
    "bms": 0.015,
    "c": 0.015,
+   "clist": 0.0,
    "cobol": 0.015,
    "cpp": 0.015,
    "crystal": 0.015,
@@ -2155,6 +2192,7 @@
    "assembly": 0.1875,
    "bms": 0.0,
    "c": 0.1875,
+   "clist": 0.1875,
    "cobol": 0.1875,
    "cpp": 0.1875,
    "crystal": 0.1875,
@@ -2213,6 +2251,7 @@
    "assembly": 0.75,
    "bms": 0.0,
    "c": 0.75,
+   "clist": 0.75,
    "cobol": 0.75,
    "cpp": 0.75,
    "crystal": 0.75,
@@ -2271,6 +2310,7 @@
    "assembly": 1.0,
    "bms": 1.0,
    "c": 1.0,
+   "clist": 1.0,
    "cobol": 0.75,
    "cpp": 1.0,
    "crystal": 1.0,
@@ -2329,6 +2369,7 @@
    "assembly": 0.1875,
    "bms": 0.0,
    "c": 0.1875,
+   "clist": 0.1875,
    "cobol": 0.1875,
    "cpp": 0.1875,
    "crystal": 0.1875,
@@ -2387,6 +2428,7 @@
    "assembly": 0.015625,
    "bms": 0.0,
    "c": 0.015625,
+   "clist": 0.015625,
    "cobol": 0.015625,
    "cpp": 0.015625,
    "crystal": 0.015625,
@@ -2445,6 +2487,7 @@
    "assembly": 0.75,
    "bms": 1.0,
    "c": 0.875,
+   "clist": 0.75,
    "cobol": 0.75,
    "cpp": 0.75,
    "crystal": 0.875,
@@ -2503,6 +2546,7 @@
    "assembly": 0.0205,
    "bms": 0.0,
    "c": 0.0205,
+   "clist": 0.0345,
    "cobol": 0.0205,
    "cpp": 0.0205,
    "crystal": 0.06175,
@@ -2561,6 +2605,7 @@
    "assembly": 3,
    "bms": 3.5,
    "c": 3.25,
+   "clist": 0,
    "cobol": 2.5,
    "cpp": 3,
    "crystal": 0,
@@ -2619,6 +2664,7 @@
    "assembly": 2.5,
    "bms": null,
    "c": 2.5,
+   "clist": 2.5,
    "cobol": 2.25,
    "cpp": 2.5,
    "crystal": 2.5,
@@ -2677,6 +2723,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -2735,6 +2782,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -2793,6 +2841,7 @@
    "assembly": 31.8725,
    "bms": 32.388099999999994,
    "c": 32.15625,
+   "clist": null,
    "cobol": 30.991024999999997,
    "cpp": 31.8725,
    "crystal": 30.109575,
@@ -2851,6 +2900,7 @@
    "assembly": 1.29535,
    "bms": null,
    "c": 1.29535,
+   "clist": 1.588775,
    "cobol": 1.29535,
    "cpp": 1.29535,
    "crystal": 2.36315,
@@ -2909,6 +2959,7 @@
    "assembly": 0.0,
    "bms": null,
    "c": 0.0,
+   "clist": null,
    "cobol": 0.0,
    "cpp": 0.0,
    "crystal": 0.0,
@@ -2967,6 +3018,7 @@
    "assembly": 0.0,
    "bms": 5.786875,
    "c": 0.0,
+   "clist": 0.0,
    "cobol": 0.0,
    "cpp": 0.0,
    "crystal": 0.0,
@@ -3025,6 +3077,7 @@
    "assembly": 96.428575,
    "bms": 100.0,
    "c": 93.75,
+   "clist": 93.75,
    "cobol": 93.75,
    "cpp": 96.428575,
    "crystal": 93.75,
@@ -3083,6 +3136,7 @@
    "assembly": 30.582875,
    "bms": null,
    "c": 30.582875,
+   "clist": 30.674500000000002,
    "cobol": 41.6278,
    "cpp": 30.582875,
    "crystal": 55.72115,
@@ -3141,6 +3195,7 @@
    "assembly": 24.9999,
    "bms": 25.0,
    "c": 24.99995,
+   "clist": 24.999975,
    "cobol": 25.0,
    "cpp": 24.99995,
    "crystal": 24.99995,
@@ -3199,6 +3254,7 @@
    "assembly": 0.0,
    "bms": 0.0,
    "c": 0.0,
+   "clist": 0.0,
    "cobol": 0.0,
    "cpp": 0.0,
    "crystal": 0.0,
@@ -3257,6 +3313,7 @@
    "assembly": 7.75065,
    "bms": null,
    "c": 5.786875,
+   "clist": 11.9502,
    "cobol": 7.75065,
    "cpp": 5.786875,
    "crystal": 36.9502,
@@ -3315,6 +3372,7 @@
    "assembly": 29.877875000000003,
    "bms": 20.43935,
    "c": 29.877875000000003,
+   "clist": 82.972825,
    "cobol": 20.43935,
    "cpp": 29.877875000000003,
    "crystal": 29.877875000000003,
@@ -3373,6 +3431,7 @@
    "assembly": 2.379425,
    "bms": 2.3625249999999998,
    "c": 2.38,
+   "clist": 2.37525,
    "cobol": 2.367475,
    "cpp": 2.379725,
    "crystal": 2.39255,
@@ -3431,6 +3490,7 @@
    "assembly": 28.25,
    "bms": 14,
    "c": 26.5,
+   "clist": 22,
    "cobol": 26,
    "cpp": 27,
    "crystal": 25.25,
@@ -3489,6 +3549,7 @@
    "assembly": 20.25,
    "bms": 8.75,
    "c": 17.75,
+   "clist": 14.25,
    "cobol": 16.75,
    "cpp": 18.25,
    "crystal": 17.5,
@@ -3547,6 +3608,7 @@
    "assembly": 5.1875,
    "bms": 2.625,
    "c": 5.395833333333333,
+   "clist": 4.395833333333333,
    "cobol": 4.0625,
    "cpp": 5.479166666666667,
    "crystal": 5.25,
@@ -3605,6 +3667,7 @@
    "assembly": 15,
    "bms": 16,
    "c": 17,
+   "clist": 18,
    "cobol": 18,
    "cpp": 17,
    "crystal": 14,
@@ -3663,6 +3726,7 @@
    "assembly": 145.75,
    "bms": 214.25,
    "c": 136,
+   "clist": 134.25,
    "cobol": 200,
    "cpp": 137.75,
    "crystal": 131,
@@ -3721,6 +3785,7 @@
    "assembly": 161,
    "bms": 147,
    "c": 136,
+   "clist": 145,
    "cobol": 206,
    "cpp": 150,
    "crystal": 137,
@@ -3779,6 +3844,7 @@
    "assembly": 10.48,
    "bms": 0.435,
    "c": 10.73,
+   "clist": 7.46,
    "cobol": 2.6675,
    "cpp": 10.49,
    "crystal": 12.425,
@@ -3837,6 +3903,7 @@
    "assembly": 0.02775,
    "bms": 0.0,
    "c": 0.02875,
+   "clist": 0.03,
    "cobol": 0.02675,
    "cpp": 0.02875,
    "crystal": 0.03,
@@ -3895,6 +3962,7 @@
    "assembly": 2,
    "bms": 0,
    "c": 2,
+   "clist": 2,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -3953,6 +4021,7 @@
    "assembly": 1,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -4011,6 +4080,7 @@
    "assembly": 12,
    "bms": 15,
    "c": 13,
+   "clist": 0,
    "cobol": 10,
    "cpp": 12,
    "crystal": 9,
@@ -4069,6 +4139,7 @@
    "assembly": 1,
    "bms": 1,
    "c": 1,
+   "clist": 1,
    "cobol": 51,
    "cpp": 1,
    "crystal": 1,
@@ -4127,6 +4198,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -4185,6 +4257,7 @@
    "assembly": 7,
    "bms": 0,
    "c": 5,
+   "clist": 8,
    "cobol": 5,
    "cpp": 7,
    "crystal": 6,
@@ -4243,6 +4316,7 @@
    "assembly": 1,
    "bms": 1,
    "c": 1,
+   "clist": 10,
    "cobol": 0,
    "cpp": 1,
    "crystal": 1,
@@ -4301,6 +4375,7 @@
    "assembly": 2,
    "bms": 2,
    "c": 2,
+   "clist": 2,
    "cobol": 9,
    "cpp": 2,
    "crystal": 2,
@@ -4359,6 +4434,7 @@
    "assembly": 1,
    "bms": 0,
    "c": 1,
+   "clist": 1,
    "cobol": 1,
    "cpp": 1,
    "crystal": 1,
@@ -4417,6 +4493,7 @@
    "assembly": 2,
    "bms": 0,
    "c": 2,
+   "clist": 2,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -4475,6 +4552,7 @@
    "assembly": 2,
    "bms": 0,
    "c": 3,
+   "clist": 2,
    "cobol": 2,
    "cpp": 3,
    "crystal": 2,
@@ -4533,6 +4611,7 @@
    "assembly": 3,
    "bms": 0,
    "c": 3,
+   "clist": 3,
    "cobol": 3,
    "cpp": 3,
    "crystal": 3,
@@ -4591,6 +4670,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 2,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 1,
@@ -4649,6 +4729,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 1,
+   "clist": 0,
    "cobol": 2,
    "cpp": 0,
    "crystal": 1,
@@ -4707,6 +4788,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -4765,6 +4847,7 @@
    "assembly": 2,
    "bms": 28,
    "c": 4,
+   "clist": 3,
    "cobol": 2,
    "cpp": 3,
    "crystal": 16,
@@ -4823,6 +4906,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -4881,6 +4965,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -4939,6 +5024,7 @@
    "assembly": 2,
    "bms": 0,
    "c": 2,
+   "clist": 0,
    "cobol": 2,
    "cpp": 2,
    "crystal": 2,
@@ -4997,6 +5083,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -5055,6 +5142,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -5113,6 +5201,7 @@
    "assembly": 0,
    "bms": 28,
    "c": 0,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -5171,6 +5260,7 @@
    "assembly": 12,
    "bms": 13,
    "c": 13,
+   "clist": 0,
    "cobol": 9,
    "cpp": 12,
    "crystal": 9,
@@ -5229,6 +5319,7 @@
    "assembly": 1,
    "bms": 0,
    "c": 1,
+   "clist": 1,
    "cobol": 1,
    "cpp": 1,
    "crystal": 1,
@@ -5287,6 +5378,7 @@
    "assembly": 0,
    "bms": 0,
    "c": 1,
+   "clist": 0,
    "cobol": 0,
    "cpp": 0,
    "crystal": 0,
@@ -5345,6 +5437,7 @@
    "assembly": 0.0,
    "bms": 0.0,
    "c": 0.0,
+   "clist": 0.0,
    "cobol": 0.0,
    "cpp": 0.0,
    "crystal": 0.0,
@@ -5403,6 +5496,7 @@
    "assembly": 50.0,
    "bms": 50.0,
    "c": 50.0,
+   "clist": 50.0,
    "cobol": 50.0,
    "cpp": 50.0,
    "crystal": 50.0,
@@ -5457,6 +5551,7 @@
   "class_start": {
    "shell": "ledgered",
    "agc_assembly": "ledgered",
+   "clist": "ledgered",
    "makefile": "ledgered",
    "markdown": "ledgered",
    "m4": "ledgered",
@@ -5489,6 +5584,21 @@
    "zscript": "ledgered",
    "acs": "ledgered"
   },
+  "import": {
+   "clist": "ledgered",
+   "markdown": "ledgered"
+  },
+  "test": {
+   "clist": "ledgered",
+   "markdown": "ledgered",
+   "yacc": "ledgered",
+   "jcl": "ledgered",
+   "bms": "ledgered",
+   "hlasm": "ledgered",
+   "rexx": "ledgered",
+   "zscript": "ledgered",
+   "acs": "ledgered"
+  },
   "io": {
    "solidity": "ledgered",
    "markdown": "ledgered",
@@ -5517,9 +5627,6 @@
    "zscript": "ledgered",
    "acs": "ledgered"
   },
-  "import": {
-   "markdown": "ledgered"
-  },
   "ownership": {
    "markdown": "ledgered"
   },
@@ -5535,37 +5642,29 @@
    "bms": "ledgered",
    "acs": "ledgered"
   },
-  "test": {
-   "markdown": "ledgered",
-   "yacc": "ledgered",
-   "jcl": "ledgered",
-   "bms": "ledgered",
-   "hlasm": "ledgered",
-   "rexx": "ledgered",
-   "zscript": "ledgered",
-   "acs": "ledgered"
-  },
   "classes_found": {
    "acs": "ledgered",
    "agc_assembly": "ledgered",
+   "clist": "ledgered",
    "m4": "ledgered",
    "makefile": "ledgered",
    "markdown": "ledgered",
    "shell": "ledgered",
    "kotlin": "ledgered"
   },
+  "dependency_links": {
+   "clist": "ledgered"
+  },
   "functions_found": {
    "markdown": "ledgered",
    "sqlite": "ledgered"
   },
   "risk_api_exposure": {
+   "clist": "ledgered",
    "markdown": "ledgered"
   },
-  "risk_cognitive_load": {
-   "markdown": "ledgered",
-   "bms": "ledgered"
-  },
   "risk_concurrency": {
+   "clist": "ledgered",
    "markdown": "ledgered",
    "bms": "ledgered",
    "css": "ledgered",
@@ -5573,6 +5672,10 @@
    "rexx": "ledgered",
    "yacc": "ledgered",
    "zscript": "ledgered"
+  },
+  "risk_cognitive_load": {
+   "markdown": "ledgered",
+   "bms": "ledgered"
   },
   "risk_dead_code": {
    "markdown": "ledgered"
@@ -5746,7 +5849,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "ca7c4aa1c6b2237a61f7cf15a71e5a18fe0d8954",
+ "engine_commit": "4efbff07ff535d4e3d04c7cbddad99784b3be877",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5768,6 +5871,7 @@
   "assembly": "irc0",
   "bms": "unprofiled",
   "c": "irc0",
+  "clist": "irc0",
   "cobol": "irc0",
   "cpp": "irc0",
   "crystal": "irc0",
@@ -5877,8 +5981,8 @@
  "length_leaks": [
   {
    "metric": "risk_secrets_risk",
-   "n": 44,
-   "rho": -0.895,
+   "n": 45,
+   "rho": -0.901,
    "verdict": "leak",
    "held": [
     "dead_code",
@@ -5891,8 +5995,8 @@
   },
   {
    "metric": "risk_verification",
-   "n": 48,
-   "rho": 0.566,
+   "n": 49,
+   "rho": 0.583,
    "verdict": "weak",
    "held": [
     "high_risk_execution"
@@ -5939,6 +6043,7 @@
   "avg_func_complexity/html": "inherency",
   "avg_func_complexity/markdown": "inherency",
   "avg_func_complexity/sqlite": "inherency",
+  "betweenness_score/clist": "unexplained",
   "betweenness_score/crystal": "inherency",
   "betweenness_score/db2_sql": "inherency",
   "betweenness_score/fsharp": "extraction",
@@ -5954,6 +6059,7 @@
   "class_start/jcl": "scoring",
   "class_start/kotlin": "inherency",
   "class_start/yaml": "scoring",
+  "closeness_score/clist": "unexplained",
   "closeness_score/db2_sql": "inherency",
   "closeness_score/fsharp": "extraction",
   "closeness_score/go": "scoring",
@@ -5962,6 +6068,7 @@
   "cog_raw/acs": "echo",
   "cog_raw/apex": "echo",
   "cog_raw/bms": "echo",
+  "cog_raw/clist": "echo",
   "cog_raw/crystal": "echo",
   "cog_raw/css": "echo",
   "cog_raw/embedded_python": "echo",
@@ -5986,6 +6093,7 @@
   "debug_prints/scheme": "inherency",
   "debug_prints/yaml": "inherency",
   "def_encapsulation/haskell": "inherency",
+  "dependency_density/clist": "unexplained",
   "dependency_density/db2_sql": "echo",
   "dependency_density/fsharp": "echo",
   "dependency_density/go": "scoring",
@@ -6022,17 +6130,20 @@
   "max_func_complexity/html": "inherency",
   "max_func_complexity/markdown": "inherency",
   "max_func_complexity/sqlite": "inherency",
+  "popularity/clist": "unexplained",
   "popularity/db2_sql": "inherency",
   "popularity/fsharp": "extraction",
   "popularity/go": "scoring",
   "popularity/rust": "scoring",
   "popularity/swift": "scoring",
+  "producer_ratio/clist": "unexplained",
   "producer_ratio/db2_sql": "inherency",
   "producer_ratio/fsharp": "extraction",
   "producer_ratio/go": "scoring",
   "producer_ratio/rust": "scoring",
   "producer_ratio/swift": "scoring",
   "raw_arch_api/agc_assembly": "scoring",
+  "raw_arch_api/clist": "unexplained",
   "raw_arch_api/crystal": "extraction",
   "raw_arch_api/css": "scoring",
   "raw_arch_api/db2_sql": "inherency",
@@ -6092,6 +6203,7 @@
   "risk_safety_score/ruby": "echo",
   "risk_safety_score/zscript": "inherency",
   "risk_state_flux/c": "scoring",
+  "risk_state_flux/clist": "echo",
   "risk_state_flux/cpp": "scoring",
   "risk_state_flux/crystal": "echo",
   "risk_state_flux/css": "scoring",
@@ -6102,6 +6214,7 @@
   "risk_state_flux/python": "scoring",
   "risk_state_flux/ruby": "echo",
   "risk_state_flux/sqlite": "scoring",
+  "risk_tech_debt/clist": "unexplained",
   "risk_tech_debt/cobol": "scoring",
   "risk_tech_debt/css": "scoring",
   "risk_tech_debt/db2_sql": "scoring",
@@ -6113,6 +6226,7 @@
   "risk_tech_debt/sqlite": "scoring",
   "safety_bypasses/fortran": "scoring",
   "safety_bypasses/haskell": "scoring",
+  "state_mutation/clist": "unexplained",
   "state_mutation/crystal": "scoring",
   "state_mutation/embedded_python": "scoring",
   "state_mutation/python": "scoring",
@@ -6125,23 +6239,23 @@
  "open_defect_share": {
   "args": [
    0,
-   54
+   55
   ],
   "avg_func_args": [
    2,
-   56
+   57
   ],
   "avg_func_complexity": [
    0,
-   56
+   57
   ],
   "betweenness_score": [
-   1,
-   56
+   2,
+   57
   ],
   "branch": [
    0,
-   54
+   55
   ],
   "class_start": [
    0,
@@ -6153,15 +6267,15 @@
   ],
   "cleanup": [
    0,
-   53
+   54
   ],
   "closeness_score": [
-   1,
-   56
+   2,
+   57
   ],
   "cog_raw": [
    0,
-   56
+   57
   ],
   "concurrency": [
    0,
@@ -6169,19 +6283,19 @@
   ],
   "dead_code": [
    0,
-   55
+   56
   ],
   "debug_prints": [
    0,
-   56
+   57
   ],
   "def_encapsulation": [
    0,
-   56
+   57
   ],
   "dependency_density": [
-   0,
-   56
+   1,
+   57
   ],
   "dependency_links": [
    0,
@@ -6189,39 +6303,39 @@
   ],
   "doc": [
    0,
-   51
+   52
   ],
   "encapsulation_ratio": [
    0,
-   56
+   57
   ],
   "fragile_debt": [
    0,
-   55
+   56
   ],
   "func_complexity_gini": [
    0,
-   56
+   57
   ],
   "func_internal_density": [
    0,
-   56
+   57
   ],
   "func_start": [
    0,
-   55
+   56
   ],
   "functions_found": [
    0,
-   54
+   55
   ],
   "globals": [
    0,
-   53
+   54
   ],
   "high_risk_execution": [
    0,
-   52
+   53
   ],
   "immutability_locks": [
    0,
@@ -6233,51 +6347,51 @@
   ],
   "io": [
    0,
-   53
+   54
   ],
   "llm_api": [
    0,
-   56
+   57
   ],
   "max_func_complexity": [
    0,
-   56
+   57
   ],
   "normalized_blast_radius": [
    0,
-   56
+   57
   ],
   "ownership": [
    0,
-   55
+   56
   ],
   "pagerank": [
    0,
-   56
+   57
   ],
   "pagerank_score": [
    0,
-   56
+   57
   ],
   "planned_debt": [
    0,
-   55
+   56
   ],
   "popularity": [
-   1,
-   56
+   2,
+   57
   ],
   "producer_ratio": [
-   1,
-   56
+   2,
+   57
   ],
   "raw_arch_api": [
-   1,
-   56
+   2,
+   57
   ],
   "raw_state_unreferenced": [
    0,
-   47
+   48
   ],
   "reflection_metaprogramming": [
    0,
@@ -6289,7 +6403,7 @@
   ],
   "risk_cognitive_load": [
    0,
-   54
+   55
   ],
   "risk_concurrency": [
    0,
@@ -6297,51 +6411,51 @@
   ],
   "risk_dead_code": [
    0,
-   55
+   56
   ],
   "risk_documentation": [
    0,
-   53
+   54
   ],
   "risk_safety_score": [
    0,
-   54
+   55
   ],
   "risk_secrets_risk": [
    0,
-   56
+   57
   ],
   "risk_spec_match": [
    0,
-   56
+   57
   ],
   "risk_state_flux": [
    0,
-   54
+   55
   ],
   "risk_tech_debt": [
-   1,
-   56
+   2,
+   57
   ],
   "risk_verification": [
    0,
-   55
+   56
   ],
   "safety": [
    0,
-   54
+   55
   ],
   "safety_bypasses": [
    0,
-   53
+   54
   ],
   "state_mutation": [
-   0,
-   52
+   1,
+   53
   ],
   "state_slop_duplicates": [
    0,
-   56
+   57
   ],
   "sync_locks": [
    0,
@@ -6349,7 +6463,7 @@
   ],
   "telemetry": [
    0,
-   51
+   52
   ],
   "test": [
    0,

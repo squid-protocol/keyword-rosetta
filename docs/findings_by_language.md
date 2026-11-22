@@ -16,6 +16,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [assembly](#assembly) | 0 | 0 | 0 | 7 | #2535 #2727 #2764 #2858 #2869 |
 | [bms](#bms) | 5 | 1 | 16 | 7 | #2503 #2505 #3077 |
 | [c](#c) | 0 | 1 | 0 | 13 | #2535 #2546 #2655 #2689 #2729 #2730 #2731 #2765 #2841 #2852 #2878 |
+| [clist](#clist) | 9 | 1 | 7 | 2 | — |
 | [cobol](#cobol) | 0 | 2 | 0 | 21 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
 | [crystal](#crystal) | 6 | 1 | 0 | 4 | #2817 |
@@ -277,6 +278,37 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - **b.c** · `const char *note = "plain system() decoy text"; (probe_state)` (string): danger-only decoy (#17 redesign): "system()" COUNTS from inside the literal (+1), undampened — probe_state carries no safety keyword, so the Silencer Region never fires. Retiring the shared sentence also dropped branch 1->0, io 1->0, state_mutation 9->3. Ledger: string-literal-selective-shielding, state-flux-branch-weighting 2026-09-08 #2878: the literal carries the rule's anchored form (contract C2) so it keeps asserting the stream contract's +1.
 - **c.c** · `int hack_level;` (code): inert (underscore + lowercase)
 - **main.c** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): Asserts that multi-line block comments are successfully stripped by the literal shielder before Information Flow Graph extraction. The phantom call contributes 0 to the `calls_out_to` topology.
+
+</details>
+
+## clist
+
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
+- 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
+- 🔴 `cog_raw`: 0.0345 vs median 0.0205 (+68%)
+- 🔴 `dependency_density`: 0 vs median 0.015 (-100%)
+- 🔴 `popularity`: 0 vs median 0.75 (-100%)
+- 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
+- 🔴 `raw_arch_api`: 0 vs median 3 (-100%)
+- 🔴 `risk_state_flux`: 11.9502 vs median 7.75065 (+54%)
+- 🔴 `risk_tech_debt`: 82.9728 vs median 29.8779 (+178%)
+- 🟡 `state_mutation`: 3 vs median 2 (+50%)
+
+**Not expressible as measured (n/a):** `class_start`, `classes_found`, `dependency_links`, `import`, `risk_api_exposure`, `risk_concurrency`, `test`
+
+| defect | type | issue | evidence in this folder | summary |
+|---|---|---|---|---|
+| `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
+| `clist-stated-absences` | intended-morphology | — | (notes) | clist.py (gitgalaxy#8625) sets these ten keys to None, each for a language reason, not an engine gap |
+
+<details><summary>Decoy outcomes (file-level evidence)</summary>
+
+- **main.clist** · `decoy: if the backlog grows then exit and goto nowhere` (comment): contributes 0 -- prism strips the /* */ comment before the code-stream rules run. With the marker stripped the prose fires branch (if), high_risk_execution and panics_and_aborts (exit, the dual) and safety_bypasses (goto), per the live compiled rules; all stripped to 0.
+- **main.clist** · `&STR(plain EXIT decoy text)` (string): +1 high_risk_execution (and +1 panics_and_aborts, the same rule) in main.clist, the SPEC's literal-counting assertion (gitgalaxy#2535). Spill, recorded: the literal sits in a `SET &NOTE = ...` assignment, CLIST's only way to hold a string, so main.clist reads state_mutation 1. Placed in probe_risk, which carries no safety keywords.
+- **a.clist** · `HACK_LEVEL (probe_test's parameter)` (code): contributes 0: fragile_debt's shared rule is word-boundary anchored, so HACK inside HACK_LEVEL never matches; PROC parameters plant no assignment either.
+- **main.clist** · `phantom_decoy_call` (comment): Graph Block-Comment Decoy (Rule 5): the multi-line block comment is stripped before Information Flow Graph extraction, so the phantom call contributes 0 to calls_out_to.
 
 </details>
 

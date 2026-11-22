@@ -35,7 +35,8 @@
       "btry",
       "bfinally",
       "beval",
-      "buplevel"
+      "buplevel",
+      "env"
     ],
     "pattern_defined": true
   },
