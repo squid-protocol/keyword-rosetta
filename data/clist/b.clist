@@ -1,0 +1,16 @@
+/* keyword rosetta control shell: clist / b */
+/* decoy: furniture line keeping the four shells parallel */
+PROBE_BYPASS: PROC 1 TAG
+  ERROR OFF
+  ATTN OFF
+  RETURN
+
+PROBE_TELEMETRY: PROC 1 LEVEL
+  CONTROL LIST
+  CONTROL SYMLIST
+  RETURN
+
+PROBE_STATE: PROC 1 V
+  SET &TOTAL = 1
+  SET &REST = &TOTAL
+  RETURN
