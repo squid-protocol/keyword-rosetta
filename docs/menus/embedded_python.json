@@ -387,8 +387,6 @@
   "serialization_parsing": {
     "core": false,
     "keywords": [
-      "ujson.loads",
-      "ujson.dumps",
       "ustruct.pack",
       "ustruct.unpack"
     ],

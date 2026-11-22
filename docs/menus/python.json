@@ -423,12 +423,7 @@
   },
   "serialization_parsing": {
     "core": false,
-    "keywords": [
-      "pickle.loads",
-      "pickle.Unpickler",
-      "marshal.loads",
-      "ast.literal_eval"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "spec_exposure": {
