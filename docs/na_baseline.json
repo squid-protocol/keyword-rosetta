@@ -4,6 +4,7 @@
   "agc_assembly/short_circuit",
   "assembly/short_circuit",
   "bms/short_circuit",
+  "clist/short_circuit",
   "cobol/short_circuit",
   "css/short_circuit",
   "db2_sql/short_circuit",
