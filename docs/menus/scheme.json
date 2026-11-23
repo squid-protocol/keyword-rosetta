@@ -27,8 +27,6 @@
       "if",
       "cond",
       "case",
-      "and",
-      "or",
       "when",
       "unless"
     ],
@@ -309,6 +307,14 @@
   "scientific": {
     "core": false,
     "keywords": [],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [
+      "and",
+      "or"
+    ],
     "pattern_defined": true
   },
   "spec_exposure": {

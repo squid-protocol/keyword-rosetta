@@ -252,7 +252,6 @@
   "io": {
     "core": true,
     "keywords": [
-      "IO",
       "readFile",
       "writeFile",
       "appendFile",
@@ -448,6 +447,11 @@
       "Data.Binary",
       "Data.Serialize"
     ],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [],
     "pattern_defined": true
   },
   "spec_exposure": {

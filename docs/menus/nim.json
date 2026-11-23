@@ -60,9 +60,6 @@
       "case",
       "for",
       "while",
-      "try",
-      "except",
-      "finally",
       "of"
     ],
     "pattern_defined": true
@@ -521,6 +518,14 @@
       "loadYaml",
       "newJObject",
       "JsonNode"
+    ],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [
+      "and",
+      "or"
     ],
     "pattern_defined": true
   },

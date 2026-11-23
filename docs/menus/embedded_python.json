@@ -21,9 +21,7 @@
       "elif",
       "else",
       "for",
-      "while",
-      "and",
-      "or"
+      "while"
     ],
     "pattern_defined": true
   },
@@ -389,6 +387,14 @@
     "keywords": [
       "ustruct.pack",
       "ustruct.unpack"
+    ],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [
+      "and",
+      "or"
     ],
     "pattern_defined": true
   },

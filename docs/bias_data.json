@@ -1711,6 +1711,65 @@
    "zig": 0,
    "zscript": 0
   },
+  "short_circuit": {
+   "abap": null,
+   "acs": 0,
+   "ada": 0,
+   "agc_assembly": null,
+   "apex": 0,
+   "assembly": null,
+   "bms": null,
+   "c": 0,
+   "clist": null,
+   "cobol": null,
+   "cpp": 0,
+   "crystal": 0,
+   "csharp": 0,
+   "css": null,
+   "dart": 0,
+   "db2_sql": null,
+   "dockerfile": 0,
+   "embedded_python": 0,
+   "fortran": 0,
+   "fsharp": null,
+   "go": 0,
+   "groovy": 0,
+   "haskell": 0,
+   "hlasm": null,
+   "html": null,
+   "java": 0,
+   "javascript": 0,
+   "jcl": null,
+   "kotlin": 0,
+   "livecode": 0,
+   "lua": 0,
+   "m4": null,
+   "makefile": 0,
+   "markdown": null,
+   "matlab": 0,
+   "objective-c": 0,
+   "perl": 0,
+   "php": 0,
+   "pli": null,
+   "postgresql": null,
+   "powershell": 0,
+   "python": 0,
+   "rexx": null,
+   "ruby": 0,
+   "rust": 0,
+   "scala": 0,
+   "scheme": 0,
+   "shell": 0,
+   "solidity": 0,
+   "sqlite": null,
+   "swift": 0,
+   "tcl": null,
+   "typescript": 0,
+   "yacc": null,
+   "yaml": 0,
+   "zig": 0,
+   "zscript": 0
+  },
   "sync_locks": {
    "abap": 0,
    "acs": null,
@@ -5674,8 +5733,8 @@
    "zscript": "ledgered"
   },
   "risk_cognitive_load": {
-   "markdown": "ledgered",
-   "bms": "ledgered"
+   "markdown": "unreviewed",
+   "bms": "unreviewed"
   },
   "risk_dead_code": {
    "markdown": "ledgered"
@@ -5716,6 +5775,7 @@
     "concurrency",
     "doc",
     "reflection_metaprogramming",
+    "short_circuit",
     "state_mutation"
    ],
    "engine": [],
@@ -5849,7 +5909,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "4efbff07ff535d4e3d04c7cbddad99784b3be877",
+ "engine_commit": "7d0d973d77f0926d67c63c5f63ed6eebd295ffe9",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -5934,6 +5994,7 @@
   "immutability_locks",
   "llm_api",
   "reflection_metaprogramming",
+  "short_circuit",
   "sync_locks"
  ],
  "unit_metrics": [
@@ -6448,6 +6509,10 @@
   "safety_bypasses": [
    0,
    54
+  ],
+  "short_circuit": [
+   0,
+   37
   ],
   "state_mutation": [
    1,

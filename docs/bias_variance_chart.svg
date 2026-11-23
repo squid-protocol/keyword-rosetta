@@ -6,7 +6,7 @@
 <text x="16" y="84" fill="#c3c2b7">or a scoring weight sitting inside a count — the work left. <tspan font-weight="600" fill="#9aa4ad">Grey</tspan> is a documented variation: the language cannot express the construct,</text>
 <text x="16" y="100" fill="#c3c2b7">a deliberate scoring choice, or an echo of another row. Each row's bar: in band (±25% of the median) · documented · open defect; the badge prints the accounted share — everything that is not an open defect.</text>
 <text x="16" y="134" font-size="22" font-weight="700" fill="#e8735f">0.5%</text>
-<text x="16" y="150" font-size="10.5" fill="#c3c2b7">open-defect share · 16 of 3172 cells</text>
+<text x="16" y="150" font-size="10.5" fill="#c3c2b7">open-defect share · 16 of 3209 cells</text>
 <text x="258" y="134" font-size="22" font-weight="700" fill="#f0efec">93%</text>
 <text x="258" y="150" font-size="10.5" fill="#c3c2b7">average share in band, 54 gated metrics</text>
 <text x="499" y="134" font-size="22" font-weight="700" fill="#f0efec">8</text>
@@ -2349,6 +2349,6 @@
 <text x="447.5" y="3761.0" font-size="8" fill="#9aa4ad" text-anchor="middle">markdown</text>
 <text x="16" y="3784" font-size="10" fill="#c3c2b7">* not gated: languages vary too much in how they express this — program length, token vocabulary, inputs the corpus does not plant, commit age — for a cross-language band to mean anything.</text>
 <text x="16" y="3797" font-size="10" fill="#c3c2b7">Shown for context, never scored. Every dot outside the band on a gated row has a verdict in deviation_ledger.json; the cause behind each colour is in docs/bias_data.json (cell_categories).</text>
-<text x="16" y="3810" font-size="10" fill="#c3c2b7">Inert — recorded but drawn nowhere: <tspan font-family="ui-monospace, Menlo, monospace">fam_crypto, fam_regex, fam_threat, fam_time, llm_api, risk_churn, risk_spec_match, state_slop_duplicates</tspan> — every language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>
+<text x="16" y="3810" font-size="10" fill="#c3c2b7">Inert — recorded but drawn nowhere: <tspan font-family="ui-monospace, Menlo, monospace">fam_crypto, fam_regex, fam_threat, fam_time, llm_api, risk_churn, risk_spec_match, short_circuit, state_slop_duplicates</tspan> — every language reads exactly 0 (the corpus plants nothing for them), so the column asks no cross-language question.</text>
 <text x="16" y="3826" font-size="10" fill="#8f8e86">keyword-rosetta · tools/bias_report.py · band ±25% of the cross-language median (exact agreement where the median is 0) · cause categories: gitgalaxy docs/contract_roadmap.md</text>
 </svg>

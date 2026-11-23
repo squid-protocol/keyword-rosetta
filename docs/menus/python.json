@@ -29,9 +29,7 @@
       "elif",
       "else",
       "for",
-      "while",
-      "and",
-      "or"
+      "while"
     ],
     "pattern_defined": true
   },
@@ -385,14 +383,7 @@
   },
   "regex_execution": {
     "core": false,
-    "keywords": [
-      "re.compile",
-      "re.search",
-      "re.match",
-      "re.sub",
-      "re.findall",
-      "re.split"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "safety": {
@@ -424,6 +415,14 @@
   "serialization_parsing": {
     "core": false,
     "keywords": [],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [
+      "and",
+      "or"
+    ],
     "pattern_defined": true
   },
   "spec_exposure": {

@@ -20,7 +20,6 @@
       "iand",
       "ior",
       "ieor",
-      "not",
       "ishft",
       "ishftc",
       "btest",
@@ -43,9 +42,7 @@
       "WHERE",
       "ELSEWHERE",
       "SELECT TYPE",
-      "SELECT RANK",
-      "EXIT",
-      "CYCLE"
+      "SELECT RANK"
     ],
     "pattern_defined": true
   },
@@ -263,8 +260,7 @@
   "panics_and_aborts": {
     "core": false,
     "keywords": [
-      "stop",
-      "return"
+      "stop"
     ],
     "pattern_defined": true
   },
@@ -353,6 +349,11 @@
     ],
     "pattern_defined": true
   },
+  "short_circuit": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "spec_exposure": {
     "core": false,
     "keywords": [],
@@ -374,6 +375,8 @@
       "BLOCK",
       "ASSOCIATE",
       "RETURN",
+      "EXIT",
+      "CYCLE",
       "IMPLICIT",
       "USE",
       "INTEGER",

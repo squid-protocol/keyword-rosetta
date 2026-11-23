@@ -437,6 +437,11 @@
     ],
     "pattern_defined": true
   },
+  "short_circuit": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "spec_exposure": {
     "core": false,
     "keywords": [],

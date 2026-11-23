@@ -34,10 +34,7 @@
       "continue",
       "break",
       "yield return",
-      "yield break",
-      "and",
-      "or",
-      "not"
+      "yield break"
     ],
     "pattern_defined": true
   },
@@ -395,6 +392,14 @@
       "JsonConvert.DeserializeObject",
       "XmlSerializer",
       "BinaryFormatter"
+    ],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [
+      "and",
+      "or"
     ],
     "pattern_defined": true
   },

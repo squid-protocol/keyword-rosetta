@@ -30,10 +30,7 @@
       "case",
       "default",
       "repeat",
-      "next repeat",
-      "and",
-      "or",
-      "not"
+      "next repeat"
     ],
     "pattern_defined": true
   },
@@ -339,6 +336,14 @@
       "arrayEncode",
       "arrayDecode",
       "revXMLCreateTree"
+    ],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [
+      "and",
+      "or"
     ],
     "pattern_defined": true
   },

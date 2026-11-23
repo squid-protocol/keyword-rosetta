@@ -341,6 +341,14 @@
     ],
     "pattern_defined": true
   },
+  "short_circuit": {
+    "core": false,
+    "keywords": [
+      "and",
+      "or"
+    ],
+    "pattern_defined": true
+  },
   "spec_exposure": {
     "core": false,
     "keywords": [],

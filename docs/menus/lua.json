@@ -22,10 +22,7 @@
       "else",
       "for",
       "while",
-      "repeat",
-      "and",
-      "or",
-      "not"
+      "repeat"
     ],
     "pattern_defined": true
   },
@@ -385,6 +382,14 @@
       "load",
       "cjson.decode",
       "cjson.encode"
+    ],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [
+      "and",
+      "or"
     ],
     "pattern_defined": true
   },

@@ -37,9 +37,7 @@
       "try",
       "catch",
       "after",
-      "receive",
-      "andalso",
-      "orelse"
+      "receive"
     ],
     "pattern_defined": true
   },
@@ -305,6 +303,14 @@
       "binary_to_term",
       "xmerl_scan",
       "yamerl"
+    ],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [
+      "andalso",
+      "orelse"
     ],
     "pattern_defined": true
   },

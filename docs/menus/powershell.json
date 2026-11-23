@@ -42,7 +42,15 @@
   },
   "calls_out": {
     "core": false,
-    "keywords": [],
+    "keywords": [
+      "return",
+      "throw",
+      "else",
+      "global",
+      "script",
+      "local",
+      "private"
+    ],
     "pattern_defined": true
   },
   "class_start": {
@@ -374,6 +382,11 @@
       "ConvertFrom-Csv",
       "Import-Csv"
     ],
+    "pattern_defined": true
+  },
+  "short_circuit": {
+    "core": false,
+    "keywords": [],
     "pattern_defined": true
   },
   "spec_exposure": {
