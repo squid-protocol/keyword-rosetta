@@ -3876,7 +3876,7 @@
    "php": 143,
    "pli": 156,
    "postgresql": 191,
-   "powershell": 147,
+   "powershell": 132,
    "python": 202,
    "rexx": 128,
    "ruby": 155,
@@ -5909,7 +5909,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "7d0d973d77f0926d67c63c5f63ed6eebd295ffe9",
+ "engine_commit": "a48ee0ad95e1205d376f0751f92806e269f0baf8",
  "context_metrics": [
   "total_loc",
   "coding_loc",

@@ -237,7 +237,10 @@
       "error",
       "abort",
       "exit",
-      "emergency-exit"
+      "emergency-exit",
+      "raise",
+      "raise-exception",
+      "throw"
     ],
     "pattern_defined": true
   },

@@ -33,8 +33,6 @@
       "if",
       "guard",
       "switch",
-      "case",
-      "for",
       "while",
       "repeat",
       "break",
