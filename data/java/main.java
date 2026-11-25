@@ -25,9 +25,9 @@ public static int probeBranch(int flag) {
 }
 
 public static int probeIo(int route) {
-    File disk;
-    Scanner reader;
-    Socket plug;
+    new Socket(route);
+    new Scanner(route);
+    Files.readAllLines(route);
     return route;
 }
 
