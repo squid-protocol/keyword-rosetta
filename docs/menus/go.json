@@ -215,7 +215,9 @@
   },
   "io": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "filepath.Walk"
+    ],
     "pattern_defined": true
   },
   "ipc_rpc_bridges": {
@@ -430,9 +432,15 @@
     "core": false,
     "keywords": [
       "time.Parse",
+      "time.ParseDuration",
       "time.Duration",
       "time.Sleep",
-      "time.Since"
+      "time.Since",
+      "time.Until",
+      "time.Date",
+      "time.Unix",
+      "time.UnixMilli",
+      "time.LoadLocation"
     ],
     "pattern_defined": true
   },

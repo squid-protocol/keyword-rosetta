@@ -490,7 +490,9 @@
       "clock_gettime",
       "gettimeofday",
       "localtime_r",
-      "strftime"
+      "strftime",
+      "difftime",
+      "mktime"
     ],
     "pattern_defined": true
   },

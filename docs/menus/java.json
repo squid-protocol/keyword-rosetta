@@ -243,26 +243,7 @@
   },
   "io": {
     "core": true,
-    "keywords": [
-      "File",
-      "InputStream",
-      "OutputStream",
-      "Reader",
-      "Writer",
-      "Scanner",
-      "Path",
-      "Socket",
-      "RestTemplate",
-      "WebClient",
-      "RestClient",
-      "HttpClient",
-      "Connection",
-      "ResultSet",
-      "Statement",
-      "EntityManager",
-      "DataSource",
-      "Repository"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ipc_rpc_bridges": {
@@ -539,7 +520,8 @@
       "Instant",
       "Duration",
       "System.currentTimeMillis",
-      "Calendar.getInstance"
+      "Calendar.getInstance",
+      "System.nanoTime"
     ],
     "pattern_defined": true
   },

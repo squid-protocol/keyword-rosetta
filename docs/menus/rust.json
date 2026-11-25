@@ -453,7 +453,8 @@
     "core": false,
     "keywords": [
       "std::thread::sleep",
-      "tokio::time::sleep",
+      "thread::sleep",
+      "time::sleep",
       "Duration::from"
     ],
     "pattern_defined": true

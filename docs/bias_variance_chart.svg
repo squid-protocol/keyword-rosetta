@@ -1412,10 +1412,10 @@
 <circle cx="642.8" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="693.6" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="683.2" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
-<circle cx="695.4" cy="2576.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>
-<text x="702.7" y="2578.5" font-size="6.5" font-weight="700" fill="#2f855a" font-family="ui-monospace, Menlo, monospace">2</text>
+<circle cx="695.4" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="763.4" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="636.9" cy="2576.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
+<circle cx="697.7" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="712.2" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="722.2" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="707.2" cy="2576.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
@@ -1712,7 +1712,7 @@
 <circle cx="656.4" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="601.9" cy="2756.0" r="5.3" fill="#a3acb3" fill-opacity=".85"/>
 <text x="609.2" y="2758.5" font-size="6.5" font-weight="700" fill="#a3acb3" font-family="ui-monospace, Menlo, monospace">2</text>
-<circle cx="696.7" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
+<circle cx="700.2" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="759.9" cy="2756.0" r="4.2" fill="#2f855a" fill-opacity=".6"/>
 <circle cx="624.8" cy="2756.0" r="4.2" fill="#a3acb3" fill-opacity=".6"/>
 <circle cx="765.2" cy="2756.0" r="5.3" fill="#2f855a" fill-opacity=".85"/>

@@ -3802,7 +3802,7 @@
    "haskell": 136.75,
    "hlasm": 174.25,
    "html": 104.5,
-   "java": 136.75,
+   "java": 138,
    "javascript": 146,
    "jcl": 151.5,
    "kotlin": 143.25,
@@ -3861,7 +3861,7 @@
    "haskell": 119,
    "hlasm": 147,
    "html": 88,
-   "java": 142,
+   "java": 144,
    "javascript": 178,
    "jcl": 101,
    "kotlin": 181,
@@ -5909,7 +5909,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "a07d969e3271ce588cdeabd4665be09177d5c2cf",
+ "engine_commit": "719cd20d7bdfa304d978eeafc1e831957d14506e",
  "context_metrics": [
   "total_loc",
   "coding_loc",
