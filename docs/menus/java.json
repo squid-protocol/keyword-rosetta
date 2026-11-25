@@ -346,7 +346,6 @@
       "Method.invoke",
       "Field.setAccessible",
       "Proxy.newProxyInstance",
-      "ClassLoader",
       "MethodHandles",
       "VarHandle",
       "Linker.nativeLinker",

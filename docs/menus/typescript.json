@@ -259,12 +259,7 @@
     "keywords": [
       "fetch",
       "axios",
-      "http",
-      "https",
       "fs",
-      "path",
-      "database",
-      "sql",
       "localStorage",
       "sessionStorage",
       "indexedDB",
@@ -532,6 +527,7 @@
       "delay",
       "setTimeout",
       "setInterval",
+      "setImmediate",
       "Atomics.wait"
     ],
     "pattern_defined": true
@@ -541,10 +537,6 @@
     "keywords": [
       "Date.now",
       "new Date",
-      "setTimeout",
-      "setInterval",
-      "clearTimeout",
-      "clearInterval",
       "performance.now"
     ],
     "pattern_defined": true

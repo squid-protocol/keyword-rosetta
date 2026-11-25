@@ -501,6 +501,7 @@
       "delay",
       "setTimeout",
       "setInterval",
+      "setImmediate",
       "Atomics.wait"
     ],
     "pattern_defined": true
@@ -510,10 +511,6 @@
     "keywords": [
       "Date.now",
       "new Date",
-      "setTimeout",
-      "setInterval",
-      "clearTimeout",
-      "clearInterval",
       "performance.now"
     ],
     "pattern_defined": true

@@ -314,7 +314,6 @@
     "core": false,
     "keywords": [
       "std::mem::transmute",
-      "PhantomData",
       "UnsafeCell"
     ],
     "pattern_defined": true

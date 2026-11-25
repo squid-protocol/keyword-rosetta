@@ -447,14 +447,7 @@
   },
   "sync_locks": {
     "core": false,
-    "keywords": [
-      "Lock",
-      "RLock",
-      "Semaphore",
-      "Event",
-      "Condition",
-      "allocate_lock"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "telemetry": {

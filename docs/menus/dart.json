@@ -345,7 +345,6 @@
     "keywords": [
       "MethodChannel",
       "EventChannel",
-      "reflect",
       "reflectClass",
       "noSuchMethod"
     ],

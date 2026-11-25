@@ -244,18 +244,7 @@
   },
   "io": {
     "core": true,
-    "keywords": [
-      "open",
-      "requests",
-      "httpx",
-      "aiohttp",
-      "boto3",
-      "pathlib",
-      "socket",
-      "sqlalchemy",
-      "psycopg2",
-      "asyncpg"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ipc_rpc_bridges": {
@@ -471,15 +460,7 @@
   },
   "sync_locks": {
     "core": false,
-    "keywords": [
-      "Lock",
-      "RLock",
-      "Semaphore",
-      "BoundedSemaphore",
-      "Event",
-      "Condition",
-      "Barrier"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "telemetry": {
@@ -512,6 +493,7 @@
     "keywords": [
       "time.sleep",
       "asyncio.sleep",
+      "anyio.sleep",
       "Thread.join"
     ],
     "pattern_defined": true
@@ -521,7 +503,6 @@
     "keywords": [
       "datetime.datetime",
       "timedelta",
-      "time.sleep",
       "time.time",
       "calendar"
     ],

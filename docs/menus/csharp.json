@@ -334,7 +334,6 @@
       "LibraryImport",
       "MethodInfo",
       "Activator",
-      "Emit",
       "ILGenerator"
     ],
     "pattern_defined": true

@@ -49,7 +49,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [pli](#pli) | 0 | 1 | 0 | 2 | — |
 | [postgresql](#postgresql) | 4 | 1 | 1 | 6 | #2655 #2730 #2866 |
 | [powershell](#powershell) | 2 | 0 | 0 | 10 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 #2822 |
-| [python](#python) | 5 | 1 | 0 | 14 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2878 |
+| [python](#python) | 6 | 1 | 0 | 14 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2878 |
 | [rexx](#rexx) | 1 | 0 | 2 | 4 | #2503 #2504 #2730 |
 | [ruby](#ruby) | 5 | 0 | 0 | 11 | #2535 #2546 #2547 #2727 #2731 #2817 #2822 #2878 |
 | [rust](#rust) | 4 | 1 | 0 | 11 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 #2878 |
@@ -1343,6 +1343,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `cog_raw`: 0.2545 vs median 0.0205 (+1141%)
+- 🔴 `io`: 0 vs median 3 (-100%)
 - 🔴 `risk_cognitive_load`: 14.8919 vs median 1.29535 (+1050%)
 - 🔴 `risk_safety_score`: 58.6611 vs median 30.5829 (+92%)
 - 🔴 `risk_state_flux`: 67.249 vs median 7.75065 (+768%)

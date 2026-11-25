@@ -243,9 +243,7 @@
   },
   "panics_and_aborts": {
     "core": false,
-    "keywords": [
-      "@assert"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "planned_debt": {

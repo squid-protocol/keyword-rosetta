@@ -265,6 +265,7 @@
     "keywords": [
       "abort",
       "exit",
+      "_exit",
       "_Exit",
       "quick_exit"
     ],

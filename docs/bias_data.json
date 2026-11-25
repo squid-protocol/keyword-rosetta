@@ -573,7 +573,7 @@
    "pli": 3,
    "postgresql": 3,
    "powershell": 3,
-   "python": 3,
+   "python": 0,
    "rexx": 3,
    "ruby": 3,
    "rust": 3,
@@ -3877,7 +3877,7 @@
    "pli": 156,
    "postgresql": 191,
    "powershell": 132,
-   "python": 202,
+   "python": 199,
    "rexx": 128,
    "ruby": 155,
    "rust": 183,
@@ -4703,7 +4703,7 @@
    "pli": 3,
    "postgresql": 3,
    "powershell": 3,
-   "python": 3,
+   "python": 0,
    "rexx": 3,
    "ruby": 3,
    "rust": 3,
@@ -5909,7 +5909,7 @@
   }
  },
  "engine_mode": "full-precision",
- "engine_commit": "719cd20d7bdfa304d978eeafc1e831957d14506e",
+ "engine_commit": "e1db3ee3fe1c3b6c1a09111b47baca10db50be28",
  "context_metrics": [
   "total_loc",
   "coding_loc",
@@ -6186,6 +6186,7 @@
   "immutability_locks/php": "inherency",
   "immutability_locks/ruby": "inherency",
   "import/embedded_python": "inherency",
+  "io/python": "unexplained",
   "max_func_complexity/bms": "inherency",
   "max_func_complexity/css": "scoring",
   "max_func_complexity/html": "inherency",
@@ -6407,7 +6408,7 @@
    55
   ],
   "io": [
-   0,
+   1,
    54
   ],
   "llm_api": [
