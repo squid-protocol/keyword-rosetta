@@ -26,9 +26,9 @@ export function probeBranch(flag: number): number {
 }
 
 export function probeIo(route: number): number {
-  const web = fetch;
+  const web = localStorage.token;
   const grabber = axios;
-  const disk = fs;
+  const disk = fs.promises;
   return route;
 }
 
