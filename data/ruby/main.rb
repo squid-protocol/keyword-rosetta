@@ -4,10 +4,10 @@ Graph Decoy: this multi-line string contains a fake function call.
 phantom_decoy_call();
 """
 # Author: keyword-rosetta generator
-# @param flag probe input
 # decoy: this suite never aborts and the spawn word stays in prose
 require 'a'
 
+# @param flag probe input
 def entry(argv)
   probe_branch(argv)
   probe_io(argv)
@@ -25,9 +25,9 @@ def probe_branch(flag)
 end
 
 def probe_io(route)
-  disk = File
-  folder = Dir
-  plug = Socket
+  disk = File.read(route)
+  folder = Dir.glob(route)
+  plug = Socket.new(route)
   [disk, folder, plug]
 end
 
