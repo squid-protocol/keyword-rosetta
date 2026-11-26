@@ -26,7 +26,7 @@ public static int ProbeBranch(int flag) {
 
 public static int ProbeIo(int route) {
     File.Open(route);
-    Path.Join(route);
+    new FileInfo(route);
     Stream.Wrap(route);
     return route;
 }
