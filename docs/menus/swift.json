@@ -512,11 +512,7 @@
   },
   "thread_sleeps": {
     "core": false,
-    "keywords": [
-      "sleep",
-      "delay",
-      "Task.sleep"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "time_date_logic": {
@@ -524,8 +520,19 @@
     "keywords": [
       "Calendar.current",
       "DateFormatter",
+      "ISO8601DateFormatter",
+      "DateComponents",
+      "DateInterval",
+      "TimeZone",
       "DispatchTime.now",
-      "Timer.scheduledTimer"
+      "DispatchWallTime",
+      "DispatchTimeInterval",
+      "ContinuousClock",
+      "SuspendingClock",
+      "CFAbsoluteTimeGetCurrent",
+      "clock_gettime",
+      "gettimeofday",
+      "mach_absolute_time"
     ],
     "pattern_defined": true
   },

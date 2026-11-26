@@ -77,7 +77,6 @@
     "core": false,
     "keywords": [
       "printf",
-      "fprintf",
       "vprintf",
       "puts",
       "putchar",
@@ -262,13 +261,7 @@
   },
   "panics_and_aborts": {
     "core": false,
-    "keywords": [
-      "abort",
-      "exit",
-      "_exit",
-      "_Exit",
-      "quick_exit"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "planned_debt": {
@@ -486,15 +479,7 @@
   },
   "time_date_logic": {
     "core": false,
-    "keywords": [
-      "time_t",
-      "clock_gettime",
-      "gettimeofday",
-      "localtime_r",
-      "strftime",
-      "difftime",
-      "mktime"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ui_framework": {

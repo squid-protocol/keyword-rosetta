@@ -95,14 +95,7 @@
     "core": false,
     "keywords": [
       "echo",
-      "print",
-      "var_dump",
-      "print_r",
-      "printf",
-      "vprintf",
-      "var_export",
-      "dd",
-      "dump"
+      "print"
     ],
     "pattern_defined": true
   },
@@ -245,19 +238,7 @@
   },
   "io": {
     "core": true,
-    "keywords": [
-      "fopen",
-      "fread",
-      "fwrite",
-      "file_get_contents",
-      "file_put_contents",
-      "PDO",
-      "mysqli",
-      "curl_exec",
-      "socket",
-      "header",
-      "setcookie"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ipc_rpc_bridges": {
@@ -529,6 +510,8 @@
     "keywords": [
       "strtotime",
       "DateTime",
+      "DateInterval",
+      "DatePeriod",
       "date_create"
     ],
     "pattern_defined": true

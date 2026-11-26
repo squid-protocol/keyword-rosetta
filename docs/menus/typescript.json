@@ -257,14 +257,9 @@
   "io": {
     "core": true,
     "keywords": [
-      "fetch",
       "axios",
-      "fs",
-      "localStorage",
-      "sessionStorage",
-      "indexedDB",
-      "document.cookie",
       "XMLHttpRequest",
+      "document.cookie",
       "child_process"
     ],
     "pattern_defined": true
@@ -522,14 +517,7 @@
   },
   "thread_sleeps": {
     "core": false,
-    "keywords": [
-      "sleep",
-      "delay",
-      "setTimeout",
-      "setInterval",
-      "setImmediate",
-      "Atomics.wait"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "time_date_logic": {

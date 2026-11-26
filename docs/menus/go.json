@@ -216,7 +216,8 @@
   "io": {
     "core": true,
     "keywords": [
-      "filepath.Walk"
+      "filepath.Walk",
+      "bufio.New"
     ],
     "pattern_defined": true
   },
@@ -437,7 +438,6 @@
     "keywords": [
       "time.Parse",
       "time.ParseDuration",
-      "time.Duration",
       "time.Since",
       "time.Until",
       "time.Date",

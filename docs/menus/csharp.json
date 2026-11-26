@@ -340,12 +340,7 @@
   },
   "regex_execution": {
     "core": false,
-    "keywords": [
-      "Regex.Match",
-      "Regex.Replace",
-      "Regex.IsMatch",
-      "new Regex"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "safety": {
@@ -491,11 +486,8 @@
   "time_date_logic": {
     "core": false,
     "keywords": [
-      "DateTime.Now",
-      "DateTime.UtcNow",
       "DateTimeOffset",
-      "TimeSpan",
-      "Stopwatch.StartNew"
+      "TimeSpan"
     ],
     "pattern_defined": true
   },

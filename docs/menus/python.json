@@ -244,7 +244,18 @@
   },
   "io": {
     "core": true,
-    "keywords": [],
+    "keywords": [
+      "open",
+      "requests",
+      "httpx",
+      "aiohttp",
+      "boto3",
+      "pathlib",
+      "socket",
+      "sqlalchemy",
+      "psycopg2",
+      "asyncpg"
+    ],
     "pattern_defined": true
   },
   "ipc_rpc_bridges": {

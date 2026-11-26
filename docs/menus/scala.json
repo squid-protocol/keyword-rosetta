@@ -92,11 +92,7 @@
   },
   "debug_prints": {
     "core": false,
-    "keywords": [
-      "println",
-      "print",
-      "Console.println"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "decorators": {
@@ -242,17 +238,12 @@
   "io": {
     "core": true,
     "keywords": [
-      "Source",
-      "java.io",
-      "java.nio",
-      "Socket",
-      "ServerSocket",
       "sttp",
-      "Http",
       "WSClient",
       "HTLoad",
       "HTGet",
-      "ENQUIRE"
+      "ENQUIRE",
+      "HttpURLConnection"
     ],
     "pattern_defined": true
   },
@@ -533,7 +524,8 @@
     "keywords": [
       "FiniteDuration",
       "System.currentTimeMillis",
-      "LocalDate.now"
+      "System.nanoTime",
+      "SimpleDateFormat"
     ],
     "pattern_defined": true
   },

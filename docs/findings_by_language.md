@@ -20,7 +20,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [cobol](#cobol) | 0 | 2 | 0 | 21 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
 | [crystal](#crystal) | 6 | 1 | 0 | 4 | #2817 |
-| [csharp](#csharp) | 0 | 0 | 0 | 11 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 #2882 |
+| [csharp](#csharp) | 0 | 1 | 0 | 11 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 #2882 |
 | [css](#css) | 4 | 3 | 5 | 20 | #2549 #2655 #2689 #2729 #2752 #2766 #2770 #2866 #2878 |
 | [dart](#dart) | 0 | 0 | 0 | 8 | #2535 #2651 #2689 #2730 #2731 #2852 #2878 |
 | [db2_sql](#db2_sql) | 9 | 1 | 1 | 7 | #2511 #2655 #2730 #2866 |
@@ -28,7 +28,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [embedded_python](#embedded_python) | 7 | 0 | 0 | 15 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2852 #2869 #2875 |
 | [fortran](#fortran) | 0 | 2 | 0 | 15 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 #2878 |
 | [fsharp](#fsharp) | 8 | 0 | 0 | 5 | #2729 #5780 |
-| [go](#go) | 5 | 0 | 0 | 12 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
+| [go](#go) | 6 | 2 | 0 | 12 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
 | [groovy](#groovy) | 0 | 0 | 0 | 8 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 #2878 |
 | [haskell](#haskell) | 3 | 1 | 0 | 15 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
 | [hlasm](#hlasm) | 2 | 0 | 1 | 4 | #2503 |
@@ -49,18 +49,18 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [pli](#pli) | 0 | 1 | 0 | 2 | — |
 | [postgresql](#postgresql) | 4 | 1 | 1 | 6 | #2655 #2730 #2866 |
 | [powershell](#powershell) | 2 | 0 | 0 | 10 | #2535 #2545 #2546 #2547 #2656 #2727 #2765 #2822 |
-| [python](#python) | 6 | 1 | 0 | 14 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2878 |
+| [python](#python) | 5 | 1 | 0 | 14 | #2535 #2536 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2878 |
 | [rexx](#rexx) | 1 | 0 | 2 | 4 | #2503 #2504 #2730 |
 | [ruby](#ruby) | 5 | 0 | 0 | 11 | #2535 #2546 #2547 #2727 #2731 #2817 #2822 #2878 |
 | [rust](#rust) | 4 | 1 | 0 | 11 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 #2878 |
-| [scala](#scala) | 0 | 0 | 0 | 10 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 #2869 |
+| [scala](#scala) | 1 | 0 | 0 | 10 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 #2869 |
 | [scheme](#scheme) | 0 | 0 | 0 | 10 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
 | [shell](#shell) | 0 | 0 | 2 | 13 | #2535 #2547 #2727 #2731 #2766 #2822 #2858 #2888 |
 | [solidity](#solidity) | 0 | 0 | 1 | 11 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 #2882 |
 | [sqlite](#sqlite) | 9 | 2 | 3 | 17 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 #2866 |
 | [swift](#swift) | 5 | 0 | 0 | 13 | #2535 #2543 #2546 #2730 #2731 #2765 #2772 #2822 #2858 |
 | [tcl](#tcl) | 0 | 0 | 0 | 10 | #2535 #2546 #2727 #2731 #2765 #2766 #2822 #2841 |
-| [typescript](#typescript) | 0 | 0 | 0 | 14 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 #2878 |
+| [typescript](#typescript) | 1 | 0 | 0 | 14 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 #2878 |
 | [yacc](#yacc) | 5 | 0 | 2 | 10 | #2644 #2689 #2729 #2770 |
 | [yaml](#yaml) | 2 | 1 | 1 | 16 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 #2866 |
 | [zig](#zig) | 0 | 0 | 0 | 10 | #2535 #2545 #2651 #2730 #2731 #2765 #2766 #2772 |
@@ -411,7 +411,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## csharp
 
-**In band on every metric.**
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🟡 `io`: 2 vs median 3 (-33%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -697,8 +699,11 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 - 🔴 `betweenness_score`: 0 vs median 0.0833335 (-100%)
 - 🔴 `closeness_score`: 0 vs median 0.239583 (-100%)
 - 🔴 `dependency_density`: 0 vs median 0.015 (-100%)
+- 🔴 `doc`: 13 vs median 1 (+1200%)
 - 🔴 `popularity`: 0 vs median 0.75 (-100%)
 - 🔴 `producer_ratio`: 0 vs median 0.5 (-100%)
+- 🟡 `risk_cognitive_load`: 0.809575 vs median 1.29535 (-38%)
+- 🟡 `risk_documentation`: 63.0953 vs median 93.75 (-33%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1343,7 +1348,6 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 **Out-of-band metrics** (vs the cross-language median):
 
 - 🔴 `cog_raw`: 0.2545 vs median 0.0205 (+1141%)
-- 🔴 `io`: 0 vs median 3 (-100%)
 - 🔴 `risk_cognitive_load`: 14.8919 vs median 1.29535 (+1050%)
 - 🔴 `risk_safety_score`: 58.6611 vs median 30.5829 (+92%)
 - 🔴 `risk_state_flux`: 67.249 vs median 7.75065 (+768%)
@@ -1470,7 +1474,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## scala
 
-**In band on every metric.**
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `io`: 0 vs median 3 (-100%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1688,7 +1694,9 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## typescript
 
-**In band on every metric.**
+**Out-of-band metrics** (vs the cross-language median):
+
+- 🔴 `io`: 1 vs median 3 (-67%)
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|

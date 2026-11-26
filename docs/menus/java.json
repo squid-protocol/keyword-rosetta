@@ -355,10 +355,7 @@
   },
   "regex_execution": {
     "core": false,
-    "keywords": [
-      "Pattern.compile",
-      "Matcher.find"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "safety": {
@@ -513,15 +510,7 @@
   },
   "time_date_logic": {
     "core": false,
-    "keywords": [
-      "LocalDate",
-      "ZonedDateTime",
-      "Instant",
-      "Duration",
-      "System.currentTimeMillis",
-      "Calendar.getInstance",
-      "System.nanoTime"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ui_framework": {
