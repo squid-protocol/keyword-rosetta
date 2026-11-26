@@ -25,9 +25,9 @@ def probeBranch(flag: Int): Int = {
 }
 
 def probeIo(route: Int): Int = {
-  Source
-  Socket
-  Http
+  Source.fromFile(route)
+  new Socket(route)
+  Http(route)
   route
 }
 
