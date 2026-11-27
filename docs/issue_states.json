@@ -333,7 +333,7 @@
    "title": "keyword-rosetta: ACS (acs) has no control folder; author data/acs/ and backfill its cost record"
   },
   "squid-protocol/gitgalaxy#9345": {
-   "state": "OPEN",
+   "state": "CLOSED",
    "title": "main is red: rosetta-audit"
   },
   "squid-protocol/keyword-rosetta#71": {
