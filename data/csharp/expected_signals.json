@@ -40,7 +40,7 @@
         "ProbeIo": {
           "calls_out_to": [
             "Open",
-            "Join",
+            "FileInfo",
             "Wrap"
           ]
         },
