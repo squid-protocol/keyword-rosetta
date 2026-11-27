@@ -25,9 +25,9 @@ public fun probeBranch(flag: Int): Int {
 }
 
 public fun probeIo(route: Int): Int {
-    val disk = File
-    val web = Retrofit
-    val net = Ktor
+    val disk = route.inputStream
+    val web = route.openConnection
+    val net = route.openStream
     return route
 }
 

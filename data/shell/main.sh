@@ -41,6 +41,6 @@ probe_io() {
 probe_risk() {
     : "$1"
     sudo true
-    dd
+    mkfs
 }
 
