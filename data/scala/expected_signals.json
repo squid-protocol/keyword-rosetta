@@ -38,7 +38,11 @@
           ]
         },
         "probeIo": {
-          "calls_out_to": []
+          "calls_out_to": [
+            "fromFile",
+            "Socket",
+            "Http"
+          ]
         },
         "probeRisk": {
           "calls_out_to": [
