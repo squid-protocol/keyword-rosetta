@@ -2622,6 +2622,20 @@
       "investigated_by": "claude-sonnet-5-5",
       "validated_at": "2026-11-19",
       "still_reproduces": true
+    },
+    {
+      "id": "go-doc-counts-every-line-comment",
+      "signal": "units_documented",
+      "languages_seen": [
+        "go"
+      ],
+      "disposition": "engine-semantic",
+      "status": "validated",
+      "verdict": "Go's doc rule is `^//[ \\t]+\\S` (gitgalaxy#8863 / PR #9325): a `// text` line comment counts as doc wherever it sits. The comment stream carries the comment text without its indentation, so indented body comments count too, and a file header (`// keyword rosetta control shell`, `// decoy: ...`) is a doc line although it documents no declaration. Measured on the corpus: main.go doc 1 -> 4 (header, Author, decoy, the planted `// Dispatch each probe once.`); c.go doc 0 -> 5 (header, decoy, the HACK and TODO comment lines, the trailing api_key comment); a.go / b.go / c.go units_documented 0 -> 1, 1 and 2 as the per-unit documented count follows the same doc lines (not isolated further here). Every Go shell file opens with two `//` lines, so the corpus cannot plant a clean doc count without dropping its own shell comments. The corpus measures what the engine does: the new counts are baked in. Whether doc should require the comment to sit directly above a declaration is an engine question, not open here: gitgalaxy#9325 ruled a column-0 `//` line is doc. Signal scoped to units_documented: go's doc column itself reads in band against the corpus median, so it needs no excuse here (the doc cells are explained above, not excused).",
+      "upstream_issue": "squid-protocol/gitgalaxy#9345",
+      "investigated_by": "claude-sonnet-5.5 (gitgalaxy#9345): raw regex count on c.go is 3, engine records 5, which is how the comment-stream dedent was found",
+      "validated_at": "2026-11-26",
+      "still_reproduces": true
     }
   ]
 }
