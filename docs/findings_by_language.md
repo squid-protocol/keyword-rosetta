@@ -20,7 +20,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [cobol](#cobol) | 0 | 2 | 0 | 21 | #2535 #2537 #2538 #2655 #2661 #2689 #2729 #2770 #2798 #2805 #2822 #2827 #2852 #2863 |
 | [cpp](#cpp) | 0 | 1 | 0 | 11 | #2535 #2546 #2655 #2730 #2731 #2765 #2822 #2878 |
 | [crystal](#crystal) | 6 | 1 | 0 | 4 | #2817 |
-| [csharp](#csharp) | 0 | 1 | 0 | 11 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 #2882 |
+| [csharp](#csharp) | 0 | 0 | 0 | 11 | #2535 #2546 #2730 #2731 #2822 #2858 #2878 #2882 |
 | [css](#css) | 4 | 3 | 5 | 20 | #2549 #2655 #2689 #2729 #2752 #2766 #2770 #2866 #2878 |
 | [dart](#dart) | 0 | 0 | 0 | 8 | #2535 #2651 #2689 #2730 #2731 #2852 #2878 |
 | [db2_sql](#db2_sql) | 9 | 1 | 1 | 7 | #2511 #2655 #2730 #2866 |
@@ -28,7 +28,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [embedded_python](#embedded_python) | 7 | 0 | 0 | 15 | #2535 #2548 #2655 #2658 #2689 #2729 #2730 #2731 #2770 #2817 #2852 #2869 #2875 |
 | [fortran](#fortran) | 0 | 2 | 0 | 15 | #2535 #2540 #2546 #2650 #2659 #2729 #2730 #2731 #2765 #2822 #2858 #2878 |
 | [fsharp](#fsharp) | 8 | 0 | 0 | 5 | #2729 #5780 |
-| [go](#go) | 6 | 2 | 0 | 12 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 |
+| [go](#go) | 6 | 2 | 0 | 13 | #2535 #2542 #2546 #2655 #2689 #2730 #2731 #2765 #2869 #9345 |
 | [groovy](#groovy) | 0 | 0 | 0 | 8 | #2535 #2689 #2730 #2731 #2770 #2782 #2783 #2869 #2878 |
 | [haskell](#haskell) | 3 | 1 | 0 | 15 | #2535 #2689 #2729 #2765 #2770 #2772 #2822 #2869 #2871 |
 | [hlasm](#hlasm) | 2 | 0 | 1 | 4 | #2503 |
@@ -53,14 +53,14 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | [rexx](#rexx) | 1 | 0 | 2 | 4 | #2503 #2504 #2730 |
 | [ruby](#ruby) | 5 | 0 | 0 | 11 | #2535 #2546 #2547 #2727 #2731 #2817 #2822 #2878 |
 | [rust](#rust) | 4 | 1 | 0 | 11 | #2535 #2655 #2689 #2730 #2731 #2765 #2770 #2869 #2878 |
-| [scala](#scala) | 1 | 0 | 0 | 10 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 #2869 |
+| [scala](#scala) | 0 | 0 | 0 | 10 | #2535 #2689 #2729 #2730 #2731 #2765 #2770 #2869 |
 | [scheme](#scheme) | 0 | 0 | 0 | 10 | #2535 #2537 #2689 #2730 #2731 #2765 #2770 #2827 |
 | [shell](#shell) | 0 | 0 | 2 | 13 | #2535 #2547 #2727 #2731 #2766 #2822 #2858 #2888 |
 | [solidity](#solidity) | 0 | 0 | 1 | 11 | #2535 #2545 #2689 #2730 #2731 #2765 #2770 #2882 |
 | [sqlite](#sqlite) | 9 | 2 | 3 | 17 | #2535 #2547 #2549 #2655 #2730 #2765 #2792 #2822 #2841 #2866 |
 | [swift](#swift) | 5 | 0 | 0 | 13 | #2535 #2543 #2546 #2730 #2731 #2765 #2772 #2822 #2858 |
 | [tcl](#tcl) | 0 | 0 | 0 | 10 | #2535 #2546 #2727 #2731 #2765 #2766 #2822 #2841 |
-| [typescript](#typescript) | 1 | 0 | 0 | 14 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 #2878 |
+| [typescript](#typescript) | 0 | 0 | 0 | 14 | #2535 #2546 #2655 #2689 #2730 #2731 #2765 #2770 #2773 #2822 #2878 |
 | [yacc](#yacc) | 5 | 0 | 2 | 10 | #2644 #2689 #2729 #2770 |
 | [yaml](#yaml) | 2 | 1 | 1 | 16 | #2549 #2646 #2647 #2689 #2729 #2732 #2770 #2822 #2866 |
 | [zig](#zig) | 0 | 0 | 0 | 10 | #2535 #2545 #2651 #2730 #2731 #2765 #2766 #2772 |
@@ -411,9 +411,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## csharp
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🟡 `io`: 2 vs median 3 (-33%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -710,6 +708,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 | `api-declared-orphans-are-not-new-surface` | engine-semantic | [#2731](https://github.com/squid-protocol/gitgalaxy/issues/2731) [#2730](https://github.com/squid-protocol/gitgalaxy/issues/2730) | (notes) | api_orphan_credit drops 3 -> 0 in a/b/c (makefile 4 -> 3 in c.mk) across 25 languages, and it is the intended consequence of gitgalaxy#2731 landing as gitgalaxy#2734 |
 | `census-requires-git-tracked` | engine-semantic | — | — | GalaxyScope's census enumerates git-tracked files only; an untracked folder scans as '0 files mapped' with no per-file warning |
 | `composite-nonlinearity-amplifies-in-band-inputs` | engine-semantic | [#2689](https://github.com/squid-protocol/gitgalaxy/issues/2689) | — | These are the shape cells that survive every other explanation, and they are the interesting ones: mainstream procedural languages whose every INPUT is in band -- branch… |
+| `go-doc-counts-every-line-comment` | engine-semantic | [#9345](https://github.com/squid-protocol/gitgalaxy/issues/9345) | (notes) | Go's doc rule is `^//[ \t]+\S` (gitgalaxy#8863 / PR #9325): a `// text` line comment counts as doc wherever it sits |
 | `module-tree-import-resolvers-flat-shell-layout` | engine-semantic | — | (notes) | Under the gitgalaxy#3798 import-graph accuracy resolvers in `network_risk_sensor.py`, Go (#6571, `core/go_modules.py`), Rust (#4544/#6603, `core/rust_modules.py`) and Sw… |
 | `path-and-extension-modifiers` | engine-semantic | [#2655](https://github.com/squid-protocol/gitgalaxy/issues/2655) | — | signal_processor.py's _get_locational_multipliers applies PATH_MODIFIERS (analysis_lens.py) by matching the file PATH, so the corpus's own layout and file names feed cro… |
 | `state-flux-branch-weighting` | engine-semantic | [#2546](https://github.com/squid-protocol/gitgalaxy/issues/2546) | b.go | state_mutation is recorded x3 when branch context exists in the file ('flux' semantics, matching the state_flux column name) |
@@ -1474,9 +1473,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## scala
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🔴 `io`: 0 vs median 3 (-100%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|
@@ -1694,9 +1691,7 @@ n/a cells are incomparable, not zero — excluded from the bands below and liste
 
 ## typescript
 
-**Out-of-band metrics** (vs the cross-language median):
-
-- 🔴 `io`: 1 vs median 3 (-67%)
+**In band on every metric.**
 
 | defect | type | issue | evidence in this folder | summary |
 |---|---|---|---|---|

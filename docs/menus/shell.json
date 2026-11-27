@@ -20,6 +20,11 @@
     ],
     "pattern_defined": true
   },
+  "bitwise_ops": {
+    "core": false,
+    "keywords": [],
+    "pattern_defined": true
+  },
   "branch": {
     "core": true,
     "keywords": [
@@ -80,8 +85,7 @@
     "keywords": [
       "echo",
       "printf",
-      "print",
-      "read"
+      "print"
     ],
     "pattern_defined": true
   },
@@ -180,19 +184,24 @@
   "io": {
     "core": true,
     "keywords": [
+      "cat",
+      "cp",
+      "mv",
+      "mkdir",
+      "touch",
+      "ln",
+      "tee",
+      "dd",
       "curl",
       "wget",
-      "nc",
-      "ssh",
       "scp",
-      "ftp",
       "rsync",
-      "cat",
-      "tail",
-      "grep",
-      "find",
-      "xargs",
-      "jq"
+      "nc",
+      "ncat",
+      "read",
+      "mapfile",
+      "readarray",
+      "mktemp"
     ],
     "pattern_defined": true
   },
@@ -235,10 +244,7 @@
   "panics_and_aborts": {
     "core": false,
     "keywords": [
-      "exit",
-      "kill",
-      "abort",
-      "halt"
+      "exit"
     ],
     "pattern_defined": true
   },
@@ -437,9 +443,10 @@
     "core": false,
     "keywords": [
       "date",
-      "sleep",
+      "time",
+      "hwclock",
       "uptime",
-      "times"
+      "cal"
     ],
     "pattern_defined": true
   },

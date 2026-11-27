@@ -84,12 +84,7 @@
   },
   "debug_prints": {
     "core": false,
-    "keywords": [
-      "puts",
-      "print",
-      "pp",
-      "warn"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "decorators": {
@@ -242,20 +237,8 @@
   "io": {
     "core": true,
     "keywords": [
-      "File",
-      "Dir",
-      "IO",
-      "Net::HTTP",
-      "URI.open",
-      "Socket",
-      "TCPSocket",
-      "FileUtils",
-      "ActiveRecord::Base",
-      "find",
-      "where",
-      "create",
-      "update",
-      "destroy"
+      "bURI.open",
+      "Socket"
     ],
     "pattern_defined": true
   },
@@ -367,9 +350,7 @@
   },
   "regex_execution": {
     "core": false,
-    "keywords": [
-      "Regexp.new"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "safety": {
@@ -523,12 +504,7 @@
   },
   "time_date_logic": {
     "core": false,
-    "keywords": [
-      "Time.now",
-      "Date.today",
-      "DateTime.now",
-      "sleep"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ui_framework": {

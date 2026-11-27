@@ -215,6 +215,7 @@
       "io.input",
       "io.output",
       "io.popen",
+      "io.tmpfile",
       "os.getenv"
     ],
     "pattern_defined": true
@@ -480,7 +481,10 @@
   "thread_sleeps": {
     "core": false,
     "keywords": [
-      "task.wait"
+      "task.wait",
+      "loader.delay",
+      "socket.sleep",
+      "ngx.sleep"
     ],
     "pattern_defined": true
   },

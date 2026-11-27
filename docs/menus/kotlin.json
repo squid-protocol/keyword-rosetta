@@ -20,6 +20,8 @@
       "shl",
       "shr",
       "ushr",
+      "and",
+      "or",
       "xor"
     ],
     "pattern_defined": true
@@ -217,20 +219,7 @@
   },
   "io": {
     "core": true,
-    "keywords": [
-      "File",
-      "InputStream",
-      "OutputStream",
-      "Retrofit",
-      "OkHttpClient",
-      "Ktor",
-      "HttpClient",
-      "RoomDatabase",
-      "Dao",
-      "SharedPreferences",
-      "DataStore",
-      "java.nio"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "ipc_rpc_bridges": {
@@ -270,13 +259,7 @@
   },
   "panics_and_aborts": {
     "core": false,
-    "keywords": [
-      "throw",
-      "raise",
-      "exitProcess",
-      "return",
-      "panic"
-    ],
+    "keywords": [],
     "pattern_defined": true
   },
   "planned_debt": {
@@ -482,11 +465,8 @@
   "time_date_logic": {
     "core": false,
     "keywords": [
-      "Clock.System.now",
-      "Instant.now",
-      "System.currentTimeMillis",
-      "Duration.minutes",
-      "LocalDate"
+      "measureTime",
+      "measureNanoTime"
     ],
     "pattern_defined": true
   },
